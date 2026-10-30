@@ -70,6 +70,8 @@ jobs:
       - name: Pass
         if: steps.health.outputs.skip != '1'
         working-directory: harness/soak
+        env:
+          FMA_SOAK_SCHEDULE_UTC: "15 */6"   # keep in step with the cron above
         run: zsh pass.sh ${{ matrix.platform }}
       - name: Save state and records
         if: always()
