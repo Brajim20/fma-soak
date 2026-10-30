@@ -1,0 +1,85 @@
+{
+ "canaries": {
+  "darwin": [
+   "fleet-desktop/darwin",
+   "google-chrome/darwin",
+   "firefox/darwin",
+   "claude/darwin",
+   "docker-desktop/darwin",
+   "onedrive/darwin",
+   "postman/darwin",
+   "figma/darwin",
+   "signal/darwin",
+   "teleport-suite/darwin",
+   "santa/darwin",
+   "microsoft-defender/darwin",
+   "zoom/darwin"
+  ],
+  "windows": [
+   "google-chrome/windows",
+   "firefox/windows",
+   "firefox@developer-edition/windows",
+   "firefox@nightly/windows",
+   "claude/windows",
+   "postman/windows",
+   "figma/windows",
+   "signal/windows",
+   "zoom/windows"
+  ]
+ },
+ "random_sample": {
+  "changed_share": 0.3,
+  "note": "time-boxed: picks until the next pass is due; deck = whole catalog shuffled, no repeats per round"
+ },
+ "audit": {
+  "freshness_lag_days": 7,
+  "full_hash_rotation_days": 7
+ },
+ "known_environment": {
+  "google-chrome/windows@629": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
+  "docker/windows@629": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register."
+ },
+ "loop": {
+  "interval_hours": 6,
+  "pause_minutes": 15,
+  "canary_every_hours": 12,
+  "update_every_hours": 24,
+  "end_margin_minutes": 20
+ },
+ "watcher": {
+  "residents": {
+   "darwin": [
+    "spokenly/darwin",
+    "codexbar/darwin"
+   ],
+   "windows": [
+    "aptakube/windows",
+    "aws-cli/windows"
+   ]
+  },
+  "window_hours": 24,
+  "main_lag_hours": 72
+ },
+ "perm_expectations": {
+  "firefox/darwin": {
+   "owner": "0:80",
+   "mode_bits": "0775",
+   "why": "Firefox's updater needs root:admin + group-writable (#55093)"
+  },
+  "firefox@developer-edition/darwin": {
+   "owner": "0:80",
+   "mode_bits": "0775",
+   "why": "Firefox's updater needs root:admin + group-writable (#55093)"
+  },
+  "firefox@nightly/darwin": {
+   "owner": "0:80",
+   "mode_bits": "0775",
+   "why": "Firefox's updater needs root:admin + group-writable (#55093)"
+  },
+  "firefox@esr/darwin": {
+   "owner": "0:80",
+   "mode_bits": "0775",
+   "why": "Firefox's updater needs root:admin + group-writable (#55093)"
+  }
+ }
+}

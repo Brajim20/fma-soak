@@ -1,0 +1,34 @@
+name: FMA soak setup
+description: Python, zsh, the FMA catalog (sparse fleetdm/fleet clone) and, for screenshots, Playwright's Chromium
+inputs:
+  browser:
+    description: install Playwright + Chromium for evidence screenshots
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with: { python-version: "3.12" }
+    - shell: bash
+      run: |
+        sudo apt-get install -y zsh >/dev/null
+        pip install -q pyyaml
+    - name: FMA catalog (sparse, ~10 days of history for the 7-day checks)
+      shell: bash
+      # Cone-mode sparse checkout makes git download the catalog's files in one batch. Without it, the harness's
+      # `git show`/`cat-file` reads fetch them one by one: the audit took 13.5 min vs 37 s (measured).
+      # Checking out the 8-days-ago commit once pulls the old versions the 7-day checks compare against.
+      run: |
+        git clone -q --filter=blob:none --sparse --shallow-since="10 days ago" https://github.com/fleetdm/fleet "$FMA_CATALOG_REPO"
+        git -C "$FMA_CATALOG_REPO" sparse-checkout set ee/maintained-apps
+        git -C "$FMA_CATALOG_REPO" checkout -q "$(git -C "$FMA_CATALOG_REPO" rev-list -1 --before=8.days HEAD)"
+        git -C "$FMA_CATALOG_REPO" checkout -q -
+    - uses: actions/setup-node@v4
+      if: inputs.browser == 'true'
+      with: { node-version: "20" }
+    - if: inputs.browser == 'true'
+      shell: bash
+      run: |
+        mkdir -p "$RUNNER_TEMP/pw" && cd "$RUNNER_TEMP/pw"
+        npm i -s playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
+        echo "PW_DIR=$RUNNER_TEMP/pw" >> "$GITHUB_ENV"

@@ -1,0 +1,99 @@
+{
+ "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug.",
+ "entries": [
+  {
+   "app": "claude/windows@629",
+   "shape": "S1",
+   "verdict": "harness: trailing .0 compared as different; fixed with numeric compare",
+   "before": "2026-10-29T12:00:00"
+  },
+  {
+   "app": "figma/windows@629",
+   "shape": "S3",
+   "verdict": "harness: per-user installer registers after exit; 120 s grace added",
+   "before": "2026-10-29T12:00:00"
+  },
+  {
+   "app": "signal/darwin@631",
+   "shape": "S3",
+   "verdict": "harness: polled before the uninstall was pending; fixed",
+   "before": "2026-10-29T12:00:00"
+  },
+  {
+   "app": "docker/windows@629",
+   "verdict": "environment: Windows on ARM VM has no nested virtualization"
+  },
+  {
+   "app": "signal/windows@629",
+   "shape": "install",
+   "verdict": "environment: qa.fleetdm.com serves installers at ~67 KB/s; download retries",
+   "before": "2026-10-29T12:00:00"
+  },
+  {
+   "app": "teleport-suite/darwin@631",
+   "shape": "install",
+   "verdict": "environment: slow installer download from qa.fleetdm.com (~67 KB/s)",
+   "before": "2026-10-29T16:00:00"
+  },
+  {
+   "app": "google-chrome/windows@629",
+   "verdict": "environment: Chrome x64 enterprise MSI never installs Chrome on Windows on ARM (by hand too); uninstall false success filed as #56948"
+  },
+  {
+   "app": "aomei-backupper-standard/windows",
+   "verdict": "filed #56891 (500 + raw DNS error on a dead download host)"
+  },
+  {
+   "app": "codemeter-runtime-kit/windows",
+   "verdict": "#55360 (vendor serves an HTML page; hash mismatch 500)"
+  },
+  {
+   "app": "aws-cli/windows@629",
+   "verdict": "filed #56971: exists/patched queries never match the registered name, so the patch policy always passes"
+  },
+  {
+   "app": "microsoft-defender/darwin@631",
+   "shape": "add",
+   "verdict": "#55360: vendor bytes don't match the catalog hash; add returns 500"
+  },
+  {
+   "app": "microsoft-dotnet-runtime-8/windows@629",
+   "shape": "S1",
+   "msg_contains": "inventory never reported",
+   "verdict": "#50077 class: Fleet title 'Microsoft .NET Runtime - 8' never links 'Microsoft .NET Runtime - 8.0.33 (x64)' (no space before the version); more apps drafted in comments/COMMENT_50077_more-apps.md"
+  },
+  {
+   "app": "github-desktop/windows",
+   "verdict": "not a bug: installed on 629 2026-10-30, registers 'GitHub Desktop' and the exists query matches; winget lists the deployment-tool installer"
+  },
+  {
+   "app": "colour-contrast-analyser/windows",
+   "verdict": "not a bug: installed on 629 2026-10-30, registers 'Colour Contrast Analyser' and the exists query matches; winget lists the portable build"
+  },
+  {
+   "app": "wireshark/windows",
+   "verdict": "#56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted"
+  },
+  {
+   "app": "mysqlworkbench/windows",
+   "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'MySQL Workbench', query wants 'MySQL Workbench %'; comment drafted"
+  },
+  {
+   "app": "lastpass/windows",
+   "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'LastPass Universal Windows Installer', query wants 'LastPass'; comment drafted"
+  },
+  {
+   "app": "arduino-ide/windows",
+   "verdict": "unconfirmed: install failed on 629 (MSI 1603, Windows on ARM?); name check says 'Arduino IDE 2.3.10' vs exact 'Arduino IDE'"
+  },
+  {
+   "app": "vscodium/windows",
+   "verdict": "unconfirmed: install failed on 629 (exit 1); winget lists the per-user installer 'VSCodium (User)'"
+  },
+  {
+   "app": "megasync/darwin@631",
+   "shape": "S1",
+   "verdict": "filed #57008: cask 6.7.0.3 vs CFBundleShortVersionString 6.7.0, no CFBundleVersion; since unfreeze #56589"
+  }
+ ]
+}

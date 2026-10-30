@@ -1,0 +1,129 @@
+# FMA soak (fleetdm/fleet#55961): installs, upgrades and uninstalls Fleet-maintained apps on two real soak hosts
+# through a Fleet instance, and audits the FMA catalog daily. See README.md.
+#
+# Settings (repository variables, Settings → Secrets and variables → Actions → Variables):
+#   FLEET_URL              the Fleet instance
+#   FMA_SOAK_FLEET_ID      the only fleet the harness touches
+#   FMA_SOAK_HOST_DARWIN   macOS soak host ID
+#   FMA_SOAK_HOST_WINDOWS  Windows soak host ID
+# Secrets (environment `fma-soak`, so no other workflow can read them):
+#   FMA_SOAK_TOKEN         API-only harness user, Maintainer on that fleet only
+#   FMA_SOAK_UI_EMAIL      optional: Observer on that fleet only, for evidence screenshots. Without it the
+#   FMA_SOAK_UI_PASSWORD   screenshots are recorded as unavailable and the API evidence stands.
+#
+# State lives on the `results` branch: harness state, run records (output scrubbed of account names) and the
+# daily digests. Screenshots and logs are run artifacts only, kept 30 days.
+#
+# Never run this and the local launchd loop against the same hosts: both would install on them at once.
+name: FMA soak
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"   # soak pass on both hosts
+    - cron: "0 11 * * *"     # catalog audit + confirm (07:00 AST)
+  workflow_dispatch:
+    inputs:
+      job:
+        type: choice
+        options: [soak, audit]
+        default: soak
+
+concurrency:
+  group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || inputs.job || 'soak' }}
+  cancel-in-progress: false   # never kill a pass mid-install; the next one waits
+
+permissions:
+  contents: write   # the results branch only
+
+env:
+  TZ: America/Puerto_Rico   # digest dates and pass deadlines in the tester's local time
+  FLEET_URL: ${{ vars.FLEET_URL }}
+  FMA_SOAK_FLEET_ID: ${{ vars.FMA_SOAK_FLEET_ID }}
+  FMA_SOAK_HOST_DARWIN: ${{ vars.FMA_SOAK_HOST_DARWIN }}
+  FMA_SOAK_HOST_WINDOWS: ${{ vars.FMA_SOAK_HOST_WINDOWS }}
+  FMA_CATALOG_REPO: ${{ github.workspace }}/fleet
+
+jobs:
+  soak:
+    if: github.event.schedule != '0 11 * * *' && (github.event_name != 'workflow_dispatch' || inputs.job == 'soak')
+    runs-on: ubuntu-latest
+    environment: fma-soak
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [darwin, windows]
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
+      FMA_SOAK_UI_EMAIL: ${{ secrets.FMA_SOAK_UI_EMAIL }}
+      FMA_SOAK_UI_PASSWORD: ${{ secrets.FMA_SOAK_UI_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+      - name: Restore state
+        run: ./harness/ci/results.sh restore
+      - name: Health (skip the pass if the instance or token is down)
+        id: health
+        working-directory: harness/soak
+        run: python3 -c "import loop,sys; ok,info=loop.health(); print(info); sys.exit(0 if ok else 78)" || echo "skip=1" >> "$GITHUB_OUTPUT"
+      - name: Pass
+        if: steps.health.outputs.skip != '1'
+        working-directory: harness/soak
+        run: zsh pass.sh ${{ matrix.platform }}
+      - name: Save state and records
+        if: always()
+        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} ${{ github.run_id }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: soak-${{ matrix.platform }}-${{ github.run_id }}
+          path: |
+            harness/results/soak/*/evidence/
+            harness/logs/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  report:
+    # one digest from both platforms' records, after both have saved
+    needs: soak
+    if: always() && needs.soak.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+        with: { browser: "false" }
+      - run: ./harness/ci/results.sh restore
+      - name: Ledger, digest, monthly draft
+        working-directory: harness/soak
+        run: python3 sample.py --ledger && python3 digest.py && python3 monthly.py
+      - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
+
+  audit:
+    if: github.event.schedule == '0 11 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'audit')
+    runs-on: ubuntu-latest
+    environment: fma-soak
+    timeout-minutes: 120
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+        with: { browser: "false" }
+      - run: ./harness/ci/results.sh restore
+      - name: Audit, confirm, names, digest
+        working-directory: harness/audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: zsh run-daily.sh
+      - if: always()
+        run: ./harness/ci/results.sh save "audit ${{ github.run_id }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audit-${{ github.run_id }}
+          path: harness/logs/
+          if-no-files-found: ignore
+          retention-days: 30
