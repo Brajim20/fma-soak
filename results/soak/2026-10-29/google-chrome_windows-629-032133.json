@@ -1,0 +1,49 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-29T03:21:33",
+ "catalog_version": "156.0.8078.48",
+ "findings": [
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "title_id": 20665,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 76,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:58) [03:22:14:709]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (EC:58) [03:22:14:721]: Destroying RemoteAPI object.\r\nMSI (s) (EC:50) [03:22:14:721]: Custom Action Manager thread ending.\r\nMSI (c) (B0:58) [03:22:14:723]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:58) [03:22:14:723]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/29/2026  3:22:14 ===\r\n\r\n",
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "156.0.8078.74"
+ ],
+ "package_version": "156.0.8078.48",
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 15,
+ "first_uninstall_output_tail": "Uninstall for {E063B2E2-7766-3CA4-A4D1-0292373C622C} exited 1603\r\n\nscript execution error: exit status 1603",
+ "first_uninstall_exit_code": 1603,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "9:839]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (EC:58) [03:24:19:839]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:58) [03:24:19:839]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (00:3C) [03:24:19:839]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (00:3C) [03:24:19:839]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/29/2026  3:24:19 ===\r\n\r\n",
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall for {E063B2E2-7766-3CA4-A4D1-0292373C622C} exited 1603\r\n\nscript execution error: exit status 1603",
+ "second_uninstall_exit_code": 1603,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-29T03:25:16"
+}

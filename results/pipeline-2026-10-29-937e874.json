@@ -1,0 +1,55 @@
+{
+ "run_at": "2026-10-29T02:33:15",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "results": [
+  {
+   "test": "test_newest_version_active",
+   "passed": true,
+   "seconds": 3,
+   "active": "151.0.7922.109",
+   "versions": [
+    "151.0.7922.109",
+    "151.0.7922.76"
+   ]
+  },
+  {
+   "test": "test_script_only_refresh",
+   "passed": true,
+   "seconds": 3,
+   "install_script": "#!/bin/sh\necho install B"
+  },
+  {
+   "test": "test_admin_script_edit_kept",
+   "passed": true,
+   "seconds": 3,
+   "edit_status": 200,
+   "install_script": "#!/bin/sh\necho admin edit"
+  },
+  {
+   "test": "test_no_redownload_hashless",
+   "passed": true,
+   "seconds": 3,
+   "installer_GETs_over_2_passes": 0
+  },
+  {
+   "test": "test_hash_mismatch_error",
+   "passed": false,
+   "seconds": 1,
+   "status": 500,
+   "message": "mismatch in maintained app SHA256 hash mismatch in maintained app SHA256 hash",
+   "problems": [
+    "status 500, expected a 4xx"
+   ]
+  },
+  {
+   "test": "test_download_failure_error",
+   "passed": false,
+   "seconds": 1,
+   "status": 408,
+   "message": "dial tcp: lookup qa-dead-host.invalid: no such host dial tcp: lookup qa-dead-host.invalid: no such host",
+   "problems": [
+    "raw network/Go error in the message"
+   ]
+  }
+ ]
+}

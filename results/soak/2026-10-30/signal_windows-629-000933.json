@@ -1,0 +1,54 @@
+{
+ "slug": "signal/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-10-30T00:09:33",
+ "findings": [],
+ "title_id": 23412,
+ "cached_versions": [
+  "8.32.0",
+  "8.33.0"
+ ],
+ "active_before": "8.33.0",
+ "pin_older_status": 200,
+ "active_after_pin": "8.32.0",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 77,
+ "old_install_output_tail": "Installing software...\nSuccess\nInstalling Signal for <host>\\<user>\nInstall exit code: 0\n",
+ "old_install_error_markers": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "versions": [
+   "8.32.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "8.33.0",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 93,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nInstalling Signal for <host>\\<user>\nInstall exit code: 0\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "versions": [
+   "8.33.0"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 47,
+ "cleanup_uninstall_output_tail": "Removing 'Signal 8.33.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7d96caee-06e6-597c-9f2f-c7bb2e0948b4)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Programs\\signal-desktop\\Uninstall Signal.exe\n  Uninstall args: /currentuser /S\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nSignal removed.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "pass",
+ "finished": "2026-10-30T00:14:13",
+ "record": "results/soak/2026-10-30/signal_windows-629-000933.json"
+}

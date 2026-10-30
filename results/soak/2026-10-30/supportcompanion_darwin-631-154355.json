@@ -1,0 +1,73 @@
+{
+ "slug": "supportcompanion/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-30T15:43:55",
+ "catalog_version": "3.0.0.81153",
+ "findings": [
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "title_id": 23618,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 20,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is SupportCompanion\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.0.0.81153"
+ ],
+ "package_version": "3.0.0.81153",
+ "context_after_install": {
+  "path": "/Applications/SupportCompanion.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "versions": [
+   "3.0.0.81153"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 1337,
+ "first_uninstall_output_tail": "Quitting application 'com.github.macadmins.SupportCompanion'...\nApplication 'com.github.macadmins.SupportCompanion' quit successfully.\n[uninstall] Console user: utmonpro16 (uid 501)\n[uninstall] no elevation state present: /var/db/com.github.macadmins.SupportCompanion/elevation.plist\n[uninstall] Stopping application and helper if running\n[uninstall] kill app: ok\n\nscript execution error: signal: killed",
+ "first_uninstall_exit_code": -1,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 26,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is SupportCompanion\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "second_install_error_markers": [],
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 315,
+ "second_uninstall_output_tail": "Quitting application 'com.github.macadmins.SupportCompanion'...\nApplication 'com.github.macadmins.SupportCompanion' quit successfully.\n[uninstall] Console user: utmonpro16 (uid 501)\n[uninstall] no elevation state present: /var/db/com.github.macadmins.SupportCompanion/elevation.plist\n[uninstall] Stopping application and helper if running\n[uninstall] kill app: ok\n\nscript execution error: signal: killed",
+ "second_uninstall_exit_code": -1,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-10-30T16:16:39",
+ "evidence": {
+  "library": "results/soak/2026-10-30/evidence/supportcompanion_darwin-631-154355-library.png",
+  "inventory": "unavailable: cuments/GitHub/fleet-playwright/qa-stuff/fma-soak/soak/tools/shot.mjs:27:12 {\n  name: 'TimeoutError'\n}\n\nNode.js v24.15.0"
+ },
+ "record": "results/soak/2026-10-30/supportcompanion_darwin-631-154355.json"
+}

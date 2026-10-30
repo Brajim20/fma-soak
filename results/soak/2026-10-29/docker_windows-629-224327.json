@@ -1,0 +1,53 @@
+{
+ "slug": "docker/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-29T22:43:27",
+ "catalog_version": "4.97.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "title_id": 22809,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 1045,
+ "first_install_output_tail": "Installing software...\nFailed\nDocker Desktop did not register within timeout.\n",
+ "first_install_error_markers": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 262,
+ "first_uninstall_output_tail": "Error: Docker Desktop registry entry not found in HKCU or HKLM.\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 1097,
+ "second_install_output_tail": "Installing software...\nFailed\nDocker Desktop did not register within timeout.\n",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 261,
+ "second_uninstall_output_tail": "Error: Docker Desktop registry entry not found in HKCU or HKLM.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "environment (known)",
+ "known_environment": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
+ "finished": "2026-10-29T23:28:32",
+ "evidence": {
+  "library": "unavailable: ache/qa-automation/fleet-qa/1.4.2/skills/fleet-bug-qa/scripts/screenshot.mjs:21:38 {\n  name: 'Error'\n}\n\nNode.js v24.15.0",
+  "inventory": "unavailable: ache/qa-automation/fleet-qa/1.4.2/skills/fleet-bug-qa/scripts/screenshot.mjs:21:38 {\n  name: 'Error'\n}\n\nNode.js v24.15.0"
+ },
+ "record": "results/soak/2026-10-29/docker_windows-629-224327.json"
+}

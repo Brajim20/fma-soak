@@ -1,0 +1,54 @@
+{
+ "slug": "teleport-suite/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-10-30T00:52:07",
+ "findings": [],
+ "title_id": 23434,
+ "cached_versions": [
+  "18.11.7",
+  "18.11.8"
+ ],
+ "active_before": "18.11.8",
+ "pin_older_status": 200,
+ "active_after_pin": "18.11.7",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 62,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "old_install_error_markers": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/tsh.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "versions": [
+   "18.11.7"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "18.11.8",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 47,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/tsh.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "versions": [
+   "18.11.8"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "l.teleport.tsh' found at '/'.\nNo receipt for '(.*).com.gravitational.teleport.tsh' found at '/'.\npkgutil --pkg-info-plist \"com.gravitational.teleport\"\nsudo pkgutil --only-files --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.gravitational.teleport' on '/'.\n/Users/<user>/.tsh doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "pass",
+ "finished": "2026-10-30T00:57:44",
+ "record": "results/soak/2026-10-30/teleport-suite_darwin-631-005207.json"
+}

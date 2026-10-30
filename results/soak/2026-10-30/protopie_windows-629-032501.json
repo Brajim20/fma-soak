@@ -1,0 +1,53 @@
+{
+ "slug": "protopie/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-30T03:25:01",
+ "catalog_version": "8.3.1",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "title_id": 23576,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 276,
+ "first_install_output_tail": "Installing software...\nFailed\nStarting ProtoPie install with: /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS\nInstall exit code: 1\n",
+ "first_install_error_markers": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 245,
+ "first_uninstall_output_tail": "Uninstall entry not found\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 260,
+ "second_install_output_tail": "Installing software...\nFailed\nStarting ProtoPie install with: /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS\nInstall exit code: 1\n",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 230,
+ "second_uninstall_output_tail": "Uninstall entry not found\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-10-30T03:42:36",
+ "evidence": {
+  "library": "results/soak/2026-10-30/evidence/protopie_windows-629-032501-library.png",
+  "inventory": "results/soak/2026-10-30/evidence/protopie_windows-629-032501-inventory.png"
+ },
+ "record": "results/soak/2026-10-30/protopie_windows-629-032501.json",
+ "retry_of": "results/soak/2026-10-30/protopie_windows-629-024852.json"
+}

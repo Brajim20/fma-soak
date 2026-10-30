@@ -1,0 +1,48 @@
+{
+ "slug": "clion/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-30T03:46:09",
+ "catalog_version": "2026.2.4",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as None"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as pending_install"
+  }
+ ],
+ "title_id": 23585,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "first_install_request": 502,
+ "first_install_error": "error code: 502\n",
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall entry not found for CLion*\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "pending_install",
+ "second_install_seconds": null,
+ "second_install_output_tail": "",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-10-30T04:19:09",
+ "evidence": {
+  "library": "results/soak/2026-10-30/evidence/clion_windows-629-034609-library.png",
+  "inventory": "results/soak/2026-10-30/evidence/clion_windows-629-034609-inventory.png"
+ },
+ "record": "results/soak/2026-10-30/clion_windows-629-034609.json"
+}

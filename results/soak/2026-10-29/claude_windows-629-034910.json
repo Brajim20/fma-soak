@@ -1,0 +1,45 @@
+{
+ "slug": "claude/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-29T03:49:10",
+ "catalog_version": "2.42304.2",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory ['2.42304.2.0'] vs package 2.42304.2: version shapes differ (patch policy can't match)"
+  }
+ ],
+ "title_id": 20163,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\nProvisioning MSIX for all users...\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\nEnabling Virtual Machine Platform (required for Cowork)...\nWARNING: Restart is suppressed because NoRestart is specified.\nVirtual Machine Platform enabled; a restart may be required for Cowork to become available.\nRegistering MSIX for logged-on user '<host>\\<user>' via scheduled task...\nPer-user registration completed for '<host>\\<user>'.\n",
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.42304.2.0"
+ ],
+ "package_version": "2.42304.2",
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing provisioned package: Claude_2.42304.2.0_x64__pzs8sxrjxfjjc\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "Installing software...\nSuccess\nProvisioning MSIX for all users...\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\nVirtual Machine Platform already enabled (required for Cowork).\nRegistering MSIX for logged-on user '<host>\\<user>' via scheduled task...\nPer-user registration completed for '<host>\\<user>'.\n",
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing provisioned package: Claude_2.42304.2.0_x64__pzs8sxrjxfjjc\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-29T03:54:16"
+}

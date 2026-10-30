@@ -1,0 +1,21 @@
+{
+ "date": "2026-10-29",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "pre_fix_ref": "9121a0929fe203a66a74f43ed454eeb0fe502914^1",
+ "install_output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_Driver_ATAPI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk4s2</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_Driver_ATAPI</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_HFSX</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk4s3</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_ZAalOt</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFSX</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk4s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk4</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk4\" ejected.\nOLD_SCRIPT_EXIT=0\nSTAT root:admin drwxr-xr-x /Applications/Firefox.app\nSTAT root:admin -rwxr-xr-x /Applications/Firefox.app/Contents/MacOS/firefox\n",
+ "context": {
+  "path": "/Applications/Firefox.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "versions": [
+   "159.0"
+  ]
+ },
+ "findings": [
+  [
+   "S2",
+   "pre-fix install: executable mode 0755, needs at least 0775 (Firefox's updater needs root:admin + group-writable (#55093))"
+  ]
+ ],
+ "cleanup": "removed\n"
+}

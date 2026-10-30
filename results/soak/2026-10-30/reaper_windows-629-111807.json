@@ -1,0 +1,70 @@
+{
+ "slug": "reaper/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-30T11:18:07",
+ "catalog_version": "7.84",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 7.84: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "title_id": 23612,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 17,
+ "first_install_output_tail": "Installing software...\nSuccess\nStarting REAPER install with: /S\nInstall exit code: 1223\nExit code 1223 is a documented REAPER success code; treating as success.\n",
+ "first_install_error_markers": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [],
+ "package_version": "7.84",
+ "context_after_install": null,
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 778,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\REAPER (x64)\\Uninstall.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 32,
+ "second_install_output_tail": "Installing software...\nSuccess\nStarting REAPER install with: /S\nInstall exit code: 1223\nExit code 1223 is a documented REAPER success code; treating as success.\n",
+ "second_install_error_markers": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 17,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\REAPER (x64)\\Uninstall.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-30T11:53:58",
+ "evidence": {
+  "library": "results/soak/2026-10-30/evidence/reaper_windows-629-111807-library.png",
+  "inventory": "results/soak/2026-10-30/evidence/reaper_windows-629-111807-inventory.png"
+ },
+ "record": "results/soak/2026-10-30/reaper_windows-629-111807.json"
+}

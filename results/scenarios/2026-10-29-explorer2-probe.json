@@ -1,0 +1,19 @@
+{
+ "scenario": "second explorer.exe (#51127)",
+ "date": "2026-10-29",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "apps": [],
+ "probe": {
+  "execution_id": "dffbc0b2-e19c-4646-a5c6-602e9fd017fb",
+  "exit_code": 0,
+  "output": "BEFORE explorer_count=1 user=<user>\r\nRUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r\r\nEXPLORER_COUNT=2\r\nRUN two-explorers exit=1 secs=121 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.\r /     + FullyQualifiedErrorId : NativeCommandError\r /     + FullyQualifiedErrorId : HRESULT 0x80070534,Register-ScheduledTask\r\r\nSTOPPED=1 EXPLORER_COUNT=1\r\n",
+  "verdict": "teeth: pre-fix script works with one explorer.exe and fails with two",
+  "one": "RUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'",
+  "two": "RUN two-explorers exit=1 secs=121 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.",
+  "counts": [
+   "EXPLORER_COUNT=2",
+   "STOPPED=1 EXPLORER_COUNT=1"
+  ]
+ }
+}

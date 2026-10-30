@@ -1,0 +1,58 @@
+{
+ "slug": "blurscreen/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-30T01:41:46",
+ "catalog_version": "1.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "title_id": 23539,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 199,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: This package requires Rosetta 2 to be installed.\n                Please install Rosetta 2 and then try again.\n                    `sudo softwareupdate --install-rosetta`\n\ninstaller: Error - BlurScreen can\u2019t be installed on this computer.\n",
+ "first_install_error_markers": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 230,
+ "first_uninstall_output_tail": "'com.sanskar.blurscreen' found at '/'.\nsudo pkgutil --only-dirs --files \"com.sanskar.blurscreen\" | sed \"s|^|/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\n/Users/<user>/Library/Caches/com.sanskar.blurscreen doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sanskar.blurscreen doesn't exist.\n/Users/<user>/Library/Preferences/com.sanskar.blurscreen.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 199,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: This package requires Rosetta 2 to be installed.\n                Please install Rosetta 2 and then try again.\n                    `sudo softwareupdate --install-rosetta`\n\ninstaller: Error - BlurScreen can\u2019t be installed on this computer.\n",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 245,
+ "second_uninstall_output_tail": "'com.sanskar.blurscreen' found at '/'.\nsudo pkgutil --only-dirs --files \"com.sanskar.blurscreen\" | sed \"s|^|/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\nNo receipt for 'com.sanskar.blurscreen' found at '/'.\n/Users/<user>/Library/Caches/com.sanskar.blurscreen doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sanskar.blurscreen doesn't exist.\n/Users/<user>/Library/Preferences/com.sanskar.blurscreen.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-10-30T01:58:42",
+ "evidence": {
+  "library": "results/soak/2026-10-30/evidence/blurscreen_darwin-631-014146-library.png",
+  "inventory": "results/soak/2026-10-30/evidence/blurscreen_darwin-631-014146-inventory.png"
+ },
+ "record": "results/soak/2026-10-30/blurscreen_darwin-631-014146.json",
+ "retry_of": "results/soak/2026-10-30/blurscreen_darwin-631-012411.json"
+}

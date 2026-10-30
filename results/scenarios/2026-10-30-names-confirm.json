@@ -1,0 +1,208 @@
+[
+ {
+  "slug": "wireshark/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'Wireshark' AND publisher = 'The Wireshark developer community, https://www.wireshark.org';",
+  "title_id": 23540,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "installed",
+  "install_seconds": 48,
+  "install_output_tail": "3:015]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (9C:EC) [01:33:03:015]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (9C:EC) [01:33:03:015]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:F0) [01:33:03:015]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:F0) [01:33:03:015]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/30/2026  1:33:03 ===\r\n\r\n",
+  "install_error_markers": [],
+  "registered": [
+   {
+    "name": "Wireshark",
+    "publisher": "The Wireshark developer community, https://www.wireshark.org/",
+    "version": "4.6.9.0"
+   }
+  ],
+  "exists_matches": false,
+  "fleet_title_installed_versions": [
+   "4.6.9.0"
+  ],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 16,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "CONFIRMED: installed, registered as ['Wireshark'], exists query matches nothing"
+ },
+ {
+  "slug": "arduino-ide/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'Arduino IDE' AND publisher = 'Arduino SA';",
+  "title_id": 23557,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "failed_install",
+  "install_seconds": 291,
+  "install_output_tail": "rsion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (9C:58) [01:38:49:742]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (9C:58) [01:38:49:742]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (68:94) [01:38:49:742]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (68:94) [01:38:49:742]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 10/30/2026  1:38:49 ===\r\n\r\n",
+  "install_error_markers": [],
+  "registered": [],
+  "exists_matches": false,
+  "fleet_title_installed_versions": [],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 229,
+  "uninstall_output_tail": "",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "inconclusive (install failed_install, registered [])"
+ },
+ {
+  "slug": "mysqlworkbench/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name LIKE 'MySQL Workbench %' AND publisher = 'Oracle Corporation';",
+  "title_id": 23558,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "installed",
+  "install_seconds": 62,
+  "install_output_tail": "2:285]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (E8:74) [01:44:42:285]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E8:74) [01:44:42:285]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A4:0C) [01:44:42:285]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A4:0C) [01:44:42:285]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/30/2026  1:44:42 ===\r\n\r\n",
+  "install_error_markers": [],
+  "registered": [
+   {
+    "name": "MySQL Workbench",
+    "publisher": "Oracle Corporation",
+    "version": "26.10.0.0"
+   }
+  ],
+  "exists_matches": false,
+  "fleet_title_installed_versions": [
+   "26.10.0.0"
+  ],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 16,
+  "uninstall_output_tail": "",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "CONFIRMED: installed, registered as ['MySQL Workbench'], exists query matches nothing"
+ },
+ {
+  "slug": "github-desktop/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'GitHub Desktop' AND publisher = 'GitHub, Inc.';",
+  "title_id": 20123,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "installed",
+  "install_seconds": 77,
+  "install_output_tail": "Installing software...\nSuccess\nInstalling GitHub Desktop for <host>\\<user>\nInstall exit code: 0\n",
+  "install_error_markers": [],
+  "registered": [
+   {
+    "name": "GitHub Desktop",
+    "publisher": "GitHub, Inc.",
+    "version": "3.6.10"
+   }
+  ],
+  "exists_matches": true,
+  "fleet_title_installed_versions": [
+   "3.6.10"
+  ],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 31,
+  "uninstall_output_tail": "Removing GitHub Desktop (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\GitHubDesktop)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\GitHubDesktop\\Update.exe --uninstall -s\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nGitHub Desktop removed.\n",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "not confirmed: exists query matches"
+ },
+ {
+  "slug": "lastpass/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'LastPass' AND publisher = 'LastPass US LP.';",
+  "title_id": 23559,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "installed",
+  "install_seconds": 47,
+  "install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E8:40) [01:49:23:708]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (E8:40) [01:49:23:721]: Destroying RemoteAPI object.\r\nMSI (s) (E8:F8) [01:49:23:732]: Custom Action Manager thread ending.\r\nMSI (c) (20:18) [01:49:23:734]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (20:18) [01:49:23:736]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/30/2026  1:49:23 ===\r\n\r\n",
+  "install_error_markers": [],
+  "registered": [
+   {
+    "name": "LastPass Universal Windows Installer",
+    "publisher": "LastPass US LP.",
+    "version": "5.4.5.1509"
+   }
+  ],
+  "exists_matches": false,
+  "fleet_title_installed_versions": [
+   "5.4.5.1509"
+  ],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 16,
+  "uninstall_output_tail": "",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "CONFIRMED: installed, registered as ['LastPass Universal Windows Installer'], exists query matches nothing"
+ },
+ {
+  "slug": "vscodium/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'VSCodium' AND publisher = 'VSCodium';",
+  "title_id": 23560,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "failed_install",
+  "install_seconds": 260,
+  "install_output_tail": "Installing software...\nFailed\nInstall exit code: 1\n",
+  "install_error_markers": [],
+  "registered": [],
+  "exists_matches": false,
+  "fleet_title_installed_versions": [],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 232,
+  "uninstall_output_tail": "Uninstall entry not found\n",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "inconclusive (install failed_install, registered [])"
+ },
+ {
+  "slug": "colour-contrast-analyser/windows",
+  "host": 629,
+  "build": "4.94.0-rc.2610272345 (937e87458c)",
+  "exists": "SELECT 1 FROM programs WHERE name = 'Colour Contrast Analyser' AND publisher = 'C\u00e9dric Tr\u00e9visan';",
+  "title_id": 23562,
+  "title_added": true,
+  "install_request": 202,
+  "install_status": "installed",
+  "install_seconds": 47,
+  "install_output_tail": "1:706]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (F0:08) [02:00:11:706]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F0:08) [02:00:11:706]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (00:DC) [02:00:11:706]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (00:DC) [02:00:11:706]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/30/2026  2:00:11 ===\r\n\r\n",
+  "install_error_markers": [],
+  "registered": [
+   {
+    "name": "Colour Contrast Analyser",
+    "publisher": "C\u00e9dric Tr\u00e9visan",
+    "version": "3.5.5.0"
+   }
+  ],
+  "exists_matches": true,
+  "fleet_title_installed_versions": [
+   "3.5.5.0"
+  ],
+  "uninstall_request": 202,
+  "uninstall_status": null,
+  "uninstall_seconds": 31,
+  "uninstall_output_tail": "",
+  "uninstall_exit_code": 0,
+  "removed": true,
+  "title_cleanup": "removed",
+  "result": "not confirmed: exists query matches"
+ }
+]
