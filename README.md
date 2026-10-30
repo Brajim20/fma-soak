@@ -13,7 +13,7 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 | L0 | Audit of every manifest in `ee/maintained-apps/outputs` (dead URLs, hashes, versions behind upstream, Windows exists queries vs the name the installer registers), then a Fleet-side confirm of each suspect | daily |
 | L1 | Update-pipeline suite against a throwaway Fleet server built from the release candidate (`pipeline/`) | per release candidate, by hand |
 | L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from the previous version. Canaries every 12 h, then a shuffled walk of the whole catalog | every 6 h |
-| L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host | every 6 h |
+| L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host | every 2 h |
 
 Failures are grouped by shape, not by app:
 
@@ -38,8 +38,8 @@ Failures are grouped by shape, not by app:
 
 ## Running it on GitHub Actions
 
-`.github/workflows/fma-soak.yml`: a soak pass every 6 h (both hosts side by side, then one digest), and the
-catalog audit at 11:00 UTC. State and results are kept on the `results` branch; screenshots and logs are run
+`.github/workflows/fma-soak.yml`: a soak pass every 6 h (both hosts side by side, then one digest), the watcher
+every 2 h (read-only, so it runs beside a pass), and the catalog audit at 11:00 UTC. State and results are kept on the `results` branch; screenshots and logs are run
 artifacts (30 days).
 
 Settings → Secrets and variables → Actions:

@@ -21,15 +21,16 @@ on:
   schedule:
     - cron: "15 */6 * * *"   # soak pass on both hosts
     - cron: "0 11 * * *"     # catalog audit + confirm (07:00 AST)
+    - cron: "45 */2 * * *"   # watcher: residents' upstream releases (read-only, runs beside a soak pass)
   workflow_dispatch:
     inputs:
       job:
         type: choice
-        options: [soak, audit]
+        options: [soak, audit, watcher]
         default: soak
 
 concurrency:
-  group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || inputs.job || 'soak' }}
+  group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || github.event.schedule == '45 */2 * * *' && 'watcher' || inputs.job || 'soak' }}
   cancel-in-progress: false   # never kill a pass mid-install; the next one waits
 
 permissions:
@@ -45,7 +46,7 @@ env:
 
 jobs:
   soak:
-    if: github.event.schedule != '0 11 * * *' && (github.event_name != 'workflow_dispatch' || inputs.job == 'soak')
+    if: github.event.schedule == '15 */6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'soak')
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 350
@@ -72,6 +73,7 @@ jobs:
         working-directory: harness/soak
         env:
           FMA_SOAK_SCHEDULE_UTC: "15 */6"   # keep in step with the cron above
+          FMA_SOAK_WATCHER_JOB: "1"         # the watcher job checks residents, not the pass
         run: zsh pass.sh ${{ matrix.platform }}
       - name: Save state and records
         if: always()
@@ -101,6 +103,31 @@ jobs:
         working-directory: harness/soak
         run: python3 sample.py --ledger && python3 digest.py && python3 monthly.py
       - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
+
+  watcher:
+    # Only reads Fleet and runs live queries (no installs), so it can run while a soak pass is on the hosts. It owns
+    # results/transitions/ and its transition records; the soak pass skips its own check. No digest here: the report
+    # job rebuilds it every pass, and a digest saved from this job could be older than the soak records.
+    if: github.event.schedule == '45 */2 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'watcher')
+    runs-on: ubuntu-latest
+    environment: fma-soak
+    timeout-minutes: 30
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+        with: { browser: "false" }
+      - run: ./harness/ci/results.sh restore
+      - name: Check residents
+        working-directory: harness/soak
+        run: |
+          rc=0
+          for p in darwin windows; do python3 -u watcher.py check --platform $p || rc=1; done
+          exit $rc
+      - if: always()
+        run: ./harness/ci/results.sh save "watcher ${{ github.run_id }}"
 
   audit:
     if: github.event.schedule == '0 11 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'audit')
