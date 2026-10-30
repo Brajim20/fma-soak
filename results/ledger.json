@@ -1,14 +1,14 @@
 {
- "built": "2026-10-30T16:42:49",
+ "built": "2026-10-30T19:56:44",
  "coverage": {
   "darwin": {
-   "covered": 30,
+   "covered": 38,
    "catalog": 983,
-   "percent": 3.1,
+   "percent": 3.9,
    "deck": {
     "round": 1,
-    "done": 17,
-    "of": 981
+    "done": 27,
+    "of": 983
    }
   },
   "windows": {
@@ -693,6 +693,56 @@
     ]
    }
   },
+  "cursor/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T17:00:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.27.22",
+    "record": "results/soak/2026-10-30/cursor_darwin-631-170003.json",
+    "findings": []
+   }
+  },
+  "firefox@developer-edition/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T18:01:28",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "160.0b2",
+    "record": "results/soak/2026-10-30/firefox@developer-edition_darwin-631-180128.json",
+    "findings": [
+     "inventory shows ['160.0'] after installing 160.0b2; the patch query passes, so only the version Fleet displays is behind"
+    ]
+   }
+  },
+  "firefox@nightly/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:39:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "161.0a1",
+    "record": "results/soak/2026-10-30/firefox@nightly_darwin-631-183948.json",
+    "findings": []
+   }
+  },
+  "gephi/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T17:47:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.11.3",
+    "record": "results/soak/2026-10-30/gephi_darwin-631-174751.json",
+    "findings": []
+   }
+  },
   "grammarly-desktop/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -741,6 +791,21 @@
     "findings": []
    }
   },
+  "lunacy/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T19:55:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "14.1",
+    "record": "results/soak/2026-10-30/lunacy_darwin-631-195549.json",
+    "findings": [
+     "first install ended as None",
+     "second install ended as None"
+    ]
+   }
+  },
   "macjournal/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -765,6 +830,21 @@
     "findings": [
      "patched query fails right after installing 6.7.0.3: the patch policy would flag an up-to-date host",
      "inventory ['6.7.0'] is lower than the installed package 6.7.0.3 (#51377 shape: the patch policy can't pass)"
+    ]
+   }
+  },
+  "microsoft-auto-update/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T19:24:04",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.85",
+    "record": "results/soak/2026-10-30/microsoft-auto-update_darwin-631-192404.json",
+    "findings": [
+     "first install ended as None",
+     "second install ended as None"
     ]
    }
   },
@@ -810,6 +890,18 @@
     ]
    }
   },
+  "microsoft-edge/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-10-30T18:31:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "156.0.4314.50",
+    "record": "results/soak/2026-10-30/microsoft-edge_darwin-631-183110.json",
+    "findings": []
+   }
+  },
   "microsoft-odbc-driver-17/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -819,6 +911,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "17.11.1.1",
     "record": "results/soak/2026-10-30/microsoft-odbc-driver-17_windows-629-034252.json",
+    "findings": []
+   }
+  },
+  "mongodb-compass/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:46:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.53.2",
+    "record": "results/soak/2026-10-30/mongodb-compass_darwin-631-184656.json",
     "findings": []
    }
   },
@@ -941,6 +1045,18 @@
     ]
    }
   },
+  "vivaldi/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T17:06:42",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.2.4133.96",
+    "record": "results/soak/2026-10-30/vivaldi_darwin-631-170642.json",
+    "findings": []
+   }
+  },
   "vscodium/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -966,6 +1082,21 @@
     "catalog_version": "0.2026.10.21.08.25.02",
     "record": "results/soak/2026-10-30/warp_darwin-631-032014.json",
     "findings": []
+   }
+  },
+  "wechat/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T17:31:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.2.0.12",
+    "record": "results/soak/2026-10-30/wechat_darwin-631-173137.json",
+    "findings": [
+     "patched query fails right after installing 4.2.0.12: the patch policy would flag an up-to-date host",
+     "inventory ['4.2.0'] is lower than the installed package 4.2.0.12 (#51377 shape: the patch policy can't pass)"
+    ]
    }
   }
  }
