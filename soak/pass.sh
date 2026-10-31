@@ -25,6 +25,13 @@ while not (t.minute == int(m) and t.hour % step == 0): t += d.timedelta(minutes=
 print(int(t.timestamp()))")
   (( next - $(cfg end_margin_minutes 20) * 60 < deadline )) && deadline=$(( next - $(cfg end_margin_minutes 20) * 60 ))
 fi
+# fits <minutes>: true if that much time is left before the deadline. Long steps that don't fit wait for a pass that
+# has room (a late scheduled run can start minutes before the next slot); their stamp stays old, so they stay due
+fits() {
+  (( deadline - $(date +%s) >= $1 * 60 )) && return 0
+  echo "--- $(date '+%F %T') deferred: $2 needs ~$1 min, $(( (deadline - $(date +%s)) / 60 )) min left before the deadline"
+  return 1
+}
 due() {  # due <name> <hours>: true if the stamp is missing or older than <hours>
   local f=$stamps/last-$1-$plat
   [[ ! -f $f ]] || (( start - $(cat $f) >= $2 * 3600 ))
@@ -39,8 +46,8 @@ step() {
 # an offline host would collect queued installs that run later, untracked: skip the pass (the digest still runs)
 if ! step runner.py --online $plat; then step digest.py; exit $worst; fi
 step runner.py --cleanup $plat   # apps an interrupted cycle left behind
-if due canaries $(cfg canary_every_hours 12); then step runner.py --canaries $plat; date +%s > $stamps/last-canaries-$plat; fi
-if due update $(cfg update_every_hours 24); then step runner.py --update-all $plat; date +%s > $stamps/last-update-$plat; fi
+if due canaries $(cfg canary_every_hours 12) && fits $(cfg canary_budget_minutes 120) canaries; then step runner.py --canaries $plat; date +%s > $stamps/last-canaries-$plat; fi
+if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat; date +%s > $stamps/last-update-$plat; fi
 # L3 transitions (4.3). In CI the watcher job owns this: a soak job saves hours after it restored, so running the
 # check here too would overwrite the watcher job's newer files with this pass's stale copy
 [[ -z $FMA_SOAK_WATCHER_JOB ]] && step watcher.py check --platform $plat

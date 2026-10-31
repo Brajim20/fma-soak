@@ -93,6 +93,9 @@ jobs:
     needs: soak
     if: always() && needs.soak.result != 'skipped'
     runs-on: ubuntu-latest
+    environment: fma-soak   # the ledger reads the instance's FMA catalog for coverage totals
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with: { path: harness }

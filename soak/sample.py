@@ -140,8 +140,11 @@ def run_sample(plat, until, count, dry):
     rng = random.Random(f"{day['day_seed']}-{len(day['picks'])}")
     print(f"sample {plat}: deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
           f"done; {len(changed)} version changes in 7 days; until {until or '-'}; count {count or '-'}")
+    # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
+    # installer downloads), and a pass that overruns delays the next one
+    stop = until - datetime.timedelta(minutes=R.CFG["loop"].get("cycle_budget_minutes", 30)) if until else None
     n = 0
-    while (not until or datetime.datetime.now() < until) and (not count or n < count):
+    while (not stop or datetime.datetime.now() < stop) and (not count or n < count):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
             break
