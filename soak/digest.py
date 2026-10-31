@@ -31,11 +31,14 @@ TRIAGE = json.load(open(os.path.join(WS, "triage.json")))["entries"] if os.path.
 
 def triage_match(app, f, r):
     for t in TRIAGE:
-        if t["app"] != app or ("shape" in t and t["shape"] != f["shape"]):
+        # "*" covers every soak record (app@host) in an after/before window, e.g. hours the hosts were disrupted
+        if (t["app"] != app and not (t["app"] == "*" and "@" in app)) or ("shape" in t and t["shape"] != f["shape"]):
             continue
         if "msg_contains" in t and t["msg_contains"] not in f["msg"]:
             continue
         if "before" in t and r["started"] >= t["before"]:
+            continue
+        if "after" in t and r["started"] < t["after"]:
             continue
         return t
     return None

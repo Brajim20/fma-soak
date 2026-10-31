@@ -1,5 +1,5 @@
 {
- "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug.",
+ "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
    "app": "claude/windows@629",
@@ -94,6 +94,46 @@
    "app": "megasync/darwin@631",
    "shape": "S1",
    "verdict": "filed #57008: cask 6.7.0.3 vs CFBundleShortVersionString 6.7.0, no CFBundleVersion; since unfreeze #56589"
+  },
+  {
+   "app": "reaper/windows@629",
+   "verdict": "catalog: registers as 'REAPER (x64)', exists/patched queries expect name = 'REAPER' (since #47037); draft comments/COMMENT_55961_reaper.md"
+  },
+  {
+   "app": "zoom/darwin@631",
+   "shape": "S4",
+   "verdict": "#56873: hashless 'latest' URL, a pinned older version installs the newest"
+  },
+  {
+   "app": "zoom/darwin@631",
+   "shape": "S1",
+   "msg_contains": "can't see this host is outdated",
+   "verdict": "#56873 consequence: the host really has the newest version"
+  },
+  {
+   "app": "microsoft-dotnet-sdk-10/windows@629",
+   "shape": "S1",
+   "verdict": "#50077 class (as .NET 8): inventory never links the title"
+  },
+  {
+   "app": "blurscreen/darwin@631",
+   "verdict": "environment: Intel-only pkg, 631 had no Rosetta (installed 2026-10-30 ~02:30)",
+   "before": "2026-10-30T03:00:00"
+  },
+  {
+   "app": "clion/windows@629",
+   "verdict": "environment: ~1 GB installer at qa.fleetdm.com's ~67 KB/s exceeds the 30 min step timeout"
+  },
+  {
+   "app": "4k-video-to-mp3/darwin@631",
+   "shape": "S1",
+   "verdict": "display only: app's CFBundleShortVersionString 3.0 vs cask 3.0.1; patch policy passes"
+  },
+  {
+   "app": "*",
+   "after": "2026-10-31T01:49:00",
+   "before": "2026-10-31T13:15:00",
+   "verdict": "harness: the local launchd loop came back when its Mac restarted (01:49 AST) and ran alongside CI on the same hosts until 13:10; each kept queuing behind the other's slow installs, so results from this window aren't evidence"
   }
  ]
 }

@@ -132,6 +132,32 @@ def wait_status(host, title_id, pending, timeout=STEP_TIMEOUT):
     return host_sw(host, title_id), None
 
 
+def upcoming(host):
+    st, d = api("GET", f"/hosts/{host}/activities/upcoming?per_page=100")
+    return d.get("activities") or [] if st == 200 else None
+
+
+def queue_idle(host, timeout=STEP_TIMEOUT):
+    """Wait for the host's queue to empty before asking for anything. Fleet runs a host's activities one at a time,
+    so a request behind a slow one (a big download on the instance's slow link) only times out here and piles up:
+    on 2026-10-31 canaries left 14 installs queued on 631 that way."""
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        if upcoming(host) == []:
+            return True
+        time.sleep(POLL * 4)
+    return False
+
+
+def cancel_pending(host, title_id):
+    """After a step times out, take back what it queued, so it doesn't run later untracked."""
+    codes = []
+    for a in upcoming(host) or []:
+        if (a.get("details") or {}).get("software_title_id") == title_id and not a.get("fleet_initiated"):
+            codes.append(api("DELETE", f"/hosts/{host}/activities/upcoming/{a['uuid']}")[0])
+    return codes
+
+
 def ensure_title(slug, state, host):
     st, d = api("GET", f"/software/fleet_maintained_apps?fleet_id={FID}&per_page=2000")
     row = next((a for a in d.get("fleet_maintained_apps", []) if a["slug"] == slug), None)
@@ -175,6 +201,8 @@ def install(host, tid, rec, label):
         return None
     s, secs = wait_status(host, tid, "pending_install")
     rec[f"{label}_status"], rec[f"{label}_seconds"] = (s or {}).get("status"), secs
+    if secs is None and rec[f"{label}_status"] == "pending_install":
+        rec[f"{label}_cancelled_after_timeout"] = cancel_pending(host, tid)
     uuid = (((s or {}).get("software_package") or {}).get("last_install") or {}).get("install_uuid")
     if uuid:
         st, r = api("GET", f"/software/install/{uuid}/results")
@@ -193,6 +221,8 @@ def uninstall(host, tid, rec, label):
         return None
     s, secs = wait_status(host, tid, "pending_uninstall")
     rec[f"{label}_status"], rec[f"{label}_seconds"] = (s or {}).get("status"), secs
+    if secs is None and rec[f"{label}_status"] == "pending_uninstall":
+        rec[f"{label}_cancelled_after_timeout"] = cancel_pending(host, tid)
     eid = (((s or {}).get("software_package") or {}).get("last_uninstall") or {}).get("script_execution_id")
     if eid:
         st, r = api("GET", f"/scripts/results/{eid}")
@@ -227,6 +257,10 @@ def cycle(slug, host):
         return finish(rec)
     if pre is None:
         rec["outcome"] = "skipped: host didn't answer the presence query"
+        return finish(rec)
+
+    if not queue_idle(host):
+        rec["outcome"] = f"skipped: the host's queue was still busy after {STEP_TIMEOUT // 60} min; nothing queued"
         return finish(rec)
 
     for rnd in ("first", "second"):
@@ -454,6 +488,9 @@ def update_path(slug, host):
     exists_q, patched_q = v["queries"]["exists"], v["queries"].get("patched", "").replace(f"'{v['version']}'", f"'{newest}'")
     if present(host, exists_q):
         rec["outcome"] = "skipped: app already on host"
+        return finish(rec)
+    if not queue_idle(host):
+        rec["outcome"] = f"skipped: the host's queue was still busy after {STEP_TIMEOUT // 60} min; nothing queued"
         return finish(rec)
     key = f"{slug}@{host}"
     try:
