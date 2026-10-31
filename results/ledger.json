@@ -1,5 +1,5 @@
 {
- "built": "2026-10-31T13:03:56",
+ "built": "2026-10-31T15:13:02",
  "coverage": {
   "darwin": {
    "covered": 37,
@@ -12,12 +12,12 @@
    }
   },
   "windows": {
-   "covered": 49,
+   "covered": 51,
    "catalog": 459,
-   "percent": 10.7,
+   "percent": 11.1,
    "deck": {
     "round": 1,
-    "done": 40,
+    "done": 43,
     "of": 459
    }
   }
@@ -116,14 +116,14 @@
    }
   },
   "claude/darwin@631": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 4,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-10-31T09:55:37",
+    "date": "2026-10-31T15:08:36",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.4212.0",
-    "record": "results/soak/2026-10-31/claude_darwin-631-095537.json",
+    "record": "results/soak/2026-10-31/claude_darwin-631-150836.json",
     "findings": []
    },
    "last_update": {
@@ -159,18 +159,15 @@
    }
   },
   "docker-desktop/darwin@631": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 6,
    "update_runs": 4,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T09:56:48",
+    "outcome": "skipped: app already on host and not installed by the harness",
+    "date": "2026-10-31T15:08:47",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.97.0",
-    "record": "results/soak/2026-10-31/docker-desktop_darwin-631-095648.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
-    ]
+    "record": "results/soak/2026-10-31/docker-desktop_darwin-631-150847.json",
+    "findings": []
    },
    "last_update": {
     "outcome": "findings (reproduced on retry)",
@@ -283,20 +280,15 @@
    }
   },
   "firefox/darwin@631": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 4,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T09:54:38",
+    "outcome": "pass",
+    "date": "2026-10-31T15:01:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "159.0",
-    "record": "results/soak/2026-10-31/firefox_darwin-631-095438.json",
-    "findings": [
-     "first install ended as None",
-     "first uninstall: app still on host (status None)",
-     "second install ended as None",
-     "second uninstall: app still on host (status None)"
-    ]
+    "record": "results/soak/2026-10-31/firefox_darwin-631-150119.json",
+    "findings": []
    },
    "last_update": {
     "outcome": "findings (reproduced on retry)",
@@ -331,18 +323,15 @@
    }
   },
   "fleet-desktop/darwin@631": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T09:21:23",
+    "outcome": "pass",
+    "date": "2026-10-31T14:47:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.5.1",
-    "record": "results/soak/2026-10-31/fleet-desktop_darwin-631-092123.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
-    ]
+    "record": "results/soak/2026-10-31/fleet-desktop_darwin-631-144734.json",
+    "findings": []
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -354,18 +343,15 @@
    }
   },
   "google-chrome/darwin@631": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 4,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T09:22:58",
+    "outcome": "pass",
+    "date": "2026-10-31T14:53:59",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.0.8078.80",
-    "record": "results/soak/2026-10-31/google-chrome_darwin-631-092258.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
-    ]
+    "record": "results/soak/2026-10-31/google-chrome_darwin-631-145359.json",
+    "findings": []
    },
    "last_update": {
     "outcome": "findings (reproduced on retry)",
@@ -1448,6 +1434,18 @@
     "findings": []
    }
   },
+  "gitkraken/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T15:01:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "12.6.0",
+    "record": "results/soak/2026-10-31/gitkraken_windows-629-150137.json",
+    "findings": []
+   }
+  },
   "joplin/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1558,6 +1556,18 @@
     ]
    }
   },
+  "spokenly/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T14:42:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.34.4",
+    "record": "results/soak/2026-10-31/spokenly_darwin-631-transition-2.34.4.json",
+    "findings": []
+   }
+  },
   "tower/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1569,6 +1579,21 @@
     "record": "results/soak/2026-10-31/tower_windows-629-124048.json",
     "findings": [
      "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Tower\\), not the signed-in user's (#50857)"
+    ]
+   }
+  },
+  "wrike/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-10-31T18:23:08.269106Z)",
+    "date": "2026-10-31T14:43:07",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.6.2",
+    "record": "results/soak/2026-10-31/wrike_windows-629-144307.json",
+    "findings": [
+     "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Apps\\Wrike.com\\Wrike for Windows\\), not the signed-in user's (#50857)",
+     "inventory never reported the app after install + refetch"
     ]
    }
   },
