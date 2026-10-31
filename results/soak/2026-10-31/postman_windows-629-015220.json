@@ -1,0 +1,63 @@
+{
+ "slug": "postman/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T01:52:20",
+ "catalog_version": "12.34.4",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 12.34.4: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status installed)"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as pending_install"
+  }
+ ],
+ "title_id": 23458,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Postman for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "12.34.4"
+ ],
+ "package_version": "12.34.4",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\brayan-qa\\AppData\\Local\\Postman"
+  ],
+  "versions": [
+   "12.34.4"
+  ]
+ },
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "installed",
+ "first_uninstall_seconds": 15,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "pending_install",
+ "second_install_seconds": null,
+ "second_install_output_tail": "",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-10-31T02:26:00",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/postman_windows-629-015220.json"
+}
