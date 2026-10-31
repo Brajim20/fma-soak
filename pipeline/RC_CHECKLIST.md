@@ -15,7 +15,7 @@ under 30 seconds. Everything runs on a local throwaway server, never on qa.fleet
    - **KNOWN #NNNNN** rows fail by design until that bug is fixed.
    - **PASS (was failing for #NNNNN: retest it)** → that bug looks fixed on this RC. Retest it with
      `fleet-bug-retest`, then remove the test from `KNOWN_OPEN` in `suite.py`.
-5. Note the result on the RC's QA ticket: `L1 FMA pipeline: N/7 passed, new failures: none (rev <rev>)`.
+5. Note the result on the RC's QA ticket: `L1 FMA pipeline: N/11 passed, new failures: none (rev <rev>)`.
 
 The suite exits non-zero only on a new failure, so it can gate a CI job later (task 4.9).
 
@@ -30,5 +30,14 @@ The suite exits non-zero only on a new failure, so it can gate a CI job later (t
 | test_hash_mismatch_error | #55360: hash mismatch on add → 4xx + plain message (known open) |
 | test_download_failure_error | #56891: dead download host on add → 4xx + plain message (known open) |
 | test_patch_policy_follows_promotion | 4.3: promotion rewrites the patch policy query and resets it |
+| test_pin_holds_on_new_release | pinning: a literal pin holds through a new release; Latest then advances to it |
+| test_pin_moves_patch_policy | #49474: pinning an older version rewrites the patch policy for it |
+| test_pinned_script_refresh | #53009: a pinned app still gets script fixes (known open) |
+| test_unsatisfiable_caret_rejected | #53008: a caret pin nothing satisfies is rejected; `^1` and an unknown literal are the controls (known open) |
 
-Last run: 937e874 (4.94.0-rc.2610272345), 2026-10-30: 5/7 passed, the two failures are the known open bugs.
+The soak's update path covers the host side of pinning: the pinned older version is what lands on the host (#56873).
+
+Last run: 937e874 (4.94.0-rc.2610272345), 2026-10-31: 7/11 passed, the four failures are the known open bugs.
+
+`throwaway.sh up` creates a new database each time (`fleet_qa_pipe_<timestamp>`) and `down` leaves it in place:
+databases are never dropped. The suite needs a fresh server per run (each test creates its own app once).

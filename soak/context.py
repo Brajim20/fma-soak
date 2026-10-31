@@ -26,6 +26,7 @@ CODE = {
     "S3": ["orbit/pkg/installer/installer.go"],
     "S4": ["ee/server/service/maintained_apps_auto_update.go", "server/datastore/mysql/software_installers.go"],
     "S5": [],
+    "S6": [],  # the quit/relaunch steps are in the app's scripts, which `files` already links
 }
 INGESTER = {"darwin": ("homebrew", "ee/maintained-apps/ingesters/homebrew/scripts.go"),
             "windows": ("winget", "ee/maintained-apps/ingesters/winget/ingester.go")}

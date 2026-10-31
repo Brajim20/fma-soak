@@ -2,14 +2,16 @@
 # L1 throwaway Fleet server for the update-pipeline suite (#55961, task 2.1).
 #
 #   throwaway.sh up   [build]   create DB, start the local FMA origin + Fleet, set up an admin (ctl.yml)
-#   throwaway.sh down           stop Fleet + origin, drop the DB, flush the Redis DB, delete state
+#   throwaway.sh down           stop Fleet + origin, flush the Redis DB, delete state; the DB is left in place
+#
+# Databases are never dropped: each `up` creates a new one (fleet_qa_pipe_<timestamp>), named in state/db and by `down`.
 #
 # build = suffix of bin/fleet-<build> and bin/fleetctl-<build> (default 937e874, qa.fleetdm.com's build).
 # Isolation: own MySQL DB, own Redis DB, own S3 prefix, own ports — never touches qa.fleetdm.com or the dev servers.
 set -e
 HERE=${0:A:h}
 BUILD=${2:-937e874}
-PORT=8120; ORIGIN_PORT=8197; RDB=${PIPE_REDIS_DB:-15}; DB=fleet_qa_pipe; PREFIX=qa-pipe/
+PORT=8120; ORIGIN_PORT=8197; RDB=${PIPE_REDIS_DB:-15}; PREFIX=qa-pipe/
 # Another QA server took Redis DB 10 (2026-10-30); before up/down, make sure no other Fleet server uses ours.
 redis_db_taken() { ps -ax -o pid=,command= | grep -E "[f]leet.* serve " | grep -v "server_address localhost:$PORT" | grep -qE -- "--redis_database $RDB( |$)"; }
 ST=$HERE/state; mkdir -p $ST
@@ -21,7 +23,8 @@ up)
   for p in $PORT $ORIGIN_PORT; do lsof -iTCP:$p -sTCP:LISTEN >/dev/null && { echo "port $p busy"; exit 1; }; done
   redis_db_taken && { echo "redis db $RDB is used by another Fleet server; set PIPE_REDIS_DB"; exit 1; }
   [ "$(docker exec fleet-redis-1 redis-cli -n $RDB dbsize)" = 0 ] || { echo "redis db $RDB not empty"; exit 1; }
-  mysql_root "drop database if exists $DB; create database $DB character set utf8mb4; grant all on $DB.* to 'fleet'@'%';"
+  DB=fleet_qa_pipe_$(date +%Y%m%d%H%M%S); echo $DB > $ST/db
+  mysql_root "create database $DB character set utf8mb4; grant all on $DB.* to 'fleet'@'%';"
   [ -f $ST/privkey ] || openssl rand -hex 32 > $ST/privkey
   COMMON=(--mysql_address 127.0.0.1:3306 --mysql_database $DB --mysql_username fleet --mysql_password insecure)
   $FLEET prepare db --dev "${COMMON[@]}" > $ST/prepare.log 2>&1
@@ -46,7 +49,7 @@ up)
 down)
   for f in server origin; do [ -f $ST/$f.pid ] && kill $(cat $ST/$f.pid) 2>/dev/null || true; done
   sleep 2
-  mysql_root "drop database if exists $DB;"
+  [ -f $ST/db ] && echo "database $(cat $ST/db) left in place"
   if redis_db_taken; then echo "redis db $RDB is used by another Fleet server; not flushing it"
   else docker exec fleet-redis-1 redis-cli -n $RDB flushdb >/dev/null; fi
   rm -rf $ST

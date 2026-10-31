@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
 RES = os.path.join(WS, "results")
 SHAPES = {"S1": "S1 patch/version detection", "S2": "S2 install context", "S3": "S3 status vs reality",
-          "S4": "S4 versions / pinning", "add": "Adding to the fleet failed", "install": "Install didn't complete", "uninstall": "Uninstall didn't complete",
+          "S4": "S4 versions / pinning", "S6": "S6 app open during install/update", "add": "Adding to the fleet failed", "install": "Install didn't complete", "uninstall": "Uninstall didn't complete",
           "harness": "Harness (not Fleet)"}
 
 

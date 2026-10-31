@@ -110,6 +110,21 @@ def present(host, exists_query, tries=4):
     return None
 
 
+def run_script(host, body, timeout=900):
+    """Run a one-off script on the host (as root / SYSTEM) and wait for its result."""
+    st, d = api("POST", "/scripts/run", {"host_id": host, "script_contents": body})
+    if st >= 300:
+        return {"error": f"{st} {d.get('message')}"}
+    eid = d.get("execution_id")
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        time.sleep(15)
+        st, r = api("GET", f"/scripts/results/{eid}")
+        if r.get("exit_code") is not None:
+            return {"execution_id": eid, "exit_code": r["exit_code"], "output": scrub(r.get("output", ""))}
+    return {"execution_id": eid, "error": "no result in time"}
+
+
 def host_sw(host, title_id):
     st, d = api("GET", f"/hosts/{host}/software?available_for_install=true&per_page=500&{'fleet_id'}={FID}")
     return next((s for s in d.get("software", []) if s.get("id") == title_id), None)
@@ -268,6 +283,9 @@ def install(host, tid, rec, label):
         out = res.get("output") or ""
         rec[f"{label}_output_tail"] = scrub(out[-600:])
         rec[f"{label}_error_markers"] = sorted({m.group(0)[:80] for m in ERROR_MARKERS.finditer(out)})
+        # quit/relaunch lines from the install script come early, before the tail (S6, running.py)
+        rec[f"{label}_app_lines"] = [scrub(l.strip())[:160] for l in out.splitlines()
+                                     if re.search(r"was running|quit|relaunch", l, re.I)][:6]
     return s
 
 
@@ -374,6 +392,10 @@ def cycle(slug, host):
                                f"version Fleet displays is behind")
                 else:
                     find("S1", f"inventory {inv} is lower than the installed package {pkg_ver} (#51377 shape: the patch policy can't pass)")
+        import running  # S6: install again while the app is open
+        if rnd == "second" and status == "installed" and p and running.in_cycle(slug):
+            running.reinstall_open(host, tid, rec, find, slug.split("/")[1],
+                                   rec.get("context_after_install") or context(host, exists_q))
         uninstall(host, tid, rec, f"{rnd}_uninstall")
         p = present(host, exists_q)
         rec[f"{rnd}_present_after_uninstall"] = p
@@ -398,7 +420,7 @@ def context(host, exists_q, tries=4):
     different columns, so it finds exactly what Fleet's detection finds. Returns a dict, or None if unknown."""
     q = exists_q.strip()
     if q.startswith("SELECT 1 FROM apps"):
-        q = q.replace("SELECT 1 FROM apps", "SELECT path, bundle_executable, bundle_short_version FROM apps", 1)
+        q = q.replace("SELECT 1 FROM apps", "SELECT path, bundle_executable, bundle_identifier, bundle_short_version FROM apps", 1)
         for i in range(tries):
             st, d = api("POST", f"/hosts/{host}/query", {"query": q}, timeout=180)
             rows = [r for r in d.get("rows") or [] if r.get("path", "").startswith("/Applications")] or d.get("rows") or []
@@ -408,7 +430,8 @@ def context(host, exists_q, tries=4):
                 st2, d2 = api("POST", f"/hosts/{host}/query",
                               {"query": f"SELECT path, uid, gid, mode FROM file WHERE path IN ('{app}', '{exe}');"}, timeout=180)
                 files = {r["path"]: f"{r['uid']}:{r['gid']} {r['mode']}" for r in d2.get("rows") or []}
-                return {"path": app, "bundle": files.get(app), "executable": files.get(exe),
+                return {"path": app, "bundle": files.get(app), "executable": files.get(exe), "exe": exe,
+                        "bundle_id": rows[0].get("bundle_identifier"),
                         "versions": sorted({r.get("bundle_short_version") or "" for r in rows})}
             time.sleep(20)
         return None
@@ -418,6 +441,7 @@ def context(host, exists_q, tries=4):
             st, d = api("POST", f"/hosts/{host}/query", {"query": q}, timeout=180)
             if st == 200 and not d.get("error") and d.get("rows"):
                 return {"install_locations": sorted({r.get("install_location") or "" for r in d["rows"]}),
+                        "names": sorted({r.get("name") or "" for r in d["rows"]}),
                         "versions": sorted({r.get("version") or "" for r in d["rows"]})}
             time.sleep(20)
     return None
@@ -597,10 +621,35 @@ def update_path(slug, host):
         rec["active_after_unpin"] = title_pkg(tid).get("version")
     if rec["active_after_unpin"] != newest:
         find("S4", f"setting Latest left {rec['active_after_unpin']} active, expected {newest}")
+    # S6 (running.py): on alternate days per app the older version is open during the upgrade, on the others it isn't
+    import running
+    plat = slug.split("/")[1]
+    t = running.target(plat, rec.get("context_old")) if rec.get("old_install_status") == "installed" else None
+    mode, before = (running.mode_for(slug) if t else "off"), set()
+    if mode == "open":
+        if running.open_app(host, t, rec, "upgrade_before"):
+            before = set(rec["upgrade_before_open"]["pids"])
+        else:
+            running.close_app(host, t, rec, "upgrade_before")
+            mode = "open failed"
+    elif mode == "closed":
+        running.find_exe(host, t)
+    rec["app_during_upgrade"] = mode
     install(host, tid, rec, "upgrade_install")
+    if mode in ("open", "closed"):
+        after = running.processes(host, t)
+        rec["upgrade_processes_after"] = after
+        if mode == "open":
+            running.judge_open(rec, find, t, "upgrade", f"upgrade to {newest} with the app open", before, after,
+                               rec.get("upgrade_install_status"), rec.get("upgrade_install_app_lines", []))
+        else:
+            running.judge_closed(rec, find, "upgrade", f"upgrade to {newest}", after)
     rec["upgrade_patched_query_passes"] = present(host, patched_q) if patched_q else None
     rec["context_upgraded"] = context(host, exists_q)
     context_findings(rec["context_upgraded"], find, f"upgrade to {newest}", slug)
+    t2 = running.target(plat, rec["context_upgraded"])
+    if t2 and mode != "off" and rec.get("upgrade_install_status") == "installed":
+        running.starts(host, t2, rec, find, "upgrade_after", f"after the upgrade to {newest}", seen_running=mode == "open")
     got = (rec["context_upgraded"] or {}).get("versions") or []
     # only an upgrade that ran can be judged by what's on the host (not_run is reported as an install finding below)
     if got and rec.get("upgrade_install_status") == "installed" and not any(vcmp(g, newest) >= 0 for g in got):

@@ -15,6 +15,10 @@ Escapes covered:
   test_hash_mismatch_error       #55360  hash mismatch on add -> 4xx + plain message (fails today)
   test_download_failure_error    #56891  dead download host on add -> 4xx + plain message (fails today)
   test_patch_policy_follows_promotion  4.3  promotion rewrites the patch policy query + resets its results
+  test_pin_holds_on_new_release  pin    a literal pin holds through a new release; Latest then advances
+  test_pin_moves_patch_policy    #49474 pinning an older version rewrites the patch policy for it
+  test_pinned_script_refresh     #53009 a pinned app still gets script fixes (fails today)
+  test_unsatisfiable_caret_rejected  #53008 a caret pin nothing satisfies is rejected (fails today)
 """
 import datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request, uuid
 
@@ -251,13 +255,105 @@ def test_patch_policy_follows_promotion(fid):
     return ok, det
 
 
+def pin(tid, fid, version):
+    """The Versions action (Actions > Versions): pin a cached version, "^N" for the newest in major N, "" for Latest."""
+    return api("PATCH", f"/software/titles/{tid}/package", form={FP: fid, "version": version})
+
+
+def test_pin_holds_on_new_release(fid):
+    """A literal pin keeps the older version active when a new upstream release arrives; Latest then advances."""
+    slug = "qa-pin/darwin"
+    publish_and_sync(slug, "QA Pin", "1.0.0", "qaapp-1.zip")
+    tid = add(slug, fid)[1].get("software_title_id")
+    publish_and_sync(slug, "QA Pin", "2.0.0", "qaapp-2.zip")
+    run_cron("maintained_apps_auto_update")
+    s_pin = pin(tid, fid, "1.0.0")[0]
+    pinned = package(tid, fid)
+    publish_and_sync(slug, "QA Pin", "3.0.0", "qaapp-3.zip")
+    run_cron("maintained_apps_auto_update")
+    held = package(tid, fid)
+    s_latest = pin(tid, fid, "")[0]
+    run_cron("maintained_apps_auto_update")
+    latest = package(tid, fid)
+    det = {"pin_status": s_pin, "active_after_pin": pinned["version"], "active_after_release": held["version"],
+           "pin_after_release": held.get("pinned_version"), "latest_status": s_latest,
+           "active_after_latest": latest["version"], "pin_after_latest": latest.get("pinned_version")}
+    ok = (s_pin < 300 and pinned["version"] == "1.0.0" and held["version"] == "1.0.0" and held.get("pinned_version") == "1.0.0"
+          and s_latest < 300 and latest["version"] == "3.0.0" and not latest.get("pinned_version"))
+    return ok, det
+
+
+def test_pin_moves_patch_policy(fid):
+    """#49474: pinning an older version rewrites the patch policy for it (hosts on the pinned version pass);
+    Latest moves it back."""
+    slug = "qa-pinpolicy/darwin"
+    publish_and_sync(slug, "QA Pin Policy", "1.0.0", "qaapp-1.zip", patched=True)
+    tid = add(slug, fid)[1].get("software_title_id")
+    publish_and_sync(slug, "QA Pin Policy", "2.0.0", "qaapp-2.zip", patched=True)
+    run_cron("maintained_apps_auto_update")
+    path = "/fleets" if FP == "fleet_id" else "/teams"
+    s, d = api("POST", f"{path}/{fid}/policies", {"type": "patch", "patch_software_title_id": tid,
+                                                  "software_title_id": tid, "name": "qa-pipe pin policy"})
+    pid = (d.get("policy") or {}).get("id")
+    if not pid:
+        return False, {"error": f"create patch policy {s}: {d.get('message')}"}
+    query = lambda: api("GET", f"{path}/{fid}/policies/{pid}")[1]["policy"]["query"]
+    q_latest = query()
+    pin(tid, fid, "1.0.0")
+    q_pinned = query()
+    pin(tid, fid, "")
+    q_back = query()
+    det = {"latest_has_2.0.0": "'2.0.0'" in q_latest, "pinned_has_1.0.0": "'1.0.0'" in q_pinned,
+           "pinned_still_has_2.0.0": "'2.0.0'" in q_pinned, "back_has_2.0.0": "'2.0.0'" in q_back}
+    ok = det["latest_has_2.0.0"] and det["pinned_has_1.0.0"] and not det["pinned_still_has_2.0.0"] and det["back_has_2.0.0"]
+    return ok, det
+
+
+def test_pinned_script_refresh(fid):
+    """#53009: a literal pin gates version advancement, not script fixes; a script-only manifest change for the
+    pinned version still reaches the stored script."""
+    slug = "qa-pinscript/darwin"
+    publish_and_sync(slug, "QA Pin Script", "1.0.0", "qaapp-1.zip", install_script="#!/bin/sh\necho install A\n")
+    tid = add(slug, fid)[1].get("software_title_id")
+    s_pin = pin(tid, fid, "1.0.0")[0]
+    publish_and_sync(slug, "QA Pin Script", "1.0.0", "qaapp-1.zip", install_script="#!/bin/sh\necho install B\n")
+    run_cron("maintained_apps_auto_update")
+    p = package(tid, fid)
+    return "install B" in p["install_script"], {"pin_status": s_pin, "pinned": p.get("pinned_version"),
+                                                "install_script": p["install_script"].strip()}
+
+
+def test_unsatisfiable_caret_rejected(fid):
+    """#53008: a caret pin no cached version satisfies is rejected like an unsatisfiable literal pin, and the
+    existing pin and active version stay. A satisfiable caret pin is the control."""
+    slug = "qa-caret/darwin"
+    publish_and_sync(slug, "QA Caret", "1.0.0", "qaapp-1.zip")
+    tid = add(slug, fid)[1].get("software_title_id")
+    publish_and_sync(slug, "QA Caret", "2.0.0", "qaapp-2.zip")
+    run_cron("maintained_apps_auto_update")
+    s_ok = pin(tid, fid, "^1")[0]
+    control = package(tid, fid)
+    s_literal = pin(tid, fid, "9.9.9")[0]
+    s_caret = pin(tid, fid, "^9")[0]
+    after = package(tid, fid)
+    det = {"caret_1_status": s_ok, "active_after_caret_1": control["version"], "literal_9.9.9_status": s_literal,
+           "caret_9_status": s_caret, "active_after_caret_9": after["version"], "pin_after_caret_9": after.get("pinned_version")}
+    control_ok = s_ok < 300 and control["version"] == "1.0.0" and 400 <= s_literal < 500
+    if not control_ok:
+        det["error"] = "control failed: a satisfiable caret or an unsatisfiable literal pin didn't behave as expected"
+        return False, det
+    return 400 <= s_caret < 500 and after["version"] == "1.0.0" and after.get("pinned_version") == "^1", det
+
+
 # Tests that fail by design until an open bug is fixed. On an RC run they read "known open bug", so a new failure
 # stands out; when one starts passing, retest that issue (fleet-bug-retest) and remove it from here.
-KNOWN_OPEN = {"test_hash_mismatch_error": "#55360", "test_download_failure_error": "#56891"}
+KNOWN_OPEN = {"test_hash_mismatch_error": "#55360", "test_download_failure_error": "#56891",
+              "test_pinned_script_refresh": "#53009", "test_unsatisfiable_caret_rejected": "#53008"}
 
 TESTS = [test_newest_version_active, test_script_only_refresh, test_admin_script_edit_kept,
          test_no_redownload_hashless, test_hash_mismatch_error, test_download_failure_error,
-         test_patch_policy_follows_promotion]
+         test_patch_policy_follows_promotion, test_pin_holds_on_new_release, test_pin_moves_patch_policy,
+         test_pinned_script_refresh, test_unsatisfiable_caret_rejected]
 
 
 def main():

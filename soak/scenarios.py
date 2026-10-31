@@ -87,18 +87,7 @@ Remove-Item -Recurse -Force $dir -ErrorAction SilentlyContinue
 '''
 
 
-def run_script(host, body, timeout=900):
-    st, d = R.api("POST", "/scripts/run", {"host_id": host, "script_contents": body})
-    if st >= 300:
-        return {"error": f"{st} {d.get('message')}"}
-    eid = d.get("execution_id")
-    t0 = time.time()
-    while time.time() - t0 < timeout:
-        time.sleep(15)
-        st, r = R.api("GET", f"/scripts/results/{eid}")
-        if r.get("exit_code") is not None:
-            return {"execution_id": eid, "exit_code": r["exit_code"], "output": R.scrub(r.get("output", ""))}
-    return {"execution_id": eid, "error": "no result in time"}
+run_script = R.run_script
 
 
 def pre_fix_script():

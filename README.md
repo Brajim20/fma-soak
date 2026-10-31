@@ -12,7 +12,7 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 |---|---|---|
 | L0 | Audit of every manifest in `ee/maintained-apps/outputs` (dead URLs, hashes, versions behind upstream, Windows exists queries vs the name the installer registers), then a Fleet-side confirm of each suspect | daily |
 | L1 | Update-pipeline suite against a throwaway Fleet server built from the release candidate (`pipeline/`) | per release candidate, by hand |
-| L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from the previous version. Canaries every 12 h, then a shuffled walk of the whole catalog | every 6 h |
+| L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from a pinned previous version. With the app open: a reinstall over the open app (canaries always, half the sample), and the upgrade on alternate days | every 6 h |
 | L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host (hours the host was offline don't count) | every 2 h |
 
 Failures are grouped by shape, not by app:
@@ -24,6 +24,7 @@ Failures are grouped by shape, not by app:
 | S3 reported ≠ real | Fleet's status disagrees with what's on the host |
 | S4 update pipeline | active version, pinning, script refresh, re-download, hash handling |
 | S5 catalog | stale, duplicate or broken manifest (L0) |
+| S6 app open | installed or updated while the app was open: replaced under it, not reopened, opened when it was closed, or doesn't start after |
 | add / install / uninstall | the step itself failed; needs a look before it gets a shape |
 
 ## Rules it keeps

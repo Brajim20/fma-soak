@@ -38,7 +38,7 @@ def criteria(cov):
         return d.get("round", 1) > 1
     act = os.path.exists(os.path.join(WS, "ci", "ACTIVE"))
     return [
-        ("Every failure shape (S1–S5) has an automated check whose teeth were shown on a pre-fix build or script",
+        ("Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script",
          "see the coverage plan's escape matrix"),
         ("The whole catalog cycled at least once per platform",
          ", ".join(f"{p}: {'done' if full_round(p) else 'in progress'}" for p in ("darwin", "windows"))),
