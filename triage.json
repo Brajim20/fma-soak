@@ -84,7 +84,7 @@
   },
   {
    "app": "arduino-ide/windows",
-   "verdict": "confirmed 2026-10-31 (probe on 629): the MSI installs per-user under a plain msiexec /i, so as SYSTEM it writes to systemprofile\\AppData\\Local\\Programs, where one file path is 261 chars: Error 1304 -> 1603. Input says installer_scope machine (from winget), so the #51875 sweep missed it. Not ARM-specific. Comment drafted for #55961."
+   "verdict": "confirmed 2026-10-31 (probe on 629): the MSI installs per-user under a plain msiexec /i, so as SYSTEM it writes to systemprofile\\AppData\\Local\\Programs, where one file path is 261 chars: Error 1304 -> 1603. Input says installer_scope machine (from winget), so the #51875 sweep missed it. Not ARM-specific. Reported on #55961 (issuecomment-6548568738)."
   },
   {
    "app": "vscodium/windows",
@@ -97,7 +97,7 @@
   },
   {
    "app": "reaper/windows@629",
-   "verdict": "catalog: registers as 'REAPER (x64)', exists/patched queries expect name = 'REAPER' (since #47037); draft comments/COMMENT_55961_reaper.md"
+   "verdict": "catalog: registers as 'REAPER (x64)', exists/patched queries expect name = 'REAPER' (since #47037); draft comments/COMMENT_55961_reaper.md; reported on #55961 (issuecomment-6548568503)"
   },
   {
    "app": "zoom/darwin@631",
@@ -148,7 +148,7 @@
   {
    "app": "arduino-ide/windows@629",
    "shape": "install",
-   "verdict": "catalog: per-user MSI run as SYSTEM, 261-char path, Error 1304 (see arduino-ide/windows); comment drafted for #55961"
+   "verdict": "catalog: per-user MSI run as SYSTEM, 261-char path, Error 1304 (see arduino-ide/windows); reported on #55961 (issuecomment-6548568738)"
   }
  ]
 }
