@@ -121,6 +121,18 @@ def audit_section(date):
         for r in bad:
             known = next((t["verdict"] for t in TRIAGE if t["app"] == r["slug"]), None)
             out.append(f"- **{r['slug']}** registers {r['names']}" + (f" — triaged: {known}" if known else " — **new, needs a look**"))
+        coll = nj.get("collisions") or []
+        if coll:
+            out.append(f"Windows name collisions (one app's exists query matches another's registered name): {len(coll)}")
+            for x in coll:
+                known = next((t["verdict"] for t in TRIAGE if t["app"] in (x["query_of"], x["matches_app"])), None)
+                out.append(f"- **{x['query_of']}** also matches **{x['matches_app']}** ({x['names'][0]})"
+                           + (f" — triaged: {known}" if known else " — **new, needs a look**"))
+    if os.path.exists(a):
+        for x in json.load(open(a))["checks"].get("bundle_collisions") or []:
+            known = next((t["verdict"] for t in TRIAGE if t["app"] in x["slugs"]), None)
+            out.append(f"- macOS bundle ID `{x['bundle_identifier']}` is detected by {', '.join(x['slugs'])}"
+                       + (f" — triaged: {known}" if known else " — **new, needs a look**"))
     return out or ["No audit ran this day."]
 
 

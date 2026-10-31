@@ -8,6 +8,8 @@ query that never matches, so its patch policy always passes and outdated hosts a
 
   python3 names.py                # all Windows FMAs -> results/names-<date>.json/.md
   python3 names.py --only aws-cli/windows
+
+It also lists collisions: an app's exists query that matches the name another app registers (#57051 shape).
 """
 import argparse, datetime, json, os, re, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -95,6 +97,23 @@ def check(slug, inp, man):
     return row
 
 
+def collisions(rows):
+    """1.8 (#57051 shape, the two Druva apps): app A's exists query matches the name app B registers, so a host with
+    B shows A as installed and A's patch policy judges B's version. Only names winget lists as registered
+    (AppsAndFeaturesEntries) count; PackageName is too weak to call a collision."""
+    out = []
+    for a in rows:
+        if not a.get("exists"):
+            continue
+        for b in rows:
+            if b is a or b.get("source") != "AppsAndFeaturesEntries" or not b.get("names"):
+                continue
+            hit = [n for n in b["names"] if matches(a["exists"], n)]
+            if hit:
+                out.append({"query_of": a["slug"], "matches_app": b["slug"], "names": hit})
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only")
@@ -118,6 +137,10 @@ def main():
     for r in rows:
         counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
     print("verdicts:", counts)
+    coll = collisions(rows)
+    print(f"collisions: {len(coll)} (an app's exists query matches another app's registered name)")
+    for c in coll[:40]:
+        print(f"  {c['query_of']:40} matches {c['matches_app']:40} {c['names']}")
     bad = [r for r in rows if r["verdict"] in ("never_matches", "suspect")]
     for r in bad:
         conds = [p for _, p in name_conditions(r["exists"])[0]]
@@ -125,7 +148,8 @@ def main():
     if not a.only:
         stamp = datetime.date.today().isoformat()
         out = os.path.join(HERE, "..", "results", f"names-{stamp}.json")
-        json.dump({"run_at": datetime.datetime.now().isoformat(timespec="seconds"), "counts": counts, "rows": rows},
+        json.dump({"run_at": datetime.datetime.now().isoformat(timespec="seconds"), "counts": counts, "rows": rows,
+                   "collisions": coll},
                   open(out, "w"), indent=1)
         print(out)
 

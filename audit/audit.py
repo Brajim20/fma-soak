@@ -15,6 +15,7 @@ Checks (tracker task -> escapes):
   1.5 script stability  #51577
   1.6 version shape     #50968
   1.7 windows scope     #50857 #51138
+  1.8 collisions        #51299 #57051   (macOS bundle IDs here; Windows names in names.py)
 """
 import argparse, datetime, hashlib, json, os, re, subprocess, sys, urllib.request, urllib.error
 from collections import defaultdict
@@ -120,6 +121,19 @@ def check_duplicates(apps):
         if len({suffix.sub("", n) for n in names}) > 1:
             out.append({"kind": "same_slug_different_name", "slug_base": base, "names": sorted(names)})
     return out
+
+
+def check_bundle_collisions(manifests):
+    """1.8: macOS apps whose exists queries look for the same bundle identifier, so each detects the other's app
+    (inventory, patch policy and "installed" all cross over; #51299 shape). Windows name collisions are in names.py."""
+    by_bundle = defaultdict(set)
+    for slug, m in manifests.items():
+        if not slug.endswith("/darwin"):
+            continue
+        q = (m.get("versions") or [{}])[0].get("queries", {}).get("exists", "")
+        for b in re.findall(r"bundle_identifier\s*=\s*'([^']+)'", q, re.I):
+            by_bundle[b.lower()].add(slug)
+    return [{"bundle_identifier": b, "slugs": sorted(s)} for b, s in sorted(by_bundle.items()) if len(s) > 1]
 
 
 def check_versions(manifests):
@@ -371,7 +385,8 @@ def write_report(rep):
                             ("script_missing", "1.5 Install/uninstall script missing", "#51577"),
                             ("version_shape", "1.6 Version shape / order", "#50968"),
                             ("version_went_down", "1.6 Version went down", "#50968 #55546"),
-                            ("windows_user_scope", "1.7 Windows user-scope installers", "#50857 #51138")]:
+                            ("windows_user_scope", "1.7 Windows user-scope installers", "#50857 #51138"),
+                            ("bundle_collisions", "1.8 macOS apps detecting the same bundle ID", "#51299 #57051")]:
         v = rep["checks"].get(key)
         L.append(f"| {label} | {'—' if v is None else len(v)} | {esc} |")
     L += ["", f"Hashless (`no_check`) apps: {len(rep['hashless'])} · "
@@ -416,6 +431,7 @@ def main():
     c["script_missing"] = [x for x in sf if x["kind"].endswith("_missing")]
     rep["scripts_hardcoding_version"] = len([x for x in sf if "hardcodes" in x["kind"]])
     c["windows_user_scope"] = check_windows_scope(inputs)
+    c["bundle_collisions"] = check_bundle_collisions(manifests)
     c["frozen_inputs"] = check_frozen(a.ref, inputs)
     c["missing_manifest"] = [{"slug": x["slug"]} for x in apps if x["slug"] not in manifests]
     if a.network:

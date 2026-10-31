@@ -14,7 +14,7 @@ Every step is recorded; the cycle JSON goes to results/soak/<date>/.
   python3 runner.py <slug> [--host <id>]     one cycle (host defaults to the platform's soak host)
   python3 runner.py --canaries [darwin|windows]
 """
-import argparse, datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request
+import argparse, shlex, datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
@@ -327,6 +327,57 @@ def uninstall(host, tid, rec, label):
     return s
 
 
+FLEETD_DESKTOP = {"darwin": "/opt/orbit/bin/desktop/%", "windows": "%\\Orbit\\bin\\desktop\\%"}
+
+
+def fleetd_desktop_running(host, plat):
+    """fleetd's own Fleet Desktop (not the Fleet Desktop FMA): True/False, None if the host didn't answer."""
+    st, d = api("POST", f"/hosts/{host}/query",
+                {"query": f"SELECT pid FROM processes WHERE path LIKE '{FLEETD_DESKTOP[plat]}';"}, timeout=180)
+    return bool(d.get("rows")) if st == 200 and not d.get("error") else None
+
+
+_CASKS = {}
+
+
+def cask_has_arm_build(slug):
+    """True if the Homebrew cask ships a separate Apple Silicon build (its API `url` is the arm64 one; an Intel
+    macOS variation with a different URL means the builds differ), False if not, None if unknown."""
+    base = slug.split("/")[0]
+    if base in _CASKS:
+        return _CASKS[base]
+    try:
+        token = json.load(open(os.path.join(REPO, "ee/maintained-apps/inputs/homebrew", base + ".json")))["token"]
+        with urllib.request.urlopen(f"https://formulae.brew.sh/api/cask/{token}.json", timeout=30) as r:
+            c = json.loads(r.read())
+        intel = [v.get("url") for k, v in (c.get("variations") or {}).items()
+                 if not k.startswith("arm64_") and not k.endswith("_linux") and v.get("url")]
+        _CASKS[base] = any(u != c.get("url") for u in intel)
+    except Exception:
+        _CASKS[base] = None
+    return _CASKS[base]
+
+
+def arch_findings(host, ctx, slug, rec, find):
+    """#48010: an Intel-only executable on an Apple Silicon host, when Homebrew has an Apple Silicon build."""
+    exe = (ctx or {}).get("exe")
+    if not exe:
+        return
+    r = run_script(host, f"echo HOST=$(uname -m); echo EXE=$(lipo -archs {shlex.quote(exe)} 2>&1)", timeout=300)
+    out = r.get("output", "")
+    hm, em = re.search(r"HOST=(\S+)", out), re.search(r"EXE=(.*)", out)
+    rec["arch"] = {"host": hm and hm.group(1), "exe": em and em.group(1).strip()}
+    if not (hm and em) or hm.group(1) != "arm64" or "arm64" in em.group(1) or "x86_64" not in em.group(1):
+        return
+    arm = cask_has_arm_build(slug)
+    rec["arch"]["cask_has_arm_build"] = arm
+    if arm:
+        find("S2", f"the installed executable is {em.group(1).strip()} only on an Apple Silicon host, though the "
+                   f"Homebrew cask has an Apple Silicon build (#48010 shape)")
+    else:
+        rec["arch"]["note"] = "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+
+
 def cycle(slug, host):
     state = load_state(host)
     man = catalog_manifest(slug)
@@ -357,6 +408,21 @@ def cycle(slug, host):
     if pre is None:
         rec["outcome"] = "skipped: host didn't answer the presence query"
         return finish(rec)
+    plat = slug.split("/")[1]
+    if pre is False:
+        # #51299: Fleet listed the Fleet Desktop FMA as installed (with fleetd's version) on a host that didn't have
+        # it. Inventory lags an uninstall until the next refetch, so a listing gets one refetch before it counts.
+        listed = lambda: [iv.get("version") for iv in (host_sw(host, tid) or {}).get("installed_versions") or []]
+        rec["listed_before_install"] = listed()
+        if rec["listed_before_install"]:
+            api("POST", f"/hosts/{host}/refetch")
+            time.sleep(300)
+            rec["listed_before_install"] = listed()
+            if rec["listed_before_install"] and present(host, exists_q) is False:
+                find("S3", f"before it was installed, Fleet lists it as installed {rec['listed_before_install']}: another "
+                           f"app's inventory matches this title (#51299 shape)")
+    if slug.startswith("fleet-desktop/"):
+        rec["fleetd_desktop_before"] = fleetd_desktop_running(host, plat)
 
     if not queue_idle(host):
         rec["outcome"] = f"skipped: the host's queue was still busy after {STEP_TIMEOUT // 60} min; nothing queued"
@@ -394,6 +460,10 @@ def cycle(slug, host):
             rec["package_version"] = pkg_ver
             rec["context_after_install"] = context(host, exists_q)
             context_findings(rec["context_after_install"], find, "first install", slug)
+            if plat == "darwin":
+                arch_findings(host, rec["context_after_install"], slug, rec, find)
+            if rec.get("fleetd_desktop_before") and fleetd_desktop_running(host, plat) is False:
+                find("S2", "fleetd's own Fleet Desktop stopped running after installing the Fleet Desktop FMA")
             # the patch policy Fleet generates evaluates the manifest's `patched` query; on a host that just got
             # the current version it must return a row (#51377: OneDrive's never could)
             patched_q = v["queries"].get("patched", "")
@@ -424,6 +494,8 @@ def cycle(slug, host):
             find("S3" if ustatus not in ("failed_uninstall",) else "uninstall", f"{rnd} uninstall: app still on host (status {ustatus})")
         else:
             state["harness_installed"].pop(key, None); save_state(state, host)
+    if rec.get("fleetd_desktop_before") and fleetd_desktop_running(host, plat) is False:
+        find("S2", "fleetd's own Fleet Desktop isn't running after uninstalling the Fleet Desktop FMA")
     unknown = [k for k, v in rec.items() if k.endswith(("_after_install", "_after_uninstall")) and v is None]
     if unknown:
         find("harness", f"presence unknown after {', '.join(unknown)} (host didn't answer the live query)")
