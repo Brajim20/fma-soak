@@ -138,7 +138,8 @@ def explorer2(probe_only=False):
                                 "grammarly-desktop/windows", "postman/windows"])
         k = CFG.get("per_day", 2)
         start = (datetime.date.today().toordinal() * k) % len(apps)
-        today = [apps[(start + i) % len(apps)] for i in range(k)]
+        # a date in config `scenarios.explorer2.dates` overrides the rotation (e.g. rerunning apps a disrupted day spoiled)
+        today = CFG.get("dates", {}).get(date) or [apps[(start + i) % len(apps)] for i in range(k)]
         started = run_script(host, START_EXTRA, timeout=300)
         rec["extra_explorer"] = started.get("output", started.get("error", "")).strip()
         try:

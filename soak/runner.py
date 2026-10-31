@@ -231,7 +231,25 @@ def vshape(v):
     return len([p for p in re.split(r"[.\-_ ]", str(v)) if p])
 
 
+def last_result_id(sw, kind):
+    pkg = (sw or {}).get("software_package") or {}
+    return ((pkg.get("last_install") or {}).get("install_uuid") if kind == "install"
+            else (pkg.get("last_uninstall") or {}).get("script_execution_id"))
+
+
+def not_run(host, tid, rec, label, kind, before):
+    """A request that was cancelled (or never ran) leaves the previous result in place, and Fleet goes back to the
+    previous status: 2026-10-31 an upgrade cancelled mid-wait read as "installed" with the old version's output.
+    Only a new result counts."""
+    s = host_sw(host, tid)
+    if rec.get(f"{label}_status") and rec[f"{label}_status"] != f"pending_{kind}" and last_result_id(s, kind) == before:
+        rec[f"{label}_status"] = f"not_run (no new {kind} result; status was {rec[f'{label}_status']})"
+        return True
+    return False
+
+
 def install(host, tid, rec, label):
+    before = last_result_id(host_sw(host, tid), "install")
     st, d = api("POST", f"/hosts/{host}/software/{tid}/install")
     rec[f"{label}_request"] = st
     if st >= 300:
@@ -241,6 +259,8 @@ def install(host, tid, rec, label):
     rec[f"{label}_status"], rec[f"{label}_seconds"] = (s or {}).get("status"), secs
     if secs is None and rec[f"{label}_status"] == "pending_install":
         rec[f"{label}_cancelled_after_timeout"] = cancel_pending(host, tid)
+    if not_run(host, tid, rec, label, "install", before):
+        return s
     uuid = (((s or {}).get("software_package") or {}).get("last_install") or {}).get("install_uuid")
     if uuid:
         st, r = api("GET", f"/software/install/{uuid}/results")
@@ -252,6 +272,7 @@ def install(host, tid, rec, label):
 
 
 def uninstall(host, tid, rec, label):
+    before = last_result_id(host_sw(host, tid), "uninstall")
     st, d = api("POST", f"/hosts/{host}/software/{tid}/uninstall")
     rec[f"{label}_request"] = st
     if st >= 300:
@@ -261,6 +282,8 @@ def uninstall(host, tid, rec, label):
     rec[f"{label}_status"], rec[f"{label}_seconds"] = (s or {}).get("status"), secs
     if secs is None and rec[f"{label}_status"] == "pending_uninstall":
         rec[f"{label}_cancelled_after_timeout"] = cancel_pending(host, tid)
+    if not_run(host, tid, rec, label, "uninstall", before):
+        return s
     eid = (((s or {}).get("software_package") or {}).get("last_uninstall") or {}).get("script_execution_id")
     if eid:
         st, r = api("GET", f"/scripts/results/{eid}")
@@ -579,7 +602,8 @@ def update_path(slug, host):
     rec["context_upgraded"] = context(host, exists_q)
     context_findings(rec["context_upgraded"], find, f"upgrade to {newest}", slug)
     got = (rec["context_upgraded"] or {}).get("versions") or []
-    if got and not any(vcmp(g, newest) >= 0 for g in got):
+    # only an upgrade that ran can be judged by what's on the host (not_run is reported as an install finding below)
+    if got and rec.get("upgrade_install_status") == "installed" and not any(vcmp(g, newest) >= 0 for g in got):
         find("S1", f"upgraded to {newest}, but the host still has {got}")
     co, cu = rec.get("context_old") or {}, rec["context_upgraded"] or {}
     for part in ("bundle", "executable"):

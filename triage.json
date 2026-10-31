@@ -134,6 +134,16 @@
    "after": "2026-10-31T01:49:00",
    "before": "2026-10-31T13:15:00",
    "verdict": "harness: the local launchd loop came back when its Mac restarted (01:49 AST) and ran alongside CI on the same hosts until 13:10; each kept queuing behind the other's slow installs, so results from this window aren't evidence"
+  },
+  {
+   "app": "010-editor/darwin@631",
+   "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 → 17.0).",
+   "before": "2026-10-31T15:00:00"
+  },
+  {
+   "app": "protopie/windows@629",
+   "shape": "install",
+   "verdict": "unconfirmed, likely environment: Inno exit 1 ('Setup failed to initialize') every time on Windows on ARM, flags match winget's InstallerType inno; probably the installer's x64-only architecture check. Logged-install probe pending."
   }
  ]
 }
