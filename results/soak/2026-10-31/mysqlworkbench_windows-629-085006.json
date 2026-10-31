@@ -1,0 +1,61 @@
+{
+ "slug": "mysqlworkbench/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T08:50:06",
+ "catalog_version": "26.10.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "title_id": 23682,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "2:245]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (6C:64) [08:50:52:245]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (6C:64) [08:50:52:245]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (18:28) [08:50:52:245]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (18:28) [08:50:52:245]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/31/2026  8:50:52 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "26.10.0.0"
+ ],
+ "package_version": "26.10.0",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "2:688]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (6C:5C) [08:56:42:688]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (6C:5C) [08:56:42:688]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:6C) [08:56:42:688]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:6C) [08:56:42:688]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 10/31/2026  8:56:42 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-10-31T08:59:42",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/mysqlworkbench_windows-629-085006.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/mysqlworkbench_windows-629-084013.json"
+}
