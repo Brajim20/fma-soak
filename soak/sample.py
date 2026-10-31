@@ -57,7 +57,8 @@ def changed_last_7_days(plat):
 
 def excluded(plat):
     residents = {x for xs in R.CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
-    return set(R.CFG["canaries"][plat]) | {k.split("@")[0] for k in R.CFG.get("known_environment", {})} | residents
+    return (set(R.CFG["canaries"][plat]) | {k.split("@")[0] for k in R.CFG.get("known_environment", {})} | residents
+            | R.busy_slugs())
 
 
 def load_deck(plat, catalog):
@@ -190,7 +191,7 @@ def build_ledger(write=False):
         if "slug" not in r or "outcome" not in r:
             continue
         e = apps.setdefault(f"{r['slug']}@{r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
-        kind = "update" if r.get("kind") == "update_path" else "lifecycle"
+        kind = "update" if r.get("kind") in ("update_path", "patch_when_closed") else "lifecycle"
         e[f"{kind}_runs"] += 1
         e[f"last_{kind}"] = {"outcome": r["outcome"], "date": r.get("started"), "build": r.get("build"),
                              "catalog_version": r.get("catalog_version"), "record": os.path.relpath(p, R.WS),

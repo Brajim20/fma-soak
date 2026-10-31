@@ -6,6 +6,7 @@
 #   update path (3.7)   when the last one is older than loop.update_every_hours
 #   coverage sample (4.2) until the next pass is due, minus a margin so the pass ends on time
 #   watcher (4.3)      residents' upstream transitions, every pass (in CI, its own job every 2 h instead)
+#   patch closed (S6)  Fleet's patch-when-closed policy over several passes, one app a day per platform
 #   scenario (4.4)     Windows only: second explorer.exe, once a day
 #   digest (4.6)        results/digest-<date>.md, rebuilt every pass
 plat=$1
@@ -40,6 +41,7 @@ step() {
 # an offline host would collect queued installs that run later, untracked: skip the pass (the digest still runs)
 if ! step runner.py --online $plat; then step digest.py; exit $worst; fi
 step runner.py --cleanup $plat   # apps an interrupted cycle left behind
+step patch_closed.py tick --platform $plat   # patch when closed (S6): starts one a day, advances an active one
 if due canaries $(cfg canary_every_hours 12) && fits $(cfg canary_budget_minutes 120) canaries; then step runner.py --canaries $plat; date +%s > $stamps/last-canaries-$plat; fi
 if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat; date +%s > $stamps/last-update-$plat; fi
 # L3 transitions (4.3). In CI the watcher job owns this: a soak job saves hours after it restored, so running the

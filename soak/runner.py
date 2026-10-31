@@ -125,6 +125,23 @@ def run_script(host, body, timeout=900):
     return {"execution_id": eid, "error": "no result in time"}
 
 
+def patch_closed_path(plat):
+    return os.path.join(WS, "results", "state", f"patch-closed-{plat}.json")
+
+
+def busy_slugs():
+    """Apps a multi-pass scenario (patch_closed.py) holds on a host: cycles, the update path and cleanup skip them."""
+    out = set()
+    for plat in ("darwin", "windows"):
+        try:
+            a = json.load(open(patch_closed_path(plat))).get("active")
+        except (OSError, ValueError):
+            continue
+        if a:
+            out.add(a["slug"])
+    return out
+
+
 def host_sw(host, title_id):
     st, d = api("GET", f"/hosts/{host}/software?available_for_install=true&per_page=500&{'fleet_id'}={FID}")
     return next((s for s in d.get("software", []) if s.get("id") == title_id), None)
@@ -328,6 +345,9 @@ def cycle(slug, host):
         rec["outcome"] = "findings"
         return finish(rec)
     rec.update(title_id=tid, title_added_by_harness=added)
+    if slug in busy_slugs():
+        rec["outcome"] = "skipped: held by the patch-when-closed scenario"
+        return finish(rec)
     pre = present(host, exists_q)
     rec["present_before"] = pre
     key = f"{slug}@{host}"
@@ -538,7 +558,7 @@ def cleanup_leftovers(host):
     out = []
     for key in list(state["harness_installed"]):
         slug = key.rsplit("@", 1)[0]
-        if slug in residents:
+        if slug in residents or slug in busy_slugs():
             continue
         rec = {"slug": slug, "host": host}
         try:
@@ -798,6 +818,8 @@ def main():
         for slug in slugs:
             if f"{slug}@{CFG['hosts'][a.update_all][0]}" in known:
                 print(f"{slug}: skipped (known environment)"); continue
+            if slug in busy_slugs():
+                print(f"{slug}: skipped (held by the patch-when-closed scenario)"); continue
             try:
                 run(update_path, slug, CFG["hosts"][a.update_all][0])
             except Exception as e:
