@@ -84,11 +84,11 @@
   },
   {
    "app": "arduino-ide/windows",
-   "verdict": "unconfirmed: install failed on 629 (MSI 1603, Windows on ARM?); name check says 'Arduino IDE 2.3.10' vs exact 'Arduino IDE'"
+   "verdict": "confirmed 2026-10-31 (probe on 629): the MSI installs per-user under a plain msiexec /i, so as SYSTEM it writes to systemprofile\\AppData\\Local\\Programs, where one file path is 261 chars: Error 1304 -> 1603. Input says installer_scope machine (from winget), so the #51875 sweep missed it. Not ARM-specific. Comment drafted for #55961."
   },
   {
    "app": "vscodium/windows",
-   "verdict": "unconfirmed: install failed on 629 (exit 1); winget lists the per-user installer 'VSCodium (User)'"
+   "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629"
   },
   {
    "app": "megasync/darwin@631",
@@ -143,7 +143,12 @@
   {
    "app": "protopie/windows@629",
    "shape": "install",
-   "verdict": "unconfirmed, likely environment: Inno exit 1 ('Setup failed to initialize') every time on Windows on ARM, flags match winget's InstallerType inno; probably the installer's x64-only architecture check. Logged-install probe pending."
+   "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629"
+  },
+  {
+   "app": "arduino-ide/windows@629",
+   "shape": "install",
+   "verdict": "catalog: per-user MSI run as SYSTEM, 261-char path, Error 1304 (see arduino-ide/windows); comment drafted for #55961"
   }
  ]
 }
