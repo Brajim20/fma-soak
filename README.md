@@ -101,5 +101,6 @@ soak/              runner.py (cycle, update path), sample.py, watcher.py, scenar
 audit/             L0 audit, confirm, name check, run-daily.sh
 pipeline/          L1 suite on a throwaway server, build.sh, RC_CHECKLIST.md
 ci/results.sh      keeps CI state on the results branch
+hosts/             soak-host setup: utm-autostart/ (launchd agent that keeps the UTM VM running)
 results/           (not on main) digests, records, coverage ledger, harness state
 ```
