@@ -1,23 +1,23 @@
 {
- "built": "2026-10-30T19:56:44",
+ "built": "2026-10-30T20:38:33",
  "coverage": {
   "darwin": {
-   "covered": 38,
+   "covered": 30,
    "catalog": 983,
-   "percent": 3.9,
+   "percent": 3.1,
    "deck": {
     "round": 1,
-    "done": 27,
-    "of": 983
+    "done": 17,
+    "of": 981
    }
   },
   "windows": {
-   "covered": 18,
+   "covered": 35,
    "catalog": 459,
-   "percent": 3.9,
+   "percent": 7.6,
    "deck": {
     "round": 1,
-    "done": 9,
+    "done": 26,
     "of": 459
    }
   }
@@ -603,6 +603,30 @@
     ]
    }
   },
+  "airtable/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T17:06:43",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.7.3",
+    "record": "results/soak/2026-10-30/airtable_windows-629-170643.json",
+    "findings": []
+   }
+  },
+  "aws-sam-cli/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:56:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.170.0",
+    "record": "results/soak/2026-10-30/aws-sam-cli_windows-629-185646.json",
+    "findings": []
+   }
+  },
   "aws-vpn-client/darwin@631": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -625,6 +649,45 @@
     "catalog_version": "2.91.0",
     "record": "results/soak/2026-10-30/azure-cli_windows-629-152955.json",
     "findings": []
+   }
+  },
+  "azure-data-studio/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:52:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.52.0",
+    "record": "results/soak/2026-10-30/azure-data-studio_windows-629-185255.json",
+    "findings": []
+   }
+  },
+  "beyond-compare/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T19:06:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.2.7.32913",
+    "record": "results/soak/2026-10-30/beyond-compare_windows-629-190633.json",
+    "findings": []
+   }
+  },
+  "bitwarden/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T18:19:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.10.2",
+    "record": "results/soak/2026-10-30/bitwarden_windows-629-181930.json",
+    "findings": [
+     "first install ended as None",
+     "second install ended as None"
+    ]
    }
   },
   "blender/darwin@631": {
@@ -652,6 +715,30 @@
      "first install ended as failed_install",
      "second install ended as failed_install"
     ]
+   }
+  },
+  "box-drive/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T16:55:13",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.55.145",
+    "record": "results/soak/2026-10-30/box-drive_windows-629-165513.json",
+    "findings": []
+   }
+  },
+  "box-tools/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:30:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.32.0.1324",
+    "record": "results/soak/2026-10-30/box-tools_windows-629-183036.json",
+    "findings": []
    }
   },
   "bricklink-studio/darwin@631": {
@@ -693,53 +780,39 @@
     ]
    }
   },
-  "cursor/darwin@631": {
+  "crystaldiskmark/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T17:00:03",
+    "date": "2026-10-30T17:03:11",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.27.22",
-    "record": "results/soak/2026-10-30/cursor_darwin-631-170003.json",
+    "catalog_version": "9.0.3",
+    "record": "results/soak/2026-10-30/crystaldiskmark_windows-629-170311.json",
     "findings": []
    }
   },
-  "firefox@developer-edition/darwin@631": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-30T18:01:28",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "160.0b2",
-    "record": "results/soak/2026-10-30/firefox@developer-edition_darwin-631-180128.json",
-    "findings": [
-     "inventory shows ['160.0'] after installing 160.0b2; the patch query passes, so only the version Fleet displays is behind"
-    ]
-   }
-  },
-  "firefox@nightly/darwin@631": {
+  "cube-browser/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T18:39:48",
+    "date": "2026-10-30T16:59:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "161.0a1",
-    "record": "results/soak/2026-10-30/firefox@nightly_darwin-631-183948.json",
+    "catalog_version": "2.6.62",
+    "record": "results/soak/2026-10-30/cube-browser_windows-629-165920.json",
     "findings": []
    }
   },
-  "gephi/darwin@631": {
+  "dialpad/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T17:47:51",
+    "date": "2026-10-30T19:10:04",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.11.3",
-    "record": "results/soak/2026-10-30/gephi_darwin-631-174751.json",
+    "catalog_version": "2609.4.0",
+    "record": "results/soak/2026-10-30/dialpad_windows-629-191004.json",
     "findings": []
    }
   },
@@ -779,6 +852,18 @@
     "findings": []
    }
   },
+  "linear/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T18:47:31",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.32.7",
+    "record": "results/soak/2026-10-30/linear_windows-629-184731.json",
+    "findings": []
+   }
+  },
   "lulu/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -789,21 +874,6 @@
     "catalog_version": "4.5.4",
     "record": "results/soak/2026-10-30/lulu_darwin-631-032816.json",
     "findings": []
-   }
-  },
-  "lunacy/darwin@631": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-30T19:55:49",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "14.1",
-    "record": "results/soak/2026-10-30/lunacy_darwin-631-195549.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
-    ]
    }
   },
   "macjournal/darwin@631": {
@@ -830,21 +900,6 @@
     "findings": [
      "patched query fails right after installing 6.7.0.3: the patch policy would flag an up-to-date host",
      "inventory ['6.7.0'] is lower than the installed package 6.7.0.3 (#51377 shape: the patch policy can't pass)"
-    ]
-   }
-  },
-  "microsoft-auto-update/darwin@631": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-30T19:24:04",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.85",
-    "record": "results/soak/2026-10-30/microsoft-auto-update_darwin-631-192404.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
     ]
    }
   },
@@ -890,18 +945,6 @@
     ]
    }
   },
-  "microsoft-edge/darwin@631": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "flaky: findings on the first run, clean on the retry",
-    "date": "2026-10-30T18:31:10",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "156.0.4314.50",
-    "record": "results/soak/2026-10-30/microsoft-edge_darwin-631-183110.json",
-    "findings": []
-   }
-  },
   "microsoft-odbc-driver-17/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -914,15 +957,15 @@
     "findings": []
    }
   },
-  "mongodb-compass/darwin@631": {
+  "mozilla-vpn/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T18:46:56",
+    "date": "2026-10-30T18:37:29",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.53.2",
-    "record": "results/soak/2026-10-30/mongodb-compass_darwin-631-184656.json",
+    "catalog_version": "2.40.1",
+    "record": "results/soak/2026-10-30/mozilla-vpn_windows-629-183729.json",
     "findings": []
    }
   },
@@ -950,6 +993,21 @@
     "findings": []
    }
   },
+  "nordvpn/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T17:48:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.14.4.0",
+    "record": "results/soak/2026-10-30/nordvpn_windows-629-174823.json",
+    "findings": [
+     "first install ended as None",
+     "second install ended as None"
+    ]
+   }
+  },
   "nvda/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -962,6 +1020,21 @@
     "findings": []
    }
   },
+  "onedrive/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-30T20:13:43",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.183.0920.0005",
+    "record": "results/soak/2026-10-30/onedrive_windows-629-201343.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
   "openlens/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -971,6 +1044,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "6.5.2-366",
     "record": "results/soak/2026-10-30/openlens_darwin-631-023440.json",
+    "findings": []
+   }
+  },
+  "pgadmin4/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-30T19:02:07",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.19",
+    "record": "results/soak/2026-10-30/pgadmin4_windows-629-190207.json",
     "findings": []
    }
   },
@@ -1045,15 +1130,15 @@
     ]
    }
   },
-  "vivaldi/darwin@631": {
+  "visual-studio-2022-enterprise/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T17:06:42",
+    "date": "2026-10-30T17:10:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.2.4133.96",
-    "record": "results/soak/2026-10-30/vivaldi_darwin-631-170642.json",
+    "catalog_version": "17.14.43",
+    "record": "results/soak/2026-10-30/visual-studio-2022-enterprise_windows-629-171034.json",
     "findings": []
    }
   },
@@ -1084,19 +1169,16 @@
     "findings": []
    }
   },
-  "wechat/darwin@631": {
-   "lifecycle_runs": 2,
+  "wechat/windows@629": {
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-30T17:31:37",
+    "outcome": "pass",
+    "date": "2026-10-30T18:41:10",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.2.0.12",
-    "record": "results/soak/2026-10-30/wechat_darwin-631-173137.json",
-    "findings": [
-     "patched query fails right after installing 4.2.0.12: the patch policy would flag an up-to-date host",
-     "inventory ['4.2.0'] is lower than the installed package 4.2.0.12 (#51377 shape: the patch policy can't pass)"
-    ]
+    "catalog_version": "3.9.12.57",
+    "record": "results/soak/2026-10-30/wechat_windows-629-184110.json",
+    "findings": []
    }
   }
  }
