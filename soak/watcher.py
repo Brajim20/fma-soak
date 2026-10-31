@@ -40,6 +40,14 @@ def hours_since(ts):
     return (datetime.datetime.now() - datetime.datetime.fromisoformat(ts)).total_seconds() / 3600
 
 
+def online_hours_since(host, ts):
+    """Hours since ts that the host was online: a release can't reach a host that's down (or whose Mac is)."""
+    import hosts
+    start = datetime.datetime.fromisoformat(ts).astimezone()
+    end = datetime.datetime.now().astimezone()
+    return (end - start).total_seconds() / 3600 - hosts.offline_hours(host, start, end)
+
+
 def state_path(plat):
     # one file per platform: the macOS and Windows passes run side by side
     return os.path.join(OUT, f"residents-{plat}.json")
@@ -173,7 +181,7 @@ def check(plat):
             if obs["policy"] == "fail":
                 findings.append({"shape": "S1", "msg": f"host has {hv} but the patch policy still fails"})
             write_record(s, open_t, "pass" if not findings else "findings", findings)
-        elif ctx and hours_since(open_t["promoted_seen"]) > WCFG["window_hours"] and not open_t.get("reported_stuck"):
+        elif ctx and online_hours_since(host, open_t["promoted_seen"]) > WCFG["window_hours"] and not open_t.get("reported_stuck"):
             # only call it stuck on a check that actually read the host; a failed live query says nothing
             stage = ("the patch policy never failed on the host" if "policy_failed_seen" not in open_t else
                      "the policy failed but no install was queued" if "install_queued_seen" not in open_t else

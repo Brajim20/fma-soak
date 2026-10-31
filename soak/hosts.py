@@ -65,9 +65,37 @@ def check():
             s["history"] = s["history"][-200:]
     os.makedirs(os.path.dirname(PATH), exist_ok=True)
     json.dump(st, open(PATH, "w"), indent=1)
+    opens = [s["open"] for s in st.values() if s.get("open")]
+    if alerts and len(opens) == len(st) > 1 and together([o["since"] for o in opens]):
+        # every soak VM dropped at once: the Mac running them, not the VMs
+        alerts = [f"all soak hosts went offline together around {min(o['since'] for o in opens)}: the Mac running the "
+                  f"VMs restarted, slept or lost its network. It's managed with FileVault, so after a restart someone has "
+                  f"to log in; the VMs then start by themselves"]
     for a in alerts:
         print(f"::error::{a}")
     return not alerts
+
+
+def together(times, minutes=15):
+    ts = sorted(R.utc(t) for t in times)
+    return len(ts) > 1 and (ts[-1] - ts[0]).total_seconds() <= minutes * 60
+
+
+def outages(host):
+    """(since, until) in UTC for a host, the open one ending now."""
+    if not os.path.exists(PATH):
+        return []
+    s = json.load(open(PATH)).get(str(host), {})
+    out = [(R.utc(e["since"]), R.utc(e["until"])) for e in s.get("history", [])]
+    if s.get("open"):
+        out.append((R.utc(s["open"]["since"]), datetime.datetime.now(datetime.timezone.utc)))
+    return out
+
+
+def offline_hours(host, start, end):
+    """Hours of [start, end) the host was offline (aware datetimes). Outages are closed when a check finds the host
+    back, so this can overcount by up to one check interval; it errs toward not blaming an app for the downtime."""
+    return sum(max(0, (min(b, end) - max(a, start)).total_seconds()) for a, b in outages(host)) / 3600
 
 
 def for_date(date):
@@ -77,16 +105,24 @@ def for_date(date):
     local = lambda ts: R.utc(ts).astimezone()
     fmt = lambda ts: local(ts).strftime("%m-%d %H:%M")
     out = []
-    for host, s in json.load(open(PATH)).items():
+    st = json.load(open(PATH))
+    starts = {h: [e["since"] for e in s.get("history", []) if e["since"] != e["until"]]
+              + ([s["open"]["since"]] if s.get("open") else []) for h, s in st.items()}
+    # an outage another host shares (started within 15 min) was the Mac running the VMs
+    shared = lambda h, t: any(together([t, u]) for o, us in starts.items() if o != h for u in us)
+    for host, s in st.items():
         for e in s.get("history", []):
             if local(e["since"]).date().isoformat() <= date <= local(e["until"]).date().isoformat():
                 if e["since"] == e["until"]:
                     out.append(f"- host {host}: restarted at {fmt(e['since'])} and came back on its own")
                 else:
-                    out.append(f"- host {host}: offline {fmt(e['since'])} → {fmt(e['until'])}"
-                               + (" (restarted)" if e.get("restarted") else ""))
+                    h = hours(R.utc(e["since"]), R.utc(e["until"]))
+                    out.append(f"- host {host}: offline {fmt(e['since'])} → {fmt(e['until'])} ({h:.1f} h)"
+                               + (" (restarted)" if e.get("restarted") else "")
+                               + (": the VMs' Mac" if shared(host, e["since"]) else ""))
         if s.get("open"):
-            out.append(f"- host {host}: **offline since {fmt(s['open']['since'])}, still down at the last check**")
+            out.append(f"- host {host}: **offline since {fmt(s['open']['since'])}, still down at the last check**"
+                       + (" (the VMs' Mac)" if shared(host, s["open"]["since"]) else ""))
     return out
 
 

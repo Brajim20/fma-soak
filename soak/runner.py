@@ -443,16 +443,38 @@ def title_pkg(tid):
     return api("GET", f"/software/titles/{tid}?fleet_id={FID}")[1].get("software_title", {}).get("software_package") or {}
 
 
+def settle(host, h, was_offline):
+    """A VM that just (re)started comes back in stages: boot, auto-login, fleetd and osquery catching up, then whatever
+    was queued while it was down. Don't start new work until it has been up loop.settle_minutes, by its own uptime.
+    That takes a live query (slow while the host is busy), so only ask after this wait saw the host offline or when
+    Fleet reports a restart in the last 70 min (last_restarted_at moves on the hourly detail refresh). If the live
+    query fails, don't wait."""
+    need = CFG.get("loop", {}).get("settle_minutes", 10) * 60
+    r = utc(h.get("last_restarted_at"))
+    recent = r and (datetime.datetime.now(datetime.timezone.utc) - r).total_seconds() < need + 3600
+    if not (was_offline or recent):
+        return
+    st, d = api("POST", f"/hosts/{host}/query", {"query": "SELECT total_seconds FROM uptime;"}, timeout=120)
+    rows = d.get("rows") or [] if st == 200 else []
+    up = int(rows[0]["total_seconds"]) if rows and str(rows[0].get("total_seconds", "")).isdigit() else None
+    if up is not None and up < need:
+        print(f"host {host} has been up {up // 60} min: waiting {(need - up) // 60 + 1} min for it to settle")
+        time.sleep(need - up)
+
+
 def wait_online(host, minutes=None):
     """True once Fleet shows the host online, waiting up to loop.online_wait_minutes. Work queued for an offline host
     runs whenever it comes back, outside any cycle's tracking, so passes and samples check this first."""
     minutes = CFG.get("loop", {}).get("online_wait_minutes", 30) if minutes is None else minutes
     end = time.time() + minutes * 60
+    was_offline = False
     while True:
         st, d = api("GET", f"/hosts/{host}")
         h = d.get("host") or {}
         if h.get("status") == "online":
+            settle(host, h, was_offline)
             return True
+        was_offline = True
         if time.time() >= end:
             print(f"host {host} is {h.get('status') or st} (last seen {h.get('seen_time')}) after waiting {minutes} min")
             return False
