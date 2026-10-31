@@ -1,0 +1,121 @@
+# L1 update-pipeline suite (pipeline/, fleetdm/fleet#55961) every night, against two builds:
+#   rc    the revision the soak instance runs (GET $FLEET_URL/version), so the soak and L1 judge the same build
+#   main  fleetdm/fleet main, so a pipeline regression shows up before it reaches a release candidate
+# Each target builds fleet + fleetctl at that revision, starts a throwaway server (own MySQL and Redis containers,
+# filesystem installer store) with the local fake FMA origin, runs the suite, and saves pipeline-<date>-<rev>.json/.md
+# on the `results` branch. A new failure, or a known-open bug's test that starts passing, opens or comments on the
+# "L1 pipeline needs a look" issue here (emails the owner); a standing result doesn't repeat.
+# Nothing here touches the soak instance beyond reading its /version.
+name: FMA L1 pipeline
+
+on:
+  schedule:
+    - cron: "30 8 * * *"   # 04:30 AST, between soak report jobs
+  workflow_dispatch:
+    inputs:
+      rev:
+        description: "optional: test only this fleetdm/fleet revision (sha or branch) instead of rc + main"
+        default: ""
+
+concurrency:
+  group: fma-l1
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # the results branch only
+  issues: write     # the L1 alert
+
+env:
+  TZ: America/Puerto_Rico
+  FLEET_URL: ${{ vars.FLEET_URL }}
+
+jobs:
+  l1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 1   # one results-branch save at a time is simpler; each target takes ~20 min
+      matrix:
+        target: [rc, main]
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - name: Revision under test
+        id: rev
+        run: |
+          if [[ -n "${{ inputs.rev }}" ]]; then
+            [[ "${{ matrix.target }}" == main ]] && { echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; }
+            ref="${{ inputs.rev }}"; ver="$ref"
+          elif [[ "${{ matrix.target }}" == rc ]]; then
+            v=$(curl -fsS "$FLEET_URL/version"); ref=$(jq -r .revision <<<"$v"); ver=$(jq -r .version <<<"$v")
+          else
+            ref=main; ver=main
+          fi
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"; echo "ver=$ver" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.rev.outputs.skip != '1'
+        with: { repository: fleetdm/fleet, ref: "${{ steps.rev.outputs.ref }}", path: fleet }
+      - uses: actions/setup-go@v5
+        if: steps.rev.outputs.skip != '1'
+        with: { go-version-file: fleet/go.mod, cache-dependency-path: fleet/go.sum }
+      - name: Build fleet + fleetctl (API only; no frontend bundle)
+        id: build
+        if: steps.rev.outputs.skip != '1'
+        working-directory: fleet
+        run: |
+          rev=$(git rev-parse HEAD); short=${rev:0:7}
+          mkdir -p assets
+          go run github.com/kevinburke/go-bindata/go-bindata -pkg=bindata -tags full -o=server/bindata/generated.go \
+            frontend/templates/ assets/... server/mail/templates
+          V=github.com/fleetdm/fleet/v4/server/version
+          LDF="-s -w -X $V.appName=fleet -X $V.version=${{ steps.rev.outputs.ver }} -X $V.revision=$rev -X $V.branch=${{ matrix.target }} -X $V.buildDate=$(date -u +%FT%TZ)"
+          mkdir -p ../harness/pipeline/bin
+          CGO_ENABLED=1 go build -tags full,fts5,netgo -ldflags "$LDF" -o ../harness/pipeline/bin/fleet-$short ./cmd/fleet
+          CGO_ENABLED=0 go build -ldflags "${LDF/appName=fleet/appName=fleetctl}" -o ../harness/pipeline/bin/fleetctl-$short ./cmd/fleetctl
+          echo "short=$short" >> "$GITHUB_OUTPUT"
+      - name: MySQL and Redis (the names throwaway.sh expects)
+        if: steps.rev.outputs.skip != '1'
+        run: |
+          sudo apt-get install -y zsh >/dev/null
+          docker run -d --name fleet-mysql-1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_USER=fleet \
+            -e MYSQL_PASSWORD=insecure mysql:8.0.36 --sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES >/dev/null
+          docker run -d --name fleet-redis-1 -p 6379:6379 redis:7.2 >/dev/null
+          for i in $(seq 1 60); do docker exec fleet-mysql-1 mysqladmin -uroot -ptoor ping >/dev/null 2>&1 && break; sleep 2; done
+      - name: Restore state
+        if: steps.rev.outputs.skip != '1'
+        run: ./harness/ci/results.sh restore
+      - name: Throwaway server
+        if: steps.rev.outputs.skip != '1'
+        env:
+          FLEET_DEV_SKIP_S3_CONFIG: "1"   # no MinIO here: Fleet uses its filesystem installer store
+        run: ./harness/pipeline/throwaway.sh up ${{ steps.build.outputs.short }}
+      - name: Suite
+        id: suite
+        if: steps.rev.outputs.skip != '1'
+        working-directory: harness/pipeline
+        run: |
+          set +e
+          PIPE_BUILD=${{ steps.build.outputs.short }} python3 suite.py; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          ls ../results/pipeline-*-${{ steps.build.outputs.short }}.json | tail -1 | sed 's/^/result=/' >> "$GITHUB_OUTPUT"
+          cat ../results/pipeline-*-${{ steps.build.outputs.short }}.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Alert
+        if: steps.rev.outputs.skip != '1' && steps.suite.outputs.result != ''
+        env: { GH_TOKEN: "${{ github.token }}" }
+        working-directory: harness
+        run: python3 ci/l1_alert.py "pipeline/${{ steps.suite.outputs.result }}" ${{ matrix.target }}
+      - name: Save results
+        if: always() && steps.rev.outputs.skip != '1'
+        working-directory: harness
+        run: ./ci/results.sh save "l1 ${{ matrix.target }} ${{ steps.build.outputs.short }} ${{ github.run_id }}"
+      - name: Server log
+        if: always() && steps.rev.outputs.skip != '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: l1-${{ matrix.target }}-server-log
+          path: harness/pipeline/state/*.log
+          retention-days: 14
+      - name: Fail on a new failure
+        if: steps.suite.outputs.rc != '' && steps.suite.outputs.rc != '0'
+        run: exit 1

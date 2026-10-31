@@ -17,7 +17,7 @@ under 30 seconds. Everything runs on a local throwaway server, never on qa.fleet
      `fleet-bug-retest`, then remove the test from `KNOWN_OPEN` in `suite.py`.
 5. Note the result on the RC's QA ticket: `L1 FMA pipeline: N/11 passed, new failures: none (rev <rev>)`.
 
-The suite exits non-zero only on a new failure, so it can gate a CI job later (task 4.9).
+The suite exits non-zero only on a new failure. It also runs nightly in CI (`.github/workflows/l1-pipeline.yml`) against the soak instance's revision and main; a new failure or a known-open test that starts passing opens or comments on the "L1 pipeline needs a look" issue. Running it by hand is still how to check an RC the day it's cut.
 
 ## What it covers
 

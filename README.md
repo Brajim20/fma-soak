@@ -11,7 +11,7 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 | Layer | What | Runs |
 |---|---|---|
 | L0 | Audit of every manifest in `ee/maintained-apps/outputs` (dead URLs, hashes, versions behind upstream, Windows exists queries vs the name the installer registers), then a Fleet-side confirm of each suspect | daily |
-| L1 | Update-pipeline suite against a throwaway Fleet server built from the release candidate (`pipeline/`) | per release candidate, by hand |
+| L1 | Update-pipeline suite against a throwaway Fleet server (`pipeline/`): the revision the soak instance runs, and fleetdm/fleet main (`.github/workflows/l1-pipeline.yml`) | nightly |
 | L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from a pinned previous version. With the app open: a reinstall over the open app (every cycle), and the upgrade on alternate days | every 6 h |
 | L2 | Patch when closed: Fleet's own patch policy with "patch when closed" on one app a day per platform, over several passes: every attempt while the app is open must be a skip reported as one; after it's closed the patch must land without reopening it | daily |
 | L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host (hours the host was offline don't count) | every 2 h |
