@@ -1,0 +1,49 @@
+{
+ "slug": "firefox/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T09:54:38",
+ "catalog_version": "159.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as None"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "title_id": 13135,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "first_install_request": 400,
+ "first_install_error": "Bad request",
+ "first_present_after_install": true,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": true,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": true,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-10-31T09:55:37",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/firefox_darwin-631-095438.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/firefox_darwin-631-092300.json"
+}
