@@ -1,0 +1,41 @@
+{
+ "slug": "claude/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-10-31T04:48:01",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 4.29.0 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "upgrade over 4.29.0 ended as None"
+  }
+ ],
+ "title_id": 19734,
+ "cached_versions": [
+  "4.29.0",
+  "4.4212.0"
+ ],
+ "active_before": "4.4212.0",
+ "pin_older_status": 200,
+ "active_after_pin": "4.29.0",
+ "old_install_request": 400,
+ "old_install_error": "Bad request",
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "4.4212.0",
+ "upgrade_install_request": 400,
+ "upgrade_install_error": "Bad request",
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": null,
+ "cleanup_uninstall_request": 400,
+ "cleanup_uninstall_error": "Bad request",
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-10-31T04:51:48",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/claude_darwin-631-044801.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/claude_darwin-631-041413.json"
+}
