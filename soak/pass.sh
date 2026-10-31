@@ -14,16 +14,10 @@ cfg() { python3 -c "import json;print(json.load(open('../config.json'))['loop'].
 stamps=../results/loop
 start=$(date +%s)
 deadline=$(( start + $(cfg interval_hours 6) * 3600 - $(cfg end_margin_minutes 20) * 60 ))
-# CI: passes start on a fixed UTC schedule (FMA_SOAK_SCHEDULE_UTC="15 */6", the workflow's cron), and a run started
-# by hand must still end before the next scheduled one, or runs queue up back to back
-if [[ -n $FMA_SOAK_SCHEDULE_UTC ]]; then
-  next=$(python3 -c "
-import datetime as d
-m, h = '$FMA_SOAK_SCHEDULE_UTC'.split(); step = int(h.split('/')[1])
-t = d.datetime.fromtimestamp($start, d.timezone.utc).replace(second=0, microsecond=0) + d.timedelta(minutes=1)
-while not (t.minute == int(m) and t.hour % step == 0): t += d.timedelta(minutes=1)
-print(int(t.timestamp()))")
-  (( next - $(cfg end_margin_minutes 20) * 60 < deadline )) && deadline=$(( next - $(cfg end_margin_minutes 20) * 60 ))
+# CI: each run starts the next when it ends (GitHub's cron is only a backup there), so a pass is a fixed length that
+# fits under the 6 h job limit, with time left for setup, saving and the report
+if [[ -n $FMA_SOAK_PASS_MINUTES ]]; then
+  deadline=$(( start + FMA_SOAK_PASS_MINUTES * 60 - $(cfg end_margin_minutes 20) * 60 ))
 fi
 # fits <minutes>: true if that much time is left before the deadline. Long steps that don't fit wait for a pass that
 # has room (a late scheduled run can start minutes before the next slot); their stamp stays old, so they stay due

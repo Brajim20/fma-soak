@@ -6,22 +6,30 @@
 #   FMA_SOAK_FLEET_ID      the only fleet the harness touches
 #   FMA_SOAK_HOST_DARWIN   macOS soak host ID
 #   FMA_SOAK_HOST_WINDOWS  Windows soak host ID
+#   FMA_SOAK_CHAIN         optional: "off" stops each run from starting the next (the cron backup still runs)
 # Secrets (environment `fma-soak`, so no other workflow can read them):
 #   FMA_SOAK_TOKEN         API-only harness user, Maintainer on that fleet only
 #   FMA_SOAK_UI_EMAIL      optional: Observer on that fleet only, for evidence screenshots. Without it the
 #   FMA_SOAK_UI_PASSWORD   screenshots are recorded as unavailable and the API evidence stands.
 #
+# How runs keep going: GitHub's cron skips and delays runs on a quiet repo by hours, so each soak run starts the next
+# one when it ends (`next` job). The crons are only a backup that restarts the chain if it breaks. The concurrency
+# group allows one running soak run and at most one waiting, so a backup run never doubles up with the chain.
+# Each run: a fixed-length pass on both hosts, a `watch` job beside it (hosts online every 30 min with an issue in
+# this repo as the alert, residents' upstream releases every 2 h, the daily audit when it's due), then the report.
+#
 # State lives on the `results` branch: harness state, run records (output scrubbed of account names) and the
 # daily digests. Screenshots and logs are run artifacts only, kept 30 days.
 #
+# To stop everything: disable the workflow. Cancelling a run also stops the chain (a cancelled run doesn't start the
+# next); the cron backup then restarts it within 6 h unless the workflow is disabled.
 # Never run this and the local launchd loop against the same hosts: both would install on them at once.
 name: FMA soak
 
 on:
   schedule:
-    - cron: "15 */6 * * *"   # soak pass on both hosts
-    - cron: "0 11 * * *"     # catalog audit + confirm (07:00 AST)
-    - cron: "45 */2 * * *"   # watcher: residents' upstream releases (read-only, runs beside a soak pass)
+    - cron: "15 */6 * * *"   # backup: restarts the soak chain if it broke
+    - cron: "0 11 * * *"     # backup: catalog audit (the watch job normally runs it first; it runs once a day)
   workflow_dispatch:
     inputs:
       job:
@@ -30,26 +38,31 @@ on:
         default: soak
 
 concurrency:
-  group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || github.event.schedule == '45 */2 * * *' && 'watcher' || inputs.job || 'soak' }}
+  group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || inputs.job || 'soak' }}
   cancel-in-progress: false   # never kill a pass mid-install; the next one waits
 
 permissions:
   contents: write   # the results branch only
+  actions: write    # the next soak run
+  issues: write     # host-outage alerts
 
 env:
-  TZ: America/Puerto_Rico   # digest dates and pass deadlines in the tester's local time
+  TZ: America/Puerto_Rico   # digest dates in the tester's local time
   FLEET_URL: ${{ vars.FLEET_URL }}
   FMA_SOAK_FLEET_ID: ${{ vars.FMA_SOAK_FLEET_ID }}
   FMA_SOAK_HOST_DARWIN: ${{ vars.FMA_SOAK_HOST_DARWIN }}
   FMA_SOAK_HOST_WINDOWS: ${{ vars.FMA_SOAK_HOST_WINDOWS }}
   FMA_CATALOG_REPO: ${{ github.workspace }}/fleet
+  FMA_SOAK_PASS_MINUTES: 300   # under the 6 h job limit with room for setup, saves and the report
+  FMA_SOAK_AUDIT_ONCE: "1"
+  FMA_SOAK_NO_DIGEST: "1"      # only the report job writes the digest
 
 jobs:
   soak:
     if: github.event.schedule == '15 */6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'soak')
     runs-on: ubuntu-latest
     environment: fma-soak
-    timeout-minutes: 350
+    timeout-minutes: 340
     strategy:
       fail-fast: false
       matrix:
@@ -72,8 +85,7 @@ jobs:
         if: steps.health.outputs.skip != '1'
         working-directory: harness/soak
         env:
-          FMA_SOAK_SCHEDULE_UTC: "15 */6"   # keep in step with the cron above
-          FMA_SOAK_WATCHER_JOB: "1"         # the watcher job checks residents, not the pass
+          FMA_SOAK_WATCHER_JOB: "1"   # the watch job checks residents, not the pass
         run: zsh pass.sh ${{ matrix.platform }}
       - name: Save state and records
         if: always()
@@ -85,6 +97,60 @@ jobs:
           path: |
             harness/results/soak/*/evidence/
             harness/logs/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  watch:
+    # Beside the pass, for as long as it runs. Only reads Fleet and runs live queries (no installs). Owns
+    # results/transitions/, results/state/outages.json and the audit files; the pass skips its own watcher check.
+    if: github.event.schedule == '15 */6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'soak')
+    runs-on: ubuntu-latest
+    environment: fma-soak
+    timeout-minutes: 340
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+        with: { browser: "false" }
+      - run: ./harness/ci/results.sh restore
+      - name: Hosts every 30 min, residents every 2 h, audit when due
+        working-directory: harness/soak
+        run: |
+          set +e   # one failed check must not end the loop
+          end=$(( $(date +%s) + FMA_SOAK_PASS_MINUTES * 60 ))
+          soak_done() {  # both pass jobs finished (a short pass: hosts offline, instance down): stop with them
+            gh run view ${{ github.run_id }} -R ${{ github.repository }} --json jobs \
+              --jq '[.jobs[]|select(.name|startswith("soak"))|.status]|length > 0 and all(. == "completed")' | grep -q true
+          }
+          tick=0
+          while :; do
+            echo "::group::$(date '+%F %T') check $tick"
+            python3 -u hosts.py > "$RUNNER_TEMP/hosts.out" 2>&1; rc=$?
+            cat "$RUNNER_TEMP/hosts.out"
+            ../ci/alert.sh "$RUNNER_TEMP/hosts.out" $rc
+            if (( tick % 4 == 0 )); then
+              for p in darwin windows; do python3 -u watcher.py check --platform $p || true; done
+            fi
+            if (( $(date +%H) >= 7 )) && [[ ! -f ../results/audit-$(date +%F).json ]]; then
+              (cd ../audit && zsh run-daily.sh); tail -5 ../logs/daily-$(date +%F).log || true
+            fi
+            ../ci/results.sh save "watch ${{ github.run_id }} $tick" || true
+            echo "::endgroup::"
+            (( $(date +%s) + 1800 > end )) && break
+            soak_done && { echo "both passes finished: stopping"; break; }
+            for i in $(seq 30); do sleep 60; soak_done && break; done
+            soak_done && { echo "both passes finished: stopping"; break; }
+            tick=$((tick + 1))
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: watch-${{ github.run_id }}
+          path: harness/logs/
           if-no-files-found: ignore
           retention-days: 30
 
@@ -107,11 +173,28 @@ jobs:
         run: python3 sample.py --ledger && python3 digest.py && python3 monthly.py
       - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
 
+  next:
+    # Start the next soak run. Not after a cancel (that's a person stopping it). A run that ended early (instance down,
+    # hosts offline) waits until 30 min after it started, so an outage retries every 30 min instead of spinning.
+    needs: [soak, watch, report]
+    if: >-
+      always() && vars.FMA_SOAK_CHAIN != 'off' &&
+      (needs.soak.result == 'success' || needs.soak.result == 'failure') && needs.watch.result != 'cancelled'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Start the next soak run
+        run: |
+          started=$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json createdAt --jq .createdAt)
+          wait=$(( $(date -d "$started" +%s) + 1800 - $(date +%s) ))
+          (( wait > 0 )) && { echo "run was short: waiting $wait s"; sleep $wait; }
+          gh workflow run fma-soak.yml -R ${{ github.repository }} --ref main -f job=soak
+          echo "next soak run requested"
+
   watcher:
-    # Only reads Fleet and runs live queries (no installs), so it can run while a soak pass is on the hosts. It owns
-    # results/transitions/ and its transition records; the soak pass skips its own check. No digest here: the report
-    # job rebuilds it every pass, and a digest saved from this job could be older than the soak records.
-    if: github.event.schedule == '45 */2 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'watcher')
+    # by hand only, for a one-off resident check; the watch job does this inside every soak run
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'watcher'
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 30
@@ -123,20 +206,16 @@ jobs:
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
-      - name: Check residents
+      - name: Check residents and hosts
         working-directory: harness/soak
         run: |
-          rc=0
-          for p in darwin windows; do python3 -u watcher.py check --platform $p || rc=1; done
-          exit $rc
-      - name: Soak hosts online (fails after 2 h offline, so GitHub emails the owner)
-        if: always()
-        working-directory: harness/soak
-        run: python3 -u hosts.py
+          for p in darwin windows; do python3 -u watcher.py check --platform $p; done
+          python3 -u hosts.py
       - if: always()
         run: ./harness/ci/results.sh save "watcher ${{ github.run_id }}"
 
   audit:
+    # backup for the watch job's daily audit; skips itself when today's already ran
     if: github.event.schedule == '0 11 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'audit')
     runs-on: ubuntu-latest
     environment: fma-soak
@@ -149,7 +228,7 @@ jobs:
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
-      - name: Audit, confirm, names, digest
+      - name: Audit, confirm, names
         working-directory: harness/audit
         env:
           GH_TOKEN: ${{ github.token }}

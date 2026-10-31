@@ -13,7 +13,7 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 | L0 | Audit of every manifest in `ee/maintained-apps/outputs` (dead URLs, hashes, versions behind upstream, Windows exists queries vs the name the installer registers), then a Fleet-side confirm of each suspect | daily |
 | L1 | Update-pipeline suite against a throwaway Fleet server built from the release candidate (`pipeline/`) | per release candidate, by hand |
 | L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from the previous version. Canaries every 12 h, then a shuffled walk of the whole catalog | every 6 h |
-| L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host | every 2 h |
+| L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host (hours the host was offline don't count) | every 2 h |
 
 Failures are grouped by shape, not by app:
 
@@ -38,9 +38,13 @@ Failures are grouped by shape, not by app:
 
 ## Running it on GitHub Actions
 
-`.github/workflows/fma-soak.yml`: a soak pass every 6 h (both hosts side by side, then one digest), the watcher
-every 2 h (read-only, so it runs beside a pass), and the catalog audit at 11:00 UTC. State and results are kept on the `results` branch; screenshots and logs are run
-artifacts (30 days).
+`.github/workflows/fma-soak.yml`: back-to-back soak runs. Each run is a 5 h pass on both hosts side by side, a watch
+job beside it (hosts checked every 30 min, residents every 2 h, the catalog audit once a day), then one digest, and
+it starts the next run when it ends. GitHub's cron skips and delays runs on a quiet repo, so the crons are only a
+backup that restarts the chain if it breaks. A host offline for 2 h opens (or comments on) a "Soak host offline"
+issue here, which emails the repo owner. State and results are kept on the `results` branch; screenshots and logs
+are run artifacts (30 days). Stop everything by disabling the workflow; set the variable `FMA_SOAK_CHAIN=off` to
+keep only the cron.
 
 Settings → Secrets and variables → Actions:
 
