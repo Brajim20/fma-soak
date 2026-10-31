@@ -635,6 +635,9 @@ def scrub(text):
                   r"([A-Za-z0-9._-]+)(?=['\s.:,)]|$)", r"<host>\\<user>", text)
 
 
+_UI = {}  # the UI session token, once per process
+
+
 def ui_session():
     """A UI session for screenshots. CI logs in as the fleet-scoped Observer (FMA_SOAK_UI_EMAIL/PASSWORD) once per
     process; sessions expire, so a fixed token can't be a secret. Locally: FMA_SOAK_UI_TOKEN or a fleetctl context."""
