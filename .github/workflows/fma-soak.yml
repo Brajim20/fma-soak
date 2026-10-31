@@ -170,7 +170,15 @@ jobs:
       - run: ./harness/ci/results.sh restore
       - name: Ledger, digest, monthly draft
         working-directory: harness/soak
+        env:
+          GH_TOKEN: ${{ github.token }}   # context lookups (commits, issues) for new findings
         run: python3 sample.py --ledger && python3 digest.py && python3 monthly.py
+      - name: Announce new findings (an issue here, so it emails the owner)
+        working-directory: harness/soak
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for d in $(date -d yesterday +%F) $(date +%F); do python3 notify.py --date $d; done
       - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
 
   next:

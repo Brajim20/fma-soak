@@ -213,6 +213,8 @@ def digest(date):
                 g["recs"].append(r)
     if not groups:
         L += ["Nothing new today.", ""]
+    import context
+    needs = []
     for shape in sorted(groups, key=lambda s: list(SHAPES).index(s) if s in SHAPES else 99):
         L += [f"### {SHAPES.get(shape, shape)}", ""]
         for app, g in sorted(groups[shape].items()):
@@ -220,7 +222,13 @@ def digest(date):
             retried = "reproduced on retry" if any("reproduced" in str(r["outcome"]) for r in rs) else "not retried"
             n = f" ({len(rs)} runs)" if len(rs) > 1 else ""
             L.append(f"- **{app}**{n}: {'; '.join(g['msgs'])} ({retried}) — {evidence_links(rs[-1])}")
+            # facts for the "is this intended?" check; not a verdict
+            ctx = context.gather(rs[-1]["slug"], shape, rs[-1].get("build"), date)
+            L.append(f"  - context: {context.line(ctx)}")
+            needs.append({"app": app, "shape": shape, "msgs": g["msgs"], "retried": retried, "runs": len(rs),
+                          "record": os.path.relpath(rs[-1]["_path"], WS), "context": context.line(ctx)})
         L.append("")
+    json.dump(needs, open(os.path.join(RES, f"needs-{date}.json"), "w"), indent=1)  # read by notify.py
     if triaged:
         L += ["## Triaged", ""]
         for (app, verdict), t in sorted(triaged.items()):

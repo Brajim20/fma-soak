@@ -80,7 +80,10 @@ python3 digest.py                                 # today's digest → results/d
 ## Reading the digest
 
 `results/digest-<date>.md`. Only **Needs a look** (and any confirm line marked **new, needs a look**) needs
-action. For each item, open its record under `results/soak/<date>/`, then take the first that fits:
+action. Each new item carries a **context** line: the app's manifest, input and scripts, the last commits to it, issues
+that mention it, and the Fleet code behind the failing step at the build it ran on. It's the starting point for
+checking the behavior isn't intended, not a verdict. New items also open (or comment on) a "New FMA soak findings
+<date>" issue in this repo, once per app and failure shape per day, so they reach the owner by email. For each item, open its record under `results/soak/<date>/`, then take the first that fits:
 
 1. **Harness**: the runner judged wrong. Fix it and add a `triage.json` entry with `before` set to the fix time.
 2. **Environment**: caused by the soak setup (Windows on ARM, no nested virtualization, a slow link). Add a
