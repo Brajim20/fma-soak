@@ -129,6 +129,10 @@ jobs:
           rc=0
           for p in darwin windows; do python3 -u watcher.py check --platform $p || rc=1; done
           exit $rc
+      - name: Soak hosts online (fails after 2 h offline, so GitHub emails the owner)
+        if: always()
+        working-directory: harness/soak
+        run: python3 -u hosts.py
       - if: always()
         run: ./harness/ci/results.sh save "watcher ${{ github.run_id }}"
 

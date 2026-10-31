@@ -186,6 +186,10 @@ def digest(date):
                                                    ("pass", "findings", "flaky", "environment", "harness", "skipped", "error") if cats[k]),
          ""]
 
+    import hosts
+    avail = hosts.for_date(date)
+    if avail:  # a quiet day with the hosts down isn't a clean day
+        L += ["## Host availability", "", *avail, ""]
     L += ["## Needs a look", ""]
     # (shape) -> (app) -> {msgs, records}; one line per app and shape, however many rounds or runs hit it
     groups = collections.defaultdict(lambda: collections.defaultdict(lambda: {"msgs": [], "recs": []}))

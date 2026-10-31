@@ -115,6 +115,40 @@ def host_sw(host, title_id):
     return next((s for s in d.get("software", []) if s.get("id") == title_id), None)
 
 
+def host_snapshot(host):
+    st, d = api("GET", f"/hosts/{host}")
+    h = d.get("host") or {}
+    return {"status": h.get("status"), "seen": h.get("seen_time"), "restarted": h.get("last_restarted_at")}
+
+
+def utc(ts):
+    return datetime.datetime.fromisoformat(ts.replace("Z", "+00:00")) if ts else None
+
+
+# times a cycle's polling found its host offline; finish() uses it to tell a disrupted cycle from a real finding
+HOST_OFFLINE_SEEN = []
+
+
+def start_watch(host):
+    HOST_OFFLINE_SEEN.clear()
+    return host_snapshot(host)
+
+
+def disruption(rec):
+    """Why the host can't be trusted for this cycle: it restarted (Fleet's last_restarted_at moved; it's computed from
+    uptime, so allow some jitter) or was seen offline. The VMs' Mac is managed with FileVault, so a restart leaves
+    them down until someone logs in."""
+    a, b = rec.get("host_at_start") or {}, rec.get("host_at_end") or {}
+    why = []
+    if a.get("restarted") and b.get("restarted") and abs((utc(b["restarted"]) - utc(a["restarted"])).total_seconds()) > 300:
+        why.append(f"restarted at {b['restarted']}")
+    if HOST_OFFLINE_SEEN:
+        why.append(f"offline at {HOST_OFFLINE_SEEN[0]}")
+    if b.get("status") and b["status"] != "online":
+        why.append(f"{b['status']} when the cycle ended")
+    return why
+
+
 def wait_status(host, title_id, pending, timeout=STEP_TIMEOUT):
     t0 = time.time()
     # first wait (briefly) for Fleet to show the request as pending; polling straight away can still see the
@@ -124,10 +158,14 @@ def wait_status(host, title_id, pending, timeout=STEP_TIMEOUT):
         if s and s.get("status") == pending:
             break
         time.sleep(5)
+    n = 0
     while time.time() - t0 < timeout:
         s = host_sw(host, title_id)
         if s and s.get("status") != pending:
             return s, round(time.time() - t0)
+        n += 1
+        if n % 20 == 0 and host_snapshot(host)["status"] != "online":  # every ~5 min
+            HOST_OFFLINE_SEEN.append(datetime.datetime.now().isoformat(timespec="seconds"))
         time.sleep(POLL)
     return host_sw(host, title_id), None
 
@@ -237,7 +275,7 @@ def cycle(slug, host):
     v = man["versions"][0]
     exists_q = v["queries"]["exists"]
     rec = {"slug": slug, "host": host, "build": build(), "started": datetime.datetime.now().isoformat(timespec="seconds"),
-           "catalog_version": v["version"], "findings": []}
+           "catalog_version": v["version"], "findings": [], "host_at_start": start_watch(host)}
     def find(shape, msg):
         rec["findings"].append({"shape": shape, "msg": msg})
 
@@ -466,7 +504,7 @@ def update_path(slug, host):
     state = load_state(host)
     v = catalog_manifest(slug)["versions"][0]
     rec = {"slug": slug, "host": host, "build": build(), "kind": "update_path",
-           "started": datetime.datetime.now().isoformat(timespec="seconds"), "findings": []}
+           "started": datetime.datetime.now().isoformat(timespec="seconds"), "findings": [], "host_at_start": start_watch(host)}
     find = lambda shape, msg: rec["findings"].append({"shape": shape, "msg": msg})
     try:
         tid, _ = ensure_title(slug, state, host)
@@ -589,6 +627,14 @@ def evidence(rec, base):
 
 def finish(rec):
     rec["finished"] = datetime.datetime.now().isoformat(timespec="seconds")
+    if rec.get("host_at_start"):
+        rec["host_at_end"] = host_snapshot(rec["host"])
+        why = disruption(rec)
+        if why:
+            rec["host_disruption"] = why
+            # findings from a cycle the host dropped out of aren't evidence; keep them in the record, not the digest
+            if rec["findings"] and not str(rec.get("outcome")).startswith("environment"):
+                rec["outcome"] = "environment: host restarted or went offline during the cycle (" + "; ".join(why) + ")"
     d = os.path.join(WS, "results", "soak", rec["started"][:10])
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, f"{rec['slug'].replace('/', '_')}-{rec['host']}-{rec['started'][11:19].replace(':', '')}.json")
