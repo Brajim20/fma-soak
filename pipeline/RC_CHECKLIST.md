@@ -55,3 +55,23 @@ Last run: 937e874 (4.94.0-rc.2610272345), 2026-10-31: 14/20 passed, the six fail
 
 `throwaway.sh up` creates a new database each time (`fleet_qa_pipe_<timestamp>`) and `down` leaves it in place:
 databases are never dropped. The suite needs a fresh server per run (each test creates its own app once).
+
+## RC gate: regressions only (from 2026-11-01)
+
+What can hold a release is a **regression**: something that works in the latest release and breaks in the RC. Bugs the
+release already has can't block it (customers have them), and catalog bugs ship on their own within the hour, so
+neither belongs on the RC sign-off. Two automatic inputs, both regression-only:
+
+1. **L1** runs nightly against the latest `fleet-v*` release, the soak instance's RC and `main`. The compare job writes
+   `results/l1-regressions-<date>.md` and opens/comments the "L1 regression vs the release" issue when the list changes.
+   `main` regressions show up before the RC is cut.
+2. **Soak** (`soak/rc_report.py`, report job): once qa.fleetdm.com runs the new RC, canaries and the update path rerun
+   in the next pass, and `results/rc-report-<rev>.md` lists app runs that passed on the previous build and fail on
+   the RC (or gained a new failure shape). The "RC regression suspects" issue gets the list when it changes. The
+   verdict isn't complete until the canaries have run on the RC (the report says which haven't).
+
+For each suspect: check whether the failing step is Fleet code or the app's manifest. Fleet code → file against the RC
+(unreleased bug, RC milestone) and tell the release DRI. Manifest → a catalog bug, filed normally; it doesn't block.
+
+Sign-off line for the RC's QA ticket: `FMA RC gate: L1 regressions none (release <tag> vs <rev>); soak regression
+suspects none (<N> app runs compared, canaries all on the RC)`.

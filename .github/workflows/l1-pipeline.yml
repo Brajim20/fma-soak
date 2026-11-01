@@ -1,6 +1,8 @@
-# L1 update-pipeline suite (pipeline/, fleetdm/fleet#55961) every night, against two builds:
-#   rc    the revision the soak instance runs (GET $FLEET_URL/version), so the soak and L1 judge the same build
-#   main  fleetdm/fleet main, so a pipeline regression shows up before it reaches a release candidate
+# L1 update-pipeline suite (pipeline/, fleetdm/fleet#55961) every night, against three builds:
+#   release  the latest fleet-v* release tag: the baseline customers have now
+#   rc       the revision the soak instance runs (GET $FLEET_URL/version), so the soak and L1 judge the same build
+#   main     fleetdm/fleet main, so a pipeline regression shows up before it reaches a release candidate
+# The compare job lists tests that pass on the release and fail on rc or main: regressions, the release blockers.
 # Each target builds fleet + fleetctl at that revision, starts a throwaway server (own MySQL and Redis containers,
 # filesystem installer store) with the local fake FMA origin, runs the suite, and saves pipeline-<date>-<rev>.json/.md
 # on the `results` branch. A new failure, or a known-open bug's test that starts passing, opens or comments on the
@@ -37,7 +39,7 @@ jobs:
       fail-fast: false
       max-parallel: 1   # one results-branch save at a time is simpler; each target takes ~20 min
       matrix:
-        target: [rc, main]
+        target: [release, rc, main]
     steps:
       - uses: actions/checkout@v4
         with: { path: harness }
@@ -45,8 +47,11 @@ jobs:
         id: rev
         run: |
           if [[ -n "${{ inputs.rev }}" ]]; then
-            [[ "${{ matrix.target }}" == main ]] && { echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; }
+            [[ "${{ matrix.target }}" != rc ]] && { echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; }
             ref="${{ inputs.rev }}"; ver="$ref"
+          elif [[ "${{ matrix.target }}" == release ]]; then
+            ref=$(git ls-remote --tags --refs https://github.com/fleetdm/fleet 'fleet-v4.*' | awk -F/ '{print $3}' \
+                  | grep -E '^fleet-v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1); ver=${ref#fleet-v}
           elif [[ "${{ matrix.target }}" == rc ]]; then
             v=$(curl -fsS "$FLEET_URL/version"); ref=$(jq -r .revision <<<"$v"); ver=$(jq -r .version <<<"$v")
           else
@@ -100,10 +105,15 @@ jobs:
           set +e
           PIPE_BUILD=${{ steps.build.outputs.short }} python3 suite.py; rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-          ls ../results/pipeline-*-${{ steps.build.outputs.short }}.json | tail -1 | sed 's/^/result=/' >> "$GITHUB_OUTPUT"
+          res=$(ls ../results/pipeline-*-${{ steps.build.outputs.short }}.json | tail -1)
+          echo "result=$res" >> "$GITHUB_OUTPUT"
+          # the compare job finds each target's latest result here
+          mkdir -p ../results/state && echo "{\"target\": \"${{ matrix.target }}\", \"ref\": \"${{ steps.rev.outputs.ref }}\", \"result\": \"results/${res##*/}\"}" \
+            > ../results/state/l1-latest-${{ matrix.target }}.json
           cat ../results/pipeline-*-${{ steps.build.outputs.short }}.md >> "$GITHUB_STEP_SUMMARY"
       - name: Alert
-        if: steps.rev.outputs.skip != '1' && steps.suite.outputs.result != ''
+        # the release is the baseline: tests it fails (features newer than it) are expected, not alerts
+        if: steps.rev.outputs.skip != '1' && steps.suite.outputs.result != '' && matrix.target != 'release'
         env: { GH_TOKEN: "${{ github.token }}" }
         working-directory: harness
         run: python3 ci/l1_alert.py "pipeline/${{ steps.suite.outputs.result }}" ${{ matrix.target }}
@@ -119,5 +129,21 @@ jobs:
           path: harness/pipeline/state/*.log
           retention-days: 14
       - name: Fail on a new failure
-        if: steps.suite.outputs.rc != '' && steps.suite.outputs.rc != '0'
+        if: steps.suite.outputs.rc != '' && steps.suite.outputs.rc != '0' && matrix.target != 'release'
         run: exit 1
+
+  compare:
+    # Regressions: a test that passes on the release and fails on rc or main. Runs after all three targets saved.
+    needs: l1
+    if: always() && inputs.rev == ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - run: ./harness/ci/results.sh restore
+      - name: Compare with the release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        working-directory: harness
+        run: python3 ci/l1_compare.py >> "$GITHUB_STEP_SUMMARY"
+      - if: always()
+        run: ./harness/ci/results.sh save "l1 compare ${{ github.run_id }}"

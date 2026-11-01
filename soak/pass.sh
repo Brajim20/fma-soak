@@ -49,6 +49,14 @@ if [[ -n $host ]]; then
 fi
 if ! step runner.py --online $plat; then step digest.py; exit $worst; fi
 step runner.py --cleanup $plat   # apps an interrupted cycle left behind
+# RC gate: a new build on the instance makes the canaries and the update path due now, so rc_report.py has them on
+# both builds within a pass or two
+cur_build=$(python3 -c "import runner;print(runner.build())" 2>/dev/null)
+if [[ -n $cur_build && -f $stamps/last-build-$plat && "$(cat $stamps/last-build-$plat)" != "$cur_build" ]]; then
+  echo "--- $(date '+%F %T') new build $cur_build (was $(cat $stamps/last-build-$plat)): canaries and update path due now"
+  rm -f $stamps/last-canaries-$plat $stamps/last-update-$plat
+fi
+[[ -n $cur_build ]] && mkdir -p $stamps && echo "$cur_build" > $stamps/last-build-$plat
 step patch_closed.py tick --platform $plat   # patch when closed (S6): starts one a day, advances an active one
 if due canaries $(cfg canary_every_hours 12) && fits $(cfg canary_budget_minutes 120) canaries; then step runner.py --canaries $plat; date +%s > $stamps/last-canaries-$plat; fi
 if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat; date +%s > $stamps/last-update-$plat; fi
