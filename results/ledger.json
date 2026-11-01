@@ -1,10 +1,10 @@
 {
- "built": "2026-11-01T14:20:40",
+ "built": "2026-11-01T15:20:28",
  "coverage": {
   "darwin": {
-   "covered": 55,
+   "covered": 56,
    "catalog": 984,
-   "percent": 5.6,
+   "percent": 5.7,
    "deck": {
     "round": 1,
     "done": 45,
@@ -24,9 +24,9 @@
    }
   },
   "windows": {
-   "covered": 87,
+   "covered": 89,
    "catalog": 459,
-   "percent": 19.0,
+   "percent": 19.4,
    "deck": {
     "round": 1,
     "done": 75,
@@ -40,7 +40,7 @@
     },
     "635": {
      "round": 1,
-     "done": 11,
+     "done": 12,
      "of": 338
     }
    }
@@ -61,26 +61,32 @@
   },
   "010-editor/windows@629": {
    "lifecycle_runs": 0,
-   "update_runs": 3,
+   "update_runs": 4,
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-10-31T03:42:17",
+    "outcome": "findings",
+    "date": "2026-11-01T15:05:22",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
-    "record": "results/soak/2026-10-31/010-editor_windows-629-034217.json",
-    "findings": []
+    "record": "results/soak/2026-11-01/010-editor_windows-629-150522.json",
+    "findings": [
+     "upgrade to 17.0 with the app open: the install over the open app ended as failed_install",
+     "upgrade over 16.0.4 ended as failed_install"
+    ]
    }
   },
   "1password/darwin@631": {
    "lifecycle_runs": 0,
-   "update_runs": 7,
+   "update_runs": 8,
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-10-31T18:35:11",
+    "outcome": "findings",
+    "date": "2026-10-31T20:37:32",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
-    "record": "results/soak/2026-10-31/1password_darwin-631-183511.json",
-    "findings": []
+    "record": "results/soak/2026-10-31/1password_darwin-631-203732.json",
+    "findings": [
+     "the patch policy Fleet created doesn't match the Deploy option: {'id': 1243, 'name': 'macOS - 1Password up to date', 'patch_when_closed': True, 'continuous_automations_enabled': True, 'install_title': None}",
+     "the app was closed 3 h ago and the patch to 8.12.42 never installed (last attempt: installed, policy fail)"
+    ]
    }
   },
   "1password/windows@629": {
@@ -160,14 +166,14 @@
    }
   },
   "claude/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 3,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-31T16:11:46",
+    "date": "2026-11-01T14:53:42",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.4212.0",
-    "record": "results/soak/2026-10-31/claude_windows-629-161146.json",
+    "record": "results/soak/2026-11-01/claude_windows-629-145342.json",
     "findings": []
    },
    "last_update": {
@@ -235,14 +241,14 @@
    }
   },
   "figma/windows@629": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 3,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T00:58:39",
+    "date": "2026-11-01T14:59:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "126.11.7",
-    "record": "results/soak/2026-11-01/figma_windows-629-005839.json",
+    "record": "results/soak/2026-11-01/figma_windows-629-145946.json",
     "findings": []
    },
    "last_update": {
@@ -255,15 +261,17 @@
    }
   },
   "firefox@developer-edition/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 8,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T16:00:54",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T14:40:26",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.0",
-    "record": "results/soak/2026-10-31/firefox@developer-edition_windows-629-160054.json",
-    "findings": []
+    "record": "results/soak/2026-11-01/firefox@developer-edition_windows-629-144026.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -275,14 +283,14 @@
    }
   },
   "firefox@nightly/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 2,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-31T16:05:01",
+    "date": "2026-11-01T14:46:43",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "161.2610.3021.0",
-    "record": "results/soak/2026-10-31/firefox@nightly_windows-629-160501.json",
+    "catalog_version": "161.2610.3109.0",
+    "record": "results/soak/2026-11-01/firefox@nightly_windows-629-144643.json",
     "findings": []
    },
    "last_update": {
@@ -315,14 +323,14 @@
    }
   },
   "firefox/windows@629": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 3,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-01T14:15:46",
+    "date": "2026-11-01T14:32:53",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "158.0",
-    "record": "results/soak/2026-11-01/firefox_windows-629-141546.json",
+    "record": "results/soak/2026-11-01/firefox_windows-629-143253.json",
     "findings": []
    },
    "last_update": {
@@ -335,15 +343,18 @@
    }
   },
   "fleet-desktop/darwin@631": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T16:00:34",
+    "outcome": "findings",
+    "date": "2026-11-01T14:37:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.5.1",
-    "record": "results/soak/2026-10-31/fleet-desktop_darwin-631-160034.json",
-    "findings": []
+    "record": "results/soak/2026-11-01/fleet-desktop_darwin-631-143755.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -375,14 +386,14 @@
    }
   },
   "google-chrome/windows@629": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-01T14:15:36",
+    "date": "2026-11-01T14:32:43",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.0.8078.48",
-    "record": "results/soak/2026-11-01/google-chrome_windows-629-141536.json",
+    "record": "results/soak/2026-11-01/google-chrome_windows-629-143243.json",
     "findings": []
    }
   },
@@ -427,14 +438,14 @@
    }
   },
   "postman/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 1,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-10-31T16:17:41",
+    "date": "2026-11-01T14:59:35",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.34.4",
-    "record": "results/soak/2026-10-31/postman_windows-629-161741.json",
+    "record": "results/soak/2026-11-01/postman_windows-629-145935.json",
     "findings": []
    },
    "last_update": {
@@ -487,14 +498,14 @@
    }
   },
   "signal/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 3,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-10-31T16:22:19",
+    "date": "2026-11-01T15:04:57",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.33.0",
-    "record": "results/soak/2026-10-31/signal_windows-629-162219.json",
+    "record": "results/soak/2026-11-01/signal_windows-629-150457.json",
     "findings": []
    },
    "last_update": {
@@ -620,14 +631,14 @@
    }
   },
   "zoom/windows@629": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 3,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-10-31T16:22:30",
+    "date": "2026-11-01T15:05:08",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.48556",
-    "record": "results/soak/2026-10-31/zoom_windows-629-162230.json",
+    "record": "results/soak/2026-11-01/zoom_windows-629-150508.json",
     "findings": []
    },
    "last_update": {
@@ -2128,6 +2139,20 @@
     ]
    }
   },
+  "bitwig-studio/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-01T14:38:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.1.4",
+    "record": "results/soak/2026-11-01/bitwig-studio_windows-635-143846.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
   "brave-browser/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2177,6 +2202,33 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "0.83.0",
     "record": "results/soak/2026-11-01/codexbar_darwin-631-transition-0.83.0.json",
+    "findings": []
+   }
+  },
+  "dialpad/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-01T14:31:19",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2609.4.0",
+    "record": "results/soak/2026-11-01/dialpad_darwin-636-143119.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
+   }
+  },
+  "discord/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T14:32:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.0.9266",
+    "record": "results/soak/2026-11-01/discord_windows-635-143223.json",
     "findings": []
    }
   },

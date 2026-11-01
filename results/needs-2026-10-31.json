@@ -127,6 +127,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sequel-ace/darwin.json), [sequel-ace.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/sequel-ace.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-03-11 Add Sequel Ace as a Fleet-maintained app (#41469) \u00b7 issues mentioning it: #57119 (open), #57120 (open)"
  },
  {
+  "app": "1password/darwin@631",
+  "shape": "S4",
+  "msgs": [
+   "the patch policy Fleet created doesn't match the Deploy option: {'id': 1243, 'name': 'macOS - 1Password up to date', 'patch_when_closed': True, 'continuous_automations_enabled': True, 'install_title': None}",
+   "the app was closed 3 h ago and the patch to 8.12.42 never installed (last attempt: installed, policy fail)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "record": "results/soak/2026-10-31/1password_darwin-631-203732.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/1password/darwin.json), [1password.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/1password.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps_auto_update.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps_auto_update.go), [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go) \u00b7 last changes: 2026-10-23 macOS FMA uninstalls: stop when the app won't quit, and work when no one is logged in (#56; 2026-06-01 Revert \"Support default pkg install script when cask lacks pkg artifact and URL override i; 2026-06-01 Support default pkg install script when cask lacks pkg artifact and URL override is used ( \u00b7 issues mentioning it: #56873 (open), #51056 (open), #27305 (open), #40092 (open), #50915 (open)"
+ },
+ {
   "app": "visual-studio-code/windows@629",
   "shape": "S4",
   "msgs": [
