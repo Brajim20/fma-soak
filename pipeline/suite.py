@@ -355,6 +355,30 @@ def test_unsatisfiable_caret_rejected(fid):
     return 400 <= s_caret < 500 and after["version"] == "1.0.0" and after.get("pinned_version") == "^1", det
 
 
+def test_pin_uncached_version_rejected(fid):
+    """Pinning a version that was published upstream but never cached (the catalog keeps only the newest, and it
+    moved past it before the auto-update cron ran) is a clean 4xx naming the problem, not a 500, and the active
+    version and pin stay as they were."""
+    slug = "qa-pinmiss/darwin"
+    publish_and_sync(slug, "QA Pin Miss", "1.0.0", "qaapp-1.zip")
+    tid = add(slug, fid)[1].get("software_title_id")
+    publish_and_sync(slug, "QA Pin Miss", "2.0.0", "qaapp-2.zip")  # no cron: 2.0.0 is never cached
+    publish_and_sync(slug, "QA Pin Miss", "3.0.0", "qaapp-3.zip")
+    run_cron("maintained_apps_auto_update")
+    before = package(tid, fid)
+    cached = [v.get("version") for v in before.get("fleet_maintained_versions") or []]
+    s_pin, d = pin(tid, fid, "2.0.0")
+    after = package(tid, fid)
+    msg = (d or {}).get("message", "") + " " + " ".join(e.get("reason", "") for e in (d or {}).get("errors") or [])
+    det = {"cached": cached, "active_before": before["version"], "pin_status": s_pin, "message": msg.strip(),
+           "active_after": after["version"], "pin_after": after.get("pinned_version")}
+    if "2.0.0" in cached or before["version"] != "3.0.0":
+        det["error"] = "precondition: 2.0.0 got cached or 3.0.0 isn't active, so this isn't the uncached case"
+        return False, det
+    return (400 <= s_pin < 500 and "version is not available" in msg and after["version"] == "3.0.0"
+            and not after.get("pinned_version")), det
+
+
 # ---------- GitOps path (gap 5): fleetctl gitops against the same fake origin; each test has its own fleet ----------
 
 GITOPS_DIR = os.path.join(ST, "gitops")
@@ -551,7 +575,7 @@ KNOWN_OPEN = {"test_hash_mismatch_error": "#55360", "test_download_failure_error
 TESTS = [test_newest_version_active, test_script_only_refresh, test_admin_script_edit_kept,
          test_no_redownload_hashless, test_hash_mismatch_error, test_download_failure_error,
          test_patch_policy_follows_promotion, test_pin_holds_on_new_release, test_pin_moves_patch_policy,
-         test_pinned_script_refresh, test_unsatisfiable_caret_rejected,
+         test_pinned_script_refresh, test_unsatisfiable_caret_rejected, test_pin_uncached_version_rejected,
          test_gitops_adds_fma, test_gitops_reapply_no_redownload, test_gitops_dry_run_no_download,
          test_gitops_duplicate_fma_rejected, test_gitops_caret_unsatisfiable_rejected,
          test_gitops_version_error_names_versions, test_gitops_patch_and_install_policy_same_slug,

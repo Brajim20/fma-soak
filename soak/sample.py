@@ -7,6 +7,10 @@ Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no 
   deck runs out, round N+1 reshuffles with a new seed. Apps new to the catalog are inserted at a random spot.
 - Version changes: ~`changed_share` of picks are apps whose version changed on main in the last 7 days and that
   haven't been cycled since, because a fresh upstream release is where breakage shows up first.
+- Validator blind spots: ~`blind_share` of picks are apps the fleetdm/fleet validator checks least (hashless
+  installers, its per-app version-check fallbacks, special-cased casks; listed by the daily audit as `blind_spots`)
+  that haven't been cycled yet, oldest-covered first after that, since the soak's exists/patched checks are the only
+  real coverage they get.
 - Time-boxed, not counted: it keeps picking until `--until` (pass.sh passes the start of the next pass), so the
   daily count follows real speed. Each pick's choice and result are appended to results/sample/<date>-<plat>.json;
   the random choices are seeded by date, so a day's sequence can be replayed.
@@ -55,6 +59,18 @@ def changed_last_7_days(plat):
     return slugs
 
 
+def blind_spots(plat):
+    """The latest audit's list of apps the validator checks least (audit.py blind_spots); empty if none yet."""
+    for p in sorted(glob.glob(os.path.join(R.WS, "results", "audit-*.json")), reverse=True):
+        try:
+            b = json.load(open(p)).get("blind_spots")
+        except (OSError, ValueError):
+            continue
+        if b is not None:
+            return {s: why for s, why in b.items() if s.endswith("/" + plat)}
+    return {}
+
+
 def excluded(plat):
     residents = {x for xs in R.CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
     return (set(R.CFG["canaries"][plat]) | {k.split("@")[0] for k in R.CFG.get("known_environment", {})} | residents
@@ -88,7 +104,7 @@ def save_deck(deck):
     json.dump(deck, open(os.path.join(SAMPLE_DIR, f"deck-{deck['platform']}.json"), "w"), indent=1)
 
 
-def next_pick(plat, deck, catalog, changed, ledger, rng, host):
+def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
     """(slug, why) or None. A version-changed app is due if it hasn't been cycled since the change window began."""
     week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
     skip = excluded(plat)
@@ -97,6 +113,14 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host):
                      ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") < week_ago)
         if due:
             return rng.choice(due), "version changed in the last 7 days"
+    if blind and rng.random() < R.CFG["random_sample"].get("blind_share", 0.2):
+        # never-cycled first, then the one whose last cycle is oldest; nothing cycled in the last 7 days
+        last = lambda s: ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "")
+        due = [s for s in sorted(blind) if s in set(catalog) and s not in skip and last(s) < week_ago]
+        if due:
+            oldest = min(last(s) for s in due)
+            s = rng.choice([x for x in due if last(x) == oldest])  # seeded, not alphabetical
+            return s, "validator blind spot (" + ", ".join(blind[s]) + ")"
     for _ in range(2):
         for slug in deck["order"]:
             if slug in deck["done"] or slug in skip:
@@ -107,6 +131,10 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host):
             return slug, f"deck round {deck['round']}"
         deck.update(new_round(plat, catalog, deck["round"] + 1))  # every app done this round: reshuffle
     return None
+
+
+def entry_now():
+    return datetime.datetime.now().isoformat(timespec="seconds")
 
 
 def remove_if_added(slug, host, rec):
@@ -131,7 +159,7 @@ def run_sample(plat, until, count, dry):
     os.makedirs(SAMPLE_DIR, exist_ok=True)
     host = R.CFG["hosts"][plat][0]
     catalog = instance_catalog(plat)
-    deck, changed = load_deck(plat, catalog), changed_last_7_days(plat)
+    deck, changed, blind = load_deck(plat, catalog), changed_last_7_days(plat), blind_spots(plat)
     ledger = build_ledger()["apps"]
     today = datetime.date.today().isoformat()
     day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}.json")
@@ -140,7 +168,7 @@ def run_sample(plat, until, count, dry):
     # seeded by the date and how many picks today already has, so a resumed day continues the same sequence
     rng = random.Random(f"{day['day_seed']}-{len(day['picks'])}")
     print(f"sample {plat}: deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
-          f"done; {len(changed)} version changes in 7 days; until {until or '-'}; count {count or '-'}")
+          f"done; {len(changed)} version changes in 7 days; {len(blind)} validator blind spots; until {until or '-'}; count {count or '-'}")
     # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
     # installer downloads), and a pass that overruns delays the next one
     stop = until - datetime.timedelta(minutes=R.CFG["loop"].get("cycle_budget_minutes", 30)) if until else None
@@ -149,7 +177,7 @@ def run_sample(plat, until, count, dry):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
             break
-        pick = next_pick(plat, deck, catalog, changed, ledger, rng, host)
+        pick = next_pick(plat, deck, catalog, changed, ledger, rng, host, blind)
         if not pick:
             break
         slug, why = pick
@@ -157,6 +185,7 @@ def run_sample(plat, until, count, dry):
         if dry:
             print(f"   would pick {slug} ({why})")
             deck["done"].append(slug) if why.startswith("deck") else changed.discard(slug)
+            ledger[f"{slug}@{host}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}}
             continue
         entry = {"slug": slug, "why": why, "started": datetime.datetime.now().isoformat(timespec="seconds")}
         try:

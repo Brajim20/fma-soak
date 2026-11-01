@@ -220,6 +220,69 @@ def hashless(manifests):
 
 # ---------- network checks ----------
 
+def blind_spots(ref, manifests, inputs):
+    """Apps the fleetdm/fleet validator checks least: hashless installers, apps whose version check the validator
+    skips (its per-app fallbacks in cmd/maintained-apps/validate), and cask tokens the Homebrew ingester special-cases.
+    The soak sampler gives these a share of its picks (soak/sample.py), since the soak's own exists/patched checks are
+    the only real coverage they get. Read from the source on every run, so new special cases join automatically."""
+    out = defaultdict(list)
+    for s in hashless(manifests):
+        out[s].append("no_check sha256")
+    def src(path):
+        try:
+            return git("show", f"{ref}:{path}")
+        except subprocess.CalledProcessError:
+            return ""
+    mac_ids = set(re.findall(r'uniqueAppIdentifier == "([^"]+)"', src("cmd/maintained-apps/validate/darwin.go")))
+    win_names = set(re.findall(r'appName == "([^"]+)"', src("cmd/maintained-apps/validate/windows.go")))
+    ing = src("ee/maintained-apps/ingesters/homebrew/ingester.go")
+    tokens = set(re.findall(r'[Tt]oken == "([^"]+)"', ing)) | set(re.findall(r'case "([^"]+)"', ing))
+    for slug, i in inputs.items():
+        if slug.endswith("/darwin") and i.get("unique_identifier") in mac_ids:
+            out[slug].append("validator skips its version check")
+        if slug.endswith("/windows") and (i.get("name") in win_names or i.get("unique_identifier") in win_names):
+            out[slug].append("validator skips its version check")
+        if slug.endswith("/darwin") and i.get("token") in tokens:
+            out[slug].append("ingester special-cases its cask")
+    return {s: r for s, r in sorted(out.items()) if s in manifests}
+
+
+def check_hashless_drift(manifests, sample, rotation_days):
+    """1.9: hashless (`no_check`) installers have no hash anywhere: not in CI, not on the server, which records
+    whatever it downloads. Hash a rotating slice and remember it per app and catalog version
+    (results/state/hashless-hashes.json); the same version serving different bytes later is a finding, since hosts
+    on the "same" version then got different installers. Some vendors re-sign or rebuild in place, so a hit needs
+    a look before it's a bug."""
+    path = os.path.join(HERE, "..", "results", "state", "hashless-hashes.json")
+    seen = json.load(open(path)) if os.path.exists(path) else {}
+    day = datetime.date.today().toordinal() % rotation_days
+    todays = [s for i, s in enumerate(hashless(manifests)) if i % rotation_days == day][:sample]
+    def work(s):
+        v = manifests[s]["versions"][0]
+        h = hashlib.sha256()
+        p = subprocess.Popen(["curl", "-s", "-f", "-L", "-m", "600", v["installer_url"]], stdout=subprocess.PIPE)
+        for chunk in iter(lambda: p.stdout.read(1 << 20), b""):
+            h.update(chunk)
+        return s, v["version"], (h.hexdigest() if p.wait() == 0 else None), p.returncode
+    with ThreadPoolExecutor(4) as ex:
+        got = list(ex.map(work, todays))
+    out, today = [], datetime.date.today().isoformat()
+    for s, ver, sha, rc in got:
+        if not sha:
+            out.append({"slug": s, "kind": "download_failed", "error": f"curl exit {rc}"})
+            continue
+        e = seen.setdefault(s, {}).setdefault(ver, {"sha256": sha, "first_seen": today})
+        e["last_seen"] = today
+        if e["sha256"] != sha:
+            out.append({"slug": s, "kind": "hashless_bytes_changed", "version": ver, "was": e["sha256"], "now": sha,
+                        "first_seen": e["first_seen"]})
+            e.setdefault("changes", []).append({"date": today, "sha256": sha})
+            e["sha256"] = sha
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(seen, open(path, "w"), indent=1)
+    return out, todays
+
+
 def http_json(url, headers=None, timeout=20):
     req = urllib.request.Request(url, headers={**UA, **(headers or {})})
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -382,6 +445,7 @@ def write_report(rep):
                             ("url_unreachable", "1.4 Installer URL unreachable after retry", "#55360"),
                             ("url_blocked_needs_manual_check", "1.4 URL refuses non-browser clients (check by hand)", "#55360"),
                             ("hash_problems", "1.4 SHA-256 mismatch / download failed", "#55360"),
+                            ("hashless_drift", "1.9 Hashless installer changed bytes under the same version", "—"),
                             ("script_missing", "1.5 Install/uninstall script missing", "#51577"),
                             ("version_shape", "1.6 Version shape / order", "#50968"),
                             ("version_went_down", "1.6 Version went down", "#50968 #55546"),
@@ -390,6 +454,7 @@ def write_report(rep):
         v = rep["checks"].get(key)
         L.append(f"| {label} | {'—' if v is None else len(v)} | {esc} |")
     L += ["", f"Hashless (`no_check`) apps: {len(rep['hashless'])} · "
+          f"apps the fleetdm/fleet validator checks least (sampled first by the soak): {len(rep.get('blind_spots', {}))} · "
           f"scripts that hardcode their version (expected, context only): {rep.get('scripts_hardcoding_version', 0)}"
           + (f" · freshness lookups that failed: {len(rep.get('freshness_errors', []))}" if rep['network'] else ""), ""]
     for key, items in rep["checks"].items():
@@ -420,7 +485,7 @@ def main():
     rep = {"run_at": datetime.datetime.now().isoformat(timespec="seconds"), "ref": a.ref, "sha": sha, "network": a.network,
            "counts": {"apps": len(apps), "darwin": sum(x["platform"] == "darwin" for x in apps),
                       "windows": sum(x["platform"] == "windows" for x in apps), "manifests": len(manifests), "inputs": len(inputs)},
-           "hashless": hashless(manifests), "checks": {}}
+           "hashless": hashless(manifests), "blind_spots": blind_spots(a.ref, manifests, inputs), "checks": {}}
     c = rep["checks"]
     c["duplicates"] = check_duplicates(apps)
     c["version_shape"] = check_versions(manifests)
@@ -442,6 +507,8 @@ def main():
             c[k] = [x for x in urls if x["kind"] == k]
         if a.hash_sample:
             c["hash_problems"], rep["hashed_today"] = check_hashes(manifests, a.hash_sample, CFG["audit"]["full_hash_rotation_days"])
+            c["hashless_drift"], rep["hashless_hashed_today"] = check_hashless_drift(
+                manifests, a.hash_sample, CFG["audit"]["full_hash_rotation_days"])
     jp, mp = write_report(rep)
     print(open(mp).read().split("\n## ")[0])
     print(f"\nreport: {mp}\njson:   {jp}")
