@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 37 cycles: pass 14, findings 15, skipped 8
+**1. Runs** — 39 cycles: pass 14, findings 15, skipped 10
 
 **2. Coverage** — darwin 55/984 (5.6%), round 1; windows 87/459 (19.0%), round 1
 
@@ -10,9 +10,12 @@
 
 | Issue | State | Title |
 |---|---|---|
+| #45895 | merged | DMG install script use yes and update scripts |
 | #47037 | merged | Add several Windows FMAs |
+| #49682 | closed | Show a clear error when adding Mozilla Firefox and Firefox ESR to the same fleet |
 | #50077 | open | Windows software with version in name still matches wrong title for apps needing a custom match pattern |
 | #51875 | closed | Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusable and often unremovable |
+| #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
@@ -23,6 +26,10 @@
 | #57008 | open | Fleet-maintained apps: MEGAsync (macOS) patch policy fails on up-to-date hosts |
 | #57025 | open | macOS `ChatGPT.app` (bundle id `com.openai.codex`) is listed as "Codex" in software inventory — search for "ChatGPT" misses it; three different "Codex" titles on the Software page |
 | #57051 | open | Druva InSync (GovCloud) colliding with Druva InSync |
+| #57113 | open | Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always passes |
+| #57114 | open | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
+| #57116 | open | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
+| #57118 | open | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
 
 **4. Build changes**
 

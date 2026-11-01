@@ -6,5 +6,48 @@
   "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/granola_uninstall.ps1"
  ],
  "code": [],
- "github_error": "RuntimeError: gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable. Example:\n  env:\n    GH_TOKEN: ${{ github.token }}"
+ "commits": [
+  {
+   "sha": "b95c2dac12",
+   "date": "2026-10-30",
+   "title": "Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612)"
+  },
+  {
+   "sha": "86722c2dd9",
+   "date": "2026-10-27",
+   "title": "Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629)"
+  },
+  {
+   "sha": "70bd3e94b6",
+   "date": "2026-10-21",
+   "title": "Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 50077,
+   "state": "open",
+   "title": "Windows software with version in name still matches wrong title for apps needing a custom "
+  },
+  {
+   "number": 50212,
+   "state": "closed",
+   "title": "Windows: per-user Fleet-maintained apps install into the SYSTEM profile, and uninstall the"
+  },
+  {
+   "number": 48248,
+   "state": "open",
+   "title": "Windows FMA patch policies don't distinguish per-user vs per-machine install scope, leavin"
+  },
+  {
+   "number": 44406,
+   "state": "closed",
+   "title": "Windows software with version in name matches to wrong title"
+  },
+  {
+   "number": 51875,
+   "state": "closed",
+   "title": "Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusa"
+  }
+ ]
 }
