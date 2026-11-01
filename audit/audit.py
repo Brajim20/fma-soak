@@ -136,6 +136,28 @@ def check_bundle_collisions(manifests):
     return [{"bundle_identifier": b, "slugs": sorted(s)} for b, s in sorted(by_bundle.items()) if len(s) > 1]
 
 
+def check_shared_installers(manifests):
+    """1.10: two FMAs on the same platform whose installers are the same bytes (same SHA-256) or the same URL.
+    A fleet that adds both gets two installers with one hash, and every GitOps run that touches that hash then
+    fails ("cannot have multiple installers with the same hash ... on one team"), in that fleet and any other fleet
+    using the same installer. Product keeps the error on purpose (#42446), so the catalog must never ship such a pair:
+    Word/Excel/PowerPoint sharing the Office installer is how customers got stuck."""
+    groups = defaultdict(list)
+    for s, m in manifests.items():
+        v = (m.get("versions") or [{}])[0]
+        plat = s.rsplit("/", 1)[1]
+        if v.get("sha256") not in ("no_check", "", None):
+            groups[(plat, "sha256", v["sha256"])].append(s)
+        if v.get("installer_url"):
+            groups[(plat, "url", v["installer_url"])].append(s)
+    out, seen = [], set()
+    for (plat, kind, key), slugs in sorted(groups.items()):
+        if len(slugs) > 1 and tuple(sorted(slugs)) not in seen:
+            seen.add(tuple(sorted(slugs)))
+            out.append({"kind": "shared_installer", "platform": plat, "by": kind, "key": key, "slugs": sorted(slugs)})
+    return out
+
+
 def check_versions(manifests):
     """1.6: version shape and ordering inside each manifest."""
     out = []
@@ -450,7 +472,8 @@ def write_report(rep):
                             ("version_shape", "1.6 Version shape / order", "#50968"),
                             ("version_went_down", "1.6 Version went down", "#50968 #55546"),
                             ("windows_user_scope", "1.7 Windows user-scope installers", "#50857 #51138"),
-                            ("bundle_collisions", "1.8 macOS apps detecting the same bundle ID", "#51299 #57051")]:
+                            ("bundle_collisions", "1.8 macOS apps detecting the same bundle ID", "#51299 #57051"),
+                            ("shared_installers", "1.10 FMAs sharing one installer (breaks GitOps for fleets with both)", "#42446")]:
         v = rep["checks"].get(key)
         L.append(f"| {label} | {'—' if v is None else len(v)} | {esc} |")
     L += ["", f"Hashless (`no_check`) apps: {len(rep['hashless'])} · "
@@ -497,6 +520,7 @@ def main():
     rep["scripts_hardcoding_version"] = len([x for x in sf if "hardcodes" in x["kind"]])
     c["windows_user_scope"] = check_windows_scope(inputs)
     c["bundle_collisions"] = check_bundle_collisions(manifests)
+    c["shared_installers"] = check_shared_installers(manifests)
     c["frozen_inputs"] = check_frozen(a.ref, inputs)
     c["missing_manifest"] = [{"slug": x["slug"]} for x in apps if x["slug"] not in manifests]
     if a.network:
