@@ -1,0 +1,87 @@
+{
+ "slug": "zettlr/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-01T04:35:02",
+ "catalog_version": "4.9.0",
+ "findings": [
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-01T08:34:53Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 23930,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.9.0"
+ ],
+ "package_version": "4.9.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Zettlr"
+  ],
+  "versions": [
+   "4.9.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Zettlr\\Uninstall Zettlr.exe\nUninstall args: /S _?=C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Zettlr\nError: This command cannot be run due to the error: The system cannot find the file specified.\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Zettlr\\Uninstall Zettlr.exe\nUninstall args: /S _?=C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Zettlr\nError: This command cannot be run due to the error: The system cannot find the file specified.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-01T04:39:53",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-01T08:39:47Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-01/evidence/zettlr_windows-629-043502-library.png",
+  "inventory": "results/soak/2026-11-01/evidence/zettlr_windows-629-043502-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/zettlr_windows-629-043502.json"
+}

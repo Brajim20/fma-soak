@@ -1,0 +1,109 @@
+{
+ "slug": "brave-browser/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-01T01:16:00",
+ "catalog_version": "155.1.97.56",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-01T05:15:51Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 18243,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 304,
+ "first_install_output_tail": "Installing software...\nFailed\nInstalling Brave for <host>\\<user>\nInstall exit code: 2147748098\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 258,
+ "first_uninstall_output_tail": "Removing Brave (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\BraveSoftware Brave-Browser)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\156.1.98.63\\Installer\\setup.exe --uninstall --force-uninstall\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 19\nBrave removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Brave for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1492",
+   "3380",
+   "4232",
+   "4344",
+   "5904",
+   "7244",
+   "9188",
+   "9656"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 76,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Brave for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1492",
+   "3380",
+   "4232",
+   "5904",
+   "7244",
+   "7744",
+   "9188",
+   "9320",
+   "9656"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 15,
+ "second_uninstall_output_tail": "Removing Brave (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\BraveSoftware Brave-Browser)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\155.1.97.56\\Installer\\setup.exe --uninstall --force-uninstall\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 19\nBrave removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-01T01:31:18",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-01T05:31:08Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-01/evidence/brave-browser_windows-629-011600-library.png",
+  "inventory": "results/soak/2026-11-01/evidence/brave-browser_windows-629-011600-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/brave-browser_windows-629-011600.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/brave-browser_windows-629-010836.json",
+ "scenario": "second explorer.exe (#51127)"
+}
