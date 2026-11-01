@@ -19,6 +19,16 @@ Escapes covered:
   test_pin_moves_patch_policy    #49474 pinning an older version rewrites the patch policy for it
   test_pinned_script_refresh     #53009 a pinned app still gets script fixes (fails today)
   test_unsatisfiable_caret_rejected  #53008 a caret pin nothing satisfies is rejected (fails today)
+GitOps path (fleetctl gitops, each test in its own fleet):
+  test_gitops_adds_fma               #42260 an FMA in a fleet file is added at the catalog version
+  test_gitops_reapply_no_redownload  #52773 an unchanged re-run downloads and deletes nothing
+  test_gitops_dry_run_no_download    #54535 --dry-run downloads nothing and creates nothing
+  test_gitops_duplicate_fma_rejected #56507 the same FMA twice in one fleet is an error (fails today)
+  test_gitops_caret_unsatisfiable_rejected  #44542 an unsatisfiable caret fails the run cleanly, no panic
+  test_gitops_version_error_names_versions  #56508 that error points to Actions > Versions (fails today)
+  test_gitops_patch_and_install_policy_same_slug  #43623 #45987 both policies apply; re-run clean
+  test_gitops_swap_same_bundle_id    #55140 swapping same-bundle-ID FMAs never leaks "sql: no rows"
+  test_generate_gitops_roundtrip     #50694 #41390 #43770 exported fleet file applies back unchanged
 """
 import datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request, uuid
 
@@ -345,15 +355,207 @@ def test_unsatisfiable_caret_rejected(fid):
     return 400 <= s_caret < 500 and after["version"] == "1.0.0" and after.get("pinned_version") == "^1", det
 
 
+# ---------- GitOps path (gap 5): fleetctl gitops against the same fake origin; each test has its own fleet ----------
+
+GITOPS_DIR = os.path.join(ST, "gitops")
+
+
+def unique_fixture(name):
+    """A small zip with bytes no other test uses. GitOps looks installers up by hash across every fleet and fails if
+    any one fleet has two active installers with that hash (software_installers.go, "cannot have multiple installers
+    with the same hash ... on one team"); the API tests above leave several fixtures sharing qaapp-*.zip in their
+    fleet, so GitOps tests get their own bytes."""
+    import zipfile
+    os.makedirs(os.path.join(ST, "fixtures"), exist_ok=True)
+    p = os.path.join(ST, "fixtures", f"{name}.zip")
+    with zipfile.ZipFile(p, "w") as z:
+        z.writestr("payload", os.urandom(2048))
+    return p
+
+
+def gitops(fleet, body, *extra):
+    """Apply a fleet file (`name: <fleet>` + body) with fleetctl gitops. Returns (exit code, output)."""
+    os.makedirs(GITOPS_DIR, exist_ok=True)
+    p = os.path.join(GITOPS_DIR, f"{fleet}.yml")
+    open(p, "w").write(f"name: {fleet}\n" + body)
+    r = subprocess.run([CTL, "gitops", "--config", CTL_CFG, "-f", p, *extra], capture_output=True, text=True, timeout=900)
+    return r.returncode, r.stdout + r.stderr
+
+
+def fma_yaml(*entries):
+    return "software:\n  fleet_maintained_apps:\n" + "".join(
+        f"    - slug: {slug}\n" + "".join(f"      {k}: {v}\n" for k, v in extra.items()) for slug, extra in entries)
+
+
+def fleet_by_name(name):
+    path = "/fleets" if FP == "fleet_id" else "/teams"
+    d = api("GET", f"{path}?per_page=200")[1]
+    return next((t["id"] for t in d.get("fleets", d.get("teams", [])) if t["name"] == name), None)
+
+
+def title_in(fid, slug):
+    rows = api("GET", f"/software/fleet_maintained_apps?{FP}={fid}&per_page=500")[1].get("fleet_maintained_apps", [])
+    return next((r.get("software_title_id") for r in rows if r["slug"] == slug), None)
+
+
+def installer_gets(fname):
+    return len([h for h in ORIGIN.hits() if h["file"] == fname and h["method"] == "GET"])
+
+
+def last_line(out):
+    return (out.strip().splitlines() or [""])[-1][:200]
+
+
+def test_gitops_adds_fma(fid):
+    """#42260: an FMA listed in a fleet file is added to that fleet at the catalog version."""
+    publish_and_sync("qa-g-add/darwin", "QA G Add", "1.0.0", unique_fixture("qa-g-add"))
+    rc, out = gitops("qa-g-add", fma_yaml(("qa-g-add/darwin", {})))
+    gf = fleet_by_name("qa-g-add")
+    tid = gf and title_in(gf, "qa-g-add/darwin")
+    ver = tid and package(tid, gf)["version"]
+    return rc == 0 and ver == "1.0.0", {"rc": rc, "fleet": gf, "title": tid, "version": ver, "last": last_line(out)}
+
+
+def test_gitops_reapply_no_redownload(fid):
+    """#52773 (and the #55539 symptom): an unchanged second run downloads nothing and deletes nothing."""
+    publish_and_sync("qa-g-re/darwin", "QA G Re", "1.0.0", unique_fixture("qa-g-re"))
+    y = fma_yaml(("qa-g-re/darwin", {}))
+    rc1, _ = gitops("qa-g-re", y)
+    ORIGIN.reset_hits()
+    rc2, out = gitops("qa-g-re", y)
+    deleted = [l for l in out.splitlines() if re.search(r"delet|remov", l, re.I) and "icons" not in l]
+    det = {"rc": [rc1, rc2], "installer_GETs_on_rerun": installer_gets("qa-g-re.zip"), "deleted_lines": deleted}
+    return rc1 == rc2 == 0 and det["installer_GETs_on_rerun"] == 0 and not deleted, det
+
+
+def test_gitops_dry_run_no_download(fid):
+    """#54535: --dry-run validates without downloading installers or adding anything."""
+    publish_and_sync("qa-g-dry/darwin", "QA G Dry", "1.0.0", unique_fixture("qa-g-dry"))
+    ORIGIN.reset_hits()
+    rc, out = gitops("qa-g-dry", fma_yaml(("qa-g-dry/darwin", {})), "--dry-run")
+    gf = fleet_by_name("qa-g-dry")
+    det = {"rc": rc, "installer_GETs": installer_gets("qa-g-dry.zip"), "fleet_created": gf, "last": last_line(out)}
+    return rc == 0 and det["installer_GETs"] == 0 and not gf, det
+
+
+def test_gitops_duplicate_fma_rejected(fid):
+    """#56507: the same FMA listed twice in one fleet is an error, not "the last entry's settings silently win"."""
+    publish_and_sync("qa-g-dup/darwin", "QA G Dup", "1.0.0", unique_fixture("qa-g-dup"))
+    rc, out = gitops("qa-g-dup", fma_yaml(("qa-g-dup/darwin", {"self_service": "true"}), ("qa-g-dup/darwin", {"self_service": "false"})))
+    return rc != 0, {"rc": rc, "last": last_line(out)}
+
+
+def caret_fixture():
+    publish_and_sync("qa-g-caret/darwin", "QA G Caret", "1.0.0", unique_fixture("qa-g-caret"))
+    return gitops("qa-g-caret", fma_yaml(("qa-g-caret/darwin", {"version": '"^9"'})))
+
+
+def test_gitops_caret_unsatisfiable_rejected(fid):
+    """#44542 (server panic) / #53008: a caret pin no version satisfies fails the run cleanly; the server stays up."""
+    rc, out = caret_fixture()
+    alive = urllib.request.urlopen("http://localhost:8120/healthz", timeout=10).status == 200
+    return rc != 0 and alive and "panic" not in out.lower(), {"rc": rc, "server_alive": alive, "last": last_line(out)}
+
+
+def test_gitops_version_error_names_versions(fid):
+    """#56508: that error tells the admin where versions are listed: Actions > Versions, not Actions > Edit software."""
+    rc, out = gitops("qa-g-caret", fma_yaml(("qa-g-caret/darwin", {"version": '"^9"'})))
+    return "Actions > Versions" in out, {"rc": rc, "last": last_line(out)}
+
+
+def test_gitops_patch_and_install_policy_same_slug(fid):
+    """#43623 #45987: a patch policy and an install policy for the same FMA both apply, and a re-run is clean."""
+    publish_and_sync("qa-g-pol/darwin", "QA G Pol", "1.0.0", unique_fixture("qa-g-pol"), patched=True)
+    body = fma_yaml(("qa-g-pol/darwin", {})) + """policies:
+  - name: qa-g-pol patch
+    type: patch
+    fleet_maintained_app_slug: qa-g-pol/darwin
+    install_software: true
+  - name: qa-g-pol installed
+    platform: darwin
+    query: "SELECT 1 FROM apps WHERE bundle_identifier = 'com.example.qa-g-pol';"
+    install_software:
+      fleet_maintained_app_slug: qa-g-pol/darwin
+"""
+    rc1, out1 = gitops("qa-g-pol", body)
+    rc2, out2 = gitops("qa-g-pol", body)
+    gf = fleet_by_name("qa-g-pol")
+    path = "/fleets" if FP == "fleet_id" else "/teams"
+    pols = {p["name"]: p for p in api("GET", f"{path}/{gf}/policies?per_page=100")[1].get("policies") or []} if gf else {}
+    det = {"rc": [rc1, rc2], "policies": sorted(pols), "last": last_line(out2 if rc1 == 0 else out1)}
+    return rc1 == rc2 == 0 and {"qa-g-pol patch", "qa-g-pol installed"} <= set(pols), det
+
+
+def test_gitops_swap_same_bundle_id(fid):
+    """#55140: replacing an FMA (and its patch policy) with another that has the same bundle identifier either works
+    or fails with a clear error; never "sql: no rows in result set". Didn't reproduce with fixtures on 937e874."""
+    ORIGIN.publish("qa-g-sa/darwin", "QA G Swap A", "1.0.0", unique_fixture("qa-g-sa"), unique_identifier="com.qa.gswap", patched=True)
+    publish_and_sync("qa-g-sb/darwin", "QA G Swap B", "1.0.0", unique_fixture("qa-g-sb"), unique_identifier="com.qa.gswap", patched=True)
+    pol = lambda slug: f"policies:\n  - name: qa-g-swap patch\n    type: patch\n    fleet_maintained_app_slug: {slug}\n"
+    rc1, _ = gitops("qa-g-swap", fma_yaml(("qa-g-sa/darwin", {})) + pol("qa-g-sa/darwin"))
+    rc2, out = gitops("qa-g-swap", fma_yaml(("qa-g-sb/darwin", {})) + pol("qa-g-sb/darwin"))
+    leaky = "no rows in result set" in out or "without software title ID" in out
+    return rc1 == 0 and not leaky, {"rc": [rc1, rc2], "leaky_error": leaky, "last": last_line(out)}
+
+
+def test_generate_gitops_roundtrip(fid):
+    """#50694 #41390 #43770 #39842: generate-gitops exports a fleet with an FMA as a file that applies back cleanly,
+    with the slug (not a hash or an unsupported field) and without changing the title.
+    fleetctl reads FMA manifests from Fleet's public catalog itself (its dev override only works with a --dev
+    server), so this one uses a real slug served by the local origin with the fixture installer."""
+    slug = "google-chrome/darwin"
+    publish_and_sync(slug, "Google Chrome", "1.0.0", unique_fixture("qa-g-exp"), unique_identifier="com.google.Chrome")
+    rc0, _ = gitops("qa-g-exp", fma_yaml((slug, {"self_service": "true"})))
+    gf = fleet_by_name("qa-g-exp")
+    tid = gf and title_in(gf, slug)
+    out_dir = os.path.join(GITOPS_DIR, "export")
+    g = subprocess.run([CTL, "generate-gitops", "--config", CTL_CFG, "--fleet", "qa-g-exp", "--dir", out_dir, "--force",
+                        "--insecure"],  # throwaway server: real enroll secrets, else the export has placeholders that don't apply
+                       capture_output=True, text=True, timeout=300)
+    files = [os.path.join(r, f) for r, _, fs in os.walk(out_dir) for f in fs if f.endswith((".yml", ".yaml"))]
+    fleet_file = next((f for f in files if "qa-g-exp" in open(f).read() and re.search(r"^name:", open(f).read(), re.M)), None)
+    exported = open(fleet_file).read() if fleet_file else ""
+    rc2, out2 = None, ""
+    if fleet_file:
+        # the export keeps `secrets:` even though enroll secrets are excepted from GitOps by default, so its own
+        # output won't apply (#47820, open); drop that block, which isn't what this test is about
+        lines, keep, skip = open(fleet_file).read().splitlines(), [], None
+        for l in lines:
+            ind = len(l) - len(l.lstrip())
+            if skip is not None and l.strip() and (ind < skip or (ind == skip and not l.lstrip().startswith("- "))):
+                skip = None
+            if skip is None and l.strip() == "secrets:":
+                skip = ind
+                continue
+            if skip is None:
+                keep.append(l)
+        open(fleet_file, "w").write("\n".join(keep) + "\n")
+        det_secrets_dropped = len(lines) - len(keep)
+        r = subprocess.run([CTL, "gitops", "--config", CTL_CFG, "-f", fleet_file], capture_output=True, text=True,
+                           cwd=os.path.dirname(fleet_file), timeout=900)
+        rc2, out2 = r.returncode, r.stdout + r.stderr
+    tid_after = gf and title_in(gf, slug)
+    det = {"generate_rc": g.returncode, "generate_err": (g.stderr or "")[-200:], "fleet_file": fleet_file and os.path.relpath(fleet_file, out_dir),
+           "slug_in_export": slug in exported or any(slug in open(f).read() for f in files),
+           "reapply_rc": rc2, "reapply_last": last_line(out2 or ""), "title_same": tid == tid_after,
+           "secrets_lines_dropped_for_47820": det_secrets_dropped if fleet_file else None}
+    return (rc0 == 0 and g.returncode == 0 and det["slug_in_export"] and rc2 == 0 and det["title_same"]), det
+
+
 # Tests that fail by design until an open bug is fixed. On an RC run they read "known open bug", so a new failure
 # stands out; when one starts passing, retest that issue (fleet-bug-retest) and remove it from here.
 KNOWN_OPEN = {"test_hash_mismatch_error": "#55360", "test_download_failure_error": "#56891",
-              "test_pinned_script_refresh": "#53009", "test_unsatisfiable_caret_rejected": "#53008"}
+              "test_pinned_script_refresh": "#53009", "test_unsatisfiable_caret_rejected": "#53008",
+              "test_gitops_duplicate_fma_rejected": "#56507", "test_gitops_version_error_names_versions": "#56508"}
 
 TESTS = [test_newest_version_active, test_script_only_refresh, test_admin_script_edit_kept,
          test_no_redownload_hashless, test_hash_mismatch_error, test_download_failure_error,
          test_patch_policy_follows_promotion, test_pin_holds_on_new_release, test_pin_moves_patch_policy,
-         test_pinned_script_refresh, test_unsatisfiable_caret_rejected]
+         test_pinned_script_refresh, test_unsatisfiable_caret_rejected,
+         test_gitops_adds_fma, test_gitops_reapply_no_redownload, test_gitops_dry_run_no_download,
+         test_gitops_duplicate_fma_rejected, test_gitops_caret_unsatisfiable_rejected,
+         test_gitops_version_error_names_versions, test_gitops_patch_and_install_policy_same_slug,
+         test_gitops_swap_same_bundle_id, test_generate_gitops_roundtrip]
 
 
 def main():

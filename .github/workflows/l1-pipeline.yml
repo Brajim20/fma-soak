@@ -81,7 +81,9 @@ jobs:
           docker run -d --name fleet-mysql-1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_USER=fleet \
             -e MYSQL_PASSWORD=insecure mysql:8.0.36 --sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES >/dev/null
           docker run -d --name fleet-redis-1 -p 6379:6379 redis:7.2 >/dev/null
-          for i in $(seq 1 60); do docker exec fleet-mysql-1 mysqladmin -uroot -ptoor ping >/dev/null 2>&1 && break; sleep 2; done
+          # not `mysqladmin ping`: it answers during first-boot init, before the root password is set (2026-10-31 run)
+          for i in $(seq 1 90); do docker exec fleet-mysql-1 mysql -uroot -ptoor -e "select 1" >/dev/null 2>&1 && break; sleep 2; done
+          sleep 5; docker exec fleet-mysql-1 mysql -uroot -ptoor -e "select 1" >/dev/null
       - name: Restore state
         if: steps.rev.outputs.skip != '1'
         run: ./harness/ci/results.sh restore
