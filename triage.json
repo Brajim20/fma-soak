@@ -211,6 +211,16 @@
   {
    "app": "evernote/darwin",
    "verdict": "filed #57116: catalog says 11.40.3 but installer_url is the 2024 Evernote-10.105.4 dmg (reset by #45895 on 2026-06-01; later bumps changed only version). Patch policy fails on every host."
+  },
+  {
+   "app": "sublime-text/windows",
+   "shape": "S1",
+   "verdict": "filed #57118: installer registers no version, patched query fails on every host (validator skips this app's version check)"
+  },
+  {
+   "app": "sublime-text/windows",
+   "shape": "S6",
+   "verdict": "expected: Inno Setup refuses to install over the running app (exit 5); Fleet's answer is patch-when-closed"
   }
  ]
 }
