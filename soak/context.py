@@ -47,7 +47,10 @@ def gather(slug, shape, build, date):
     base, plat = slug.split("/")
     cache = os.path.join(R.WS, "results", "context", date, f"{base}_{plat}.json")
     if os.path.exists(cache):
-        return json.load(open(cache))
+        c = json.load(open(cache))
+        # a lookup that failed for want of a token (the soak job has none) is retried where there is one
+        if not (c.get("github_error") and os.environ.get("GH_TOKEN")):
+            return c
     src, ingester = INGESTER[plat]
     rev = (re.search(r"\(([0-9a-f]{7,40})\)", build or "") or [None, "main"])[1]
     files = [f"ee/maintained-apps/outputs/{base}/{plat}.json", f"ee/maintained-apps/inputs/{src}/{base}.json"]

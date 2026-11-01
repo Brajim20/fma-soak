@@ -66,5 +66,5 @@ if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 9
 [[ $plat == windows ]] && step scenarios.py explorer2   # #51127 scenario, once a day (4.4)
 # python, not `date -r`: BSD date reads -r as epoch seconds, GNU date (CI runners) as a file to stat
 step sample.py --platform $plat --until "$(python3 -c "import datetime;print(datetime.datetime.fromtimestamp($deadline).isoformat(timespec='seconds'))")"
-step digest.py   # rebuilds today's and yesterday's digest from everything so far
+[[ -z $FMA_SOAK_NO_DIGEST ]] && step digest.py   # rebuilds today's and yesterday's digest (in CI the report job does, with a token)
 exit $worst
