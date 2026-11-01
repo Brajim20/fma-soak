@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-31T20:06:10",
+ "run_at": "2026-10-31T23:34:21",
  "build": "4.94.0-rc.2610272345 (937e87458c)",
  "results": [
   {
@@ -116,13 +116,28 @@
    "pin_after_caret_9": "^9"
   },
   {
+   "test": "test_pin_uncached_version_rejected",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "cached": [
+    "3.0.0",
+    "1.0.0"
+   ],
+   "active_before": "3.0.0",
+   "pin_status": 404,
+   "message": "Not Found specified version is not available. Available versions are listed in the Fleet UI under Actions > Edit software.",
+   "active_after": "3.0.0",
+   "pin_after": null
+  },
+  {
    "test": "test_gitops_adds_fma",
    "passed": true,
    "verdict": "PASS",
    "seconds": 2,
    "rc": 0,
    "fleet": 4,
-   "title": 10,
+   "title": 11,
    "version": "1.0.0",
    "last": "[!] gitops succeeded"
   },
