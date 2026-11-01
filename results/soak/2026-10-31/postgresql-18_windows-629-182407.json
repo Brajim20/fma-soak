@@ -1,0 +1,69 @@
+{
+ "slug": "postgresql-18/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T18:24:07",
+ "catalog_version": "18.6-5",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-10-31T22:24:00Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 23763,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "18.6-5"
+ ],
+ "package_version": "18.6-5",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 168,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\PostgreSQL\\18\\uninstall-postgresql.exe\nUninstall args: --mode unattended\nThe data directory (C:\\Program Files\\PostgreSQL\\18\\data) has not been removed.\r\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 305,
+ "second_install_output_tail": "Installing software...\nFailed\nInstall exit code: 1\n",
+ "second_install_error_markers": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 244,
+ "second_uninstall_output_tail": "Uninstall entry not found\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-31T18:42:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-10-31T22:42:32Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/postgresql-18_windows-629-182407.json"
+}
