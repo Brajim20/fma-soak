@@ -1,0 +1,90 @@
+{
+ "slug": "python-3.13/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T20:56:55",
+ "catalog_version": "3.13.16",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-01T00:56:48Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 23779,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "3.13.16",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Python 3.13.16 (64-bit)",
+   "Python 3.13.16 Add to Path (64-bit)",
+   "Python 3.13.16 Core Interpreter (64-bit)",
+   "Python 3.13.16 Development Libraries (64-bit)",
+   "Python 3.13.16 Documentation (64-bit)",
+   "Python 3.13.16 Executables (64-bit)",
+   "Python 3.13.16 Standard Library (64-bit)",
+   "Python 3.13.16 Tcl/Tk Support (64-bit)",
+   "Python 3.13.16 Test Suite (64-bit)",
+   "Python 3.13.16 pip Bootstrap (64-bit)"
+  ],
+  "versions": [
+   "3.13.16150.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "A7-A89DAFC47CCD})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Test Suite (64-bit)' ({171A67B7-1BE9-4E29-B50A-DF4AFB0CB71F})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Add to Path (64-bit)' ({155F3C93-06D9-4366-A3DD-B8E41AA24281})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Executables (64-bit)' ({4B12AEDD-9EDA-4F3D-BCDF-CC96FEE160E6})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Core Interpreter (64-bit)' ({BEFCA6D5-EC1C-4350-8313-C794A552FFC2})\n  Exit code: 0\nRemoving leftover bundle registration: 'Python 3.13.16 (64-bit)'\nAll Python 3.13 (64-bit) entries removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": " 'Python 3.13.16 Tcl/Tk Support (64-bit)' ({03038380-5226-4E36-80A7-A89DAFC47CCD})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Test Suite (64-bit)' ({171A67B7-1BE9-4E29-B50A-DF4AFB0CB71F})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Add to Path (64-bit)' ({155F3C93-06D9-4366-A3DD-B8E41AA24281})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Executables (64-bit)' ({4B12AEDD-9EDA-4F3D-BCDF-CC96FEE160E6})\n  Exit code: 0\nRemoving component: 'Python 3.13.16 Core Interpreter (64-bit)' ({BEFCA6D5-EC1C-4350-8313-C794A552FFC2})\n  Exit code: 0\nAll Python 3.13 (64-bit) entries removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-31T21:16:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-01T01:16:24Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-10-31/evidence/python-3.13_windows-629-205655-library.png",
+  "inventory": "results/soak/2026-10-31/evidence/python-3.13_windows-629-205655-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/python-3.13_windows-629-205655.json"
+}

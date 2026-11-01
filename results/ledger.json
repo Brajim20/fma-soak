@@ -1,5 +1,5 @@
 {
- "built": "2026-10-31T20:33:21",
+ "built": "2026-11-01T00:50:55",
  "coverage": {
   "darwin": {
    "covered": 40,
@@ -12,12 +12,12 @@
    }
   },
   "windows": {
-   "covered": 57,
+   "covered": 71,
    "catalog": 459,
-   "percent": 12.4,
+   "percent": 15.5,
    "deck": {
     "round": 1,
-    "done": 54,
+    "done": 68,
     "of": 459
    }
   }
@@ -487,7 +487,7 @@
    }
   },
   "slack/windows@629": {
-   "lifecycle_runs": 0,
+   "lifecycle_runs": 1,
    "update_runs": 3,
    "last_update": {
     "outcome": "pass",
@@ -495,6 +495,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
     "record": "results/soak/2026-10-31/slack_windows-629-044916.json",
+    "findings": []
+   },
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:30:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.53.276",
+    "record": "results/soak/2026-10-31/slack_windows-629-223021.json",
     "findings": []
    }
   },
@@ -1366,6 +1374,20 @@
     "findings": []
    }
   },
+  "azul-zulu-25-jre/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T23:46:58",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "25.38.109",
+    "record": "results/soak/2026-10-31/azul-zulu-25-jre_windows-629-234658.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
   "druva-insync/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1402,6 +1424,18 @@
     "findings": []
    }
   },
+  "enpass/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:34:11",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.12.6.2723",
+    "record": "results/soak/2026-10-31/enpass_windows-629-223411.json",
+    "findings": []
+   }
+  },
   "fortify/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1430,6 +1464,18 @@
     ]
    }
   },
+  "genesys-cloud/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:26:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.56.933",
+    "record": "results/soak/2026-10-31/genesys-cloud_windows-629-222621.json",
+    "findings": []
+   }
+  },
   "gitkraken/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1442,6 +1488,20 @@
     "findings": []
    }
   },
+  "granola/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T22:50:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.722.0",
+    "record": "results/soak/2026-10-31/granola_windows-629-225016.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
+   }
+  },
   "ibm-semeru-jdk-8/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1451,6 +1511,30 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.0.504.5",
     "record": "results/soak/2026-10-31/ibm-semeru-jdk-8_windows-629-182121.json",
+    "findings": []
+   }
+  },
+  "imageglass/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:57:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.906.0",
+    "record": "results/soak/2026-10-31/imageglass_windows-629-225756.json",
+    "findings": []
+   }
+  },
+  "insomnia/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:02:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "13.4.0",
+    "record": "results/soak/2026-10-31/insomnia_windows-629-220206.json",
     "findings": []
    }
   },
@@ -1488,6 +1572,20 @@
     "catalog_version": "3.7.22",
     "record": "results/soak/2026-10-31/joplin_windows-629-090434.json",
     "findings": []
+   }
+  },
+  "julia-app/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T23:15:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.13.3",
+    "record": "results/soak/2026-10-31/julia-app_windows-629-231548.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
    }
   },
   "keepassxc/windows@629": {
@@ -1650,6 +1748,20 @@
     "findings": []
    }
   },
+  "python-3.13/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T21:16:39",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.13.16",
+    "record": "results/soak/2026-10-31/python-3.13_windows-629-211639.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
   "qgis@ltr/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -1682,6 +1794,18 @@
     ]
    }
   },
+  "sonicwall-netextender/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:37:31",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.3.5",
+    "record": "results/soak/2026-10-31/sonicwall-netextender_windows-629-223731.json",
+    "findings": []
+   }
+  },
   "spokenly/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 1,
@@ -1700,6 +1824,36 @@
     "catalog_version": "2.34.4",
     "record": "results/soak/2026-10-31/spokenly_darwin-631-transition-2.34.4.json",
     "findings": []
+   }
+  },
+  "sublime-text/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T21:49:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.0.0.421500",
+    "record": "results/soak/2026-10-31/sublime-text_windows-629-214937.json",
+    "findings": [
+     "patched query fails right after installing 4.0.0.421500: the patch policy would flag an up-to-date host",
+     "inventory [''] is lower than the installed package 4.0.0.421500 (#51377 shape: the patch policy can't pass)",
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
+   }
+  },
+  "termius/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T22:17:25",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.3.0",
+    "record": "results/soak/2026-10-31/termius_windows-629-221725.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    }
   },
   "tower/windows@629": {
@@ -1756,6 +1910,32 @@
     "catalog_version": "10.0.7",
     "record": "results/soak/2026-10-31/zotero_windows-629-195814.json",
     "findings": []
+   }
+  },
+  "certify-the-web/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T00:05:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.4.0",
+    "record": "results/soak/2026-11-01/certify-the-web_windows-629-000537.json",
+    "findings": []
+   }
+  },
+  "microsoft-dotnet-runtime-10/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T00:30:18",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.14",
+    "record": "results/soak/2026-11-01/microsoft-dotnet-runtime-10_windows-629-003018.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
    }
   }
  }

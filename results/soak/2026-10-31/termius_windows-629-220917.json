@@ -1,0 +1,113 @@
+{
+ "slug": "termius/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-10-31T22:09:17",
+ "catalog_version": "10.3.0",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-01T02:09:12Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 23800,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Termius for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "10.3.0"
+ ],
+ "package_version": "10.3.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Termius 10.3.0"
+  ],
+  "versions": [
+   "10.3.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Removing 'Termius 10.3.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\4f53adaa-a4b2-50c1-b605-e304e4d14011)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Programs\\Termius\\Uninstall Termius.exe\n  Uninstall args: /currentuser /S\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nTermius removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Termius for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1196",
+   "1200",
+   "2380",
+   "3240",
+   "4356",
+   "5448",
+   "6592"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Termius for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "4156",
+   "4556",
+   "4680",
+   "4756",
+   "5516",
+   "7364",
+   "8644"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "0\r",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing 'Termius 10.3.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\4f53adaa-a4b2-50c1-b605-e304e4d14011)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Programs\\Termius\\Uninstall Termius.exe\n  Uninstall args: /currentuser /S\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nTermius removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-10-31T22:17:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-01T02:17:12Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-10-31/evidence/termius_windows-629-220917-library.png",
+  "inventory": "results/soak/2026-10-31/evidence/termius_windows-629-220917-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/termius_windows-629-220917.json"
+}
