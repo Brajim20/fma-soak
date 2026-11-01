@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-01T01:38:03",
+ "run_at": "2026-11-01T11:25:26",
  "build": "4.94.0 (7dcab65fcd)",
  "results": [
   {
@@ -52,7 +52,7 @@
    "verdict": "KNOWN #56891",
    "seconds": 1,
    "status": 408,
-   "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host",
+   "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.100:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.100:53: no such host",
    "problems": [
     "raw network/Go error in the message"
    ]
@@ -192,7 +192,7 @@
    "test": "test_gitops_patch_and_install_policy_same_slug",
    "passed": true,
    "verdict": "PASS",
-   "seconds": 4,
+   "seconds": 3,
    "rc": [
     0,
     0
@@ -207,7 +207,7 @@
    "test": "test_gitops_swap_same_bundle_id",
    "passed": true,
    "verdict": "PASS",
-   "seconds": 4,
+   "seconds": 3,
    "rc": [
     0,
     0

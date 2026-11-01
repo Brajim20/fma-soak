@@ -9,7 +9,7 @@ Build: 4.94.0 (7dcab65fcd)
 | test_admin_script_edit_kept | ✅ PASS | {"edit_status": 200, "install_script": "#!/bin/sh\necho admin edit"} |
 | test_no_redownload_hashless | ✅ PASS | {"installer_GETs_over_2_passes": 0} |
 | test_hash_mismatch_error | ⏳ KNOWN #55360 | {"status": 500, "message": "mismatch in maintained app SHA256 hash mismatch in maintained app SHA256 hash", "problems": ["status 500, expected a 4xx"]} |
-| test_download_failure_error | ⏳ KNOWN #56891 | {"status": 408, "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such |
+| test_download_failure_error | ⏳ KNOWN #56891 | {"status": 408, "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.100:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.100:53: no su |
 | test_patch_policy_follows_promotion | ✅ PASS | {"active": "2.0.0", "query_v1_has_1.0.0": true, "query_now_has_2.0.0": true, "query_still_has_1.0.0": false, "install_automation_title": true, "host_reported":  |
 | test_pin_holds_on_new_release | ✅ PASS | {"pin_status": 200, "active_after_pin": "1.0.0", "active_after_release": "1.0.0", "pin_after_release": "1.0.0", "latest_status": 200, "active_after_latest": "3. |
 | test_pin_moves_patch_policy | ✅ PASS | {"latest_has_2.0.0": true, "pinned_has_1.0.0": true, "pinned_still_has_2.0.0": false, "back_has_2.0.0": true} |
