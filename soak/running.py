@@ -171,7 +171,8 @@ def close_app(host, t, rec, label):
     if t["plat"] == "windows" and not t.get("exe"):
         return
     r = R.run_script(host, _close_script(t), timeout=300)
-    rec[f"{label}_close"] = (re.search(r"LEFT=(.*)", r.get("output", "")) or [None, r.get("error")])[1]
+    left = (re.search(r"LEFT=(.*)", r.get("output", "")) or [None, r.get("error")])[1]
+    rec[f"{label}_close"] = left.strip() if isinstance(left, str) else left  # Windows output ends lines with \r
 
 
 def processes(host, t):
