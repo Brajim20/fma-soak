@@ -769,11 +769,13 @@ SHOT = os.path.join(HERE, "tools", "shot.mjs")
 def scrub(text):
     """Saved output is meant to be publishable (task 4.9): hide local account names in paths."""
     text = re.sub(r"/Users/(?!Shared/)[^/\s]+", "/Users/<user>", text or "")
-    text = re.sub(r"(?i)(C:\\Users\\)(?!Public\\)[^\\\s]+", r"\1<user>", text)
+    # a profile folder can have spaces ("C:\\Users\\Jane Doe\\..."): everything up to the next separator
+    text = re.sub(r"(?i)(C:\\Users\\)(?!Public\\)[^\\\r\n\"'<>|]+", r"\1<user>", text)
     text = re.sub(r"\buser=[^\s\\'\"]+", "user=<user>", text)   # the #51127 probe's "user=<name>"
     # Windows account names ("HOSTNAME\\user"), which name the soak VM; not built-ins or registry roots
-    return re.sub(r"(?<![\\\w])(?!(?:AUTHORITY|BUILTIN|HKLM|HKCU|HKCR|HKU|HKEY_\w+|NT SERVICE|SYSTEM)\\)([A-Z][A-Z0-9-]{2,14})\\\\?"
-                  r"([A-Za-z0-9._-]+)(?=['\s.:,)]|$)", r"<host>\\<user>", text)
+    # host names can have underscores (NUCBOX_G10) and account names spaces ("Jane Doe")
+    return re.sub(r"(?<![\\\w])(?!(?:AUTHORITY|BUILTIN|HKLM|HKCU|HKCR|HKU|HKEY_\w+|NT SERVICE|SYSTEM)\\)([A-Z][A-Z0-9_-]{2,14})\\\\?"
+                  r"([A-Za-z0-9._-]+(?: [A-Za-z0-9._-]+)*)(?=['\s.:,)]|$)", r"<host>\\<user>", text)
 
 
 _UI = {}  # the UI session token, once per process
