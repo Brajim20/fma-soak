@@ -3,8 +3,9 @@ local run's instance), then environment variables (CI: repository variables). La
 
   FLEET_URL              the Fleet instance, e.g. https://fleet.example.com
   FMA_SOAK_FLEET_ID      the fleet the harness works in (it never touches anything outside it)
-  FMA_SOAK_HOST_DARWIN   host ID of the macOS soak host
-  FMA_SOAK_HOST_WINDOWS  host ID of the Windows soak host
+  FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated; the first is the primary (canaries, update path,
+                         scenarios, patch when closed), the others only take new apps from the coverage sample
+  FMA_SOAK_HOST_WINDOWS  the same for Windows
   FMA_CATALOG_REPO       a fleetdm/fleet checkout (CI: a sparse clone of ee/maintained-apps)
 """
 import json, os
@@ -24,7 +25,7 @@ def load():
         cfg["soak_fleet_id"] = int(env["FMA_SOAK_FLEET_ID"])
     for plat in ("darwin", "windows"):
         if env.get(f"FMA_SOAK_HOST_{plat.upper()}"):
-            cfg.setdefault("hosts", {})[plat] = [int(env[f"FMA_SOAK_HOST_{plat.upper()}"])]
+            cfg.setdefault("hosts", {})[plat] = [int(x) for x in env[f"FMA_SOAK_HOST_{plat.upper()}"].split(",") if x.strip()]
     missing = [k for k in ("instance", "soak_fleet_id", "hosts") if not cfg.get(k)]
     if missing:
         raise SystemExit(f"missing settings {missing}: set them in config.local.json or the environment (see settings.py)")

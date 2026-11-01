@@ -11,6 +11,11 @@ Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no 
   installers, its per-app version-check fallbacks, special-cased casks; listed by the daily audit as `blind_spots`)
   that haven't been cycled yet, oldest-covered first after that, since the soak's exists/patched checks are the only
   real coverage they get.
+- Several hosts on a platform: each app belongs to one host (crc32 of the slug over the hosts that can run it), so
+  hosts never pick the same app. An app recorded as a known environment problem on one host (e.g. x64-only
+  installers on the Windows ARM VM) goes to a host without that problem instead. Canaries and residents stay on the
+  primary (first) host unless the primary can't run them. Each extra host keeps its own deck and day files
+  (deck-<plat>-<host>.json, <date>-<plat>-<host>.json); the primary keeps the original names.
 - Time-boxed, not counted: it keeps picking until `--until` (pass.sh passes the start of the next pass), so the
   daily count follows real speed. Each pick's choice and result are appended to results/sample/<date>-<plat>.json;
   the random choices are seeded by date, so a day's sequence can be replayed.
@@ -26,7 +31,7 @@ last outcome, catalog version, build and date per app and platform, plus coverag
   python3 sample.py --platform darwin --count 5 --dry-run        # show the next picks without running them
   python3 sample.py --ledger                                     # rebuild the ledger and print coverage
 """
-import argparse, datetime, glob, json, os, random, subprocess, sys
+import argparse, datetime, glob, json, os, random, subprocess, sys, zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -71,19 +76,46 @@ def blind_spots(plat):
     return {}
 
 
-def excluded(plat):
+def hosts_for(plat):
+    return R.CFG["hosts"][plat]
+
+
+def known_env_hosts(slug):
+    return {int(k.split("@")[1]) for k in R.CFG.get("known_environment", {}) if k.split("@")[0] == slug and "@" in k}
+
+
+def owner(plat, slug):
+    """The one host on this platform that samples this app, or None if no host can run it."""
+    able = [h for h in hosts_for(plat) if h not in known_env_hosts(slug)]
+    return able[zlib.crc32(slug.encode()) % len(able)] if able else None
+
+
+def shard(plat, catalog, host):
+    return [s for s in catalog if owner(plat, s) == host]
+
+
+def suffix(plat, host):
+    return "" if host == hosts_for(plat)[0] else f"-{host}"
+
+
+def excluded(plat, host=None):
+    host = host or hosts_for(plat)[0]
+    primary = hosts_for(plat)[0]
     residents = {x for xs in R.CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
-    return (set(R.CFG["canaries"][plat]) | {k.split("@")[0] for k in R.CFG.get("known_environment", {})} | residents
-            | R.busy_slugs())
+    # canaries and residents are the primary's; another host takes one only when the primary can't run it
+    held = {s for s in set(R.CFG["canaries"][plat]) | residents if host == primary or primary not in known_env_hosts(s)}
+    return held | {k.split("@")[0] for k in R.CFG.get("known_environment", {}) if k.endswith(f"@{host}")} | R.busy_slugs()
 
 
-def load_deck(plat, catalog):
-    """The shuffled catalog for this round; new catalog apps go in at a random spot, removed ones drop out."""
-    path = os.path.join(SAMPLE_DIR, f"deck-{plat}.json")
+def load_deck(plat, catalog, host=None):
+    """The shuffled catalog (this host's share of it) for this round; new catalog apps go in at a random spot,
+    removed ones (or ones now another host's) drop out."""
+    host = host or hosts_for(plat)[0]
+    path = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, host)}.json")
     if os.path.exists(path):
         deck = json.load(open(path))
     else:
-        deck = new_round(plat, catalog, 1)
+        deck = new_round(plat, catalog, 1, host)
     known = set(deck["order"])
     rng = random.Random(f"{deck['seed']}-{len(known)}")
     for slug in sorted(set(catalog) - known):
@@ -92,22 +124,26 @@ def load_deck(plat, catalog):
     return deck
 
 
-def new_round(plat, catalog, n):
+def new_round(plat, catalog, n, host=None):
+    host = host or hosts_for(plat)[0]
     seed = int(datetime.date.today().strftime("%Y%m%d")) * 100 + n * 10 + (1 if plat == "darwin" else 2)
+    if suffix(plat, host):
+        seed = seed * 1000 + host % 1000
     order = sorted(catalog)
     random.Random(seed).shuffle(order)
-    return {"platform": plat, "round": n, "seed": seed, "started": datetime.date.today().isoformat(),
+    return {"platform": plat, "host": host, "round": n, "seed": seed, "started": datetime.date.today().isoformat(),
             "order": order, "done": []}
 
 
 def save_deck(deck):
-    json.dump(deck, open(os.path.join(SAMPLE_DIR, f"deck-{deck['platform']}.json"), "w"), indent=1)
+    host = deck.get("host") or hosts_for(deck["platform"])[0]
+    json.dump(deck, open(os.path.join(SAMPLE_DIR, f"deck-{deck['platform']}{suffix(deck['platform'], host)}.json"), "w"), indent=1)
 
 
 def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
     """(slug, why) or None. A version-changed app is due if it hasn't been cycled since the change window began."""
     week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
-    skip = excluded(plat)
+    skip = excluded(plat, host)
     if rng.random() < R.CFG["random_sample"].get("changed_share", 0.3):
         due = sorted(s for s in changed if s in set(catalog) and s not in skip and
                      ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") < week_ago)
@@ -129,7 +165,7 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
                 deck["done"].append(slug)  # already cycled this round some other way (canary, manual run)
                 continue
             return slug, f"deck round {deck['round']}"
-        deck.update(new_round(plat, catalog, deck["round"] + 1))  # every app done this round: reshuffle
+        deck.update(new_round(plat, catalog, deck["round"] + 1, host))  # every app done this round: reshuffle
     return None
 
 
@@ -155,19 +191,21 @@ def remove_if_added(slug, host, rec):
     return f"kept: delete returned {st} {d.get('message') if isinstance(d, dict) else ''}"
 
 
-def run_sample(plat, until, count, dry):
+def run_sample(plat, until, count, dry, host=None):
     os.makedirs(SAMPLE_DIR, exist_ok=True)
-    host = R.CFG["hosts"][plat][0]
-    catalog = instance_catalog(plat)
-    deck, changed, blind = load_deck(plat, catalog), changed_last_7_days(plat), blind_spots(plat)
+    host = host or hosts_for(plat)[0]
+    if host not in hosts_for(plat):
+        sys.exit(f"host {host} isn't a {plat} soak host ({hosts_for(plat)})")
+    catalog = shard(plat, instance_catalog(plat), host)
+    deck, changed, blind = load_deck(plat, catalog, host), changed_last_7_days(plat), blind_spots(plat)
     ledger = build_ledger()["apps"]
     today = datetime.date.today().isoformat()
-    day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}.json")
+    day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}{suffix(plat, host)}.json")
     day = json.load(open(day_path)) if os.path.exists(day_path) else {
         "date": today, "platform": plat, "host": host, "day_seed": f"{today}-{plat}", "picks": []}
     # seeded by the date and how many picks today already has, so a resumed day continues the same sequence
     rng = random.Random(f"{day['day_seed']}-{len(day['picks'])}")
-    print(f"sample {plat}: deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
+    print(f"sample {plat} host {host} ({len(catalog)} apps are this host's): deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
           f"done; {len(changed)} version changes in 7 days; {len(blind)} validator blind spots; until {until or '-'}; count {count or '-'}")
     # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
     # installer downloads), and a pass that overruns delays the next one
@@ -228,12 +266,16 @@ def build_ledger(write=False):
     coverage = {}
     for plat, hosts in R.CFG["hosts"].items():
         total = len(instance_catalog(plat)) if write else None
-        n = len([k for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)])
+        # an app counts once, whichever of the platform's hosts covered it
+        n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
         coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None}
-        dp = os.path.join(SAMPLE_DIR, f"deck-{plat}.json")
-        if os.path.exists(dp):
-            dk = json.load(open(dp))
-            coverage[plat]["deck"] = {"round": dk["round"], "done": len(dk["done"]), "of": len(dk["order"])}
+        for h in hosts:
+            dp = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, h)}.json")
+            if os.path.exists(dp):
+                dk = json.load(open(dp))
+                d = {"round": dk["round"], "done": len(dk["done"]), "of": len(dk["order"])}
+                coverage[plat]["deck"] = d if h == hosts[0] else coverage[plat].get("deck")
+                coverage[plat].setdefault("decks", {})[str(h)] = d
     led = {"built": datetime.datetime.now().isoformat(timespec="seconds"), "coverage": coverage, "apps": apps}
     if write:
         json.dump(led, open(LEDGER, "w"), indent=1)
@@ -246,13 +288,14 @@ def main():
     ap.add_argument("--platform", choices=["darwin", "windows"])
     ap.add_argument("--until", type=datetime.datetime.fromisoformat, help="stop picking after this local time")
     ap.add_argument("--count", type=int, help="stop after this many picks")
+    ap.add_argument("--host", type=int, help="a second host on the platform (default: the primary)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ledger", action="store_true")
     a = ap.parse_args()
     if a.ledger:
         build_ledger(write=True)
     elif a.platform and (a.until or a.count):
-        run_sample(a.platform, a.until, a.count, a.dry_run)
+        run_sample(a.platform, a.until, a.count, a.dry_run, a.host)
     else:
         sys.exit(__doc__)
 

@@ -9,7 +9,9 @@
 #   patch closed (S6)  Fleet's patch-when-closed policy over several passes, one app a day per platform
 #   scenario (4.4)     Windows only: second explorer.exe, once a day
 #   digest (4.6)        results/digest-<date>.md, rebuilt every pass
-plat=$1
+# A second host on a platform (pass.sh <platform> <host>) only takes new apps from the coverage sample: canaries,
+# the update path, scenarios and patch when closed stay on the platform's primary (first) host.
+plat=$1 host=$2
 cd "${0:A:h}" || exit 1
 cfg() { python3 -c "import json;print(json.load(open('../config.json'))['loop'].get('$1', $2))"; }
 stamps=../results/loop
@@ -39,6 +41,12 @@ step() {
   return $rc
 }
 # an offline host would collect queued installs that run later, untracked: skip the pass (the digest still runs)
+if [[ -n $host ]]; then
+  step runner.py --online $plat --host $host || exit $worst
+  step runner.py --cleanup $plat --host $host
+  step sample.py --platform $plat --host $host --until "$(python3 -c "import datetime;print(datetime.datetime.fromtimestamp($deadline).isoformat(timespec='seconds'))")"
+  exit $worst
+fi
 if ! step runner.py --online $plat; then step digest.py; exit $worst; fi
 step runner.py --cleanup $plat   # apps an interrupted cycle left behind
 step patch_closed.py tick --platform $plat   # patch when closed (S6): starts one a day, advances an active one

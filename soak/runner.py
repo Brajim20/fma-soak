@@ -871,9 +871,9 @@ def main():
     ap.add_argument("--online", choices=["darwin", "windows"], help="exit 0 once the platform's host is online, 3 if it stays offline")
     a = ap.parse_args()
     if a.online:
-        sys.exit(0 if wait_online(CFG["hosts"][a.online][0]) else 3)
+        sys.exit(0 if wait_online(a.host or CFG["hosts"][a.online][0]) else 3)
     if a.cleanup:
-        cleanup_leftovers(CFG["hosts"][a.cleanup][0])
+        cleanup_leftovers(a.host or CFG["hosts"][a.cleanup][0])
         return
     if a.update_all:
         st, d = api("GET", f"/software/fleet_maintained_apps?fleet_id={FID}&per_page=2000")

@@ -4,8 +4,8 @@
 # Settings (repository variables, Settings → Secrets and variables → Actions → Variables):
 #   FLEET_URL              the Fleet instance
 #   FMA_SOAK_FLEET_ID      the only fleet the harness touches
-#   FMA_SOAK_HOST_DARWIN   macOS soak host ID
-#   FMA_SOAK_HOST_WINDOWS  Windows soak host ID
+#   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated (first = primary; a second one only samples new apps)
+#   FMA_SOAK_HOST_WINDOWS  Windows soak host IDs, the same way
 #   FMA_SOAK_CHAIN         optional: "off" stops each run from starting the next (the cron backup still runs)
 # Secrets (environment `fma-soak`, so no other workflow can read them):
 #   FMA_SOAK_TOKEN         API-only harness user, Maintainer on that fleet only
@@ -66,34 +66,48 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # slot 0 = the platform's primary host (the full pass); slot 1 = a second host, sample only. A slot with no
+        # host in FMA_SOAK_HOST_<PLATFORM> skips itself.
         platform: [darwin, windows]
+        slot: [0, 1]
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
       FMA_SOAK_UI_EMAIL: ${{ secrets.FMA_SOAK_UI_EMAIL }}
       FMA_SOAK_UI_PASSWORD: ${{ secrets.FMA_SOAK_UI_PASSWORD }}
     steps:
+      - name: Host for this slot
+        id: slot
+        env: { HOSTS: "${{ matrix.platform == 'darwin' && vars.FMA_SOAK_HOST_DARWIN || vars.FMA_SOAK_HOST_WINDOWS }}" }
+        run: |
+          h=$(echo "$HOSTS" | tr -d ' ' | cut -d, -f$(( ${{ matrix.slot }} + 1 )) -s)
+          [[ ${{ matrix.slot }} == 0 ]] && h=${HOSTS%%,*}
+          [[ -n $h ]] && echo "host=$h" >> "$GITHUB_OUTPUT" || echo "no host in slot ${{ matrix.slot }}: skipping"
       - uses: actions/checkout@v4
+        if: steps.slot.outputs.host
         with: { path: harness }
       - uses: ./harness/.github/actions/setup
+        if: steps.slot.outputs.host
       - name: Restore state
+        if: steps.slot.outputs.host
         run: ./harness/ci/results.sh restore
       - name: Health (skip the pass if the instance or token is down)
         id: health
+        if: steps.slot.outputs.host
         working-directory: harness/soak
         run: python3 -c "import loop,sys; ok,info=loop.health(); print(info); sys.exit(0 if ok else 78)" || echo "skip=1" >> "$GITHUB_OUTPUT"
       - name: Pass
-        if: steps.health.outputs.skip != '1'
+        if: steps.slot.outputs.host && steps.health.outputs.skip != '1'
         working-directory: harness/soak
         env:
           FMA_SOAK_WATCHER_JOB: "1"   # the watch job checks residents, not the pass
-        run: zsh pass.sh ${{ matrix.platform }}
+        run: zsh pass.sh ${{ matrix.platform }} ${{ matrix.slot != 0 && steps.slot.outputs.host || '' }}
       - name: Save state and records
-        if: always()
-        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} ${{ github.run_id }}"
+        if: always() && steps.slot.outputs.host
+        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} ${{ steps.slot.outputs.host }} ${{ github.run_id }}"
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.slot.outputs.host
         with:
-          name: soak-${{ matrix.platform }}-${{ github.run_id }}
+          name: soak-${{ matrix.platform }}-${{ matrix.slot }}-${{ github.run_id }}
           path: |
             harness/results/soak/*/evidence/
             harness/logs/

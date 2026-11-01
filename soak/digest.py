@@ -177,8 +177,12 @@ def ledger_section():
     out = []
     for plat, c in cov.items():
         line = f"- **{plat}**: {c['covered']}/{c['catalog']} apps cycled ({c['percent']}%)"
-        if c.get("deck"):
-            line += f"; deck round {c['deck']['round']}: {c['deck']['done']}/{c['deck']['of']}"
+        decks = c.get("decks") or ({"": c["deck"]} if c.get("deck") else {})
+        if len(decks) > 1:  # several hosts: each samples its own share of the catalog
+            line += "; " + ", ".join(f"host {h} round {d['round']}: {d['done']}/{d['of']}" for h, d in decks.items())
+        elif decks:
+            d = next(iter(decks.values()))
+            line += f"; deck round {d['round']}: {d['done']}/{d['of']}"
         out.append(line)
     return out
 
