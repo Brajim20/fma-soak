@@ -159,6 +159,54 @@
    "app": "codex-app/darwin",
    "shape": "S5",
    "verdict": "known: ChatGPT.app's bundle ID is com.openai.codex, same as Codex; fleetdm/fleet#57025 (open)"
+  },
+  {
+   "app": "eclipse-temurin-jdk-8/windows",
+   "verdict": "not a collision: every Temurin JDK query pins its major (version LIKE '8.%' / '11.%' / '17.%' / '21.%'); the name-only collision check ignores the version clause (2026-11-01)"
+  },
+  {
+   "app": "eclipse-temurin-jdk-11/windows",
+   "verdict": "not a collision: version LIKE '11.%' keeps it to JDK 11 (see eclipse-temurin-jdk-8/windows)"
+  },
+  {
+   "app": "eclipse-temurin-jdk-17/windows",
+   "verdict": "not a collision: version LIKE '17.%' keeps it to JDK 17 (see eclipse-temurin-jdk-8/windows)"
+  },
+  {
+   "app": "eclipse-temurin-jdk-21/windows",
+   "verdict": "not a collision: version LIKE '21.%' keeps it to JDK 21 (see eclipse-temurin-jdk-8/windows)"
+  },
+  {
+   "app": "git/windows",
+   "verdict": "not a collision: name LIKE 'Git%' also needs publisher 'The Git Development Community'; Git Extensions (Git Extensions Team) and GitHub Desktop Deployment Tool (GitHub, Inc.) don't have it. winget lists no publisher for them, so the check couldn't tell (2026-11-01)"
+  },
+  {
+   "app": "qgis/windows",
+   "verdict": "not a collision: version NOT LIKE '3.44.%' vs qgis@ltr's version LIKE '3.44.%' are disjoint (2026-11-01)"
+  },
+  {
+   "app": "qgis@ltr/windows",
+   "verdict": "not a collision: version LIKE '3.44.%' (see qgis/windows)"
+  },
+  {
+   "app": "firefox@nightly/windows",
+   "verdict": "by design: x64 and arm64 builds of the same app register the same name; the arm64 variant's query also passes on non-ARM hosts on purpose. Same app, two arch variants (#53050)"
+  },
+  {
+   "app": "firefox@nightly-arm64/windows",
+   "verdict": "by design (see firefox@nightly/windows)"
+  },
+  {
+   "app": "firefox@esr/darwin",
+   "verdict": "by design: same bundle ID as firefox/darwin; Fleet refuses both in one fleet (#49682)"
+  },
+  {
+   "app": "qgis@ltr/darwin",
+   "verdict": "not a collision: path '/Applications/QGIS-LTR.app' vs qgis's '/Applications/QGIS-final-%.app' tells them apart"
+  },
+  {
+   "app": "zoom@government/darwin",
+   "verdict": "by design: same bundle ID as zoom/darwin (vendor); Fleet refuses both in one fleet (#49682 behaviour)"
   }
  ]
 }
