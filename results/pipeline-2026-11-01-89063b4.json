@@ -1,0 +1,233 @@
+{
+ "run_at": "2026-11-01T01:44:15",
+ "build": "main (89063b4408)",
+ "results": [
+  {
+   "test": "test_newest_version_active",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "active": "151.0.7922.109",
+   "versions": [
+    "151.0.7922.109",
+    "151.0.7922.76"
+   ]
+  },
+  {
+   "test": "test_script_only_refresh",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "install_script": "#!/bin/sh\necho install B"
+  },
+  {
+   "test": "test_admin_script_edit_kept",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "edit_status": 200,
+   "install_script": "#!/bin/sh\necho admin edit"
+  },
+  {
+   "test": "test_no_redownload_hashless",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "installer_GETs_over_2_passes": 0
+  },
+  {
+   "test": "test_hash_mismatch_error",
+   "passed": false,
+   "verdict": "KNOWN #55360",
+   "seconds": 1,
+   "status": 500,
+   "message": "mismatch in maintained app SHA256 hash mismatch in maintained app SHA256 hash",
+   "problems": [
+    "status 500, expected a 4xx"
+   ]
+  },
+  {
+   "test": "test_download_failure_error",
+   "passed": false,
+   "verdict": "KNOWN #56891",
+   "seconds": 1,
+   "status": 408,
+   "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host",
+   "problems": [
+    "raw network/Go error in the message"
+   ]
+  },
+  {
+   "test": "test_patch_policy_follows_promotion",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "active": "2.0.0",
+   "query_v1_has_1.0.0": true,
+   "query_now_has_2.0.0": true,
+   "query_still_has_1.0.0": false,
+   "install_automation_title": true,
+   "host_reported": true,
+   "host_before": "fail",
+   "host_after": ""
+  },
+  {
+   "test": "test_pin_holds_on_new_release",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 7,
+   "pin_status": 200,
+   "active_after_pin": "1.0.0",
+   "active_after_release": "1.0.0",
+   "pin_after_release": "1.0.0",
+   "latest_status": 200,
+   "active_after_latest": "3.0.0",
+   "pin_after_latest": null
+  },
+  {
+   "test": "test_pin_moves_patch_policy",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "latest_has_2.0.0": true,
+   "pinned_has_1.0.0": true,
+   "pinned_still_has_2.0.0": false,
+   "back_has_2.0.0": true
+  },
+  {
+   "test": "test_pinned_script_refresh",
+   "passed": false,
+   "verdict": "KNOWN #53009",
+   "seconds": 3,
+   "pin_status": 200,
+   "pinned": "1.0.0",
+   "install_script": "#!/bin/sh\necho install A"
+  },
+  {
+   "test": "test_unsatisfiable_caret_rejected",
+   "passed": false,
+   "verdict": "KNOWN #53008",
+   "seconds": 3,
+   "caret_1_status": 200,
+   "active_after_caret_1": "1.0.0",
+   "literal_9.9.9_status": 404,
+   "caret_9_status": 200,
+   "active_after_caret_9": "2.0.0",
+   "pin_after_caret_9": "^9"
+  },
+  {
+   "test": "test_pin_uncached_version_rejected",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "cached": [
+    "3.0.0",
+    "1.0.0"
+   ],
+   "active_before": "3.0.0",
+   "pin_status": 404,
+   "message": "Not Found specified version is not available. Available versions are listed in the Fleet UI under Actions > Edit software.",
+   "active_after": "3.0.0",
+   "pin_after": null
+  },
+  {
+   "test": "test_gitops_adds_fma",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 2,
+   "rc": 0,
+   "fleet": 4,
+   "title": 11,
+   "version": "1.0.0",
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_reapply_no_redownload",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "installer_GETs_on_rerun": 0,
+   "deleted_lines": []
+  },
+  {
+   "test": "test_gitops_dry_run_no_download",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 0,
+   "installer_GETs": 0,
+   "fleet_created": null,
+   "last": "[!] gitops dry run succeeded"
+  },
+  {
+   "test": "test_gitops_duplicate_fma_rejected",
+   "passed": false,
+   "verdict": "KNOWN #56507",
+   "seconds": 2,
+   "rc": 0,
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_caret_unsatisfiable_rejected",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 1,
+   "server_alive": true,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_version_error_names_versions",
+   "passed": false,
+   "verdict": "KNOWN #56508",
+   "seconds": 0,
+   "rc": 1,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_patch_and_install_policy_same_slug",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "rc": [
+    0,
+    0
+   ],
+   "policies": [
+    "qa-g-pol installed",
+    "qa-g-pol patch"
+   ],
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_swap_same_bundle_id",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "leaky_error": false,
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_generate_gitops_roundtrip",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "generate_rc": 0,
+   "generate_err": "",
+   "fleet_file": "fleets/qa-g-exp.yml",
+   "slug_in_export": true,
+   "reapply_rc": 0,
+   "reapply_last": "[!] gitops succeeded",
+   "title_same": true,
+   "secrets_lines_dropped_for_47820": 2
+  }
+ ]
+}
