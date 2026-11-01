@@ -1,23 +1,23 @@
 {
- "built": "2026-11-01T00:50:55",
+ "built": "2026-11-01T00:52:40",
  "coverage": {
   "darwin": {
-   "covered": 40,
+   "covered": 50,
    "catalog": 984,
-   "percent": 4.1,
+   "percent": 5.1,
    "deck": {
     "round": 1,
-    "done": 30,
+    "done": 41,
     "of": 984
    }
   },
   "windows": {
-   "covered": 71,
+   "covered": 57,
    "catalog": 459,
-   "percent": 15.5,
+   "percent": 12.4,
    "deck": {
     "round": 1,
-    "done": 68,
+    "done": 54,
     "of": 459
    }
   }
@@ -72,7 +72,7 @@
    }
   },
   "8x8-work/darwin@631": {
-   "lifecycle_runs": 0,
+   "lifecycle_runs": 1,
    "update_runs": 4,
    "last_update": {
     "outcome": "pass",
@@ -80,6 +80,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
     "record": "results/soak/2026-10-31/8x8-work_darwin-631-184022.json",
+    "findings": []
+   },
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T21:00:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.38.4",
+    "record": "results/soak/2026-10-31/8x8-work_darwin-631-210016.json",
     "findings": []
    }
   },
@@ -487,7 +495,7 @@
    }
   },
   "slack/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 0,
    "update_runs": 3,
    "last_update": {
     "outcome": "pass",
@@ -495,14 +503,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
     "record": "results/soak/2026-10-31/slack_windows-629-044916.json",
-    "findings": []
-   },
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:30:21",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.53.276",
-    "record": "results/soak/2026-10-31/slack_windows-629-223021.json",
     "findings": []
    }
   },
@@ -1374,18 +1374,28 @@
     "findings": []
    }
   },
-  "azul-zulu-25-jre/windows@629": {
-   "lifecycle_runs": 2,
+  "betterdisplay/darwin@631": {
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T23:46:58",
+    "outcome": "pass",
+    "date": "2026-10-31T21:09:30",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "25.38.109",
-    "record": "results/soak/2026-10-31/azul-zulu-25-jre_windows-629-234658.json",
-    "findings": [
-     "inventory never reported the app after install + refetch"
-    ]
+    "catalog_version": "5.2.1",
+    "record": "results/soak/2026-10-31/betterdisplay_darwin-631-210930.json",
+    "findings": []
+   }
+  },
+  "cisco-jabber/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T22:24:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "15.2.1",
+    "record": "results/soak/2026-10-31/cisco-jabber_darwin-631-222459.json",
+    "findings": []
    }
   },
   "druva-insync/windows@629": {
@@ -1424,16 +1434,19 @@
     "findings": []
    }
   },
-  "enpass/windows@629": {
-   "lifecycle_runs": 1,
+  "evernote/darwin@631": {
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:34:11",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T22:15:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.12.6.2723",
-    "record": "results/soak/2026-10-31/enpass_windows-629-223411.json",
-    "findings": []
+    "catalog_version": "11.40.3",
+    "record": "results/soak/2026-10-31/evernote_darwin-631-221525.json",
+    "findings": [
+     "patched query fails right after installing 11.40.3: the patch policy would flag an up-to-date host",
+     "inventory ['10.105.4'] is lower than the installed package 11.40.3 (#51377 shape: the patch policy can't pass)"
+    ]
    }
   },
   "fortify/windows@629": {
@@ -1464,18 +1477,6 @@
     ]
    }
   },
-  "genesys-cloud/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:26:21",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.56.933",
-    "record": "results/soak/2026-10-31/genesys-cloud_windows-629-222621.json",
-    "findings": []
-   }
-  },
   "gitkraken/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1486,20 +1487,6 @@
     "catalog_version": "12.6.0",
     "record": "results/soak/2026-10-31/gitkraken_windows-629-150137.json",
     "findings": []
-   }
-  },
-  "granola/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T22:50:16",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.722.0",
-    "record": "results/soak/2026-10-31/granola_windows-629-225016.json",
-    "findings": [
-     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
    }
   },
   "ibm-semeru-jdk-8/windows@629": {
@@ -1514,28 +1501,19 @@
     "findings": []
    }
   },
-  "imageglass/windows@629": {
-   "lifecycle_runs": 1,
+  "invesalius/darwin@631": {
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:57:56",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-10-31T22:46:30",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.906.0",
-    "record": "results/soak/2026-10-31/imageglass_windows-629-225756.json",
-    "findings": []
-   }
-  },
-  "insomnia/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:02:06",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "13.4.0",
-    "record": "results/soak/2026-10-31/insomnia_windows-629-220206.json",
-    "findings": []
+    "catalog_version": "3.1.99998",
+    "record": "results/soak/2026-10-31/invesalius_darwin-631-224630.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)",
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    }
   },
   "ironpython/windows@629": {
@@ -1548,6 +1526,23 @@
     "catalog_version": "3.4.2.1000",
     "record": "results/soak/2026-10-31/ironpython_windows-629-200142.json",
     "findings": []
+   }
+  },
+  "jasp/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-10-31T22:59:04",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.99.0.0",
+    "record": "results/soak/2026-10-31/jasp_darwin-631-225904.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "joplin/darwin@631": {
@@ -1574,20 +1569,6 @@
     "findings": []
    }
   },
-  "julia-app/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T23:15:48",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.13.3",
-    "record": "results/soak/2026-10-31/julia-app_windows-629-231548.json",
-    "findings": [
-     "reinstall over the open app: the install over the open app ended as failed_install"
-    ]
-   }
-  },
   "keepassxc/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1609,6 +1590,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.4.62",
     "record": "results/soak/2026-10-31/kiro_windows-629-195426.json",
+    "findings": []
+   }
+  },
+  "marsedit/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T23:30:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.4.7",
+    "record": "results/soak/2026-10-31/marsedit_darwin-631-233052.json",
     "findings": []
    }
   },
@@ -1670,6 +1663,30 @@
     "findings": []
    }
   },
+  "nordlayer/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T21:20:26",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.13.1",
+    "record": "results/soak/2026-10-31/nordlayer_darwin-631-212026.json",
+    "findings": []
+   }
+  },
+  "nordpass/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T21:54:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.12.15",
+    "record": "results/soak/2026-10-31/nordpass_darwin-631-215416.json",
+    "findings": []
+   }
+  },
   "p4v/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1724,6 +1741,18 @@
     ]
    }
   },
+  "prisma-browser/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-01T00:22:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "156.17.8.74",
+    "record": "results/soak/2026-11-01/prisma-browser_darwin-631-002223.json",
+    "findings": []
+   }
+  },
   "pritunl/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1746,20 +1775,6 @@
     "catalog_version": "26.2.0",
     "record": "results/soak/2026-10-31/proxyman_windows-629-123122.json",
     "findings": []
-   }
-  },
-  "python-3.13/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T21:16:39",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.13.16",
-    "record": "results/soak/2026-10-31/python-3.13_windows-629-211639.json",
-    "findings": [
-     "inventory never reported the app after install + refetch"
-    ]
    }
   },
   "qgis@ltr/windows@629": {
@@ -1794,18 +1809,6 @@
     ]
    }
   },
-  "sonicwall-netextender/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-31T22:37:31",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.3.5",
-    "record": "results/soak/2026-10-31/sonicwall-netextender_windows-629-223731.json",
-    "findings": []
-   }
-  },
   "spokenly/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 1,
@@ -1826,36 +1829,6 @@
     "findings": []
    }
   },
-  "sublime-text/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T21:49:37",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.0.0.421500",
-    "record": "results/soak/2026-10-31/sublime-text_windows-629-214937.json",
-    "findings": [
-     "patched query fails right after installing 4.0.0.421500: the patch policy would flag an up-to-date host",
-     "inventory [''] is lower than the installed package 4.0.0.421500 (#51377 shape: the patch policy can't pass)",
-     "reinstall over the open app: the install over the open app ended as failed_install"
-    ]
-   }
-  },
-  "termius/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T22:17:25",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.3.0",
-    "record": "results/soak/2026-10-31/termius_windows-629-221725.json",
-    "findings": [
-     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
-   }
-  },
   "tower/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -1868,6 +1841,18 @@
     "findings": [
      "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Tower\\), not the signed-in user's (#50857)"
     ]
+   }
+  },
+  "tradingview/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-10-31T21:33:53",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.5.0",
+    "record": "results/soak/2026-10-31/tradingview_darwin-631-213353.json",
+    "findings": []
    }
   },
   "wrike/windows@629": {
@@ -1910,32 +1895,6 @@
     "catalog_version": "10.0.7",
     "record": "results/soak/2026-10-31/zotero_windows-629-195814.json",
     "findings": []
-   }
-  },
-  "certify-the-web/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T00:05:37",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.4.0",
-    "record": "results/soak/2026-11-01/certify-the-web_windows-629-000537.json",
-    "findings": []
-   }
-  },
-  "microsoft-dotnet-runtime-10/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T00:30:18",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.14",
-    "record": "results/soak/2026-11-01/microsoft-dotnet-runtime-10_windows-629-003018.json",
-    "findings": [
-     "inventory never reported the app after install + refetch"
-    ]
    }
   }
  }
