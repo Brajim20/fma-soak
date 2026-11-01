@@ -1,0 +1,69 @@
+{
+ "slug": "zoom/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-10-31T19:16:32",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 7.2.2.88465 installed: the patch policy can't see this host is outdated"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-10-31T23:16:32Z",
+  "restarted": "2026-10-31T19:56:21.968938Z"
+ },
+ "title_id": 12457,
+ "cached_versions": [
+  "7.2.2.88465",
+  "7.2.5.90525"
+ ],
+ "active_before": "7.2.5.90525",
+ "pin_older_status": 200,
+ "active_after_pin": "7.2.2.88465",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Zoom Workplace\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "old_install_error_markers": [],
+ "old_patched_query_passes": true,
+ "context_old": {
+  "path": "/Applications/zoom.us.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "versions": [
+   "7.2.2 (88465)"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "7.2.5.90525",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Zoom Workplace\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/zoom.us.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "versions": [
+   "7.2.5 (90525)"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "sn't exist.\nremoving /Users/<user>/Library/Safari/PerSiteZoomPreferences.plist.\nmv: rename /Users/<user>/Library/Safari/PerSiteZoomPreferences.plist to /Users/<user>/.Trash/PerSiteZoomPreferences.plist_2026-10-31-1793488846_33502: Operation not permitted\nFailed to move /Users/<user>/Library/Safari/PerSiteZoomPreferences.plist to the Trash.\n/Users/<user>/Library/SafariTechnologyPreview/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/us.zoom.xos.savedState doesn't exist.\n/Users/<user>/Library/WebKit/us.zoom.xos doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-10-31T19:21:43",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-10-31T23:21:36Z",
+  "restarted": "2026-10-31T19:56:21.968938Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-10-31/zoom_darwin-631-191632.json"
+}
