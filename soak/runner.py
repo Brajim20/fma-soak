@@ -620,11 +620,42 @@ def wait_online(host, minutes=None):
         time.sleep(60)
 
 
+def cancel_stale_queue(host):
+    """Pass start: cancel installs, uninstalls and scripts the harness user queued on this host in an earlier run that
+    was cancelled or crashed. Left in Fleet's queue they run later with nobody watching (2026-11-01: three Dialpad
+    installs ran on 636 after the workflow was disabled, about an hour each) and delay this pass's own steps. Only the
+    harness user's activities, never a person's; an activity the host already started can't be cancelled and is left.
+    An app held by the patch-when-closed scenario keeps its queue (its policy installs are expected)."""
+    st, me = api("GET", "/me", tries=2)
+    uid = (me.get("user") or {}).get("id") if st == 200 else None
+    if not uid:
+        return []
+    held = set()
+    for plat in ("darwin", "windows"):
+        try:
+            act = json.load(open(patch_closed_path(plat))).get("active")
+        except (OSError, ValueError):
+            act = None
+        if act:
+            held.add(act.get("title_id"))
+    out = []
+    for a in upcoming(host) or []:
+        d = a.get("details") or {}
+        if a.get("actor_id") != uid or d.get("software_title_id") in held:
+            continue
+        cst, _ = api("DELETE", f"/hosts/{host}/activities/upcoming/{a['uuid']}", tries=2)
+        out.append({"type": a.get("type"), "title": d.get("software_title"), "status": cst})
+    if out:
+        print(f"host {host}: cancelled {len(out)} activities an earlier run left queued: {out}")
+    return out
+
+
 def cleanup_leftovers(host):
     """Uninstall apps still marked harness-installed, left by an interrupted cycle (restart, crash, sleep, a stopped
     sample). Fleet's own status counts as well as the catalog's exists query, which never matches for #56971-class
     apps. Watcher residents are kept. A title the harness added is removed once its app is gone."""
     import sample as S
+    cancel_stale_queue(host)
     state = load_state(host)
     residents = {x for xs in CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
     out = []
