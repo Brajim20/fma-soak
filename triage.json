@@ -2,6 +2,64 @@
  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
+   "app": "jasp/darwin@631",
+   "shape": "add",
+   "verdict": "environment: transient 502 from the instance on add"
+  },
+  {
+   "app": "jasp/darwin@631",
+   "verdict": "filed #57120: detection uses an outdated bundle ID (org.jasp-stats.JASP -> org.jaspstats.jasp)"
+  },
+  {
+   "app": "sequel-ace/darwin@631",
+   "verdict": "filed #57119: detection uses the wrong bundle ID, so installs land on a separate title"
+  },
+  {
+   "app": "galaxy-modeler/windows@629",
+   "verdict": "filed #57136: exists query never matches, so the patch policy always passes"
+  },
+  {
+   "app": "postgresql-18/windows@629",
+   "shape": "install",
+   "verdict": "filed #57138: can't be reinstalled after an uninstall; uninstall reported as failed"
+  },
+  {
+   "app": "postgresql-18/windows@629",
+   "verdict": "filed #57137: installer registers 'PostgreSQL 18 ' (trailing space), never detected"
+  },
+  {
+   "app": "azul-zulu-25-jre/windows@629",
+   "verdict": "filed #57139: installs land on a separate title (MSI upgrade code skips the name match)"
+  },
+  {
+   "app": "010-editor/windows@629",
+   "verdict": "filed #57149: install over the open app fails with exit 5; the script doesn't close the app first"
+  },
+  {
+   "app": "dialpad/darwin@636",
+   "shape": "install",
+   "verdict": "filed #57148: queued behind an orphaned installer (Prisma Browser pkg) left by fleetd's script timeout; hosts restarted 2026-11-01 22:11Z",
+   "before": "2026-11-01T22:11:00"
+  },
+  {
+   "app": "fleet-desktop/darwin@631",
+   "shape": "install",
+   "verdict": "filed #57148: queued behind an orphaned installer left by fleetd's script timeout",
+   "before": "2026-11-01T22:11:00"
+  },
+  {
+   "app": "prisma-browser/darwin@631",
+   "shape": "install",
+   "verdict": "#57148: the pkg install that hung first and was orphaned; why Prisma's pkg hangs isn't known yet",
+   "before": "2026-11-01T22:11:00"
+  },
+  {
+   "app": "prisma-browser/darwin@636",
+   "shape": "install",
+   "verdict": "#57148: the pkg install that hung first and was orphaned; why Prisma's pkg hangs isn't known yet",
+   "before": "2026-11-01T22:11:00"
+  },
+  {
    "app": "claude/windows@629",
    "shape": "S1",
    "verdict": "harness: trailing .0 compared as different; fixed with numeric compare",
@@ -220,12 +278,12 @@
   {
    "app": "sublime-text/windows",
    "shape": "S6",
-   "verdict": "expected: Inno Setup refuses to install over the running app (exit 5); Fleet's answer is patch-when-closed"
+   "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)"
   },
   {
    "app": "julia-app/windows",
    "shape": "S6",
-   "verdict": "expected: the installer refuses to replace a running julia.exe (exit 5); Fleet's answer is patch-when-closed (2026-11-01)"
+   "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)"
   },
   {
    "app": "microsoft-defender/darwin",
