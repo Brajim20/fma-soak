@@ -221,6 +221,23 @@
    "app": "sublime-text/windows",
    "shape": "S6",
    "verdict": "expected: Inno Setup refuses to install over the running app (exit 5); Fleet's answer is patch-when-closed"
+  },
+  {
+   "app": "julia-app/windows",
+   "shape": "S6",
+   "verdict": "expected: the installer refuses to replace a running julia.exe (exit 5); Fleet's answer is patch-when-closed (2026-11-01)"
+  },
+  {
+   "app": "microsoft-defender/darwin",
+   "verdict": "environment: Defender's install waits on MDM approval of its system extension and network filter, so it stays pending on a host without those profiles (2026-11-01)"
+  },
+  {
+   "app": "allway-sync/windows",
+   "verdict": "#56891: the add returns 500 with the raw network error (unreachable download host) (2026-11-01)"
+  },
+  {
+   "app": "slicer/darwin",
+   "verdict": "#56891 class: vendor download times out behind Cloudflare (524) and the add returns a 500 (2026-11-01)"
   }
  ]
 }
