@@ -1,0 +1,78 @@
+{
+ "slug": "snagit/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-01T18:17:18",
+ "catalog_version": "26.4.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-01T22:17:09Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 24031,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (84:FC) [18:18:49:585]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (84:FC) [18:18:49:621]: Destroying RemoteAPI object.\r\nMSI (s) (84:08) [18:18:49:621]: Custom Action Manager thread ending.\r\nMSI (c) (34:98) [18:18:49:622]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (34:98) [18:18:49:624]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/1/2026  18:18:49 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "26.4.0"
+ ],
+ "package_version": "26.4.0",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 76,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (74:50) [18:25:39:402]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (74:50) [18:25:39:416]: Destroying RemoteAPI object.\r\nMSI (s) (74:E0) [18:25:39:416]: Custom Action Manager thread ending.\r\nMSI (c) (2C:6C) [18:25:39:418]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (2C:6C) [18:25:39:428]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/1/2026  18:25:39 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-01T18:28:53",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-01T22:28:42Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-01/evidence/snagit_windows-629-181718-library.png",
+  "inventory": "results/soak/2026-11-01/evidence/snagit_windows-629-181718-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/snagit_windows-629-181718.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/snagit_windows-629-180547.json"
+}
