@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-31T19:50:43",
+ "run_at": "2026-10-31T20:06:10",
  "build": "4.94.0-rc.2610272345 (937e87458c)",
  "results": [
   {
@@ -114,6 +114,105 @@
    "caret_9_status": 200,
    "active_after_caret_9": "2.0.0",
    "pin_after_caret_9": "^9"
+  },
+  {
+   "test": "test_gitops_adds_fma",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 2,
+   "rc": 0,
+   "fleet": 4,
+   "title": 10,
+   "version": "1.0.0",
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_reapply_no_redownload",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "installer_GETs_on_rerun": 0,
+   "deleted_lines": []
+  },
+  {
+   "test": "test_gitops_dry_run_no_download",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 0,
+   "installer_GETs": 0,
+   "fleet_created": null,
+   "last": "[!] gitops dry run succeeded"
+  },
+  {
+   "test": "test_gitops_duplicate_fma_rejected",
+   "passed": false,
+   "verdict": "KNOWN #56507",
+   "seconds": 2,
+   "rc": 0,
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_caret_unsatisfiable_rejected",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 1,
+   "server_alive": true,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_version_error_names_versions",
+   "passed": false,
+   "verdict": "KNOWN #56508",
+   "seconds": 0,
+   "rc": 1,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_patch_and_install_policy_same_slug",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "policies": [
+    "qa-g-pol installed",
+    "qa-g-pol patch"
+   ],
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_swap_same_bundle_id",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "leaky_error": false,
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_generate_gitops_roundtrip",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "generate_rc": 0,
+   "generate_err": "",
+   "fleet_file": "fleets/qa-g-exp.yml",
+   "slug_in_export": true,
+   "reapply_rc": 0,
+   "reapply_last": "[!] gitops succeeded",
+   "title_same": true,
+   "secrets_lines_dropped_for_47820": 2
   }
  ]
 }
