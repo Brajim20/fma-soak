@@ -85,9 +85,20 @@ def known_env_hosts(slug):
 
 
 def owner(plat, slug):
-    """The one host on this platform that samples this app, or None if no host can run it."""
+    """The one host on this platform that samples this app, or None if no host can run it. Split by capacity
+    (random_sample.host_weights, default 1): the primary spends most of its day on canaries, the update path and
+    scenarios, so an even split would leave its share far behind the sample-only host's."""
     able = [h for h in hosts_for(plat) if h not in known_env_hosts(slug)]
-    return able[zlib.crc32(slug.encode()) % len(able)] if able else None
+    if not able:
+        return None
+    w = R.CFG["random_sample"].get("host_weights", {})
+    weights = [max(float(w.get(str(h), 1)), 0) for h in able]
+    x = (zlib.crc32(slug.encode()) % 10000) / 10000 * sum(weights)
+    for h, wt in zip(able, weights):
+        if x < wt:
+            return h
+        x -= wt
+    return able[-1]
 
 
 def shard(plat, catalog, host):
@@ -161,7 +172,8 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
         for slug in deck["order"]:
             if slug in deck["done"] or slug in skip:
                 continue
-            if ((ledger.get(f"{slug}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") >= deck["started"]:
+            if max((((ledger.get(f"{slug}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in hosts_for(plat)),
+                   default="") >= deck["started"]:
                 deck["done"].append(slug)  # already cycled this round some other way (canary, manual run)
                 continue
             return slug, f"deck round {deck['round']}"
