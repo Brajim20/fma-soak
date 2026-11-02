@@ -1,10 +1,10 @@
 {
- "built": "2026-11-02T01:04:00",
+ "built": "2026-11-02T01:17:35",
  "coverage": {
   "darwin": {
-   "covered": 58,
+   "covered": 67,
    "catalog": 984,
-   "percent": 5.9,
+   "percent": 6.8,
    "deck": {
     "round": 1,
     "done": 45,
@@ -18,25 +18,25 @@
     },
     "636": {
      "round": 1,
-     "done": 16,
-     "of": 842
+     "done": 29,
+     "of": 841
     }
    }
   },
   "windows": {
-   "covered": 127,
+   "covered": 107,
    "catalog": 460,
-   "percent": 27.6,
+   "percent": 23.3,
    "deck": {
     "round": 1,
-    "done": 115,
-    "of": 121
+    "done": 95,
+    "of": 455
    },
    "decks": {
     "629": {
      "round": 1,
-     "done": 115,
-     "of": 121
+     "done": 95,
+     "of": 455
     },
     "635": {
      "round": 1,
@@ -525,13 +525,13 @@
   },
   "slack/windows@629": {
    "lifecycle_runs": 1,
-   "update_runs": 5,
+   "update_runs": 4,
    "last_update": {
-    "outcome": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
-    "date": "2026-11-01T20:40:34",
+    "outcome": "pass",
+    "date": "2026-11-01T15:56:45",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-01/slack_windows-629-204034.json",
+    "record": "results/soak/2026-11-01/slack_windows-629-155645.json",
     "findings": []
    },
    "last_lifecycle": {
@@ -2116,18 +2116,6 @@
     "findings": []
    }
   },
-  "airparrot/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:56:09",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.1.11",
-    "record": "results/soak/2026-11-01/airparrot_windows-629-235609.json",
-    "findings": []
-   }
-  },
   "airserver/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2138,21 +2126,6 @@
     "catalog_version": "7.3.3",
     "record": "results/soak/2026-11-01/airserver_darwin-631-031236.json",
     "findings": []
-   }
-  },
-  "amazon-dcv-server/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T23:07:24",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "26.0.25174.0",
-    "record": "results/soak/2026-11-01/amazon-dcv-server_windows-629-230724.json",
-    "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
-    ]
    }
   },
   "anyburn/windows@635": {
@@ -2193,18 +2166,6 @@
     "findings": []
    }
   },
-  "asana/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T21:22:44",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.10.5",
-    "record": "results/soak/2026-11-01/asana_windows-629-212244.json",
-    "findings": []
-   }
-  },
   "avs-image-converter/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2214,20 +2175,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.0.2.17",
     "record": "results/soak/2026-11-01/avs-image-converter_windows-629-184200.json",
-    "findings": [
-     "reinstall over the open app: the install over the open app ended as failed_install"
-    ]
-   }
-  },
-  "avs-media-player/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T22:09:48",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "26.0.2.17",
-    "record": "results/soak/2026-11-01/avs-media-player_windows-629-220948.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -2247,18 +2194,6 @@
     ]
    }
   },
-  "aws-session-manager-plugin/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:41:42",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.2.896.0",
-    "record": "results/soak/2026-11-01/aws-session-manager-plugin_windows-629-234142.json",
-    "findings": []
-   }
-  },
   "aws-vpn-client/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2269,6 +2204,23 @@
     "catalog_version": "6.2.1",
     "record": "results/soak/2026-11-01/aws-vpn-client_windows-629-164003.json",
     "findings": []
+   }
+  },
+  "bitbox/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T21:44:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.52.0",
+    "record": "results/soak/2026-11-01/bitbox_darwin-636-214432.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "bitwig-studio/windows@635": {
@@ -2337,18 +2289,6 @@
     "findings": []
    }
   },
-  "clockify/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:33:21",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.3.4",
-    "record": "results/soak/2026-11-01/clockify_windows-629-233321.json",
-    "findings": []
-   }
-  },
   "cmux/darwin@636": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2386,6 +2326,20 @@
     "catalog_version": "1.19.6",
     "record": "results/soak/2026-11-01/cryptomator_windows-629-191907.json",
     "findings": []
+   }
+  },
+  "dataspell/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-01T21:06:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.1.3",
+    "record": "results/soak/2026-11-01/dataspell_darwin-636-210612.json",
+    "findings": [
+     "add failed 502: error code: 502\n"
+    ]
    }
   },
   "devolutions-workspace/windows@629": {
@@ -2451,18 +2405,6 @@
     "findings": []
    }
   },
-  "drofus/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:51:47",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.18.20.0",
-    "record": "results/soak/2026-11-01/drofus_windows-629-235147.json",
-    "findings": []
-   }
-  },
   "duo-desktop/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2473,20 +2415,6 @@
     "catalog_version": "7.22.0",
     "record": "results/soak/2026-11-01/duo-desktop_windows-629-192851.json",
     "findings": []
-   }
-  },
-  "dynalist/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T22:32:14",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.0.6",
-    "record": "results/soak/2026-11-01/dynalist_windows-629-223214.json",
-    "findings": [
-     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
    }
   },
   "elevate-uc/windows@629": {
@@ -2510,18 +2438,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.11.14",
     "record": "results/soak/2026-11-01/elgato-game-capture-hd_darwin-636-015542.json",
-    "findings": []
-   }
-  },
-  "endnote/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T22:38:19",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "22.4.1.20759",
-    "record": "results/soak/2026-11-01/endnote_windows-629-223819.json",
     "findings": []
    }
   },
@@ -2565,18 +2481,6 @@
     "findings": [
      "add failed 409: Conflict"
     ]
-   }
-  },
-  "gnupg/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:24:58",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.5.24",
-    "record": "results/soak/2026-11-01/gnupg_windows-629-232458.json",
-    "findings": []
    }
   },
   "goodsync/darwin@636": {
@@ -2632,6 +2536,18 @@
     "findings": []
    }
   },
+  "harmony-sase/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T22:20:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "12.11.0",
+    "record": "results/soak/2026-11-01/harmony-sase_darwin-636-222055.json",
+    "findings": []
+   }
+  },
   "ibm-semeru-jre-8/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2653,18 +2569,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.2608.0",
     "record": "results/soak/2026-11-01/intune-company-portal_darwin-636-171942.json",
-    "findings": []
-   }
-  },
-  "jetbrains-toolbox/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T22:44:39",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.9.1.0",
-    "record": "results/soak/2026-11-01/jetbrains-toolbox_windows-629-224439.json",
     "findings": []
    }
   },
@@ -2691,34 +2595,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.6.5.4",
     "record": "results/soak/2026-11-01/lenovo-dock-manager_windows-635-043231.json",
-    "findings": []
-   }
-  },
-  "localsend/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T21:42:59",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.18.2",
-    "record": "results/soak/2026-11-01/localsend_windows-629-214259.json",
-    "findings": [
-     "first install: Fleet says installed but the app isn't on the host",
-     "second install: Fleet says installed but the app isn't on the host",
-     "presence unknown after context_after_install (host didn't answer the live query)"
-    ]
-   }
-  },
-  "microsoft-dotnet-desktop-runtime-10/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T23:45:52",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.14",
-    "record": "results/soak/2026-11-01/microsoft-dotnet-desktop-runtime-10_windows-629-234552.json",
     "findings": []
    }
   },
@@ -2760,15 +2636,15 @@
     "findings": []
    }
   },
-  "mremoteng/windows@629": {
+  "multitouch/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T21:51:33",
+    "date": "2026-11-01T22:11:16",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.76.20.24615",
-    "record": "results/soak/2026-11-01/mremoteng_windows-629-215133.json",
+    "catalog_version": "2.0.2",
+    "record": "results/soak/2026-11-01/multitouch_darwin-636-221116.json",
     "findings": []
    }
   },
@@ -2842,18 +2718,6 @@
     "findings": []
    }
   },
-  "preform/windows@629": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-01T21:16:37",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.64.2.665",
-    "record": "results/soak/2026-11-01/preform_windows-629-211637.json",
-    "findings": []
-   }
-  },
   "prisma-browser/darwin@636": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2881,6 +2745,18 @@
     ]
    }
   },
+  "protonvpn/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T22:30:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.5.2",
+    "record": "results/soak/2026-11-01/protonvpn_darwin-636-223040.json",
+    "findings": []
+   }
+  },
   "protopie/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2904,6 +2780,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.0.8",
     "record": "results/soak/2026-11-01/raspberry-pi-imager_windows-629-172806.json",
+    "findings": []
+   }
+  },
+  "redis-pro/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T20:40:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.1.0",
+    "record": "results/soak/2026-11-01/redis-pro_darwin-636-204034.json",
     "findings": []
    }
   },
@@ -2934,6 +2822,18 @@
     "findings": []
    }
   },
+  "slack/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-01T23:45:29",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.53.276",
+    "record": "results/soak/2026-11-01/slack_darwin-636-234529.json",
+    "findings": []
+   }
+  },
   "snagit/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2950,6 +2850,18 @@
     ]
    }
   },
+  "spotify/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T22:44:45",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.3.6.1921",
+    "record": "results/soak/2026-11-01/spotify_darwin-636-224445.json",
+    "findings": []
+   }
+  },
   "super-productivity/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2959,6 +2871,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "19.3.1",
     "record": "results/soak/2026-11-01/super-productivity_darwin-636-184128.json",
+    "findings": []
+   }
+  },
+  "superset/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T20:49:08",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.0.2",
+    "record": "results/soak/2026-11-01/superset_darwin-636-204908.json",
     "findings": []
    }
   },
@@ -2990,21 +2914,6 @@
      "first install: Fleet says installed but the app isn't on the host",
      "second install: Fleet says installed but the app isn't on the host",
      "presence unknown after context_after_install (host didn't answer the live query)"
-    ]
-   }
-  },
-  "typora/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T20:59:10",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.14.1",
-    "record": "results/soak/2026-11-01/typora_windows-629-205910.json",
-    "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
     ]
    }
   },
@@ -3085,6 +2994,18 @@
     ]
    }
   },
+  "vorssaint/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T21:08:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.4.3",
+    "record": "results/soak/2026-11-01/vorssaint_darwin-636-210846.json",
+    "findings": []
+   }
+  },
   "wave/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3154,63 +3075,41 @@
     ]
    }
   },
-  "alfaview/windows@629": {
+  "command-tab-plus/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-02T00:35:16",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-02T00:16:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "9.30.5",
-    "record": "results/soak/2026-11-02/alfaview_windows-629-003516.json",
+    "catalog_version": "2.9.14",
+    "record": "results/soak/2026-11-02/command-tab-plus_darwin-636-001655.json",
     "findings": []
    }
   },
-  "directory-opus/windows@629": {
+  "pgadmin4/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-02T00:47:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.19",
+    "record": "results/soak/2026-11-02/pgadmin4_darwin-636-004710.json",
+    "findings": []
+   }
+  },
+  "zoom@government/darwin@636": {
    "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T00:35:04",
+    "date": "2026-11-02T00:16:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "13.25",
-    "record": "results/soak/2026-11-02/directory-opus_windows-629-003504.json",
+    "catalog_version": "7.2.2.88465",
+    "record": "results/soak/2026-11-02/zoom@government_darwin-636-001623.json",
     "findings": [
-     "add failed 500: mismatch in maintained app SHA256 hash"
-    ]
-   }
-  },
-  "ollama/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-02T00:41:09",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.40.13",
-    "record": "results/soak/2026-11-02/ollama_windows-629-004109.json",
-    "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
-    ]
-   }
-  },
-  "visual-studio-2022-community/windows@629": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T00:16:16",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "17.14.44",
-    "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
-    "findings": [
-     "first install: Fleet says failed but the app is on the host",
-     "first install ended as failed_install",
-     "first uninstall: app still on host (status failed_uninstall)",
-     "second install: Fleet says failed but the app is on the host",
-     "second install ended as failed_install",
-     "second uninstall: app still on host (status failed_uninstall)"
+     "add failed 409: Conflict"
     ]
    }
   }
