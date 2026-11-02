@@ -58,6 +58,16 @@ what differs before calling it a bug (ARM vs x64, what else was installed, a hun
    - **Wrong build shipped**: the installer's real version differs from the manifest's (#57116 Evernote). Only if you
      can prove it from the record or the installer.
    - **Per-user installer under SYSTEM**: installs into `C:\Windows\system32\config\systemprofile` (#57114 class).
+   - **S6 messages mean exactly this** (`soak/running.py` in the harness repo, next to this prompt's folder):
+     - "the install over the open app ended as <status>": Fleet's install failed while the app was running.
+     - "the install closed the open app and didn't reopen it": the app was running, the install closed it, nothing
+       relaunched it (macOS scripts may relaunch; Windows scripts never do).
+     - "the app was replaced while running and never quit": the old process survived the replacement.
+     - "the app doesn't stay open after the install, though it opened before": NOT about relaunching. After the
+       install the harness opens the app itself, waits 10 s, and it isn't running, although the same open worked
+       before the install. Read the record's `*_open` / `*_starts` fields. Causes can be the new build crashing, a
+       first-run or update dialog that exits, the harness's open method, or a broken install. Without more evidence
+       this is `needs-you`, not `bug` and not `not-a-bug`.
 4. **Rule out the environment and the harness.** x64-only installer on 629, installer needs a reboot or a signed-in
    user, network/CDN failure (502, download timeout), a host restart mid-cycle, the harness's own checks being too
    strict (S6 "doesn't stay open after the install" is often the app's own behavior: does the app normally relaunch?).
