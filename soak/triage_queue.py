@@ -5,7 +5,8 @@
 
 An item is an app with findings in the last `crosshost.window_days` days that triage.json doesn't cover: the latest
 such record per host, the other host's rerun of it (crosshost.py) and each host's latest run of the app, so a later
-clean run is visible. Apps the agent already decided are skipped until a newer finding arrives. Apps reproduced on
+clean run is visible. Apps the agent already decided are skipped until a newer finding, or the other host's rerun,
+arrives. Apps reproduced on
 both hosts come first, then the newest.
 """
 import argparse, datetime, json, os, shutil, sys
@@ -40,11 +41,12 @@ def build(out, state, n, days):
             found.setdefault(r["slug"], {})[r["host"]] = r
     items = []
     for slug, by_host in found.items():
-        newest = max(r["started"] for r in by_host.values())
-        if state.get(slug, "") >= newest:
-            continue
         paths = {D.rel(r["_path"]) for r in by_host.values()}
         reruns = [r for r in recs if r.get("crosshost_of") in paths]
+        # a decided app comes back when a newer finding or the other host's rerun arrives after the decision
+        newest = max([r["started"] for r in by_host.values()] + [r["started"] for r in reruns])
+        if state.get(slug, "") >= newest:
+            continue
         items.append((slug, by_host, reruns, newest))
     items.sort(key=lambda x: (any(D.category(r) == "findings" for r in x[2]), x[3]), reverse=True)
     os.makedirs(os.path.join(out, "records"), exist_ok=True)
