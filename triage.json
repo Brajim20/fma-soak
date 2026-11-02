@@ -80,6 +80,23 @@
    "verdict": "environment (ARM): the 1603 is only on Windows-on-ARM 629; full cycle passes on x64 (main host 228, 2026-11-02)"
   },
   {
+   "app": "webex/windows@629",
+   "shape": "install",
+   "verdict": "environment (ARM): the x64 MSI's 1603 is only on Windows-on-ARM 629; installs with exit 0 on x64 (main host 228, 2026-11-02). Detection is separately broken everywhere: #57321"
+  },
+  {
+   "app": "webex/windows",
+   "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+  },
+  {
+   "app": "webex/windows@629",
+   "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+  },
+  {
+   "app": "webex/windows@635",
+   "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+  },
+  {
    "app": "bitwig-studio/windows@629",
    "shape": "S1",
    "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'"
