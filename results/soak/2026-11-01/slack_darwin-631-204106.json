@@ -1,0 +1,61 @@
+{
+ "slug": "slack/darwin",
+ "host": 631,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-01T20:41:06",
+ "findings": [],
+ "outcome": "skipped: couldn't open the app ({'exit': None, 'pids': [], 'note': 'no result in time'})",
+ "scenario": {
+  "slug": "slack/darwin",
+  "host": 631,
+  "title_id": 12956,
+  "older": "4.53.269",
+  "newest": "4.53.276",
+  "phase": "start",
+  "started": "2026-11-02T00:41:06+00:00",
+  "started_local": "2026-11-01T20:41:06",
+  "findings": [],
+  "observations": [],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 31,
+  "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Slack-4.53.269-macOS\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/Slack.app",
+   "bundle": "0:80 0775",
+   "executable": "0:80 0775",
+   "exe": "/Applications/Slack.app/Contents/MacOS/Slack",
+   "bundle_id": "com.tinyspeck.slackmacgap",
+   "versions": [
+    "4.53.269"
+   ]
+  },
+  "open_open": {
+   "exit": null,
+   "pids": [],
+   "note": "no result in time"
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/Slack.app",
+   "exe": "/Applications/Slack.app/Contents/MacOS/Slack",
+   "bundle_id": "com.tinyspeck.slackmacgap"
+  },
+  "end_close": "no result in time",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 794,
+  "end_uninstall_output_tail": "oving /Users/<user>/Library/HTTPStorages/com.tinyspeck.slackmacgap.binarycookies.\nremoving /Users/<user>/Library/HTTPStorages/com.tinyspeck.slackmacgap.\n/Users/<user>/Library/Logs/Slack doesn't exist.\nremoving /Users/<user>/Library/Preferences/ByHost/com.tinyspeck.slackmacgap.ShipIt.F2F2C85C-DF7A-52BE-952F-3328B14FC9DE.plist.\nremoving /Users/<user>/Library/Preferences/com.tinyspeck.slackmacgap.plist.\n/Users/<user>/Library/Saved Application State/com.tinyspeck.slackmacgap.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.tinyspeck.slackmacgap doesn't exist.\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-02T01:06:59+00:00"
+ },
+ "finished": "2026-11-01T21:06:59",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/slack_darwin-631-204106.json"
+}
