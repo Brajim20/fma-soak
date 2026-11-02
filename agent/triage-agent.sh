@@ -15,6 +15,13 @@ HERE=${0:A:h}; REPO=${HERE:h}
 QA=${FMA_TRIAGE_QA:-$HOME/Documents/GitHub/fleet-playwright}
 CATALOG=$HOME/Documents/GitHub/fleet
 OUTROOT=${FMA_TRIAGE_OUT:-$QA/qa-stuff/fma-soak/triage}
+# one run at a time, whoever starts it (watch.sh or by hand); a lock older than 4 h is a crashed run
+LOCK=$OUTROOT/.agent-running
+mkdir -p $OUTROOT
+if ! mkdir $LOCK 2>/dev/null; then
+  if [[ -n $(find $LOCK -maxdepth 0 -mmin +240) ]]; then rmdir $LOCK; mkdir $LOCK
+  else echo "another triage run is in progress ($LOCK)"; exit 75; fi
+fi
 OUT=$OUTROOT/$(date +%F-%H%M)
 mkdir -p $OUT
 
@@ -22,7 +29,7 @@ mkdir -p $OUT
 git -C $REPO fetch -q origin main results
 W=$(mktemp -d)/h
 git -C $REPO worktree add -q --detach $W origin/main
-trap 'git -C $REPO worktree remove --force $W' EXIT
+trap 'git -C $REPO worktree remove --force $W; rmdir $LOCK' EXIT
 (cd $W && git archive origin/results results | tar -x)
 cp $REPO/config.local.json $W/
 python3 $W/soak/triage_queue.py --out $OUT --state $OUTROOT/state.json --max ${1:-10}

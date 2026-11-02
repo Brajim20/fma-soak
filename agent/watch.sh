@@ -2,16 +2,15 @@
 # Runs the triage agent when the soak has saved new results (launchd, every 30 min: agent/com.fleetdm.qa.fma-triage.plist).
 # Cheap when nothing changed: one git fetch. When the `results` branch moved, triage-agent.sh runs on up to
 # FMA_TRIAGE_MAX apps (it skips apps already decided, so a run with nothing new ends in seconds), then a macOS
-# notification says what's ready. One run at a time; a run that fails leaves the branch unmarked so the next tick retries.
+# notification says what's ready. One run at a time (triage-agent.sh's lock); a run that fails leaves the branch unmarked so the next tick retries.
 #   pause: touch ~/.fma-triage-paused     resume: rm ~/.fma-triage-paused
 export PATH=$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 HERE=${0:A:h}; REPO=${HERE:h}
 OUTROOT=${FMA_TRIAGE_OUT:-$HOME/Documents/GitHub/fleet-playwright/qa-stuff/fma-soak/triage}
-SEEN=$OUTROOT/last-results-sha LOCK=$OUTROOT/.running
+SEEN=$OUTROOT/last-results-sha
 [[ -f ~/.fma-triage-paused ]] && exit 0
 mkdir -p $OUTROOT
-mkdir $LOCK 2>/dev/null || { [[ -n $(find $LOCK -maxdepth 0 -mmin +240) ]] && rmdir $LOCK && mkdir $LOCK; } || exit 0
-trap 'rmdir $LOCK' EXIT
+[[ -d $OUTROOT/.agent-running ]] && exit 0   # a run is going (triage-agent.sh holds the lock)
 git -C $REPO fetch -q origin results || exit 0
 sha=$(git -C $REPO rev-parse origin/results)
 [[ -f $SEEN && $(cat $SEEN) == $sha ]] && exit 0
