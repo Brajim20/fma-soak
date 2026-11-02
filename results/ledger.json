@@ -1,5 +1,5 @@
 {
- "built": "2026-11-01T20:38:11",
+ "built": "2026-11-02T01:04:00",
  "coverage": {
   "darwin": {
    "covered": 58,
@@ -24,19 +24,24 @@
    }
   },
   "windows": {
-   "covered": 107,
-   "catalog": 459,
-   "percent": 23.3,
+   "covered": 127,
+   "catalog": 460,
+   "percent": 27.6,
    "deck": {
     "round": 1,
-    "done": 95,
-    "of": 455
+    "done": 115,
+    "of": 121
    },
    "decks": {
     "629": {
      "round": 1,
-     "done": 95,
-     "of": 455
+     "done": 115,
+     "of": 121
+    },
+    "635": {
+     "round": 1,
+     "done": 12,
+     "of": 338
     }
    }
   }
@@ -520,13 +525,13 @@
   },
   "slack/windows@629": {
    "lifecycle_runs": 1,
-   "update_runs": 4,
+   "update_runs": 5,
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-11-01T15:56:45",
+    "outcome": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+    "date": "2026-11-01T20:40:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-01/slack_windows-629-155645.json",
+    "record": "results/soak/2026-11-01/slack_windows-629-204034.json",
     "findings": []
    },
    "last_lifecycle": {
@@ -2111,6 +2116,18 @@
     "findings": []
    }
   },
+  "airparrot/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:56:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.1.11",
+    "record": "results/soak/2026-11-01/airparrot_windows-629-235609.json",
+    "findings": []
+   }
+  },
   "airserver/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2121,6 +2138,21 @@
     "catalog_version": "7.3.3",
     "record": "results/soak/2026-11-01/airserver_darwin-631-031236.json",
     "findings": []
+   }
+  },
+  "amazon-dcv-server/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T23:07:24",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.0.25174.0",
+    "record": "results/soak/2026-11-01/amazon-dcv-server_windows-629-230724.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
    }
   },
   "anyburn/windows@635": {
@@ -2161,6 +2193,18 @@
     "findings": []
    }
   },
+  "asana/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T21:22:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.10.5",
+    "record": "results/soak/2026-11-01/asana_windows-629-212244.json",
+    "findings": []
+   }
+  },
   "avs-image-converter/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2170,6 +2214,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.0.2.17",
     "record": "results/soak/2026-11-01/avs-image-converter_windows-629-184200.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
+   }
+  },
+  "avs-media-player/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T22:09:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.0.2.17",
+    "record": "results/soak/2026-11-01/avs-media-player_windows-629-220948.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -2187,6 +2245,18 @@
     "findings": [
      "patched query passes with 2.39.1 installed: the patch policy can't see this host is outdated"
     ]
+   }
+  },
+  "aws-session-manager-plugin/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:41:42",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.2.896.0",
+    "record": "results/soak/2026-11-01/aws-session-manager-plugin_windows-629-234142.json",
+    "findings": []
    }
   },
   "aws-vpn-client/windows@629": {
@@ -2264,6 +2334,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.1.9666.14975",
     "record": "results/soak/2026-11-01/clockassist_windows-629-032158.json",
+    "findings": []
+   }
+  },
+  "clockify/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:33:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.3.4",
+    "record": "results/soak/2026-11-01/clockify_windows-629-233321.json",
     "findings": []
    }
   },
@@ -2369,6 +2451,18 @@
     "findings": []
    }
   },
+  "drofus/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:51:47",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.18.20.0",
+    "record": "results/soak/2026-11-01/drofus_windows-629-235147.json",
+    "findings": []
+   }
+  },
   "duo-desktop/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -2379,6 +2473,20 @@
     "catalog_version": "7.22.0",
     "record": "results/soak/2026-11-01/duo-desktop_windows-629-192851.json",
     "findings": []
+   }
+  },
+  "dynalist/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T22:32:14",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.0.6",
+    "record": "results/soak/2026-11-01/dynalist_windows-629-223214.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    }
   },
   "elevate-uc/windows@629": {
@@ -2402,6 +2510,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.11.14",
     "record": "results/soak/2026-11-01/elgato-game-capture-hd_darwin-636-015542.json",
+    "findings": []
+   }
+  },
+  "endnote/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T22:38:19",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "22.4.1.20759",
+    "record": "results/soak/2026-11-01/endnote_windows-629-223819.json",
     "findings": []
    }
   },
@@ -2445,6 +2565,18 @@
     "findings": [
      "add failed 409: Conflict"
     ]
+   }
+  },
+  "gnupg/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:24:58",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.5.24",
+    "record": "results/soak/2026-11-01/gnupg_windows-629-232458.json",
+    "findings": []
    }
   },
   "goodsync/darwin@636": {
@@ -2524,6 +2656,18 @@
     "findings": []
    }
   },
+  "jetbrains-toolbox/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T22:44:39",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.9.1.0",
+    "record": "results/soak/2026-11-01/jetbrains-toolbox_windows-629-224439.json",
+    "findings": []
+   }
+  },
   "julia-app/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -2547,6 +2691,34 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.6.5.4",
     "record": "results/soak/2026-11-01/lenovo-dock-manager_windows-635-043231.json",
+    "findings": []
+   }
+  },
+  "localsend/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T21:42:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.18.2",
+    "record": "results/soak/2026-11-01/localsend_windows-629-214259.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "microsoft-dotnet-desktop-runtime-10/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T23:45:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.14",
+    "record": "results/soak/2026-11-01/microsoft-dotnet-desktop-runtime-10_windows-629-234552.json",
     "findings": []
    }
   },
@@ -2585,6 +2757,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "0.11.196",
     "record": "results/soak/2026-11-01/miro_darwin-636-164921.json",
+    "findings": []
+   }
+  },
+  "mremoteng/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T21:51:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.76.20.24615",
+    "record": "results/soak/2026-11-01/mremoteng_windows-629-215133.json",
     "findings": []
    }
   },
@@ -2655,6 +2839,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.159.883.0",
     "record": "results/soak/2026-11-01/power-bi_windows-629-185513.json",
+    "findings": []
+   }
+  },
+  "preform/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-01T21:16:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.64.2.665",
+    "record": "results/soak/2026-11-01/preform_windows-629-211637.json",
     "findings": []
    }
   },
@@ -2794,6 +2990,21 @@
      "first install: Fleet says installed but the app isn't on the host",
      "second install: Fleet says installed but the app isn't on the host",
      "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "typora/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T20:59:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.14.1",
+    "record": "results/soak/2026-11-01/typora_windows-629-205910.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
     ]
    }
   },
@@ -2939,6 +3150,66 @@
     "record": "results/soak/2026-11-01/zettlr_windows-629-043502.json",
     "findings": [
      "first uninstall: app still on host (status failed_uninstall)",
+     "second uninstall: app still on host (status failed_uninstall)"
+    ]
+   }
+  },
+  "alfaview/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T00:35:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.30.5",
+    "record": "results/soak/2026-11-02/alfaview_windows-629-003516.json",
+    "findings": []
+   }
+  },
+  "directory-opus/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T00:35:04",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "13.25",
+    "record": "results/soak/2026-11-02/directory-opus_windows-629-003504.json",
+    "findings": [
+     "add failed 500: mismatch in maintained app SHA256 hash"
+    ]
+   }
+  },
+  "ollama/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-02T00:41:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.40.13",
+    "record": "results/soak/2026-11-02/ollama_windows-629-004109.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "visual-studio-2022-community/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T00:16:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "17.14.44",
+    "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
+    "findings": [
+     "first install: Fleet says failed but the app is on the host",
+     "first install ended as failed_install",
+     "first uninstall: app still on host (status failed_uninstall)",
+     "second install: Fleet says failed but the app is on the host",
+     "second install ended as failed_install",
      "second uninstall: app still on host (status failed_uninstall)"
     ]
    }

@@ -1,0 +1,69 @@
+{
+ "slug": "amazon-dcv-server/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-01T23:07:24",
+ "catalog_version": "26.0.25174.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T03:07:24Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 24092,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 245,
+ "first_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (78:F4) [23:11:37:840]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (78:F4) [23:11:37:844]: Destroying RemoteAPI object.\r\nMSI (s) (78:38) [23:11:37:844]: Custom Action Manager thread ending.\r\nMSI (c) (74:10) [23:11:37:844]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:10) [23:11:37:844]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/1/2026  23:11:37 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 261,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 245,
+ "second_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (78:88) [23:20:18:970]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (78:88) [23:20:18:972]: Destroying RemoteAPI object.\r\nMSI (s) (78:44) [23:20:18:972]: Custom Action Manager thread ending.\r\nMSI (c) (04:B0) [23:20:18:972]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (04:B0) [23:20:18:974]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/1/2026  23:20:18 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 245,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-01T23:24:47",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-02T03:24:45Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-01/evidence/amazon-dcv-server_windows-629-230724-library.png",
+  "inventory": "results/soak/2026-11-01/evidence/amazon-dcv-server_windows-629-230724-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/amazon-dcv-server_windows-629-230724.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-01/amazon-dcv-server_windows-629-224929.json"
+}
