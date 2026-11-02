@@ -54,7 +54,8 @@ cat > $OUT/.settings.json <<EOF
             "Bash(curl -fsSIL https:*)", "Bash(curl -sIL https:*)", "Bash(curl -sSIL https:*)", "Bash(curl -IL https:*)", "Bash(curl -I https:*)", "Bash(shasum -a 256 $OUT/downloads/*)",
             "Bash(msiinfo * $OUT/downloads/*)", "Bash(pkgutil --expand $OUT/downloads/*)", "Bash(xar -tf $OUT/downloads/*)",
             "Bash(plutil -p $OUT/downloads/*)", "Bash(unzip -l $OUT/downloads/*)", "Bash(ls:*)", "Bash(mkdir -p $OUT/downloads/*)", "Bash(mkdir -p downloads/*)"],
-  "deny": ["Bash(gh issue create:*)", "Bash(gh issue comment:*)", "Bash(gh issue edit:*)", "Bash(gh issue close:*)",
+  "deny": ["Agent", "Task", "Workflow", "Skill", "WebSearch",
+           "Bash(gh issue create:*)", "Bash(gh issue comment:*)", "Bash(gh issue edit:*)", "Bash(gh issue close:*)",
            "Bash(gh api:*)", "Bash(gh pr create:*)", "Bash(gh pr comment:*)", "Bash(gh pr review:*)", "Bash(git push:*)",
            "Bash(fleetctl:*)", "Bash(python3:*)", "Bash(python:*)", "Bash(sh:*)", "Bash(bash:*)", "Bash(zsh:*)",
            "Bash(hdiutil:*)", "Bash(open:*)", "Bash(osascript:*)",
@@ -73,9 +74,11 @@ session() {
   claude -p "$4" --settings $OUT/.settings.json --permission-mode dontAsk --model $2 --max-budget-usd $3 \
     --no-session-persistence --output-format json > logs/$1.json 2> logs/$1.log || echo "   $1: session exited $?"
   jq -r '.result // empty' logs/$1.json >> logs/$1.log 2>/dev/null
-  local row=$(jq -r --arg run "${OUT:t}/$1" '[$run, (.total_cost_usd // 0), (.usage.input_tokens // 0), (.usage.cache_read_input_tokens // 0),
-    (.usage.cache_creation_input_tokens // 0), (.usage.output_tokens // 0), (.num_turns // 0), ((.duration_ms // 0) / 60000 | floor)]
-    | map(tostring) | @tsv' logs/$1.json 2>/dev/null)
+  # modelUsage, not usage: usage can come back zeroed (e.g. a session cut off at its ceiling)
+  local row=$(jq -r --arg run "${OUT:t}/$1" '(.modelUsage // {} | [.[]]) as $m | [$run, (.total_cost_usd // 0),
+    ($m | map(.inputTokens // 0) | add // 0), ($m | map(.cacheReadInputTokens // 0) | add // 0),
+    ($m | map(.cacheCreationInputTokens // 0) | add // 0), ($m | map(.outputTokens // 0) | add // 0),
+    (.num_turns // 0), ((.duration_ms // 0) / 60000 | floor)] | map(tostring) | @tsv' logs/$1.json 2>/dev/null)
   [[ -n $row ]] && echo "$row" >> $OUTROOT/costs.tsv
   spent=$(echo "$spent + $(echo "$row" | cut -f2 | grep -E '^[0-9.]+$' || echo 0)" | bc)
 }
