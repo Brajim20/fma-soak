@@ -2,14 +2,15 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 53 cycles: pass 18, findings 20, skipped 15
+**1. Runs** — 105 cycles: pass 46, findings 30, skipped 29
 
-**2. Coverage** — darwin 56/984 (5.7%), round 1; windows 89/459 (19.4%), round 1
+**2. Coverage** — darwin 58/984 (5.9%), round 1; windows 107/459 (23.3%), round 1
 
 **3. Escapes caught or confirmed**
 
 | Issue | State | Title |
 |---|---|---|
+| #42082 | open | Windows FMAs: Support multiple architectures |
 | #45895 | merged | DMG install script use yes and update scripts |
 | #47037 | merged | Add several Windows FMAs |
 | #49682 | closed | Show a clear error when adding Mozilla Firefox and Firefox ESR to the same fleet |
@@ -19,6 +20,7 @@
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
+| #56802 | open | Add ARM64 Windows Fleet-maintained apps for 23 popular apps |
 | #56873 | open | Fleet-maintained apps: pinning a hashless app to an older version installs the latest version |
 | #56891 | open | Fleet-maintained apps: a failed installer download returns 500 with the raw network error |
 | #56948 | open | Windows uninstall reports success when the app wasn't installed by its MSI, and the app stays installed |
