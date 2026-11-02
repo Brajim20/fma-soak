@@ -65,7 +65,10 @@ claude -p "Read $HERE/PROMPT.md and follow it. Output directory: $OUT. The queue
 # the agent's final message, and what the run used (the CLI's estimate at API prices; on a claude.ai login it counts
 # against the plan's usage limits, not a bill) -> costs.tsv, one line per run
 jq -r '.result // empty' $OUT/agent.json >> $OUT/agent.log 2>/dev/null
-jq -r --arg run ${OUT:t} '[$run, (.total_cost_usd // 0 | tostring), (.num_turns // 0 | tostring), ((.duration_ms // 0) / 60000 | floor | tostring) + " min"] | @tsv' \
+[[ -f $OUTROOT/costs.tsv ]] || printf 'run\tusd_estimate\tinput_tokens\tcache_read_tokens\tcache_write_tokens\toutput_tokens\tturns\tminutes\n' > $OUTROOT/costs.tsv
+jq -r --arg run ${OUT:t} '[$run, (.total_cost_usd // 0), (.usage.input_tokens // 0), (.usage.cache_read_input_tokens // 0),
+  (.usage.cache_creation_input_tokens // 0), (.usage.output_tokens // 0), (.num_turns // 0), ((.duration_ms // 0) / 60000 | floor)]
+  | map(tostring) | @tsv' \
   $OUT/agent.json >> $OUTROOT/costs.tsv 2>/dev/null && echo "used: $(tail -1 $OUTROOT/costs.tsv)"
 python3 $W/soak/triage_queue.py --record-state $OUT --state $OUTROOT/state.json
 rm -f $OUT/.settings.json
