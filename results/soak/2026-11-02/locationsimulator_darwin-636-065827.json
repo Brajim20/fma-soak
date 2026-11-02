@@ -1,0 +1,84 @@
+{
+ "slug": "locationsimulator/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-02T06:58:27",
+ "catalog_version": "0.2.2",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T10:58:24Z",
+  "restarted": "2026-11-02T08:26:28.89495Z"
+ },
+ "title_id": 24189,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "l.framework/openssl  -> Versions/Current/openssl \n  inflating: /private/tmp/2605063184/LocationSimulator.app/Contents/Info.plist  \n  inflating: /private/tmp/2605063184/LocationSimulator.app/Contents/PkgInfo  \nfinishing deferred symbolic links:\n  /private/tmp/2605063184/LocationSimulator.app/Contents/Frameworks/openssl.framework/Resources -> Versions/Current/Resources\n  /private/tmp/2605063184/LocationSimulator.app/Contents/Frameworks/openssl.framework/Versions/Current -> A\n  /private/tmp/2605063184/LocationSimulator.app/Contents/Frameworks/openssl.framework/openssl -> Versions/Current/openssl\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [],
+ "package_version": "0.2.2",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": ".locationsimulator doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/de.davidklopp.locationsimulator.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/LocationSimulator doesn't exist.\nremoving /Users/<user>/Library/Caches/com.apple.helpd/Generated/de.davidklopp.locationsimulatorhelp*0.2.2.\n/Users/<user>/Library/Containers/de.davidklopp.locationsimulator doesn't exist.\n/Users/<user>/Library/Preferences/com.schlaubi.LocationSimulator.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "l.framework/openssl  -> Versions/Current/openssl \n  inflating: /private/tmp/1688339008/LocationSimulator.app/Contents/Info.plist  \n  inflating: /private/tmp/1688339008/LocationSimulator.app/Contents/PkgInfo  \nfinishing deferred symbolic links:\n  /private/tmp/1688339008/LocationSimulator.app/Contents/Frameworks/openssl.framework/Resources -> Versions/Current/Resources\n  /private/tmp/1688339008/LocationSimulator.app/Contents/Frameworks/openssl.framework/Versions/Current -> A\n  /private/tmp/1688339008/LocationSimulator.app/Contents/Frameworks/openssl.framework/openssl -> Versions/Current/openssl\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "tionsimulator doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/de.davidklopp.locationsimulator.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/LocationSimulator doesn't exist.\n/Users/<user>/Library/Caches/com.apple.helpd/Generated/de.davidklopp.locationsimulatorhelp*0.2.2 doesn't exist.\n/Users/<user>/Library/Containers/de.davidklopp.locationsimulator doesn't exist.\n/Users/<user>/Library/Preferences/com.schlaubi.LocationSimulator.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-02T07:25:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-02T11:25:04Z",
+  "restarted": "2026-11-02T08:26:28.89495Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-02/evidence/locationsimulator_darwin-636-065827-library.png",
+  "inventory": "results/soak/2026-11-02/evidence/locationsimulator_darwin-636-065827-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/locationsimulator_darwin-636-065827.json"
+}
