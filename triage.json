@@ -2,6 +2,16 @@
  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
+   "app": "evernote/windows",
+   "shape": "S3",
+   "verdict": "filed #57224: queries want publisher 'Evernote Corporation', the electron-builder installer registers 'Bending Spoons US Inc.'; never detected"
+  },
+  {
+   "app": "anyburn/windows",
+   "shape": "S1",
+   "verdict": "filed #57225: manifest 6.9.0.0, installer registers 6.9; patched query fails on a fresh install"
+  },
+  {
    "app": "snagit/windows",
    "verdict": "filed #57157: queries want name 'Snagit 2026', the MSI registers 'Snagit'; patch policy always passes"
   },
