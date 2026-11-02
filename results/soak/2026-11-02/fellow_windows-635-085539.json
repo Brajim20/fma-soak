@@ -1,0 +1,80 @@
+{
+ "slug": "fellow/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-02T08:55:39",
+ "catalog_version": "5.7.22",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T12:55:24Z",
+  "restarted": "2026-11-01T19:23:05.001772Z"
+ },
+ "title_id": 24276,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Fellow for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.7.22"
+ ],
+ "package_version": "5.7.22",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\Brayan Windows mini\\AppData\\Local\\Fellow"
+  ],
+  "names": [
+   "Fellow"
+  ],
+  "versions": [
+   "5.7.22"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing 'Fellow' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Fellow)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Fellow\\Update.exe\n  Uninstall args: --uninstall -s\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Fellow behind; removing it.\nFellow removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 62,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Fellow for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing 'Fellow' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Fellow)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Fellow\\Update.exe\n  Uninstall args: --uninstall -s\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Fellow behind; removing it.\nFellow removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-02T09:03:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-02T13:03:24Z",
+  "restarted": "2026-11-01T19:23:05.001772Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/fellow_windows-635-085539.json",
+ "crosshost_of": "soak/2026-11-02/fellow_windows-629-040911.json"
+}

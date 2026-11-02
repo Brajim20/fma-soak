@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T11:36:39",
+ "built": "2026-11-02T11:40:00",
  "coverage": {
   "darwin": {
    "covered": 74,
@@ -18,15 +18,15 @@
     },
     "636": {
      "round": 1,
-     "done": 38,
-     "of": 840
+     "done": 36,
+     "of": 841
     }
    }
   },
   "windows": {
-   "covered": 150,
+   "covered": 153,
    "catalog": 460,
-   "percent": 32.6,
+   "percent": 33.3,
    "deck": {
     "round": 1,
     "done": 126,
@@ -40,7 +40,7 @@
     },
     "635": {
      "round": 1,
-     "done": 33,
+     "done": 38,
      "of": 338
     }
    }
@@ -3438,6 +3438,18 @@
     ]
    }
   },
+  "3df-zephyr-free/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T08:49:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.013",
+    "record": "results/soak/2026-11-02/3df-zephyr-free_windows-635-084921.json",
+    "findings": []
+   }
+  },
   "alfaview/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3448,6 +3460,33 @@
     "catalog_version": "9.30.5",
     "record": "results/soak/2026-11-02/alfaview_windows-629-003516.json",
     "findings": []
+   }
+  },
+  "amazon-corretto-jre-8/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T10:38:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.8.0.512",
+    "record": "results/soak/2026-11-02/amazon-corretto-jre-8_windows-635-103800.json",
+    "findings": []
+   }
+  },
+  "android-studio/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-02T10:46:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.2.2.8",
+    "record": "results/soak/2026-11-02/android-studio_windows-635-104652.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as pending_install",
+     "second uninstall: app still on host (status None)"
+    ]
    }
   },
   "arduino-ide/darwin@636": {
@@ -3553,18 +3592,6 @@
     ]
    }
   },
-  "deezer/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-02T10:35:11",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.0.10",
-    "record": "results/soak/2026-11-02/deezer_darwin-636-103511.json",
-    "findings": []
-   }
-  },
   "devolutions-workspace/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3648,6 +3675,18 @@
     "findings": []
    }
   },
+  "eclipse-temurin-jdk-21/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T09:03:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "21.0.13.9",
+    "record": "results/soak/2026-11-02/eclipse-temurin-jdk-21_windows-635-090332.json",
+    "findings": []
+   }
+  },
   "fellow/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -3663,6 +3702,18 @@
     ]
    }
   },
+  "fellow/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T08:55:39",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.7.22",
+    "record": "results/soak/2026-11-02/fellow_windows-635-085539.json",
+    "findings": []
+   }
+  },
   "firefox@developer-edition-arm64/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -3674,23 +3725,6 @@
     "record": "results/soak/2026-11-02/firefox@developer-edition-arm64_windows-629-062851.json",
     "findings": [
      "presence unknown after context_after_install (host didn't answer the live query)"
-    ]
-   }
-  },
-  "firefox@developer-edition/darwin@636": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T09:36:55",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "160.0b3",
-    "record": "results/soak/2026-11-02/firefox@developer-edition_darwin-636-093655.json",
-    "findings": [
-     "first install ended as pending_install",
-     "first uninstall: app still on host (status None)",
-     "second install ended as None",
-     "second uninstall: app still on host (status None)"
     ]
    }
   },
@@ -3771,23 +3805,6 @@
     ]
    }
   },
-  "locationsimulator/darwin@636": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T07:25:16",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.2.2",
-    "record": "results/soak/2026-11-02/locationsimulator_darwin-636-072516.json",
-    "findings": [
-     "first install: Fleet says installed but the app isn't on the host",
-     "inventory never reported the app after install + refetch",
-     "second install: Fleet says installed but the app isn't on the host",
-     "presence unknown after context_after_install (host didn't answer the live query)"
-    ]
-   }
-  },
   "lunacy/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3803,18 +3820,6 @@
     ]
    }
   },
-  "microsoft-auto-update/darwin@636": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-02T08:30:24",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.85",
-    "record": "results/soak/2026-11-02/microsoft-auto-update_darwin-636-083024.json",
-    "findings": []
-   }
-  },
   "microsoft-dotnet-sdk-9/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -3826,6 +3831,36 @@
     "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-9_windows-629-060154.json",
     "findings": [
      "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
+  "microsoft-dotnet-sdk-9/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T08:22:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.0.320",
+    "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-9_windows-635-082220.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
+  "microsoft-teams/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T10:12:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26225.1806.5074.1452",
+    "record": "results/soak/2026-11-02/microsoft-teams_windows-635-101234.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
     ]
    }
   },
@@ -3917,6 +3952,20 @@
     "catalog_version": "9.19",
     "record": "results/soak/2026-11-02/pgadmin4_darwin-636-004710.json",
     "findings": []
+   }
+  },
+  "pgadmin4/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T09:27:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.19",
+    "record": "results/soak/2026-11-02/pgadmin4_windows-635-092730.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
    }
   },
   "proton-drive/windows@635": {
@@ -4088,18 +4137,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
     "record": "results/soak/2026-11-02/zoom_darwin-636-032529.json",
-    "findings": []
-   }
-  },
-  "zotero/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-02T11:06:19",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.7",
-    "record": "results/soak/2026-11-02/zotero_darwin-636-110619.json",
     "findings": []
    }
   }
