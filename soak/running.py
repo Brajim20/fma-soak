@@ -250,7 +250,14 @@ def starts(host, t, rec, find, key, label, seen_running):
     ok = any(current(p) for p in now) or open_app(host, t, rec, key)
     if ok:
         time.sleep(10)
-        ok = any(current(p) for p in processes(host, t) or [])
+        later = processes(host, t)
+        if later is None:
+            # the live query timed out: that says nothing about the app (read as [] it made false S6s on host 50)
+            rec[f"{key}_starts"] = None
+            rec[f"{key}_running_note"] = "host didn't answer the process query after opening; not judged"
+            close_app(host, t, rec, key)
+            return
+        ok = any(current(p) for p in later)
     rec[f"{key}_starts"] = ok
     if not ok:
         if seen_running:
