@@ -179,6 +179,53 @@ def assemble(out):
     print(f"{len(alld)} decided ({len(ruled)} by rule), {len(bugs)} drafts, {len(needs)} need you, {len(missing)} unfinished")
 
 
+def hosts_of(d):
+    h = d.get("hosts", [])
+    return [h] if isinstance(h, (str, int)) else h
+
+
+def inbox(root):
+    """<root>/INBOX.md: every bug draft and needs-you item from all runs that triage.json doesn't cover yet (filing or
+    rejecting one adds its entry, which takes it off). Newest decision per app wins."""
+    covered = {e["app"].split("@")[0] for e in D.TRIAGE}
+    latest = {}
+    for p in sorted(glob.glob(os.path.join(root, "*", "decisions.json"))):
+        run = os.path.dirname(p)
+        for d in json.load(open(p)):
+            if isinstance(d, dict) and d.get("slug"):
+                latest[d["slug"]] = (run, d)
+    bugs, needs = [], []
+    for slug, (run, d) in sorted(latest.items()):
+        if slug in covered:
+            continue
+        if d.get("decision") == "bug":
+            bugs.append((run, d))
+        elif d.get("decision") == "needs-you":
+            needs.append((run, d))
+    L = ["# FMA triage inbox", "",
+         f"Updated {datetime.datetime.now():%Y-%m-%d %H:%M}. {len(bugs)} draft{'s' if len(bugs) != 1 else ''} to review, "
+         f"{len(needs)} need{'s' if len(needs) == 1 else ''} a check. An item leaves this list once triage.json has an "
+         "entry for the app (filed, or rejected with a reason).", ""]
+    if bugs:
+        L += ["## Bug drafts", ""]
+        for run, d in bugs:
+            drafts = d.get("drafts") or ([os.path.join(d.get("dir", ""), d["draft"])] if d.get("draft") else [])
+            titles = d.get("titles") or [d["slug"]]
+            for t, p in zip(titles, drafts or [""]):
+                L.append(f"- **[{t}]({os.path.join(os.path.basename(run), p)})**")
+            L.append(f"  - {d.get('summary', '')} · hosts {', '.join(map(str, d.get('hosts', []))) or '—'} · "
+                     f"review: {d.get('reviewed') or 'not reviewed'} · run {os.path.basename(run)}")
+        L.append("")
+    if needs:
+        L += ["## Needs a check", ""]
+        for run, d in needs:
+            L.append(f"- **{d['slug']}**: {d.get('summary', '')} ([details]({os.path.basename(run)}/DECISIONS.md))")
+        L.append("")
+    open(os.path.join(root, "INBOX.md"), "w").write("\n".join(L))
+    print(f"inbox: {len(bugs)} drafts, {len(needs)} need a check -> {os.path.join(root, 'INBOX.md')}")
+    return len(bugs), len(needs)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out")
@@ -186,7 +233,11 @@ def main():
     ap.add_argument("--max", type=int, default=10)
     ap.add_argument("--assemble", metavar="DIR")
     ap.add_argument("--record-state", metavar="DIR")
+    ap.add_argument("--inbox", metavar="ROOT")
     a = ap.parse_args()
+    if a.inbox:
+        inbox(a.inbox)
+        return
     if a.assemble:
         assemble(a.assemble)
         return

@@ -111,5 +111,6 @@ done
 echo "spent ~\$$spent (estimate)"
 python3 $W/soak/triage_queue.py --assemble $OUT
 python3 $W/soak/triage_queue.py --record-state $OUT --state $OUTROOT/state.json
+python3 $W/soak/triage_queue.py --inbox $OUTROOT
 rm -f $OUT/.settings.json
-echo "read: $OUT/DECISIONS.md"
+echo "read: $OUTROOT/INBOX.md (this run: $OUT/DECISIONS.md)"

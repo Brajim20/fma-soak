@@ -19,10 +19,7 @@ echo "--- $(date '+%F %T') results moved to ${sha:0:9}"
 before=$(ls -d $OUTROOT/*/ 2>/dev/null | wc -l)
 if $HERE/triage-agent.sh ${FMA_TRIAGE_MAX:-10} < /dev/null; then
   echo $sha > $SEEN
-  after=$(ls -td $OUTROOT/*/ 2>/dev/null | head -1)
-  if (( $(ls -d $OUTROOT/*/ 2>/dev/null | wc -l) > before )) && [[ -f $after/DECISIONS.md ]]; then
-    msg=$(head -1 $after/DECISIONS.md | tr -d '*#' | cut -c1-120)
-    [[ $msg == *triage* || -z $msg ]] && msg=$(sed -n 3p $after/DECISIONS.md | tr -d '*' | cut -c1-120)
-    osascript -e "display notification \"${msg//\"/}\" with title \"FMA triage ready\" subtitle \"${after:t}\"" 2>/dev/null
-  fi
+  # the notification names what's waiting in the inbox, across runs
+  line=$(sed -n 3p $OUTROOT/INBOX.md 2>/dev/null | cut -d. -f2 | sed 's/^ //')
+  [[ -n $line ]] && osascript -e "display notification \"${line//\"/}\" with title \"FMA triage\" subtitle \"qa-stuff/fma-soak/triage/INBOX.md\"" 2>/dev/null
 fi
