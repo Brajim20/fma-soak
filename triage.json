@@ -2,11 +2,6 @@
  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
-   "app": "bitwig-studio/windows",
-   "shape": "S1",
-   "verdict": "already filed: comment on #57139 (MSI reports UpgradeCode {A60A92A4-...}, manifest has none, so software.go skips the name match and the install lands on a separate 'Bitwig Studio 6.1.4' title)"
-  },
-  {
    "app": "evernote/windows",
    "shape": "S3",
    "verdict": "filed #57224: queries want publisher 'Evernote Corporation', the electron-builder installer registers 'Bending Spoons US Inc.'; never detected"
