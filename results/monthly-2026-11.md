@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 265 cycles: pass 114, findings 76, flaky 1, environment 3, harness 1, skipped 70
+**1. Runs** — 310 cycles: pass 130, findings 93, flaky 1, environment 4, harness 1, skipped 81
 
-**2. Coverage** — darwin 83/984 (8.4%), round 1; windows 160/460 (34.8%), round 1
+**2. Coverage** — darwin 91/974 (9.3%), round 1; windows 168/460 (36.5%), round 1
 
 **3. Escapes caught or confirmed**
 
@@ -43,6 +43,8 @@
 | #57152 | open | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
+| #57224 | open | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
+| #57225 | open | Fleet-maintained apps: AnyBurn (Windows) patch policy fails right after installing the current version (6.9.0.0 vs 6.9) |
 
 **4. Build changes**
 
