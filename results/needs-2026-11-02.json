@@ -1,5 +1,80 @@
 [
  {
+  "app": "locationsimulator/darwin@631",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/locationsimulator_darwin-631-063040.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/locationsimulator/darwin.json), [locationsimulator.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/locationsimulator.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (L) (#47519) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "microsoft-dotnet-sdk-9/windows@629",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-9_windows-629-060154.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-9/windows.json), [microsoft-dotnet-sdk-9.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-9.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "wondershare-filmora/darwin@636",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/wondershare-filmora_darwin-636-050537.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wondershare-filmora/darwin.json), [wondershare-filmora.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wondershare-filmora.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (W) (#47182) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "db-browser-for-sqlite/windows@629",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/db-browser-for-sqlite_windows-629-024201.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/db-browser-for-sqlite/windows.json), [db-browser-for-sqlite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/db-browser-for-sqlite.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Add several Windows FMAs (#46415) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "dupeguru/windows@629",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/dupeguru_windows-629-033350.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dupeguru/windows.json), [dupeguru.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dupeguru.json), [dupeguru_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_install.ps1), [dupeguru_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "locationsimulator/darwin@631",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/locationsimulator_darwin-631-063040.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/locationsimulator/darwin.json), [locationsimulator.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/locationsimulator.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (L) (#47519) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "visual-studio-2022-community/windows@629",
   "shape": "S3",
   "msgs": [
@@ -8,7 +83,33 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/visual-studio-2022-community_windows-635-032251.json)",
   "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-community/windows.json), [visual-studio-2022-community.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-community.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
+ },
+ {
+  "app": "wondershare-filmora/darwin@636",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/wondershare-filmora_darwin-636-050537.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wondershare-filmora/darwin.json), [wondershare-filmora.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wondershare-filmora.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (W) (#47182) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "visual-studio-2022-community/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-635-032251.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-community/windows.json), [visual-studio-2022-community.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-community.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
  },
  {
@@ -19,19 +120,47 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/directory-opus_windows-635-030133.json)",
   "record": "results/soak/2026-11-02/directory-opus_windows-629-003504.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/directory-opus/windows.json), [directory-opus.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/directory-opus.json), [directory-opus_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/directory-opus_install.ps1), [directory-opus_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/directory-opus_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-10 Add Windows FMAs (letter D): 12 apps (#49086) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "zoom@government/darwin@636",
+  "app": "directory-opus/windows@635",
   "shape": "add",
   "msgs": [
-   "add failed 409: Conflict"
+   "add failed 500: mismatch in maintained app SHA256 hash"
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "record": "results/soak/2026-11-02/zoom@government_darwin-636-001623.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom@government/darwin.json), [zoom@government.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/zoom@government.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-09-30 Add Zoom for Government as a macOS Fleet-maintained app (#54459) \u00b7 issues mentioning it: #55140 (open), #54478 (open), #54284 (closed)"
+  "other_host": null,
+  "record": "results/soak/2026-11-02/directory-opus_windows-635-030133.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/directory-opus/windows.json), [directory-opus.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/directory-opus.json), [directory-opus_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/directory-opus_install.ps1), [directory-opus_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/directory-opus_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-10 Add Windows FMAs (letter D): 12 apps (#49086) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "3df-zephyr-free/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/3df-zephyr-free_windows-629-045249.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/3df-zephyr-free/windows.json), [3df-zephyr-free.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/3df-zephyr-free.json), [3df-zephyr-free_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/3df-zephyr-free_install.ps1), [3df-zephyr-free_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/3df-zephyr-free_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-07-07 Add Windows FMAs (digit batch): 3DF Zephyr Free, 4K Video Downloader+ (#48872) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "camtasia/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/camtasia_windows-629-030747.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/camtasia/windows.json), [camtasia.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/camtasia.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-02 Add Camtasia as a macOS & Windows FMA (#36449) \u00b7 issues mentioning it: #51793 (open)"
  },
  {
   "app": "docker/windows@635",
@@ -42,8 +171,22 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
+  "other_host": null,
   "record": "results/soak/2026-11-02/docker_windows-635-010233.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-11-21 Add Docker Desktop for Windows to Fleet-maintained apps (#36123) \u00b7 issues mentioning it: #53287 (open), #56426 (open), #50503 (open), #42691 (open), #6014 (open)"
+ },
+ {
+  "app": "fellow/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/fellow_windows-629-040911.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/fellow/windows.json), [fellow.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/fellow.json), [fellow_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_install.ps1), [fellow_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-30 Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612); 2026-10-27 Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629); 2026-10-21 Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153) \u00b7 issues mentioning it: #48248 (open), #51875 (closed), #36402 (closed)"
  },
  {
   "app": "ollama/windows@629",
@@ -54,7 +197,21 @@
   ],
   "retried": "not retried",
   "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/ollama_windows-635-024140.json)",
   "record": "results/soak/2026-11-02/ollama_windows-629-004109.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ollama/windows.json), [ollama.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/ollama.json), [ollama_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/ollama_install.ps1), [ollama_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/ollama_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-03-11 Add Ollama as Fleet-maintained app (#41367) \u00b7 issues mentioning it: #56938 (open), #48248 (open), #50704 (closed), #47619 (closed), #51093 (closed)"
+ },
+ {
+  "app": "ollama/windows@635",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/ollama_windows-635-024140.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ollama/windows.json), [ollama.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/ollama.json), [ollama_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/ollama_install.ps1), [ollama_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/ollama_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-03-11 Add Ollama as Fleet-maintained app (#41367) \u00b7 issues mentioning it: #56938 (open), #48248 (open), #50704 (closed), #47619 (closed), #51093 (closed)"
  },
  {
@@ -66,6 +223,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/visual-studio-2022-community_windows-635-032251.json)",
   "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-community/windows.json), [visual-studio-2022-community.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-community.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
  },
@@ -77,6 +235,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
+  "other_host": "not on 636 (skipped) [record](soak/2026-11-02/zoom_darwin-636-032529.json)",
   "record": "results/soak/2026-11-02/zoom_darwin-631-005706.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom/darwin.json), [zoom.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/zoom.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-01 Revert \"Support default pkg install script when cask lacks pkg artifact and URL override i; 2026-06-01 Support default pkg install script when cask lacks pkg artifact and URL override is used (; 2025-12-04 Switched 1Password, Slack, and Zoom for macOS to universal installers (#36660) \u00b7 issues mentioning it: #54478 (open), #55901 (open), #55140 (open), #55997 (open), #34089 (open)"
  },
@@ -89,6 +248,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/visual-studio-2022-community_windows-635-032251.json)",
   "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-community/windows.json), [visual-studio-2022-community.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-community.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
  }

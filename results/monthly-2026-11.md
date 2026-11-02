@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 168 cycles: pass 73, findings 47, environment 1, skipped 47
+**1. Runs** — 221 cycles: pass 96, findings 58, flaky 1, environment 3, harness 1, skipped 62
 
-**2. Coverage** — darwin 67/984 (6.8%), round 1; windows 137/460 (29.8%), round 1
+**2. Coverage** — darwin 74/984 (7.5%), round 1; windows 150/460 (32.6%), round 1
 
 **3. Escapes caught or confirmed**
 
@@ -40,6 +40,9 @@
 | #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
 | #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
 | #57149 | open | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
+| #57152 | open | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
+| #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
+| #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
 
 **4. Build changes**
 
