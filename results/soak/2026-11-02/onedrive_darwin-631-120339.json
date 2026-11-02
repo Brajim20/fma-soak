@@ -1,0 +1,92 @@
+{
+ "slug": "onedrive/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-02T12:03:39",
+ "catalog_version": "26.189.0928",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as pending_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T16:03:39Z",
+  "restarted": "2026-11-02T08:59:23.197546Z"
+ },
+ "title_id": 23411,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 63,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneDrive\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.189.0928"
+ ],
+ "package_version": "26.189.0928",
+ "context_after_install": {
+  "path": "/Applications/OneDrive.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+  "bundle_id": "com.microsoft.OneDrive",
+  "versions": [
+   "26.189.0928"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 327,
+ "first_uninstall_output_tail": "ration not permitted\nFailed to move /Users/<user>/Library/Containers/com.microsoft.OneDrive.FinderSync to the Trash.\n/Users/<user>/Library/Containers/com.microsoft.OneDriveLauncher doesn't exist.\n/Users/<user>/Library/Cookies/com.microsoft.OneDrive.binarycookies doesn't exist.\n/Users/<user>/Library/Cookies/com.microsoft.OneDriveUpdater.binarycookies doesn't exist.\n/Users/<user>/Library/Group Containers/*.OfficeOneDriveSyncIntegration doesn't exist.\nremoving /Users/<user>/Library/Group Containers/UBF8T346G9.OneDriveStandaloneSuite.\n\nscript execution error: signal: killed",
+ "first_uninstall_exit_code": -1,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "pending_install",
+ "second_install_seconds": null,
+ "second_install_cancelled_after_timeout": [],
+ "second_install_output_tail": "",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-02T12:38:16; offline when the cycle ended)",
+ "finished": "2026-11-02T12:43:09",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-02T16:36:39Z",
+  "restarted": "2026-11-02T08:59:23.197546Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-02T12:38:16",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-02/evidence/onedrive_darwin-631-120339-library.png",
+  "inventory": "results/soak/2026-11-02/evidence/onedrive_darwin-631-120339-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/onedrive_darwin-631-120339.json"
+}
