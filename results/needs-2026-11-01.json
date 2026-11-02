@@ -11,6 +11,17 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/anyburn/windows.json), [anyburn.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/anyburn.json), [anyburn_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/anyburn_install.ps1), [anyburn_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/anyburn_uninstall.ps1) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-07-29 Update Fleet-maintained apps (#50150); 2026-07-07 Add Windows FMAs (letter A): 14 apps (#48881) \u00b7 issues mentioning it: #53475 (closed)"
  },
  {
+  "app": "bitbox/darwin@636",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/bitbox_darwin-636-214432.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/bitbox/darwin.json), [bitbox.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/bitbox.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (B) (#47360) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "bitwig-studio/windows@635",
   "shape": "S1",
   "msgs": [
@@ -78,6 +89,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/protopie/windows.json), [protopie.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/protopie.json), [protopie_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_install.ps1), [protopie_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open)"
  },
  {
+  "app": "bitbox/darwin@636",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/bitbox_darwin-636-214432.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/bitbox/darwin.json), [bitbox.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/bitbox.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (B) (#47360) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "brave-browser/windows@629",
   "shape": "S3",
   "msgs": [
@@ -87,6 +110,30 @@
   "runs": 1,
   "record": "results/soak/2026-11-01/brave-browser_windows-629-011600.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/brave-browser/windows.json), [brave-browser.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/brave-browser.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-05-02 software categories: backend (#28479); 2025-03-27 more fixes for FMA windows ingestion (#27487) \u00b7 issues mentioning it: #56431 (open), #51127 (open), #48248 (open), #51823 (open), #34591 (closed)"
+ },
+ {
+  "app": "db-browser-for-sqlite/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/db-browser-for-sqlite_windows-635-234959.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/db-browser-for-sqlite/windows.json), [db-browser-for-sqlite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/db-browser-for-sqlite.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Add several Windows FMAs (#46415) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "dupeguru/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/dupeguru_windows-635-221342.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dupeguru/windows.json), [dupeguru.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dupeguru.json), [dupeguru_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_install.ps1), [dupeguru_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
  },
  {
   "app": "evernote/windows@629",
@@ -101,16 +148,16 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756); 2026-07-13 Add Windows FMAs (letter E): 13 apps (#49186) \u00b7 issues mentioning it: #57116 (open), #50077 (open), #39135 (closed), #43441 (closed), #45853 (closed)"
  },
  {
-  "app": "grids/darwin@636",
+  "app": "localsend/windows@629",
   "shape": "S3",
   "msgs": [
-   "first uninstall: app still on host (status None)",
-   "second uninstall: app still on host (status None)"
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "record": "results/soak/2026-11-01/grids_darwin-636-155305.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/grids/darwin.json), [grids.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/grids.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #6039 (open)"
+  "record": "results/soak/2026-11-01/localsend_windows-629-214259.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/localsend/windows.json), [localsend.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/localsend.json), [localsend_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/localsend_install.ps1), [localsend_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/localsend_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #54172 (open)"
  },
  {
   "app": "microsoft-defender/darwin@631",
@@ -135,6 +182,18 @@
   "runs": 1,
   "record": "results/soak/2026-11-01/opencloud_darwin-636-012019.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/opencloud/darwin.json), [opencloud.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/opencloud.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (O) (#47237) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "plantronics-hub/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/plantronics-hub_windows-635-214841.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/plantronics-hub/windows.json), [plantronics-hub.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/plantronics-hub.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #37326 (closed)"
  },
  {
   "app": "snagit/windows@629",
@@ -162,17 +221,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/twine-app/windows.json), [twine-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/twine-app.json), [twine-app_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/twine-app_install.ps1), [twine-app_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/twine-app_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "010-editor/windows@629",
-  "shape": "S6",
-  "msgs": [
-   "upgrade to 17.0 with the app open: the install over the open app ended as failed_install"
-  ],
-  "retried": "not retried",
-  "runs": 1,
-  "record": "results/soak/2026-11-01/010-editor_windows-629-150522.json",
-  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/010-editor/windows.json), [010-editor.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/010-editor.json), [010-editor_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/010-editor_install.ps1), [010-editor_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/010-editor_uninstall.ps1) \u00b7 last changes: 2026-04-10 Fix mis-assigned FMA bundle identifiers, switch to fuzzy matching on queries where Windows; 2025-12-14 Add 010 Editor as a Windows FMA (#37234) \u00b7 issues mentioning it: #53068 (open), #53009 (open), #54170 (closed), #53382 (closed), #51989 (closed)"
- },
- {
   "app": "avs-image-converter/windows@629",
   "shape": "S6",
   "msgs": [
@@ -184,6 +232,17 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/avs-image-converter/windows.json), [avs-image-converter.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/avs-image-converter.json), [avs-image-converter_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/avs-image-converter_install.ps1), [avs-image-converter_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/avs-image-converter_uninstall.ps1) \u00b7 last changes: 2026-07-07 Add Windows FMAs (letter A): 14 apps (#48881) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "avs-media-player/windows@629",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/avs-media-player_windows-629-220948.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/avs-media-player/windows.json), [avs-media-player.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/avs-media-player.json), [avs-media-player_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/avs-media-player_install.ps1), [avs-media-player_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/avs-media-player_uninstall.ps1) \u00b7 last changes: 2026-07-07 Add Windows FMAs (letter A): 14 apps (#48881) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "brave-browser/windows@629",
   "shape": "S6",
   "msgs": [
@@ -193,6 +252,17 @@
   "runs": 1,
   "record": "results/soak/2026-11-01/brave-browser_windows-629-011600.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/brave-browser/windows.json), [brave-browser.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/brave-browser.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-05-02 software categories: backend (#28479); 2025-03-27 more fixes for FMA windows ingestion (#27487) \u00b7 issues mentioning it: #56431 (open), #51127 (open), #48248 (open), #51823 (open), #34591 (closed)"
+ },
+ {
+  "app": "dynalist/windows@629",
+  "shape": "S6",
+  "msgs": [
+   "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/dynalist_windows-629-223214.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dynalist/windows.json), [dynalist.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dynalist.json), [dynalist_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dynalist_install.ps1), [dynalist_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dynalist_uninstall.ps1) \u00b7 last changes: 2026-10-30 Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612); 2026-10-27 Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629); 2026-10-21 Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
  },
  {
   "app": "firefox@developer-edition/windows@629",
@@ -239,6 +309,17 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tableau-prep/windows.json), [tableau-prep.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/tableau-prep.json) \u00b7 last changes: 2026-09-09 Add Tableau Prep Builder as a Windows Fleet-maintained app (#52653) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "dataspell/darwin@636",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/dataspell_darwin-636-210612.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dataspell/darwin.json), [dataspell.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/dataspell.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: #27914 (closed)"
+ },
+ {
   "app": "firefox@nightly-arm64/windows@629",
   "shape": "add",
   "msgs": [
@@ -250,15 +331,16 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@nightly-arm64/windows.json), [firefox@nightly-arm64.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/firefox@nightly-arm64.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-09-16 Add ARM64 Firefox Developer Edition and Firefox Nightly Windows FMAs (#52964) \u00b7 issues mentioning it: #53050 (open)"
  },
  {
-  "app": "010-editor/windows@629",
+  "app": "amazon-dcv-server/windows@629",
   "shape": "install",
   "msgs": [
-   "upgrade over 16.0.4 ended as failed_install"
+   "first install ended as failed_install",
+   "second install ended as failed_install"
   ],
-  "retried": "not retried",
+  "retried": "reproduced on retry",
   "runs": 1,
-  "record": "results/soak/2026-11-01/010-editor_windows-629-150522.json",
-  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/010-editor/windows.json), [010-editor.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/010-editor.json), [010-editor_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/010-editor_install.ps1), [010-editor_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/010-editor_uninstall.ps1) \u00b7 last changes: 2026-04-10 Fix mis-assigned FMA bundle identifiers, switch to fuzzy matching on queries where Windows; 2025-12-14 Add 010 Editor as a Windows FMA (#37234) \u00b7 issues mentioning it: #53068 (open), #53009 (open), #54170 (closed), #53382 (closed), #51989 (closed)"
+  "record": "results/soak/2026-11-01/amazon-dcv-server_windows-629-230724.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/amazon-dcv-server/windows.json), [amazon-dcv-server.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/amazon-dcv-server.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: none"
  },
  {
   "app": "brave-browser/windows@629",
@@ -272,40 +354,16 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/brave-browser/windows.json), [brave-browser.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/brave-browser.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-05-02 software categories: backend (#28479); 2025-03-27 more fixes for FMA windows ingestion (#27487) \u00b7 issues mentioning it: #56431 (open), #51127 (open), #48248 (open), #51823 (open), #34591 (closed)"
  },
  {
-  "app": "dialpad/darwin@636",
+  "app": "camtasia/windows@635",
   "shape": "install",
   "msgs": [
-   "first install ended as pending_install",
-   "second install ended as None"
-  ],
-  "retried": "not retried",
-  "runs": 1,
-  "record": "results/soak/2026-11-01/dialpad_darwin-636-143119.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dialpad/darwin.json), [dialpad.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/dialpad.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-01 Update Fleet-maintained apps (#44554); 2025-12-10 Add multiple macOS FMAs (#37036) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
- },
- {
-  "app": "fleet-desktop/darwin@631",
-  "shape": "install",
-  "msgs": [
-   "first install ended as pending_install",
-   "second install ended as None"
-  ],
-  "retried": "not retried",
-  "runs": 1,
-  "record": "results/soak/2026-11-01/fleet-desktop_darwin-631-143755.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/fleet-desktop/darwin.json), [fleet-desktop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/fleet-desktop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-04-30 Support custom tap folder for apps without casks; add three apps (#43784) \u00b7 issues mentioning it: #56899 (open), #48035 (open), #51299 (open), #54314 (open), #48755 (open)"
- },
- {
-  "app": "grids/darwin@636",
-  "shape": "install",
-  "msgs": [
-   "first install ended as pending_install",
-   "second install ended as None"
+   "first install ended as failed_install",
+   "second install ended as failed_install"
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "record": "results/soak/2026-11-01/grids_darwin-636-155305.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/grids/darwin.json), [grids.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/grids.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #6039 (open)"
+  "record": "results/soak/2026-11-01/camtasia_windows-635-231455.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/camtasia/windows.json), [camtasia.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/camtasia.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-02 Add Camtasia as a macOS & Windows FMA (#36449) \u00b7 issues mentioning it: #51793 (open)"
  },
  {
   "app": "microsoft-defender/darwin@631",
@@ -342,6 +400,18 @@
   "runs": 1,
   "record": "results/soak/2026-11-01/resharper_windows-635-023810.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/resharper/windows.json), [resharper.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/resharper.json), [resharper_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/resharper_install.ps1), [resharper_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/resharper_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add JetBrains ReSharper as a Windows Fleet-maintained app (#50659) \u00b7 issues mentioning it: #56431 (open), #50567 (closed)"
+ },
+ {
+  "app": "typora/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "record": "results/soak/2026-11-01/typora_windows-629-205910.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/typora/windows.json), [typora.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/typora.json), [typora_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/typora_install.ps1), [typora_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/typora_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-07-23 Update Fleet-maintained apps (#49813); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
  },
  {
   "app": "visual-studio-2022-enterprise/windows@635",

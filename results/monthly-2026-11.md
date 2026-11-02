@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 105 cycles: pass 46, findings 30, skipped 29
+**1. Runs** — 168 cycles: pass 73, findings 47, environment 1, skipped 47
 
-**2. Coverage** — darwin 58/984 (5.9%), round 1; windows 107/459 (23.3%), round 1
+**2. Coverage** — darwin 67/984 (6.8%), round 1; windows 137/460 (29.8%), round 1
 
 **3. Escapes caught or confirmed**
 
@@ -32,6 +32,14 @@
 | #57114 | open | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
 | #57116 | open | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
 | #57118 | open | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
+| #57119 | open | Fleet-maintained apps: Sequel Ace (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
+| #57120 | open | Fleet-maintained apps: JASP (macOS) detection uses an outdated bundle ID (org.jasp-stats.JASP → org.jaspstats.jasp) |
+| #57136 | open | Fleet-maintained apps: Galaxy Modeler (Windows) is never detected, so its patch policy always passes |
+| #57137 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) is never detected (installer registers "PostgreSQL 18 " with a trailing space) |
+| #57138 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) can't be reinstalled after an uninstall, and the uninstall is reported as failed |
+| #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
+| #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
+| #57149 | open | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
 
 **4. Build changes**
 
