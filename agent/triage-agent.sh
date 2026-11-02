@@ -6,11 +6,14 @@
 #
 #   agent/triage-agent.sh [max-apps]      # default 10
 #
-# Env: FMA_TRIAGE_OUT (default <QA workspace>/qa-stuff/fma-soak/triage), FMA_TRIAGE_BUDGET (USD ceiling, default 15;
-#      a cap, not a price: the run stops there),
-#      FMA_TRIAGE_MODEL (default: the CLI's default).
-# Output: $FMA_TRIAGE_OUT/<date-time>/{queue.json,records/,DECISIONS.md,decisions.json,BUG_DRAFT_*.md,agent.log}.
-# Apps the agent decided aren't queued again until they have a newer finding ($FMA_TRIAGE_OUT/state.json).
+# Rules in triage_queue.py settle what the records alone prove (free); the rest get one short agent session each, so
+# an app's cost doesn't grow with the queue. Ceilings, not prices (the CLI's estimate at API prices; on a claude.ai
+# login it counts against the plan's usage limits): FMA_TRIAGE_APP_BUDGET per app (default 2), FMA_TRIAGE_BUDGET per
+# run (default 30; no new app starts past it). Other env: FMA_TRIAGE_OUT (default <QA workspace>/qa-stuff/fma-soak/
+# triage), FMA_TRIAGE_MODEL (default: the CLI's default).
+# Output: $FMA_TRIAGE_OUT/<date-time>/{DECISIONS.md, decisions.json, apps/<app>/{BUG_DRAFT_*.md,notes.md,decision.json,
+# agent.log}, queue.json, rules.json, records/}; usage per app in $FMA_TRIAGE_OUT/costs.tsv.
+# Apps decided aren't queued again until a newer finding or the other host's rerun ($FMA_TRIAGE_OUT/state.json).
 set -euo pipefail
 HERE=${0:A:h}; REPO=${HERE:h}
 QA=${FMA_TRIAGE_QA:-$HOME/Documents/GitHub/fleet-playwright}
@@ -34,7 +37,9 @@ trap 'git -C $REPO worktree remove --force $W; rmdir $LOCK' EXIT
 (cd $W && git archive origin/results results | tar -x)
 cp $REPO/config.local.json $W/
 python3 $W/soak/triage_queue.py --out $OUT --state $OUTROOT/state.json --max ${1:-10}
-if [[ $(jq length $OUT/queue.json) == 0 ]]; then echo "nothing to triage"; rm -r -- "$OUT"; exit 0; fi
+if [[ $(jq length $OUT/queue.json) == 0 && $(jq length $OUT/rules.json) == 0 ]]; then
+  echo "nothing to triage"; rm -r -- "$OUT"; exit 0
+fi
 git -C $CATALOG fetch -q origin main
 
 cat > $OUT/.settings.json <<EOF
@@ -57,19 +62,27 @@ EOF
 
 # the output directory is the session's only working directory, so it's the only place the agent can write
 cd $OUT
-echo "triage agent: $(jq length $OUT/queue.json) apps -> $OUT"
-claude -p "Read $HERE/PROMPT.md and follow it. Output directory: $OUT. The queue is $OUT/queue.json." \
-  --settings $OUT/.settings.json --permission-mode dontAsk \
-  --max-budget-usd ${FMA_TRIAGE_BUDGET:-15} ${FMA_TRIAGE_MODEL:+--model $FMA_TRIAGE_MODEL} \
-  --no-session-persistence --output-format json > $OUT/agent.json 2> $OUT/agent.log || echo "agent exited $? (see agent.log)"
-# the agent's final message, and what the run used (the CLI's estimate at API prices; on a claude.ai login it counts
-# against the plan's usage limits, not a bill) -> costs.tsv, one line per run
-jq -r '.result // empty' $OUT/agent.json >> $OUT/agent.log 2>/dev/null
 [[ -f $OUTROOT/costs.tsv ]] || printf 'run\tusd_estimate\tinput_tokens\tcache_read_tokens\tcache_write_tokens\toutput_tokens\tturns\tminutes\n' > $OUTROOT/costs.tsv
-jq -r --arg run ${OUT:t} '[$run, (.total_cost_usd // 0), (.usage.input_tokens // 0), (.usage.cache_read_input_tokens // 0),
-  (.usage.cache_creation_input_tokens // 0), (.usage.output_tokens // 0), (.num_turns // 0), ((.duration_ms // 0) / 60000 | floor)]
-  | map(tostring) | @tsv' \
-  $OUT/agent.json >> $OUTROOT/costs.tsv 2>/dev/null && echo "used: $(tail -1 $OUTROOT/costs.tsv)"
+n=$(jq length queue.json) spent=0
+echo "triage agent: $n apps for the agent, $(jq length rules.json) settled by rules -> $OUT"
+for i in $(seq 0 $(( n - 1 ))); do
+  if (( $(echo "$spent >= ${FMA_TRIAGE_BUDGET:-30}" | bc) )); then echo "run ceiling reached (\$$spent): the rest stay queued"; break; fi
+  slug=$(jq -r ".[$i].slug" queue.json); app=${${slug//\//-}//@/-}
+  mkdir -p apps/$app
+  # one session per app: its context holds this app only
+  claude -p "Read $HERE/PROMPT.md and follow it for ONE app: queue item $i ($slug) in $OUT/queue.json. Output directory: $OUT. Write this app's files into $OUT/apps/$app/." \
+    --settings $OUT/.settings.json --permission-mode dontAsk \
+    --max-budget-usd ${FMA_TRIAGE_APP_BUDGET:-2} ${FMA_TRIAGE_MODEL:+--model $FMA_TRIAGE_MODEL} \
+    --no-session-persistence --output-format json > apps/$app/agent.json 2> apps/$app/agent.log || echo "   $slug: agent exited $?"
+  jq -r '.result // empty' apps/$app/agent.json >> apps/$app/agent.log 2>/dev/null
+  row=$(jq -r --arg run "${OUT:t}/$app" '[$run, (.total_cost_usd // 0), (.usage.input_tokens // 0), (.usage.cache_read_input_tokens // 0),
+    (.usage.cache_creation_input_tokens // 0), (.usage.output_tokens // 0), (.num_turns // 0), ((.duration_ms // 0) / 60000 | floor)]
+    | map(tostring) | @tsv' apps/$app/agent.json 2>/dev/null) && echo "$row" >> $OUTROOT/costs.tsv
+  spent=$(echo "$spent + $(echo "$row" | cut -f2 | grep -E '^[0-9.]+$' || echo 0)" | bc)
+  echo "   $slug: $(jq -r '.decision // "undecided"' apps/$app/decision.json 2>/dev/null || echo undecided) (\$$(echo "$row" | cut -f2 | cut -c1-5))"
+done
+echo "spent ~\$$spent (estimate)"
+python3 $W/soak/triage_queue.py --assemble $OUT
 python3 $W/soak/triage_queue.py --record-state $OUT --state $OUTROOT/state.json
 rm -f $OUT/.settings.json
 echo "read: $OUT/DECISIONS.md"
