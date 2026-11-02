@@ -6,7 +6,8 @@
 #
 #   agent/triage-agent.sh [max-apps]      # default 10
 #
-# Env: FMA_TRIAGE_OUT (default <QA workspace>/qa-stuff/fma-soak/triage), FMA_TRIAGE_BUDGET (USD, default 15),
+# Env: FMA_TRIAGE_OUT (default <QA workspace>/qa-stuff/fma-soak/triage), FMA_TRIAGE_BUDGET (USD ceiling, default 15;
+#      a cap, not a price: the run stops there),
 #      FMA_TRIAGE_MODEL (default: the CLI's default).
 # Output: $FMA_TRIAGE_OUT/<date-time>/{queue.json,records/,DECISIONS.md,decisions.json,BUG_DRAFT_*.md,agent.log}.
 # Apps the agent decided aren't queued again until they have a newer finding ($FMA_TRIAGE_OUT/state.json).
@@ -60,7 +61,12 @@ echo "triage agent: $(jq length $OUT/queue.json) apps -> $OUT"
 claude -p "Read $HERE/PROMPT.md and follow it. Output directory: $OUT. The queue is $OUT/queue.json." \
   --settings $OUT/.settings.json --permission-mode dontAsk \
   --max-budget-usd ${FMA_TRIAGE_BUDGET:-15} ${FMA_TRIAGE_MODEL:+--model $FMA_TRIAGE_MODEL} \
-  --no-session-persistence > $OUT/agent.log 2>&1 || echo "agent exited $? (see agent.log)"
+  --no-session-persistence --output-format json > $OUT/agent.json 2> $OUT/agent.log || echo "agent exited $? (see agent.log)"
+# the agent's final message, and what the run used (the CLI's estimate at API prices; on a claude.ai login it counts
+# against the plan's usage limits, not a bill) -> costs.tsv, one line per run
+jq -r '.result // empty' $OUT/agent.json >> $OUT/agent.log 2>/dev/null
+jq -r --arg run ${OUT:t} '[$run, (.total_cost_usd // 0 | tostring), (.num_turns // 0 | tostring), ((.duration_ms // 0) / 60000 | floor | tostring) + " min"] | @tsv' \
+  $OUT/agent.json >> $OUTROOT/costs.tsv 2>/dev/null && echo "used: $(tail -1 $OUTROOT/costs.tsv)"
 python3 $W/soak/triage_queue.py --record-state $OUT --state $OUTROOT/state.json
 rm -f $OUT/.settings.json
 echo "read: $OUT/DECISIONS.md"
