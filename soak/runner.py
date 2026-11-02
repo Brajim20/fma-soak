@@ -114,8 +114,10 @@ def present(host, exists_query, tries=4):
     return None
 
 
-def run_script(host, body, timeout=900):
-    """Run a one-off script on the host (as root / SYSTEM) and wait for its result."""
+def run_script(host, body, timeout=900, raw=False):
+    """Run a one-off script on the host (as root / SYSTEM) and wait for its result.
+    raw=True adds "raw_output", unscrubbed, for paths the harness acts on (a scrubbed C:\\Users\\<user>\\... path
+    matches no process). Never save a raw=True result in a record."""
     st, d = api("POST", "/scripts/run", {"host_id": host, "script_contents": body})
     if st >= 300:
         return {"error": f"{st} {d.get('message')}"}
@@ -125,7 +127,10 @@ def run_script(host, body, timeout=900):
         time.sleep(15)
         st, r = api("GET", f"/scripts/results/{eid}")
         if r.get("exit_code") is not None:
-            return {"execution_id": eid, "exit_code": r["exit_code"], "output": scrub(r.get("output", ""))}
+            res = {"execution_id": eid, "exit_code": r["exit_code"], "output": scrub(r.get("output", ""))}
+            if raw:
+                res["raw_output"] = r.get("output", "")
+            return res
     return {"execution_id": eid, "error": "no result in time"}
 
 

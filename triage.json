@@ -64,6 +64,22 @@
    "verdict": "environment (app): exits ~1 s after ANY launch, also on a fresh install with no reinstall (control on main host 50, macOS 27, 2026-11-02); adhoc-signed wxPython app ('needs access to the screen'). The Oct 31 runs also had 34-38 live-query timeouts, read as 'not running' before the running.py fix"
   },
   {
+   "app": "granola/windows@629",
+   "shape": "S6",
+   "before": "2026-11-02T17:45:00",
+   "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path, which matches no process; Granola stayed up 90 s when checked by its real path (main host 228, 2026-11-02). Fixed by run_script(raw=True) in open_app/find_exe"
+  },
+  {
+   "app": "termius/windows@629",
+   "shape": "S6",
+   "before": "2026-11-02T17:45:00",
+   "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path (same as granola/windows); fixed by run_script(raw=True) in open_app/find_exe"
+  },
+  {
+   "app": "proton-drive/windows@629",
+   "verdict": "environment (ARM): the 1603 is only on Windows-on-ARM 629; full cycle passes on x64 (main host 228, 2026-11-02)"
+  },
+  {
    "app": "bitwig-studio/windows@629",
    "shape": "S1",
    "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'"

@@ -149,16 +149,18 @@ def find_exe(host, t):
         return
     body = f"$names = {ps_list(t['names'])}\n$locs = {ps_list(t['locations'])}\n" + WIN_FIND + \
         'if ($exe) { Write-Output "TARGET=$exe" } else { Write-Output "NO_TARGET" }\n'
-    m = re.search(r"TARGET=(.+)", R.run_script(host, body, timeout=300).get("output", ""))
+    m = re.search(r"TARGET=(.+)", R.run_script(host, body, timeout=300, raw=True).get("raw_output", ""))
     if m:
         t["exe"] = m.group(1).strip()
 
 
 def open_app(host, t, rec, label):
     """Open the app as the signed-in user. True if it's running afterwards (t gets the Windows exe)."""
-    r = R.run_script(host, _open_script(t), timeout=300)
+    r = R.run_script(host, _open_script(t), timeout=300, raw=True)
     out = r.get("output", "") or r.get("error", "")
-    m = re.search(r"TARGET=(.+)", out)
+    # the exe from the unscrubbed output: the scrubbed C:\Users\<user>\... path matched no process, so per-user
+    # installs (Granola, Termius) read as "doesn't stay open" and close_app never closed them
+    m = re.search(r"TARGET=(.+)", r.get("raw_output", ""))
     if m:
         t["exe"] = m.group(1).strip()
     pids = (re.search(r"PIDS=(.*)", out) or [None, ""])[1].split()
