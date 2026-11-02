@@ -158,7 +158,7 @@ def assemble(out):
         for d in bugs:
             for t, p in zip(d["titles"] or ["(no draft file)"], d["drafts"] or [""]):
                 L.append(f"**[{t}]({p})**")
-            L += [d.get("summary", ""), f"Reproduced on: {', '.join(map(str, d.get('hosts', []))) or '—'} · "
+            L += [d.get("summary", ""), f"Reproduced on: {', '.join(map(str, hosts_of(d))) or '—'} · "
                   f"Review: {d.get('reviewed') or 'not reviewed (run ceiling)'}", ""]
             if d["notes"]:
                 L += [d["notes"], ""]
@@ -213,7 +213,7 @@ def inbox(root):
             titles = d.get("titles") or [d["slug"]]
             for t, p in zip(titles, drafts or [""]):
                 L.append(f"- **[{t}]({os.path.join(os.path.basename(run), p)})**")
-            L.append(f"  - {d.get('summary', '')} · hosts {', '.join(map(str, d.get('hosts', []))) or '—'} · "
+            L.append(f"  - {d.get('summary', '')} · hosts {', '.join(map(str, hosts_of(d))) or '—'} · "
                      f"review: {d.get('reviewed') or 'not reviewed'} · run {os.path.basename(run)}")
         L.append("")
     if needs:
