@@ -146,6 +146,9 @@ def assemble(out):
     bugs = [d for d in agent if d["decision"] == "bug"]
     needs = [d for d in agent if d["decision"] == "needs-you"]
     rest = [d for d in alld if d["decision"] not in ("bug", "needs-you")]
+    for d in alld:  # what the review overturned stays visible
+        if str(d.get("reviewed", "")).startswith("overturned"):
+            d["summary"] = f"{d.get('summary', '')} (review overturned a bug call: {d['reviewed'][12:]})"
     L = [f"# FMA soak triage — {os.path.basename(out)}", "",
          f"{len(alld)} apps decided: **{len(bugs)} draft{'s' if len(bugs) != 1 else ''} ready**, **{len(needs)} need you**, "
          f"{len(rest)} settled ({len(ruled)} by rule, free)." + (f" Not finished, stay queued: {', '.join(missing)}." if missing else ""),
@@ -155,7 +158,8 @@ def assemble(out):
         for d in bugs:
             for t, p in zip(d["titles"] or ["(no draft file)"], d["drafts"] or [""]):
                 L.append(f"**[{t}]({p})**")
-            L += [d.get("summary", ""), f"Reproduced on: {', '.join(map(str, d.get('hosts', []))) or '—'}", ""]
+            L += [d.get("summary", ""), f"Reproduced on: {', '.join(map(str, d.get('hosts', []))) or '—'} · "
+                  f"Review: {d.get('reviewed') or 'not reviewed (run ceiling)'}", ""]
             if d["notes"]:
                 L += [d["notes"], ""]
     if needs:
