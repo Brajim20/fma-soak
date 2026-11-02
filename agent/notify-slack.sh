@@ -2,6 +2,7 @@
 # Sends the triage inbox summary to Slack. watch.sh calls it after each run; run it by hand to test.
 # The webhook URL lives in ~/.config/fma-triage/slack-webhook-url (chmod 600; the agent's sandbox can't read ~/.config).
 # Works with a Workflow Builder webhook (variables: summary, drafts, needs, inbox) or an incoming webhook (text).
+# Icon: a Workflow Builder webhook posts with the workflow's own icon (payload icon fields are ignored); upload agent/assets/fleet-icon.png in the workflow's settings.
 #   agent/notify-slack.sh            # send the current INBOX.md summary
 export PATH=/opt/homebrew/bin:/usr/bin:/bin
 URLF=~/.config/fma-triage/slack-webhook-url

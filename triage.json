@@ -2,6 +2,49 @@
  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
+   "app": "dupeguru/windows",
+   "verdict": "filed #57333: queries want name 'dupeGuru', NSIS registers 'dupeGuru 4.3.1'"
+  },
+  {
+   "app": "plantronics-hub/windows",
+   "verdict": "filed #57334: queries want publisher 'Plantronics', registers 'Plantronics, Inc.' (name 'Plantronics Hub Software')"
+  },
+  {
+   "app": "ollama/windows",
+   "verdict": "filed #57335: per-user Inno installer run as SYSTEM exits 1; not fixed by #51875"
+  },
+  {
+   "app": "steam/darwin",
+   "verdict": "filed #57336: URL's .zip.<sha1> segment becomes a 40-char extension, overflows varchar(32), 422"
+  },
+  {
+   "app": "wondershare-filmora/darwin",
+   "verdict": "filed #57337: unique_identifier com.wondershare.filmoramac, app is com.wondershare.filmoramacos"
+  },
+  {
+   "app": "wechat/darwin",
+   "shape": "S1",
+   "verdict": "filed #57338: CFBundleShortVersionString 4.2.0 vs manifest 4.2.0.x; patched query fails on a fresh install"
+  },
+  {
+   "app": "camtasia/windows",
+   "verdict": "already tracked #51793 (FMA dependencies; Camtasia is the #50937 example): MSI LaunchCondition requires VC++ v14 redist 14.51.36231, exits 1603"
+  },
+  {
+   "app": "locationsimulator/darwin",
+   "before": "2026-11-02T15:37:49",
+   "verdict": "fixed by #57190 (2026-11-02): unique_identifier was com.schlaubi.LocationSimulator, now de.davidklopp.locationsimulator; a recurrence after the fix comes back as new"
+  },
+  {
+   "app": "firefox@developer-edition/darwin@631",
+   "shape": "S1",
+   "verdict": "display only: CFBundleShortVersionString '160.0' vs cask '160.0b2'; patch policy passes (4k-video-to-mp3 class)"
+  },
+  {
+   "app": "firefox@developer-edition/darwin@636",
+   "verdict": "already filed #57148: queued behind a Microsoft AutoUpdate install killed at 13:00Z (signal: killed); Firefox reported installed at 14:03Z"
+  },
+  {
    "app": "evernote/windows",
    "shape": "S3",
    "verdict": "filed #57224: queries want publisher 'Evernote Corporation', the electron-builder installer registers 'Bending Spoons US Inc.'; never detected"
