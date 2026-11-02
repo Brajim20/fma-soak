@@ -5,8 +5,12 @@
   <key>Label</key><string>com.fleetdm.qa.fma-triage</string>
   <key>ProgramArguments</key>
   <array><string>/bin/zsh</string><string>/Users/brayan/Documents/GitHub/fma-soak/agent/watch.sh</string></array>
-  <!-- once a day at 07:00; if the Mac is asleep then, launchd runs it on wake -->
-  <key>StartCalendarInterval</key><dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+  <!-- 07:00 and 17:00; if the Mac is asleep then, launchd runs it on wake -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
   <key>EnvironmentVariables</key><dict><key>FMA_TRIAGE_MAX</key><string>25</string></dict>
   <key>StandardOutPath</key><string>/Users/brayan/Library/Logs/fma-triage.log</string>
   <key>StandardErrorPath</key><string>/Users/brayan/Library/Logs/fma-triage.log</string>

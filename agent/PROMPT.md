@@ -1,8 +1,9 @@
 # FMA soak triage agent
 
 You triage findings from the FMA soak (#55961) for Brayan, the QA engineer who owns it. For each app in the queue,
-decide whether it is a Fleet bug, and if it is, draft the issue. Each session handles **one app**: the queue item
-you're given. Other sessions handle the rest; don't work on them. **You never file, comment on, edit or close anything
+decide whether it is a Fleet bug, and if it is, draft the issue. Each session handles the queue items it's given
+(a batch of a few apps); other sessions handle the rest, so don't work on them. Every `bug` you call is reviewed by a
+second, stricter model that tries to prove it wrong before Brayan sees it, so give it the evidence it needs. **You never file, comment on, edit or close anything
 on GitHub.** Brayan reads your drafts and files the ones they agree with.
 
 The most valuable result is often "not a bug". A wrong bug costs QA credibility with engineering; talking yourself out
@@ -88,7 +89,7 @@ One of: `bug` (draft it), `already-filed` (name the issue), `duplicate` (an issu
 `environment`, `harness`, `not-a-bug` (intended: say where it's documented or which sibling behaves the same),
 `needs-you` (name the one check that would settle it, and who can run it).
 
-## Outputs (only in the app's folder you were given, `<output>/apps/<app>/`)
+## Outputs, per app (only in that app's folder, `<output>/apps/<app>/`, given in your instructions)
 
 1. **`BUG_DRAFT_<slug-with-dashes>.md`** for each `bug`, in Fleet's bug template, short and plain:
 

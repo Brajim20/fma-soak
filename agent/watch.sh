@@ -1,6 +1,6 @@
 #!/bin/zsh
-# Runs the triage agent when the soak has saved new results (launchd, daily 07:00: agent/com.fleetdm.qa.fma-triage.plist).
-# Daily on purpose: by then most findings have the other host's rerun (crosshost.py), so the agent decides with both.
+# Runs the triage agent when the soak has saved new results (launchd, 07:00 and 17:00: agent/com.fleetdm.qa.fma-triage.plist).
+# Twice a day on purpose: by then most findings have the other host's rerun (crosshost.py), so the agent decides with both.
 # Cheap when nothing changed: one git fetch. When the `results` branch moved, triage-agent.sh runs on up to
 # FMA_TRIAGE_MAX apps (it skips apps already decided, so a run with nothing new ends in seconds), then a macOS
 # notification says what's ready. One run at a time (triage-agent.sh's lock); a run that fails leaves the branch unmarked so the next tick retries.
