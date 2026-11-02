@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T02:19:38",
+ "built": "2026-11-02T06:32:10",
  "coverage": {
   "darwin": {
    "covered": 67,
@@ -24,19 +24,19 @@
    }
   },
   "windows": {
-   "covered": 137,
+   "covered": 147,
    "catalog": 460,
-   "percent": 29.8,
+   "percent": 32.0,
    "deck": {
     "round": 1,
-    "done": 115,
-    "of": 121
+    "done": 126,
+    "of": 122
    },
    "decks": {
     "629": {
      "round": 1,
-     "done": 115,
-     "of": 121
+     "done": 126,
+     "of": 122
     },
     "635": {
      "round": 1,
@@ -235,14 +235,14 @@
    }
   },
   "figma/windows@629": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 4,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T14:59:46",
+    "date": "2026-11-02T02:27:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "126.11.7",
-    "record": "results/soak/2026-11-01/figma_windows-629-145946.json",
+    "record": "results/soak/2026-11-02/figma_windows-629-022723.json",
     "findings": []
    },
    "last_update": {
@@ -429,14 +429,14 @@
    }
   },
   "postman/windows@629": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 2,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-01T14:59:35",
+    "date": "2026-11-02T02:27:15",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.34.4",
-    "record": "results/soak/2026-11-01/postman_windows-629-145935.json",
+    "record": "results/soak/2026-11-02/postman_windows-629-022715.json",
     "findings": []
    },
    "last_update": {
@@ -3424,6 +3424,21 @@
     ]
    }
   },
+  "3df-zephyr-free/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T04:52:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.013",
+    "record": "results/soak/2026-11-02/3df-zephyr-free_windows-629-045249.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
   "alfaview/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3448,6 +3463,21 @@
     "findings": []
    }
   },
+  "camtasia/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T03:07:47",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.2.4.20997",
+    "record": "results/soak/2026-11-02/camtasia_windows-629-030747.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
   "command-tab-plus/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3458,6 +3488,34 @@
     "catalog_version": "2.9.14",
     "record": "results/soak/2026-11-02/command-tab-plus_darwin-636-001655.json",
     "findings": []
+   }
+  },
+  "cpu-z/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T04:26:19",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.01",
+    "record": "results/soak/2026-11-02/cpu-z_windows-629-042619.json",
+    "findings": []
+   }
+  },
+  "db-browser-for-sqlite/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T02:42:01",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.13.1",
+    "record": "results/soak/2026-11-02/db-browser-for-sqlite_windows-629-024201.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "directory-opus/windows@629": {
@@ -3487,6 +3545,113 @@
      "first install ended as failed_install",
      "second install ended as failed_install"
     ]
+   }
+  },
+  "dupeguru/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T03:33:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.3.1",
+    "record": "results/soak/2026-11-02/dupeguru_windows-629-033350.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "fellow/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T04:09:11",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.7.22",
+    "record": "results/soak/2026-11-02/fellow_windows-629-040911.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "firefox@developer-edition-arm64/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T06:28:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "156.0",
+    "record": "results/soak/2026-11-02/firefox@developer-edition-arm64_windows-629-062851.json",
+    "findings": [
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "grok-bot/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T05:29:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.78.1",
+    "record": "results/soak/2026-11-02/grok-bot_windows-629-052932.json",
+    "findings": []
+   }
+  },
+  "ibm-semeru-jdk-11/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T05:14:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "11.0.32.15",
+    "record": "results/soak/2026-11-02/ibm-semeru-jdk-11_windows-629-051452.json",
+    "findings": []
+   }
+  },
+  "install4j/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T05:09:54",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "11.0.5",
+    "record": "results/soak/2026-11-02/install4j_windows-629-050954.json",
+    "findings": []
+   }
+  },
+  "microsoft-dotnet-sdk-9/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T06:01:54",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.0.320",
+    "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-9_windows-629-060154.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
+  "mongodb-compass/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T04:30:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.53.2.0",
+    "record": "results/soak/2026-11-02/mongodb-compass_windows-629-043050.json",
+    "findings": []
    }
   },
   "ollama/windows@629": {
@@ -3528,6 +3693,18 @@
     "findings": []
    }
   },
+  "topaz-gigapixel-ai/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T05:22:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.4.4",
+    "record": "results/soak/2026-11-02/topaz-gigapixel-ai_windows-629-052203.json",
+    "findings": []
+   }
+  },
   "visual-studio-2022-community/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -3545,6 +3722,18 @@
      "second install ended as failed_install",
      "second uninstall: app still on host (status failed_uninstall)"
     ]
+   }
+  },
+  "zoom-outlook-plugin/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T05:18:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.0",
+    "record": "results/soak/2026-11-02/zoom-outlook-plugin_windows-629-051834.json",
+    "findings": []
    }
   },
   "zoom@government/darwin@636": {

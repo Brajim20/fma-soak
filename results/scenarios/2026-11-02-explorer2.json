@@ -1,0 +1,34 @@
+{
+ "scenario": "second explorer.exe (#51127)",
+ "date": "2026-11-02",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "apps": [
+  {
+   "slug": "postman/windows",
+   "outcome": "skipped: app already on host and not installed by the harness",
+   "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/postman_windows-629-022715.json",
+   "cleanup": "kept: canary"
+  },
+  {
+   "slug": "figma/windows",
+   "outcome": "pass",
+   "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/figma_windows-629-022723.json",
+   "cleanup": "kept: canary"
+  }
+ ],
+ "probe": {
+  "execution_id": "ff091c94-fdf1-4c69-abd1-e61ade8ad603",
+  "exit_code": 0,
+  "output": "BEFORE explorer_count=1 user=<user>\r\nRUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r\r\nEXPLORER_COUNT=2\r\nRUN two-explorers exit=1 secs=122 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.\r /     + FullyQualifiedErrorId : NativeCommandError\r /     + FullyQualifiedErrorId : HRESULT 0x80070534,Register-ScheduledTask\r\r\nSTOPPED=1 EXPLORER_COUNT=1\r\n",
+  "verdict": "teeth: pre-fix script works with one explorer.exe and fails with two",
+  "one": "RUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'",
+  "two": "RUN two-explorers exit=1 secs=122 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.",
+  "counts": [
+   "EXPLORER_COUNT=2",
+   "STOPPED=1 EXPLORER_COUNT=1"
+  ]
+ },
+ "extra_explorer": "EXPLORER_COUNT=2",
+ "closed_extra": "STOPPED=1 EXPLORER_COUNT=1"
+}
