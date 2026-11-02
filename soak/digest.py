@@ -84,6 +84,16 @@ def category(r):
     return "findings"
 
 
+def crosshost(r, recs):
+    """The other host's rerun of this finding (crosshost.py), as a short phrase, or None if it hasn't run yet."""
+    x = [o for o in recs if o.get("crosshost_of") == rel(r["_path"])]
+    if not x:
+        return None
+    c = category(x[-1])
+    return (f"reproduced on {x[-1]['host']}" if c == "findings" else f"not on {x[-1]['host']} ({c})") + \
+        f" [record]({rel(x[-1]['_path'])})"
+
+
 def evidence_links(r):
     ev = r.get("evidence") or {}
     links = [f"[record]({rel(r['_path'])})"]
@@ -243,12 +253,13 @@ def digest(date):
             rs = g["recs"]
             retried = "reproduced on retry" if any("reproduced" in str(r["outcome"]) for r in rs) else "not retried"
             n = f" ({len(rs)} runs)" if len(rs) > 1 else ""
-            L.append(f"- **{app}**{n}: {'; '.join(g['msgs'])} ({retried}) — {evidence_links(rs[-1])}")
+            other = crosshost(rs[-1], recs)
+            L.append(f"- **{app}**{n}: {'; '.join(g['msgs'])} ({retried}{'; ' + other if other else ''}) — {evidence_links(rs[-1])}")
             # facts for the "is this intended?" check; not a verdict
             ctx = context.gather(rs[-1]["slug"], shape, rs[-1].get("build"), date)
             L.append(f"  - context: {context.line(ctx)}")
             needs.append({"app": app, "shape": shape, "msgs": g["msgs"], "retried": retried, "runs": len(rs),
-                          "record": os.path.relpath(rs[-1]["_path"], WS), "context": context.line(ctx)})
+                          "other_host": other, "record": os.path.relpath(rs[-1]["_path"], WS), "context": context.line(ctx)})
         L.append("")
     json.dump(needs, open(os.path.join(RES, f"needs-{date}.json"), "w"), indent=1)  # read by notify.py
     if triaged:
