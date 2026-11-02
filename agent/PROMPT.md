@@ -51,6 +51,10 @@ what differs before calling it a bug (ARM vs x64, what else was installed, a hun
      #56971 AWS CLI, #57113 REAPER, #57119 Sequel Ace, #57120 JASP, #57136 Galaxy Modeler, #57137 PostgreSQL 18.
    - **Version in the name** (".NET Runtime - 8", "Python 3.13"): Fleet links the title by name, the program's name
      changes per version. Check #50077 and #44406 first.
+   - **Exists query passes but the title never gets the version** (S1 with the app in `context_after_install.names`):
+     an MSI FMA whose manifest has no `upgrade_code` while the real MSI writes one. Fleet skips the FMA name match for
+     programs with an upgrade code, so the install lands on its own title. #57139 class (Azul Zulu JRE 25, Bitwig
+     Studio). Check the output manifest for `upgrade_code` before calling it timing.
    - **Patched query fails right after install** or **empty version**: the registered version vs the manifest version
      (#57118 Sublime Text, #51377 shape).
    - **Install over an open app exits 5 (Windows)**: the install script doesn't close the app first: #57149 class,
