@@ -31,8 +31,10 @@ TRIAGE = json.load(open(os.path.join(WS, "triage.json")))["entries"] if os.path.
 
 def triage_match(app, f, r):
     for t in TRIAGE:
-        # "*" covers every soak record (app@host) in an after/before window, e.g. hours the hosts were disrupted
-        if (t["app"] != app and not (t["app"] == "*" and "@" in app)) or ("shape" in t and t["shape"] != f["shape"]):
+        # "*" covers every soak record (app@host) in an after/before window, e.g. hours the hosts were disrupted;
+        # "*@631" only that host's (a host stuck behind one app's hung install)
+        wild = t["app"] == "*" and "@" in app or t["app"].startswith("*@") and app.endswith(t["app"][1:])
+        if (t["app"] != app and not wild) or ("shape" in t and t["shape"] != f["shape"]):
             continue
         if "msg_contains" in t and t["msg_contains"] not in f["msg"]:
             continue
@@ -76,6 +78,9 @@ def category(r):
         return "error"
     if all(f["shape"] == "harness" for f in r.get("findings", [])):
         return "harness"
+    import stuck
+    if stuck.blocked(r):  # waited behind another app's hung install (stuck.py): not evidence about this app
+        return "environment"
     return "findings"
 
 
@@ -203,7 +208,8 @@ def digest(date):
          ""]
 
     import hosts
-    avail = hosts.for_date(date)
+    import stuck
+    avail = hosts.for_date(date) + stuck.for_date(date)
     if avail:  # a quiet day with the hosts down isn't a clean day
         L += ["## Host availability", "", *avail, ""]
     L += ["## Needs a look", ""]

@@ -21,6 +21,10 @@ WS = os.path.dirname(HERE)
 sys.path.insert(0, WS)
 import settings
 CFG = settings.load()
+# apps stuck.py caught hanging a host's queue: skipped on that host everywhere known_environment is (stuck.py)
+_Q = os.path.join(WS, "results", "state", "quarantine.json")
+QUARANTINE = json.load(open(_Q)) if os.path.exists(_Q) else {}
+CFG.setdefault("known_environment", {}).update({k: v for k, v in QUARANTINE.items() if k not in CFG["known_environment"]})
 REPO = settings.catalog_repo(CFG)  # CI: a sparse checkout
 FID = CFG["soak_fleet_id"]
 POLL, STEP_TIMEOUT = 15, 1800
@@ -388,6 +392,9 @@ def cycle(slug, host):
     def find(shape, msg):
         rec["findings"].append({"shape": shape, "msg": msg})
 
+    if f"{slug}@{host}" in QUARANTINE:
+        rec["outcome"] = f"skipped: quarantined on this host ({QUARANTINE[f'{slug}@{host}']})"
+        return finish(rec)
     try:
         tid, added = ensure_title(slug, state, host)
     except RuntimeError as e:

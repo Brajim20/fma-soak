@@ -300,6 +300,18 @@
   {
    "app": "figma/windows@629",
    "verdict": "ARM: the Windows FMA is the x64 build (Figma-126.11.7.exe); on Windows on ARM Figma shows 'This version of Figma is not intended for use on Windows on Arm' at launch. Install/uninstall work. Covered by #42082/#53050; not in #56802's 23 ARM64 apps (2026-11-01)"
+  },
+  {
+   "app": "*@631",
+   "after": "2026-10-31T23:50:00",
+   "before": "2026-11-01T18:12:00",
+   "verdict": "environment: 631's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Fleet Desktop pending then killed. Fleet Desktop installs in <1 min on a clean Mac (main host 50)."
+  },
+  {
+   "app": "*@636",
+   "after": "2026-11-01T02:35:00",
+   "before": "2026-11-01T18:12:00",
+   "verdict": "environment: 636's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Dialpad pending then killed (5 orphaned installers)."
   }
  ]
 }

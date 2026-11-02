@@ -47,7 +47,9 @@
   "google-chrome/windows@629": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
   "docker/windows@629": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
   "protopie/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
-  "vscodium/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31."
+  "vscodium/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
+  "prisma-browser/darwin@631": "Prisma Access Browser pkg (466 MB): installer hung before writing anything on the 4 GB UTM soak VMs (631 15+ h, 636 15+ h, 2026-10-31/11-01) and its orphaned installer blocked every later install (#57148); installs in 2.5 min on a real Mac (main host 50, macOS 27, 2026-11-01)",
+  "prisma-browser/darwin@636": "Prisma Access Browser pkg (466 MB): installer hung before writing anything on the 4 GB UTM soak VMs (631 15+ h, 636 15+ h, 2026-10-31/11-01) and its orphaned installer blocked every later install (#57148); installs in 2.5 min on a real Mac (main host 50, macOS 27, 2026-11-01)"
  },
  "loop": {
   "interval_hours": 6,
@@ -118,5 +120,16 @@
    "close_wait_hours": 3,
    "first_attempt_minutes": 20
   }
+ },
+ "stuck": {
+  "_doc": "stuck.py: a queue whose oldest activity waited this long is stuck; restart_hosts get an MDM restart (max per day), others only an alert. 635 is the physical NucBox people use (it hosts the findings VM): alert only.",
+  "minutes": 75,
+  "recheck_minutes": 40,
+  "restart_hosts": [
+   631,
+   636,
+   629
+  ],
+  "max_restarts_per_day": 2
  }
 }
