@@ -22,4 +22,5 @@ if $HERE/triage-agent.sh ${FMA_TRIAGE_MAX:-10} < /dev/null; then
   # the notification names what's waiting in the inbox, across runs
   line=$(sed -n 3p $OUTROOT/INBOX.md 2>/dev/null | cut -d. -f2 | sed 's/^ //')
   [[ -n $line ]] && osascript -e "display notification \"${line//\"/}\" with title \"FMA triage\" subtitle \"qa-stuff/fma-soak/triage/INBOX.md\"" 2>/dev/null
+  $HERE/notify-slack.sh   # no-op until ~/.config/fma-triage/slack-webhook-url exists
 fi
