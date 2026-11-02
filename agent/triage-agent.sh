@@ -26,7 +26,7 @@ trap 'git -C $REPO worktree remove --force $W' EXIT
 (cd $W && git archive origin/results results | tar -x)
 cp $REPO/config.local.json $W/
 python3 $W/soak/triage_queue.py --out $OUT --state $OUTROOT/state.json --max ${1:-10}
-if [[ $(jq length $OUT/queue.json) == 0 ]]; then echo "nothing to triage"; exit 0; fi
+if [[ $(jq length $OUT/queue.json) == 0 ]]; then echo "nothing to triage"; rm -r -- "$OUT"; exit 0; fi
 git -C $CATALOG fetch -q origin main
 
 cat > $OUT/.settings.json <<EOF
