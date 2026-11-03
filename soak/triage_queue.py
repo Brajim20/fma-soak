@@ -12,7 +12,7 @@ Apps reproduced on both hosts come first, then the newest.
 Before the agent sees an item, RULES try to settle it from the records alone (free, no model). An item a rule settles
 goes to rules.json, not the queue, and doesn't count against --max. A rule needs evidence in the record, never a guess.
 """
-import argparse, datetime, glob, json, os, shutil, sys
+import argparse, datetime, glob, json, os, re, shutil, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -187,7 +187,7 @@ def hosts_of(d):
 def inbox(root):
     """<root>/INBOX.md: every bug draft and needs-you item from all runs that triage.json doesn't cover yet (filing or
     rejecting one adds its entry, which takes it off). Newest decision per app wins."""
-    covered = {e["app"].split("@")[0] for e in D.TRIAGE}
+    covered = {re.sub(r"@\d+$", "", e["app"]) for e in D.TRIAGE}  # slugs can hold an @ (firefox@developer-edition)
     latest = {}
     for p in sorted(glob.glob(os.path.join(root, "*", "decisions.json"))):
         run = os.path.dirname(p)

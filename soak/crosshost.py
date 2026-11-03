@@ -1,7 +1,7 @@
 """Cross-host repro: a finding on one host reruns on the platform's other host before anyone looks at it.
 
 Untriaged lifecycle and update-path findings (patch-when-closed runs over several passes on the primary) from the last `crosshost.window_days` days that the other host hasn't run since get the same cycle
-(lifecycle or update path) on this host, newest first, at most `crosshost.max_per_pass` a pass. The new record carries
+(lifecycle or update path) on this host, newest first, at most `crosshost.max_per_pass` a pass (`crosshost.priority` slugs first). The new record carries
 `crosshost_of` (the finding's record), and the digest and triage.py read the pair:
 
   both hosts have findings   -> likely a real bug, and it reproduces on two hosts (the bug template's checkbox)
@@ -43,7 +43,9 @@ def candidates(plat, host):
             continue
         seen.add(k)
         out.append(r)
-    return out
+    # crosshost.priority: slugs someone is waiting on go first (the sort is stable, so the rest stay newest first)
+    first = set(cfg.get("priority", []))
+    return sorted(out, key=lambda r: r["slug"] not in first)
 
 
 def main():

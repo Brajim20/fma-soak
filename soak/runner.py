@@ -138,6 +138,12 @@ def patch_closed_path(plat):
     return os.path.join(WS, "results", "state", f"patch-closed-{plat}.json")
 
 
+def app_slug(key):
+    """The slug of a triage / known_environment key "<slug>[@<host>]". Slugs can hold an @ themselves
+    (firefox@developer-edition/darwin), so only a trailing @<host id> is a host."""
+    return re.sub(r"@\d+$", "", key)
+
+
 def busy_slugs():
     """Apps a multi-pass scenario (patch_closed.py) holds on a host: cycles, the update path and cleanup skip them."""
     out = set()

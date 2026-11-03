@@ -99,7 +99,7 @@ def last_install(host, tid):
 
 def candidates(plat, host):
     st, d = R.api("GET", f"/software/fleet_maintained_apps?fleet_id={R.FID}&per_page=2000")
-    skip = set(R.CFG["canaries"][plat]) | {k.split("@")[0] for k in R.CFG.get("known_environment", {})} | \
+    skip = set(R.CFG["canaries"][plat]) | {R.app_slug(k) for k in R.CFG.get("known_environment", {})} | \
         {x for xs in R.CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
     out = []
     for x in d.get("fleet_maintained_apps", []):

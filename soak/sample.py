@@ -81,7 +81,7 @@ def hosts_for(plat):
 
 
 def known_env_hosts(slug):
-    return {int(k.split("@")[1]) for k in R.CFG.get("known_environment", {}) if k.split("@")[0] == slug and "@" in k}
+    return {int(k.rsplit("@", 1)[1]) for k in R.CFG.get("known_environment", {}) if R.app_slug(k) == slug and k != slug}
 
 
 def owner(plat, slug):
@@ -115,7 +115,7 @@ def excluded(plat, host=None):
     residents = {x for xs in R.CFG.get("watcher", {}).get("residents", {}).values() for x in xs}
     # canaries and residents are the primary's; another host takes one only when the primary can't run it
     held = {s for s in set(R.CFG["canaries"][plat]) | residents if host == primary or primary not in known_env_hosts(s)}
-    return held | {k.split("@")[0] for k in R.CFG.get("known_environment", {}) if k.endswith(f"@{host}")} | R.busy_slugs()
+    return held | {R.app_slug(k) for k in R.CFG.get("known_environment", {}) if k.endswith(f"@{host}")} | R.busy_slugs()
 
 
 def load_deck(plat, catalog, host=None):
