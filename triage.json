@@ -462,6 +462,14 @@
    "msg_contains": "doesn't stay open",
    "before": "2026-11-03T15:30:00",
    "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+  },
+  {
+   "app": "google-drive/windows@635",
+   "verdict": "filed #57390: uninstall's 3010 reported as success, every reinstall then fails with exit 1610"
+  },
+  {
+   "app": "monitorcontrol/darwin",
+   "verdict": "filed #57391: unique_identifier me.guillaumeb.MonitorControl, app is app.monitorcontrol.MonitorControl"
   }
  ]
 }
