@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 362 cycles: pass 157, findings 100, flaky 1, environment 4, harness 1, skipped 99
+**1. Runs** — 402 cycles: pass 169, findings 110, flaky 1, environment 4, harness 1, skipped 117
 
-**2. Coverage** — darwin 99/974 (10.2%), round 1; windows 178/460 (38.7%), round 1
+**2. Coverage** — darwin 101/974 (10.4%), round 1; windows 188/460 (40.9%), round 1
 
 **3. Escapes caught or confirmed**
 
@@ -15,6 +15,8 @@
 | #47037 | merged | Add several Windows FMAs |
 | #49682 | closed | Show a clear error when adding Mozilla Firefox and Firefox ESR to the same fleet |
 | #50077 | open | Windows software with version in name still matches wrong title for apps needing a custom match pattern |
+| #50937 | open | Allow multi-file software installers via archive extraction |
+| #51793 | open | Build dependency checking and installation into Windows FMAs |
 | #51875 | closed | Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusable and often unremovable |
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
@@ -43,8 +45,17 @@
 | #57152 | open | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
+| #57190 | merged | Regenerate macOS zip FMA outputs for ditto extraction (2/4) |
 | #57224 | open | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
 | #57225 | open | Fleet-maintained apps: AnyBurn (Windows) patch policy fails right after installing the current version (6.9.0.0 vs 6.9) |
+| #57321 | open | Fleet-maintained apps: Webex (Windows) is never detected, so its patch policy always passes |
+| #57333 | open | Fleet-maintained apps: dupeGuru (Windows) is never detected, so its patch policy always passes |
+| #57334 | open | Fleet-maintained apps: Plantronics Hub (Windows) is never detected, so its patch policy always passes |
+| #57335 | open | Fleet-maintained apps: Ollama (Windows) install always fails with exit code 1 |
+| #57336 | open | Fleet-maintained apps: Steam (macOS) can't be added: 422 Validation Failed |
+| #57337 | open | Fleet-maintained apps: Wondershare Filmora (macOS) is never detected (bundle ID com.wondershare.filmoramac vs filmoramacos) |
+| #57338 | open | Fleet-maintained apps: WeChat (macOS) patch policy fails right after installing the current version (4.2.0.16 vs 4.2.0) |
+| #57341 | open | Fleet-maintained apps: BitBox (macOS) is never detected (bundle ID ch.shiftcrypto.BitBoxApp vs ch.shiftcrypto.wallet) |
 
 **4. Build changes**
 

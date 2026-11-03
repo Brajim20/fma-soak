@@ -36,7 +36,7 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/locationsimulator/darwin.json), [locationsimulator.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/locationsimulator.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (L) (#47519) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "microsoft-dotnet-sdk-8/windows@635",
+  "app": "microsoft-dotnet-sdk-8/windows@629",
   "shape": "S1",
   "msgs": [
    "inventory never reported the app after install + refetch"
@@ -44,6 +44,18 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-8_windows-629-225350.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-8/windows.json), [microsoft-dotnet-sdk-8.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-8.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "microsoft-dotnet-sdk-8/windows@635",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 629 [record](soak/2026-11-02/microsoft-dotnet-sdk-8_windows-629-225350.json)",
   "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-8_windows-635-211147.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-8/windows.json), [microsoft-dotnet-sdk-8.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-8.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
  },
@@ -269,19 +281,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dupeguru/windows.json), [dupeguru.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dupeguru.json), [dupeguru_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_install.ps1), [dupeguru_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "firefox@developer-edition/darwin@636",
-  "shape": "S3",
-  "msgs": [
-   "first uninstall: app still on host (status None)",
-   "second uninstall: app still on host (status None)"
-  ],
-  "retried": "reproduced on retry",
-  "runs": 1,
-  "other_host": null,
-  "record": "results/soak/2026-11-02/firefox@developer-edition_darwin-636-093655.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@developer-edition/darwin.json), [firefox@developer-edition.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox@developer-edition.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2026-07-17 Add Firefox Nightly and Firefox Developer Edition Fleet-maintained apps (#49501) \u00b7 issues mentioning it: #53050 (open), #55961 (open), #51138 (closed), #48689 (closed), #49682 (closed)"
- },
- {
   "app": "locationsimulator/darwin@631",
   "shape": "S3",
   "msgs": [
@@ -372,6 +371,32 @@
   "other_host": null,
   "record": "results/soak/2026-11-02/plantronics-hub_windows-629-074310.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/plantronics-hub/windows.json), [plantronics-hub.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/plantronics-hub.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #37326 (closed)"
+ },
+ {
+  "app": "reqable/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/reqable_windows-635-215717.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/reqable/windows.json), [reqable.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/reqable.json), [reqable_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reqable_install.ps1), [reqable_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reqable_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "taskbar/darwin@631",
+  "shape": "S3",
+  "msgs": [
+   "first uninstall: app still on host (status None)",
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/taskbar_darwin-631-234319.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/taskbar/darwin.json), [taskbar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/taskbar.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (T) (#47333) \u00b7 issues mentioning it: #46330 (open), #46711 (closed), #37459 (closed), #36522 (closed), #38029 (closed)"
  },
  {
   "app": "visual-studio-2022-community/windows@629",
@@ -480,9 +505,9 @@
    "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
   ],
   "retried": "reproduced on retry",
-  "runs": 1,
+  "runs": 2,
   "other_host": null,
-  "record": "results/soak/2026-11-02/firefox@developer-edition_windows-629-070644.json",
+  "record": "results/soak/2026-11-02/firefox@developer-edition_windows-629-215208.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@developer-edition/windows.json), [firefox@developer-edition.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/firefox@developer-edition.json) \u00b7 last changes: 2026-07-17 Add Firefox Nightly and Firefox Developer Edition Fleet-maintained apps (#49501) \u00b7 issues mentioning it: #53050 (open), #55961 (open), #51138 (closed), #48689 (closed), #49682 (closed)"
  },
  {
@@ -758,19 +783,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/fellow/windows.json), [fellow.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/fellow.json), [fellow_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_install.ps1), [fellow_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-30 Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612); 2026-10-27 Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629); 2026-10-21 Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153) \u00b7 issues mentioning it: #48248 (open), #51875 (closed), #36402 (closed)"
  },
  {
-  "app": "firefox@developer-edition/darwin@636",
-  "shape": "install",
-  "msgs": [
-   "first install ended as pending_install",
-   "second install ended as None"
-  ],
-  "retried": "reproduced on retry",
-  "runs": 1,
-  "other_host": null,
-  "record": "results/soak/2026-11-02/firefox@developer-edition_darwin-636-093655.json",
-  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@developer-edition/darwin.json), [firefox@developer-edition.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox@developer-edition.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2026-07-17 Add Firefox Nightly and Firefox Developer Edition Fleet-maintained apps (#49501) \u00b7 issues mentioning it: #53050 (open), #55961 (open), #51138 (closed), #48689 (closed), #49682 (closed)"
- },
- {
   "app": "google-drive/windows@629",
   "shape": "install",
   "msgs": [
@@ -779,8 +791,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/google-drive_windows-635-222538.json)",
   "record": "results/soak/2026-11-02/google-drive_windows-629-092220.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #22713 (open), #40309 (open), #22797 (open), #15261 (open)"
+ },
+ {
+  "app": "google-drive/windows@635",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/google-drive_windows-635-222538.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #22713 (open), #40309 (open), #22797 (open), #15261 (open)"
  },
  {
@@ -792,8 +817,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/handbrake_windows-635-221417.json)",
   "record": "results/soak/2026-11-02/handbrake_windows-629-142500.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/handbrake/windows.json), [handbrake.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/handbrake.json), [handbrake_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/handbrake_install.ps1), [handbrake_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/handbrake_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-03 Add HandBrake as a Windows FMA (#50352) \u00b7 issues mentioning it: #50323 (closed), #50360 (closed)"
+ },
+ {
+  "app": "handbrake/windows@635",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/handbrake_windows-635-221417.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/handbrake/windows.json), [handbrake.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/handbrake.json), [handbrake_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/handbrake_install.ps1), [handbrake_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/handbrake_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-03 Add HandBrake as a Windows FMA (#50352) \u00b7 issues mentioning it: #50323 (closed), #50360 (closed)"
  },
  {
@@ -831,7 +869,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-02/reqable_windows-635-215717.json)",
   "record": "results/soak/2026-11-02/reqable_windows-629-202527.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/reqable/windows.json), [reqable.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/reqable.json), [reqable_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reqable_install.ps1), [reqable_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reqable_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #49300 (closed)"
  },
@@ -849,6 +887,19 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "taskbar/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "first install ended as pending_install",
+   "second install ended as None"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/taskbar_darwin-631-234319.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/taskbar/darwin.json), [taskbar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/taskbar.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (T) (#47333) \u00b7 issues mentioning it: #46330 (open), #46711 (closed), #37459 (closed), #36522 (closed), #38029 (closed)"
+ },
+ {
   "app": "visual-studio-2022-community/windows@629",
   "shape": "install",
   "msgs": [
@@ -860,6 +911,19 @@
   "other_host": "reproduced on 635 [record](soak/2026-11-02/visual-studio-2022-community_windows-635-032251.json)",
   "record": "results/soak/2026-11-02/visual-studio-2022-community_windows-629-001616.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-community/windows.json), [visual-studio-2022-community.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-community.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
+ },
+ {
+  "app": "visual-studio-2022-enterprise/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-02/visual-studio-2022-enterprise_windows-629-222426.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-2022-enterprise/windows.json), [visual-studio-2022-enterprise.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-2022-enterprise.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add Visual Studio 2022 (Community/Professional/Enterprise) as Windows FMAs (#50717) \u00b7 issues mentioning it: #50653 (closed)"
  },
  {
   "app": "wireguard/windows@629",
