@@ -1,0 +1,34 @@
+{
+ "scenario": "second explorer.exe (#51127)",
+ "date": "2026-11-03",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "apps": [
+  {
+   "slug": "airtable/windows",
+   "outcome": "pass",
+   "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/airtable_windows-629-023732.json",
+   "cleanup": "removed"
+  },
+  {
+   "slug": "brave-browser/windows",
+   "outcome": "pass",
+   "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/brave-browser_windows-629-024308.json",
+   "cleanup": "removed"
+  }
+ ],
+ "probe": {
+  "execution_id": "1e333d3a-d6a4-4860-ad6d-ee9aaccc874e",
+  "exit_code": 0,
+  "output": "BEFORE explorer_count=1 user=<user>\r\nRUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r / ScheduledTask is 'Running'. Waiting for .exe to complete...\r\r\nEXPLORER_COUNT=2\r\nRUN two-explorers exit=1 secs=122 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.\r /     + FullyQualifiedErrorId : NativeCommandError\r /     + FullyQualifiedErrorId : HRESULT 0x80070534,Register-ScheduledTask\r\r\nSTOPPED=1 EXPLORER_COUNT=1\r\n",
+  "verdict": "teeth: pre-fix script works with one explorer.exe and fails with two",
+  "one": "RUN one-explorer exit=0 secs=25 :: ScheduledTask is 'Running'",
+  "two": "RUN two-explorers exit=1 secs=122 :: powershell.exe : Register-ScheduledTask : No mapping between account names and security IDs was done.",
+  "counts": [
+   "EXPLORER_COUNT=2",
+   "STOPPED=1 EXPLORER_COUNT=1"
+  ]
+ },
+ "extra_explorer": "EXPLORER_COUNT=2",
+ "closed_extra": "STOPPED=1 EXPLORER_COUNT=1"
+}
