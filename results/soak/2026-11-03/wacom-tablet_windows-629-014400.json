@@ -1,0 +1,77 @@
+{
+ "slug": "wacom-tablet/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T01:44:00",
+ "catalog_version": "6.4.15-1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T05:43:57Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 24498,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 2\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "6.4.15-1"
+ ],
+ "package_version": "6.4.15-1",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Tablet\\Wacom\\32\\Remove.exe\nUninstall args: /u /s\nUninstall exit code: 2\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 2\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Tablet\\Wacom\\32\\Remove.exe\nUninstall args: /u /s\nUninstall exit code: 2\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-03T02:20:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T06:20:18Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/wacom-tablet_windows-629-014400-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/wacom-tablet_windows-629-014400-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/wacom-tablet_windows-629-014400.json"
+}
