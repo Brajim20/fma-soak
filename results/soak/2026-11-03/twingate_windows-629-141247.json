@@ -1,0 +1,66 @@
+{
+ "slug": "twingate/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T14:12:47",
+ "catalog_version": "20.26.280.8833",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T18:12:39Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 24694,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (B4:AC) [14:14:34:443]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (B4:AC) [14:14:34:443]: Destroying RemoteAPI object.\r\nMSI (s) (B4:C8) [14:14:34:443]: Custom Action Manager thread ending.\r\nMSI (c) (4C:AC) [14:14:34:443]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (4C:AC) [14:14:34:443]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/3/2026  14:14:34 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (B4:AC) [14:16:45:016]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (B4:AC) [14:16:45:016]: Destroying RemoteAPI object.\r\nMSI (s) (B4:D4) [14:16:45:016]: Custom Action Manager thread ending.\r\nMSI (c) (D0:1C) [14:16:45:016]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D0:1C) [14:16:45:016]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/3/2026  14:16:45 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-03T14:17:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T18:17:27Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/twingate_windows-629-141247-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/twingate_windows-629-141247-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/twingate_windows-629-141247.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/twingate_windows-629-140753.json"
+}
