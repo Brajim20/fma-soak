@@ -434,6 +434,34 @@
    "after": "2026-11-01T02:35:00",
    "before": "2026-11-01T18:12:00",
    "verdict": "environment: 636's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Dialpad pending then killed (5 orphaned installers)."
+  },
+  {
+   "app": "mullvad-browser/windows",
+   "shape": "S6",
+   "msg_contains": "doesn't stay open",
+   "before": "2026-11-03T15:30:00",
+   "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+  },
+  {
+   "app": "firefox@developer-edition/windows",
+   "shape": "S6",
+   "msg_contains": "doesn't stay open",
+   "before": "2026-11-03T15:30:00",
+   "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+  },
+  {
+   "app": "portfolioperformance/windows",
+   "shape": "S6",
+   "msg_contains": "doesn't stay open",
+   "before": "2026-11-03T15:30:00",
+   "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+  },
+  {
+   "app": "brave-browser/windows",
+   "shape": "S6",
+   "msg_contains": "doesn't stay open",
+   "before": "2026-11-03T15:30:00",
+   "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
   }
  ]
 }

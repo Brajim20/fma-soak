@@ -164,6 +164,7 @@ def open_app(host, t, rec, label):
     if m:
         t["exe"] = m.group(1).strip()
     pids = (re.search(r"PIDS=(.*)", out) or [None, ""])[1].split()
+    t["pids"] = sorted(set(t.get("pids", [])) | set(pids))  # processes() follows them if the install renames the exe
     rec[f"{label}_open"] = {"exit": r.get("exit_code"), "pids": pids,
                             "note": next((w for w in ("NO_TARGET", "NO_USER") if w in out), None) or r.get("error")}
     return bool(pids)
@@ -181,7 +182,10 @@ def processes(host, t):
     """The app's main processes, from osquery: [{pid, path, on_disk}], or None if the host didn't answer.
     macOS: the bundle's executable; the same executable under a moved-aside *.app.bkp (#54170, before fleetd deletes
     its temp dir); and a process whose executable was deleted, which osquery reports with an empty path but the
-    original command line (checked on a copied app, moved aside and deleted while running: path "", on_disk -1)."""
+    original command line (checked on a copied app, moved aside and deleted while running: path "", on_disk -1).
+    Windows: the exe, plus the pids open_app saw under the exe's name: an installer that renames the exe in use
+    leaves the old process running, and osquery reports it at the new name while Get-Process keeps the old path
+    (checked on host 228: pingtest.exe renamed to pingtest.exe.moved while running). Those rows get `moved`."""
     if t["plat"] == "darwin":
         app, exe_name = t["app"].replace("'", "''"), t["exe"].rsplit("/", 1)[-1].replace("'", "''")
         bkp = app.rsplit("/", 1)[-1] + ".bkp"
@@ -191,11 +195,15 @@ def processes(host, t):
     else:
         if not t.get("exe"):
             return []
-        q = f"SELECT pid, path, on_disk FROM processes WHERE lower(path) = lower('{t['exe'].replace(chr(39), chr(39) * 2)}');"
+        exe = t["exe"].replace("'", "''")
+        pids = ",".join(x for x in t.get("pids", []) if x.isdigit())
+        q = (f"SELECT pid, path, on_disk FROM processes WHERE lower(path) = lower('{exe}')" +
+             (f" OR (pid IN ({pids}) AND lower(name) = lower('{exe.rsplit(chr(92), 1)[-1]}'))" if pids else "") + ";")
     for _ in range(3):
         st, d = R.api("POST", f"/hosts/{host}/query", {"query": q}, timeout=180)
         if st == 200 and not d.get("error"):
-            return [{"pid": str(r.get("pid")), "path": R.scrub(r.get("path", "")), "on_disk": str(r.get("on_disk"))}
+            return [{"pid": str(r.get("pid")), "path": R.scrub(r.get("path", "")), "on_disk": str(r.get("on_disk")),
+                     **({"moved": True} if t["plat"] == "windows" and r.get("path", "").lower() != t["exe"].lower() else {})}
                     for r in d.get("rows") or []]
         time.sleep(15)
     return None
@@ -203,7 +211,7 @@ def processes(host, t):
 
 def current(p):
     """Running from the installed files (not deleted, not a moved-aside copy)."""
-    return bool(p["path"]) and p["on_disk"] != "0" and ".bkp/" not in p["path"]
+    return bool(p["path"]) and p["on_disk"] != "0" and ".bkp/" not in p["path"] and not p.get("moved")
 
 
 def judge_open(rec, find, t, key, label, before, after, status, lines):
@@ -216,13 +224,17 @@ def judge_open(rec, find, t, key, label, before, after, status, lines):
     stale = [p for p in after if not current(p)]
     kept = [p for p in after if p["pid"] in before and p not in stale]
     fresh = [p for p in after if p["pid"] not in before and p not in stale]
-    if stale:
-        find("S6", f"{label}: Fleet says {status}, but the app is still running from files the install deleted "
-                   f"({stale[0]['path'] or 'its executable is gone'}, pid {stale[0]['pid']}) (#54170 shape)")
     if t["plat"] == "windows":
+        if stale:
+            # Windows can't delete an exe in use, so installers rename it; Fleet's Windows scripts don't close apps
+            rec[f"{key}_running_note"] = (f"the old copy kept running from its renamed files ({stale[0]['path']}, "
+                                          f"pid {stale[0]['pid']}); expected on Windows")
         if status != "installed":
             find("S6", f"{label}: the install over the open app ended as {status}")
         return
+    if stale:
+        find("S6", f"{label}: Fleet says {status}, but the app is still running from files the install deleted "
+                   f"({stale[0]['path'] or 'its executable is gone'}, pid {stale[0]['pid']}) (#54170 shape)")
     if status == "installed":
         if kept:
             find("S6", f"{label}: the app was replaced while running and never quit (pid {kept[0]['pid']} survived) "
@@ -249,6 +261,10 @@ def starts(host, t, rec, find, key, label, seen_running):
     """Opens the app (unless it's already running from its current files) and checks it stays up, then closes it.
     A failure is a finding only if this record already saw the app start (seen_running), otherwise a note."""
     now = processes(host, t) or []
+    if t["plat"] == "windows" and now and not any(current(p) for p in now):
+        # only the old copy, running from renamed files: opening the app again just hands off to it (single-instance
+        # apps: Firefox, Brave, Mullvad), so close it first and open the new build
+        close_app(host, t, rec, f"{key}_old")
     ok = any(current(p) for p in now) or open_app(host, t, rec, key)
     if ok:
         time.sleep(10)
