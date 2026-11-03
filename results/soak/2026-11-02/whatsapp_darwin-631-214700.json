@@ -1,0 +1,148 @@
+{
+ "slug": "whatsapp/darwin",
+ "host": 631,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-02T21:47:00",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "the patch policy Fleet created doesn't match the Deploy option: {'id': 1244, 'name': 'macOS - \\u200eWhatsApp up to date', 'patch_when_closed': True, 'continuous_automations_enabled': True, 'install_title': None}"
+  },
+  {
+   "shape": "S4",
+   "msg": "the app was closed 3 h ago and the patch to 26.44.12 never installed (last attempt: installed, policy fail)"
+  }
+ ],
+ "outcome": "findings",
+ "scenario": {
+  "slug": "whatsapp/darwin",
+  "host": 631,
+  "title_id": 13118,
+  "older": "26.43.27",
+  "newest": "26.44.12",
+  "phase": "closed",
+  "started": "2026-11-03T01:47:00+00:00",
+  "started_local": "2026-11-02T21:47:00",
+  "findings": [
+   {
+    "shape": "S4",
+    "msg": "the patch policy Fleet created doesn't match the Deploy option: {'id': 1244, 'name': 'macOS - \\u200eWhatsApp up to date', 'patch_when_closed': True, 'continuous_automations_enabled': True, 'install_title': None}"
+   },
+   {
+    "shape": "S4",
+    "msg": "the app was closed 3 h ago and the patch to 26.44.12 never installed (last attempt: installed, policy fail)"
+   }
+  ],
+  "observations": [
+   {
+    "at": "2026-11-03T02:10:18+00:00",
+    "last_install": {
+     "uuid": "79868c37-a068-45a4-841f-ebfd9043dff4",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "26.43.27"
+     ]
+    },
+    "versions": [
+     "26.43.27"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-03T07:03:50+00:00",
+    "last_install": {
+     "uuid": "79868c37-a068-45a4-841f-ebfd9043dff4",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "26.43.27"
+     ]
+    },
+    "versions": [
+     "26.43.27"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-03T14:11:35+00:00",
+    "last_install": {
+     "uuid": "79868c37-a068-45a4-841f-ebfd9043dff4",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "26.43.27"
+     ]
+    },
+    "versions": [
+     "26.43.27"
+    ],
+    "policy": "fail"
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 62,
+  "old_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_8ICsuE</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/WhatsApp.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/WhatsApp.app/Contents/MacOS/WhatsApp",
+   "bundle_id": "net.whatsapp.WhatsApp",
+   "versions": [
+    "26.43.27"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "96057"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/WhatsApp.app",
+   "exe": "/Applications/WhatsApp.app/Contents/MacOS/WhatsApp",
+   "bundle_id": "net.whatsapp.WhatsApp"
+  },
+  "pids": [
+   "96057"
+  ],
+  "before_uuid": "79868c37-a068-45a4-841f-ebfd9043dff4",
+  "patch_on": 200,
+  "policy": {
+   "id": 1244,
+   "name": "macOS - \u200eWhatsApp up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "install_title": null
+  },
+  "opened_at": "2026-11-03T01:49:40+00:00",
+  "close_close": "no result in time",
+  "closed_at": "2026-11-03T07:08:54+00:00",
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": "failed_uninstall",
+  "end_uninstall_seconds": 322,
+  "end_uninstall_output_tail": "ipts/group.net.whatsapp.family doesn't exist.\n/Users/<user>/Library/Application Scripts/group.net.whatsapp.WhatsApp.private doesn't exist.\n/Users/<user>/Library/Application Scripts/group.net.whatsapp.WhatsApp.shared doesn't exist.\n/Users/<user>/Library/Application Scripts/group.net.whatsapp.WhatsAppSMB.shared doesn't exist.\n/Users/<user>/Library/Application Scripts/net.whatsapp.WhatsApp* doesn't exist.\n/Users/<user>/Library/Caches/net.whatsapp.WhatsApp doesn't exist.\nremoving /Users/<user>/Library/Containers/net.whatsapp.WhatsApp.\n\nscript execution error: signal: killed",
+  "end_uninstall_exit_code": -1,
+  "ended": "2026-11-03T14:17:37+00:00"
+ },
+ "finished": "2026-11-03T10:17:38",
+ "evidence": {
+  "library": "results/soak/2026-11-02/evidence/whatsapp_darwin-631-214700-library.png",
+  "inventory": "results/soak/2026-11-02/evidence/whatsapp_darwin-631-214700-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/whatsapp_darwin-631-214700.json"
+}
