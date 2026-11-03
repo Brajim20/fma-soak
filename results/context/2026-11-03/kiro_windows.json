@@ -1,0 +1,38 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/kiro/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/kiro.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/kiro_install.ps1",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/kiro_uninstall.ps1"
+ ],
+ "code": [],
+ "commits": [
+  {
+   "sha": "b95c2dac12",
+   "date": "2026-10-30",
+   "title": "Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612)"
+  },
+  {
+   "sha": "86722c2dd9",
+   "date": "2026-10-27",
+   "title": "Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629)"
+  },
+  {
+   "sha": "70bd3e94b6",
+   "date": "2026-10-21",
+   "title": "Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 48248,
+   "state": "open",
+   "title": "Windows FMA patch policies don't distinguish per-user vs per-machine install scope, leavin"
+  },
+  {
+   "number": 51875,
+   "state": "closed",
+   "title": "Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusa"
+  }
+ ]
+}
