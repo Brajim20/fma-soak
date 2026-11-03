@@ -1,0 +1,65 @@
+{
+ "slug": "macvim-app/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T00:10:40",
+ "catalog_version": "184",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T04:10:39Z",
+  "restarted": "2026-11-02T08:26:28.89495Z"
+ },
+ "title_id": 20400,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": true,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": true,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-03T01:10:39",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T05:10:30Z",
+  "restarted": "2026-11-02T08:26:28.89495Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/macvim-app_darwin-636-001040-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/macvim-app_darwin-636-001040-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/macvim-app_darwin-636-001040.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/macvim-app_darwin-636-233916.json"
+}
