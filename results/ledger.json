@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T21:39:32",
+ "built": "2026-11-03T02:06:35",
  "coverage": {
   "darwin": {
    "covered": 99,
@@ -24,9 +24,9 @@
    }
   },
   "windows": {
-   "covered": 178,
+   "covered": 180,
    "catalog": 460,
-   "percent": 38.7,
+   "percent": 39.1,
    "deck": {
     "round": 1,
     "done": 146,
@@ -40,7 +40,7 @@
     },
     "635": {
      "round": 1,
-     "done": 53,
+     "done": 60,
      "of": 338
     }
    }
@@ -4183,6 +4183,21 @@
     ]
    }
   },
+  "google-drive/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T22:25:38",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "133.0.2.0",
+    "record": "results/soak/2026-11-02/google-drive_windows-635-222538.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
   "gotomeeting/windows@629": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -4228,6 +4243,21 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.11.2",
     "record": "results/soak/2026-11-02/handbrake_windows-629-142500.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "handbrake/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T22:14:17",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.11.2",
+    "record": "results/soak/2026-11-02/handbrake_windows-635-221417.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -4627,6 +4657,18 @@
     ]
    }
   },
+  "notion/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-02T22:30:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.41.1",
+    "record": "results/soak/2026-11-02/notion_windows-635-223044.json",
+    "findings": []
+   }
+  },
   "ocenaudio/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -4859,6 +4901,22 @@
     ]
    }
   },
+  "reqable/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T21:57:17",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.3.9",
+    "record": "results/soak/2026-11-02/reqable_windows-635-215717.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
   "rstudio/windows@629": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -4896,6 +4954,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.5.1",
     "record": "results/soak/2026-11-02/rustdesk_darwin-631-141226.json",
+    "findings": []
+   }
+  },
+  "rustrover/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-02T23:29:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.2.5",
+    "record": "results/soak/2026-11-02/rustrover_windows-635-232903.json",
     "findings": []
    }
   },
@@ -5099,6 +5169,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "15.83.5",
     "record": "results/soak/2026-11-02/teamviewer_windows-635-192835.json",
+    "findings": []
+   }
+  },
+  "todoist-app/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-02T23:59:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.36.1",
+    "record": "results/soak/2026-11-02/todoist-app_windows-635-235910.json",
     "findings": []
    }
   },
@@ -5378,6 +5460,54 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "10.0.7",
     "record": "results/soak/2026-11-02/zotero_darwin-636-110619.json",
+    "findings": []
+   }
+  },
+  "insomnia/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-03T00:29:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "13.4.0",
+    "record": "results/soak/2026-11-03/insomnia_windows-635-002934.json",
+    "findings": []
+   }
+  },
+  "microsoft-odbc-driver-18/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: app already on host and not installed by the harness",
+    "date": "2026-11-03T00:59:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "18.7.1.1",
+    "record": "results/soak/2026-11-03/microsoft-odbc-driver-18_windows-635-005959.json",
+    "findings": []
+   }
+  },
+  "tableau-desktop/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-03T01:00:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "24.3.965",
+    "record": "results/soak/2026-11-03/tableau-desktop_windows-635-010003.json",
+    "findings": []
+   }
+  },
+  "teamviewer-host/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-03T01:30:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "15.83.5",
+    "record": "results/soak/2026-11-03/teamviewer-host_windows-635-013044.json",
     "findings": []
    }
   }
