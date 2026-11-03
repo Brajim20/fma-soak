@@ -1,0 +1,86 @@
+{
+ "slug": "mindmanager/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-02T16:53:15",
+ "catalog_version": "25.0.208.0",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T20:53:15Z",
+  "restarted": "2026-11-01T19:23:05.001772Z"
+ },
+ "title_id": 24359,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 168,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "25.0.208.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\MindManager 25\\"
+  ],
+  "names": [
+   "MindManager 25"
+  ],
+  "versions": [
+   "25.0.208.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 92,
+ "first_uninstall_output_tail": "Uninstall command: MsiExec.exe\nUninstall args: /X{CD37F6A3-9C52-4931-B972-B35A0C3940CE} /qn /norestart\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 170,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 92,
+ "second_uninstall_output_tail": "Uninstall command: MsiExec.exe\nUninstall args: /X{CD37F6A3-9C52-4931-B972-B35A0C3940CE} /qn /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-02T17:21:49",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-02T21:21:39Z",
+  "restarted": "2026-11-01T19:23:05.001772Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-02/evidence/mindmanager_windows-635-165315-library.png",
+  "inventory": "results/soak/2026-11-02/evidence/mindmanager_windows-635-165315-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/mindmanager_windows-635-165315.json"
+}
