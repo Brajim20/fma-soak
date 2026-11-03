@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T02:12:20",
+ "built": "2026-11-03T02:15:27",
  "coverage": {
   "darwin": {
    "covered": 100,
@@ -7,18 +7,18 @@
    "percent": 10.3,
    "deck": {
     "round": 1,
-    "done": 73,
+    "done": 78,
     "of": 142
    },
    "decks": {
     "631": {
      "round": 1,
-     "done": 73,
+     "done": 78,
      "of": 142
     },
     "636": {
      "round": 1,
-     "done": 46,
+     "done": 43,
      "of": 831
     }
    }
@@ -3592,18 +3592,6 @@
     "findings": []
    }
   },
-  "aws-vpn-client/darwin@636": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-02T23:08:59",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.2.1",
-    "record": "results/soak/2026-11-02/aws-vpn-client_darwin-636-230859.json",
-    "findings": []
-   }
-  },
   "azure-functions-core-tools/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -3760,6 +3748,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "25.14.2.1",
     "record": "results/soak/2026-11-02/chef-workstation_windows-635-195316.json",
+    "findings": []
+   }
+  },
+  "chrome-remote-desktop-host/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-02T22:41:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "155.0.8059.19",
+    "record": "results/soak/2026-11-02/chrome-remote-desktop-host_darwin-631-224133.json",
     "findings": []
    }
   },
@@ -4364,23 +4364,6 @@
     "findings": [
      "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)",
      "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
-   }
-  },
-  "macvim-app/darwin@636": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-03T00:10:40",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "184",
-    "record": "results/soak/2026-11-03/macvim-app_darwin-636-001040.json",
-    "findings": [
-     "first install ended as pending_install",
-     "first uninstall: app still on host (status None)",
-     "second install ended as None",
-     "second uninstall: app still on host (status None)"
     ]
    }
   },
@@ -5119,6 +5102,23 @@
     ]
    }
   },
+  "taskbar/darwin@631": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-02T23:43:19",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.6.3",
+    "record": "results/soak/2026-11-02/taskbar_darwin-631-234319.json",
+    "findings": [
+     "first install ended as pending_install",
+     "first uninstall: app still on host (status None)",
+     "second install ended as None",
+     "second uninstall: app still on host (status None)"
+    ]
+   }
+  },
   "teamviewer/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -5410,27 +5410,39 @@
     "findings": []
    }
   },
-  "jami/darwin@636": {
+  "arc/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T01:10:50",
+    "date": "2026-11-03T01:44:59",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.42",
-    "record": "results/soak/2026-11-03/jami_darwin-636-011050.json",
+    "catalog_version": "1.171.0",
+    "record": "results/soak/2026-11-03/arc_darwin-631-014459.json",
     "findings": []
    }
   },
-  "topaz-photo-ai/darwin@636": {
+  "blip/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T01:41:28",
+    "date": "2026-11-03T00:43:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.0.4",
-    "record": "results/soak/2026-11-03/topaz-photo-ai_darwin-636-014128.json",
+    "catalog_version": "1.2.8",
+    "record": "results/soak/2026-11-03/blip_darwin-631-004334.json",
+    "findings": []
+   }
+  },
+  "hidock/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-03T01:13:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.4",
+    "record": "results/soak/2026-11-03/hidock_darwin-631-011355.json",
     "findings": []
    }
   }
