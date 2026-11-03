@@ -1,0 +1,110 @@
+{
+ "slug": "proxyman/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T05:52:55",
+ "catalog_version": "26.2.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T09:52:54Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "title_id": 24596,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 91,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Proxyman for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.2.0"
+ ],
+ "package_version": "26.2.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Proxyman 26.2.0"
+  ],
+  "versions": [
+   "26.2.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing 'Proxyman 26.2.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\1c658a2b-63bd-5737-96bf-d2b01fd7d360)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Programs\\Proxyman\\Uninstall Proxyman.exe\n  Uninstall args: /currentuser /S\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nProxyman removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 76,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Proxyman for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2520",
+   "10184",
+   "10956",
+   "12516",
+   "15544",
+   "17188"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 122,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Proxyman for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1104",
+   "1692",
+   "12920",
+   "14008",
+   "16496",
+   "17360"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "Removing 'Proxyman 26.2.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\1c658a2b-63bd-5737-96bf-d2b01fd7d360)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Programs\\Proxyman\\Uninstall Proxyman.exe\n  Uninstall args: /currentuser /S\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nProxyman removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-03T06:07:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T10:07:48Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/proxyman_windows-635-055255.json"
+}

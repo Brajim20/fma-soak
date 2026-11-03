@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T07:08:46",
+ "built": "2026-11-03T07:25:23",
  "coverage": {
   "darwin": {
    "covered": 101,
@@ -18,15 +18,15 @@
     },
     "636": {
      "round": 1,
-     "done": 50,
+     "done": 46,
      "of": 831
     }
    }
   },
   "windows": {
-   "covered": 188,
+   "covered": 193,
    "catalog": 460,
-   "percent": 40.9,
+   "percent": 42.0,
    "deck": {
     "round": 1,
     "done": 154,
@@ -40,7 +40,7 @@
     },
     "635": {
      "round": 1,
-     "done": 60,
+     "done": 67,
      "of": 338
     }
    }
@@ -5632,28 +5632,54 @@
     "findings": []
    }
   },
-  "cleanmymac/darwin@636": {
+  "cloudflare-warp/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T04:59:55",
+    "outcome": "pass",
+    "date": "2026-11-03T05:40:59",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "5.7.3",
-    "record": "results/soak/2026-11-03/cleanmymac_darwin-636-045955.json",
+    "catalog_version": "26.8.2115.0",
+    "record": "results/soak/2026-11-03/cloudflare-warp_windows-635-054059.json",
     "findings": []
    }
   },
-  "cryptomator/darwin@636": {
+  "delinea-connection-manager/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T03:59:19",
+    "outcome": "pass",
+    "date": "2026-11-03T06:07:48",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.19.6",
-    "record": "results/soak/2026-11-03/cryptomator_darwin-636-035919.json",
+    "catalog_version": "2.9.0.33",
+    "record": "results/soak/2026-11-03/delinea-connection-manager_windows-635-060748.json",
     "findings": []
+   }
+  },
+  "digiseal-reader/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-03T05:47:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.0.0.6",
+    "record": "results/soak/2026-11-03/digiseal-reader_windows-635-054712.json",
+    "findings": []
+   }
+  },
+  "firefox@developer-edition/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-03T05:30:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "156.0",
+    "record": "results/soak/2026-11-03/firefox@developer-edition_windows-635-053009.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    }
   },
   "hidock/darwin@631": {
@@ -5704,16 +5730,33 @@
     "findings": []
    }
   },
-  "roboform/darwin@636": {
+  "proxyman/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T04:29:37",
+    "outcome": "pass",
+    "date": "2026-11-03T05:52:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "9.9.5",
-    "record": "results/soak/2026-11-03/roboform_darwin-636-042937.json",
+    "catalog_version": "26.2.0",
+    "record": "results/soak/2026-11-03/proxyman_windows-635-055255.json",
     "findings": []
+   }
+  },
+  "sharefile/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-03T06:58:28",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.9.9.0",
+    "record": "results/soak/2026-11-03/sharefile_windows-635-065828.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "tableau-desktop/windows@635": {
@@ -5728,15 +5771,15 @@
     "findings": []
    }
   },
-  "taskbar/darwin@636": {
-   "lifecycle_runs": 2,
+  "tailscale/windows@635": {
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T03:29:01",
+    "outcome": "pass",
+    "date": "2026-11-03T06:25:18",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.6.3",
-    "record": "results/soak/2026-11-03/taskbar_darwin-636-032901.json",
+    "catalog_version": "1.104.4",
+    "record": "results/soak/2026-11-03/tailscale_windows-635-062518.json",
     "findings": []
    }
   },
@@ -5749,6 +5792,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "15.83.5",
     "record": "results/soak/2026-11-03/teamviewer-host_windows-635-013044.json",
+    "findings": []
+   }
+  },
+  "teleport-connect/windows@635": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-03T06:14:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "18.11.8",
+    "record": "results/soak/2026-11-03/teleport-connect_windows-635-061456.json",
     "findings": []
    }
   },
@@ -5780,16 +5835,20 @@
     ]
    }
   },
-  "wavebox/darwin@636": {
+  "wacom-tablet/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T06:38:30",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-03T02:55:17",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "156.3.22.2",
-    "record": "results/soak/2026-11-03/wavebox_darwin-636-063830.json",
-    "findings": []
+    "catalog_version": "6.4.15-1",
+    "record": "results/soak/2026-11-03/wacom-tablet_windows-635-025517.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "winrar/windows@629": {
@@ -5801,6 +5860,21 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.23.0",
     "record": "results/soak/2026-11-03/winrar_windows-629-003923.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as pending_install",
+     "second uninstall: app still on host (status None)"
+    ]
+   }
+  },
+  "winrar/windows@635": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-03T03:48:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.23.0",
+    "record": "results/soak/2026-11-03/winrar_windows-635-034855.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as pending_install",
      "second uninstall: app still on host (status None)"
