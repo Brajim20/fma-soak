@@ -1,0 +1,150 @@
+{
+ "slug": "visual-studio-code/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-02T17:15:52",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "upgrade to 1.142.0 with the app open: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "install",
+   "msg": "upgrade over 1.141.1 ended as pending_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "app still on host after cleanup uninstall"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-02T21:15:45Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 23299,
+ "cached_versions": [
+  "1.141.1",
+  "1.142.0"
+ ],
+ "active_before": "1.142.0",
+ "pin_older_status": 200,
+ "active_after_pin": "1.141.1",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 92,
+ "old_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   "C:\\Program Files\\Microsoft VS Code\\"
+  ],
+  "names": [
+   "Microsoft Visual Studio Code"
+  ],
+  "versions": [
+   "1.141.1"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "1.142.0",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "1296",
+   "3556",
+   "5040",
+   "5504",
+   "9420",
+   "9692",
+   "10488",
+   "10752",
+   "10816"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "pending_install",
+ "upgrade_install_seconds": null,
+ "upgrade_install_cancelled_after_timeout": [],
+ "upgrade_install_output_tail": "",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [
+  {
+   "pid": "10816",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "5504",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "10752",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "9692",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "9420",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "1296",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "5040",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "3556",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "10488",
+   "path": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": false,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Program Files\\Microsoft VS Code\\"
+  ],
+  "names": [
+   "Microsoft Visual Studio Code"
+  ],
+  "versions": [
+   "1.141.1"
+  ]
+ },
+ "cleanup_uninstall_request": 400,
+ "cleanup_uninstall_error": "Bad request",
+ "outcome": "findings",
+ "finished": "2026-11-02T17:49:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-02T21:48:54Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-02/evidence/visual-studio-code_windows-629-171552-library.png",
+  "inventory": "results/soak/2026-11-02/evidence/visual-studio-code_windows-629-171552-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-02/visual-studio-code_windows-629-171552.json"
+}
