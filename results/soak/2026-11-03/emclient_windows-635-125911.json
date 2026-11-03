@@ -1,0 +1,93 @@
+{
+ "slug": "emclient/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T12:59:11",
+ "catalog_version": "11.0.1054",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T16:59:03Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "title_id": 24675,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 123,
+ "first_install_output_tail": "Installing software...\nFailed\nMSI install exited 0\nInstalling eM Client for <host>\\<user>\nError: eM Client didn't install for <host>\\<user> (exit code 2147954429).\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 32,
+ "first_uninstall_output_tail": "Uninstall of {2A41F30C-D8C3-4B51-AC36-B9B2EDB41FB8} exited 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 140,
+ "second_install_output_tail": "Installing software...\nFailed\nMSI install exited 0\nInstalling eM Client for <host>\\<user>\nError: eM Client didn't install for <host>\\<user> (exit code 2147954429).\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall of {2A41F30C-D8C3-4B51-AC36-B9B2EDB41FB8} exited 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-03T13:06:25",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T17:06:15Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/emclient_windows-635-125911-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/emclient_windows-635-125911-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/emclient_windows-635-125911.json"
+}
