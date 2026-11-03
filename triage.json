@@ -2,6 +2,10 @@
  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
  "entries": [
   {
+   "app": "bitbox/darwin",
+   "verdict": "filed #57341: unique_identifier ch.shiftcrypto.BitBoxApp, app is ch.shiftcrypto.wallet"
+  },
+  {
    "app": "dupeguru/windows",
    "verdict": "filed #57333: queries want name 'dupeGuru', NSIS registers 'dupeGuru 4.3.1'"
   },
