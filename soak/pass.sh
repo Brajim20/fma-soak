@@ -23,6 +23,7 @@ deadline=$(( start + $(cfg interval_hours 6) * 3600 - $(cfg end_margin_minutes 2
 if [[ -n $FMA_SOAK_PASS_MINUTES ]]; then
   deadline=$(( start + FMA_SOAK_PASS_MINUTES * 60 - $(cfg end_margin_minutes 20) * 60 ))
 fi
+until=$(python3 -c "import datetime;print(datetime.datetime.fromtimestamp($deadline).isoformat(timespec='seconds'))")
 # fits <minutes>: true if that much time is left before the deadline. Long steps that don't fit wait for a pass that
 # has room (a late scheduled run can start minutes before the next slot); their stamp stays old, so they stay due
 fits() {
@@ -46,7 +47,7 @@ if [[ -n $host ]]; then
   step runner.py --online $plat --host $host || exit $worst
   step runner.py --cleanup $plat --host $host
   fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat --host $host
-  step sample.py --platform $plat --host $host --until "$(python3 -c "import datetime;print(datetime.datetime.fromtimestamp($deadline).isoformat(timespec='seconds'))")"
+  step sample.py --platform $plat --host $host --until "$until"
   exit $worst
 fi
 if ! step runner.py --online $plat; then step digest.py; exit $worst; fi
@@ -60,14 +61,14 @@ if [[ -n $cur_build && -f $stamps/last-build-$plat && "$(cat $stamps/last-build-
 fi
 [[ -n $cur_build ]] && mkdir -p $stamps && echo "$cur_build" > $stamps/last-build-$plat
 step patch_closed.py tick --platform $plat   # patch when closed (S6): starts one a day, advances an active one
-if due canaries $(cfg canary_every_hours 12) && fits $(cfg canary_budget_minutes 120) canaries; then step runner.py --canaries $plat; date +%s > $stamps/last-canaries-$plat; fi
-if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat; date +%s > $stamps/last-update-$plat; fi
+if due canaries $(cfg canary_every_hours 12) && fits $(cfg canary_budget_minutes 120) canaries; then step runner.py --canaries $plat --until "$until"; date +%s > $stamps/last-canaries-$plat; fi
+if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat --until "$until"; date +%s > $stamps/last-update-$plat; fi
 # L3 transitions (4.3). In CI the watcher job owns this: a soak job saves hours after it restored, so running the
 # check here too would overwrite the watcher job's newer files with this pass's stale copy
 [[ -z $FMA_SOAK_WATCHER_JOB ]] && step watcher.py check --platform $plat
 [[ $plat == windows ]] && step scenarios.py explorer2   # #51127 scenario, once a day (4.4)
 fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat
 # python, not `date -r`: BSD date reads -r as epoch seconds, GNU date (CI runners) as a file to stat
-step sample.py --platform $plat --until "$(python3 -c "import datetime;print(datetime.datetime.fromtimestamp($deadline).isoformat(timespec='seconds'))")"
+step sample.py --platform $plat --until "$until"
 [[ -z $FMA_SOAK_NO_DIGEST ]] && step digest.py   # rebuilds today's and yesterday's digest (in CI the report job does, with a token)
 exit $worst

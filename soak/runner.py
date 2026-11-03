@@ -920,7 +920,17 @@ def main():
     ap.add_argument("--update-all", choices=["darwin", "windows"], help="update path for every FMA title in the soak fleet with 2+ cached versions")
     ap.add_argument("--cleanup", choices=["darwin", "windows"], help="uninstall apps an interrupted cycle left on the host")
     ap.add_argument("--online", choices=["darwin", "windows"], help="exit 0 once the platform's host is online, 3 if it stays offline")
+    ap.add_argument("--until", type=datetime.datetime.fromisoformat,
+                    help="--canaries / --update-all: start no app after this minus loop.cycle_budget_minutes")
     a = ap.parse_args()
+    # a pass's deadline: on 2026-11-03 the canaries ran 5 h on 631 (busy-queue waits and retries), past the 340 min
+    # job limit, so GitHub cancelled the run and the chain stopped
+    stop = a.until - datetime.timedelta(minutes=CFG["loop"].get("cycle_budget_minutes", 30)) if a.until else None
+    def late(slug):
+        if stop and datetime.datetime.now() >= stop:
+            print(f"{slug}: deferred, the pass's deadline ({a.until:%H:%M}) is near")
+            return True
+        return False
     if a.online:
         sys.exit(0 if wait_online(a.host or CFG["hosts"][a.online][0]) else 3)
     if a.cleanup:
@@ -943,6 +953,8 @@ def main():
                 print(f"{slug}: skipped (known environment)"); continue
             if slug in busy_slugs():
                 print(f"{slug}: skipped (held by the patch-when-closed scenario)"); continue
+            if late(slug):
+                break
             try:
                 run(update_path, slug, CFG["hosts"][a.update_all][0])
             except Exception as e:
@@ -952,6 +964,8 @@ def main():
         plats = ["darwin", "windows"] if a.canaries == "all" else [a.canaries]
         for p in plats:
             for slug in CFG["canaries"][p]:
+                if late(slug):
+                    break
                 try:
                     run(cycle, slug, CFG["hosts"][p][0])
                 except Exception as e:
