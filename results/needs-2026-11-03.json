@@ -1,5 +1,17 @@
 [
  {
+  "app": "sharefile/windows@635",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/sharefile_windows-635-065828.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sharefile/windows.json), [sharefile.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sharefile.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "macvim-app/darwin@636",
   "shape": "S3",
   "msgs": [
@@ -13,7 +25,7 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/macvim-app/darwin.json), [macvim-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/macvim-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: #38583 (open), #33005 (closed)"
  },
  {
-  "app": "wacom-tablet/windows@629",
+  "app": "nosql-workbench/windows@629",
   "shape": "S3",
   "msgs": [
    "first install: Fleet says installed but the app isn't on the host",
@@ -22,7 +34,46 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-03/nosql-workbench_windows-629-041119.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "sharefile/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/sharefile_windows-635-065828.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sharefile/windows.json), [sharefile.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sharefile.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "wacom-tablet/windows@629",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 635 [record](soak/2026-11-03/wacom-tablet_windows-635-025517.json)",
   "record": "results/soak/2026-11-03/wacom-tablet_windows-629-022028.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wacom-tablet/windows.json), [wacom-tablet.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/wacom-tablet.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Add several Windows FMAs (#46415) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "wacom-tablet/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/wacom-tablet_windows-635-025517.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wacom-tablet/windows.json), [wacom-tablet.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/wacom-tablet.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Add several Windows FMAs (#46415) \u00b7 issues mentioning it: none"
  },
  {
@@ -33,9 +84,45 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-03/winrar_windows-635-034855.json)",
   "record": "results/soak/2026-11-03/winrar_windows-629-003923.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/winrar/windows.json), [winrar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/winrar.json), [winrar_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_install.ps1), [winrar_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-07 Add WinRAR as a Windows FMA (#47024) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "winrar/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/winrar_windows-635-034855.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/winrar/windows.json), [winrar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/winrar.json), [winrar_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_install.ps1), [winrar_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-07 Add WinRAR as a Windows FMA (#47024) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "firefox@developer-edition/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/firefox@developer-edition_windows-635-053009.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@developer-edition/windows.json), [firefox@developer-edition.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/firefox@developer-edition.json) \u00b7 last changes: 2026-07-17 Add Firefox Nightly and Firefox Developer Edition Fleet-maintained apps (#49501) \u00b7 issues mentioning it: #53050 (open), #55961 (open), #51138 (closed), #48689 (closed), #49682 (closed)"
+ },
+ {
+  "app": "goanywhere-openpgp-studio/windows@629",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/goanywhere-openpgp-studio_windows-629-031208.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/goanywhere-openpgp-studio/windows.json), [goanywhere-openpgp-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/goanywhere-openpgp-studio.json), [goanywhere-openpgp-studio_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_install.ps1), [goanywhere-openpgp-studio_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_uninstall.ps1) \u00b7 last changes: 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: none"
  },
  {
   "app": "winrar/windows@629",
@@ -45,9 +132,33 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-03/winrar_windows-635-034855.json)",
   "record": "results/soak/2026-11-03/winrar_windows-629-003923.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/winrar/windows.json), [winrar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/winrar.json), [winrar_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_install.ps1), [winrar_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-07 Add WinRAR as a Windows FMA (#47024) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "winrar/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as pending_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/winrar_windows-635-034855.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/winrar/windows.json), [winrar.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/winrar.json), [winrar_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_install.ps1), [winrar_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winrar_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-07 Add WinRAR as a Windows FMA (#47024) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "winscp/windows@629",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/winscp_windows-629-025742.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/winscp/windows.json), [winscp.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/winscp.json), [winscp_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winscp_install.ps1), [winscp_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/winscp_uninstall.ps1) \u00b7 last changes: 2026-05-28 Add WinSCP as a Windows FMA (#46311) \u00b7 issues mentioning it: #57139 (open), #37326 (closed)"
  },
  {
   "app": "macvim-app/darwin@636",
@@ -61,5 +172,31 @@
   "other_host": null,
   "record": "results/soak/2026-11-03/macvim-app_darwin-636-001040.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/macvim-app/darwin.json), [macvim-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/macvim-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: #38583 (open), #33005 (closed)"
+ },
+ {
+  "app": "paint-dot-net/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/paint-dot-net_windows-629-053935.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/paint-dot-net/windows.json), [paint-dot-net.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/paint-dot-net.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-03 Add Paint.NET as a Windows Fleet-maintained app (#50340) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "remote-desktop-manager/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-03/remote-desktop-manager_windows-629-032435.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/remote-desktop-manager/windows.json), [remote-desktop-manager.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/remote-desktop-manager.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
  }
 ]
