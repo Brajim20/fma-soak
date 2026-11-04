@@ -1,5 +1,41 @@
 [
  {
+  "app": "microsoft-dotnet-sdk-10/windows@635",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-10_windows-635-100936.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-10/windows.json), [microsoft-dotnet-sdk-10.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-10.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "microsoft-dotnet-sdk-9/windows@629",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-9_windows-629-103044.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-9/windows.json), [microsoft-dotnet-sdk-9.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-9.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "scrivener/windows@635",
+  "shape": "S2",
+  "msgs": [
+   "first install: installed into the SYSTEM profile (C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3), not the signed-in user's (#50857)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/scrivener_windows-635-064713.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/scrivener/windows.json), [scrivener.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scrivener.json), [scrivener_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/scrivener_install.ps1), [scrivener_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/scrivener_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57551 (open)"
+ },
+ {
   "app": "geany/windows@629",
   "shape": "S3",
   "msgs": [
@@ -26,6 +62,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/openvpn-connect/windows.json), [openvpn-connect.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/openvpn-connect.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-28 Add several Windows FMAs (#46313) \u00b7 issues mentioning it: #52697 (closed), #36279 (closed), #24720 (closed)"
  },
  {
+  "app": "crystaldiskmark/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/crystaldiskmark_windows-635-085412.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
+ },
+ {
   "app": "franz/windows@635",
   "shape": "S6",
   "msgs": [
@@ -36,6 +84,18 @@
   "other_host": "not on 629 (pass) [record](soak/2026-11-04/franz_windows-629-011730.json)",
   "record": "results/soak/2026-11-04/franz_windows-635-004023.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/franz/windows.json), [franz.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/franz.json), [franz_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/franz_install.ps1), [franz_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/franz_uninstall.ps1) \u00b7 last changes: 2026-10-30 Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612); 2026-10-27 Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629); 2026-10-21 Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
+ },
+ {
+  "app": "goanywhere-openpgp-studio/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/goanywhere-openpgp-studio_windows-635-070330.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/goanywhere-openpgp-studio/windows.json), [goanywhere-openpgp-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/goanywhere-openpgp-studio.json), [goanywhere-openpgp-studio_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_install.ps1), [goanywhere-openpgp-studio_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_uninstall.ps1) \u00b7 last changes: 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: none"
  },
  {
   "app": "obs/windows@635",
