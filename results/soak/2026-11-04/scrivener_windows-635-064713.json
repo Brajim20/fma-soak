@@ -1,0 +1,88 @@
+{
+ "slug": "scrivener/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T06:47:13",
+ "catalog_version": "3.1.6.0",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T10:47:03Z",
+  "restarted": "2026-11-04T03:12:00.951001Z"
+ },
+ "title_id": 24907,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.1.6.0"
+ ],
+ "package_version": "3.1.6.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3"
+  ],
+  "names": [
+   "Scrivener"
+  ],
+  "versions": [
+   "3.1.6.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Scrivener3\\uninstall.exe\nUninstall args: --mode unattended\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Scrivener3\\uninstall.exe\nUninstall args: --mode unattended\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-04T06:53:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-04T10:53:42Z",
+  "restarted": "2026-11-04T03:12:00.951001Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/scrivener_windows-635-064713-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/scrivener_windows-635-064713-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/scrivener_windows-635-064713.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/scrivener_windows-635-064030.json",
+ "crosshost_of": "soak/2026-11-03/scrivener_windows-629-170524.json"
+}
