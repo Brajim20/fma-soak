@@ -1,0 +1,70 @@
+{
+ "slug": "descript/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T01:56:49",
+ "catalog_version": "114.0.4-release.20250509.32955",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T05:56:15Z",
+  "restarted": "2026-11-04T03:37:17.938777Z"
+ },
+ "title_id": 24861,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T02:02:31; offline when the cycle ended)",
+ "finished": "2026-11-04T02:27:43",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T05:56:15Z",
+  "restarted": "2026-11-04T03:37:17.938777Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-04T02:02:31",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/descript_darwin-636-015649-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/descript_darwin-636-015649-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/descript_darwin-636-015649.json"
+}

@@ -1,10 +1,10 @@
 {
- "built": "2026-11-04T05:41:29",
+ "built": "2026-11-04T05:57:11",
  "coverage": {
   "darwin": {
-   "covered": 97,
+   "covered": 105,
    "catalog": 973,
-   "percent": 10.0,
+   "percent": 10.8,
    "deck": {
     "round": 1,
     "done": 81,
@@ -18,15 +18,15 @@
     },
     "636": {
      "round": 1,
-     "done": 59,
-     "of": 831
+     "done": 67,
+     "of": 830
     }
    }
   },
   "windows": {
-   "covered": 259,
+   "covered": 245,
    "catalog": 461,
-   "percent": 56.2,
+   "percent": 53.1,
    "deck": {
     "round": 2,
     "done": 20,
@@ -40,8 +40,8 @@
     },
     "635": {
      "round": 1,
-     "done": 120,
-     "of": 339
+     "done": 102,
+     "of": 338
     }
    }
   }
@@ -5212,14 +5212,14 @@
    }
   },
   "sql-server-management-studio/windows@635": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T01:28:44",
+    "date": "2026-11-02T18:33:13",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "22.11.3",
-    "record": "results/soak/2026-11-04/sql-server-management-studio_windows-635-012844.json",
+    "record": "results/soak/2026-11-02/sql-server-management-studio_windows-635-183313.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -7175,78 +7175,33 @@
     "findings": []
    }
   },
-  "010-editor/windows@635": {
+  "anydesk/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T04:06:52",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T04:47:37; offline when the cycle ended)",
+    "date": "2026-11-04T04:41:58",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "17.0",
-    "record": "results/soak/2026-11-04/010-editor_windows-635-040652.json",
-    "findings": []
-   }
-  },
-  "8x8-work/windows@635": {
-   "lifecycle_runs": 0,
-   "update_runs": 1,
-   "last_update": {
-    "outcome": "skipped: app already on host",
-    "date": "2026-11-04T01:10:09",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": null,
-    "record": "results/soak/2026-11-04/8x8-work_windows-635-011009.json",
-    "findings": []
-   }
-  },
-  "affinity/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:41:23",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.3.3.5004",
-    "record": "results/soak/2026-11-04/affinity_windows-635-034123.json",
-    "findings": []
-   }
-  },
-  "amazon-workspaces/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T04:17:45",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "5.36.0.3628",
-    "record": "results/soak/2026-11-04/amazon-workspaces_windows-635-041745.json",
-    "findings": []
-   }
-  },
-  "aomei-backupper-standard/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T04:07:15",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.5.0.0",
-    "record": "results/soak/2026-11-04/aomei-backupper-standard_windows-635-040715.json",
+    "catalog_version": "9.8.1",
+    "record": "results/soak/2026-11-04/anydesk_darwin-636-044158.json",
     "findings": [
-     "add failed 500: lookup www2.aomeisoftware.com on 169.254.20.10:53: no such host"
+     "first install ended as pending_install",
+     "second install ended as None"
     ]
    }
   },
-  "azure-cli/windows@635": {
+  "appcleaner/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T02:04:56",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T01:30:01; offline when the cycle ended)",
+    "date": "2026-11-04T01:17:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.92.0",
-    "record": "results/soak/2026-11-04/azure-cli_windows-635-020456.json",
-    "findings": []
+    "catalog_version": "3.7",
+    "record": "results/soak/2026-11-04/appcleaner_darwin-636-011719.json",
+    "findings": [
+     "second install: Fleet says installed but the app isn't on the host"
+    ]
    }
   },
   "brave-browser/windows@635": {
@@ -7261,40 +7216,34 @@
     "findings": []
    }
   },
-  "bruno/windows@635": {
+  "citrix-workspace/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:48:59",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-04T05:10:57.115729Z; offline at 2026-11-04T02:38:04; offline when the cycle ended)",
+    "date": "2026-11-04T02:32:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.3.0",
-    "record": "results/soak/2026-11-04/bruno_windows-635-034859.json",
-    "findings": []
+    "catalog_version": "26.09.0",
+    "record": "results/soak/2026-11-04/citrix-workspace_darwin-636-023220.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
    }
   },
-  "crisisgo/windows@635": {
+  "descript/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:22:29",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T02:02:31; offline when the cycle ended)",
+    "date": "2026-11-04T01:56:49",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.36.2.12515",
-    "record": "results/soak/2026-11-04/crisisgo_windows-635-032229.json",
-    "findings": []
-   }
-  },
-  "dottrace/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:28:35",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.2.4.1",
-    "record": "results/soak/2026-11-04/dottrace_windows-635-032835.json",
-    "findings": []
+    "catalog_version": "114.0.4-release.20250509.32955",
+    "record": "results/soak/2026-11-04/descript_darwin-636-015649.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
    }
   },
   "franz/windows@635": {
@@ -7308,6 +7257,21 @@
     "record": "results/soak/2026-11-04/franz_windows-635-004023.json",
     "findings": [
      "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
+   }
+  },
+  "garmin-express/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T05:31:36; offline when the cycle ended)",
+    "date": "2026-11-04T05:25:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.29.3.0",
+    "record": "results/soak/2026-11-04/garmin-express_darwin-636-052559.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
     ]
    }
   },
@@ -7339,130 +7303,31 @@
     "findings": []
    }
   },
-  "goland/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-04T05:11:11",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.2.4",
-    "record": "results/soak/2026-11-04/goland_windows-635-051111.json",
-    "findings": []
-   }
-  },
-  "lapce/windows@635": {
+  "hazeover/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-04T02:36:46",
+    "date": "2026-11-04T01:07:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.4.6",
-    "record": "results/soak/2026-11-04/lapce_windows-635-023646.json",
+    "catalog_version": "1.9.9",
+    "record": "results/soak/2026-11-04/hazeover_darwin-636-010723.json",
     "findings": []
    }
   },
-  "libreoffice/windows@635": {
+  "nosql-workbench/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:53:59",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T04:02:53; offline when the cycle ended)",
+    "date": "2026-11-04T03:57:53",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "26.8.2.2",
-    "record": "results/soak/2026-11-04/libreoffice_windows-635-035359.json",
-    "findings": []
-   }
-  },
-  "microsoft-ole-db-driver-18/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T02:16:02",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "18.7.6",
-    "record": "results/soak/2026-11-04/microsoft-ole-db-driver-18_windows-635-021602.json",
-    "findings": []
-   }
-  },
-  "obs/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T01:56:01",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "33.0.0",
-    "record": "results/soak/2026-11-04/obs_windows-635-015601.json",
+    "catalog_version": "3.20.5",
+    "record": "results/soak/2026-11-04/nosql-workbench_darwin-636-035753.json",
     "findings": [
-     "reinstall over the open app: the install over the open app ended as failed_install"
+     "first install ended as pending_install",
+     "second install ended as None"
     ]
-   }
-  },
-  "okta-verify/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T02:20:56",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.2.2.0",
-    "record": "results/soak/2026-11-04/okta-verify_windows-635-022056.json",
-    "findings": []
-   }
-  },
-  "openvpn-connect/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T02:53:42",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.9.0",
-    "record": "results/soak/2026-11-04/openvpn-connect_windows-635-025342.json",
-    "findings": [
-     "first install: Fleet says installed but the app isn't on the host",
-     "second install: Fleet says installed but the app isn't on the host",
-     "presence unknown after context_after_install (host didn't answer the live query)"
-    ]
-   }
-  },
-  "powertoys/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T02:28:56",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.102.3001",
-    "record": "results/soak/2026-11-04/powertoys_windows-635-022856.json",
-    "findings": []
-   }
-  },
-  "proxifier/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T04:07:26",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.14",
-    "record": "results/soak/2026-11-04/proxifier_windows-635-040726.json",
-    "findings": []
-   }
-  },
-  "r/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T03:15:52",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.6.2",
-    "record": "results/soak/2026-11-04/r_windows-635-031552.json",
-    "findings": []
    }
   },
   "reflector/windows@635": {
@@ -7477,18 +7342,18 @@
     "findings": []
    }
   },
-  "standard-notes/windows@635": {
-   "lifecycle_runs": 2,
+  "rocket-typist/darwin@636": {
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T03:10:50",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T03:29:52; offline when the cycle ended)",
+    "date": "2026-11-04T03:24:11",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.202.0",
-    "record": "results/soak/2026-11-04/standard-notes_windows-635-031050.json",
+    "catalog_version": "3.4.2",
+    "record": "results/soak/2026-11-04/rocket-typist_darwin-636-032411.json",
     "findings": [
-     "first uninstall: app still on host (status failed_uninstall)",
-     "second uninstall: app still on host (status failed_uninstall)"
+     "first install ended as pending_install",
+     "second install ended as None"
     ]
    }
   }

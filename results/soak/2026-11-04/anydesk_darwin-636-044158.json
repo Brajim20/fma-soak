@@ -1,0 +1,75 @@
+{
+ "slug": "anydesk/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T04:41:58",
+ "catalog_version": "9.8.1",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T08:41:30Z",
+  "restarted": "2026-11-04T06:52:39.407535Z"
+ },
+ "title_id": 19171,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T04:47:37; offline when the cycle ended)",
+ "finished": "2026-11-04T05:14:20",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T09:12:33Z",
+  "restarted": "2026-11-04T06:52:39.407535Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-04T04:47:37",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/anydesk_darwin-636-044158-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/anydesk_darwin-636-044158-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/anydesk_darwin-636-044158.json"
+}

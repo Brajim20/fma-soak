@@ -1,0 +1,72 @@
+{
+ "slug": "citrix-workspace/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T02:32:20",
+ "catalog_version": "26.09.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T06:31:18Z",
+  "restarted": "2026-11-04T03:37:17.938777Z"
+ },
+ "title_id": 23302,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-04T05:10:57.115729Z; offline at 2026-11-04T02:38:04; offline when the cycle ended)",
+ "finished": "2026-11-04T03:03:30",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T06:57:03Z",
+  "restarted": "2026-11-04T05:10:57.115729Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-04T05:10:57.115729Z",
+  "offline at 2026-11-04T02:38:04",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/citrix-workspace_darwin-636-023220-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/citrix-workspace_darwin-636-023220-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/citrix-workspace_darwin-636-023220.json"
+}
