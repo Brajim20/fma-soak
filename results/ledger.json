@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T10:55:02",
+ "built": "2026-11-04T15:17:21",
  "coverage": {
   "darwin": {
    "covered": 116,
@@ -24,18 +24,18 @@
    }
   },
   "windows": {
-   "covered": 266,
+   "covered": 267,
    "catalog": 461,
-   "percent": 57.7,
+   "percent": 57.9,
    "deck": {
     "round": 2,
-    "done": 25,
+    "done": 56,
     "of": 122
    },
    "decks": {
     "629": {
      "round": 2,
-     "done": 25,
+     "done": 56,
      "of": 122
     },
     "635": {
@@ -860,15 +860,17 @@
    }
   },
   "crystaldiskmark/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-10-30T17:03:11",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T11:48:58",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.0.3",
-    "record": "results/soak/2026-10-30/crystaldiskmark_windows-629-170311.json",
-    "findings": []
+    "record": "results/soak/2026-11-04/crystaldiskmark_windows-629-114858.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
    }
   },
   "cube-browser/windows@629": {
@@ -1091,14 +1093,14 @@
    }
   },
   "microsoft-dotnet-sdk-10/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-30T02:23:09",
+    "date": "2026-11-04T11:19:36",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "10.0.403",
-    "record": "results/soak/2026-10-30/microsoft-dotnet-sdk-10_windows-629-022309.json",
+    "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-10_windows-629-111936.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -1438,14 +1440,14 @@
    }
   },
   "azul-zulu-25-jre/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T23:46:58",
+    "date": "2026-11-04T14:58:22",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "25.38.109",
-    "record": "results/soak/2026-10-31/azul-zulu-25-jre_windows-629-234658.json",
+    "record": "results/soak/2026-11-04/azul-zulu-25-jre_windows-629-145822.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -1791,14 +1793,14 @@
    }
   },
   "nagstamon/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T11:09:23",
+    "date": "2026-11-04T12:57:03",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.18.2",
-    "record": "results/soak/2026-10-31/nagstamon_windows-629-110923.json",
+    "record": "results/soak/2026-11-04/nagstamon_windows-629-125703.json",
     "findings": [
      "first install: Fleet says installed but the app isn't on the host",
      "second install: Fleet says installed but the app isn't on the host",
@@ -2244,14 +2246,14 @@
    }
   },
   "asana/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T21:22:44",
+    "date": "2026-11-04T13:07:17",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.10.5",
-    "record": "results/soak/2026-11-01/asana_windows-629-212244.json",
+    "catalog_version": "2.10.6",
+    "record": "results/soak/2026-11-04/asana_windows-629-130717.json",
     "findings": []
    }
   },
@@ -2296,14 +2298,14 @@
    }
   },
   "aws-session-manager-plugin/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T23:41:42",
+    "date": "2026-11-04T13:28:01",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.2.896.0",
-    "record": "results/soak/2026-11-01/aws-session-manager-plugin_windows-629-234142.json",
+    "record": "results/soak/2026-11-04/aws-session-manager-plugin_windows-629-132801.json",
     "findings": []
    }
   },
@@ -2721,14 +2723,14 @@
    }
   },
   "gnupg/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T23:24:58",
+    "date": "2026-11-04T12:26:38",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.5.24",
-    "record": "results/soak/2026-11-01/gnupg_windows-629-232458.json",
+    "record": "results/soak/2026-11-04/gnupg_windows-629-122638.json",
     "findings": []
    }
   },
@@ -3048,14 +3050,14 @@
    }
   },
   "preform/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T21:16:37",
+    "date": "2026-11-04T14:33:16",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.64.2.665",
-    "record": "results/soak/2026-11-01/preform_windows-629-211637.json",
+    "record": "results/soak/2026-11-04/preform_windows-629-143316.json",
     "findings": []
    }
   },
@@ -3259,14 +3261,14 @@
    }
   },
   "typora/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T20:59:10",
+    "date": "2026-11-04T13:18:44",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.14.1",
-    "record": "results/soak/2026-11-01/typora_windows-629-205910.json",
+    "record": "results/soak/2026-11-04/typora_windows-629-131844.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -3455,14 +3457,14 @@
    }
   },
   "3df-zephyr-free/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T04:52:49",
+    "date": "2026-11-04T12:20:32",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.013",
-    "record": "results/soak/2026-11-02/3df-zephyr-free_windows-629-045249.json",
+    "record": "results/soak/2026-11-04/3df-zephyr-free_windows-629-122032.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -3709,14 +3711,14 @@
    }
   },
   "binance/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T20:34:52",
+    "date": "2026-11-04T13:32:22",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.1.0",
-    "record": "results/soak/2026-11-02/binance_windows-629-203452.json",
+    "record": "results/soak/2026-11-04/binance_windows-629-133222.json",
     "findings": []
    }
   },
@@ -4189,14 +4191,14 @@
    }
   },
   "firefox@developer-edition-arm64/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T06:28:51",
+    "date": "2026-11-04T13:45:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.0",
-    "record": "results/soak/2026-11-02/firefox@developer-edition-arm64_windows-629-062851.json",
+    "record": "results/soak/2026-11-04/firefox@developer-edition-arm64_windows-629-134525.json",
     "findings": [
      "presence unknown after context_after_install (host didn't answer the live query)"
     ]
@@ -4334,18 +4336,15 @@
    }
   },
   "handbrake/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T14:25:00",
+    "outcome": "pass",
+    "date": "2026-11-04T12:35:11",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.11.2",
-    "record": "results/soak/2026-11-02/handbrake_windows-629-142500.json",
-    "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
-    ]
+    "record": "results/soak/2026-11-04/handbrake_windows-629-123511.json",
+    "findings": []
    }
   },
   "handbrake/windows@635": {
@@ -4388,14 +4387,14 @@
    }
   },
   "ibm-semeru-jdk-21/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-02T19:22:11",
+    "outcome": "pass",
+    "date": "2026-11-04T13:23:53",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "21.0.13.0",
-    "record": "results/soak/2026-11-02/ibm-semeru-jdk-21_windows-629-192211.json",
+    "record": "results/soak/2026-11-04/ibm-semeru-jdk-21_windows-629-132353.json",
     "findings": []
    }
   },
@@ -4424,14 +4423,14 @@
    }
   },
   "itunes/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T23:23:22",
+    "date": "2026-11-04T12:04:07",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.13.12.3",
-    "record": "results/soak/2026-11-02/itunes_windows-629-232322.json",
+    "record": "results/soak/2026-11-04/itunes_windows-629-120407.json",
     "findings": []
    }
   },
@@ -4632,14 +4631,14 @@
    }
   },
   "mindmanager/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T15:14:30",
+    "date": "2026-11-04T14:11:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "25.0.208.0",
-    "record": "results/soak/2026-11-02/mindmanager_windows-629-151430.json",
+    "record": "results/soak/2026-11-04/mindmanager_windows-629-141155.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -4718,17 +4717,15 @@
    }
   },
   "mullvad-browser/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T11:12:27",
+    "outcome": "pass",
+    "date": "2026-11-04T12:40:45",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "16.0",
-    "record": "results/soak/2026-11-02/mullvad-browser_windows-629-111227.json",
-    "findings": [
-     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
+    "record": "results/soak/2026-11-04/mullvad-browser_windows-629-124045.json",
+    "findings": []
    }
   },
   "mullvad-browser/windows@635": {
@@ -5593,14 +5590,14 @@
    }
   },
   "zoom-outlook-plugin/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T05:18:34",
+    "date": "2026-11-04T12:09:08",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.0",
-    "record": "results/soak/2026-11-02/zoom-outlook-plugin_windows-629-051834.json",
+    "record": "results/soak/2026-11-04/zoom-outlook-plugin_windows-629-120908.json",
     "findings": []
    }
   },
@@ -7905,6 +7902,21 @@
     "catalog_version": "6.1.8",
     "record": "results/soak/2026-11-04/spyder_windows-635-074143.json",
     "findings": []
+   }
+  },
+  "standard-notes/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T12:00:11",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.202.0",
+    "record": "results/soak/2026-11-04/standard-notes_windows-629-120011.json",
+    "findings": [
+     "first uninstall: app still on host (status failed_uninstall)",
+     "second uninstall: app still on host (status failed_uninstall)"
+    ]
    }
   },
   "standard-notes/windows@635": {
