@@ -1,0 +1,126 @@
+{
+ "slug": "macvim-app/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T21:41:28",
+ "catalog_version": "184",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory shows ['9.2.1252'] after installing 184; the patch query passes, so only the version Fleet displays is behind"
+  },
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T01:41:18Z",
+  "restarted": "2026-11-02T08:59:23.197546Z"
+ },
+ "title_id": 20400,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "/key>\n\t\t\t<string>/private/tmp/dmg_mount_wKtVGZ</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>41504653-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>apfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "9.2.1252"
+ ],
+ "package_version": "184",
+ "context_after_install": {
+  "path": "/Applications/MacVim.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/MacVim.app/Contents/MacOS/MacVim",
+  "bundle_id": "org.vim.MacVim",
+  "versions": [
+   "9.2.1252"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.vim.macvim.sfl* doesn't exist.\n/Users/<user>/Library/Caches/org.vim.MacVim doesn't exist.\n/Users/<user>/Library/Preferences/org.vim.MacVim.LSSharedFileList.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.vim.MacVim.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "/key>\n\t\t\t<string>/private/tmp/dmg_mount_4WCoJv</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>41504653-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>apfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "43320",
+   "43324"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "no result in time"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-03T22:03:15; offline when the cycle ended)",
+ "finished": "2026-11-03T22:28:26",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T02:06:42Z",
+  "restarted": "2026-11-02T08:59:23.197546Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-03T22:03:15",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/macvim-app_darwin-631-214128-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/macvim-app_darwin-631-214128-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/macvim-app_darwin-631-214128.json",
+ "crosshost_of": "soak/2026-11-03/macvim-app_darwin-636-001040.json"
+}
