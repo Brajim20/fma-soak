@@ -208,8 +208,7 @@ def start(plat, st):
         find("S4", f"turning on patch + patch when closed returned {code} ({d.get('message')}); policy {pol and pol.get('id')}")
         return end(st, plat, "findings")
     a["policy"] = {k: pol.get(k) for k in ("id", "name", "patch_when_closed", "continuous_automations_enabled")}
-    # a patch policy names its title under patch_software (install_software is the failing-policy automation)
-    a["policy"]["install_title"] = (pol.get("patch_software") or pol.get("install_software") or {}).get("software_title_id")
+    a["policy"]["install_title"] = (pol.get("install_software") or {}).get("software_title_id")
     if not (pol.get("patch_when_closed") and pol.get("continuous_automations_enabled") and a["policy"]["install_title"] == tid):
         find("S4", f"the patch policy Fleet created doesn't match the Deploy option: {a['policy']}")
     R.api("POST", f"/hosts/{host}/refetch")
@@ -259,9 +258,7 @@ def observe_closed(st, plat):
     ctx = R.context(host, v["queries"]["exists"])
     versions = (ctx or {}).get("versions") or []
     li = last_install(host, tid)
-    procs = RN.processes(host, a["target"])
-    obs = {"at": iso(now()), "last_install": li, "versions": versions, "policy": host_policy(host, a["policy"]["id"]),
-           "app_running": None if procs is None else any(RN.current(p) for p in procs)}
+    obs = {"at": iso(now()), "last_install": li, "versions": versions, "policy": host_policy(host, a["policy"]["id"])}
     a["observations"].append(obs)
     if any(R.vcmp(x, a["newest"]) >= 0 for x in versions):
         a["patched_after_close_hours"] = round(hours_since(a["closed_at"]), 2)
@@ -276,9 +273,6 @@ def observe_closed(st, plat):
         a["target"] = t2
         return end(st, plat, "pass")
     if hours_since(a["closed_at"]) >= CLOSE_WAIT_HOURS:
-        if obs["app_running"] is not False:  # patch when closed only owes a patch to an app that stayed closed
-            return end(st, plat, "harness: the app wasn't confirmed closed during the wait "
-                                 f"(app_running {obs['app_running']}); patch-when-closed not judged")
         find("S4", f"the app was closed {CLOSE_WAIT_HOURS} h ago and the patch to {a['newest']} never installed "
                    f"(last attempt: {li['status']}, policy {obs['policy']})")
         return end(st, plat, "findings")
@@ -299,13 +293,6 @@ def tick(plat):
         observe_open(st, plat)
         if hours_since(a["opened_at"]) >= OPEN_HOURS:
             RN.close_app(a["host"], a["target"], a, "close")
-            if a.get("close_close") not in ("", "0"):  # LEFT= lists what's still running; anything else is unconfirmed
-                a["close_attempts"] = a.get("close_attempts", 0) + 1
-                save(st, plat)
-                if a["close_attempts"] >= 3:
-                    return end(st, plat, f"harness: couldn't confirm the app closed ({a['close_close']})")
-                print(f"patch-closed {plat}: {a['slug']} close not confirmed ({a['close_close']}); retrying next pass")
-                return
             R.api("POST", f"/hosts/{a['host']}/refetch")
             a["phase"], a["closed_at"] = "closed", iso(now())
             save(st, plat)
