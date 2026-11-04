@@ -1,0 +1,39 @@
+{
+ "slug": "docker-desktop/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T08:33:55",
+ "catalog_version": "4.98.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['4.97.0']: another app's inventory matches this title (#51299 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-04T12:28:24Z",
+  "restarted": "2026-11-02T16:46:43.925116Z"
+ },
+ "title_id": 13109,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "4.97.0"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+ "finished": "2026-11-04T09:08:59",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T13:01:18Z",
+  "restarted": "2026-11-02T16:46:43.925116Z"
+ },
+ "host_disruption": [
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/docker-desktop_darwin-631-083355-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/docker-desktop_darwin-631-083355-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/docker-desktop_darwin-631-083355.json"
+}

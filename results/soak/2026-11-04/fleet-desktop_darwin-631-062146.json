@@ -1,0 +1,41 @@
+{
+ "slug": "fleet-desktop/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T06:21:46",
+ "catalog_version": "1.5.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['1.5.1']: another app's inventory matches this title (#51299 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-04T10:14:03Z",
+  "restarted": "2026-11-02T13:35:24.83344Z"
+ },
+ "title_id": 23408,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "1.5.1"
+ ],
+ "fleetd_desktop_before": false,
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-02T14:47:21.53912Z; offline when the cycle ended)",
+ "finished": "2026-11-04T06:57:35",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T10:43:51Z",
+  "restarted": "2026-11-02T14:47:21.53912Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-02T14:47:21.53912Z",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/fleet-desktop_darwin-631-062146-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/fleet-desktop_darwin-631-062146-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/fleet-desktop_darwin-631-062146.json"
+}

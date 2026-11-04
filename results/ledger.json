@@ -1,10 +1,10 @@
 {
- "built": "2026-11-04T10:10:53",
+ "built": "2026-11-04T10:14:31",
  "coverage": {
   "darwin": {
-   "covered": 112,
+   "covered": 111,
    "catalog": 973,
-   "percent": 11.5,
+   "percent": 11.4,
    "deck": {
     "round": 1,
     "done": 83,
@@ -18,7 +18,7 @@
     },
     "636": {
      "round": 1,
-     "done": 72,
+     "done": 67,
      "of": 830
     }
    }
@@ -145,15 +145,17 @@
    }
   },
   "claude/darwin@631": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 8,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T11:49:48",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-02T16:46:43.925116Z; offline when the cycle ended)",
+    "date": "2026-11-04T07:58:40",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.4212.0",
-    "record": "results/soak/2026-11-03/claude_darwin-631-114948.json",
-    "findings": []
+    "catalog_version": "4.16336.0",
+    "record": "results/soak/2026-11-04/claude_darwin-631-075840.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['4.4212.0']: another app's inventory matches this title (#51299 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: app already on host",
@@ -185,15 +187,17 @@
    }
   },
   "docker-desktop/darwin@631": {
-   "lifecycle_runs": 11,
+   "lifecycle_runs": 12,
    "update_runs": 8,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T11:49:56",
+    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+    "date": "2026-11-04T08:33:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.97.0",
-    "record": "results/soak/2026-11-03/docker-desktop_darwin-631-114956.json",
-    "findings": []
+    "catalog_version": "4.98.0",
+    "record": "results/soak/2026-11-04/docker-desktop_darwin-631-083355.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['4.97.0']: another app's inventory matches this title (#51299 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: app already on host",
@@ -300,14 +304,14 @@
    }
   },
   "firefox/darwin@631": {
-   "lifecycle_runs": 14,
+   "lifecycle_runs": 15,
    "update_runs": 8,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T11:19:27",
+    "date": "2026-11-04T07:27:50",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "159.0",
-    "record": "results/soak/2026-11-03/firefox_darwin-631-111927.json",
+    "catalog_version": "159.0.1",
+    "record": "results/soak/2026-11-04/firefox_darwin-631-072750.json",
     "findings": []
    },
    "last_update": {
@@ -340,15 +344,17 @@
    }
   },
   "fleet-desktop/darwin@631": {
-   "lifecycle_runs": 14,
+   "lifecycle_runs": 15,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T10:17:50",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-02T14:47:21.53912Z; offline when the cycle ended)",
+    "date": "2026-11-04T06:21:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.5.1",
-    "record": "results/soak/2026-11-03/fleet-desktop_darwin-631-101750.json",
-    "findings": []
+    "record": "results/soak/2026-11-04/fleet-desktop_darwin-631-062146.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['1.5.1']: another app's inventory matches this title (#51299 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -360,14 +366,14 @@
    }
   },
   "google-chrome/darwin@631": {
-   "lifecycle_runs": 14,
+   "lifecycle_runs": 15,
    "update_runs": 9,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T10:49:07",
+    "date": "2026-11-04T06:57:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "156.0.8078.80",
-    "record": "results/soak/2026-11-03/google-chrome_darwin-631-104907.json",
+    "catalog_version": "157.0.8103.39",
+    "record": "results/soak/2026-11-04/google-chrome_darwin-631-065746.json",
     "findings": []
    },
    "last_update": {
@@ -392,15 +398,17 @@
    }
   },
   "onedrive/darwin@631": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T11:50:06",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-02T17:34:31.965641Z; offline when the cycle ended)",
+    "date": "2026-11-04T09:09:09",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.189.0928",
-    "record": "results/soak/2026-11-03/onedrive_darwin-631-115006.json",
-    "findings": []
+    "record": "results/soak/2026-11-04/onedrive_darwin-631-090909.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['26.189.0928']: another app's inventory matches this title (#51299 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -412,14 +420,14 @@
    }
   },
   "postman/darwin@631": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 1,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-03T11:50:17",
+    "date": "2026-11-04T09:44:24",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.34.0",
-    "record": "results/soak/2026-11-03/postman_darwin-631-115017.json",
+    "record": "results/soak/2026-11-04/postman_darwin-631-094424.json",
     "findings": []
    },
    "last_update": {
@@ -7219,21 +7227,6 @@
     "findings": []
    }
   },
-  "antigravity-ide/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T06:32:51; offline when the cycle ended)",
-    "date": "2026-11-04T06:26:25",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.6.0",
-    "record": "results/soak/2026-11-04/antigravity-ide_darwin-636-062625.json",
-    "findings": [
-     "first install ended as pending_install",
-     "second install ended as None"
-    ]
-   }
-  },
   "anydesk/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7490,21 +7483,6 @@
     "findings": []
    }
   },
-  "krisp/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-04T10:34:15.607917Z; offline at 2026-11-04T08:22:36; offline when the cycle ended)",
-    "date": "2026-11-04T08:16:56",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.19.1",
-    "record": "results/soak/2026-11-04/krisp_darwin-636-081656.json",
-    "findings": [
-     "first install ended as pending_install",
-     "second install ended as None"
-    ]
-   }
-  },
   "lapce/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7526,18 +7504,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.8.2.2",
     "record": "results/soak/2026-11-04/libreoffice_windows-635-035359.json",
-    "findings": []
-   }
-  },
-  "macwhisper/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:46:37",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "15.9",
-    "record": "results/soak/2026-11-04/macwhisper_darwin-636-094637.json",
     "findings": []
    }
   },
@@ -7658,21 +7624,6 @@
     "findings": []
    }
   },
-  "rightfont/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T09:07:34; offline when the cycle ended)",
-    "date": "2026-11-04T09:02:41",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.2.1",
-    "record": "results/soak/2026-11-04/rightfont_darwin-636-090241.json",
-    "findings": [
-     "first install ended as pending_install",
-     "second install ended as None"
-    ]
-   }
-  },
   "rocket-typist/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7700,21 +7651,6 @@
     "findings": [
      "first uninstall: app still on host (status failed_uninstall)",
      "second uninstall: app still on host (status failed_uninstall)"
-    ]
-   }
-  },
-  "ticktick/darwin@636": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-04T09:34:47.267215Z; offline at 2026-11-04T07:21:51; offline when the cycle ended)",
-    "date": "2026-11-04T07:16:58",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.2.50",
-    "record": "results/soak/2026-11-04/ticktick_darwin-636-071658.json",
-    "findings": [
-     "first install ended as pending_install",
-     "second install ended as None"
     ]
    }
   }
