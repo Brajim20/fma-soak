@@ -1,0 +1,40 @@
+{
+ "slug": "postman/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T09:00:15",
+ "catalog_version": "12.35.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['12.34.4']: another app's inventory matches this title (#51299 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-04T12:28:21Z",
+  "restarted": "2026-11-01T01:50:49.563606Z"
+ },
+ "title_id": 23458,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "12.34.4"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-01T03:38:24.171876Z; offline when the cycle ended)",
+ "finished": "2026-11-04T09:35:23",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-04T13:29:03Z",
+  "restarted": "2026-11-01T03:38:24.171876Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-01T03:38:24.171876Z",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/postman_windows-629-090015-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/postman_windows-629-090015-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/postman_windows-629-090015.json"
+}

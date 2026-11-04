@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T10:36:49",
+ "built": "2026-11-04T10:54:13",
  "coverage": {
   "darwin": {
    "covered": 107,
@@ -24,23 +24,23 @@
    }
   },
   "windows": {
-   "covered": 266,
+   "covered": 258,
    "catalog": 461,
-   "percent": 57.7,
+   "percent": 56.0,
    "deck": {
     "round": 2,
-    "done": 23,
+    "done": 25,
     "of": 122
    },
    "decks": {
     "629": {
      "round": 2,
-     "done": 23,
+     "done": 25,
      "of": 122
     },
     "635": {
      "round": 1,
-     "done": 136,
+     "done": 120,
      "of": 339
     }
    }
@@ -165,14 +165,14 @@
    }
   },
   "claude/windows@629": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 6,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-03T16:05:59",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T08:29:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.4212.0",
-    "record": "results/soak/2026-11-03/claude_windows-629-160559.json",
+    "record": "results/soak/2026-11-04/claude_windows-629-082923.json",
     "findings": []
    },
    "last_update": {
@@ -240,14 +240,14 @@
    }
   },
   "figma/windows@629": {
-   "lifecycle_runs": 13,
+   "lifecycle_runs": 14,
    "update_runs": 6,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-03T16:12:19",
+    "date": "2026-11-04T09:35:32",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "126.11.7",
-    "record": "results/soak/2026-11-03/figma_windows-629-161219.json",
+    "record": "results/soak/2026-11-04/figma_windows-629-093532.json",
     "findings": []
    },
    "last_update": {
@@ -260,15 +260,18 @@
    }
   },
   "firefox@developer-edition/windows@629": {
-   "lifecycle_runs": 13,
+   "lifecycle_runs": 14,
    "update_runs": 1,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-03T15:50:02",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T07:33:44; offline when the cycle ended)",
+    "date": "2026-11-04T07:27:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.0",
-    "record": "results/soak/2026-11-03/firefox@developer-edition_windows-629-155002.json",
-    "findings": []
+    "record": "results/soak/2026-11-04/firefox@developer-edition_windows-629-072723.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
    },
    "last_update": {
     "outcome": "skipped: one version",
@@ -280,14 +283,14 @@
    }
   },
   "firefox@nightly/windows@629": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 5,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-03T15:58:06",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T07:59:16",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "161.2611.308.0",
-    "record": "results/soak/2026-11-03/firefox@nightly_windows-629-155806.json",
+    "record": "results/soak/2026-11-04/firefox@nightly_windows-629-075916.json",
     "findings": []
    },
    "last_update": {
@@ -320,14 +323,14 @@
    }
   },
   "firefox/windows@629": {
-   "lifecycle_runs": 11,
+   "lifecycle_runs": 12,
    "update_runs": 6,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T15:49:51",
+    "date": "2026-11-04T07:27:12",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "159.0",
-    "record": "results/soak/2026-11-03/firefox_windows-629-154951.json",
+    "record": "results/soak/2026-11-04/firefox_windows-629-072712.json",
     "findings": []
    },
    "last_update": {
@@ -380,14 +383,14 @@
    }
   },
   "google-chrome/windows@629": {
-   "lifecycle_runs": 11,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T15:49:41",
+    "date": "2026-11-04T07:27:01",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "156.0.8078.80",
-    "record": "results/soak/2026-11-03/google-chrome_windows-629-154941.json",
+    "catalog_version": "157.0.8103.39",
+    "record": "results/soak/2026-11-04/google-chrome_windows-629-072701.json",
     "findings": []
    }
   },
@@ -432,15 +435,17 @@
    }
   },
   "postman/windows@629": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 13,
    "update_runs": 4,
    "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T01:17:04",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-01T03:38:24.171876Z; offline when the cycle ended)",
+    "date": "2026-11-04T09:00:15",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.35.1",
-    "record": "results/soak/2026-11-04/postman_windows-629-011704.json",
-    "findings": []
+    "record": "results/soak/2026-11-04/postman_windows-629-090015.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['12.34.4']: another app's inventory matches this title (#51299 shape)"
+    ]
    },
    "last_update": {
     "outcome": "skipped: app already on host",
@@ -492,14 +497,14 @@
    }
   },
   "signal/windows@629": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 6,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T16:17:02",
+    "date": "2026-11-04T09:59:33",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.33.0",
-    "record": "results/soak/2026-11-03/signal_windows-629-161702.json",
+    "record": "results/soak/2026-11-04/signal_windows-629-095933.json",
     "findings": []
    },
    "last_update": {
@@ -636,14 +641,14 @@
    }
   },
   "zoom/windows@629": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 6,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T16:17:12",
+    "date": "2026-11-04T09:59:43",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.51704",
-    "record": "results/soak/2026-11-03/zoom_windows-629-161712.json",
+    "record": "results/soak/2026-11-04/zoom_windows-629-095943.json",
     "findings": []
    },
    "last_update": {
@@ -2619,17 +2624,15 @@
    }
   },
   "dynalist/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T22:32:14",
+    "outcome": "pass",
+    "date": "2026-11-04T09:59:56",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.0.6",
-    "record": "results/soak/2026-11-01/dynalist_windows-629-223214.json",
-    "findings": [
-     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
-    ]
+    "record": "results/soak/2026-11-04/dynalist_windows-629-095956.json",
+    "findings": []
    }
   },
   "elevate-uc/windows@629": {
@@ -4565,14 +4568,14 @@
    }
   },
   "microsoft-dotnet-sdk-9/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T06:01:54",
+    "date": "2026-11-04T10:30:44",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.0.320",
-    "record": "results/soak/2026-11-02/microsoft-dotnet-sdk-9_windows-629-060154.json",
+    "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-9_windows-629-103044.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -7184,7 +7187,7 @@
    }
   },
   "8x8-work/windows@635": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 0,
    "update_runs": 1,
    "last_update": {
     "outcome": "skipped: app already on host",
@@ -7192,26 +7195,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
     "record": "results/soak/2026-11-04/8x8-work_windows-635-011009.json",
-    "findings": []
-   },
-   "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T08:21:04",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.38.4",
-    "record": "results/soak/2026-11-04/8x8-work_windows-635-082104.json",
-    "findings": []
-   }
-  },
-  "activitywatch/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:04:35",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.14.1",
-    "record": "results/soak/2026-11-04/activitywatch_windows-635-090435.json",
     "findings": []
    }
   },
@@ -7224,18 +7207,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.3.3.5004",
     "record": "results/soak/2026-11-04/affinity_windows-635-034123.json",
-    "findings": []
-   }
-  },
-  "amazon-redshift-odbc-driver/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:33:28",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.2.4.0",
-    "record": "results/soak/2026-11-04/amazon-redshift-odbc-driver_windows-635-093328.json",
     "findings": []
    }
   },
@@ -7306,30 +7277,6 @@
     "findings": []
    }
   },
-  "beyond-compare/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T08:11:53",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "5.2.7.32913",
-    "record": "results/soak/2026-11-04/beyond-compare_windows-635-081153.json",
-    "findings": []
-   }
-  },
-  "bitwarden/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T08:36:07",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.10.3",
-    "record": "results/soak/2026-11-04/bitwarden_windows-635-083607.json",
-    "findings": []
-   }
-  },
   "brave-browser/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7381,20 +7328,6 @@
     "findings": []
    }
   },
-  "crystaldiskmark/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T08:54:12",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "9.0.3",
-    "record": "results/soak/2026-11-04/crystaldiskmark_windows-635-085412.json",
-    "findings": [
-     "reinstall over the open app: the install over the open app ended as failed_install"
-    ]
-   }
-  },
   "descript/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7425,18 +7358,6 @@
     ]
    }
   },
-  "dotpeek/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T07:22:19",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.2.4.1",
-    "record": "results/soak/2026-11-04/dotpeek_windows-635-072219.json",
-    "findings": []
-   }
-  },
   "dottrace/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7446,18 +7367,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.2.4.1",
     "record": "results/soak/2026-11-04/dottrace_windows-635-032835.json",
-    "findings": []
-   }
-  },
-  "duo-desktop/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T07:36:40",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.23.0",
-    "record": "results/soak/2026-11-04/duo-desktop_windows-635-073640.json",
     "findings": []
    }
   },
@@ -7545,20 +7454,6 @@
     "findings": []
    }
   },
-  "goanywhere-openpgp-studio/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T07:03:30",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.2.3",
-    "record": "results/soak/2026-11-04/goanywhere-openpgp-studio_windows-635-070330.json",
-    "findings": [
-     "reinstall over the open app: the install over the open app ended as failed_install"
-    ]
-   }
-  },
   "goland/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -7580,18 +7475,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.9.9",
     "record": "results/soak/2026-11-04/hazeover_darwin-636-010723.json",
-    "findings": []
-   }
-  },
-  "heidisql/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:25:01",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "12.22.0.7382",
-    "record": "results/soak/2026-11-04/heidisql_windows-635-092501.json",
     "findings": []
    }
   },
@@ -7617,20 +7500,6 @@
     "catalog_version": "26.8.2.2",
     "record": "results/soak/2026-11-04/libreoffice_windows-635-035359.json",
     "findings": []
-   }
-  },
-  "microsoft-dotnet-sdk-10/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T10:09:36",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.403",
-    "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-10_windows-635-100936.json",
-    "findings": [
-     "inventory never reported the app after install + refetch"
-    ]
    }
   },
   "microsoft-ole-db-driver-18/windows@635": {
@@ -7702,18 +7571,6 @@
     ]
    }
   },
-  "p4v/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:14:08",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "242.63.2",
-    "record": "results/soak/2026-11-04/p4v_windows-635-091408.json",
-    "findings": []
-   }
-  },
   "powertoys/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7723,18 +7580,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "0.102.3001",
     "record": "results/soak/2026-11-04/powertoys_windows-635-022856.json",
-    "findings": []
-   }
-  },
-  "prisma-browser/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:37:31",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "156.17.9.80",
-    "record": "results/soak/2026-11-04/prisma-browser_windows-635-093731.json",
     "findings": []
    }
   },
@@ -7789,56 +7634,6 @@
     ]
    }
   },
-  "safe-exam-browser/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T08:21:21",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.10.3",
-    "record": "results/soak/2026-11-04/safe-exam-browser_windows-635-082121.json",
-    "findings": []
-   }
-  },
-  "scrivener/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T06:47:13",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.1.6.0",
-    "record": "results/soak/2026-11-04/scrivener_windows-635-064713.json",
-    "findings": [
-     "first install: installed into the SYSTEM profile (C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3), not the signed-in user's (#50857)"
-    ]
-   }
-  },
-  "shift/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T09:19:32",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "9.6.8.1270",
-    "record": "results/soak/2026-11-04/shift_windows-635-091932.json",
-    "findings": []
-   }
-  },
-  "spyder/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T07:41:43",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.1.8",
-    "record": "results/soak/2026-11-04/spyder_windows-635-074143.json",
-    "findings": []
-   }
-  },
   "standard-notes/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -7852,30 +7647,6 @@
      "first uninstall: app still on host (status failed_uninstall)",
      "second uninstall: app still on host (status failed_uninstall)"
     ]
-   }
-  },
-  "winscp/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T07:12:47",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.7",
-    "record": "results/soak/2026-11-04/winscp_windows-635-071247.json",
-    "findings": []
-   }
-  },
-  "zotero/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T08:27:00",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.7",
-    "record": "results/soak/2026-11-04/zotero_windows-635-082700.json",
-    "findings": []
    }
   }
  }
