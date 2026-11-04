@@ -506,6 +506,14 @@
   {
    "app": "wacom-tablet/windows",
    "verdict": "filed #57504: name LIKE 'Wacom Tablet %' can't match the registered 'Wacom Tablet'"
+  },
+  {
+   "app": "visual-studio-2022-enterprise/windows@629",
+   "verdict": "environment: 629 still has VS Community 2022 left from the 2026-11-02 cycle whose uninstall failed 8006, and VS's StandardCollector.Service.exe is running; 8006 = Visual Studio processes running. Enterprise installs, uninstalls and reinstalls cleanly on clean x64 host 229 (main.brayan-qa.com, 2026-11-03/04)"
+  },
+  {
+   "app": "visual-studio-2022-enterprise/windows@635",
+   "verdict": "environment: exit 1 only after an uninstall that returned 3010 (reboot required) with no restart since 2026-10-14; on clean host 229 install -> uninstall (exit 0) -> reinstall -> open/close VS -> uninstall all exit 0. Same reboot-pending shape as #57390/#57138, not reproduced for VS"
   }
  ]
 }
