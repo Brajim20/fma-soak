@@ -474,6 +474,38 @@
   {
    "app": "google-drive/windows@629",
    "verdict": "environment: x64-only installer (installer_arch x64) on Windows ARM, never installed; the 635 reinstall failure is #57390"
+  },
+  {
+   "app": "drawio/windows",
+   "verdict": "filed #57498: exists/patched exact name/publisher never match the registered program"
+  },
+  {
+   "app": "kiro/windows",
+   "verdict": "filed #57499: install over the open app exits 1 with /CLOSEAPPLICATIONS, nothing closed"
+  },
+  {
+   "app": "nosql-workbench/windows",
+   "verdict": "filed #57500: publisher 'DynamoDB Developer Experience' never matches the registered program"
+  },
+  {
+   "app": "paint-dot-net/windows",
+   "verdict": "filed #57501: bootstrapper /auto never registers in ARP, nothing installed (ARM and x64)"
+  },
+  {
+   "app": "sharefile/windows@635",
+   "verdict": "filed #57502: exists query never matches the installed MSI"
+  },
+  {
+   "app": "sharefile/windows@629",
+   "verdict": "environment: x64 MSI 1603 on Windows ARM; the detection miss on 635 is #57502"
+  },
+  {
+   "app": "tower/windows",
+   "verdict": "filed #57503: generic MSI script installs into the SYSTEM profile though input says machine scope"
+  },
+  {
+   "app": "wacom-tablet/windows",
+   "verdict": "filed #57504: name LIKE 'Wacom Tablet %' can't match the registered 'Wacom Tablet'"
   }
  ]
 }
