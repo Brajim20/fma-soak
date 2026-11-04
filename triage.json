@@ -317,7 +317,7 @@
   },
   {
    "app": "010-editor/darwin@631",
-   "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 → 17.0).",
+   "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 \u2192 17.0).",
    "before": "2026-10-31T15:00:00"
   },
   {
@@ -622,6 +622,22 @@
   {
    "app": "openvpn-connect/windows",
    "verdict": "bug, filed #57601 (fuzzy_match_name LIKE never matches exact registered name \"OpenVPN Connect\")"
+  },
+  {
+   "app": "goanywhere-openpgp-studio/windows",
+   "verdict": "filed #57659: install over the open app exits 1 (install4j script has no close step)"
+  },
+  {
+   "app": "standard-notes/windows",
+   "verdict": "filed #57660: per-user NSIS as SYSTEM lands in systemprofile, every uninstall fails"
+  },
+  {
+   "app": "mindmanager/windows",
+   "verdict": "already filed: #57139 class (MSI upgrade code skips the name match); rejected on review 2026-11-04"
+  },
+  {
+   "app": "intellij-idea/windows",
+   "verdict": "same bug as #57554 (GoLand): identical JetBrains NSIS install script, no close step; install over the open app stays pending"
   }
  ]
 }
