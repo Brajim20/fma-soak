@@ -11,7 +11,7 @@ runs:
       with: { python-version: "3.12" }
     - shell: bash
       run: |
-        sudo apt-get install -y zsh >/dev/null
+        [[ $RUNNER_OS == Linux ]] && sudo apt-get install -y zsh >/dev/null   # macOS runners ship zsh
         pip install -q pyyaml
     - name: FMA catalog (sparse, ~10 days of history for the 7-day checks)
       shell: bash

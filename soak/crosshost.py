@@ -7,7 +7,8 @@ Untriaged lifecycle and update-path findings (patch-when-closed runs over severa
   both hosts have findings   -> likely a real bug, and it reproduces on two hosts (the bug template's checkbox)
   only the first host        -> look at what differs: the 4 GB VM, Windows on ARM vs x64, what else was installed
 
-Runs on the host it's given, inside that host's own pass, so CI and manual runs never share a host.
+A pool runner's findings (pool_slot) rerun on the real hosts too: that's the check on a long-standing VM before
+anyone files them. Runs on the host it's given, inside that host's own pass, so CI and manual runs never share a host.
 
   python3 crosshost.py --platform windows --host 635 [--max 3] [--dry-run]
 """
@@ -33,7 +34,7 @@ def candidates(plat, host):
     out, seen = [], set()
     for r in reversed(recs):
         k = (r["slug"], r.get("kind", "lifecycle"))
-        if (k[1] not in ("lifecycle", "update_path") or r["started"] < since or r["host"] == host or r["host"] not in S.hosts_for(plat) or k in seen
+        if (k[1] not in ("lifecycle", "update_path") or r["started"] < since or r["host"] == host or (r["host"] not in S.hosts_for(plat) and not r.get("pool_slot")) or k in seen
                 or r.get("crosshost_of") or D.category(r) != "findings" or not r["slug"].endswith("/" + plat)):
             continue
         app = f"{r['slug']}@{r['host']}"

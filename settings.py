@@ -6,6 +6,9 @@ local run's instance), then environment variables (CI: repository variables). La
   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated; the first is the primary (canaries, update path,
                          scenarios, patch when closed), the others only take new apps from the coverage sample
   FMA_SOAK_HOST_WINDOWS  the same for Windows
+  FMA_SOAK_POOL_DARWIN   optional: pool slots, comma-separated numbers (e.g. 90001,90002). Each slot is one GitHub
+                         macOS runner that enrolls itself, samples its share of new apps and deletes its host when its
+                         job ends (pool.py). Slots are named, not host IDs: the runner's host ID changes every run.
   FMA_CATALOG_REPO       a fleetdm/fleet checkout (CI: a sparse clone of ee/maintained-apps)
 """
 import json, os
@@ -26,6 +29,8 @@ def load():
     for plat in ("darwin", "windows"):
         if env.get(f"FMA_SOAK_HOST_{plat.upper()}"):
             cfg.setdefault("hosts", {})[plat] = [int(x) for x in env[f"FMA_SOAK_HOST_{plat.upper()}"].split(",") if x.strip()]
+        if env.get(f"FMA_SOAK_POOL_{plat.upper()}"):
+            cfg.setdefault("pool", {})[plat] = [int(x) for x in env[f"FMA_SOAK_POOL_{plat.upper()}"].split(",") if x.strip()]
     missing = [k for k in ("instance", "soak_fleet_id", "hosts") if not cfg.get(k)]
     if missing:
         raise SystemExit(f"missing settings {missing}: set them in config.local.json or the environment (see settings.py)")

@@ -16,6 +16,9 @@ Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no 
   installers on the Windows ARM VM) goes to a host without that problem instead. Canaries and residents stay on the
   primary (first) host unless the primary can't run them. Each extra host keeps its own deck and day files
   (deck-<plat>-<host>.json, <date>-<plat>-<host>.json); the primary keeps the original names.
+- Pool slots (FMA_SOAK_POOL_<PLATFORM>, pool.py): ephemeral GitHub runners. Each slot owns a share like a host does
+  (host_weights["pool"] per slot) and keeps its deck, day files and ledger entries under the slot number, while the
+  cycles run on whatever host ID the runner enrolled as this time. Records carry `pool_slot`.
 - Time-boxed, not counted: it keeps picking until `--until` (pass.sh passes the start of the next pass), so the
   daily count follows real speed. Each pick's choice and result are appended to results/sample/<date>-<plat>.json;
   the random choices are seeded by date, so a day's sequence can be replayed.
@@ -88,17 +91,27 @@ def owner(plat, slug):
     """The one host on this platform that samples this app, or None if no host can run it. Split by capacity
     (random_sample.host_weights, default 1): the primary spends most of its day on canaries, the update path and
     scenarios, so an even split would leave its share far behind the sample-only host's."""
-    able = [h for h in hosts_for(plat) if h not in known_env_hosts(slug)]
+    able = [h for h in all_hosts(plat) if h not in known_env_hosts(slug)]
     if not able:
         return None
     w = R.CFG["random_sample"].get("host_weights", {})
-    weights = [max(float(w.get(str(h), 1)), 0) for h in able]
+    pool = set(pool_for(plat))
+    weights = [max(float(w.get(str(h), w.get("pool", 1) if h in pool else 1)), 0) for h in able]
     x = (zlib.crc32(slug.encode()) % 10000) / 10000 * sum(weights)
     for h, wt in zip(able, weights):
         if x < wt:
             return h
         x -= wt
     return able[-1]
+
+
+def pool_for(plat):
+    return R.CFG.get("pool", {}).get(plat, [])
+
+
+def all_hosts(plat):
+    """The platform's soak hosts plus its pool slots: everything that owns a share of the catalog."""
+    return hosts_for(plat) + pool_for(plat)
 
 
 def shard(plat, catalog, host):
@@ -127,6 +140,12 @@ def load_deck(plat, catalog, host=None):
         deck = json.load(open(path))
     else:
         deck = new_round(plat, catalog, 1, host)
+        # a host or pool slot joining mid-round inherits the round's start, so apps another host already cycled
+        # this round count as done instead of running again
+        first = os.path.join(SAMPLE_DIR, f"deck-{plat}.json")
+        if host != hosts_for(plat)[0] and os.path.exists(first):
+            p = json.load(open(first))
+            deck.update(round=p["round"], started=p["started"])
     known = set(deck["order"])
     rng = random.Random(f"{deck['seed']}-{len(known)}")
     for slug in sorted(set(catalog) - known):
@@ -172,7 +191,7 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
         for slug in deck["order"]:
             if slug in deck["done"] or slug in skip:
                 continue
-            if max((((ledger.get(f"{slug}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in hosts_for(plat)),
+            if max((((ledger.get(f"{slug}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),
                    default="") >= deck["started"]:
                 deck["done"].append(slug)  # already cycled this round some other way (canary, manual run)
                 continue
@@ -203,21 +222,26 @@ def remove_if_added(slug, host, rec):
     return f"kept: delete returned {st} {d.get('message') if isinstance(d, dict) else ''}"
 
 
-def run_sample(plat, until, count, dry, host=None):
+def run_sample(plat, until, count, dry, host=None, slot=None):
+    """`slot`: a pool slot (a GitHub runner); its share, deck, day file and ledger entries go by the slot number,
+    the cycles run on `host`, the ID the runner enrolled as this run."""
     os.makedirs(SAMPLE_DIR, exist_ok=True)
     host = host or hosts_for(plat)[0]
-    if host not in hosts_for(plat):
+    if slot is not None and slot not in pool_for(plat):
+        sys.exit(f"{slot} isn't a {plat} pool slot ({pool_for(plat)})")
+    if slot is None and host not in hosts_for(plat):
         sys.exit(f"host {host} isn't a {plat} soak host ({hosts_for(plat)})")
-    catalog = shard(plat, instance_catalog(plat), host)
-    deck, changed, blind = load_deck(plat, catalog, host), changed_last_7_days(plat), blind_spots(plat)
+    me = host if slot is None else slot
+    catalog = shard(plat, instance_catalog(plat), me)
+    deck, changed, blind = load_deck(plat, catalog, me), changed_last_7_days(plat), blind_spots(plat)
     ledger = build_ledger()["apps"]
     today = datetime.date.today().isoformat()
-    day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}{suffix(plat, host)}.json")
+    day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}{suffix(plat, me)}.json")
     day = json.load(open(day_path)) if os.path.exists(day_path) else {
-        "date": today, "platform": plat, "host": host, "day_seed": f"{today}-{plat}", "picks": []}
+        "date": today, "platform": plat, "host": me, "day_seed": f"{today}-{plat}", "picks": []}
     # seeded by the date and how many picks today already has, so a resumed day continues the same sequence
     rng = random.Random(f"{day['day_seed']}-{len(day['picks'])}")
-    print(f"sample {plat} host {host} ({len(catalog)} apps are this host's): deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
+    print(f"sample {plat} host {host}{f' (pool slot {slot})' if slot is not None else ''} ({len(catalog)} apps are this host's): deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
           f"done; {len(changed)} version changes in 7 days; {len(blind)} validator blind spots; until {until or '-'}; count {count or '-'}")
     # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
     # installer downloads), and a pass that overruns delays the next one
@@ -227,7 +251,7 @@ def run_sample(plat, until, count, dry, host=None):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
             break
-        pick = next_pick(plat, deck, catalog, changed, ledger, rng, host, blind)
+        pick = next_pick(plat, deck, catalog, changed, ledger, rng, me, blind)
         if not pick:
             break
         slug, why = pick
@@ -235,18 +259,21 @@ def run_sample(plat, until, count, dry, host=None):
         if dry:
             print(f"   would pick {slug} ({why})")
             deck["done"].append(slug) if why.startswith("deck") else changed.discard(slug)
-            ledger[f"{slug}@{host}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}}
+            ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}}
             continue
         entry = {"slug": slug, "why": why, "started": datetime.datetime.now().isoformat(timespec="seconds")}
         try:
             rec = R.run(R.cycle, slug, host)
+            if slot is not None and rec.get("record"):
+                rec["pool_slot"] = slot
+                json.dump(rec, open(rec["record"], "w"), indent=1)
             entry.update(outcome=rec.get("outcome"), record=rec.get("record"), cleanup=remove_if_added(slug, host, rec))
         except Exception as e:
             entry["outcome"] = f"error: {type(e).__name__}: {e}"
         print(f"   {slug} ({why}): {entry['outcome']} [{entry.get('cleanup', '')}]", flush=True)
         day["picks"].append(entry)
         json.dump(day, open(day_path, "w"), indent=1)
-        ledger[f"{slug}@{host}"] = {"last_lifecycle": {"date": entry["started"], "outcome": entry["outcome"]}}
+        ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry["started"], "outcome": entry["outcome"]}}
         changed.discard(slug)
         if slug not in deck["done"]:
             deck["done"].append(slug)  # a version-change pick counts for the round too
@@ -269,14 +296,15 @@ def build_ledger(write=False):
             continue
         if "slug" not in r or "outcome" not in r:
             continue
-        e = apps.setdefault(f"{r['slug']}@{r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
+        e = apps.setdefault(f"{r['slug']}@{r.get('pool_slot') or r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
         kind = "update" if r.get("kind") in ("update_path", "patch_when_closed") else "lifecycle"
         e[f"{kind}_runs"] += 1
         e[f"last_{kind}"] = {"outcome": r["outcome"], "date": r.get("started"), "build": r.get("build"),
                              "catalog_version": r.get("catalog_version"), "record": os.path.relpath(p, R.WS),
                              "findings": [f["msg"] for f in r.get("findings", [])]}
     coverage = {}
-    for plat, hosts in R.CFG["hosts"].items():
+    for plat in R.CFG["hosts"]:
+        hosts = all_hosts(plat)
         total = len(instance_catalog(plat)) if write else None
         # an app counts once, whichever of the platform's hosts covered it
         n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
@@ -301,13 +329,14 @@ def main():
     ap.add_argument("--until", type=datetime.datetime.fromisoformat, help="stop picking after this local time")
     ap.add_argument("--count", type=int, help="stop after this many picks")
     ap.add_argument("--host", type=int, help="a second host on the platform (default: the primary)")
+    ap.add_argument("--pool-slot", type=int, help="the pool slot this runner is (pool.py); --host is its host ID")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ledger", action="store_true")
     a = ap.parse_args()
     if a.ledger:
         build_ledger(write=True)
     elif a.platform and (a.until or a.count):
-        run_sample(a.platform, a.until, a.count, a.dry_run, a.host)
+        run_sample(a.platform, a.until, a.count, a.dry_run, a.host, a.pool_slot)
     else:
         sys.exit(__doc__)
 

@@ -43,8 +43,14 @@ step() {
   return $rc
 }
 # an offline host would collect queued installs that run later, untracked: skip the pass (the digest still runs)
+# A pool runner (FMA_SOAK_POOL_SLOT, pool.py) is a fresh VM: nothing to clean up, and its share goes by the slot.
+# Cross-host repro stays on the long-standing hosts: rechecking a finding there is the point of it.
 if [[ -n $host ]]; then
   step runner.py --online $plat --host $host || exit $worst
+  if [[ -n $FMA_SOAK_POOL_SLOT ]]; then
+    step sample.py --platform $plat --host $host --pool-slot $FMA_SOAK_POOL_SLOT --until "$until"
+    exit $worst
+  fi
   step runner.py --cleanup $plat --host $host
   fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat --host $host
   step sample.py --platform $plat --host $host --until "$until"

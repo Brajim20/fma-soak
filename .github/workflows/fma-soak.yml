@@ -6,11 +6,14 @@
 #   FMA_SOAK_FLEET_ID      the only fleet the harness touches
 #   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated (first = primary; the others only sample new apps, up to 3 hosts)
 #   FMA_SOAK_HOST_WINDOWS  Windows soak host IDs, the same way
+#   FMA_SOAK_POOL_DARWIN   optional: pool slots, e.g. "90001,90002": one GitHub macOS runner per slot joins the soak
+#                          for the pass and deletes its host afterwards (soak/pool.py). Empty = no pool job.
 #   FMA_SOAK_CHAIN         optional: "off" stops each run from starting the next (the cron backup still runs)
 # Secrets (environment `fma-soak`, so no other workflow can read them):
 #   FMA_SOAK_TOKEN         API-only harness user, Maintainer on that fleet only
 #   FMA_SOAK_UI_EMAIL      optional: Observer on that fleet only, for evidence screenshots. Without it the
 #   FMA_SOAK_UI_PASSWORD   screenshots are recorded as unavailable and the API evidence stands.
+#   FMA_SOAK_ENROLL_SECRET the soak fleet's enroll secret, for the pool runners' fleetd package
 #
 # How runs keep going: GitHub's cron skips and delays runs on a quiet repo by hours, so each soak run starts the next
 # one when it ends (`next` job). The crons are only a backup that restarts the chain if it breaks. The concurrency
@@ -52,6 +55,7 @@ env:
   FMA_SOAK_FLEET_ID: ${{ vars.FMA_SOAK_FLEET_ID }}
   FMA_SOAK_HOST_DARWIN: ${{ vars.FMA_SOAK_HOST_DARWIN }}
   FMA_SOAK_HOST_WINDOWS: ${{ vars.FMA_SOAK_HOST_WINDOWS }}
+  FMA_SOAK_POOL_DARWIN: ${{ vars.FMA_SOAK_POOL_DARWIN }}   # every job: the long-standing hosts skip the pool's share
   FMA_CATALOG_REPO: ${{ github.workspace }}/fleet
   FMA_SOAK_PASS_MINUTES: 300   # under the 6 h job limit with room for setup, saves and the report
   FMA_SOAK_AUDIT_ONCE: "1"
@@ -111,6 +115,76 @@ jobs:
           path: |
             harness/results/soak/*/evidence/
             harness/logs/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  pool:
+    # GitHub macOS runners as extra, ephemeral soak hosts (soak/pool.py): each slot enrolls this VM into the soak fleet,
+    # samples the slot's share of new apps for the pass, then deletes its host. A real macOS VM with real installs, but
+    # not MDM-enrolled and with GitHub's preinstalled tools (the harness skips apps it didn't install), so its findings
+    # get rerun on a long-standing host (crosshost.py) before anyone files them.
+    if: >-
+      vars.FMA_SOAK_POOL_DARWIN != '' &&
+      (github.event.schedule == '15 */6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'soak'))
+    runs-on: macos-15
+    environment: fma-soak
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        slot: ${{ fromJSON(format('[{0}]', vars.FMA_SOAK_POOL_DARWIN || '0')) }}
+    env:
+      FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
+      FMA_SOAK_POOL_SLOT: ${{ matrix.slot }}
+      FMA_SOAK_PASS_MINUTES: 285   # enrolling and the finish step take the rest of the soak job's 300
+      RUNNER_HOSTNAME: fma-pool-${{ matrix.slot }}-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: harness }
+      - uses: ./harness/.github/actions/setup
+        with: { browser: "false" }
+      - name: Restore state
+        run: ./harness/ci/results.sh restore
+      - name: Health (skip the pass if the instance or token is down)
+        id: health
+        working-directory: harness/soak
+        run: python3 -c "import loop,sys; ok,info=loop.health(); print(info); sys.exit(0 if ok else 78)" || echo "skip=1" >> "$GITHUB_OUTPUT"
+      - name: Remove pool hosts a killed job left behind
+        if: steps.health.outputs.skip != '1'
+        working-directory: harness/soak
+        run: python3 -u pool.py sweep
+      - name: Enroll this runner
+        id: enroll
+        if: steps.health.outputs.skip != '1'
+        working-directory: harness/soak
+        env:
+          FMA_SOAK_ENROLL_SECRET: ${{ secrets.FMA_SOAK_ENROLL_SECRET }}
+        run: |
+          for k in ComputerName HostName LocalHostName; do sudo scutil --set $k "$RUNNER_HOSTNAME"; done
+          npm i -g -s fleetctl
+          fleetctl package --type=pkg --fleet-url="$FLEET_URL" --enroll-secret="$FMA_SOAK_ENROLL_SECRET" \
+            --enable-scripts --fleet-desktop --host-identifier=instance --disable-open-folder --outfile "$RUNNER_TEMP/fleetd.pkg"
+          sudo installer -pkg "$RUNNER_TEMP/fleetd.pkg" -target /
+          echo "console user: $(stat -f%Su /dev/console)"
+          echo "host=$(python3 -u pool.py wait --hostname "$RUNNER_HOSTNAME")" >> "$GITHUB_OUTPUT"
+      - name: Pass
+        if: steps.enroll.outputs.host
+        working-directory: harness/soak
+        run: zsh pass.sh darwin ${{ steps.enroll.outputs.host }}
+      - name: Uninstall leftovers and delete this runner's host
+        if: always() && steps.enroll.outputs.host
+        working-directory: harness/soak
+        run: |
+          python3 -u runner.py --cleanup darwin --host ${{ steps.enroll.outputs.host }} || true
+          python3 -u pool.py finish --host ${{ steps.enroll.outputs.host }} --hostname "$RUNNER_HOSTNAME"
+      - name: Save state and records
+        if: always()
+        run: ./harness/ci/results.sh save "pool ${{ matrix.slot }} ${{ steps.enroll.outputs.host }} ${{ github.run_id }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pool-${{ matrix.slot }}-${{ github.run_id }}
+          path: harness/logs/
           if-no-files-found: ignore
           retention-days: 30
 
@@ -174,7 +248,7 @@ jobs:
 
   report:
     # one digest from both platforms' records, after both have saved
-    needs: soak
+    needs: [soak, pool]
     if: always() && needs.soak.result != 'skipped'
     runs-on: ubuntu-latest
     environment: fma-soak   # the ledger reads the instance's FMA catalog for coverage totals
