@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 491 cycles: pass 199, findings 130, flaky 1, environment 4, harness 1, skipped 156
+**1. Runs** — 558 cycles: pass 232, findings 146, flaky 2, environment 4, harness 1, skipped 173
 
-**2. Coverage** — darwin 94/974 (9.7%), round 1; windows 222/460 (48.3%), round 1
+**2. Coverage** — darwin 96/973 (9.9%), round 1; windows 240/460 (52.2%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -56,6 +56,8 @@
 | #57337 | open | Fleet-maintained apps: Wondershare Filmora (macOS) is never detected (bundle ID com.wondershare.filmoramac vs filmoramacos) |
 | #57338 | open | Fleet-maintained apps: WeChat (macOS) patch policy fails right after installing the current version (4.2.0.16 vs 4.2.0) |
 | #57341 | open | Fleet-maintained apps: BitBox (macOS) is never detected (bundle ID ch.shiftcrypto.BitBoxApp vs ch.shiftcrypto.wallet) |
+| #57390 | open | Fleet-maintained apps: Google Drive (Windows) can't be installed again after Fleet uninstalls it (exit 1610) |
+| #57391 | open | Fleet-maintained apps: MonitorControl (macOS) never detected after install (bundle ID mismatch) |
 
 **4. Build changes**
 
@@ -68,7 +70,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: in progress, windows: in progress
+2. The whole catalog cycled at least once per platform — darwin: in progress, windows: done
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests
