@@ -7,7 +7,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 629 [record](soak/2026-11-04/microsoft-dotnet-sdk-10_windows-629-111936.json)",
   "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-10_windows-635-100936.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-10/windows.json), [microsoft-dotnet-sdk-10.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-10.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
  },
@@ -19,9 +19,33 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-04/microsoft-dotnet-sdk-9_windows-635-112344.json)",
   "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-9_windows-629-103044.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-9/windows.json), [microsoft-dotnet-sdk-9.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-9.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "microsoft-dotnet-sdk-9/windows@635",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/microsoft-dotnet-sdk-9_windows-635-112344.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-9/windows.json), [microsoft-dotnet-sdk-9.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-9.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "mindmanager/windows@629",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/mindmanager_windows-629-141155.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/mindmanager/windows.json), [mindmanager.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/mindmanager.json), [mindmanager_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/mindmanager_install.ps1), [mindmanager_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/mindmanager_uninstall.ps1) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-07 Add several Windows FMAs (#47030) \u00b7 issues mentioning it: #46755 (closed)"
  },
  {
   "app": "scrivener/windows@635",
@@ -34,6 +58,31 @@
   "other_host": null,
   "record": "results/soak/2026-11-04/scrivener_windows-635-064713.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/scrivener/windows.json), [scrivener.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scrivener.json), [scrivener_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/scrivener_install.ps1), [scrivener_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/scrivener_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57551 (open)"
+ },
+ {
+  "app": "adobe-acrobat-reader/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "before it was installed, Fleet lists it as installed ['26.002.22031']: another app's inventory matches this title (#51299 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/adobe-acrobat-reader_windows-635-144107.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-reader/windows.json), [adobe-acrobat-reader.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-reader.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-20 Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321); 2025-11-21 Add Fleet-managed app: Adobe Acrobat Reader for Windows (#36075); 2025-04-01 Drop descoped-from-4.66 Windows FMAs (#27714) \u00b7 issues mentioning it: #48355 (open), #51577 (closed), #46324 (closed), #46622 (closed), #35366 (closed)"
+ },
+ {
+  "app": "devtoys/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/devtoys_windows-635-121518.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/devtoys/windows.json), [devtoys.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/devtoys.json), [devtoys_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/devtoys_install.ps1), [devtoys_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/devtoys_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
  },
  {
   "app": "geany/windows@629",
@@ -49,6 +98,44 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/geany/windows.json), [geany.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/geany.json), [geany_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/geany_install.ps1), [geany_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/geany_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "gpodder/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/gpodder_windows-635-125025.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gpodder/windows.json), [gpodder.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/gpodder.json), [gpodder_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gpodder_install.ps1), [gpodder_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gpodder_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "intellij-idea/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/intellij-idea_windows-635-145834.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/intellij-idea/windows.json), [intellij-idea.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/intellij-idea.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-25 Fix IntelliJ IDEA Windows FMA, rename it from Ultimate, and remove the CE FMA (#51886); 2026-06-12 Use JetBrains build numbers in FMA patch policies on Windows (#47484); 2026-05-27 Add IntelliJ IDEA CE & Ultimate Windows apps (#46257) \u00b7 issues mentioning it: #56431 (open), #51801 (closed), #47478 (closed), #37326 (closed), #26405 (closed)"
+ },
+ {
+  "app": "nagstamon/windows@629",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/nagstamon_windows-629-125703.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nagstamon/windows.json), [nagstamon.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nagstamon.json), [nagstamon_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nagstamon_install.ps1), [nagstamon_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nagstamon_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "openvpn-connect/windows@635",
   "shape": "S3",
   "msgs": [
@@ -62,7 +149,20 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/openvpn-connect/windows.json), [openvpn-connect.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/openvpn-connect.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-28 Add several Windows FMAs (#46313) \u00b7 issues mentioning it: #52697 (closed), #36279 (closed), #24720 (closed)"
  },
  {
-  "app": "crystaldiskmark/windows@635",
+  "app": "snagit/darwin@631",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says failed but the app is on the host",
+   "second install: Fleet says failed but the app is on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/snagit_darwin-631-114039.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/snagit/darwin.json), [snagit.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/snagit.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-06 Add Snagit as a macOS FMA (#36828) \u00b7 issues mentioning it: #57157 (open), #50981 (closed), #50985 (closed)"
+ },
+ {
+  "app": "crystaldiskmark/windows@629",
   "shape": "S6",
   "msgs": [
    "reinstall over the open app: the install over the open app ended as failed_install"
@@ -70,6 +170,18 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-04/crystaldiskmark_windows-629-114858.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
+ },
+ {
+  "app": "crystaldiskmark/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 629 [record](soak/2026-11-04/crystaldiskmark_windows-629-114858.json)",
   "record": "results/soak/2026-11-04/crystaldiskmark_windows-635-085412.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
  },
@@ -96,6 +208,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-04/goanywhere-openpgp-studio_windows-635-070330.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/goanywhere-openpgp-studio/windows.json), [goanywhere-openpgp-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/goanywhere-openpgp-studio.json), [goanywhere-openpgp-studio_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_install.ps1), [goanywhere-openpgp-studio_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/goanywhere-openpgp-studio_uninstall.ps1) \u00b7 last changes: 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "intellij-idea/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as pending_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/intellij-idea_windows-635-145834.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/intellij-idea/windows.json), [intellij-idea.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/intellij-idea.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-25 Fix IntelliJ IDEA Windows FMA, rename it from Ultimate, and remove the CE FMA (#51886); 2026-06-12 Use JetBrains build numbers in FMA patch policies on Windows (#47484); 2026-05-27 Add IntelliJ IDEA CE & Ultimate Windows apps (#46257) \u00b7 issues mentioning it: #56431 (open), #51801 (closed), #47478 (closed), #37326 (closed), #26405 (closed)"
  },
  {
   "app": "obs/windows@635",
@@ -134,7 +258,72 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/aomei-backupper-standard/windows.json), [aomei-backupper-standard.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/aomei-backupper-standard.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-31 Add AOMEI Backupper Standard as a Windows Fleet-maintained app (#50021) \u00b7 issues mentioning it: #56891 (open), #50020 (closed)"
  },
  {
-  "app": "standard-notes/windows@635",
+  "app": "3df-zephyr-free/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/3df-zephyr-free_windows-629-122032.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/3df-zephyr-free/windows.json), [3df-zephyr-free.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/3df-zephyr-free.json), [3df-zephyr-free_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/3df-zephyr-free_install.ps1), [3df-zephyr-free_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/3df-zephyr-free_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-07-07 Add Windows FMAs (digit batch): 3DF Zephyr Free, 4K Video Downloader+ (#48872) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "adobe-acrobat-reader/windows@635",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/adobe-acrobat-reader_windows-635-144107.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-reader/windows.json), [adobe-acrobat-reader.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-reader.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-20 Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321); 2025-11-21 Add Fleet-managed app: Adobe Acrobat Reader for Windows (#36075); 2025-04-01 Drop descoped-from-4.66 Windows FMAs (#27714) \u00b7 issues mentioning it: #48355 (open), #51577 (closed), #46324 (closed), #46622 (closed), #35366 (closed)"
+ },
+ {
+  "app": "snagit/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/snagit_darwin-631-114039.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/snagit/darwin.json), [snagit.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/snagit.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-06 Add Snagit as a macOS FMA (#36828) \u00b7 issues mentioning it: #57157 (open), #50981 (closed), #50985 (closed)"
+ },
+ {
+  "app": "typora/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/typora_windows-629-131844.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/typora/windows.json), [typora.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/typora.json), [typora_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/typora_install.ps1), [typora_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/typora_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-07-23 Update Fleet-maintained apps (#49813); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57557 (open)"
+ },
+ {
+  "app": "webstorm/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/webstorm_darwin-631-122228.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/webstorm/darwin.json), [webstorm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/webstorm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-24 macOS FMA: JetBrains WebStorm (#36178) \u00b7 issues mentioning it: #56431 (open), #37323 (closed), #33475 (closed), #27914 (closed)"
+ },
+ {
+  "app": "snagit/darwin@631",
   "shape": "uninstall",
   "msgs": [
    "first uninstall: app still on host (status failed_uninstall)",
@@ -143,6 +332,32 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-04/snagit_darwin-631-114039.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/snagit/darwin.json), [snagit.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/snagit.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-06 Add Snagit as a macOS FMA (#36828) \u00b7 issues mentioning it: #57157 (open), #50981 (closed), #50985 (closed)"
+ },
+ {
+  "app": "standard-notes/windows@629",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/standard-notes_windows-629-120011.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/standard-notes/windows.json), [standard-notes.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/standard-notes.json), [standard-notes_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_install.ps1), [standard-notes_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open), #27715 (closed), #27791 (closed), #27792 (closed), #6396 (closed)"
+ },
+ {
+  "app": "standard-notes/windows@635",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 629 [record](soak/2026-11-04/standard-notes_windows-629-120011.json)",
   "record": "results/soak/2026-11-04/standard-notes_windows-635-031050.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/standard-notes/windows.json), [standard-notes.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/standard-notes.json), [standard-notes_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_install.ps1), [standard-notes_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open), #27715 (closed), #27791 (closed), #27792 (closed), #6396 (closed)"
  }

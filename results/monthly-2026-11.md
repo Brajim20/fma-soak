@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 673 cycles: pass 280, findings 161, flaky 2, environment 32, harness 1, skipped 197
+**1. Runs** — 736 cycles: pass 323, findings 176, flaky 2, environment 32, harness 2, skipped 201
 
-**2. Coverage** — darwin 116/973 (11.9%), round 1; windows 266/461 (57.7%), round 2
+**2. Coverage** — darwin 135/973 (13.9%), round 1; windows 278/461 (60.3%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -66,6 +66,18 @@
 | #57503 | open | Fleet-maintained apps: Tower (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #57504 | open | Fleet-maintained apps: Wacom Tablet (Windows) is never detected, so its patch policy always passes |
 | #57506 | open | Fleet-maintained apps: XQuartz (macOS) is never detected (bundle ID org.macosforge.xquartz.X11 vs org.xquartz.X11) |
+| #57547 | open | Fleet-maintained apps: Descript (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
+| #57548 | open | Fleet-maintained apps: Jabra Direct (Windows) is never detected, so its patch policy always passes |
+| #57549 | open | Fleet-maintained apps: Microsoft Teams (Windows) uninstall removes Teams but reports failure (exit 1603) |
+| #57550 | open | Fleet-maintained apps: OBS Studio (Windows) install fails with exit code 2 while the app is open |
+| #57551 | open | Fleet-maintained apps: Scrivener (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #57552 | open | Software: uninstall scripts are killed after 5 minutes instead of the documented 1 hour |
+| #57553 | open | Fleet-maintained apps: Geany (Windows) is never detected after install, so its patch policy always passes |
+| #57554 | open | Fleet-maintained apps: GoLand (Windows) install doesn't finish while GoLand is open, and the host's queue stays blocked behind it |
+| #57555 | open | Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so "patch when closed" can't hold the install back |
+| #57556 | open | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
+| #57558 | open | Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes |
 
 **4. Build changes**
 
