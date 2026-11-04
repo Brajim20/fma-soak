@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 595 cycles: pass 247, findings 151, flaky 2, environment 12, harness 1, skipped 182
+**1. Runs** — 631 cycles: pass 263, findings 156, flaky 2, environment 22, harness 1, skipped 187
 
-**2. Coverage** — darwin 97/973 (10.0%), round 1; windows 245/461 (53.1%), round 2
+**2. Coverage** — darwin 107/973 (11.0%), round 1; windows 258/461 (56.0%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -58,6 +58,14 @@
 | #57341 | open | Fleet-maintained apps: BitBox (macOS) is never detected (bundle ID ch.shiftcrypto.BitBoxApp vs ch.shiftcrypto.wallet) |
 | #57390 | open | Fleet-maintained apps: Google Drive (Windows) can't be installed again after Fleet uninstalls it (exit 1610) |
 | #57391 | open | Fleet-maintained apps: MonitorControl (macOS) never detected after install (bundle ID mismatch) |
+| #57498 | open | Fleet-maintained apps: draw.io (Windows) exists/patched queries never match the installed app, so its patch policy always passes |
+| #57499 | open | Fleet-maintained apps: Kiro (Windows) install fails with exit code 1 while the app is open |
+| #57500 | open | Fleet-maintained apps: NoSQL Workbench (Windows) is never detected, so its patch policy always passes |
+| #57501 | open | Fleet-maintained apps: Paint.NET (Windows) install always fails and nothing is installed |
+| #57502 | open | Fleet-maintained apps: ShareFile (Windows) is never detected, so its patch policy always passes |
+| #57503 | open | Fleet-maintained apps: Tower (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #57504 | open | Fleet-maintained apps: Wacom Tablet (Windows) is never detected, so its patch policy always passes |
+| #57506 | open | Fleet-maintained apps: XQuartz (macOS) is never detected (bundle ID org.macosforge.xquartz.X11 vs org.xquartz.X11) |
 
 **4. Build changes**
 

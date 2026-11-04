@@ -13,6 +13,19 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/geany/windows.json), [geany.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/geany.json), [geany_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/geany_install.ps1), [geany_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/geany_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "openvpn-connect/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/openvpn-connect_windows-635-025342.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/openvpn-connect/windows.json), [openvpn-connect.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/openvpn-connect.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-28 Add several Windows FMAs (#46313) \u00b7 issues mentioning it: #52697 (closed), #36279 (closed), #24720 (closed)"
+ },
+ {
   "app": "franz/windows@635",
   "shape": "S6",
   "msgs": [
@@ -20,8 +33,57 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 629 (pass) [record](soak/2026-11-04/franz_windows-629-011730.json)",
   "record": "results/soak/2026-11-04/franz_windows-635-004023.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/franz/windows.json), [franz.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/franz.json), [franz_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/franz_install.ps1), [franz_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/franz_uninstall.ps1) \u00b7 last changes: 2026-10-30 Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612); 2026-10-27 Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629); 2026-10-21 Fix single-entry check in 32 Windows Fleet-maintained app uninstall scripts (#56153) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
+ },
+ {
+  "app": "obs/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/obs_windows-635-015601.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/obs/windows.json), [obs.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/obs.json), [obs_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/obs_install.ps1), [obs_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/obs_uninstall.ps1) \u00b7 last changes: 2025-12-23 Add OBS Studio as a Windows FMA (#37628) \u00b7 issues mentioning it: #37326 (closed)"
+ },
+ {
+  "app": "sql-server-management-studio/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/sql-server-management-studio_windows-635-012844.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 last changes: 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "aomei-backupper-standard/windows@635",
+  "shape": "add",
+  "msgs": [
+   "add failed 500: lookup www2.aomeisoftware.com on 169.254.20.10:53: no such host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/aomei-backupper-standard_windows-635-040715.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/aomei-backupper-standard/windows.json), [aomei-backupper-standard.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/aomei-backupper-standard.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-31 Add AOMEI Backupper Standard as a Windows Fleet-maintained app (#50021) \u00b7 issues mentioning it: #56891 (open), #50020 (closed)"
+ },
+ {
+  "app": "standard-notes/windows@635",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-04/standard-notes_windows-635-031050.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/standard-notes/windows.json), [standard-notes.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/standard-notes.json), [standard-notes_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_install.ps1), [standard-notes_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/standard-notes_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open), #27715 (closed), #27791 (closed), #27792 (closed), #6396 (closed)"
  }
 ]

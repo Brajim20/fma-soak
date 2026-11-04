@@ -24,18 +24,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/python-3.13/windows.json), [python-3.13.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/python-3.13.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-08 Add Python 3.13 & 3.14 as Windows FMAs and normalize versions (#46873) \u00b7 issues mentioning it: #49693 (open)"
  },
  {
-  "app": "sharefile/windows@635",
-  "shape": "S1",
-  "msgs": [
-   "inventory never reported the app after install + refetch"
-  ],
-  "retried": "reproduced on retry",
-  "runs": 1,
-  "other_host": "reproduced on 629 [record](soak/2026-11-03/sharefile_windows-629-101106.json)",
-  "record": "results/soak/2026-11-03/sharefile_windows-635-065828.json",
-  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sharefile/windows.json), [sharefile.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sharefile.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
- },
- {
   "app": "vnc-viewer/windows@629",
   "shape": "S1",
   "msgs": [
@@ -189,19 +177,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "sharefile/windows@635",
-  "shape": "S3",
-  "msgs": [
-   "first install: Fleet says installed but the app isn't on the host",
-   "second install: Fleet says installed but the app isn't on the host"
-  ],
-  "retried": "reproduced on retry",
-  "runs": 1,
-  "other_host": "reproduced on 629 [record](soak/2026-11-03/sharefile_windows-629-101106.json)",
-  "record": "results/soak/2026-11-03/sharefile_windows-635-065828.json",
-  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sharefile/windows.json), [sharefile.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sharefile.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
- },
- {
   "app": "twine-app/windows@629",
   "shape": "S3",
   "msgs": [
@@ -286,7 +261,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 635 (skipped) [record](soak/2026-11-04/8x8-work_windows-635-011009.json)",
   "record": "results/soak/2026-11-03/8x8-work_windows-629-210724.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/8x8-work/windows.json), [8x8-work.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/8x8-work.json) \u00b7 code at this build: [maintained_apps_auto_update.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps_auto_update.go), [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go) \u00b7 last changes: 2025-12-14 Add 8x8 Work as a Windows FMA (#37236) \u00b7 issues mentioning it: #50522 (closed), #41390 (closed), #38910 (closed), #40549 (closed), #37264 (closed)"
  },
@@ -346,7 +321,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-04/obs_windows-635-015601.json)",
   "record": "results/soak/2026-11-03/obs_windows-629-172836.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/obs/windows.json), [obs.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/obs.json), [obs_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/obs_install.ps1), [obs_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/obs_uninstall.ps1) \u00b7 last changes: 2025-12-23 Add OBS Studio as a Windows FMA (#37628) \u00b7 issues mentioning it: #37326 (closed)"
  },
@@ -487,19 +462,6 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/remote-desktop-manager/windows.json), [remote-desktop-manager.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/remote-desktop-manager.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "sharefile/windows@629",
-  "shape": "install",
-  "msgs": [
-   "first install ended as failed_install",
-   "second install ended as failed_install"
-  ],
-  "retried": "reproduced on retry",
-  "runs": 1,
-  "other_host": null,
-  "record": "results/soak/2026-11-03/sharefile_windows-629-101106.json",
-  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sharefile/windows.json), [sharefile.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sharefile.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
- },
- {
   "app": "sql-server-management-studio/windows@629",
   "shape": "install",
   "msgs": [
@@ -508,7 +470,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 635 [record](soak/2026-11-04/sql-server-management-studio_windows-635-012844.json)",
   "record": "results/soak/2026-11-03/sql-server-management-studio_windows-629-181028.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: none"
  },
