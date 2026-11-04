@@ -4,7 +4,7 @@
 # Settings (repository variables, Settings → Secrets and variables → Actions → Variables):
 #   FLEET_URL              the Fleet instance
 #   FMA_SOAK_FLEET_ID      the only fleet the harness touches
-#   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated (first = primary; a second one only samples new apps)
+#   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated (first = primary; the others only sample new apps, up to 3 hosts)
 #   FMA_SOAK_HOST_WINDOWS  Windows soak host IDs, the same way
 #   FMA_SOAK_CHAIN         optional: "off" stops each run from starting the next (the cron backup still runs)
 # Secrets (environment `fma-soak`, so no other workflow can read them):
@@ -66,10 +66,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # slot 0 = the platform's primary host (the full pass); slot 1 = a second host, sample only. A slot with no
+        # slot 0 = the platform's primary host (the full pass); slots 1 and 2 = more hosts, sample only. A slot with no
         # host in FMA_SOAK_HOST_<PLATFORM> skips itself.
         platform: [darwin, windows]
-        slot: [0, 1]
+        slot: [0, 1, 2]
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
       FMA_SOAK_UI_EMAIL: ${{ secrets.FMA_SOAK_UI_EMAIL }}
