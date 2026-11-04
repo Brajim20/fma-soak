@@ -1,0 +1,81 @@
+{
+ "slug": "twingate/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T16:19:32",
+ "catalog_version": "20.26.280.8833",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T20:19:15Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "title_id": 24700,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A8:24) [12:20:28:937]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A8:24) [12:20:28:943]: Destroying RemoteAPI object.\r\nMSI (s) (A8:90) [12:20:28:944]: Custom Action Manager thread ending.\r\nMSI (c) (60:E4) [12:20:28:947]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (60:E4) [12:20:28:948]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  12:20:28 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "20.26.280.8833"
+ ],
+ "package_version": "20.26.280.8833",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 77,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (D8:88) [12:28:58:991]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (D8:88) [12:28:58:996]: Destroying RemoteAPI object.\r\nMSI (s) (D8:48) [12:28:58:996]: Custom Action Manager thread ending.\r\nMSI (c) (00:D0) [12:28:58:999]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (00:D0) [12:28:58:999]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  12:28:59 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 77,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-03T16:34:24",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T20:34:18Z",
+  "restarted": "2026-11-01T19:23:38.587987Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/twingate_windows-635-161932-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/twingate_windows-635-161932-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/twingate_windows-635-161932.json"
+}
