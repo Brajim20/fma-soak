@@ -1,0 +1,93 @@
+{
+ "slug": "8x8-work/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-03T21:07:24",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinned 8.37.2, but the host has ['8.37.2.1'] after installing it (#56873 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T01:07:24Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 20023,
+ "cached_versions": [
+  "8.37.2",
+  "8.38.4"
+ ],
+ "active_before": "8.38.4",
+ "pin_older_status": 200,
+ "active_after_pin": "8.37.2",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E8:A8) [21:08:09:726]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (E8:A8) [21:08:09:726]: Destroying RemoteAPI object.\r\nMSI (s) (E8:70) [21:08:09:726]: Custom Action Manager thread ending.\r\nMSI (c) (C8:F0) [21:08:09:726]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C8:F0) [21:08:09:726]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  21:08:09 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "8x8 Work"
+  ],
+  "versions": [
+   "8.37.2.1"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "8.38.4",
+ "upgrade_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "app_during_upgrade": "open failed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 46,
+ "upgrade_install_output_tail": ") (E8:F4) [21:09:27:238]: Post-install cleanup: removing installer folder 'C:\\WINDOWS\\Installer\\{DC84C6AD-D08F-4C10-BF28-A7D1876E0043}\\' (if empty)\r\nMSI (s) (E8:F4) [21:09:27:238]: Note: 1: 2318 2:  \r\nMSI (s) (E8:F4) [21:09:27:240]: Destroying RemoteAPI object.\r\nMSI (s) (E8:04) [21:09:27:240]: Custom Action Manager thread ending.\r\nMSI (c) (74:C4) [21:09:27:240]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:C4) [21:09:27:240]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  21:09:27 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "8x8 Work"
+  ],
+  "versions": [
+   "8.38.4.1"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-03T21:10:51",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-04T01:10:42Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/8x8-work_windows-629-210724-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/8x8-work_windows-629-210724-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/8x8-work_windows-629-210724.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/8x8-work_windows-629-210316.json"
+}

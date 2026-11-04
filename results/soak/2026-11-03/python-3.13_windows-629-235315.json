@@ -1,0 +1,83 @@
+{
+ "slug": "python-3.13/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T23:53:15",
+ "catalog_version": "3.13.17",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 3.13.17: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T03:53:15Z",
+  "restarted": "2026-10-31T19:39:32.91785Z"
+ },
+ "title_id": 24820,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "3.13.17",
+ "context_after_install": null,
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 199,
+ "first_uninstall_output_tail": "4E5026A68})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Tcl/Tk Support (64-bit)' ({558C4CF1-82E8-4C42-BC91-5F1E96E9C99C})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 pip Bootstrap (64-bit)' ({0F113663-8C98-4AA8-866D-4F4E9743CD4B})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Executables (64-bit)' ({7E8C62E5-B67D-4D2E-B056-88613B37793E})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Core Interpreter (64-bit)' ({A785CE7C-D7B0-441D-9E02-26364E96B27C})\n  Exit code: 0\nRemoving leftover bundle registration: 'Python 3.13.17 (64-bit)'\nAll Python 3.13 (64-bit) entries removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Python 3.13.17 Test Suite (64-bit)' ({2F453F5A-23E4-4AE8-A333-C7D4E5026A68})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Tcl/Tk Support (64-bit)' ({558C4CF1-82E8-4C42-BC91-5F1E96E9C99C})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 pip Bootstrap (64-bit)' ({0F113663-8C98-4AA8-866D-4F4E9743CD4B})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Executables (64-bit)' ({7E8C62E5-B67D-4D2E-B056-88613B37793E})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Core Interpreter (64-bit)' ({A785CE7C-D7B0-441D-9E02-26364E96B27C})\n  Exit code: 0\nAll Python 3.13 (64-bit) entries removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-10-31T19:53:20.100042Z)",
+ "finished": "2026-11-04T00:26:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-04T04:26:51Z",
+  "restarted": "2026-10-31T19:53:20.100042Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-10-31T19:53:20.100042Z"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/python-3.13_windows-629-235315-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/python-3.13_windows-629-235315-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/python-3.13_windows-629-235315.json",
+ "crosshost_of": "soak/2026-11-03/python-3.13_windows-635-200654.json"
+}
