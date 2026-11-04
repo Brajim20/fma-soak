@@ -533,7 +533,7 @@
   },
   {
    "app": "twingate/windows",
-   "verdict": "bug, not filed yet: winget input lacks fuzzy_match_name; the MSI registers 'Twingate 2026.280.8833' (publisher 'Twingate Inc.'), so exists/patched queries on name = 'Twingate' never match. Reproduced on x64 228 twice; not ARM"
+   "verdict": "filed #57558: registered name 'Twingate 2026.280.8833', input lacks fuzzy_match_name; exists/patched never match (x64 228)"
   },
   {
    "app": "visual-studio-code/windows",
@@ -550,6 +550,50 @@
   {
    "app": "loop/darwin",
    "verdict": "environment: install over the running app on the Mac mini (main host 50, 2026-11-04) quit, installed and relaunched it in 17 s; the 1 h hang is specific to 636"
+  },
+  {
+   "app": "descript/windows",
+   "verdict": "filed #57547: per-user NSIS /S as SYSTEM, uninstall can't find the systemprofile exe (#57152 class)"
+  },
+  {
+   "app": "jabra-direct/windows",
+   "verdict": "filed #57548: exists/patched exact name+publisher never match; uninstall's LIKE match finds the entry"
+  },
+  {
+   "app": "microsoft-teams/windows",
+   "verdict": "filed #57549: uninstall exits 1603: the script's Appx re-check still matches MSTeams_8wekyb3d8bbwe"
+  },
+  {
+   "app": "obs/windows",
+   "verdict": "filed #57550: install over the open app exits 2; NSIS /S script never closes obs64.exe (#57149 class)"
+  },
+  {
+   "app": "scrivener/windows",
+   "verdict": "filed #57551: installs into systemprofile despite installer_scope machine"
+  },
+  {
+   "app": "supportcompanion/darwin",
+   "verdict": "filed #57552: uninstall killed ~330-380s into Uninstall.zsh, app stays"
+  },
+  {
+   "app": "geany/windows",
+   "verdict": "filed #57553: exists query's publisher equality never matches the registered program"
+  },
+  {
+   "app": "goland/windows",
+   "verdict": "filed #57554: install over the open app stays pending >30 min, queue blocked"
+  },
+  {
+   "app": "sql-server-management-studio/windows",
+   "verdict": "filed #57555: open query looks for 'sql server management studio.exe', process is SSMS.exe"
+  },
+  {
+   "app": "twine-app/windows",
+   "verdict": "filed #57556: installs into systemprofile, uninstall fails 4/4"
+  },
+  {
+   "app": "visual-studio-2022-professional/windows",
+   "verdict": "filed #57557: install over open devenv.exe exits 1, IDE untouched"
   }
  ]
 }
