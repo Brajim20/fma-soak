@@ -1,19 +1,19 @@
 {
- "built": "2026-11-04T03:57:34",
+ "built": "2026-11-04T03:59:20",
  "coverage": {
   "darwin": {
-   "covered": 97,
+   "covered": 99,
    "catalog": 973,
-   "percent": 10.0,
+   "percent": 10.2,
    "deck": {
     "round": 1,
-    "done": 81,
+    "done": 83,
     "of": 142
    },
    "decks": {
     "631": {
      "round": 1,
-     "done": 81,
+     "done": 83,
      "of": 142
     },
     "636": {
@@ -24,18 +24,18 @@
    }
   },
   "windows": {
-   "covered": 244,
+   "covered": 245,
    "catalog": 461,
-   "percent": 52.9,
+   "percent": 53.1,
    "deck": {
     "round": 2,
-    "done": 23,
+    "done": 20,
     "of": 122
    },
    "decks": {
     "629": {
      "round": 2,
-     "done": 23,
+     "done": 20,
      "of": 122
     },
     "635": {
@@ -432,14 +432,14 @@
    }
   },
   "postman/windows@629": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 11,
    "update_runs": 4,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T01:17:04",
+    "date": "2026-11-03T16:12:08",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.35.1",
-    "record": "results/soak/2026-11-04/postman_windows-629-011704.json",
+    "record": "results/soak/2026-11-03/postman_windows-629-161208.json",
     "findings": []
    },
    "last_update": {
@@ -933,14 +933,14 @@
    }
   },
   "grammarly-desktop/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-04T01:11:14",
+    "date": "2026-10-30T11:05:21",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.2.304.1976",
-    "record": "results/soak/2026-11-04/grammarly-desktop_windows-629-011114.json",
+    "record": "results/soak/2026-10-30/grammarly-desktop_windows-629-110521.json",
     "findings": []
    }
   },
@@ -2669,17 +2669,18 @@
    }
   },
   "evernote/windows@629": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-10-31T21:27:17.892592Z; offline at 2026-11-04T03:01:55; offline when the cycle ended)",
-    "date": "2026-11-04T02:48:59",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-01T03:11:15",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "11.40.3",
-    "record": "results/soak/2026-11-04/evernote_windows-629-024859.json",
+    "record": "results/soak/2026-11-01/evernote_windows-629-031115.json",
     "findings": [
-     "first install ended as pending_install",
-     "second install ended as None"
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
     ]
    }
   },
@@ -3432,15 +3433,18 @@
    }
   },
   "zettlr/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-04T02:14:33",
+    "outcome": "findings",
+    "date": "2026-11-01T04:35:02",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.9.0",
-    "record": "results/soak/2026-11-04/zettlr_windows-629-021433.json",
-    "findings": []
+    "record": "results/soak/2026-11-01/zettlr_windows-629-043502.json",
+    "findings": [
+     "first uninstall: app still on host (status failed_uninstall)",
+     "second uninstall: app still on host (status failed_uninstall)"
+    ]
    }
   },
   "3df-zephyr-free/windows@629": {
@@ -7183,16 +7187,34 @@
     "findings": []
    }
   },
-  "franz/windows@629": {
+  "disk-drill/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T01:17:30",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T02:02:38; offline when the cycle ended)",
+    "date": "2026-11-04T01:57:00",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "5.11.0",
-    "record": "results/soak/2026-11-04/franz_windows-629-011730.json",
-    "findings": []
+    "catalog_version": "6.3.2326",
+    "record": "results/soak/2026-11-04/disk-drill_darwin-631-015700.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
+   }
+  },
+  "fetch-app/darwin@631": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-02T11:48:18.552789Z; offline at 2026-11-04T03:03:29; offline when the cycle ended)",
+    "date": "2026-11-04T02:57:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.8.3",
+    "record": "results/soak/2026-11-04/fetch-app_darwin-631-025750.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
    }
   },
   "franz/windows@635": {
