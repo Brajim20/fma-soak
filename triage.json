@@ -514,6 +514,18 @@
   {
    "app": "visual-studio-2022-enterprise/windows@635",
    "verdict": "environment: exit 1 only after an uninstall that returned 3010 (reboot required) with no restart since 2026-10-14; on clean host 229 install -> uninstall (exit 0) -> reinstall -> open/close VS -> uninstall all exit 0. Same reboot-pending shape as #57390/#57138, not reproduced for VS"
+  },
+  {
+   "app": "xquartz/darwin",
+   "verdict": "filed #57506: unique_identifier org.macosforge.xquartz.X11, the 2.8.6 app is org.xquartz.X11 (631's timeouts and 636's stuck queue hid it)"
+  },
+  {
+   "app": "whatsapp/darwin@631",
+   "verdict": "harness: patch-when-closed close returned 'no result in time' and the app was never confirmed closed; the policy-mismatch finding read install_software instead of patch_software (both fixed in patch_closed.py)"
+  },
+  {
+   "app": "visual-studio-2022-enterprise/windows",
+   "verdict": "environment: installs cleanly twice on x64 host 229 (main, 2026-11-03); 629 is ARM (8006), 635 had 28 GB free (exit 1)"
   }
  ]
 }
