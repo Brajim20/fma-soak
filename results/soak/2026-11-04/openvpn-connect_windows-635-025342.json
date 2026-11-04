@@ -1,0 +1,90 @@
+{
+ "slug": "openvpn-connect/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T02:53:42",
+ "catalog_version": "3.9.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T06:53:33Z",
+  "restarted": "2026-11-04T03:12:00.951001Z"
+ },
+ "title_id": 17690,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A8:84) [22:54:12:896]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A8:84) [22:54:12:897]: Destroying RemoteAPI object.\r\nMSI (s) (A8:E4) [22:54:12:897]: Custom Action Manager thread ending.\r\nMSI (c) (40:B4) [22:54:12:899]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (40:B4) [22:54:12:899]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  22:54:12 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "3.9.0"
+ ],
+ "package_version": "3.9.0",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (AC:50) [23:01:02:309]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (AC:50) [23:01:02:311]: Destroying RemoteAPI object.\r\nMSI (s) (AC:48) [23:01:02:311]: Custom Action Manager thread ending.\r\nMSI (c) (20:A0) [23:01:02:314]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (20:A0) [23:01:02:315]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/3/2026  23:01:02 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-04T03:05:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-04T07:05:39Z",
+  "restarted": "2026-11-04T03:12:00.951001Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/openvpn-connect_windows-635-025342-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/openvpn-connect_windows-635-025342-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/openvpn-connect_windows-635-025342.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/openvpn-connect_windows-635-024201.json"
+}
