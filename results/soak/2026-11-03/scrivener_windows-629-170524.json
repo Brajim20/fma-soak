@@ -1,0 +1,80 @@
+{
+ "slug": "scrivener/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-03T17:05:24",
+ "catalog_version": "3.1.6.0",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-03T21:05:18Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "title_id": 24710,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 48,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.1.6.0"
+ ],
+ "package_version": "3.1.6.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3"
+  ],
+  "names": [
+   "Scrivener"
+  ],
+  "versions": [
+   "3.1.6.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 48,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 32,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 47,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-03T17:10:09",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-03T21:10:00Z",
+  "restarted": "2026-10-31T19:02:28.473426Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-03/evidence/scrivener_windows-629-170524-library.png",
+  "inventory": "results/soak/2026-11-03/evidence/scrivener_windows-629-170524-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/scrivener_windows-629-170524.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-03/scrivener_windows-629-170009.json"
+}
