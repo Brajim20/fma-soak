@@ -594,6 +594,34 @@
   {
    "app": "visual-studio-2022-professional/windows",
    "verdict": "filed #57557: install over open devenv.exe exits 1, IDE untouched"
+  },
+  {
+   "app": "dynalist/windows",
+   "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04), relaunch after the open-app reinstall stayed up; 629's S6 not reproduced"
+  },
+  {
+   "app": "franz/windows",
+   "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); 629's relaunch S6 not reproduced"
+  },
+  {
+   "app": "bitwarden/windows",
+   "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); the first attempt's error was the server's manifest-fetch timeout, and 629's instant 400s were the title not being installable on that fleet"
+  },
+  {
+   "app": "coderunner/darwin",
+   "verdict": "environment: full pass on the Mac mini (main host 50, 2026-11-04); 631's stall matched its live-query timeouts that evening"
+  },
+  {
+   "app": "onedrive/windows",
+   "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 failure is the amd64-only installer on ARM"
+  },
+  {
+   "app": "typora/windows",
+   "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 exit 1 is the x64-only Inno installer on ARM"
+  },
+  {
+   "app": "openvpn-connect/windows",
+   "verdict": "bug, not filed yet: input sets fuzzy_match_name, so the queries use name LIKE 'OpenVPN Connect %', but the MSI registers exactly 'OpenVPN Connect' (publisher 'OpenVPN Inc.', 3.9.0); never detected, patched passes vacuously. Reproduced on x64 228"
   }
  ]
 }
