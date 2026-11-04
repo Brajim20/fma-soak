@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T01:05:38",
+ "built": "2026-11-04T03:57:34",
  "coverage": {
   "darwin": {
    "covered": 97,
@@ -24,18 +24,18 @@
    }
   },
   "windows": {
-   "covered": 245,
+   "covered": 244,
    "catalog": 461,
-   "percent": 53.1,
+   "percent": 52.9,
    "deck": {
     "round": 2,
-    "done": 20,
+    "done": 23,
     "of": 122
    },
    "decks": {
     "629": {
      "round": 2,
-     "done": 20,
+     "done": 23,
      "of": 122
     },
     "635": {
@@ -432,14 +432,14 @@
    }
   },
   "postman/windows@629": {
-   "lifecycle_runs": 11,
+   "lifecycle_runs": 12,
    "update_runs": 4,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-03T16:12:08",
+    "date": "2026-11-04T01:17:04",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.35.1",
-    "record": "results/soak/2026-11-03/postman_windows-629-161208.json",
+    "record": "results/soak/2026-11-04/postman_windows-629-011704.json",
     "findings": []
    },
    "last_update": {
@@ -933,14 +933,14 @@
    }
   },
   "grammarly-desktop/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T11:05:21",
+    "date": "2026-11-04T01:11:14",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.2.304.1976",
-    "record": "results/soak/2026-10-30/grammarly-desktop_windows-629-110521.json",
+    "record": "results/soak/2026-11-04/grammarly-desktop_windows-629-011114.json",
     "findings": []
    }
   },
@@ -2669,18 +2669,17 @@
    }
   },
   "evernote/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-01T03:11:15",
+    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-10-31T21:27:17.892592Z; offline at 2026-11-04T03:01:55; offline when the cycle ended)",
+    "date": "2026-11-04T02:48:59",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "11.40.3",
-    "record": "results/soak/2026-11-01/evernote_windows-629-031115.json",
+    "record": "results/soak/2026-11-04/evernote_windows-629-024859.json",
     "findings": [
-     "first install: Fleet says installed but the app isn't on the host",
-     "second install: Fleet says installed but the app isn't on the host",
-     "presence unknown after context_after_install (host didn't answer the live query)"
+     "first install ended as pending_install",
+     "second install ended as None"
     ]
    }
   },
@@ -3433,18 +3432,15 @@
    }
   },
   "zettlr/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings",
-    "date": "2026-11-01T04:35:02",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T02:14:33",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.9.0",
-    "record": "results/soak/2026-11-01/zettlr_windows-629-043502.json",
-    "findings": [
-     "first uninstall: app still on host (status failed_uninstall)",
-     "second uninstall: app still on host (status failed_uninstall)"
-    ]
+    "record": "results/soak/2026-11-04/zettlr_windows-629-021433.json",
+    "findings": []
    }
   },
   "3df-zephyr-free/windows@629": {
@@ -7184,6 +7180,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.1.98.63",
     "record": "results/soak/2026-11-04/brave-browser_windows-635-002126.json",
+    "findings": []
+   }
+  },
+  "franz/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T01:17:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.11.0",
+    "record": "results/soak/2026-11-04/franz_windows-629-011730.json",
     "findings": []
    }
   },
