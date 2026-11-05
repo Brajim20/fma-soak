@@ -638,6 +638,14 @@
   {
    "app": "intellij-idea/windows",
    "verdict": "same bug as #57554 (GoLand): identical JetBrains NSIS install script, no close step; install over the open app stays pending"
+  },
+  {
+   "app": "gitup-app/darwin",
+   "verdict": "environment: full pass incl. reinstall over the open app (46 s) on clean host 624, 2026-11-04; the stuck run was on 631 during live-query timeouts"
+  },
+  {
+   "app": "xnapper/darwin",
+   "verdict": "environment: full pass incl. reinstall over the open app (47 s) on clean host 624, 2026-11-04; the stuck run was on 636 during ~60 live-query timeouts"
   }
  ]
 }
