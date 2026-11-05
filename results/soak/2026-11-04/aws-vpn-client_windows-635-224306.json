@@ -1,0 +1,92 @@
+{
+ "slug": "aws-vpn-client/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T22:43:06",
+ "catalog_version": "6.2.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T02:43:06Z",
+  "restarted": "2026-11-04T03:12:00.951001Z"
+ },
+ "title_id": 25369,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A0:DC) [18:43:52:792]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A0:DC) [18:43:52:793]: Destroying RemoteAPI object.\r\nMSI (s) (A0:34) [18:43:52:793]: Custom Action Manager thread ending.\r\nMSI (c) (64:60) [18:43:52:796]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (64:60) [18:43:52:797]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/4/2026  18:43:52 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "6.2.1"
+ ],
+ "package_version": "6.2.1",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "AWS VPN Client"
+  ],
+  "versions": [
+   "6.2.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A0:74) [18:47:41:998]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A0:74) [18:47:42:000]: Destroying RemoteAPI object.\r\nMSI (s) (A0:E0) [18:47:42:000]: Custom Action Manager thread ending.\r\nMSI (c) (1C:9C) [18:47:42:005]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (1C:9C) [18:47:42:006]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/4/2026  18:47:42 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 214,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-05T02:54:41.870199Z)",
+ "finished": "2026-11-04T22:56:31",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T02:56:30Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-05T02:54:41.870199Z"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/aws-vpn-client_windows-635-224306-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/aws-vpn-client_windows-635-224306-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/aws-vpn-client_windows-635-224306.json"
+}
