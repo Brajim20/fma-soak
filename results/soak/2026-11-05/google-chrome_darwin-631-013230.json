@@ -1,0 +1,67 @@
+{
+ "slug": "google-chrome/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-05T01:32:30",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "upgrade over 156.0.8078.80 ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T05:32:30Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 815,
+ "cached_versions": [
+  "156.0.8078.80",
+  "157.0.8103.39"
+ ],
+ "active_before": "157.0.8103.39",
+ "pin_older_status": 200,
+ "active_after_pin": "156.0.8078.80",
+ "old_install_request": 202,
+ "old_install_status": "failed_install",
+ "old_install_seconds": 107,
+ "old_install_output_tail": "Installing software...\nFailed\ninstaller: Package name is Google Chrome\ninstaller: Upgrading at base path /\ninstaller: The upgrade failed..\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "157.0.8103.39",
+ "app_during_upgrade": "off",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "failed_install",
+ "upgrade_install_seconds": 107,
+ "upgrade_install_output_tail": "Installing software...\nFailed\ninstaller: Package name is Google Chrome\ninstaller: Upgrading at base path /\ninstaller: The upgrade failed..\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": null,
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "failed_uninstall",
+ "cleanup_uninstall_seconds": 336,
+ "cleanup_uninstall_output_tail": "st.\n/Users/<user>/Library/Caches/com.google.Chrome doesn't exist.\n/Users/<user>/Library/Caches/com.google.Chrome.helper.* doesn't exist.\n/Users/<user>/Library/Caches/com.google.Keystone doesn't exist.\n/Users/<user>/Library/Caches/com.google.Keystone.Agent doesn't exist.\n/Users/<user>/Library/Caches/com.google.SoftwareUpdate doesn't exist.\n/Users/<user>/Library/Caches/Google/Chrome doesn't exist.\n/Users/<user>/Library/Google/Google Chrome Brand.plist doesn't exist.\nremoving /Users/<user>/Library/Google/GoogleSoftwareUpdate.\n\nscript execution error: signal: killed",
+ "cleanup_uninstall_exit_code": -1,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-05T01:45:45",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T05:45:40Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/google-chrome_darwin-631-013230-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/google-chrome_darwin-631-013230-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/google-chrome_darwin-631-013230.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/google-chrome_darwin-631-002159.json"
+}
