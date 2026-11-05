@@ -393,6 +393,15 @@ def arch_findings(host, ctx, slug, rec, find):
         rec["arch"]["note"] = "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
 
 
+def replaces_preexisting(slug, host):
+    """Whether a copy of the app that the harness didn't install gets uninstalled so the FMA can be tested. Only on
+    the soak's own hosts and pool runners: a one-off cycle on a shared host (Mac 50 on main) never removes apps."""
+    c = CFG.get("replace_preexisting", {})
+    soak_host = host in {h for hs in CFG["hosts"].values() for h in hs} or bool(os.environ.get("FMA_SOAK_POOL_SLOT"))
+    return (bool(c.get("enabled")) and soak_host and host not in c.get("except_hosts", [])
+            and slug not in c.get("keep", []))
+
+
 def cycle(slug, host):
     state = load_state(host)
     man = catalog_manifest(slug)
@@ -421,8 +430,18 @@ def cycle(slug, host):
     rec["present_before"] = pre
     key = f"{slug}@{host}"
     if pre and key not in state["harness_installed"]:
-        rec["outcome"] = "skipped: app already on host and not installed by the harness"
-        return finish(rec)
+        if not replaces_preexisting(slug, host):
+            rec["outcome"] = "skipped: app already on host and not installed by the harness"
+            return finish(rec)
+        # a copy that was on the host before the soak blocks this app's test and takes disk (631 ran out on
+        # 2026-11-05): remove it with the FMA's own uninstall, as an admin would, then test the FMA normally
+        uninstall(host, tid, rec, "preexisting_uninstall")
+        pre = present(host, exists_q)
+        rec["preexisting_removed"] = pre is False
+        if pre is not False:
+            rec["outcome"] = ("skipped: the copy already on the host is still there after its uninstall "
+                              f"({rec.get('preexisting_uninstall_status')})")
+            return finish(rec)
     if pre is None:
         rec["outcome"] = "skipped: host didn't answer the presence query"
         return finish(rec)

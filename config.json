@@ -144,6 +144,21 @@
   "min_gb": 5,
   "hysteresis_gb": 2
  },
+ "held": {
+  "_doc": "held.py: once a day, quarantine entries and harness leftovers held this many days go to the \"Soak items held over 3 days\" issue.",
+  "days": 3
+ },
+ "replace_preexisting": {
+  "_doc": "runner.py: when an app is already on the host and the harness didn't install it, uninstall it with the FMA's uninstall script and test the FMA (Brayan, 2026-11-05). Otherwise the cycle is skipped. except_hosts: hosts where existing apps are never removed (635 is the physical NucBox people use). keep: slugs never removed (fleetd's own Desktop).",
+  "enabled": true,
+  "except_hosts": [
+   635
+  ],
+  "keep": [
+   "fleet-desktop/darwin",
+   "fleet-desktop/windows"
+  ]
+ },
  "crosshost": {
   "max_per_pass": 3,
   "window_days": 14,
