@@ -659,6 +659,14 @@
       "app": "adobe-acrobat-reader/windows",
       "shape": "S1",
       "verdict": "filed #57681: windows_acrobat_dc override renames inventory to 'Adobe Acrobat DC (64-bit)', a separate title from the FMA's 'Adobe Acrobat (64-bit)' (confirmed on 229)"
+    },
+    {
+      "app": "nagstamon/windows",
+      "verdict": "filed #57700: registers 'Nagstamon 3.18.2' (publisher matches), exact name query never matches (confirmed on 229)"
+    },
+    {
+      "app": "sonos/windows",
+      "verdict": "filed #57701: 32-bit InstallShield setup caches the MSI under SysWOW64 systemprofile (WOW64 redirect) but launches msiexec on the System32 path -> 1619 (confirmed on 229, both switch forms)"
     }
   ]
 }
