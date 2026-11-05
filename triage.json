@@ -667,6 +667,10 @@
     {
       "app": "sonos/windows",
       "verdict": "filed #57701: 32-bit InstallShield setup caches the MSI under SysWOW64 systemprofile (WOW64 redirect) but launches msiexec on the System32 path -> 1619 (confirmed on 229, both switch forms)"
+    },
+    {
+      "app": "another-redis-desktop-manager/windows",
+      "verdict": "environment: clean x64 control on 228 (main) passed both rounds (exit 0, detected, uninstalled clean, inventory 1.7.4); 635's exit 2 came from leftover state"
     }
   ]
 }
