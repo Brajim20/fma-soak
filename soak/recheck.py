@@ -1,16 +1,20 @@
-"""Closed-bug recheck: when an FMA catalog bug the soak filed gets closed, rerun its app and say whether the fix took.
+"""QA recheck: when an FMA catalog bug the soak filed reaches Awaiting QA (or is closed), rerun its app and draft the
+verification comment.
 
-FMA catalog fixes (manifest, scripts, exists/patched queries) ship within about an hour of merging, not with a release,
-so the owner may close them without a QA handoff. This is the QA step instead:
+FMA catalog fixes (manifest, scripts, exists/patched queries) ship within about an hour of merging, not with a
+release, so they can be verified on the soak hosts as soon as the fix PR merges. The comment is only a draft: QA
+reads it and decides whether to post it. Nothing here posts, moves or closes an issue.
 
-  refresh (report job, needs GH_TOKEN)   triage.json entries that say "filed #N" -> the closed ones among them whose
-                                         title starts "Fleet-maintained apps:" (catalog bugs; Fleet server and fleetd
-                                         bugs ship with a release and get normal QA) -> results/state/recheck.json,
+  refresh (report job, needs GH_TOKEN)   triage.json entries that say "filed #N" -> those on the board's Awaiting QA
+                                         column (or closed as done) whose title starts "Fleet-maintained apps:"
+                                         (catalog bugs; Fleet server and fleetd bugs ship with a release and get
+                                         normal QA) -> results/state/recheck.json,
                                          one item per (issue, app), with the host and kind (lifecycle / update path)
                                          the finding was seen on, and the verdict from any recheck record so far.
                                          Ready-to-paste comments go to results/recheck/<issue>.md. Nothing is posted.
   run (soak pass, per host)              pending items for this host: the same cycle or update path, at least
-                                         `recheck.settle_minutes` after the close, with `recheck_of` on the record.
+                                         `recheck.settle_minutes` after the fix PR merged, with `recheck_of` on the
+                                         record.
 
 Verdicts, from the newest recheck record:
   fixed           a clean run, with the title freshly added (so Fleet fetched the current manifest)
@@ -18,7 +22,7 @@ Verdicts, from the newest recheck record:
   different       other findings: look before saying anything on the issue
   inconclusive    clean, but the title was already in the fleet, so the old installer and scripts may have run
   pending         nothing yet, or only skips, environment problems or harness errors (they retry next pass)
-Reopened issues drop out; closed as not planned are listed but not rerun.
+Issues that leave Awaiting QA (comment posted and moved on, or sent back) drop out, and so does their draft.
 
   python3 recheck.py refresh
   python3 recheck.py run --platform windows --host 635 [--max 3] [--dry-run]
@@ -46,19 +50,52 @@ def filed():
     for t in D.TRIAGE:
         if t["app"].startswith("*"):
             continue
-        for n in re.findall(r"#(\d{5,6})", t["verdict"]):
+        # the issue the entry is about: the "filed #N" numbers, or else the first one cited ("#57152 class",
+        # "missed by #51875" and the like are context, not the bug)
+        m = re.search(r"filed\s+((?:#\d{5,6}(?:\s*,\s*|\s+and\s+)?)+)", t["verdict"])
+        ns = re.findall(r"#(\d{5,6})", m.group(1)) if m else re.findall(r"#(\d{5,6})", t["verdict"])[:1]
+        for n in ns:
             out.setdefault(int(n), []).append(t)
     return out
 
 
-def closed_issues(numbers):
-    """Closed catalog bugs among `numbers`: {n: {title, closedAt, stateReason}}, from one search; None if gh failed."""
-    q = ["gh", "issue", "list", "-R", "fleetdm/fleet", "--state", "closed", "--limit", "1000",
-         "--search", f'"{PREFIX}" in:title', "--json", "number,title,closedAt,stateReason"]
-    res = subprocess.run(q, capture_output=True, text=True)
-    if res.returncode:
+def fetch_issues(numbers):
+    """{n: {title, state, stateReason, closedAt, statuses, prs}} for the issues among `numbers`, in one GraphQL call;
+    None if GitHub couldn't be read. `statuses` are the issue's project-board Status values (needs a token that can
+    read org projects; GitHub Actions' own token can't, so CI passes FMA_SOAK_GH_PROJECTS_TOKEN). `prs` are merged PRs
+    that reference the issue, newest merge last."""
+    issue = ('number title state stateReason closedAt '
+             'projectItems(first:10){nodes{fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}}}} '
+             'timelineItems(first:50,itemTypes:[CROSS_REFERENCED_EVENT,CONNECTED_EVENT]){nodes{'
+             '... on CrossReferencedEvent{source{... on PullRequest{number merged mergedAt url}}} '
+             '... on ConnectedEvent{subject{... on PullRequest{number merged mergedAt url}}}}}')
+    q = 'query{repository(owner:"fleetdm",name:"fleet"){' + "".join(
+        f"i{n}:issueOrPullRequest(number:{n}){{... on Issue{{{issue}}}}}" for n in sorted(numbers)) + "}}"
+    res = subprocess.run(["gh", "api", "graphql", "-f", f"query={q}"], capture_output=True, text=True)
+    try:
+        repo = json.loads(res.stdout)["data"]["repository"]
+    except (ValueError, KeyError, TypeError):
+        print(f"recheck: GitHub read failed: {res.stderr.strip()[:300]}")
         return None
-    return {i["number"]: i for i in json.loads(res.stdout) if i["number"] in numbers and i["title"].startswith(PREFIX)}
+    if "project" in res.stderr.lower():
+        print("recheck: this token can't read project boards; Awaiting QA can't be seen (closed issues still can)")
+    out = {}
+    for v in repo.values():
+        if not v or "number" not in v:
+            continue  # a PR, or a number from another repo
+        prs = [x.get("source") or x.get("subject") or {} for x in v["timelineItems"]["nodes"]]
+        out[v["number"]] = {**{k: v[k] for k in ("number", "title", "state", "stateReason", "closedAt")},
+                            "statuses": [(x.get("fieldValueByName") or {}).get("name") or "" for x in v["projectItems"]["nodes"]],
+                            "prs": sorted({(p["mergedAt"], p["number"], p["url"]) for p in prs if p.get("merged")})}
+    return out
+
+
+def ready(meta):
+    """Waiting on QA: open on the board's Awaiting QA column, or closed as done (the owner may close a catalog fix
+    directly)."""
+    if meta["state"] == "CLOSED":
+        return meta.get("stateReason") != "NOT_PLANNED"
+    return any("awaiting qa" in s.lower() for s in meta["statuses"])
 
 
 def origin(entry, recs):
@@ -92,34 +129,39 @@ def verdict(item, entries, recs):
 
 def refresh():
     by_issue = filed()
-    issues = closed_issues(set(by_issue))
+    issues = fetch_issues(set(by_issue))
     if issues is None:  # GitHub unreachable: keep the last queue rather than wiping its verdicts
-        print("recheck: gh issue list failed; keeping the previous queue")
+        print("recheck: keeping the previous queue")
         return
     recs = D.all_records()
     old = json.load(open(QUEUE)) if os.path.exists(QUEUE) else {"items": []}
     settle = datetime.timedelta(minutes=cfg().get("settle_minutes", 60))
+    now = datetime.datetime.now()
+    local = lambda z: datetime.datetime.fromisoformat(z.replace("Z", "+00:00")).astimezone().replace(tzinfo=None)
     items = []
     for n, meta in sorted(issues.items()):
+        if not meta["title"].startswith(PREFIX) or not ready(meta):
+            continue
         entries = by_issue[n]
         for slug in sorted({t["app"].split("@")[0] for t in entries}):
             e = [t for t in entries if t["app"].split("@")[0] == slug]
-            host, kind = origin(e[0], recs)
-            closed = datetime.datetime.fromisoformat(meta["closedAt"].replace("Z", "+00:00")).astimezone().replace(tzinfo=None)
-            item = {"issue": n, "title": meta["title"], "slug": slug, "platform": slug.rsplit("/", 1)[1],
-                    "host": host, "kind": kind, "closed": closed.isoformat(timespec="seconds"),
-                    "not_before": (closed + settle).isoformat(timespec="seconds")}
-            if meta.get("stateReason") == "NOT_PLANNED":
-                item.update(status="not planned", record=None)
-            else:
-                item["status"], item["record"] = verdict(item, e, recs)
             prev = next((x for x in old["items"] if x["issue"] == n and x["slug"] == slug), {})
-            item["since"] = prev.get("since") if prev.get("status") == item["status"] else datetime.datetime.now().isoformat(timespec="seconds")
+            host, kind = origin(e[0], recs)
+            # the fix has to be live before a run counts: settle after the newest merged PR, or after QA first saw
+            # the issue waiting when no merged PR is linked
+            seen = prev.get("seen") or now.isoformat(timespec="seconds")
+            base = local(meta["prs"][-1][0]) if meta["prs"] else datetime.datetime.fromisoformat(seen)
+            item = {"issue": n, "title": meta["title"], "slug": slug, "platform": slug.rsplit("/", 1)[1],
+                    "host": host, "kind": kind, "board": "closed" if meta["state"] == "CLOSED" else "awaiting QA",
+                    "seen": seen, "fix_prs": [{"number": p[1], "url": p[2], "merged": p[0]} for p in meta["prs"]],
+                    "not_before": (base + settle).isoformat(timespec="seconds")}
+            item["status"], item["record"] = verdict(item, e, recs)
+            item["since"] = prev.get("since") if prev.get("status") == item["status"] else now.isoformat(timespec="seconds")
             items.append(item)
     os.makedirs(os.path.dirname(QUEUE), exist_ok=True)
-    json.dump({"built": datetime.datetime.now().isoformat(timespec="seconds"), "items": items}, open(QUEUE, "w"), indent=1)
+    json.dump({"built": now.isoformat(timespec="seconds"), "items": items}, open(QUEUE, "w"), indent=1)
     drafts()
-    print(f"recheck: {len(items)} items from {len(issues)} closed catalog bugs: "
+    print(f"recheck: {len(items)} apps on {len({x['issue'] for x in items})} FMA bugs waiting on QA: "
           + ", ".join(f"{s} {sum(1 for x in items if x['status'] == s)}" for s in sorted({x['status'] for x in items})))
 
 
@@ -127,9 +169,13 @@ def drafts():
     """A comment per issue once every app on it has a verdict worth saying out loud. Never posted from here."""
     q = json.load(open(QUEUE))
     os.makedirs(DRAFTS, exist_ok=True)
+    live = {x["issue"] for x in q["items"]}
+    for f in os.listdir(DRAFTS):  # an issue that left Awaiting QA (posted and moved on, or sent back) needs no draft
+        if f.endswith(".md") and f[:-3].isdigit() and int(f[:-3]) not in live:
+            os.remove(os.path.join(DRAFTS, f))
     for n in sorted({x["issue"] for x in q["items"]}):
         xs = [x for x in q["items"] if x["issue"] == n]
-        if any(x["status"] in ("pending", "different", "inconclusive", "not planned") for x in xs):
+        if any(x["status"] in ("pending", "different", "inconclusive") for x in xs):
             continue
         recs = {x["record"]: json.load(open(os.path.join(D.RES, x["record"]))) for x in xs if x["record"]}
         lines = []
@@ -144,8 +190,11 @@ def drafts():
                 lines.append(f"- ❌ `{x['slug']}`: same failure after the close, on host {r.get('host')}, {r.get('build')}, "
                              f"catalog version {r.get('catalog_version')}: {msgs}")
         ok = all(x["status"] == "fixed" for x in xs)
-        head = "Verified by the FMA soak ✅" if ok else "Still reproduces after the fix ❌ — reopening suggested"
+        prs = ", ".join(f"#{p['number']}" for p in xs[0].get("fix_prs", []))
+        head = ("QA: verified ✅" if ok else "QA: still reproduces after the fix ❌") + (f" (fix: {prs})" if prs else "")
         body = f"{head}\n\n" + "\n".join(lines) + "\n"
+        if not ok:
+            body += "\nMoving back for another look.\n"
         open(os.path.join(DRAFTS, f"{n}.md"), "w").write(body)
 
 
@@ -168,9 +217,9 @@ def run(plat, host, limit, dry):
             continue
         todo.append(x)
     todo = todo[:limit]
-    print(f"recheck {plat} host {host}: {len(todo)} closed bug(s) to rerun")
+    print(f"recheck {plat} host {host}: {len(todo)} app(s) waiting on QA to rerun")
     for x in todo:
-        print(f"   #{x['issue']} {x['slug']} ({x['kind']}), closed {x['closed']}")
+        print(f"   #{x['issue']} {x['slug']} ({x['kind']}), {x['board']}")
         if dry or not R.wait_online(host):
             continue
         try:
@@ -192,15 +241,15 @@ def section():
         return []
     items = json.load(open(QUEUE))["items"]
     if not items:
-        return ["No closed FMA catalog bugs yet."]
+        return ["No FMA catalog bugs waiting on QA."]
     mark = {"fixed": "✅ fixed", "still broken": "❌ still broken", "different": "⚠️ different findings",
-            "inconclusive": "⚠️ inconclusive (title was already in the fleet)", "pending": "⏳ pending",
-            "not planned": "➖ closed as not planned"}
-    out = ["| Issue | App | Closed | Recheck | Record | Draft |", "|---|---|---|---|---|---|"]
+            "inconclusive": "⚠️ inconclusive (title was already in the fleet)", "pending": "⏳ pending"}
+    out = ["| Issue | App | Board | Fix | Recheck | Record | Draft |", "|---|---|---|---|---|---|---|"]
     for x in sorted(items, key=lambda x: (x["status"] != "still broken", x["status"] != "different", -x["issue"])):
         draft = f"[comment](recheck/{x['issue']}.md)" if os.path.exists(os.path.join(DRAFTS, f"{x['issue']}.md")) else ""
         rec = f"[record]({x['record']})" if x.get("record") else ""
-        out.append(f"| #{x['issue']} | {x['slug']} | {x['closed'][:10]} | {mark.get(x['status'], x['status'])} | {rec} | {draft} |")
+        fix = ", ".join(f"[#{p['number']}]({p['url']}) {p['merged'][:10]}" for p in x.get("fix_prs", [])) or "no PR linked"
+        out.append(f"| #{x['issue']} | {x['slug']} | {x['board']} | {fix} | {mark.get(x['status'], x['status'])} | {rec} | {draft} |")
     return out
 
 

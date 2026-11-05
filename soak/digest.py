@@ -310,7 +310,7 @@ def digest(date):
     import recheck
     rc = recheck.section()
     if rc:
-        L += ["", "## Closed bugs rechecked", "", *rc]
+        L += ["", "## Awaiting QA: soak rechecks (drafts, not posted)", "", *rc]
     L += ["", "## Coverage", "", *ledger_section()]
     ba = before_after(recs, date)
     if ba:

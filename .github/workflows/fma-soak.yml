@@ -270,7 +270,9 @@ jobs:
         working-directory: harness/soak
         env:
           GH_TOKEN: ${{ github.token }}   # context lookups (commits, issues) for new findings
-        run: python3 sample.py --ledger && python3 recheck.py refresh && python3 digest.py && python3 monthly.py
+          # recheck reads fleetdm/fleet's project boards (Awaiting QA), which Actions' own token can't
+          RECHECK_TOKEN: ${{ secrets.FMA_SOAK_GH_PROJECTS_TOKEN || github.token }}
+        run: python3 sample.py --ledger && GH_TOKEN="$RECHECK_TOKEN" python3 recheck.py refresh && python3 digest.py && python3 monthly.py
       - name: Announce new findings (an issue here, so it emails the owner)
         working-directory: harness/soak
         env:
