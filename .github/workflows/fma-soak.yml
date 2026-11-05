@@ -226,6 +226,10 @@ jobs:
             python3 -u stuck.py > "$RUNNER_TEMP/stuck.out" 2>&1; rc=$?
             cat "$RUNNER_TEMP/stuck.out"
             ../ci/alert.sh "$RUNNER_TEMP/stuck.out" $rc "Soak host stuck" "no longer stuck"
+            # a host running out of disk fails every install there (631 reached 0.17 GB on 2026-11-05)
+            python3 -u disk.py > "$RUNNER_TEMP/disk.out" 2>&1; rc=$?
+            cat "$RUNNER_TEMP/disk.out"
+            ../ci/alert.sh "$RUNNER_TEMP/disk.out" $rc "Soak host low on disk" "disk OK again"
             if (( tick % 4 == 0 )); then
               for p in darwin windows; do python3 -u watcher.py check --platform $p || true; done
             fi

@@ -136,6 +136,11 @@
   ],
   "max_restarts_per_day": 2
  },
+ "disk": {
+  "_doc": "disk.py: a soak host below min_gb free alerts once (\"Soak host low on disk\" issue); it clears once back above min_gb + hysteresis_gb.",
+  "min_gb": 5,
+  "hysteresis_gb": 2
+ },
  "crosshost": {
   "max_per_pass": 3,
   "window_days": 14,
