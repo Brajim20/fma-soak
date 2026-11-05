@@ -1,0 +1,61 @@
+{
+ "slug": "8x8-work/windows",
+ "host": 629,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T21:19:08",
+ "findings": [],
+ "outcome": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "scenario": {
+  "slug": "8x8-work/windows",
+  "host": 629,
+  "title_id": 20023,
+  "older": "8.37.2",
+  "newest": "8.38.4",
+  "phase": "start",
+  "started": "2026-11-05T01:19:08+00:00",
+  "started_local": "2026-11-04T21:19:08",
+  "findings": [],
+  "observations": [],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 47,
+  "old_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (D0:F4) [21:19:41:833]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (D0:F4) [21:19:41:833]: Destroying RemoteAPI object.\r\nMSI (s) (D0:2C) [21:19:41:833]: Custom Action Manager thread ending.\r\nMSI (c) (10:10) [21:19:41:837]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (10:10) [21:19:41:837]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/4/2026  21:19:41 ===\r\n\r\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "install_locations": [
+    ""
+   ],
+   "names": [
+    "8x8 Work"
+   ],
+   "versions": [
+    "8.37.2.1"
+   ]
+  },
+  "open_open": {
+   "exit": 4,
+   "pids": [],
+   "note": "NO_TARGET"
+  },
+  "target": {
+   "plat": "windows",
+   "names": [
+    "8x8 Work"
+   ],
+   "locations": [],
+   "pids": []
+  },
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 31,
+  "ended": "2026-11-05T01:21:02+00:00"
+ },
+ "finished": "2026-11-04T21:21:02",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/8x8-work_windows-629-211908.json"
+}

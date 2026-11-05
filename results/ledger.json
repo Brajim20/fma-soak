@@ -1,10 +1,10 @@
 {
- "built": "2026-11-05T01:27:20",
+ "built": "2026-11-05T01:27:27",
  "coverage": {
   "darwin": {
-   "covered": 146,
+   "covered": 138,
    "catalog": 973,
-   "percent": 15.0,
+   "percent": 14.2,
    "deck": {
     "round": 1,
     "done": 98,
@@ -20,11 +20,6 @@
      "round": 1,
      "done": 94,
      "of": 830
-    },
-    "624": {
-     "round": 1,
-     "done": 12,
-     "of": 292
     }
    }
   },
@@ -34,13 +29,13 @@
    "percent": 62.7,
    "deck": {
     "round": 2,
-    "done": 62,
+    "done": 76,
     "of": 122
    },
    "decks": {
     "629": {
      "round": 2,
-     "done": 62,
+     "done": 76,
      "of": 122
     },
     "635": {
@@ -125,16 +120,14 @@
   },
   "8x8-work/windows@629": {
    "lifecycle_runs": 0,
-   "update_runs": 3,
+   "update_runs": 4,
    "last_update": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-03T21:07:24",
+    "outcome": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+    "date": "2026-11-04T21:19:08",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-03/8x8-work_windows-629-210724.json",
-    "findings": [
-     "pinned 8.37.2, but the host has ['8.37.2.1'] after installing it (#56873 shape)"
-    ]
+    "record": "results/soak/2026-11-04/8x8-work_windows-629-211908.json",
+    "findings": []
    }
   },
   "affinity/darwin@631": {
@@ -703,14 +696,14 @@
    }
   },
   "aws-sam-cli/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-30T18:56:46",
+    "date": "2026-11-04T22:40:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.170.0",
-    "record": "results/soak/2026-10-30/aws-sam-cli_windows-629-185646.json",
+    "catalog_version": "1.171.0",
+    "record": "results/soak/2026-11-04/aws-sam-cli_windows-629-224023.json",
     "findings": []
    }
   },
@@ -1548,30 +1541,30 @@
    }
   },
   "fortify/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-31T08:37:25",
+    "date": "2026-11-04T22:55:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.1.0",
-    "record": "results/soak/2026-10-31/fortify_windows-629-083725.json",
+    "record": "results/soak/2026-11-04/fortify_windows-629-225534.json",
     "findings": []
    }
   },
   "galaxy-modeler/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T18:12:55",
+    "date": "2026-11-05T00:04:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "13.7.0",
-    "record": "results/soak/2026-10-31/galaxy-modeler_windows-629-181255.json",
+    "record": "results/soak/2026-11-05/galaxy-modeler_windows-629-000423.json",
     "findings": [
-     "first install: Fleet says installed but the app isn't on the host",
-     "second install: Fleet says installed but the app isn't on the host",
-     "presence unknown after context_after_install (host didn't answer the live query)"
+     "first install: Fleet says failed but the app is on the host",
+     "first install ended as failed_install",
+     "second install ended as failed_install"
     ]
    }
   },
@@ -1955,17 +1948,16 @@
    }
   },
   "qgis@ltr/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-10-31T10:44:21",
+    "date": "2026-11-05T01:01:45",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.44.15",
-    "record": "results/soak/2026-10-31/qgis@ltr_windows-629-104421.json",
+    "record": "results/soak/2026-11-05/qgis@ltr_windows-629-010145.json",
     "findings": [
-     "first install ended as None",
-     "second install ended as None"
+     "inventory never reported the app after install + refetch"
     ]
    }
   },
@@ -2946,14 +2938,14 @@
    }
   },
   "mremoteng/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-01T21:51:33",
+    "date": "2026-11-04T22:29:52",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.76.20.24615",
-    "record": "results/soak/2026-11-01/mremoteng_windows-629-215133.json",
+    "record": "results/soak/2026-11-04/mremoteng_windows-629-222952.json",
     "findings": []
    }
   },
@@ -4330,14 +4322,14 @@
    }
   },
   "grok-bot/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T05:29:32",
+    "date": "2026-11-04T23:05:40",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.78.1",
-    "record": "results/soak/2026-11-02/grok-bot_windows-629-052932.json",
+    "catalog_version": "0.78.5",
+    "record": "results/soak/2026-11-04/grok-bot_windows-629-230540.json",
     "findings": []
    }
   },
@@ -4441,14 +4433,14 @@
    }
   },
   "lenovo-suhelper/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T20:45:07",
+    "date": "2026-11-04T22:34:32",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.0.0.22",
-    "record": "results/soak/2026-11-02/lenovo-suhelper_windows-629-204507.json",
+    "record": "results/soak/2026-11-04/lenovo-suhelper_windows-629-223432.json",
     "findings": []
    }
   },
@@ -4813,18 +4805,15 @@
    }
   },
   "ollama/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 3,
    "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-02T00:41:09",
+    "outcome": "pass",
+    "date": "2026-11-04T22:46:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.40.13",
-    "record": "results/soak/2026-11-02/ollama_windows-629-004109.json",
-    "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
-    ]
+    "catalog_version": "0.40.14",
+    "record": "results/soak/2026-11-04/ollama_windows-629-224619.json",
+    "findings": []
    },
    "last_update": {
     "outcome": "findings (reproduced on retry)",
@@ -5482,26 +5471,26 @@
    }
   },
   "windirstat/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-02T23:55:15",
+    "date": "2026-11-04T22:59:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.9.3",
-    "record": "results/soak/2026-11-02/windirstat_windows-629-235515.json",
+    "record": "results/soak/2026-11-04/windirstat_windows-629-225946.json",
     "findings": []
    }
   },
   "wireguard/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-02T14:48:16",
+    "date": "2026-11-04T23:19:13",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.1.1",
-    "record": "results/soak/2026-11-02/wireguard_windows-629-144816.json",
+    "record": "results/soak/2026-11-04/wireguard_windows-629-231913.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -7269,21 +7258,6 @@
     "findings": []
    }
   },
-  "airdroid/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-04T21:56:30)",
-    "date": "2026-11-04T21:50:51",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.7.3.1",
-    "record": "results/soak/2026-11-04/airdroid_darwin-624-215051.json",
-    "findings": [
-     "first install ended as None",
-     "second install ended as None"
-    ]
-   }
-  },
   "airdroid/darwin@631": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -7430,6 +7404,20 @@
     "findings": []
    }
   },
+  "azul-zulu-25-jdk/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T22:10:14",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "25.38.109",
+    "record": "results/soak/2026-11-04/azul-zulu-25-jdk_windows-629-221014.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
   "azul-zulu-25-jdk/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -7564,18 +7552,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "6.3.0.0",
     "record": "results/soak/2026-11-04/clipboardfusion_windows-635-175129.json",
-    "findings": []
-   }
-  },
-  "colour-contrast-analyser/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T22:57:16",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.5.5",
-    "record": "results/soak/2026-11-04/colour-contrast-analyser_darwin-624-225716.json",
     "findings": []
    }
   },
@@ -8123,20 +8099,6 @@
     "findings": []
    }
   },
-  "jamovi/darwin@624": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
-    "date": "2026-11-04T21:36:08",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "28.17.0.0",
-    "record": "results/soak/2026-11-04/jamovi_darwin-624-213608.json",
-    "findings": [
-     "add failed 500: mismatch in maintained app SHA256 hash"
-    ]
-   }
-  },
   "jamovi/darwin@636": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -8223,18 +8185,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.8.2.2",
     "record": "results/soak/2026-11-04/libreoffice_windows-635-035359.json",
-    "findings": []
-   }
-  },
-  "logitune/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T22:42:39",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.14.72",
-    "record": "results/soak/2026-11-04/logitune_darwin-624-224239.json",
     "findings": []
    }
   },
@@ -8331,6 +8281,22 @@
     ]
    }
   },
+  "notepad++/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T21:40:58",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.9.8.1",
+    "record": "results/soak/2026-11-04/notepad++_windows-629-214058.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
   "notepad++/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -8406,18 +8372,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.2.0",
     "record": "results/soak/2026-11-04/okta-verify_windows-635-022056.json",
-    "findings": []
-   }
-  },
-  "one-switch/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T23:10:23",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.35.4",
-    "record": "results/soak/2026-11-04/one-switch_darwin-624-231023.json",
     "findings": []
    }
   },
@@ -8687,6 +8641,21 @@
     ]
    }
   },
+  "sonos/windows@629": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T21:25:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "90.0.77070",
+    "record": "results/soak/2026-11-04/sonos_windows-629-212555.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
   "sonos/windows@635": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -8777,20 +8746,6 @@
     "findings": [
      "first uninstall: app still on host (status failed_uninstall)",
      "second uninstall: app still on host (status failed_uninstall)"
-    ]
-   }
-  },
-  "suspicious-package/darwin@624": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T23:44:00",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.8",
-    "record": "results/soak/2026-11-04/suspicious-package_darwin-624-234400.json",
-    "findings": [
-     "inventory never reported the app after install + refetch"
     ]
    }
   },
@@ -8917,18 +8872,6 @@
     "findings": []
    }
   },
-  "webstorm/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T22:22:45",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.2.4",
-    "record": "results/soak/2026-11-04/webstorm_darwin-624-222245.json",
-    "findings": []
-   }
-  },
   "webstorm/darwin@631": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -9028,78 +8971,6 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "10.0.7",
     "record": "results/soak/2026-11-04/zotero_windows-635-082700.json",
-    "findings": []
-   }
-  },
-  "cavalry/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T00:32:39",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.8",
-    "record": "results/soak/2026-11-05/cavalry_darwin-624-003239.json",
-    "findings": []
-   }
-  },
-  "clipy/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T00:08:36",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.4.1",
-    "record": "results/soak/2026-11-05/clipy_darwin-624-000836.json",
-    "findings": []
-   }
-  },
-  "powerphotos/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T01:06:34",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.4.9",
-    "record": "results/soak/2026-11-05/powerphotos_darwin-624-010634.json",
-    "findings": []
-   }
-  },
-  "pronotes/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T00:57:55",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.7.8.2",
-    "record": "results/soak/2026-11-05/pronotes_darwin-624-005755.json",
-    "findings": []
-   }
-  },
-  "reqable/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T01:17:26",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.3.10",
-    "record": "results/soak/2026-11-05/reqable_darwin-624-011726.json",
-    "findings": []
-   }
-  },
-  "tradingview/darwin@624": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T00:19:29",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.5.0",
-    "record": "results/soak/2026-11-05/tradingview_darwin-624-001929.json",
     "findings": []
    }
   }
