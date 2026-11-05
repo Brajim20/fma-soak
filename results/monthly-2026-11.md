@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 779 cycles: pass 341, findings 190, flaky 2, environment 32, harness 2, skipped 212
+**1. Runs** — 851 cycles: pass 370, findings 211, flaky 4, environment 35, harness 2, skipped 229
 
-**2. Coverage** — darwin 138/973 (14.2%), round 1; windows 289/461 (62.7%), round 2
+**2. Coverage** — darwin 160/973 (16.4%), round 1; windows 291/461 (63.1%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -79,6 +79,8 @@
 | #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #57558 | open | Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes |
 | #57601 | open | Fleet-maintained apps: OpenVPN Connect (Windows) is never detected, so its patch policy always passes |
+| #57659 | open | Fleet-maintained apps: GoAnywhere OpenPGP Studio (Windows) install fails with exit code 1 while the app is open |
+| #57660 | open | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
 
 **4. Build changes**
 

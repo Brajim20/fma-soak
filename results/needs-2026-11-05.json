@@ -1,0 +1,99 @@
+[
+ {
+  "app": "firefox/darwin@631",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 159.0 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/firefox_darwin-631-001201.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox/darwin.json), [firefox.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2025-05-02 software categories: backend (#28479); 2025-03-12 FMAv2 ingestion functionality (#27018) \u00b7 issues mentioning it: #56168 (open), #55657 (open), #55754 (open), #57161 (open), #56362 (open)"
+ },
+ {
+  "app": "google-chrome/darwin@631",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/google-chrome_darwin-631-013230.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/darwin.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/google-chrome.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2025-07-24 Populate version for macOS Chrome FMA on import, use Chrome Enterprise PKG instead of DMG,; 2025-05-02 software categories: backend (#28479); 2025-03-12 FMAv2 ingestion functionality (#27018) \u00b7 issues mentioning it: #56948 (open), #53291 (open), #14827 (open), #47443 (open), #56746 (open)"
+ },
+ {
+  "app": "onionshare/darwin@638",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/onionshare_darwin-638-000130.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/onionshare/darwin.json), [onionshare.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/onionshare.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (O) (#47237) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "qgis@ltr/windows@629",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/qgis@ltr_windows-629-010145.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/qgis@ltr/windows.json), [qgis@ltr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/qgis@ltr.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-21 Add QGIS and QGIS LTR as macOS and Windows Fleet-maintained apps (#54685) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "onionshare/darwin@638",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/onionshare_darwin-638-000130.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/onionshare/darwin.json), [onionshare.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/onionshare.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (O) (#47237) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "anytype/darwin@638",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/anytype_darwin-638-003749.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/anytype/darwin.json), [anytype.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/anytype.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (A) (#47536) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "firefox/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "upgrade over 159.0 ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/firefox_darwin-631-001201.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox/darwin.json), [firefox.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2025-05-02 software categories: backend (#28479); 2025-03-12 FMAv2 ingestion functionality (#27018) \u00b7 issues mentioning it: #56168 (open), #55657 (open), #55754 (open), #57161 (open), #56362 (open)"
+ },
+ {
+  "app": "google-chrome/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "upgrade over 156.0.8078.80 ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-05/google-chrome_darwin-631-013230.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/darwin.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/google-chrome.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2025-07-24 Populate version for macOS Chrome FMA on import, use Chrome Enterprise PKG instead of DMG,; 2025-05-02 software categories: backend (#28479); 2025-03-12 FMAv2 ingestion functionality (#27018) \u00b7 issues mentioning it: #56948 (open), #53291 (open), #14827 (open), #47443 (open), #56746 (open)"
+ }
+]
