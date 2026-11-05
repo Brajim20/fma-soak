@@ -1,0 +1,79 @@
+{
+ "slug": "autopsy/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T07:37:01",
+ "catalog_version": "4.23.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T11:36:57Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 25659,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "indows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (C0:08) [07:38:13:754]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (C0:08) [07:38:13:757]: Destroying RemoteAPI object.\r\nMSI (s) (C0:50) [07:38:13:757]: Custom Action Manager thread ending.\r\nMSI (c) (04:0C) [07:38:13:757]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (04:0C) [07:38:13:757]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/5/2026  7:38:13 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "4.23.1"
+ ],
+ "package_version": "4.23.1",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "indows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:54) [07:45:13:723]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (E0:54) [07:45:13:735]: Destroying RemoteAPI object.\r\nMSI (s) (E0:28) [07:45:13:735]: Custom Action Manager thread ending.\r\nMSI (c) (74:CC) [07:45:13:735]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:CC) [07:45:13:735]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/5/2026  7:45:13 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-05T07:48:16",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T11:48:12Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/autopsy_windows-629-073701-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/autopsy_windows-629-073701-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/autopsy_windows-629-073701.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/autopsy_windows-629-072503.json",
+ "crosshost_of": "soak/2026-11-05/autopsy_windows-635-033533.json"
+}
