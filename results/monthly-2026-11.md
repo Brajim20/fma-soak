@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 851 cycles: pass 370, findings 211, flaky 4, environment 35, harness 2, skipped 229
+**1. Runs** — 962 cycles: pass 419, findings 240, flaky 6, environment 35, harness 2, skipped 260
 
-**2. Coverage** — darwin 160/973 (16.4%), round 1; windows 291/461 (63.1%), round 2
+**2. Coverage** — darwin 211/973 (21.7%), round 1; windows 308/461 (66.8%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -81,6 +81,9 @@
 | #57601 | open | Fleet-maintained apps: OpenVPN Connect (Windows) is never detected, so its patch policy always passes |
 | #57659 | open | Fleet-maintained apps: GoAnywhere OpenPGP Studio (Windows) install fails with exit code 1 while the app is open |
 | #57660 | open | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57673 | open | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
+| #57674 | open | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
+| #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
 
 **4. Build changes**
 
