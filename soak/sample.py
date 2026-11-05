@@ -28,7 +28,10 @@ A title the sample added to the soak fleet is removed again when its cycle ended
 that were already in the fleet are never removed.
 
 The ledger (results/ledger.json) is rebuilt from every result record, so it can't drift from the evidence:
-last outcome, catalog version, build and date per app and platform, plus coverage and deck progress.
+last outcome, catalog version, build and date per app and platform, plus coverage and deck progress. Only the
+report job writes it (`--ledger`), after every sampling job has saved. An app counts as covered once one of its
+lifecycle cycles really ran; each deck also gets its cycles per day over the last 3 days and the date its round
+would finish at that speed.
 
   python3 sample.py --platform darwin --until 2026-10-30T18:00   # sample until then
   python3 sample.py --platform darwin --count 5 --dry-run        # show the next picks without running them
@@ -278,13 +281,44 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         if slug not in deck["done"]:
             deck["done"].append(slug)  # a version-change pick counts for the round too
         save_deck(deck)
-    if not dry:
-        build_ledger(write=True)
+    # no ledger write here: several jobs sample at once and each would push its own partial view; the report job
+    # rebuilds it from every record after all of them have saved
+
+
+NOT_A_CYCLE = ("skipped", "error", "environment")
 
 
 def is_covered(e):
-    """Covered = at least one lifecycle cycle actually ran (a skip or a harness error doesn't count)."""
-    return not str((e.get("last_lifecycle") or {}).get("outcome", "skipped")).startswith(("skipped", "error"))
+    """Covered = at least one lifecycle cycle actually ran, ever. A later skip, harness error or environment
+    problem (host restarted, queue busy) doesn't take that back."""
+    return bool(e.get("first_cycled"))
+
+
+def pace(plat, hosts, apps, days=3):
+    """Real lifecycle cycles per day for each host or pool slot over the last `days` days (or since its first
+    record, for a newer one), and the date its deck's round would finish at that speed."""
+    now = datetime.datetime.now()
+    since = now - datetime.timedelta(days=days)
+    runs = {}
+    for p in glob.glob(os.path.join(R.WS, "results", "soak", "*", "*.json")):
+        if os.path.basename(os.path.dirname(p)) < since.date().isoformat():
+            continue
+        try:
+            r = json.load(open(p))
+        except (ValueError, OSError):
+            continue
+        if not str(r.get("slug", "")).endswith("/" + plat) or r.get("kind") or not r.get("started"):
+            continue
+        t = datetime.datetime.fromisoformat(r["started"])
+        if t >= since:
+            runs.setdefault(r.get("pool_slot") or r["host"], []).append((t, str(r.get("outcome", ""))))
+    out = {}
+    for h in hosts:
+        rs = runs.get(h, [])
+        age = (now - min((t for t, _ in rs), default=now)).total_seconds() / 86400
+        n = sum(1 for _, o in rs if not o.startswith(NOT_A_CYCLE))
+        out[h] = round(n / max(age, 0.5), 1) if rs else 0.0
+    return out
 
 
 def build_ledger(write=False):
@@ -299,6 +333,8 @@ def build_ledger(write=False):
         e = apps.setdefault(f"{r['slug']}@{r.get('pool_slot') or r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
         kind = "update" if r.get("kind") in ("update_path", "patch_when_closed") else "lifecycle"
         e[f"{kind}_runs"] += 1
+        if kind == "lifecycle" and not str(r["outcome"]).startswith(NOT_A_CYCLE) and r.get("started"):
+            e["first_cycled"] = min(e.get("first_cycled") or r["started"], r["started"])
         e[f"last_{kind}"] = {"outcome": r["outcome"], "date": r.get("started"), "build": r.get("build"),
                              "catalog_version": r.get("catalog_version"), "record": os.path.relpath(p, R.WS),
                              "findings": [f["msg"] for f in r.get("findings", [])]}
@@ -309,11 +345,17 @@ def build_ledger(write=False):
         # an app counts once, whichever of the platform's hosts covered it
         n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
         coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None}
+        speed = pace(plat, hosts, apps) if write else {}
         for h in hosts:
             dp = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, h)}.json")
             if os.path.exists(dp):
                 dk = json.load(open(dp))
-                d = {"round": dk["round"], "done": len(dk["done"]), "of": len(dk["order"])}
+                d = {"round": dk["round"], "started": dk.get("started"), "done": len(dk["done"]), "of": len(dk["order"])}
+                if h in speed:
+                    left = max(d["of"] - d["done"], 0)
+                    d["per_day"] = speed[h]
+                    d["eta"] = (datetime.date.today() + datetime.timedelta(days=left / speed[h])).isoformat() \
+                        if speed[h] else (datetime.date.today().isoformat() if not left else None)
                 coverage[plat]["deck"] = d if h == hosts[0] else coverage[plat].get("deck")
                 coverage[plat].setdefault("decks", {})[str(h)] = d
     led = {"built": datetime.datetime.now().isoformat(timespec="seconds"), "coverage": coverage, "apps": apps}

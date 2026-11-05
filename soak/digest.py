@@ -199,7 +199,27 @@ def ledger_section():
             d = next(iter(decks.values()))
             line += f"; deck round {d['round']}: {d['done']}/{d['of']}"
         out.append(line)
+        if any("per_day" in d for d in decks.values()):
+            out.append("  " + round_pace(decks))
     return out
+
+
+def round_pace(decks):
+    """Whether each host's share of the catalog finishes its current round within the target (round_target_days from
+    the day that deck's round started). The platform is on pace only if every share is."""
+    target = json.load(open(os.path.join(WS, "config.json")))["random_sample"].get("round_target_days", 14)
+    parts, late = [], []
+    for h, d in decks.items():
+        if "per_day" not in d:
+            continue
+        due = (datetime.date.fromisoformat(d["started"]) + datetime.timedelta(days=target)).isoformat() \
+            if d.get("started") else None
+        parts.append(f"{h} {d['per_day']}/day → {d.get('eta') or 'never at this speed'}" + (f" (due {due})" if due else ""))
+        if due and (not d.get("eta") or d["eta"] > due):
+            late.append(str(h))
+    if late:
+        return f"⚠️ behind the {target}-day round on {', '.join(late)} — " + ", ".join(parts)
+    return f"✅ on pace for {target}-day rounds — " + ", ".join(parts)
 
 
 def digest(date):
