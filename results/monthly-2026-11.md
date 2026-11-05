@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 1047 cycles: pass 463, findings 258, flaky 8, environment 35, harness 3, skipped 280
+**1. Runs** — 1240 cycles: pass 571, findings 300, flaky 26, environment 39, harness 17, skipped 287
 
-**2. Coverage** — darwin 251/973 (25.8%), round 1; windows 316/461 (68.5%), round 2
+**2. Coverage** — darwin 338/973 (34.7%), round 1; windows 333/461 (72.2%), round 3
 
 **3. Escapes caught or confirmed**
 
@@ -84,6 +84,8 @@
 | #57673 | open | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
 | #57674 | open | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
 | #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
+| #57700 | open | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
+| #57701 | open | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
 
 **4. Build changes**
 
