@@ -176,6 +176,8 @@ jobs:
         working-directory: harness/soak
         run: |
           python3 -u runner.py --cleanup darwin --host ${{ steps.enroll.outputs.host }} || true
+          # stop fleetd first: a running fleetd re-enrolls within seconds of the delete and leaves an orphan host
+          sudo launchctl bootout system/com.fleetdm.orbit 2>/dev/null || true
           python3 -u pool.py finish --host ${{ steps.enroll.outputs.host }} --hostname "$RUNNER_HOSTNAME"
       - name: Save state and records
         if: always()
