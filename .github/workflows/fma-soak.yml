@@ -230,6 +230,10 @@ jobs:
             python3 -u disk.py > "$RUNNER_TEMP/disk.out" 2>&1; rc=$?
             cat "$RUNNER_TEMP/disk.out"
             ../ci/alert.sh "$RUNNER_TEMP/disk.out" $rc "Soak host low on disk" "disk OK again"
+            # once a day: quarantined apps and leftovers nobody has looked at for 3+ days
+            python3 -u held.py > "$RUNNER_TEMP/held.out" 2>&1; rc=$?
+            cat "$RUNNER_TEMP/held.out"
+            ../ci/alert.sh "$RUNNER_TEMP/held.out" $rc "Soak items held over 3 days"
             if (( tick % 4 == 0 )); then
               for p in darwin windows; do python3 -u watcher.py check --platform $p || true; done
             fi
