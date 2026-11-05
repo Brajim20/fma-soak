@@ -1,10 +1,10 @@
 {
- "built": "2026-11-04T15:49:17",
+ "built": "2026-11-04T20:01:59",
  "coverage": {
   "darwin": {
-   "covered": 135,
+   "covered": 136,
    "catalog": 973,
-   "percent": 13.9,
+   "percent": 14.0,
    "deck": {
     "round": 1,
     "done": 91,
@@ -18,7 +18,7 @@
     },
     "636": {
      "round": 1,
-     "done": 89,
+     "done": 94,
      "of": 830
     }
    }
@@ -7453,6 +7453,18 @@
     "findings": []
    }
   },
+  "chatgpt/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T18:30:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.1029.61003",
+    "record": "results/soak/2026-11-04/chatgpt_darwin-636-183052.json",
+    "findings": []
+   }
+  },
   "citrix-workspace/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7897,6 +7909,20 @@
     "findings": []
    }
   },
+  "jamovi/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T17:14:11",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "28.17.0.0",
+    "record": "results/soak/2026-11-04/jamovi_darwin-636-171411.json",
+    "findings": [
+     "add failed 500: mismatch in maintained app SHA256 hash"
+    ]
+   }
+  },
   "krisp/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7995,6 +8021,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "18.7.6",
     "record": "results/soak/2026-11-04/microsoft-ole-db-driver-18_windows-635-021602.json",
+    "findings": []
+   }
+  },
+  "moom/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T18:00:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.6",
+    "record": "results/soak/2026-11-04/moom_darwin-636-180034.json",
     "findings": []
    }
   },
@@ -8286,6 +8324,25 @@
     ]
    }
   },
+  "snagit/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T17:07:15",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.4.3",
+    "record": "results/soak/2026-11-04/snagit_darwin-636-170715.json",
+    "findings": [
+     "first install: Fleet says failed but the app is on the host",
+     "first install ended as failed_install",
+     "first uninstall: app still on host (status failed_uninstall)",
+     "second install: Fleet says failed but the app is on the host",
+     "second install ended as failed_install",
+     "second uninstall: app still on host (status failed_uninstall)"
+    ]
+   }
+  },
   "spectra-app/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8307,6 +8364,30 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "6.1.8",
     "record": "results/soak/2026-11-04/spyder_windows-635-074143.json",
+    "findings": []
+   }
+  },
+  "sqlectron/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T19:01:18",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.39.0",
+    "record": "results/soak/2026-11-04/sqlectron_darwin-636-190118.json",
+    "findings": []
+   }
+  },
+  "sqlpro-for-sqlite/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T19:31:42",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.301",
+    "record": "results/soak/2026-11-04/sqlpro-for-sqlite_darwin-636-193142.json",
     "findings": []
    }
   },
@@ -8424,6 +8505,21 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.2.4",
     "record": "results/soak/2026-11-04/webstorm_darwin-631-122228.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "webstorm/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T16:36:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.2.4",
+    "record": "results/soak/2026-11-04/webstorm_darwin-636-163623.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"

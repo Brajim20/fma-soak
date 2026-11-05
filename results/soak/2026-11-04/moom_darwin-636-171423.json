@@ -1,0 +1,112 @@
+{
+ "slug": "moom/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-04T17:14:23",
+ "catalog_version": "4.6",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-04T21:14:18Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 25151,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "\t\t\t<string>/dev/disk19s2</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_VpW4jh</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk19</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk19\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.6"
+ ],
+ "package_version": "4.6",
+ "context_after_install": {
+  "path": "/Applications/Moom.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Moom.app/Contents/MacOS/Moom",
+  "bundle_id": "com.manytricks.Moom",
+  "versions": [
+   "4.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/Many Tricks doesn't exist.\n/Users/<user>/Library/Preferences/com.manytricks.Moom.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "ing>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk19s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk19</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk19\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "11644"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "no result in time"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-04T18:00:23",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-04T22:00:22Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-04/evidence/moom_darwin-636-171423-library.png",
+  "inventory": "results/soak/2026-11-04/evidence/moom_darwin-636-171423-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-04/moom_darwin-636-171423.json"
+}
