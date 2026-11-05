@@ -1,0 +1,70 @@
+{
+ "slug": "google-chrome/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T02:47:19",
+ "catalog_version": "157.0.8103.39",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as pending_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T06:47:18Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 815,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Package name is Google Chrome\ninstaller: Upgrading at base path /\ninstaller: The upgrade failed..\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "n't exist.\n/Users/<user>/Library/LaunchAgents/com.google.keystone.xpcservice.plist doesn't exist.\n/Users/<user>/Library/Logs/GoogleSoftwareUpdateAgent.log doesn't exist.\n/Users/<user>/Library/Preferences/com.google.Chrome.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.google.Keystone.Agent.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.google.Chrome.app.*.savedState doesn't exist.\n/Users/<user>/Library/Saved Application State/com.google.Chrome.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.google.Chrome doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "pending_install",
+ "second_install_seconds": null,
+ "second_install_cancelled_after_timeout": [],
+ "second_install_output_tail": "",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-05T03:21:20",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T07:21:11Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/google-chrome_darwin-631-024719-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/google-chrome_darwin-631-024719-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/google-chrome_darwin-631-024719.json"
+}
