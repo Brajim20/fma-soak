@@ -1,0 +1,89 @@
+{
+ "slug": "vivid-app/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T15:29:52",
+ "catalog_version": "2.19.2",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T19:29:52Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "title_id": 25972,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.19.2"
+ ],
+ "package_version": "2.19.2",
+ "context_after_install": {
+  "path": "/Applications/Vivid.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Vivid.app/Contents/MacOS/Vivid",
+  "bundle_id": "com.goodsnooze.vivid",
+  "versions": [
+   "2.19.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/bugsnag-shared-com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Application Support/Vivid doesn't exist.\n/Users/<user>/Library/Caches/bugsnag-shared-com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Caches/com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Preferences/com.goodsnooze.vivid.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": null,
+ "second_install_seconds": 31,
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/bugsnag-shared-com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Application Support/Vivid doesn't exist.\n/Users/<user>/Library/Caches/bugsnag-shared-com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Caches/com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.goodsnooze.vivid doesn't exist.\n/Users/<user>/Library/Preferences/com.goodsnooze.vivid.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-05T15:37:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T19:37:09Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/vivid-app_darwin-624-152952-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/vivid-app_darwin-624-152952-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/vivid-app_darwin-624-152952.json"
+}
