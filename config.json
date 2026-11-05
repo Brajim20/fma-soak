@@ -40,7 +40,9 @@
    "635": 3,
    "pool": 3
   },
-  "host_weights_note": "new apps a day when sampling (2026-11-01 estimate): primaries ~8 (631) / ~16 (629) after canaries and the update path, sample-only hosts ~50; re-set from real speed after a week; pool = each pool slot (a GitHub macOS runner, 2026-11-04: guessed at 636's speed)"
+  "host_weights_note": "new apps a day when sampling (2026-11-01 estimate): primaries ~8 (631) / ~16 (629) after canaries and the update path, sample-only hosts ~50; re-set from real speed after a week; pool = each pool slot (a GitHub macOS runner, 2026-11-04: guessed at 636's speed)",
+  "new_app_days": 30,
+  "new_app_tries": 3
  },
  "audit": {
   "freshness_lag_days": 7,
@@ -66,7 +68,8 @@
   "alert_offline_hours": 2,
   "realert_hours": 12,
   "settle_minutes": 10,
-  "crosshost_budget_minutes": 90
+  "crosshost_budget_minutes": 90,
+  "recheck_budget_minutes": 60
  },
  "watcher": {
   "residents": {
@@ -151,5 +154,10 @@
  },
  "triage_rules": {
   "windows_arm_host": 629
+ },
+ "recheck": {
+  "settle_minutes": 60,
+  "max_per_pass": 5,
+  "note": "closed FMA catalog bugs rerun on the host that found them, at least settle_minutes after the close (fixes ship ~1 h after merge); recheck.py"
  }
 }

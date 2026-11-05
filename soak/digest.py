@@ -201,6 +201,12 @@ def ledger_section():
         out.append(line)
         if any("per_day" in d for d in decks.values()):
             out.append("  " + round_pace(decks))
+        cp = os.path.join(RES, "sample", f"catalog-{plat}.json")
+        if os.path.exists(cp):
+            since = (datetime.date.today() - datetime.timedelta(days=7)).isoformat()
+            new = sorted(s for s, d in json.load(open(cp))["first_seen"].items() if d and d >= since)
+            if new:
+                out.append(f"  new to the catalog in the last 7 days ({len(new)}, first in line): {', '.join(new)}")
     return out
 
 
@@ -301,6 +307,10 @@ def digest(date):
     if env:
         L += ["", "## Known environment", "", ", ".join(f"{a} ×{n}" for a, n in env.items())]
 
+    import recheck
+    rc = recheck.section()
+    if rc:
+        L += ["", "## Closed bugs rechecked", "", *rc]
     L += ["", "## Coverage", "", *ledger_section()]
     ba = before_after(recs, date)
     if ba:

@@ -270,7 +270,7 @@ jobs:
         working-directory: harness/soak
         env:
           GH_TOKEN: ${{ github.token }}   # context lookups (commits, issues) for new findings
-        run: python3 sample.py --ledger && python3 digest.py && python3 monthly.py
+        run: python3 sample.py --ledger && python3 recheck.py refresh && python3 digest.py && python3 monthly.py
       - name: Announce new findings (an issue here, so it emails the owner)
         working-directory: harness/soak
         env:

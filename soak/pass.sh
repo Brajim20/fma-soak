@@ -8,6 +8,7 @@
 #   watcher (4.3)      residents' upstream transitions, every pass (in CI, its own job every 2 h instead)
 #   patch closed (S6)  Fleet's patch-when-closed policy over several passes, one app a day per platform
 #   scenario (4.4)     Windows only: second explorer.exe, once a day
+#   closed-bug recheck reruns apps whose FMA catalog bug was closed (recheck.py), on the host that found it
 #   cross-host repro   reruns the other host's untriaged findings on this host (crosshost.py), both hosts
 #   digest (4.6)        results/digest-<date>.md, rebuilt every pass
 # A second host on a platform (pass.sh <platform> <host>) only takes new apps from the coverage sample: canaries,
@@ -52,6 +53,7 @@ if [[ -n $host ]]; then
     exit $worst
   fi
   step runner.py --cleanup $plat --host $host
+  fits $(cfg recheck_budget_minutes 60) "closed-bug recheck" && step recheck.py run --platform $plat --host $host
   fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat --host $host
   step sample.py --platform $plat --host $host --until "$until"
   exit $worst
@@ -73,6 +75,7 @@ if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 9
 # check here too would overwrite the watcher job's newer files with this pass's stale copy
 [[ -z $FMA_SOAK_WATCHER_JOB ]] && step watcher.py check --platform $plat
 [[ $plat == windows ]] && step scenarios.py explorer2   # #51127 scenario, once a day (4.4)
+fits $(cfg recheck_budget_minutes 60) "closed-bug recheck" && step recheck.py run --platform $plat
 fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat
 # python, not `date -r`: BSD date reads -r as epoch seconds, GNU date (CI runners) as a file to stat
 step sample.py --platform $plat --until "$until"

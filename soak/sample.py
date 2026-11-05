@@ -2,6 +2,9 @@
 
 Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no app repeated before all are done.
 
+- New apps: an app that shows up in the instance's catalog (results/sample/catalog-<plat>.json, kept by the report
+  job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary deck app.
+
 - The deck: per platform, the catalog in a seeded random order (results/sample/deck-<plat>.json). Picks come off
   the top, skipping apps already covered this round, so every app comes up exactly once per round. When the
   deck runs out, round N+1 reshuffles with a new seed. Apps new to the catalog are inserted at a random spot.
@@ -173,10 +176,56 @@ def save_deck(deck):
     json.dump(deck, open(os.path.join(SAMPLE_DIR, f"deck-{deck['platform']}{suffix(deck['platform'], host)}.json"), "w"), indent=1)
 
 
+def catalog_path(plat):
+    return os.path.join(SAMPLE_DIR, f"catalog-{plat}.json")
+
+
+def track_catalog(plat, cat):
+    """results/sample/catalog-<plat>.json: the date each app first showed up in the instance's catalog. The first
+    build marks everything already there as old (first_seen null). Only the report job calls this (via the ledger),
+    so there's one writer."""
+    p = catalog_path(plat)
+    known = json.load(open(p))["first_seen"] if os.path.exists(p) else None
+    today = datetime.date.today().isoformat()
+    seen = {s: (known.get(s, today) if known is not None else None) for s in cat}
+    gone = sorted(set(known or {}) - set(cat))
+    os.makedirs(SAMPLE_DIR, exist_ok=True)
+    json.dump({"platform": plat, "first_seen": seen, "removed": gone}, open(p, "w"), indent=1)
+    new = sorted(s for s, d in seen.items() if d == today and (known is None or s not in known))
+    if new:
+        print(f"catalog {plat}: {len(new)} new app(s): {', '.join(new)}")
+
+
+def new_apps(plat, catalog, ledger):
+    """Apps added to the catalog in the last `new_app_days` that haven't had a real cycle on any host yet, oldest
+    addition first. Each gets up to `new_app_tries` picks (skips and environment problems use one up), then it waits
+    for its turn in the deck like every other app."""
+    p = catalog_path(plat)
+    if not os.path.exists(p):
+        return []
+    rs = R.CFG["random_sample"]
+    since = (datetime.date.today() - datetime.timedelta(days=rs.get("new_app_days", 30))).isoformat()
+    first = json.load(open(p))["first_seen"]
+    out = []
+    for s in catalog:
+        d = first.get(s)
+        if not d or d < since:
+            continue
+        es = [e for k, e in ledger.items() if k.split("@")[0] == s]
+        if any(e.get("first_cycled") for e in es) or sum(e.get("lifecycle_runs", 0) for e in es) >= rs.get("new_app_tries", 3):
+            continue
+        out.append((d, s))
+    return [s for _, s in sorted(out)]
+
+
 def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
-    """(slug, why) or None. A version-changed app is due if it hasn't been cycled since the change window began."""
+    """(slug, why) or None. An app new to the catalog goes first, once. A version-changed app is due if it hasn't
+    been cycled since the change window began."""
     week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
     skip = excluded(plat, host)
+    fresh = [s for s in new_apps(plat, catalog, ledger) if s not in skip]
+    if fresh:
+        return fresh[0], "new to the catalog"
     if rng.random() < R.CFG["random_sample"].get("changed_share", 0.3):
         due = sorted(s for s in changed if s in set(catalog) and s not in skip and
                      ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") < week_ago)
@@ -262,7 +311,7 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         if dry:
             print(f"   would pick {slug} ({why})")
             deck["done"].append(slug) if why.startswith("deck") else changed.discard(slug)
-            ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}}
+            ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}, "first_cycled": entry_now()}
             continue
         entry = {"slug": slug, "why": why, "started": datetime.datetime.now().isoformat(timespec="seconds")}
         try:
@@ -276,7 +325,11 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         print(f"   {slug} ({why}): {entry['outcome']} [{entry.get('cleanup', '')}]", flush=True)
         day["picks"].append(entry)
         json.dump(day, open(day_path, "w"), indent=1)
-        ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry["started"], "outcome": entry["outcome"]}}
+        e = ledger.setdefault(f"{slug}@{me}", {"lifecycle_runs": 0, "update_runs": 0})
+        e["last_lifecycle"] = {"date": entry["started"], "outcome": entry["outcome"]}
+        e["lifecycle_runs"] = e.get("lifecycle_runs", 0) + 1
+        if not str(entry["outcome"]).startswith(NOT_A_CYCLE):
+            e["first_cycled"] = e.get("first_cycled") or entry["started"]
         changed.discard(slug)
         if slug not in deck["done"]:
             deck["done"].append(slug)  # a version-change pick counts for the round too
@@ -341,7 +394,10 @@ def build_ledger(write=False):
     coverage = {}
     for plat in R.CFG["hosts"]:
         hosts = all_hosts(plat)
-        total = len(instance_catalog(plat)) if write else None
+        cat = instance_catalog(plat) if write else None
+        total = len(cat) if write else None
+        if write:
+            track_catalog(plat, cat)
         # an app counts once, whichever of the platform's hosts covered it
         n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
         coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None}
