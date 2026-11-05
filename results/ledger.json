@@ -1,10 +1,10 @@
 {
- "built": "2026-11-04T21:10:40",
+ "built": "2026-11-05T01:09:10",
  "coverage": {
   "darwin": {
-   "covered": 138,
+   "covered": 149,
    "catalog": 973,
-   "percent": 14.2,
+   "percent": 15.3,
    "deck": {
     "round": 1,
     "done": 98,
@@ -20,6 +20,11 @@
      "round": 1,
      "done": 94,
      "of": 830
+    },
+    "90001": {
+     "round": 1,
+     "done": 13,
+     "of": 301
     }
    }
   },
@@ -7252,6 +7257,20 @@
     ]
    }
   },
+  "adobe-dng-converter/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-04T22:29:45",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "18.7",
+    "record": "results/soak/2026-11-04/adobe-dng-converter_darwin-638-222945.json",
+    "findings": [
+     "add failed 502: error code: 502\n"
+    ]
+   }
+  },
   "affinity/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7532,6 +7551,40 @@
     "findings": [
      "first install ended as pending_install",
      "second install ended as None"
+    ]
+   }
+  },
+  "cleanshot/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-04T22:32:47",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.0.2",
+    "record": "results/soak/2026-11-04/cleanshot_darwin-638-223247.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "cleanshot/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T22:59:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.0.2",
+    "record": "results/soak/2026-11-04/cleanshot_darwin-638-225948.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
     ]
    }
   },
@@ -7989,6 +8042,18 @@
     "findings": []
    }
   },
+  "hazeover/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:12:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.9.9",
+    "record": "results/soak/2026-11-04/hazeover_darwin-638-211232.json",
+    "findings": []
+   }
+  },
   "heidisql/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8103,6 +8168,18 @@
     "findings": [
      "add failed 500: mismatch in maintained app SHA256 hash"
     ]
+   }
+  },
+  "jitsi-meet/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:50:45",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.10.0",
+    "record": "results/soak/2026-11-04/jitsi-meet_darwin-638-215045.json",
+    "findings": []
    }
   },
   "joplin/windows@635": {
@@ -8230,6 +8307,30 @@
     "findings": []
    }
   },
+  "microsoft-onenote/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:40:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "16.114.3",
+    "record": "results/soak/2026-11-04/microsoft-onenote_darwin-638-214012.json",
+    "findings": []
+   }
+  },
+  "mimecast/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T23:26:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.11",
+    "record": "results/soak/2026-11-04/mimecast_darwin-638-232603.json",
+    "findings": []
+   }
+  },
   "moom/darwin@636": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -8351,6 +8452,23 @@
     "findings": []
    }
   },
+  "onionshare/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-04T23:35:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.7.1",
+    "record": "results/soak/2026-11-04/onionshare_darwin-638-233509.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
   "openinterminal/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8403,6 +8521,34 @@
     "findings": []
    }
   },
+  "plex-media-server/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-04T21:22:38",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.43.5.11079",
+    "record": "results/soak/2026-11-04/plex-media-server_darwin-638-212238.json",
+    "findings": [
+     "inventory shows ['1.43.5'] after installing 1.43.5.11079; the patch query passes, so only the version Fleet displays is behind"
+    ]
+   }
+  },
+  "plex-media-server/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T21:31:15",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.43.5.11079",
+    "record": "results/soak/2026-11-04/plex-media-server_darwin-638-213115.json",
+    "findings": [
+     "inventory shows ['1.43.5'] after installing 1.43.5.11079; the patch query passes, so only the version Fleet displays is behind"
+    ]
+   }
+  },
   "power-bi/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8436,6 +8582,32 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "156.17.9.80",
     "record": "results/soak/2026-11-04/prisma-browser_windows-635-093731.json",
+    "findings": []
+   }
+  },
+  "proton-meet/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-04T22:00:07",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.0.14",
+    "record": "results/soak/2026-11-04/proton-meet_darwin-638-220007.json",
+    "findings": [
+     "second uninstall: app still on host (status None)"
+    ]
+   }
+  },
+  "proton-meet/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-04T22:09:17",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.0.14",
+    "record": "results/soak/2026-11-04/proton-meet_darwin-638-220917.json",
     "findings": []
    }
   },
@@ -8553,6 +8725,18 @@
     "findings": [
      "first install: installed into the SYSTEM profile (C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Scrivener3), not the signed-in user's (#50857)"
     ]
+   }
+  },
+  "setapp/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T22:19:41",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.58.0",
+    "record": "results/soak/2026-11-04/setapp_darwin-638-221941.json",
+    "findings": []
    }
   },
   "shift/windows@635": {
@@ -8932,6 +9116,73 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "10.0.7",
     "record": "results/soak/2026-11-04/zotero_windows-635-082700.json",
+    "findings": []
+   }
+  },
+  "anytype/darwin@638": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-05T00:37:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.57.7",
+    "record": "results/soak/2026-11-05/anytype_darwin-638-003749.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
+   }
+  },
+  "anytype/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-05T00:49:05",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.57.7",
+    "record": "results/soak/2026-11-05/anytype_darwin-638-004905.json",
+    "findings": []
+   }
+  },
+  "keeper-password-manager/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-05T00:59:39",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "18.6.6",
+    "record": "results/soak/2026-11-05/keeper-password-manager_darwin-638-005939.json",
+    "findings": []
+   }
+  },
+  "onionshare/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-05T00:01:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.7.1",
+    "record": "results/soak/2026-11-05/onionshare_darwin-638-000130.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after context_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "platypus/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-05T00:28:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.5.0",
+    "record": "results/soak/2026-11-05/platypus_darwin-638-002844.json",
     "findings": []
    }
   }
