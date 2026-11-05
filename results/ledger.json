@@ -1,10 +1,10 @@
 {
- "built": "2026-11-05T01:52:19",
+ "built": "2026-11-05T02:41:46",
  "coverage": {
   "darwin": {
-   "covered": 138,
+   "covered": 141,
    "catalog": 973,
-   "percent": 14.2,
+   "percent": 14.5,
    "deck": {
     "round": 1,
     "done": 98,
@@ -18,15 +18,15 @@
     },
     "636": {
      "round": 1,
-     "done": 94,
-     "of": 830
+     "done": 104,
+     "of": 280
     }
    }
   },
   "windows": {
-   "covered": 291,
+   "covered": 289,
    "catalog": 461,
-   "percent": 63.1,
+   "percent": 62.7,
    "deck": {
     "round": 2,
     "done": 62,
@@ -40,7 +40,7 @@
     },
     "635": {
      "round": 1,
-     "done": 176,
+     "done": 168,
      "of": 339
     }
    }
@@ -7280,6 +7280,18 @@
     ]
    }
   },
+  "airdroid/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:15:02",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.7.3.1",
+    "record": "results/soak/2026-11-04/airdroid_darwin-636-211502.json",
+    "findings": []
+   }
+  },
   "amadine/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -7326,22 +7338,6 @@
     "catalog_version": "5.36.0.3628",
     "record": "results/soak/2026-11-04/amazon-workspaces_windows-635-041745.json",
     "findings": []
-   }
-  },
-  "another-redis-desktop-manager/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-04T22:03:56",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.7.4",
-    "record": "results/soak/2026-11-04/another-redis-desktop-manager_windows-635-220356.json",
-    "findings": [
-     "first install: Fleet says failed but the app is on the host",
-     "first install ended as failed_install",
-     "second install ended as failed_install"
-    ]
    }
   },
   "antigravity-ide/darwin@636": {
@@ -7424,32 +7420,6 @@
     "catalog_version": "2.3.10",
     "record": "results/soak/2026-11-04/arduino-ide_windows-635-133648.json",
     "findings": []
-   }
-  },
-  "avs-media-player/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T21:13:45",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "26.0.3.6",
-    "record": "results/soak/2026-11-04/avs-media-player_windows-635-211345.json",
-    "findings": []
-   }
-  },
-  "aws-vpn-client/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-05T02:54:41.870199Z)",
-    "date": "2026-11-04T22:43:06",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.2.1",
-    "record": "results/soak/2026-11-04/aws-vpn-client_windows-635-224306.json",
-    "findings": [
-     "second install: Fleet says installed but the app isn't on the host"
-    ]
    }
   },
   "azul-zulu-25-jdk/windows@635": {
@@ -7648,6 +7618,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.2.0",
     "record": "results/soak/2026-11-04/dbeaver-community_windows-635-181232.json",
+    "findings": []
+   }
+  },
+  "deepl/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:46:25",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.11.13023090762",
+    "record": "results/soak/2026-11-04/deepl_darwin-636-214625.json",
     "findings": []
    }
   },
@@ -8222,18 +8204,6 @@
     "findings": []
    }
   },
-  "localsend/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T21:23:38",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.18.2",
-    "record": "results/soak/2026-11-04/localsend_windows-635-212338.json",
-    "findings": []
-   }
-  },
   "lunasea/darwin@631": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8258,27 +8228,15 @@
     "findings": []
    }
   },
-  "microsoft-access-database-engine-2016/windows@635": {
-   "lifecycle_runs": 1,
+  "mattermost/darwin@636": {
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-04T22:36:23",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T23:02:31",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "16.0.5044.1000",
-    "record": "results/soak/2026-11-04/microsoft-access-database-engine-2016_windows-635-223623.json",
-    "findings": []
-   }
-  },
-  "microsoft-dotnet-desktop-runtime-10/windows@635": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-04T21:13:34",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "10.0.14",
-    "record": "results/soak/2026-11-04/microsoft-dotnet-desktop-runtime-10_windows-635-211334.json",
+    "catalog_version": "6.3.2",
+    "record": "results/soak/2026-11-04/mattermost_darwin-636-230231.json",
     "findings": []
    }
   },
@@ -8317,6 +8275,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.6",
     "record": "results/soak/2026-11-04/moom_darwin-636-180034.json",
+    "findings": []
+   }
+  },
+  "museeks/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-04T23:32:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.23.4",
+    "record": "results/soak/2026-11-04/museeks_darwin-636-233248.json",
     "findings": []
    }
   },
@@ -8541,18 +8511,6 @@
     "findings": []
    }
   },
-  "pycharm-ce/windows@635": {
-   "lifecycle_runs": 2,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-04T23:51:02",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2025.2.6.1",
-    "record": "results/soak/2026-11-04/pycharm-ce_windows-635-235102.json",
-    "findings": []
-   }
-  },
   "r/windows@635": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -8705,6 +8663,18 @@
      "second install ended as failed_install",
      "second uninstall: app still on host (status failed_uninstall)"
     ]
+   }
+  },
+  "snapmotion/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-04T21:59:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.3.0",
+    "record": "results/soak/2026-11-04/snapmotion_darwin-636-215909.json",
+    "findings": []
    }
   },
   "sonos/windows@635": {
@@ -8860,6 +8830,25 @@
     "findings": [
      "first install ended as pending_install",
      "second install ended as None"
+    ]
+   }
+  },
+  "tidal/darwin@636": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-04T21:39:43",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.47.0",
+    "record": "results/soak/2026-11-04/tidal_darwin-636-213943.json",
+    "findings": [
+     "first install: Fleet says failed but the app is on the host",
+     "first install ended as failed_install",
+     "first uninstall: app still on host (status failed_uninstall)",
+     "second install: Fleet says failed but the app is on the host",
+     "second install ended as failed_install",
+     "second uninstall: app still on host (status failed_uninstall)"
     ]
    }
   },
@@ -9025,39 +9014,39 @@
     "findings": []
    }
   },
-  "beekeeper-studio/windows@635": {
-   "lifecycle_runs": 1,
+  "coderunner/darwin@636": {
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-05T00:21:20",
+    "date": "2026-11-05T02:11:30",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "6.2.1",
-    "record": "results/soak/2026-11-05/beekeeper-studio_windows-635-002120.json",
+    "catalog_version": "4.6",
+    "record": "results/soak/2026-11-05/coderunner_darwin-636-021130.json",
     "findings": []
    }
   },
-  "electrum/windows@635": {
+  "flux-app/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-05T00:51:43",
+    "date": "2026-11-05T00:03:08",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.8.3",
-    "record": "results/soak/2026-11-05/electrum_windows-635-005143.json",
+    "catalog_version": "42.2",
+    "record": "results/soak/2026-11-05/flux-app_darwin-636-000308.json",
     "findings": []
    }
   },
-  "vivaldi/windows@635": {
+  "minstaller/darwin@636": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-05T01:22:04",
+    "date": "2026-11-05T00:33:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.2.4133.96",
-    "record": "results/soak/2026-11-05/vivaldi_windows-635-012204.json",
+    "catalog_version": "3.2.5",
+    "record": "results/soak/2026-11-05/minstaller_darwin-636-003320.json",
     "findings": []
    }
   }
