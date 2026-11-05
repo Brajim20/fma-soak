@@ -727,6 +727,18 @@
     {
       "app": "swiftdialog/darwin",
       "verdict": "harness, not a bug: Dialog.app opened with no arguments exits on its own (the install never saw it running on 624/631/636/642, and it also left after the post-install reopen), so the open-app step doesn't apply to swiftDialog"
+    },
+    {
+      "app": "processing/darwin",
+      "verdict": "filed #57817: unique_identifier org.processing.four; the shipped 4.5.7 app is org.processing.app (DMG Info.plist, Homebrew quit)"
+    },
+    {
+      "app": "elgato-wave-link/darwin",
+      "verdict": "filed #57818: unique_identifier com.elgato.WaveLink; Wave Link 3.4.0 ships as com.elgato.WaveLink3"
+    },
+    {
+      "app": "onionshare/darwin",
+      "verdict": "filed #57819: unique_identifier org.onionshare.onionshare; the shipped 2.7.1 app's CFBundleIdentifier is 'OnionShare'"
     }
   ]
 }
