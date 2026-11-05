@@ -1,0 +1,160 @@
+{
+ "slug": "firefox/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-05T02:44:12",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "upgrade to 159.0.1: executable owner 501:20, expected 0:80 (Firefox's updater needs root:admin + group-writable (#55093))"
+  },
+  {
+   "shape": "S2",
+   "msg": "upgrade to 159.0.1: executable mode 0755, needs at least 0775 (Firefox's updater needs root:admin + group-writable (#55093))"
+  },
+  {
+   "shape": "S2",
+   "msg": "executable ownership/mode changed by the upgrade: 0:80 0775 -> 501:20 0755 (#55093 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T06:44:12Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "title_id": 13135,
+ "cached_versions": [
+  "159.0",
+  "159.0.1"
+ ],
+ "active_before": "159.0.1",
+ "pin_older_status": 200,
+ "active_after_pin": "159.0",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 61,
+ "old_install_output_tail": ">\n\t\t\t<string>/dev/disk8s3</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_Xxc45Z</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFSX</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Firefox.app",
+  "bundle": "0:80 0775",
+  "executable": "0:80 0775",
+  "exe": "/Applications/Firefox.app/Contents/MacOS/firefox",
+  "bundle_id": "org.mozilla.firefox",
+  "versions": [
+   "159.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "159.0.1",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "78304"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 77,
+ "upgrade_install_output_tail": "dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\nApplication 'org.mozilla.firefox' was running; will relaunch after installation.\nQuitting application 'org.mozilla.firefox'...\nApplication 'org.mozilla.firefox' quit successfully.\nRelaunching application 'org.mozilla.firefox'...\nApplication 'org.mozilla.firefox' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'org.mozilla.firefox' was running; will relaunch after installation.",
+  "Quitting application 'org.mozilla.firefox'...",
+  "Application 'org.mozilla.firefox' quit successfully.",
+  "Relaunching application 'org.mozilla.firefox'...",
+  "Application 'org.mozilla.firefox' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "78465",
+   "path": "/Applications/Firefox.app/Contents/MacOS/firefox",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78468",
+   "path": "/Applications/Firefox.app/Contents/MacOS/crashhelper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78469",
+   "path": "/Applications/Firefox.app/Contents/MacOS/gpu-helper.app/Contents/MacOS/Firefox GPU Helper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78470",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78471",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78472",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78473",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78474",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78475",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78476",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78477",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Firefox.app",
+  "bundle": "0:80 0775",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Firefox.app/Contents/MacOS/firefox",
+  "bundle_id": "org.mozilla.firefox",
+  "versions": [
+   "159.0.1"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "on Support/Firefox.\nremoving /Users/<user>/Library/Caches/Firefox.\nremoving /Users/<user>/Library/Caches/Mozilla/updates/Applications/Firefox.\n/Users/<user>/Library/Caches/org.mozilla.crashreporter doesn't exist.\n/Users/<user>/Library/Caches/org.mozilla.firefox doesn't exist.\n/Users/<user>/Library/Preferences/org.mozilla.crashreporter.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/org.mozilla.firefox.plist.\n/Users/<user>/Library/Saved Application State/org.mozilla.firefox.savedState doesn't exist.\n/Users/<user>/Library/WebKit/org.mozilla.firefox doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-05T02:52:46",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T06:52:38Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/firefox_darwin-624-024412-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/firefox_darwin-624-024412-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/firefox_darwin-624-024412.json"
+}
