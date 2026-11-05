@@ -1,0 +1,119 @@
+{
+ "slug": "loom/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T12:22:49",
+ "catalog_version": "0.371.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T16:22:49Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 25822,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Loom for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.371.1"
+ ],
+ "package_version": "0.371.1",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Loom 0.371.1"
+  ],
+  "versions": [
+   "0.371.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "osoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\3643b966-bc28-5bc8-95ff-3d47d66438db)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\\Uninstall Loom.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom behind; removing it.\n  Running as <host>\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\"\nLoom removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Loom for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2148",
+   "4324",
+   "4396",
+   "5732",
+   "7552",
+   "8712",
+   "9644",
+   "11752",
+   "11948",
+   "13260",
+   "13392",
+   "13728",
+   "14040"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 108,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Loom for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "2576",
+   "3816",
+   "4964",
+   "5776",
+   "7152",
+   "8456",
+   "10184",
+   "11484",
+   "12068",
+   "13404",
+   "14072",
+   "14548"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "osoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\3643b966-bc28-5bc8-95ff-3d47d66438db)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\\Uninstall Loom.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom behind; removing it.\n  Running as <host>\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\"\nLoom removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-05T12:35:34",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T16:35:27Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/loom_windows-635-122249.json"
+}
