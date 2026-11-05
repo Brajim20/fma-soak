@@ -1,0 +1,89 @@
+{
+ "slug": "gotomeeting/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T15:59:12",
+ "catalog_version": "10.19.0.19950",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T19:59:04Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 25994,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "3:557]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (10:44) [15:59:53:559]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (10:44) [15:59:53:559]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A8:A8) [15:59:53:559]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A8:A8) [15:59:53:561]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/5/2026  15:59:53 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "10.19.0.19950",
+  "10.19.19950"
+ ],
+ "package_version": "10.19.0.19950",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "GoToMeeting 10.19.0.19950",
+   "GoToMeeting 10.19.19950"
+  ],
+  "versions": [
+   "10.19.0.19950",
+   "10.19.19950"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Selected entry DisplayName: GoToMeeting 10.19.0.19950\nUninstall command: C:\\Program Files (x86)\\GoToMeeting\\19950\\G2MUninstall.exe\nUninstall args: /uninstall /ForAllUsers /silent\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "9:348]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (10:44) [16:01:59:348]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (10:44) [16:01:59:348]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (F4:B8) [16:01:59:350]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (F4:B8) [16:01:59:350]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/5/2026  16:01:59 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Selected entry DisplayName: GoToMeeting 10.19.0.19950\nUninstall command: C:\\Program Files (x86)\\GoToMeeting\\19950\\G2MUninstall.exe\nUninstall args: /uninstall /ForAllUsers /silent\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 reading from redis: write tcp 10.31.228.149:43104->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 reading from redis: write tcp 10.31.228.149:38658->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-05T16:03:18",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T20:03:10Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/gotomeeting_windows-629-155912.json"
+}
