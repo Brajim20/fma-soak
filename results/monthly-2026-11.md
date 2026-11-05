@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 736 cycles: pass 323, findings 176, flaky 2, environment 32, harness 2, skipped 201
+**1. Runs** — 779 cycles: pass 341, findings 190, flaky 2, environment 32, harness 2, skipped 212
 
-**2. Coverage** — darwin 135/973 (13.9%), round 1; windows 278/461 (60.3%), round 2
+**2. Coverage** — darwin 138/973 (14.2%), round 1; windows 289/461 (62.7%), round 2
 
 **3. Escapes caught or confirmed**
 
@@ -78,6 +78,7 @@
 | #57556 | open | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #57558 | open | Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes |
+| #57601 | open | Fleet-maintained apps: OpenVPN Connect (Windows) is never detected, so its patch policy always passes |
 
 **4. Build changes**
 
