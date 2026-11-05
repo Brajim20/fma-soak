@@ -1,0 +1,98 @@
+{
+ "slug": "mozilla-vpn/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T07:23:56",
+ "catalog_version": "2.40.1",
+ "findings": [
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T11:23:54Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "title_id": 25700,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Mozilla VPN for macOS\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.40.1"
+ ],
+ "package_version": "2.40.1",
+ "context_after_install": {
+  "path": "/Applications/Mozilla VPN.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Mozilla VPN.app/Contents/MacOS/Mozilla VPN",
+  "bundle_id": "org.mozilla.macos.FirefoxVPN",
+  "versions": [
+   "2.40.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 137,
+ "first_uninstall_output_tail": "Quitting application 'org.mozilla.macos.FirefoxVPN'...\nApplication 'org.mozilla.macos.FirefoxVPN' did not quit.\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 471,
+ "second_install_output_tail": "Installing software...\nFailed\nApplication 'org.mozilla.macos.FirefoxVPN' was running; will relaunch after installation.\nQuitting application 'org.mozilla.macos.FirefoxVPN'...\nApplication 'org.mozilla.macos.FirefoxVPN' did not quit.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "Application 'org.mozilla.macos.FirefoxVPN' was running; will relaunch after installation.",
+  "Quitting application 'org.mozilla.macos.FirefoxVPN'...",
+  "Application 'org.mozilla.macos.FirefoxVPN' did not quit."
+ ],
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 137,
+ "second_uninstall_output_tail": "Quitting application 'org.mozilla.macos.FirefoxVPN'...\nApplication 'org.mozilla.macos.FirefoxVPN' did not quit.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-05T07:40:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T11:39:57Z",
+  "restarted": "2026-11-04T21:29:08.728725Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-05/evidence/mozilla-vpn_darwin-624-072356-library.png",
+  "inventory": "results/soak/2026-11-05/evidence/mozilla-vpn_darwin-624-072356-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/mozilla-vpn_darwin-624-072356.json"
+}
