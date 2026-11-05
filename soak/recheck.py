@@ -5,8 +5,10 @@ FMA catalog fixes (manifest, scripts, exists/patched queries) ship within about 
 release, so they can be verified on the soak hosts as soon as the fix PR merges. The comment is only a draft: QA
 reads it and decides whether to post it. Nothing here posts, moves or closes an issue.
 
-  refresh (report job, needs GH_TOKEN)   triage.json entries that say "filed #N" -> those on the board's Awaiting QA
-                                         column (or closed as done) whose title starts "Fleet-maintained apps:"
+  refresh (report job, needs GH_TOKEN)   QA's FMA bugs (label ~fma, author recheck.author) -> those on the board's
+                                         Awaiting QA column (or closed as done; with no board access, any with a
+                                         merged fix PR) whose title starts "Fleet-maintained apps:"; triage.json's
+                                         "filed #N" entries give each one's app(s)
                                          (catalog bugs; Fleet server and fleetd bugs ship with a release and get
                                          normal QA) -> results/state/recheck.json,
                                          one item per (issue, app), with the host and kind (lifecycle / update path)
@@ -77,8 +79,9 @@ def fetch_issues(numbers):
     except (ValueError, KeyError, TypeError):
         print(f"recheck: GitHub read failed: {res.stderr.strip()[:300]}")
         return None
-    if "project" in res.stderr.lower():
-        print("recheck: this token can't read project boards; Awaiting QA can't be seen (closed issues still can)")
+    boards = "project" not in res.stderr.lower()
+    if not boards:
+        print("recheck: this token can't read project boards: treating every open bug with a merged fix PR as waiting on QA")
     out = {}
     for v in repo.values():
         if not v or "number" not in v:
@@ -86,16 +89,31 @@ def fetch_issues(numbers):
         prs = [x.get("source") or x.get("subject") or {} for x in v["timelineItems"]["nodes"]]
         out[v["number"]] = {**{k: v[k] for k in ("number", "title", "state", "stateReason", "closedAt")},
                             "statuses": [(x.get("fieldValueByName") or {}).get("name") or "" for x in v["projectItems"]["nodes"]],
-                            "prs": sorted({(p["mergedAt"], p["number"], p["url"]) for p in prs if p.get("merged")})}
+                            "prs": sorted({(p["mergedAt"], p["number"], p["url"]) for p in prs if p.get("merged")}),
+                            "boards": boards}
     return out
+
+
+def mine():
+    """Issue numbers of the FMA bugs QA filed: label ~fma, author recheck.author (fleetdm/fleet)."""
+    res = subprocess.run(["gh", "issue", "list", "-R", "fleetdm/fleet", "--author", cfg().get("author", "Brajim20"),
+                          "--label", "~fma", "--state", "all", "--limit", "1000", "--json", "number"],
+                         capture_output=True, text=True)
+    if res.returncode:
+        print(f"recheck: gh issue list failed: {res.stderr.strip()[:300]}")
+        return None
+    return {i["number"] for i in json.loads(res.stdout)}
 
 
 def ready(meta):
     """Waiting on QA: open on the board's Awaiting QA column, or closed as done (the owner may close a catalog fix
-    directly)."""
+    directly). Without board access: open with a merged fix PR (wider: it also takes Ready for release and the odd
+    Inbox issue whose PR was only related; the drafts are filtered when QA reviews them)."""
     if meta["state"] == "CLOSED":
         return meta.get("stateReason") != "NOT_PLANNED"
-    return any("awaiting qa" in s.lower() for s in meta["statuses"])
+    if meta["boards"]:
+        return any("awaiting qa" in s.lower() for s in meta["statuses"])
+    return bool(meta["prs"])
 
 
 def origin(entry, recs):
@@ -129,7 +147,8 @@ def verdict(item, entries, recs):
 
 def refresh():
     by_issue = filed()
-    issues = fetch_issues(set(by_issue))
+    numbers = mine()
+    issues = fetch_issues(numbers) if numbers is not None else None
     if issues is None:  # GitHub unreachable: keep the last queue rather than wiping its verdicts
         print("recheck: keeping the previous queue")
         return
@@ -142,7 +161,14 @@ def refresh():
     for n, meta in sorted(issues.items()):
         if not meta["title"].startswith(PREFIX) or not ready(meta):
             continue
-        entries = by_issue[n]
+        entries = by_issue.get(n, [])
+        if not entries:  # filed outside the soak (or triage.json doesn't say "filed #N"): nothing to rerun
+            items.append({"issue": n, "title": meta["title"], "slug": "(no soak app linked)", "platform": None,
+                          "host": None, "kind": None, "board": "closed" if meta["state"] == "CLOSED" else
+                          ("awaiting QA" if meta["boards"] else "fix merged"), "status": "manual", "record": None,
+                          "fix_prs": [{"number": p[1], "url": p[2], "merged": p[0]} for p in meta["prs"]],
+                          "not_before": "", "since": "", "seen": ""})
+            continue
         for slug in sorted({t["app"].split("@")[0] for t in entries}):
             e = [t for t in entries if t["app"].split("@")[0] == slug]
             prev = next((x for x in old["items"] if x["issue"] == n and x["slug"] == slug), {})
@@ -152,7 +178,8 @@ def refresh():
             seen = prev.get("seen") or now.isoformat(timespec="seconds")
             base = local(meta["prs"][-1][0]) if meta["prs"] else datetime.datetime.fromisoformat(seen)
             item = {"issue": n, "title": meta["title"], "slug": slug, "platform": slug.rsplit("/", 1)[1],
-                    "host": host, "kind": kind, "board": "closed" if meta["state"] == "CLOSED" else "awaiting QA",
+                    "host": host, "kind": kind,
+                    "board": "closed" if meta["state"] == "CLOSED" else ("awaiting QA" if meta["boards"] else "fix merged"),
                     "seen": seen, "fix_prs": [{"number": p[1], "url": p[2], "merged": p[0]} for p in meta["prs"]],
                     "not_before": (base + settle).isoformat(timespec="seconds")}
             item["status"], item["record"] = verdict(item, e, recs)
@@ -175,7 +202,7 @@ def drafts():
             os.remove(os.path.join(DRAFTS, f))
     for n in sorted({x["issue"] for x in q["items"]}):
         xs = [x for x in q["items"] if x["issue"] == n]
-        if any(x["status"] in ("pending", "different", "inconclusive") for x in xs):
+        if any(x["status"] in ("pending", "different", "inconclusive", "manual") for x in xs):
             continue
         recs = {x["record"]: json.load(open(os.path.join(D.RES, x["record"]))) for x in xs if x["record"]}
         lines = []
