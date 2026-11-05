@@ -687,6 +687,46 @@
     {
       "app": "opencloud/darwin",
       "verdict": "filed #57151: detection uses the wrong bundle ID, so installs land on a separate title"
+    },
+    {
+      "app": "autopsy/windows",
+      "verdict": "filed #57805: exists/patched use the winget locale publisher 'The Sleuth Kit'; the MSI registers 'Sleuth Kit Labs', so detection never matches and the patch policy always passes"
+    },
+    {
+      "app": "burp-suite/darwin",
+      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)"
+    },
+    {
+      "app": "mozilla-vpn/darwin",
+      "verdict": "filed #57807: pkg postinstall launches the app, so every later install/uninstall fails 'did not quit'; filed #57808: on 631/636 (macOS 26.6.2) the install hangs until Fleet's 1 h script timeout kills it"
+    },
+    {
+      "app": "rstudio/windows",
+      "verdict": "filed #57809: install script doesn't stop rstudio/rsession/Rgui first, so reinstall over the open app exits 2"
+    },
+    {
+      "app": "xnviewmp/windows",
+      "verdict": "filed #57810: exists/patched name+publisher never match the registered program (uninstall key 'XnView MP (x64)_is1'); ARM 629 failure is the separate x64-only Inno class"
+    },
+    {
+      "app": "kiro/darwin",
+      "verdict": "environment (GitHub-runner pool VMs): 'Failed to relaunch' only on pool runners 643/645/646/649/640/638 on 2026-11-05 (7 of ~100); real Macs 624/631/636 relaunched 105/105 across the whole soak"
+    },
+    {
+      "app": "affinity/darwin",
+      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 649)"
+    },
+    {
+      "app": "clion/darwin",
+      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 646)"
+    },
+    {
+      "app": "dfu-blaster-pro/darwin",
+      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 645)"
+    },
+    {
+      "app": "swiftdialog/darwin",
+      "verdict": "harness, not a bug: Dialog.app opened with no arguments exits on its own (the install never saw it running on 624/631/636/642, and it also left after the post-install reopen), so the open-app step doesn't apply to swiftDialog"
     }
   ]
 }
