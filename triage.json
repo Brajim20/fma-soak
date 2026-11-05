@@ -679,6 +679,10 @@
     {
       "app": "tidal/darwin",
       "verdict": "environment (host 636): on host 50 (main) the root quit worked and reinstall over the open app quit and relaunched it; not a TIDAL bug"
+    },
+    {
+      "app": "snagit/darwin",
+      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)"
     }
   ]
 }
