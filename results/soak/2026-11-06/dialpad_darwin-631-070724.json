@@ -1,0 +1,103 @@
+{
+ "slug": "dialpad/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-06T07:07:24",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "upgrade over 2609.4.0 ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "app still on host after cleanup uninstall"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T11:07:14Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 23932,
+ "cached_versions": [
+  "2609.4.0",
+  "2609.5.0"
+ ],
+ "active_before": "2609.5.0",
+ "pin_older_status": 200,
+ "active_after_pin": "2609.4.0",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is dialpad\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": null,
+ "context_old": {
+  "path": "/Applications/Dialpad.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Dialpad.app/Contents/MacOS/Dialpad",
+  "bundle_id": "com.electron.dialpad",
+  "versions": [
+   "2609.4.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "2609.5.0",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "23813"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "failed_install",
+ "upgrade_install_seconds": 144,
+ "upgrade_install_output_tail": "Installing software...\nFailed\nApplication 'com.electron.dialpad' was running; will relaunch after installation.\nQuitting application 'com.electron.dialpad'...\nApplication 'com.electron.dialpad' did not quit.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.electron.dialpad' was running; will relaunch after installation.",
+  "Quitting application 'com.electron.dialpad'...",
+  "Application 'com.electron.dialpad' did not quit."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "23813",
+   "path": "/Applications/Dialpad.app/Contents/MacOS/Dialpad",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_running_note": "install refused because the app didn't quit (by design); app left running",
+ "upgrade_patched_query_passes": false,
+ "context_upgraded": {
+  "path": "/Applications/Dialpad.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Dialpad.app/Contents/MacOS/Dialpad",
+  "bundle_id": "com.electron.dialpad",
+  "versions": [
+   "2609.4.0"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "failed_uninstall",
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "Quitting application 'com.electron.dialpad'...\nApplication 'com.electron.dialpad' did not quit.\n\nscript execution error: exit status 1",
+ "cleanup_uninstall_exit_code": 1,
+ "outcome": "findings",
+ "finished": "2026-11-06T07:14:40",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T11:14:38Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/dialpad_darwin-631-070724-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/dialpad_darwin-631-070724-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/dialpad_darwin-631-070724.json"
+}
