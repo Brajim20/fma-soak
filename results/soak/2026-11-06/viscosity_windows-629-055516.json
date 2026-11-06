@@ -1,0 +1,86 @@
+{
+ "slug": "viscosity/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T05:55:16",
+ "catalog_version": "1.13.2.1888",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T09:55:11Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 26708,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.13.2.1888"
+ ],
+ "package_version": "1.13.2.1888",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Viscosity\\"
+  ],
+  "names": [
+   "Viscosity 1.13.2"
+  ],
+  "versions": [
+   "1.13.2.1888"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Viscosity\\unins000.exe\nUninstall args: /SILENT\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 15,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 15,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Viscosity\\unins000.exe\nUninstall args: /SILENT\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 reading from redis: write tcp 10.31.228.223:60972->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-06T05:59:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T09:59:49Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/viscosity_windows-629-055516-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/viscosity_windows-629-055516-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/viscosity_windows-629-055516.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/viscosity_windows-629-054826.json"
+}
