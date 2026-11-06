@@ -1,0 +1,124 @@
+{
+ "slug": "zoom/darwin",
+ "host": 652,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T17:34:16",
+ "catalog_version": "7.2.5.90525",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-05T21:34:17Z",
+  "restarted": "2026-11-05T20:43:52.552441Z"
+ },
+ "title_id": 12457,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Zoom Workplace\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.5 (90525)"
+ ],
+ "package_version": "7.2.5.90525",
+ "context_after_install": {
+  "path": "/Applications/zoom.us.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/zoom.us.app/Contents/MacOS/zoom.us",
+  "bundle_id": "us.zoom.xos",
+  "versions": [
+   "7.2.5 (90525)"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "esn't exist.\n/Users/<user>/Library/Preferences/us.zoom.xos.Hotkey.plist doesn't exist.\n/Users/<user>/Library/Preferences/us.zoom.xos.plist doesn't exist.\n/Users/<user>/Library/Preferences/us.zoom.ZoomAutoUpdater.plist doesn't exist.\n/Users/<user>/Library/Preferences/ZoomChat.plist doesn't exist.\n/Users/<user>/Library/Safari/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/SafariTechnologyPreview/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/us.zoom.xos.savedState doesn't exist.\n/Users/<user>/Library/WebKit/us.zoom.xos doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 39,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Zoom Workplace\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "5350"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nQuitting application 'us.zoom.xos'...\nApplication 'us.zoom.xos' quit successfully.\ninstaller: Package name is Zoom Workplace\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRestarting Zoom for user: runner\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Quitting application 'us.zoom.xos'...",
+  "Application 'us.zoom.xos' quit successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "7121",
+   "path": "/Applications/zoom.us.app/Contents/MacOS/zoom.us",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "nscode.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/us.zoom.xos.Hotkey.plist.\nremoving /Users/<user>/Library/Preferences/us.zoom.xos.plist.\n/Users/<user>/Library/Preferences/us.zoom.ZoomAutoUpdater.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/ZoomChat.plist.\n/Users/<user>/Library/Safari/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/SafariTechnologyPreview/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/us.zoom.xos.savedState doesn't exist.\n/Users/<user>/Library/WebKit/us.zoom.xos doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-05T17:44:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-05T21:44:43Z",
+  "restarted": "2026-11-05T20:43:52.552441Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/zoom_darwin-652-173416.json",
+ "pool_slot": 90002
+}
