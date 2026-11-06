@@ -1,0 +1,153 @@
+[
+ {
+  "app": "elmedia-player/darwin@656",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/elmedia-player_darwin-656-001403.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/elmedia-player/darwin.json), [elmedia-player.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/elmedia-player.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (E) (#47373) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "malwarebytes/darwin@631",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['5.28.4'] after installing 5.28.4.4244; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/malwarebytes_darwin-631-004258.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/malwarebytes/darwin.json), [malwarebytes.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/malwarebytes.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: #23832 (closed)"
+ },
+ {
+  "app": "wezterm/darwin@660",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['0.1.0'] after installing 20240203-110809; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/wezterm_darwin-660-002550.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #53825 (closed)"
+ },
+ {
+  "app": "novabench/darwin@631",
+  "shape": "S2",
+  "msgs": [
+   "first install: app executable isn't runnable by all users (0:80 0700)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/novabench_darwin-631-002013.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/novabench/darwin.json), [novabench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/novabench.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-13 Add macOS Fleet-maintained apps (N) (#47537) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "microsoft-dotnet-desktop-runtime-10/windows@629",
+  "shape": "S3",
+  "msgs": [
+   "before it was installed, Fleet lists it as installed ['10.0.9.50000', '64.132.61678', '8.0.33.36622']: another app's inventory matches this title (#51299 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/microsoft-dotnet-desktop-runtime-10_windows-629-011056.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-desktop-runtime-10/windows.json), [microsoft-dotnet-desktop-runtime-10.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-desktop-runtime-10.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-12 Fix .NET runtime winget ingestion after upstream Scope flip (#51022); 2026-08-03 Add Microsoft .NET Desktop Runtime 10 as a Windows FMA (#50361) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "supercollider/windows@635",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/supercollider_windows-635-012059.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/supercollider/windows.json), [supercollider.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/supercollider.json), [supercollider_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/supercollider_install.ps1), [supercollider_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/supercollider_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "tailscale-app/darwin@636",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says failed but the app is on the host",
+   "second install: Fleet says failed but the app is on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/tailscale-app_darwin-636-005444.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tailscale-app/darwin.json), [tailscale-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/tailscale-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-25 Add Tailscale as a macOS FMA (#36257) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "remote-desktop-manager/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/remote-desktop-manager_windows-629-003247.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/remote-desktop-manager/windows.json), [remote-desktop-manager.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/remote-desktop-manager.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "tailscale-app/darwin@636",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/tailscale-app_darwin-636-005444.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tailscale-app/darwin.json), [tailscale-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/tailscale-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-25 Add Tailscale as a macOS FMA (#36257) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "visual-studio-code/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/visual-studio-code_windows-629-002031.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-code/windows.json), [visual-studio-code.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-code.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-15 Update Fleet-maintained apps (#55644); 2025-05-02 software categories: backend (#28479); 2025-03-27 more fixes for FMA windows ingestion (#27487) \u00b7 issues mentioning it: #57499 (open), #37058 (open), #49693 (open), #55997 (open), #57555 (open)"
+ },
+ {
+  "app": "stretchly/windows@629",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/stretchly_windows-629-005435.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/stretchly/windows.json), [stretchly.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/stretchly.json), [stretchly_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/stretchly_install.ps1), [stretchly_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/stretchly_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-07-17 Update Fleet-maintained apps (#49505); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "tailscale-app/darwin@636",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-06/tailscale-app_darwin-636-005444.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tailscale-app/darwin.json), [tailscale-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/tailscale-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-25 Add Tailscale as a macOS FMA (#36257) \u00b7 issues mentioning it: none"
+ }
+]

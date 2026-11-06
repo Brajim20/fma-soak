@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 1422 cycles: pass 664, findings 355, flaky 46, environment 39, harness 26, skipped 292
+**1. Runs** — 1606 cycles: pass 765, findings 393, flaky 61, environment 41, harness 42, skipped 304
 
-**2. Coverage** — darwin 430/973 (44.2%), round 1; windows 341/461 (74.0%), round 3
+**2. Coverage** — darwin 501/973 (51.5%), round 1; windows 356/461 (77.2%), round 3
 
 **3. Escapes caught or confirmed**
 
@@ -13,12 +13,14 @@
 | #42082 | open | Windows FMAs: Support multiple architectures |
 | #45895 | merged | DMG install script use yes and update scripts |
 | #47037 | merged | Add several Windows FMAs |
+| #49123 | closed | Send browser User-Agent when downloading FMA installers |
 | #49682 | closed | Show a clear error when adding Mozilla Firefox and Firefox ESR to the same fleet |
 | #50077 | open | Windows software with version in name still matches wrong title for apps needing a custom match pattern |
 | #50937 | open | Allow multi-file software installers via archive extraction |
 | #51793 | open | Build dependency checking and installation into Windows FMAs |
 | #51875 | closed | Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusable and often unremovable |
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
+| #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
@@ -32,7 +34,7 @@
 | #57051 | open | Druva InSync (GovCloud) colliding with Druva InSync |
 | #57113 | open | Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always passes |
 | #57114 | open | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
-| #57116 | open | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
+| #57116 | closed | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
 | #57118 | open | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
 | #57119 | open | Fleet-maintained apps: Sequel Ace (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
 | #57120 | open | Fleet-maintained apps: JASP (macOS) detection uses an outdated bundle ID (org.jasp-stats.JASP → org.jaspstats.jasp) |
@@ -47,7 +49,7 @@
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
 | #57190 | merged | Regenerate macOS zip FMA outputs for ditto extraction (2/4) |
-| #57224 | open | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
+| #57224 | closed | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
 | #57225 | open | Fleet-maintained apps: AnyBurn (Windows) patch policy fails right after installing the current version (6.9.0.0 vs 6.9) |
 | #57321 | open | Fleet-maintained apps: Webex (Windows) is never detected, so its patch policy always passes |
 | #57333 | open | Fleet-maintained apps: dupeGuru (Windows) is never detected, so its patch policy always passes |
@@ -83,11 +85,21 @@
 | #57659 | open | Fleet-maintained apps: GoAnywhere OpenPGP Studio (Windows) install fails with exit code 1 while the app is open |
 | #57660 | open | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57673 | open | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
-| #57674 | open | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
+| #57674 | closed | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
 | #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
 | #57700 | open | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
 | #57701 | open | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
 | #57748 | open | Fleet-maintained apps: Snagit (macOS) can't be reinstalled or uninstalled after it's been opened ("did not quit" though it isn't running) |
+| #57805 | open | Fleet-maintained apps: Autopsy (Windows) is never detected after install, so its patch policy always passes |
+| #57806 | open | Fleet-maintained apps: Burp Suite Community Edition (macOS) is never detected after install |
+| #57807 | open | Fleet-maintained apps: Mozilla VPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
+| #57808 | open | Fleet-maintained apps: Mozilla VPN (macOS) install hangs until Fleet kills it on some Macs, blocking the host's queue for an hour |
+| #57809 | open | Fleet-maintained apps: RStudio (Windows) install fails with exit code 2 while the app is open |
+| #57810 | open | Fleet-maintained apps: XnView MP (Windows) is never detected after install, so its patch policy always passes |
+| #57817 | open | Fleet-maintained apps: Processing (macOS) is never detected after install (bundle ID org.processing.four vs org.processing.app) |
+| #57818 | open | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
+| #57819 | open | Fleet-maintained apps: OnionShare (macOS) is never detected after install (bundle ID org.onionshare.onionshare vs OnionShare) |
+| #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
 
 **4. Build changes**
 

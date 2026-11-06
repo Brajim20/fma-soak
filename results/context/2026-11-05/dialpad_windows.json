@@ -1,0 +1,45 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dialpad/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dialpad.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dialpad_install.ps1",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dialpad_uninstall.ps1"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "c2272cbf82",
+   "date": "2026-11-04",
+   "title": "Harden per-user Windows FMA install and uninstall scripts (A\u2013K) (#57371)"
+  },
+  {
+   "sha": "b95c2dac12",
+   "date": "2026-10-30",
+   "title": "Windows FMAs: only trust SYSTEM and user hives in per-user uninstall scripts (#56612)"
+  },
+  {
+   "sha": "86722c2dd9",
+   "date": "2026-10-27",
+   "title": "Fail per-user Windows FMA scripts when the scheduled task can't be read (#56629)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 57148,
+   "state": "open",
+   "title": "fleetd: a timed-out script's child processes keep running, and on macOS an orphaned instal"
+  },
+  {
+   "number": 48248,
+   "state": "open",
+   "title": "Windows FMA patch policies don't distinguish per-user vs per-machine install scope, leavin"
+  },
+  {
+   "number": 51875,
+   "state": "closed",
+   "title": "Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusa"
+  }
+ ]
+}
