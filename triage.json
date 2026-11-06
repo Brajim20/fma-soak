@@ -751,6 +751,46 @@
     {
       "app": "cyberduck-cli/windows",
       "verdict": "upstream: dist.duck.sh returns Apache 403 to every client (curl, PowerShell, BITS, Fleet) 2026-11-06, including the vendor docs' own link; winget points at the same URL. Recheck later; not a Fleet bug"
+    },
+    {
+      "app": "novabench/darwin",
+      "verdict": "filed #57915: installs /Applications/Novabench.app root:admin 0700 (#56532 class)"
+    },
+    {
+      "app": "recents/darwin",
+      "verdict": "filed #57916: server: name-fallback title match attaches the installer to Apple's Finder Recents title, so inventory never shows it"
+    },
+    {
+      "app": "requestly/windows",
+      "verdict": "filed #57917: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails"
+    },
+    {
+      "app": "stretchly/windows",
+      "verdict": "filed #57918: installs into SYSTEM profile despite installer_scope machine; uninstall fails"
+    },
+    {
+      "app": "syncovery/darwin",
+      "verdict": "filed #57919: nested BackgroundScheduler.app shares com.company.Syncovery (v9), patched query never passes"
+    },
+    {
+      "app": "tailscale-app/darwin",
+      "verdict": "filed #57920: install leaves app running; later install/uninstall exit 1 'did not quit'"
+    },
+    {
+      "app": "thorium/windows",
+      "verdict": "filed #57921: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails"
+    },
+    {
+      "app": "zed/windows",
+      "verdict": "filed #57922: installs into SYSTEM profile; /ALLUSERS has no effect"
+    },
+    {
+      "app": "coconutbattery/darwin",
+      "verdict": "filed #57923: catalog bundle ID is the nested LoginItems helper; inventory never shows a version (confirmed on main host 50)"
+    },
+    {
+      "app": "wezterm/darwin",
+      "verdict": "filed #57924: install over an open WezTerm fails 'did not quit' (confirmed on main host 50)"
     }
   ]
 }
