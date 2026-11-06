@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 1240 cycles: pass 571, findings 300, flaky 26, environment 39, harness 17, skipped 287
+**1. Runs** — 1422 cycles: pass 664, findings 355, flaky 46, environment 39, harness 26, skipped 292
 
-**2. Coverage** — darwin 338/973 (34.7%), round 1; windows 333/461 (72.2%), round 3
+**2. Coverage** — darwin 430/973 (44.2%), round 1; windows 341/461 (74.0%), round 3
 
 **3. Escapes caught or confirmed**
 
@@ -42,6 +42,7 @@
 | #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
 | #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
 | #57149 | open | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
+| #57151 | open | Fleet-maintained apps: OpenCloud Desktop (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
 | #57152 | open | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
@@ -86,6 +87,7 @@
 | #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
 | #57700 | open | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
 | #57701 | open | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
+| #57748 | open | Fleet-maintained apps: Snagit (macOS) can't be reinstalled or uninstalled after it's been opened ("did not quit" though it isn't running) |
 
 **4. Build changes**
 
