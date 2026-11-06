@@ -743,6 +743,14 @@
     {
       "app": "crestron-airmedia/windows",
       "verdict": "filed #57827: Crestron 403s Fleet's download User-Agent (fleet/<v> Go-http-client/1.1); regression of #49123 via #53828; file downloads fine with PowerShell/BITS"
+    },
+    {
+      "app": "directory-opus/windows",
+      "verdict": "environment: Inno exit 8 only on the long-running soak hosts (pending-reboot class); clean control on main host 229 (2026-11-06, 4.94.1) installed in ~30 s"
+    },
+    {
+      "app": "cyberduck-cli/windows",
+      "verdict": "upstream: dist.duck.sh returns Apache 403 to every client (curl, PowerShell, BITS, Fleet) 2026-11-06, including the vendor docs' own link; winget points at the same URL. Recheck later; not a Fleet bug"
     }
   ]
 }
