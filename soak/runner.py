@@ -433,6 +433,8 @@ def cycle(slug, host):
     exists_q = v["queries"]["exists"]
     rec = {"slug": slug, "host": host, "build": build(), "started": datetime.datetime.now().isoformat(timespec="seconds"),
            "catalog_version": v["version"], "findings": [], "host_at_start": start_watch(host)}
+    if os.environ.get("FMA_SOAK_POOL_SLOT"):  # on every record, the first run of a retry pair too
+        rec["pool_slot"] = int(os.environ["FMA_SOAK_POOL_SLOT"])
     def find(shape, msg):
         rec["findings"].append({"shape": shape, "msg": msg})
 
@@ -762,6 +764,8 @@ def update_path(slug, host):
     v = catalog_manifest(slug)["versions"][0]
     rec = {"slug": slug, "host": host, "build": build(), "kind": "update_path",
            "started": datetime.datetime.now().isoformat(timespec="seconds"), "findings": [], "host_at_start": start_watch(host)}
+    if os.environ.get("FMA_SOAK_POOL_SLOT"):
+        rec["pool_slot"] = int(os.environ["FMA_SOAK_POOL_SLOT"])
     find = lambda shape, msg: rec["findings"].append({"shape": shape, "msg": msg})
     try:
         tid, _ = ensure_title(slug, state, host)

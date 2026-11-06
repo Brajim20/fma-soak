@@ -25,8 +25,21 @@ import runner as R
 SETTLE = 20  # seconds an app gets to show up after it's opened
 
 
+def skipped(slug):
+    """running_app.skip: apps the open-app steps don't fit, with the reason (swiftDialog quits when opened empty)."""
+    return R.CFG.get("running_app", {}).get("skip", {}).get(slug)
+
+
+def on_pool(rec):
+    """A pool runner (an ephemeral GitHub macOS VM): `open` there can't reliably relaunch an app, so a missing
+    relaunch is noted, not a finding. The real Macs still judge it, and crosshost.py reruns pool findings there."""
+    return bool(rec.get("pool_slot"))
+
+
 def mode_for(slug):
     """'open' or 'closed' for today's update path of this app; config running_app.update_path."""
+    if skipped(slug):
+        return "off"
     want = R.CFG.get("running_app", {}).get("update_path", "alternate")
     if want in ("open", "closed", "off"):
         return want
@@ -38,7 +51,7 @@ def in_cycle(slug):
     Chrome, Firefox, Zoom, Edge), else for running_app.cycle_share of the sample (it adds ~3-4 min to a ~13 min
     cycle, so the walk covers the catalog more slowly). Deterministic per app and day."""
     cfg = R.CFG.get("running_app", {})
-    if not cfg.get("cycle", True):
+    if not cfg.get("cycle", True) or skipped(slug):
         return False
     if any(slug in xs for xs in R.CFG.get("canaries", {}).values()):
         return True
@@ -241,7 +254,10 @@ def judge_open(rec, find, t, key, label, before, after, status, lines):
                        f"(#55338 shape)")
         elif not fresh and not stale:
             tried = "the script said it would relaunch it" if "relaunch" in said else "the script didn't try to"
-            find("S6", f"{label}: the install closed the open app and didn't reopen it; {tried} (#56809 shape)")
+            if on_pool(rec):
+                rec[f"{key}_running_note"] = f"pool runner: the install closed the open app and didn't reopen it; {tried}"
+            else:
+                find("S6", f"{label}: the install closed the open app and didn't reopen it; {tried} (#56809 shape)")
     elif "did not quit" in said:
         # the guard working as designed: the app wouldn't quit, so the script left it alone
         rec[f"{key}_running_note"] = "install refused because the app didn't quit (by design); app left running"
@@ -278,7 +294,9 @@ def starts(host, t, rec, find, key, label, seen_running):
         ok = any(current(p) for p in later)
     rec[f"{key}_starts"] = ok
     if not ok:
-        if seen_running:
+        if seen_running and on_pool(rec):
+            rec[f"{key}_running_note"] = "pool runner: the app didn't stay open after the install; not judged"
+        elif seen_running:
             find("S6", f"{label}: the app doesn't stay open after the install, though it opened before (#32227 shape)")
         else:
             rec[f"{key}_running_note"] = "couldn't open the app; not judged"
