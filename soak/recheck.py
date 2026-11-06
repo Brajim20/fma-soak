@@ -7,10 +7,9 @@ reads it and decides whether to post it. Nothing here posts, moves or closes an 
 
   refresh (report job, needs GH_TOKEN)   the soak's bugs (label recheck.label, ~fma-soak) -> those on the board's
                                          Awaiting QA column (or closed as done; with no board access, any with a
-                                         merged fix PR) whose title starts "Fleet-maintained apps:"; triage.json's
-                                         "filed #N" entries give each one's app(s)
-                                         (catalog bugs; Fleet server and fleetd bugs ship with a release and get
-                                         normal QA) -> results/state/recheck.json,
+                                         merged fix PR); triage.json's "filed #N" entries give each one's app(s)
+                                         (server and fleetd fixes ship with a release: their verdict only counts
+                                         once the soak instance runs it) -> results/state/recheck.json,
                                          one item per (issue, app), with the host and kind (lifecycle / update path)
                                          the finding was seen on, and the verdict from any recheck record so far.
                                          Ready-to-paste comments go to results/recheck/<issue>.md. Nothing is posted.
@@ -39,7 +38,6 @@ import runner as R
 
 QUEUE = os.path.join(D.RES, "state", "recheck.json")
 DRAFTS = os.path.join(D.RES, "recheck")
-PREFIX = "Fleet-maintained apps:"
 
 
 def cfg():
@@ -159,7 +157,7 @@ def refresh():
     local = lambda z: datetime.datetime.fromisoformat(z.replace("Z", "+00:00")).astimezone().replace(tzinfo=None)
     items = []
     for n, meta in sorted(issues.items()):
-        if not meta["title"].startswith(PREFIX) or not ready(meta):
+        if not ready(meta):
             continue
         entries = by_issue.get(n, [])
         if not entries:  # filed outside the soak (or triage.json doesn't say "filed #N"): nothing to rerun
