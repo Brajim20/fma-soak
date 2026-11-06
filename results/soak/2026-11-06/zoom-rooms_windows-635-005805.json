@@ -1,0 +1,139 @@
+{
+ "slug": "zoom-rooms/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T00:58:05",
+ "catalog_version": "7.2.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T04:58:05Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 26478,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\windows\\SystemTemp\\3993953060\\zoomrooms-7.2.0.8375-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.0.8375",
+  "7.2.0"
+ ],
+ "package_version": "7.2.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\ZoomRooms\\bin"
+  ],
+  "names": [
+   "Zoom Rooms"
+  ],
+  "versions": [
+   "7.2.0.8375"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 61,
+ "first_uninstall_output_tail": "Selected entry DisplayName: Zoom Rooms Installer\nUninstall command: MsiExec.exe\nUninstall args: /X {B1668F8D-D5B5-452F-945F-486FC6791DAB} /qn /norestart\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\windows\\SystemTemp\\4232166708\\zoomrooms-7.2.0.8375-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2228",
+   "6912",
+   "10964",
+   "13664",
+   "15184"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\windows\\SystemTemp\\1928611463\\zoomrooms-7.2.0.8375-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "13664",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "10964",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "15184",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "6912",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "2228",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Selected entry DisplayName: Zoom Rooms Installer\nUninstall command: MsiExec.exe\nUninstall args: /X {B1668F8D-D5B5-452F-945F-486FC6791DAB} /qn /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T01:11:06",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T05:11:07Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/zoom-rooms_windows-635-005805.json"
+}
