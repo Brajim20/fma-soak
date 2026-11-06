@@ -1,0 +1,109 @@
+{
+ "slug": "droplr/darwin",
+ "host": 669,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T07:05:33",
+ "catalog_version": "5.9.19",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T11:05:26Z",
+  "restarted": "2026-11-06T10:35:15.562397Z"
+ },
+ "title_id": 26740,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Droplr\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.9.19"
+ ],
+ "package_version": "5.9.19",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "udo pkgutil --only-files --files \"com.droplr.droplr-mac\" | sed \"s|^|/Applications/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.droplr.droplr-mac\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Droplr.app\" 2>/dev/null || :\nForgot package 'com.droplr.droplr-mac' on '/'.\n/Users/<user>/Library/Application Scripts/com.droplr.droplr-mac doesn't exist.\n/Users/<user>/Library/Containers/com.droplr.droplr-mac doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Droplr\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "60159"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.droplr.droplr-mac' was running; will relaunch after installation.\nQuitting application 'com.droplr.droplr-mac'...\nApplication 'com.droplr.droplr-mac' quit successfully.\ninstaller: Package name is Droplr\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.droplr.droplr-mac'...\nApplication 'com.droplr.droplr-mac' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.droplr.droplr-mac' was running; will relaunch after installation.",
+  "Quitting application 'com.droplr.droplr-mac'...",
+  "Application 'com.droplr.droplr-mac' quit successfully.",
+  "Relaunching application 'com.droplr.droplr-mac'...",
+  "Application 'com.droplr.droplr-mac' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "60950",
+   "path": "/Applications/Droplr.app/Contents/MacOS/Droplr",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "plr-mac\"\nsudo pkgutil --only-files --files \"com.droplr.droplr-mac\" | sed \"s|^|/Applications/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.droplr.droplr-mac\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Droplr.app\" 2>/dev/null || :\nForgot package 'com.droplr.droplr-mac' on '/'.\nremoving /Users/<user>/Library/Application Scripts/com.droplr.droplr-mac.\nremoving /Users/<user>/Library/Containers/com.droplr.droplr-mac.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-06T07:16:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T11:16:08Z",
+  "restarted": "2026-11-06T10:35:15.562397Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/droplr_darwin-669-070533.json"
+}
