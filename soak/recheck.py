@@ -120,7 +120,7 @@ def origin(entry, recs):
     for r in reversed(recs):
         if r["slug"] != slug or r.get("recheck_of") or D.category(r) != "findings":
             continue
-        if any(D.triage_match(f"{slug}@{r['host']}", f, r) is entry or D.triage_match(slug, f, r) is entry
+        if any(D.triage_match(f"{slug}@{r['host']}", f, r, live=False) is entry or D.triage_match(slug, f, r, live=False) is entry
                for f in r.get("findings", [])):
             return r["host"], r.get("kind") or "lifecycle"
     return None, "lifecycle"
@@ -134,7 +134,7 @@ def verdict(item, entries, recs):
         return "pending", (D.rel(mine[-1]["_path"]) if mine else None)
     r = real[-1]
     app = f"{r['slug']}@{r['host']}"
-    if any(D.triage_match(app, f, r) in entries or D.triage_match(r["slug"], f, r) in entries for f in r.get("findings", [])):
+    if any(D.triage_match(app, f, r, live=False) in entries or D.triage_match(r["slug"], f, r, live=False) in entries for f in r.get("findings", [])):
         return "still broken", D.rel(r["_path"])
     if D.category(r) in ("findings", "flaky"):
         return "different", D.rel(r["_path"])
@@ -150,6 +150,10 @@ def refresh():
     if issues is None:  # GitHub unreachable: keep the last queue rather than wiping its verdicts
         print("recheck: keeping the previous queue")
         return
+    # closed soak bugs for digest.py: a filed entry stops hiding failures that start after its issue closed
+    os.makedirs(os.path.dirname(D.ISSUES), exist_ok=True)
+    json.dump({n: {"closedAt": m["closedAt"], "stateReason": m["stateReason"]} for n, m in sorted(issues.items())
+               if m["state"] == "CLOSED"}, open(D.ISSUES, "w"), indent=1)
     recs = D.all_records()
     old = json.load(open(QUEUE)) if os.path.exists(QUEUE) else {"items": []}
     settle = datetime.timedelta(minutes=cfg().get("settle_minutes", 60))

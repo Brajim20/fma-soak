@@ -16,7 +16,7 @@ Only the final record of a retried run counts (a record named in another's retry
   python3 digest.py                  # today and yesterday
   python3 digest.py --date 2026-10-29
 """
-import argparse, collections, datetime, glob, json, os, sys
+import argparse, collections, datetime, glob, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
@@ -27,10 +27,41 @@ SHAPES = {"S1": "S1 patch/version detection", "S2": "S2 install context", "S3": 
 
 
 TRIAGE = json.load(open(os.path.join(WS, "triage.json")))["entries"] if os.path.exists(os.path.join(WS, "triage.json")) else []
+# {issue: {"closedAt", "stateReason"}} for the soak's closed bugs, written by `recheck.py refresh`
+ISSUES = os.path.join(RES, "state", "issues.json")
+CLOSED = {int(k): v for k, v in json.load(open(ISSUES)).items()} if os.path.exists(ISSUES) else {}
+EXPIRE_DAYS = json.load(open(os.path.join(WS, "config.json"))).get("triage_expire_days", 30)
 
 
-def triage_match(app, f, r):
+def filed_issues(t):
+    """The issues a triage entry was filed as: the numbers after "filed"."""
+    m = re.search(r"filed\s+((?:#\d{5,6}(?:\s*,\s*|\s+and\s+)?)+)", t["verdict"])
+    return [int(n) for n in re.findall(r"#(\d{5,6})", m.group(1))] if m else []
+
+
+def expired(t, r):
+    """Whether entry t no longer hides record r's findings. A filed bug's entry stops once the issue is closed as
+    completed (a failure after the fix is a regression, not the known bug); a broad verdict (no shape, msg_contains or
+    time window) stops EXPIRE_DAYS after it was made, so an app triaged once isn't hidden for good."""
+    ns = filed_issues(t)
+    if ns:
+        done = [CLOSED[n]["closedAt"] for n in ns if n in CLOSED and CLOSED[n].get("stateReason") != "NOT_PLANNED"]
+        if not done or len(done) < len(ns):
+            return False
+        closed = max(datetime.datetime.fromisoformat(c.replace("Z", "+00:00")).astimezone().replace(tzinfo=None)
+                     for c in done)
+        return r["started"] >= closed.isoformat(timespec="seconds")
+    if t["app"].startswith("*") or any(k in t for k in ("shape", "msg_contains", "before", "after")) or "added" not in t:
+        return False
+    return r["started"] >= (datetime.date.fromisoformat(t["added"]) + datetime.timedelta(days=EXPIRE_DAYS)).isoformat()
+
+
+def triage_match(app, f, r, live=True):
+    """The triage.json entry covering finding f of record r, if any. live=False keeps expired entries (recheck.py
+    needs the filed entry to recognise the old finding coming back)."""
     for t in TRIAGE:
+        if live and expired(t, r):
+            continue
         # "*" covers every soak record (app@host) in an after/before window, e.g. hours the hosts were disrupted;
         # "*@631" only that host's (a host stuck behind one app's hung install)
         wild = t["app"] == "*" and "@" in app or t["app"].startswith("*@") and app.endswith(t["app"][1:])

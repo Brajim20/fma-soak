@@ -39,7 +39,7 @@ def rule_open_exit5(slug, by_host, reruns):
     return {"decision": "already-filed", "issue": "#57149",
             "summary": "install over the open app exits 5; the install script doesn't close the app first (#57149 class)",
             "hosts": sorted(by_host), "intended": "no: #57149 is open for this class",
-            "triage_entry": {"app": slug, "shape": "S6", "msg_contains": "install over the open app ended as failed_install",
+            "triage_entry": {"added": datetime.date.today().isoformat(), "app": slug, "shape": "S6", "msg_contains": "install over the open app ended as failed_install",
                              "verdict": "#57149 class: install over the open app exits 5, the script doesn't close it first"}}
 
 
@@ -54,7 +54,7 @@ def rule_arm_only(slug, by_host, reruns):
     return {"decision": "environment",
             "summary": f"fails only on Windows on ARM ({arm}); the same cycle passed on x64 ({clean[-1]['host']})",
             "hosts": [arm], "intended": "ARM support for x64 FMAs is #42082 / #53050",
-            "triage_entry": {"app": f"{slug}@{arm}",
+            "triage_entry": {"added": datetime.date.today().isoformat(), "app": f"{slug}@{arm}",
                              "verdict": f"environment: Windows on ARM only; passed on x64 host {clean[-1]['host']} "
                                         f"({D.rel(clean[-1]['_path'])})"}}
 

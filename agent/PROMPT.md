@@ -132,7 +132,9 @@ One of: `bug` (draft it), `already-filed` (name the issue), `duplicate` (an issu
    `{"decision", "summary" (one line), "issue" (for already-filed/duplicate), "hosts" (where it reproduced),
    "intended" (whether you checked docs, UI copy or a sibling app for this being by design, and what you found),
    "triage_entry" (for every decision except bug and needs-you: a triage.json entry
-   {"app": "<slug>@<host>" or "<slug>", "shape"?: "...", "verdict": "..."} that would keep it out of the digest)}`.
+   {"app": "<slug>@<host>" or "<slug>", "shape"?: "...", "verdict": "...", "added": "<today, YYYY-MM-DD>"} that would
+   keep it out of the digest; give a shape whenever the verdict is about one kind of finding: an entry without one
+   expires after 30 days)}`.
    Write it last: its presence means the app is decided.
 
 3. **`notes.md`** for `bug` and `needs-you` only: a few short lines. For a bug: anything to check before filing.

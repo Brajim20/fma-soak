@@ -1,796 +1,976 @@
 {
-  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window.",
+  "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
       "app": "bitbox/darwin",
-      "verdict": "filed #57341: unique_identifier ch.shiftcrypto.BitBoxApp, app is ch.shiftcrypto.wallet"
+      "verdict": "filed #57341: unique_identifier ch.shiftcrypto.BitBoxApp, app is ch.shiftcrypto.wallet",
+      "added": "2026-11-02"
     },
     {
       "app": "dupeguru/windows",
-      "verdict": "filed #57333: queries want name 'dupeGuru', NSIS registers 'dupeGuru 4.3.1'"
+      "verdict": "filed #57333: queries want name 'dupeGuru', NSIS registers 'dupeGuru 4.3.1'",
+      "added": "2026-11-02"
     },
     {
       "app": "plantronics-hub/windows",
-      "verdict": "filed #57334: queries want publisher 'Plantronics', registers 'Plantronics, Inc.' (name 'Plantronics Hub Software')"
+      "verdict": "filed #57334: queries want publisher 'Plantronics', registers 'Plantronics, Inc.' (name 'Plantronics Hub Software')",
+      "added": "2026-11-02"
     },
     {
       "app": "ollama/windows",
-      "verdict": "filed #57335: per-user Inno installer run as SYSTEM exits 1; not fixed by #51875"
+      "verdict": "filed #57335: per-user Inno installer run as SYSTEM exits 1; not fixed by #51875",
+      "added": "2026-11-02"
     },
     {
       "app": "steam/darwin",
-      "verdict": "filed #57336: URL's .zip.<sha1> segment becomes a 40-char extension, overflows varchar(32), 422"
+      "verdict": "filed #57336: URL's .zip.<sha1> segment becomes a 40-char extension, overflows varchar(32), 422",
+      "added": "2026-11-02"
     },
     {
       "app": "wondershare-filmora/darwin",
-      "verdict": "filed #57337: unique_identifier com.wondershare.filmoramac, app is com.wondershare.filmoramacos"
+      "verdict": "filed #57337: unique_identifier com.wondershare.filmoramac, app is com.wondershare.filmoramacos",
+      "added": "2026-11-02"
     },
     {
       "app": "wechat/darwin",
       "shape": "S1",
-      "verdict": "filed #57338: CFBundleShortVersionString 4.2.0 vs manifest 4.2.0.x; patched query fails on a fresh install"
+      "verdict": "filed #57338: CFBundleShortVersionString 4.2.0 vs manifest 4.2.0.x; patched query fails on a fresh install",
+      "added": "2026-11-02"
     },
     {
       "app": "camtasia/windows",
-      "verdict": "already tracked #51793 (FMA dependencies; Camtasia is the #50937 example): MSI LaunchCondition requires VC++ v14 redist 14.51.36231, exits 1603"
+      "verdict": "already tracked #51793 (FMA dependencies; Camtasia is the #50937 example): MSI LaunchCondition requires VC++ v14 redist 14.51.36231, exits 1603",
+      "added": "2026-11-02"
     },
     {
       "app": "locationsimulator/darwin",
       "before": "2026-11-02T11:37:49",
-      "verdict": "fixed by #57190 (2026-11-02): unique_identifier was com.schlaubi.LocationSimulator, now de.davidklopp.locationsimulator; a recurrence after the fix comes back as new"
+      "verdict": "fixed by #57190 (2026-11-02): unique_identifier was com.schlaubi.LocationSimulator, now de.davidklopp.locationsimulator; a recurrence after the fix comes back as new",
+      "added": "2026-11-02"
     },
     {
       "app": "firefox@developer-edition/darwin@631",
       "shape": "S1",
-      "verdict": "display only: CFBundleShortVersionString '160.0' vs cask '160.0b2'; patch policy passes (4k-video-to-mp3 class)"
+      "verdict": "display only: CFBundleShortVersionString '160.0' vs cask '160.0b2'; patch policy passes (4k-video-to-mp3 class)",
+      "added": "2026-11-02"
     },
     {
       "app": "firefox@developer-edition/darwin@636",
-      "verdict": "already filed #57148: queued behind a Microsoft AutoUpdate install killed at 13:00Z (signal: killed); Firefox reported installed at 14:03Z"
+      "verdict": "already filed #57148: queued behind a Microsoft AutoUpdate install killed at 13:00Z (signal: killed); Firefox reported installed at 14:03Z",
+      "added": "2026-11-02"
     },
     {
       "app": "evernote/windows",
       "shape": "S3",
-      "verdict": "filed #57224: queries want publisher 'Evernote Corporation', the electron-builder installer registers 'Bending Spoons US Inc.'; never detected"
+      "verdict": "filed #57224: queries want publisher 'Evernote Corporation', the electron-builder installer registers 'Bending Spoons US Inc.'; never detected",
+      "added": "2026-11-02"
     },
     {
       "app": "anyburn/windows",
       "shape": "S1",
-      "verdict": "filed #57225: manifest 6.9.0.0, installer registers 6.9; patched query fails on a fresh install"
+      "verdict": "filed #57225: manifest 6.9.0.0, installer registers 6.9; patched query fails on a fresh install",
+      "added": "2026-11-02"
     },
     {
       "app": "snagit/windows",
-      "verdict": "filed #57157: queries want name 'Snagit 2026', the MSI registers 'Snagit'; patch policy always passes"
+      "verdict": "filed #57157: queries want name 'Snagit 2026', the MSI registers 'Snagit'; patch policy always passes",
+      "added": "2026-11-01"
     },
     {
       "app": "ocenaudio/windows",
-      "verdict": "filed #57152: per-user NSIS installer run as SYSTEM lands in systemprofile; uninstall can't find it (missed by #51875)"
+      "verdict": "filed #57152: per-user NSIS installer run as SYSTEM lands in systemprofile; uninstall can't find it (missed by #51875)",
+      "added": "2026-11-01"
     },
     {
       "app": "zettlr/windows",
-      "verdict": "filed #57152: per-user NSIS installer run as SYSTEM lands in systemprofile; uninstall can't find it (missed by #51875)"
+      "verdict": "filed #57152: per-user NSIS installer run as SYSTEM lands in systemprofile; uninstall can't find it (missed by #51875)",
+      "added": "2026-11-01"
     },
     {
       "app": "cmux/darwin",
       "shape": "S1",
-      "verdict": "filed #57153: cask 0.65.2.2 ships an app reporting 0.65.2, patched query fails on a fresh install"
+      "verdict": "filed #57153: cask 0.65.2.2 ships an app reporting 0.65.2, patched query fails on a fresh install",
+      "added": "2026-11-01"
     },
     {
       "app": "jasp/darwin@631",
       "shape": "add",
-      "verdict": "environment: transient 502 from the instance on add"
+      "verdict": "environment: transient 502 from the instance on add",
+      "added": "2026-11-01"
     },
     {
       "app": "jasp/darwin@631",
-      "verdict": "filed #57120: detection uses an outdated bundle ID (org.jasp-stats.JASP -> org.jaspstats.jasp)"
+      "verdict": "filed #57120: detection uses an outdated bundle ID (org.jasp-stats.JASP -> org.jaspstats.jasp)",
+      "added": "2026-11-01"
     },
     {
       "app": "sequel-ace/darwin@631",
-      "verdict": "filed #57119: detection uses the wrong bundle ID, so installs land on a separate title"
+      "verdict": "filed #57119: detection uses the wrong bundle ID, so installs land on a separate title",
+      "added": "2026-11-01"
     },
     {
       "app": "galaxy-modeler/windows@629",
-      "verdict": "filed #57136: exists query never matches, so the patch policy always passes"
+      "verdict": "filed #57136: exists query never matches, so the patch policy always passes",
+      "added": "2026-11-01"
     },
     {
       "app": "postgresql-18/windows@629",
       "shape": "install",
-      "verdict": "filed #57138: can't be reinstalled after an uninstall; uninstall reported as failed"
+      "verdict": "filed #57138: can't be reinstalled after an uninstall; uninstall reported as failed",
+      "added": "2026-11-01"
     },
     {
       "app": "postgresql-18/windows@629",
-      "verdict": "filed #57137: installer registers 'PostgreSQL 18 ' (trailing space), never detected"
+      "verdict": "filed #57137: installer registers 'PostgreSQL 18 ' (trailing space), never detected",
+      "added": "2026-11-01"
     },
     {
       "app": "azul-zulu-25-jre/windows@629",
-      "verdict": "filed #57139: installs land on a separate title (MSI upgrade code skips the name match)"
+      "verdict": "filed #57139: installs land on a separate title (MSI upgrade code skips the name match)",
+      "added": "2026-11-01"
     },
     {
       "app": "invesalius/darwin@631",
       "shape": "S6",
-      "verdict": "environment (app): exits ~1 s after ANY launch, also on a fresh install with no reinstall (control on main host 50, macOS 27, 2026-11-02); adhoc-signed wxPython app ('needs access to the screen'). The Oct 31 runs also had 34-38 live-query timeouts, read as 'not running' before the running.py fix"
+      "verdict": "environment (app): exits ~1 s after ANY launch, also on a fresh install with no reinstall (control on main host 50, macOS 27, 2026-11-02); adhoc-signed wxPython app ('needs access to the screen'). The Oct 31 runs also had 34-38 live-query timeouts, read as 'not running' before the running.py fix",
+      "added": "2026-11-02"
     },
     {
       "app": "granola/windows@629",
       "shape": "S6",
       "before": "2026-11-02T17:45:00",
-      "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path, which matches no process; Granola stayed up 90 s when checked by its real path (main host 228, 2026-11-02). Fixed by run_script(raw=True) in open_app/find_exe"
+      "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path, which matches no process; Granola stayed up 90 s when checked by its real path (main host 228, 2026-11-02). Fixed by run_script(raw=True) in open_app/find_exe",
+      "added": "2026-11-02"
     },
     {
       "app": "termius/windows@629",
       "shape": "S6",
       "before": "2026-11-02T17:45:00",
-      "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path (same as granola/windows); fixed by run_script(raw=True) in open_app/find_exe"
+      "verdict": "harness: per-user install watched at the scrubbed C:\\Users\\<user>\\... path (same as granola/windows); fixed by run_script(raw=True) in open_app/find_exe",
+      "added": "2026-11-02"
     },
     {
       "app": "proton-drive/windows@629",
-      "verdict": "environment (ARM): the 1603 is only on Windows-on-ARM 629; full cycle passes on x64 (main host 228, 2026-11-02)"
+      "verdict": "environment (ARM): the 1603 is only on Windows-on-ARM 629; full cycle passes on x64 (main host 228, 2026-11-02)",
+      "added": "2026-11-02"
     },
     {
       "app": "webex/windows@629",
       "shape": "install",
-      "verdict": "environment (ARM): the x64 MSI's 1603 is only on Windows-on-ARM 629; installs with exit 0 on x64 (main host 228, 2026-11-02). Detection is separately broken everywhere: #57321"
+      "verdict": "environment (ARM): the x64 MSI's 1603 is only on Windows-on-ARM 629; installs with exit 0 on x64 (main host 228, 2026-11-02). Detection is separately broken everywhere: #57321",
+      "added": "2026-11-02"
     },
     {
       "app": "webex/windows",
-      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected",
+      "added": "2026-11-02"
     },
     {
       "app": "webex/windows@629",
-      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected",
+      "added": "2026-11-02"
     },
     {
       "app": "webex/windows@635",
-      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected"
+      "verdict": "filed #57321: exists/patched queries want name 'Cisco Webex', the MSI registers 'Webex'; never detected",
+      "added": "2026-11-02"
     },
     {
       "app": "bitwig-studio/windows@629",
       "shape": "S1",
-      "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'"
+      "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'",
+      "added": "2026-11-02"
     },
     {
       "app": "bitwig-studio/windows@635",
       "shape": "S1",
-      "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'"
+      "verdict": "#57139 class (commented 2026-11-01, confirmed on main host 228): MSI writes upgrade code {A60A92A4-...}, manifest has none; inventory lands on title 'Bitwig Studio 6.1.4'",
+      "added": "2026-11-02"
     },
     {
       "app": "010-editor/windows@629",
-      "verdict": "filed #57149: install over the open app fails with exit 5; the script doesn't close the app first"
+      "verdict": "filed #57149: install over the open app fails with exit 5; the script doesn't close the app first",
+      "added": "2026-11-01"
     },
     {
       "app": "dialpad/darwin@636",
       "shape": "install",
       "verdict": "filed #57148: queued behind an orphaned installer (Prisma Browser pkg) left by fleetd's script timeout; hosts restarted 2026-11-01 22:11Z",
-      "before": "2026-11-01T22:11:00"
+      "before": "2026-11-01T22:11:00",
+      "added": "2026-11-01"
     },
     {
       "app": "fleet-desktop/darwin@631",
       "shape": "install",
       "verdict": "filed #57148: queued behind an orphaned installer left by fleetd's script timeout",
-      "before": "2026-11-01T22:11:00"
+      "before": "2026-11-01T22:11:00",
+      "added": "2026-11-01"
     },
     {
       "app": "prisma-browser/darwin@631",
       "shape": "install",
       "verdict": "#57148: the pkg install that hung first and was orphaned; why Prisma's pkg hangs isn't known yet",
-      "before": "2026-11-01T22:11:00"
+      "before": "2026-11-01T22:11:00",
+      "added": "2026-11-01"
     },
     {
       "app": "prisma-browser/darwin@636",
       "shape": "install",
       "verdict": "#57148: the pkg install that hung first and was orphaned; why Prisma's pkg hangs isn't known yet",
-      "before": "2026-11-01T22:11:00"
+      "before": "2026-11-01T22:11:00",
+      "added": "2026-11-01"
     },
     {
       "app": "claude/windows@629",
       "shape": "S1",
       "verdict": "harness: trailing .0 compared as different; fixed with numeric compare",
-      "before": "2026-10-29T12:00:00"
+      "before": "2026-10-29T12:00:00",
+      "added": "2026-10-30"
     },
     {
       "app": "figma/windows@629",
       "shape": "S3",
       "verdict": "harness: per-user installer registers after exit; 120 s grace added",
-      "before": "2026-10-29T12:00:00"
+      "before": "2026-10-29T12:00:00",
+      "added": "2026-10-30"
     },
     {
       "app": "signal/darwin@631",
       "shape": "S3",
       "verdict": "harness: polled before the uninstall was pending; fixed",
-      "before": "2026-10-29T12:00:00"
+      "before": "2026-10-29T12:00:00",
+      "added": "2026-10-30"
     },
     {
       "app": "docker/windows@629",
-      "verdict": "environment: Windows on ARM VM has no nested virtualization"
+      "verdict": "environment: Windows on ARM VM has no nested virtualization",
+      "added": "2026-10-30"
     },
     {
       "app": "signal/windows@629",
       "shape": "install",
       "verdict": "environment: qa.fleetdm.com serves installers at ~67 KB/s; download retries",
-      "before": "2026-10-29T12:00:00"
+      "before": "2026-10-29T12:00:00",
+      "added": "2026-10-30"
     },
     {
       "app": "teleport-suite/darwin@631",
       "shape": "install",
       "verdict": "environment: slow installer download from qa.fleetdm.com (~67 KB/s)",
-      "before": "2026-10-29T16:00:00"
+      "before": "2026-10-29T16:00:00",
+      "added": "2026-10-30"
     },
     {
       "app": "google-chrome/windows@629",
-      "verdict": "environment: Chrome x64 enterprise MSI never installs Chrome on Windows on ARM (by hand too); uninstall false success filed as #56948"
+      "verdict": "environment: Chrome x64 enterprise MSI never installs Chrome on Windows on ARM (by hand too); uninstall false success filed as #56948",
+      "added": "2026-10-30"
     },
     {
       "app": "aomei-backupper-standard/windows",
-      "verdict": "filed #56891 (500 + raw DNS error on a dead download host)"
+      "verdict": "filed #56891 (500 + raw DNS error on a dead download host)",
+      "added": "2026-10-30"
     },
     {
       "app": "codemeter-runtime-kit/windows",
-      "verdict": "#55360 (vendor serves an HTML page; hash mismatch 500)"
+      "verdict": "#55360 (vendor serves an HTML page; hash mismatch 500)",
+      "added": "2026-10-30"
     },
     {
       "app": "aws-cli/windows@629",
-      "verdict": "filed #56971: exists/patched queries never match the registered name, so the patch policy always passes"
+      "verdict": "filed #56971: exists/patched queries never match the registered name, so the patch policy always passes",
+      "added": "2026-10-30"
     },
     {
       "app": "microsoft-defender/darwin@631",
       "shape": "add",
-      "verdict": "#55360: vendor bytes don't match the catalog hash; add returns 500"
+      "verdict": "#55360: vendor bytes don't match the catalog hash; add returns 500",
+      "added": "2026-10-30"
     },
     {
       "app": "microsoft-dotnet-runtime-8/windows@629",
       "shape": "S1",
       "msg_contains": "inventory never reported",
-      "verdict": "#50077 class: Fleet title 'Microsoft .NET Runtime - 8' never links 'Microsoft .NET Runtime - 8.0.33 (x64)' (no space before the version); more apps drafted in comments/COMMENT_50077_more-apps.md"
+      "verdict": "#50077 class: Fleet title 'Microsoft .NET Runtime - 8' never links 'Microsoft .NET Runtime - 8.0.33 (x64)' (no space before the version); more apps drafted in comments/COMMENT_50077_more-apps.md",
+      "added": "2026-10-30"
     },
     {
       "app": "github-desktop/windows",
-      "verdict": "not a bug: installed on 629 2026-10-30, registers 'GitHub Desktop' and the exists query matches; winget lists the deployment-tool installer"
+      "verdict": "not a bug: installed on 629 2026-10-30, registers 'GitHub Desktop' and the exists query matches; winget lists the deployment-tool installer",
+      "added": "2026-10-30"
     },
     {
       "app": "colour-contrast-analyser/windows",
-      "verdict": "not a bug: installed on 629 2026-10-30, registers 'Colour Contrast Analyser' and the exists query matches; winget lists the portable build"
+      "verdict": "not a bug: installed on 629 2026-10-30, registers 'Colour Contrast Analyser' and the exists query matches; winget lists the portable build",
+      "added": "2026-10-30"
     },
     {
       "app": "wireshark/windows",
-      "verdict": "#56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted"
+      "verdict": "#56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted",
+      "added": "2026-10-30"
     },
     {
       "app": "mysqlworkbench/windows",
-      "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'MySQL Workbench', query wants 'MySQL Workbench %'; comment drafted"
+      "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'MySQL Workbench', query wants 'MySQL Workbench %'; comment drafted",
+      "added": "2026-10-30"
     },
     {
       "app": "lastpass/windows",
-      "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'LastPass Universal Windows Installer', query wants 'LastPass'; comment drafted"
+      "verdict": "#56971 class (confirmed on 629 2026-10-30): registers 'LastPass Universal Windows Installer', query wants 'LastPass'; comment drafted",
+      "added": "2026-10-30"
     },
     {
       "app": "arduino-ide/windows",
-      "verdict": "filed #57114: confirmed 2026-10-31 (probe on 629): the MSI installs per-user under a plain msiexec /i, so as SYSTEM it writes to systemprofile\\AppData\\Local\\Programs, where one file path is 261 chars: Error 1304 -> 1603. Input says installer_scope machine (from winget), so the #51875 sweep missed it. Not ARM-specific. Reported on #55961 (issuecomment-6548568738). Reproduced on 635 (x64) 2026-11-01."
+      "verdict": "filed #57114: confirmed 2026-10-31 (probe on 629): the MSI installs per-user under a plain msiexec /i, so as SYSTEM it writes to systemprofile\\AppData\\Local\\Programs, where one file path is 261 chars: Error 1304 -> 1603. Input says installer_scope machine (from winget), so the #51875 sweep missed it. Not ARM-specific. Reported on #55961 (issuecomment-6548568738). Reproduced on 635 (x64) 2026-11-01.",
+      "added": "2026-10-30"
     },
     {
       "app": "vscodium/windows",
-      "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629"
+      "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629",
+      "added": "2026-10-30"
     },
     {
       "app": "megasync/darwin@631",
       "shape": "S1",
-      "verdict": "filed #57008: cask 6.7.0.3 vs CFBundleShortVersionString 6.7.0, no CFBundleVersion; since unfreeze #56589"
+      "verdict": "filed #57008: cask 6.7.0.3 vs CFBundleShortVersionString 6.7.0, no CFBundleVersion; since unfreeze #56589",
+      "added": "2026-10-30"
     },
     {
       "app": "reaper/windows",
-      "verdict": "filed #57113: registers as 'REAPER (x64)', exists/patched queries expect name = 'REAPER' (since #47037); reproduced on 629 (ARM) and 635 (x64) 2026-11-01"
+      "verdict": "filed #57113: registers as 'REAPER (x64)', exists/patched queries expect name = 'REAPER' (since #47037); reproduced on 629 (ARM) and 635 (x64) 2026-11-01",
+      "added": "2026-11-01"
     },
     {
       "app": "zoom/darwin@631",
       "shape": "S4",
-      "verdict": "#56873: hashless 'latest' URL, a pinned older version installs the newest"
+      "verdict": "#56873: hashless 'latest' URL, a pinned older version installs the newest",
+      "added": "2026-10-31"
     },
     {
       "app": "zoom/darwin@631",
       "shape": "S1",
       "msg_contains": "can't see this host is outdated",
-      "verdict": "#56873 consequence: the host really has the newest version"
+      "verdict": "#56873 consequence: the host really has the newest version",
+      "added": "2026-10-31"
     },
     {
       "app": "microsoft-dotnet-sdk-10/windows@629",
       "shape": "S1",
-      "verdict": "#50077 class (as .NET 8): inventory never links the title"
+      "verdict": "#50077 class (as .NET 8): inventory never links the title",
+      "added": "2026-10-31"
     },
     {
       "app": "blurscreen/darwin@631",
       "verdict": "environment: Intel-only pkg, 631 had no Rosetta (installed 2026-10-30 ~02:30)",
-      "before": "2026-10-30T03:00:00"
+      "before": "2026-10-30T03:00:00",
+      "added": "2026-10-31"
     },
     {
       "app": "clion/windows@629",
-      "verdict": "environment: ~1 GB installer at qa.fleetdm.com's ~67 KB/s exceeds the 30 min step timeout"
+      "verdict": "environment: ~1 GB installer at qa.fleetdm.com's ~67 KB/s exceeds the 30 min step timeout",
+      "added": "2026-10-31"
     },
     {
       "app": "4k-video-to-mp3/darwin@631",
       "shape": "S1",
-      "verdict": "display only: app's CFBundleShortVersionString 3.0 vs cask 3.0.1; patch policy passes"
+      "verdict": "display only: app's CFBundleShortVersionString 3.0 vs cask 3.0.1; patch policy passes",
+      "added": "2026-10-31"
     },
     {
       "app": "*",
       "after": "2026-10-31T01:49:00",
       "before": "2026-10-31T13:15:00",
-      "verdict": "harness: the local launchd loop came back when its Mac restarted (01:49 AST) and ran alongside CI on the same hosts until 13:10; each kept queuing behind the other's slow installs, so results from this window aren't evidence"
+      "verdict": "harness: the local launchd loop came back when its Mac restarted (01:49 AST) and ran alongside CI on the same hosts until 13:10; each kept queuing behind the other's slow installs, so results from this window aren't evidence",
+      "added": "2026-10-31"
     },
     {
       "app": "010-editor/darwin@631",
       "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 \u2192 17.0).",
-      "before": "2026-10-31T15:00:00"
+      "before": "2026-10-31T15:00:00",
+      "added": "2026-10-31"
     },
     {
       "app": "protopie/windows@629",
       "shape": "install",
-      "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629"
+      "verdict": "environment: x64-only Inno installer refuses Windows on ARM (probe 2026-10-31); known_environment on 629",
+      "added": "2026-10-31"
     },
     {
       "app": "arduino-ide/windows@629",
       "shape": "install",
-      "verdict": "filed #57114: catalog: per-user MSI run as SYSTEM, 261-char path, Error 1304 (see arduino-ide/windows); reported on #55961 (issuecomment-6548568738)"
+      "verdict": "filed #57114: catalog: per-user MSI run as SYSTEM, 261-char path, Error 1304 (see arduino-ide/windows); reported on #55961 (issuecomment-6548568738)",
+      "added": "2026-10-31"
     },
     {
       "app": "druva-insync@govcloud/darwin",
       "shape": "S5",
-      "verdict": "known: same bundle ID as druva-insync/darwin, reported as fleetdm/fleet#57051 (open)"
+      "verdict": "known: same bundle ID as druva-insync/darwin, reported as fleetdm/fleet#57051 (open)",
+      "added": "2026-10-31"
     },
     {
       "app": "codex-app/darwin",
       "shape": "S5",
-      "verdict": "known: ChatGPT.app's bundle ID is com.openai.codex, same as Codex; fleetdm/fleet#57025 (open)"
+      "verdict": "known: ChatGPT.app's bundle ID is com.openai.codex, same as Codex; fleetdm/fleet#57025 (open)",
+      "added": "2026-10-31"
     },
     {
       "app": "eclipse-temurin-jdk-8/windows",
-      "verdict": "not a collision: every Temurin JDK query pins its major (version LIKE '8.%' / '11.%' / '17.%' / '21.%'); the name-only collision check ignores the version clause (2026-11-01)"
+      "verdict": "not a collision: every Temurin JDK query pins its major (version LIKE '8.%' / '11.%' / '17.%' / '21.%'); the name-only collision check ignores the version clause (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "eclipse-temurin-jdk-11/windows",
-      "verdict": "not a collision: version LIKE '11.%' keeps it to JDK 11 (see eclipse-temurin-jdk-8/windows)"
+      "verdict": "not a collision: version LIKE '11.%' keeps it to JDK 11 (see eclipse-temurin-jdk-8/windows)",
+      "added": "2026-11-01"
     },
     {
       "app": "eclipse-temurin-jdk-17/windows",
-      "verdict": "not a collision: version LIKE '17.%' keeps it to JDK 17 (see eclipse-temurin-jdk-8/windows)"
+      "verdict": "not a collision: version LIKE '17.%' keeps it to JDK 17 (see eclipse-temurin-jdk-8/windows)",
+      "added": "2026-11-01"
     },
     {
       "app": "eclipse-temurin-jdk-21/windows",
-      "verdict": "not a collision: version LIKE '21.%' keeps it to JDK 21 (see eclipse-temurin-jdk-8/windows)"
+      "verdict": "not a collision: version LIKE '21.%' keeps it to JDK 21 (see eclipse-temurin-jdk-8/windows)",
+      "added": "2026-11-01"
     },
     {
       "app": "git/windows",
-      "verdict": "not a collision: name LIKE 'Git%' also needs publisher 'The Git Development Community'; Git Extensions (Git Extensions Team) and GitHub Desktop Deployment Tool (GitHub, Inc.) don't have it. winget lists no publisher for them, so the check couldn't tell (2026-11-01)"
+      "verdict": "not a collision: name LIKE 'Git%' also needs publisher 'The Git Development Community'; Git Extensions (Git Extensions Team) and GitHub Desktop Deployment Tool (GitHub, Inc.) don't have it. winget lists no publisher for them, so the check couldn't tell (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "qgis/windows",
-      "verdict": "not a collision: version NOT LIKE '3.44.%' vs qgis@ltr's version LIKE '3.44.%' are disjoint (2026-11-01)"
+      "verdict": "not a collision: version NOT LIKE '3.44.%' vs qgis@ltr's version LIKE '3.44.%' are disjoint (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "qgis@ltr/windows",
-      "verdict": "not a collision: version LIKE '3.44.%' (see qgis/windows)"
+      "verdict": "not a collision: version LIKE '3.44.%' (see qgis/windows)",
+      "added": "2026-11-01"
     },
     {
       "app": "firefox@nightly/windows",
-      "verdict": "by design: x64 and arm64 builds of the same app register the same name; the arm64 variant's query also passes on non-ARM hosts on purpose. Same app, two arch variants (#53050)"
+      "verdict": "by design: x64 and arm64 builds of the same app register the same name; the arm64 variant's query also passes on non-ARM hosts on purpose. Same app, two arch variants (#53050)",
+      "added": "2026-11-01"
     },
     {
       "app": "firefox@nightly-arm64/windows",
-      "verdict": "by design (see firefox@nightly/windows)"
+      "verdict": "by design (see firefox@nightly/windows)",
+      "added": "2026-11-01"
     },
     {
       "app": "firefox@esr/darwin",
-      "verdict": "by design: same bundle ID as firefox/darwin; Fleet refuses both in one fleet (#49682)"
+      "verdict": "by design: same bundle ID as firefox/darwin; Fleet refuses both in one fleet (#49682)",
+      "added": "2026-11-01"
     },
     {
       "app": "qgis@ltr/darwin",
-      "verdict": "not a collision: path '/Applications/QGIS-LTR.app' vs qgis's '/Applications/QGIS-final-%.app' tells them apart"
+      "verdict": "not a collision: path '/Applications/QGIS-LTR.app' vs qgis's '/Applications/QGIS-final-%.app' tells them apart",
+      "added": "2026-11-01"
     },
     {
       "app": "zoom@government/darwin",
-      "verdict": "by design: same bundle ID as zoom/darwin (vendor); Fleet refuses both in one fleet (#49682 behaviour)"
+      "verdict": "by design: same bundle ID as zoom/darwin (vendor); Fleet refuses both in one fleet (#49682 behaviour)",
+      "added": "2026-11-01"
     },
     {
       "app": "evernote/darwin",
-      "verdict": "filed #57116: catalog says 11.40.3 but installer_url is the 2024 Evernote-10.105.4 dmg (reset by #45895 on 2026-06-01; later bumps changed only version). Patch policy fails on every host."
+      "verdict": "filed #57116: catalog says 11.40.3 but installer_url is the 2024 Evernote-10.105.4 dmg (reset by #45895 on 2026-06-01; later bumps changed only version). Patch policy fails on every host.",
+      "added": "2026-11-01"
     },
     {
       "app": "sublime-text/windows",
       "shape": "S1",
-      "verdict": "filed #57118: installer registers no version, patched query fails on every host (validator skips this app's version check)"
+      "verdict": "filed #57118: installer registers no version, patched query fails on every host (validator skips this app's version check)",
+      "added": "2026-11-01"
     },
     {
       "app": "sublime-text/windows",
       "shape": "S6",
-      "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)"
+      "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)",
+      "added": "2026-11-01"
     },
     {
       "app": "julia-app/windows",
       "shape": "S6",
-      "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)"
+      "verdict": "#57149 class: the install script doesn't close the running app, so the installer exits 5 (filed for 010 Editor; 43 of 55 /VERYSILENT scripts do the same)",
+      "added": "2026-11-01"
     },
     {
       "app": "microsoft-defender/darwin",
-      "verdict": "environment: Defender's install waits on MDM approval of its system extension and network filter, so it stays pending on a host without those profiles (2026-11-01)"
+      "verdict": "environment: Defender's install waits on MDM approval of its system extension and network filter, so it stays pending on a host without those profiles (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "allway-sync/windows",
-      "verdict": "#56891: the add returns 500 with the raw network error (unreachable download host) (2026-11-01)"
+      "verdict": "#56891: the add returns 500 with the raw network error (unreachable download host) (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "slicer/darwin",
-      "verdict": "#56891 class: vendor download times out behind Cloudflare (524) and the add returns a 500 (2026-11-01)"
+      "verdict": "#56891 class: vendor download times out behind Cloudflare (524) and the add returns a 500 (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "figma/windows@629",
-      "verdict": "ARM: the Windows FMA is the x64 build (Figma-126.11.7.exe); on Windows on ARM Figma shows 'This version of Figma is not intended for use on Windows on Arm' at launch. Install/uninstall work. Covered by #42082/#53050; not in #56802's 23 ARM64 apps (2026-11-01)"
+      "verdict": "ARM: the Windows FMA is the x64 build (Figma-126.11.7.exe); on Windows on ARM Figma shows 'This version of Figma is not intended for use on Windows on Arm' at launch. Install/uninstall work. Covered by #42082/#53050; not in #56802's 23 ARM64 apps (2026-11-01)",
+      "added": "2026-11-01"
     },
     {
       "app": "*@631",
       "after": "2026-10-31T23:50:00",
       "before": "2026-11-01T18:12:00",
-      "verdict": "environment: 631's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Fleet Desktop pending then killed. Fleet Desktop installs in <1 min on a clean Mac (main host 50)."
+      "verdict": "environment: 631's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Fleet Desktop pending then killed. Fleet Desktop installs in <1 min on a clean Mac (main host 50).",
+      "added": "2026-11-01"
     },
     {
       "app": "*@636",
       "after": "2026-11-01T02:35:00",
       "before": "2026-11-01T18:12:00",
-      "verdict": "environment: 636's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Dialpad pending then killed (5 orphaned installers)."
+      "verdict": "environment: 636's queue was stuck behind Prisma Browser's hung installer (orphaned by #57148) until the MDM restart at 18:11; e.g. Dialpad pending then killed (5 orphaned installers).",
+      "added": "2026-11-01"
     },
     {
       "app": "mullvad-browser/windows",
       "shape": "S6",
       "msg_contains": "doesn't stay open",
       "before": "2026-11-03T15:30:00",
-      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)",
+      "added": "2026-11-03"
     },
     {
       "app": "firefox@developer-edition/windows",
       "shape": "S6",
       "msg_contains": "doesn't stay open",
       "before": "2026-11-03T15:30:00",
-      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)",
+      "added": "2026-11-03"
     },
     {
       "app": "portfolioperformance/windows",
       "shape": "S6",
       "msg_contains": "doesn't stay open",
       "before": "2026-11-03T15:30:00",
-      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)",
+      "added": "2026-11-03"
     },
     {
       "app": "brave-browser/windows",
       "shape": "S6",
       "msg_contains": "doesn't stay open",
       "before": "2026-11-03T15:30:00",
-      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)"
+      "verdict": "harness: the installer renames the exe in use, the old process keeps running, and osquery reports it at the new name while the harness looked only at the exe path (checked on main host 228, 2026-11-03: pingtest.exe renamed while running -> osquery path pingtest.exe.moved, Get-Process still the old path); the relaunch then handed off to the old instance. Before/after PIDs identical in every record. Fixed in running.py (processes() follows open_app's pids; old copy is a note)",
+      "added": "2026-11-03"
     },
     {
       "app": "google-drive/windows@635",
-      "verdict": "filed #57390: uninstall's 3010 reported as success, every reinstall then fails with exit 1610"
+      "verdict": "filed #57390: uninstall's 3010 reported as success, every reinstall then fails with exit 1610",
+      "added": "2026-11-03"
     },
     {
       "app": "monitorcontrol/darwin",
-      "verdict": "filed #57391: unique_identifier me.guillaumeb.MonitorControl, app is app.monitorcontrol.MonitorControl"
+      "verdict": "filed #57391: unique_identifier me.guillaumeb.MonitorControl, app is app.monitorcontrol.MonitorControl",
+      "added": "2026-11-03"
     },
     {
       "app": "google-drive/windows@629",
-      "verdict": "environment: x64-only installer (installer_arch x64) on Windows ARM, never installed; the 635 reinstall failure is #57390"
+      "verdict": "environment: x64-only installer (installer_arch x64) on Windows ARM, never installed; the 635 reinstall failure is #57390",
+      "added": "2026-11-03"
     },
     {
       "app": "drawio/windows",
-      "verdict": "filed #57498: exists/patched exact name/publisher never match the registered program"
+      "verdict": "filed #57498: exists/patched exact name/publisher never match the registered program",
+      "added": "2026-11-04"
     },
     {
       "app": "kiro/windows",
-      "verdict": "filed #57499: install over the open app exits 1 with /CLOSEAPPLICATIONS, nothing closed"
+      "verdict": "filed #57499: install over the open app exits 1 with /CLOSEAPPLICATIONS, nothing closed",
+      "added": "2026-11-04"
     },
     {
       "app": "nosql-workbench/windows",
-      "verdict": "filed #57500: publisher 'DynamoDB Developer Experience' never matches the registered program"
+      "verdict": "filed #57500: publisher 'DynamoDB Developer Experience' never matches the registered program",
+      "added": "2026-11-04"
     },
     {
       "app": "paint-dot-net/windows",
-      "verdict": "filed #57501: bootstrapper /auto never registers in ARP, nothing installed (ARM and x64)"
+      "verdict": "filed #57501: bootstrapper /auto never registers in ARP, nothing installed (ARM and x64)",
+      "added": "2026-11-04"
     },
     {
       "app": "sharefile/windows@635",
-      "verdict": "filed #57502: exists query never matches the installed MSI"
+      "verdict": "filed #57502: exists query never matches the installed MSI",
+      "added": "2026-11-04"
     },
     {
       "app": "sharefile/windows@629",
-      "verdict": "environment: x64 MSI 1603 on Windows ARM; the detection miss on 635 is #57502"
+      "verdict": "environment: x64 MSI 1603 on Windows ARM; the detection miss on 635 is #57502",
+      "added": "2026-11-04"
     },
     {
       "app": "tower/windows",
-      "verdict": "filed #57503: generic MSI script installs into the SYSTEM profile though input says machine scope"
+      "verdict": "filed #57503: generic MSI script installs into the SYSTEM profile though input says machine scope",
+      "added": "2026-11-04"
     },
     {
       "app": "wacom-tablet/windows",
-      "verdict": "filed #57504: name LIKE 'Wacom Tablet %' can't match the registered 'Wacom Tablet'"
+      "verdict": "filed #57504: name LIKE 'Wacom Tablet %' can't match the registered 'Wacom Tablet'",
+      "added": "2026-11-04"
     },
     {
       "app": "visual-studio-2022-enterprise/windows@629",
-      "verdict": "environment: 629 still has VS Community 2022 left from the 2026-11-02 cycle whose uninstall failed 8006, and VS's StandardCollector.Service.exe is running; 8006 = Visual Studio processes running. Enterprise installs, uninstalls and reinstalls cleanly on clean x64 host 229 (main.brayan-qa.com, 2026-11-03/04)"
+      "verdict": "environment: 629 still has VS Community 2022 left from the 2026-11-02 cycle whose uninstall failed 8006, and VS's StandardCollector.Service.exe is running; 8006 = Visual Studio processes running. Enterprise installs, uninstalls and reinstalls cleanly on clean x64 host 229 (main.brayan-qa.com, 2026-11-03/04)",
+      "added": "2026-11-04"
     },
     {
       "app": "visual-studio-2022-enterprise/windows@635",
-      "verdict": "environment: exit 1 only after an uninstall that returned 3010 (reboot required) with no restart since 2026-10-14; on clean host 229 install -> uninstall (exit 0) -> reinstall -> open/close VS -> uninstall all exit 0. Same reboot-pending shape as #57390/#57138, not reproduced for VS"
+      "verdict": "environment: exit 1 only after an uninstall that returned 3010 (reboot required) with no restart since 2026-10-14; on clean host 229 install -> uninstall (exit 0) -> reinstall -> open/close VS -> uninstall all exit 0. Same reboot-pending shape as #57390/#57138, not reproduced for VS",
+      "added": "2026-11-04"
     },
     {
       "app": "xquartz/darwin",
-      "verdict": "filed #57506: unique_identifier org.macosforge.xquartz.X11, the 2.8.6 app is org.xquartz.X11 (631's timeouts and 636's stuck queue hid it)"
+      "verdict": "filed #57506: unique_identifier org.macosforge.xquartz.X11, the 2.8.6 app is org.xquartz.X11 (631's timeouts and 636's stuck queue hid it)",
+      "added": "2026-11-04"
     },
     {
       "app": "whatsapp/darwin@631",
-      "verdict": "harness: patch-when-closed close returned 'no result in time' and the app was never confirmed closed; the policy-mismatch finding read install_software instead of patch_software (both fixed in patch_closed.py)"
+      "verdict": "harness: patch-when-closed close returned 'no result in time' and the app was never confirmed closed; the policy-mismatch finding read install_software instead of patch_software (both fixed in patch_closed.py)",
+      "added": "2026-11-04"
     },
     {
       "app": "visual-studio-2022-enterprise/windows",
-      "verdict": "environment: installs cleanly twice on x64 host 229 (main, 2026-11-03); 629 is ARM (8006), 635 had 28 GB free (exit 1)"
+      "verdict": "environment: installs cleanly twice on x64 host 229 (main, 2026-11-03); 629 is ARM (8006), 635 had 28 GB free (exit 1)",
+      "added": "2026-11-04"
     },
     {
       "app": "emclient/windows",
-      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); 635's failure was a network blip reaching licensing.emclient.com"
+      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); 635's failure was a network blip reaching licensing.emclient.com",
+      "added": "2026-11-04"
     },
     {
       "app": "twingate/windows",
-      "verdict": "filed #57558: registered name 'Twingate 2026.280.8833', input lacks fuzzy_match_name; exists/patched never match (x64 228)"
+      "verdict": "filed #57558: registered name 'Twingate 2026.280.8833', input lacks fuzzy_match_name; exists/patched never match (x64 228)",
+      "added": "2026-11-04"
     },
     {
       "app": "visual-studio-code/windows",
-      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the hourly timeouts are specific to 629"
+      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the hourly timeouts are specific to 629",
+      "added": "2026-11-04"
     },
     {
       "app": "phpstorm/windows",
-      "verdict": "environment: install/uninstall all succeeded on 228 (main, 2026-11-04); only live-query timeouts on the host"
+      "verdict": "environment: install/uninstall all succeeded on 228 (main, 2026-11-04); only live-query timeouts on the host",
+      "added": "2026-11-04"
     },
     {
       "app": "rustrover/windows",
-      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04)"
+      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04)",
+      "added": "2026-11-04"
     },
     {
       "app": "loop/darwin",
-      "verdict": "environment: install over the running app on the Mac mini (main host 50, 2026-11-04) quit, installed and relaunched it in 17 s; the 1 h hang is specific to 636"
+      "verdict": "environment: install over the running app on the Mac mini (main host 50, 2026-11-04) quit, installed and relaunched it in 17 s; the 1 h hang is specific to 636",
+      "added": "2026-11-04"
     },
     {
       "app": "descript/windows",
-      "verdict": "filed #57547: per-user NSIS /S as SYSTEM, uninstall can't find the systemprofile exe (#57152 class)"
+      "verdict": "filed #57547: per-user NSIS /S as SYSTEM, uninstall can't find the systemprofile exe (#57152 class)",
+      "added": "2026-11-04"
     },
     {
       "app": "jabra-direct/windows",
-      "verdict": "filed #57548: exists/patched exact name+publisher never match; uninstall's LIKE match finds the entry"
+      "verdict": "filed #57548: exists/patched exact name+publisher never match; uninstall's LIKE match finds the entry",
+      "added": "2026-11-04"
     },
     {
       "app": "microsoft-teams/windows",
-      "verdict": "filed #57549: uninstall exits 1603: the script's Appx re-check still matches MSTeams_8wekyb3d8bbwe"
+      "verdict": "filed #57549: uninstall exits 1603: the script's Appx re-check still matches MSTeams_8wekyb3d8bbwe",
+      "added": "2026-11-04"
     },
     {
       "app": "obs/windows",
-      "verdict": "filed #57550: install over the open app exits 2; NSIS /S script never closes obs64.exe (#57149 class)"
+      "verdict": "filed #57550: install over the open app exits 2; NSIS /S script never closes obs64.exe (#57149 class)",
+      "added": "2026-11-04"
     },
     {
       "app": "scrivener/windows",
-      "verdict": "filed #57551: installs into systemprofile despite installer_scope machine"
+      "verdict": "filed #57551: installs into systemprofile despite installer_scope machine",
+      "added": "2026-11-04"
     },
     {
       "app": "supportcompanion/darwin",
-      "verdict": "filed #57552, retitled 2026-11-04 to the Fleet 5-min uninstall timeout (app itself uninstalls 4/4 in 19-31s on Mac 50)"
+      "verdict": "filed #57552, retitled 2026-11-04 to the Fleet 5-min uninstall timeout (app itself uninstalls 4/4 in 19-31s on Mac 50)",
+      "added": "2026-11-04"
     },
     {
       "app": "geany/windows",
-      "verdict": "filed #57553: exists query's publisher equality never matches the registered program"
+      "verdict": "filed #57553: exists query's publisher equality never matches the registered program",
+      "added": "2026-11-04"
     },
     {
       "app": "goland/windows",
-      "verdict": "filed #57554: install over the open app stays pending >30 min, queue blocked"
+      "verdict": "filed #57554: install over the open app stays pending >30 min, queue blocked",
+      "added": "2026-11-04"
     },
     {
       "app": "sql-server-management-studio/windows",
-      "verdict": "filed #57555: open query looks for 'sql server management studio.exe', process is SSMS.exe"
+      "verdict": "filed #57555: open query looks for 'sql server management studio.exe', process is SSMS.exe",
+      "added": "2026-11-04"
     },
     {
       "app": "twine-app/windows",
-      "verdict": "filed #57556: installs into systemprofile, uninstall fails 4/4"
+      "verdict": "filed #57556: installs into systemprofile, uninstall fails 4/4",
+      "added": "2026-11-04"
     },
     {
       "app": "visual-studio-2022-professional/windows",
-      "verdict": "filed #57557: install over open devenv.exe exits 1, IDE untouched"
+      "verdict": "filed #57557: install over open devenv.exe exits 1, IDE untouched",
+      "added": "2026-11-04"
     },
     {
       "app": "dynalist/windows",
-      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04), relaunch after the open-app reinstall stayed up; 629's S6 not reproduced"
+      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04), relaunch after the open-app reinstall stayed up; 629's S6 not reproduced",
+      "added": "2026-11-04"
     },
     {
       "app": "franz/windows",
-      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); 629's relaunch S6 not reproduced"
+      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); 629's relaunch S6 not reproduced",
+      "added": "2026-11-04"
     },
     {
       "app": "bitwarden/windows",
-      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); the first attempt's error was the server's manifest-fetch timeout; 629's instant 400s not reproduced (cause not captured)"
+      "verdict": "environment: full pass on x64 host 229 (main, 2026-11-04); the first attempt's error was the server's manifest-fetch timeout; 629's instant 400s not reproduced (cause not captured)",
+      "added": "2026-11-04"
     },
     {
       "app": "coderunner/darwin",
-      "verdict": "environment: full pass on the Mac mini (main host 50, 2026-11-04); 631's stall matched its live-query timeouts that evening"
+      "verdict": "environment: full pass on the Mac mini (main host 50, 2026-11-04); 631's stall matched its live-query timeouts that evening",
+      "added": "2026-11-04"
     },
     {
       "app": "onedrive/windows",
-      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 failure is the amd64-only installer on ARM"
+      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 failure is the amd64-only installer on ARM",
+      "added": "2026-11-04"
     },
     {
       "app": "typora/windows",
-      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 exit 1 is the x64-only Inno installer on ARM"
+      "verdict": "environment: full pass on x64 host 228 (main, 2026-11-04); the 629 exit 1 is the x64-only Inno installer on ARM",
+      "added": "2026-11-04"
     },
     {
       "app": "openvpn-connect/windows",
-      "verdict": "bug, filed #57601 (fuzzy_match_name LIKE never matches exact registered name \"OpenVPN Connect\")"
+      "verdict": "bug, filed #57601 (fuzzy_match_name LIKE never matches exact registered name \"OpenVPN Connect\")",
+      "added": "2026-11-04"
     },
     {
       "app": "goanywhere-openpgp-studio/windows",
-      "verdict": "filed #57659: install over the open app exits 1 (install4j script has no close step)"
+      "verdict": "filed #57659: install over the open app exits 1 (install4j script has no close step)",
+      "added": "2026-11-04"
     },
     {
       "app": "standard-notes/windows",
-      "verdict": "filed #57660: per-user NSIS as SYSTEM lands in systemprofile, every uninstall fails"
+      "verdict": "filed #57660: per-user NSIS as SYSTEM lands in systemprofile, every uninstall fails",
+      "added": "2026-11-04"
     },
     {
       "app": "mindmanager/windows",
-      "verdict": "already filed: #57139 class (MSI upgrade code skips the name match); rejected on review 2026-11-04"
+      "verdict": "already filed: #57139 class (MSI upgrade code skips the name match); rejected on review 2026-11-04",
+      "added": "2026-11-04"
     },
     {
       "app": "intellij-idea/windows",
-      "verdict": "same bug as #57554 (GoLand): identical JetBrains NSIS install script, no close step; install over the open app stays pending"
+      "verdict": "same bug as #57554 (GoLand): identical JetBrains NSIS install script, no close step; install over the open app stays pending",
+      "added": "2026-11-04"
     },
     {
       "app": "gitup-app/darwin",
-      "verdict": "environment: full pass incl. reinstall over the open app (46 s) on clean host 624, 2026-11-04; the stuck run was on 631 during live-query timeouts"
+      "verdict": "environment: full pass incl. reinstall over the open app (46 s) on clean host 624, 2026-11-04; the stuck run was on 631 during live-query timeouts",
+      "added": "2026-11-04"
     },
     {
       "app": "xnapper/darwin",
-      "verdict": "environment: full pass incl. reinstall over the open app (47 s) on clean host 624, 2026-11-04; the stuck run was on 636 during ~60 live-query timeouts"
+      "verdict": "environment: full pass incl. reinstall over the open app (47 s) on clean host 624, 2026-11-04; the stuck run was on 636 during ~60 live-query timeouts",
+      "added": "2026-11-04"
     },
     {
       "app": "devtoys/windows",
-      "verdict": "filed #57673: registers 'DevToys Preview version 2.0-preview.9', exact name query never matches (confirmed on 229)"
+      "verdict": "filed #57673: registers 'DevToys Preview version 2.0-preview.9', exact name query never matches (confirmed on 229)",
+      "added": "2026-11-04"
     },
     {
       "app": "gpodder/windows",
-      "verdict": "filed #57674: registers 'gPodder - Media aggregator and podcast client', exact name query never matches (confirmed on 229)"
+      "verdict": "filed #57674: registers 'gPodder - Media aggregator and podcast client', exact name query never matches (confirmed on 229)",
+      "added": "2026-11-04"
     },
     {
       "app": "adobe-acrobat-reader/windows",
       "shape": "S1",
-      "verdict": "filed #57681: windows_acrobat_dc override renames inventory to 'Adobe Acrobat DC (64-bit)', a separate title from the FMA's 'Adobe Acrobat (64-bit)' (confirmed on 229)"
+      "verdict": "filed #57681: windows_acrobat_dc override renames inventory to 'Adobe Acrobat DC (64-bit)', a separate title from the FMA's 'Adobe Acrobat (64-bit)' (confirmed on 229)",
+      "added": "2026-11-05"
     },
     {
       "app": "nagstamon/windows",
-      "verdict": "filed #57700: registers 'Nagstamon 3.18.2' (publisher matches), exact name query never matches (confirmed on 229)"
+      "verdict": "filed #57700: registers 'Nagstamon 3.18.2' (publisher matches), exact name query never matches (confirmed on 229)",
+      "added": "2026-11-05"
     },
     {
       "app": "sonos/windows",
-      "verdict": "filed #57701: 32-bit InstallShield setup caches the MSI under SysWOW64 systemprofile (WOW64 redirect) but launches msiexec on the System32 path -> 1619 (confirmed on 229, both switch forms)"
+      "verdict": "filed #57701: 32-bit InstallShield setup caches the MSI under SysWOW64 systemprofile (WOW64 redirect) but launches msiexec on the System32 path -> 1619 (confirmed on 229, both switch forms)",
+      "added": "2026-11-05"
     },
     {
       "app": "another-redis-desktop-manager/windows",
-      "verdict": "environment: clean x64 control on 228 (main) passed both rounds (exit 0, detected, uninstalled clean, inventory 1.7.4); 635's exit 2 came from leftover state"
+      "verdict": "environment: clean x64 control on 228 (main) passed both rounds (exit 0, detected, uninstalled clean, inventory 1.7.4); 635's exit 2 came from leftover state",
+      "added": "2026-11-05"
     },
     {
       "app": "anytype/darwin",
-      "verdict": "environment: reinstall over the open app on healthy host 50 (main) relaunched successfully; the 638 'Failed to relaunch' was that host's bad night (live queries failing)"
+      "verdict": "environment: reinstall over the open app on healthy host 50 (main) relaunched successfully; the 638 'Failed to relaunch' was that host's bad night (live queries failing)",
+      "added": "2026-11-05"
     },
     {
       "app": "tidal/darwin",
-      "verdict": "environment (host 636): on host 50 (main) the root quit worked and reinstall over the open app quit and relaunched it; not a TIDAL bug"
+      "verdict": "environment (host 636): on host 50 (main) the root quit worked and reinstall over the open app quit and relaunched it; not a TIDAL bug",
+      "added": "2026-11-05"
     },
     {
       "app": "snagit/darwin",
-      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)"
+      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
+      "added": "2026-11-05"
     },
     {
       "app": "opencloud/darwin",
-      "verdict": "filed #57151: detection uses the wrong bundle ID, so installs land on a separate title"
+      "verdict": "filed #57151: detection uses the wrong bundle ID, so installs land on a separate title",
+      "added": "2026-11-05"
     },
     {
       "app": "autopsy/windows",
-      "verdict": "filed #57805: exists/patched use the winget locale publisher 'The Sleuth Kit'; the MSI registers 'Sleuth Kit Labs', so detection never matches and the patch policy always passes"
+      "verdict": "filed #57805: exists/patched use the winget locale publisher 'The Sleuth Kit'; the MSI registers 'Sleuth Kit Labs', so detection never matches and the patch policy always passes",
+      "added": "2026-11-05"
     },
     {
       "app": "burp-suite/darwin",
-      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)"
+      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
+      "added": "2026-11-05"
     },
     {
       "app": "mozilla-vpn/darwin",
-      "verdict": "filed #57807: pkg postinstall launches the app, so every later install/uninstall fails 'did not quit'; filed #57808: on 631/636 (macOS 26.6.2) the install hangs until Fleet's 1 h script timeout kills it"
+      "verdict": "filed #57807: pkg postinstall launches the app, so every later install/uninstall fails 'did not quit'; filed #57808: on 631/636 (macOS 26.6.2) the install hangs until Fleet's 1 h script timeout kills it",
+      "added": "2026-11-05"
     },
     {
       "app": "rstudio/windows",
-      "verdict": "filed #57809: install script doesn't stop rstudio/rsession/Rgui first, so reinstall over the open app exits 2"
+      "verdict": "filed #57809: install script doesn't stop rstudio/rsession/Rgui first, so reinstall over the open app exits 2",
+      "added": "2026-11-05"
     },
     {
       "app": "xnviewmp/windows",
-      "verdict": "filed #57810: exists/patched name+publisher never match the registered program (uninstall key 'XnView MP (x64)_is1'); ARM 629 failure is the separate x64-only Inno class"
+      "verdict": "filed #57810: exists/patched name+publisher never match the registered program (uninstall key 'XnView MP (x64)_is1'); ARM 629 failure is the separate x64-only Inno class",
+      "added": "2026-11-05"
     },
     {
       "app": "kiro/darwin",
-      "verdict": "environment (GitHub-runner pool VMs): 'Failed to relaunch' only on pool runners 643/645/646/649/640/638 on 2026-11-05 (7 of ~100); real Macs 624/631/636 relaunched 105/105 across the whole soak; Kiro 2/2, CLion 2/2, DFU Blaster Pro 1/1 relaunched on Mac mini 50 (main, 2026-11-06)"
+      "verdict": "environment (GitHub-runner pool VMs): 'Failed to relaunch' only on pool runners 643/645/646/649/640/638 on 2026-11-05 (7 of ~100); real Macs 624/631/636 relaunched 105/105 across the whole soak; Kiro 2/2, CLion 2/2, DFU Blaster Pro 1/1 relaunched on Mac mini 50 (main, 2026-11-06)",
+      "added": "2026-11-05"
     },
     {
       "app": "affinity/darwin",
-      "verdict": "filed #57957: not pool-only after all; 'Failed to relaunch' 2/2 on real Mac mini 50 (main, 2026-11-06) while CLion/Kiro/DFU relaunched there; plain quit + open -b without a reinstall works"
+      "verdict": "filed #57957: not pool-only after all; 'Failed to relaunch' 2/2 on real Mac mini 50 (main, 2026-11-06) while CLion/Kiro/DFU relaunched there; plain quit + open -b without a reinstall works",
+      "added": "2026-11-05"
     },
     {
       "app": "clion/darwin",
-      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 646)"
+      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 646)",
+      "added": "2026-11-05"
     },
     {
       "app": "dfu-blaster-pro/darwin",
-      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 645)"
+      "verdict": "environment (GitHub-runner pool VMs): same pool-only 'Failed to relaunch' as kiro/darwin (host 645)",
+      "added": "2026-11-05"
     },
     {
       "app": "swiftdialog/darwin",
-      "verdict": "harness, not a bug: Dialog.app opened with no arguments exits on its own (the install never saw it running on 624/631/636/642, and it also left after the post-install reopen), so the open-app step doesn't apply to swiftDialog"
+      "verdict": "harness, not a bug: Dialog.app opened with no arguments exits on its own (the install never saw it running on 624/631/636/642, and it also left after the post-install reopen), so the open-app step doesn't apply to swiftDialog",
+      "added": "2026-11-05"
     },
     {
       "app": "processing/darwin",
-      "verdict": "filed #57817: unique_identifier org.processing.four; the shipped 4.5.7 app is org.processing.app (DMG Info.plist, Homebrew quit)"
+      "verdict": "filed #57817: unique_identifier org.processing.four; the shipped 4.5.7 app is org.processing.app (DMG Info.plist, Homebrew quit)",
+      "added": "2026-11-05"
     },
     {
       "app": "elgato-wave-link/darwin",
-      "verdict": "filed #57818: unique_identifier com.elgato.WaveLink; Wave Link 3.4.0 ships as com.elgato.WaveLink3"
+      "verdict": "filed #57818: unique_identifier com.elgato.WaveLink; Wave Link 3.4.0 ships as com.elgato.WaveLink3",
+      "added": "2026-11-05"
     },
     {
       "app": "onionshare/darwin",
-      "verdict": "filed #57819: unique_identifier org.onionshare.onionshare; the shipped 2.7.1 app's CFBundleIdentifier is 'OnionShare'"
+      "verdict": "filed #57819: unique_identifier org.onionshare.onionshare; the shipped 2.7.1 app's CFBundleIdentifier is 'OnionShare'",
+      "added": "2026-11-05"
     },
     {
       "app": "crestron-airmedia/windows",
-      "verdict": "filed #57827: Crestron 403s Fleet's download User-Agent (fleet/<v> Go-http-client/1.1); regression of #49123 via #53828; file downloads fine with PowerShell/BITS"
+      "verdict": "filed #57827: Crestron 403s Fleet's download User-Agent (fleet/<v> Go-http-client/1.1); regression of #49123 via #53828; file downloads fine with PowerShell/BITS",
+      "added": "2026-11-05"
     },
     {
       "app": "directory-opus/windows",
-      "verdict": "environment: Inno exit 8 only on the long-running soak hosts (pending-reboot class); clean control on main host 229 (2026-11-06, 4.94.1) installed in ~30 s"
+      "verdict": "environment: Inno exit 8 only on the long-running soak hosts (pending-reboot class); clean control on main host 229 (2026-11-06, 4.94.1) installed in ~30 s",
+      "added": "2026-11-06"
     },
     {
       "app": "cyberduck-cli/windows",
-      "verdict": "upstream: dist.duck.sh returns Apache 403 to every client (curl, PowerShell, BITS, Fleet) 2026-11-06, including the vendor docs' own link; winget points at the same URL. Recheck later; not a Fleet bug"
+      "verdict": "upstream: dist.duck.sh returns Apache 403 to every client (curl, PowerShell, BITS, Fleet) 2026-11-06, including the vendor docs' own link; winget points at the same URL. Recheck later; not a Fleet bug",
+      "added": "2026-11-06"
     },
     {
       "app": "novabench/darwin",
-      "verdict": "filed #57915: installs /Applications/Novabench.app root:admin 0700 (#56532 class)"
+      "verdict": "filed #57915: installs /Applications/Novabench.app root:admin 0700 (#56532 class)",
+      "added": "2026-11-06"
     },
     {
       "app": "recents/darwin",
-      "verdict": "filed #57916: server: name-fallback title match attaches the installer to Apple's Finder Recents title, so inventory never shows it"
+      "verdict": "filed #57916: server: name-fallback title match attaches the installer to Apple's Finder Recents title, so inventory never shows it",
+      "added": "2026-11-06"
     },
     {
       "app": "requestly/windows",
-      "verdict": "filed #57917: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails"
+      "verdict": "filed #57917: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails",
+      "added": "2026-11-06"
     },
     {
       "app": "stretchly/windows",
-      "verdict": "filed #57918: installs into SYSTEM profile despite installer_scope machine; uninstall fails"
+      "verdict": "filed #57918: installs into SYSTEM profile despite installer_scope machine; uninstall fails",
+      "added": "2026-11-06"
     },
     {
       "app": "syncovery/darwin",
-      "verdict": "filed #57919: nested BackgroundScheduler.app shares com.company.Syncovery (v9), patched query never passes"
+      "verdict": "filed #57919: nested BackgroundScheduler.app shares com.company.Syncovery (v9), patched query never passes",
+      "added": "2026-11-06"
     },
     {
       "app": "tailscale-app/darwin",
-      "verdict": "filed #57920: install leaves app running; later install/uninstall exit 1 'did not quit'"
+      "verdict": "filed #57920: install leaves app running; later install/uninstall exit 1 'did not quit'",
+      "added": "2026-11-06"
     },
     {
       "app": "thorium/windows",
-      "verdict": "filed #57921: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails"
+      "verdict": "filed #57921: bare /S NSIS install as SYSTEM lands in systemprofile; uninstall fails",
+      "added": "2026-11-06"
     },
     {
       "app": "zed/windows",
-      "verdict": "filed #57922: installs into SYSTEM profile; /ALLUSERS has no effect"
+      "verdict": "filed #57922: installs into SYSTEM profile; /ALLUSERS has no effect",
+      "added": "2026-11-06"
     },
     {
       "app": "coconutbattery/darwin",
-      "verdict": "filed #57923: catalog bundle ID is the nested LoginItems helper; inventory never shows a version (confirmed on main host 50)"
+      "verdict": "filed #57923: catalog bundle ID is the nested LoginItems helper; inventory never shows a version (confirmed on main host 50)",
+      "added": "2026-11-06"
     },
     {
       "app": "wezterm/darwin",
-      "verdict": "filed #57924: install over an open WezTerm fails 'did not quit' (confirmed on main host 50)"
+      "verdict": "filed #57924: install over an open WezTerm fails 'did not quit' (confirmed on main host 50)",
+      "added": "2026-11-06"
     }
   ]
 }
