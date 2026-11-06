@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 1792 cycles: pass 862, findings 430, flaky 86, environment 41, harness 60, skipped 313
+**1. Runs** — 1975 cycles: pass 961, findings 472, flaky 103, environment 43, harness 67, skipped 329
 
-**2. Coverage** — darwin 589/973 (60.5%), round 2; windows 372/461 (80.7%), round 3
+**2. Coverage** — darwin 656/973 (67.4%), round 2; windows 379/461 (82.2%), round 3
 
 **3. Escapes caught or confirmed**
 
@@ -28,24 +28,24 @@
 | #56873 | open | Fleet-maintained apps: pinning a hashless app to an older version installs the latest version |
 | #56891 | open | Fleet-maintained apps: a failed installer download returns 500 with the raw network error |
 | #56948 | open | Windows uninstall reports success when the app wasn't installed by its MSI, and the app stays installed |
-| #56971 | open | Fleet-maintained apps: AWS CLI (Windows) is never detected, so its patch policy always passes |
-| #57008 | open | Fleet-maintained apps: MEGAsync (macOS) patch policy fails on up-to-date hosts |
+| #56971 | closed | Fleet-maintained apps: AWS CLI (Windows) is never detected, so its patch policy always passes |
+| #57008 | closed | Fleet-maintained apps: MEGAsync (macOS) patch policy fails on up-to-date hosts |
 | #57025 | open | macOS `ChatGPT.app` (bundle id `com.openai.codex`) is listed as "Codex" in software inventory — search for "ChatGPT" misses it; three different "Codex" titles on the Software page |
 | #57051 | open | Druva InSync (GovCloud) colliding with Druva InSync |
-| #57113 | open | Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always passes |
-| #57114 | open | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
+| #57113 | closed | Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always passes |
+| #57114 | closed | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
 | #57116 | closed | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
-| #57118 | open | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
-| #57119 | open | Fleet-maintained apps: Sequel Ace (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
-| #57120 | open | Fleet-maintained apps: JASP (macOS) detection uses an outdated bundle ID (org.jasp-stats.JASP → org.jaspstats.jasp) |
+| #57118 | closed | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
+| #57119 | closed | Fleet-maintained apps: Sequel Ace (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
+| #57120 | closed | Fleet-maintained apps: JASP (macOS) detection uses an outdated bundle ID (org.jasp-stats.JASP → org.jaspstats.jasp) |
 | #57136 | open | Fleet-maintained apps: Galaxy Modeler (Windows) is never detected, so its patch policy always passes |
 | #57137 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) is never detected (installer registers "PostgreSQL 18 " with a trailing space) |
 | #57138 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) can't be reinstalled after an uninstall, and the uninstall is reported as failed |
 | #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
 | #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
 | #57149 | open | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
-| #57151 | open | Fleet-maintained apps: OpenCloud Desktop (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
-| #57152 | open | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
+| #57151 | closed | Fleet-maintained apps: OpenCloud Desktop (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
+| #57152 | closed | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
 | #57190 | merged | Regenerate macOS zip FMA outputs for ditto extraction (2/4) |
