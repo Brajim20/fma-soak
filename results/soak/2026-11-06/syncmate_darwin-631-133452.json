@@ -1,0 +1,97 @@
+{
+ "slug": "syncmate/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T13:34:52",
+ "catalog_version": "8.11.604",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T17:34:44Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 26894,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [],
+ "package_version": "8.11.604",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "com.eltima.syncmateservice.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/SyncMate* doesn't exist.\n/Users/<user>/Library/Caches/com.eltima.SyncMate doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.eltima.SyncMate doesn't exist.\n/Users/<user>/Library/Logs/SyncMate.log doesn't exist.\n/Users/<user>/Library/Preferences/com.eltima.SyncMate.com.eltima.SyncMateService.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.eltima.SyncMate.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.eltima.SyncMate.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "com.eltima.syncmateservice.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/SyncMate* doesn't exist.\n/Users/<user>/Library/Caches/com.eltima.SyncMate doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.eltima.SyncMate doesn't exist.\n/Users/<user>/Library/Logs/SyncMate.log doesn't exist.\n/Users/<user>/Library/Preferences/com.eltima.SyncMate.com.eltima.SyncMateService.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.eltima.SyncMate.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.eltima.SyncMate.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-06T14:01:58",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T18:01:58Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/syncmate_darwin-631-133452-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/syncmate_darwin-631-133452-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/syncmate_darwin-631-133452.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/syncmate_darwin-631-130715.json",
+ "crosshost_of": "soak/2026-11-06/syncmate_darwin-669-104328.json"
+}
