@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 1975 cycles: pass 961, findings 472, flaky 103, environment 43, harness 67, skipped 329
+**1. Runs** — 2126 cycles: pass 1041, findings 510, flaky 118, environment 45, harness 74, skipped 338
 
-**2. Coverage** — darwin 656/973 (67.4%), round 2; windows 379/461 (82.2%), round 3
+**2. Coverage** — darwin 716/962 (74.4%), round 2; windows 399/461 (86.6%), round 3
 
 **3. Escapes caught or confirmed**
 
@@ -23,6 +23,7 @@
 | #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
+| #56532 | closed | Sourcetree Fleet-maintained app installs with root-only permissions, so users can't open it |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
 | #56802 | open | Add ARM64 Windows Fleet-maintained apps for 23 popular apps |
 | #56873 | open | Fleet-maintained apps: pinning a hashless app to an older version installs the latest version |
@@ -71,12 +72,12 @@
 | #57506 | closed | Fleet-maintained apps: XQuartz (macOS) is never detected (bundle ID org.macosforge.xquartz.X11 vs org.xquartz.X11) |
 | #57547 | open | Fleet-maintained apps: Descript (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
 | #57548 | open | Fleet-maintained apps: Jabra Direct (Windows) is never detected, so its patch policy always passes |
-| #57549 | open | Fleet-maintained apps: Microsoft Teams (Windows) uninstall removes Teams but reports failure (exit 1603) |
+| #57549 | closed | Fleet-maintained apps: Microsoft Teams (Windows) uninstall removes Teams but reports failure (exit 1603) |
 | #57550 | closed | Fleet-maintained apps: OBS Studio (Windows) install fails with exit code 2 while the app is open |
 | #57551 | open | Fleet-maintained apps: Scrivener (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #57552 | open | Software: uninstall scripts are killed after 5 minutes instead of the documented 1 hour |
 | #57553 | open | Fleet-maintained apps: Geany (Windows) is never detected after install, so its patch policy always passes |
-| #57554 | open | Fleet-maintained apps: GoLand (Windows) install doesn't finish while GoLand is open, and the host's queue stays blocked behind it |
+| #57554 | closed | Fleet-maintained apps: GoLand (Windows) install doesn't finish while GoLand is open, and the host's queue stays blocked behind it |
 | #57555 | open | Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so "patch when closed" can't hold the install back |
 | #57556 | open | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
@@ -100,6 +101,16 @@
 | #57818 | open | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
 | #57819 | closed | Fleet-maintained apps: OnionShare (macOS) is never detected after install (bundle ID org.onionshare.onionshare vs OnionShare) |
 | #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
+| #57915 | closed | Fleet-maintained apps: Novabench (macOS) installs root-only, so users can't open it |
+| #57916 | open | Software: adding a macOS app attaches it to another app's title when only the name matches (Recents → Apple's Finder Recents) |
+| #57917 | open | Fleet-maintained apps: Requestly (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57918 | open | Fleet-maintained apps: Stretchly (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57919 | open | Fleet-maintained apps: Syncovery (macOS) patch policy fails right after installing the current version |
+| #57920 | open | Fleet-maintained apps: Tailscale (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
+| #57921 | open | Fleet-maintained apps: Thorium Reader (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57922 | open | Fleet-maintained apps: Zed (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #57923 | open | Fleet-maintained apps: coconutBattery (macOS) never shows an installed version (catalog bundle ID is its login-item helper) |
+| #57924 | open | Fleet-maintained apps: WezTerm (macOS) can't be updated while it's open ("did not quit") |
 
 **4. Build changes**
 
