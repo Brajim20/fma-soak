@@ -1,0 +1,126 @@
+{
+ "slug": "power-monitor/darwin",
+ "host": 666,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T07:13:52",
+ "catalog_version": "1.3.5",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T11:13:44Z",
+  "restarted": "2026-11-06T10:36:00.562139Z"
+ },
+ "title_id": 26748,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Power Monitor\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.3.5"
+ ],
+ "package_version": "1.3.5",
+ "context_after_install": {
+  "path": "/Applications/Power Monitor.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Power Monitor.app/Contents/MacOS/Power Monitor",
+  "bundle_id": "corp.sap.PowerMonitor",
+  "versions": [
+   "1.3.5"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "-dirs --files \"corp.sap.PowerMonitor.pkg\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'corp.sap.PowerMonitor.pkg' on '/'.\nremoving /Users/Shared/Power Monitor.\n/Users/<user>/Library/Caches/corp.sap.PowerMonitor doesn't exist.\n/Users/<user>/Library/HTTPStorages/corp.sap.PowerMonitor doesn't exist.\n/Users/<user>/Library/Preferences/corp.sap.PowerMonitor.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/corp.sap.PowerMonitor.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Power Monitor\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "75177",
+   "77422"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 32,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'corp.sap.PowerMonitor' was running; will relaunch after installation.\nQuitting application 'corp.sap.PowerMonitor'...\nApplication 'corp.sap.PowerMonitor' quit successfully.\ninstaller: Package name is Power Monitor\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'corp.sap.PowerMonitor'...\nApplication 'corp.sap.PowerMonitor' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'corp.sap.PowerMonitor' was running; will relaunch after installation.",
+  "Quitting application 'corp.sap.PowerMonitor'...",
+  "Application 'corp.sap.PowerMonitor' quit successfully.",
+  "Relaunching application 'corp.sap.PowerMonitor'...",
+  "Application 'corp.sap.PowerMonitor' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "78265",
+   "path": "/Applications/Power Monitor.app/Contents/MacOS/PowerMonitorDaemon",
+   "on_disk": "1"
+  },
+  {
+   "pid": "78278",
+   "path": "/Applications/Power Monitor.app/Contents/MacOS/Power Monitor",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "-dirs --files \"corp.sap.PowerMonitor.pkg\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'corp.sap.PowerMonitor.pkg' on '/'.\nremoving /Users/Shared/Power Monitor.\n/Users/<user>/Library/Caches/corp.sap.PowerMonitor doesn't exist.\n/Users/<user>/Library/HTTPStorages/corp.sap.PowerMonitor doesn't exist.\n/Users/<user>/Library/Preferences/corp.sap.PowerMonitor.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/corp.sap.PowerMonitor.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T07:23:28",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T11:23:20Z",
+  "restarted": "2026-11-06T10:36:00.562139Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/power-monitor_darwin-666-071352.json",
+ "pool_slot": 90003
+}
