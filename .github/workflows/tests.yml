@@ -17,3 +17,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with: { persist-credentials: false }
       - run: python3 -m unittest discover -v tests
+        env:   # settings the harness needs at import; placeholders, nothing is called
+          FLEET_URL: https://fleet.invalid
+          FMA_SOAK_FLEET_ID: "1"
+          FMA_SOAK_HOST_DARWIN: "1"
+          FMA_SOAK_HOST_WINDOWS: "2"
