@@ -1,0 +1,88 @@
+{
+ "slug": "bdash/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-05T20:43:05",
+ "catalog_version": "1.35.4",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T00:43:05Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 26279,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 123,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Bdash for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.35.4"
+ ],
+ "package_version": "1.35.4",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Bdash 1.35.4"
+  ],
+  "versions": [
+   "1.35.4"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Removing 'Bdash 1.35.4' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\45c99bb2-6c06-5db0-898a-cbff80cc264b)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Bdash\\Uninstall Bdash.exe /currentuser /S\n  Uninstall exit code: 0\nBdash removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Bdash for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1200",
+   "2476",
+   "9368",
+   "14348"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 502,
+ "open_reinstall_error": "error code: 502\n",
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Removing 'Bdash 1.35.4' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-535066496-4102691850-2716752950-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\45c99bb2-6c06-5db0-898a-cbff80cc264b)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Bdash\\Uninstall Bdash.exe /currentuser /S\n  Uninstall exit code: 0\nBdash removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-05T20:52:38",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T00:52:28Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-05/bdash_windows-629-204305.json"
+}
