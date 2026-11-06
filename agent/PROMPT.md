@@ -99,7 +99,7 @@ One of: `bug` (draft it), `already-filed` (name the issue), `duplicate` (an issu
 
    ```
    Title: Fleet-maintained apps: <App> (<macOS|Windows>) <what's wrong in plain words>
-   Labels: bug, ~released bug, #g-auto-patching, ~fma
+   Labels: bug, ~released bug, #g-auto-patching, ~fma, ~fma-soak
    Evidence: records/<file>.json (host N), records/<file>.json (host M)
 
    **Fleet versions**

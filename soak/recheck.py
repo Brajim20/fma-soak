@@ -5,7 +5,7 @@ FMA catalog fixes (manifest, scripts, exists/patched queries) ship within about 
 release, so they can be verified on the soak hosts as soon as the fix PR merges. The comment is only a draft: QA
 reads it and decides whether to post it. Nothing here posts, moves or closes an issue.
 
-  refresh (report job, needs GH_TOKEN)   QA's FMA bugs (label ~fma, author recheck.author) -> those on the board's
+  refresh (report job, needs GH_TOKEN)   the soak's bugs (label recheck.label, ~fma-soak) -> those on the board's
                                          Awaiting QA column (or closed as done; with no board access, any with a
                                          merged fix PR) whose title starts "Fleet-maintained apps:"; triage.json's
                                          "filed #N" entries give each one's app(s)
@@ -95,9 +95,9 @@ def fetch_issues(numbers):
 
 
 def mine():
-    """Issue numbers of the FMA bugs QA filed: label ~fma, author recheck.author (fleetdm/fleet)."""
-    res = subprocess.run(["gh", "issue", "list", "-R", "fleetdm/fleet", "--author", cfg().get("author", "Brajim20"),
-                          "--label", "~fma", "--state", "all", "--limit", "1000", "--json", "number"],
+    """Issue numbers of the bugs the soak filed: label recheck.label (fleetdm/fleet)."""
+    res = subprocess.run(["gh", "issue", "list", "-R", "fleetdm/fleet", "--label", cfg().get("label", "~fma-soak"),
+                          "--state", "all", "--limit", "1000", "--json", "number"],
                          capture_output=True, text=True)
     if res.returncode:
         print(f"recheck: gh issue list failed: {res.stderr.strip()[:300]}")
