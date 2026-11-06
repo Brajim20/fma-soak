@@ -1,0 +1,146 @@
+{
+ "slug": "mysqlworkbench/darwin",
+ "host": 663,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T03:06:35",
+ "catalog_version": "8.0.47.CE",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T07:06:36Z",
+  "restarted": "2026-11-06T05:36:28.874145Z"
+ },
+ "title_id": 26537,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 229,
+ "first_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_LEMeZJ</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "8.0.47.CE"
+ ],
+ "package_version": "8.0.47.CE",
+ "context_after_install": {
+  "path": "/Applications/MySQLWorkbench.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/MySQLWorkbench.app/Contents/MacOS/MySQLWorkbench",
+  "bundle_id": "com.oracle.workbench.MySQLWorkbench",
+  "versions": [
+   "8.0.47.CE"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/MySQL/Workbench doesn't exist.\n/Users/<user>/Library/Caches/com.oracle.workbench.MySQLWorkbench doesn't exist.\n/Users/<user>/Library/Preferences/com.oracle.workbench.MySQLWorkbench.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.oracle.workbench.MySQLWorkbench.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 215,
+ "second_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_HC8IVg</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "76160"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 215,
+ "open_reinstall_output_tail": "</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_nWhHz4</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.oracle.workbench.MySQLWorkbench' was running; will relaunch after installation.\nQuitting application 'com.oracle.workbench.MySQLWorkbench'...\nApplication 'com.oracle.workbench.MySQLWorkbench' quit successfully.\nRelaunching application 'com.oracle.workbench.MySQLWorkbench'...\nFailed to relaunch application 'com.oracle.workbench.MySQLWorkbench'.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.oracle.workbench.MySQLWorkbench' was running; will relaunch after installation.",
+  "Quitting application 'com.oracle.workbench.MySQLWorkbench'...",
+  "Application 'com.oracle.workbench.MySQLWorkbench' quit successfully.",
+  "Relaunching application 'com.oracle.workbench.MySQLWorkbench'...",
+  "Failed to relaunch application 'com.oracle.workbench.MySQLWorkbench'."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "84927"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/MySQL/Workbench.\n/Users/<user>/Library/Caches/com.oracle.workbench.MySQLWorkbench doesn't exist.\n/Users/<user>/Library/Preferences/com.oracle.workbench.MySQLWorkbench.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.oracle.workbench.MySQLWorkbench.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-06T03:26:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T07:25:58Z",
+  "restarted": "2026-11-06T05:36:28.874145Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/mysqlworkbench_darwin-663-030635.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/mysqlworkbench_darwin-663-024612.json",
+ "pool_slot": 90005
+}
