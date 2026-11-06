@@ -26,6 +26,9 @@ case "$1" in
   save)
     [[ -d results ]] || { echo "nothing to save"; exit 0; }
     git config user.name "fma-soak bot"; git config user.email "fma-soak@users.noreply.github.com"
+    # CI checkouts don't keep the token in .git/config (installers run on the same VM), so only this push sees it
+    AUTH=()
+    [[ -n ${RESULTS_TOKEN:-} ]] && AUTH=(-c "http.https://github.com/.extraheader=AUTHORIZATION: basic $(printf 'x-access-token:%s' "$RESULTS_TOKEN" | base64 | tr -d '\n')")
     OUT=$(mktemp -d)
     touch "$SUMS"
     sums | grep -vxFf "$SUMS" | sed 's/^[0-9a-f]*  //' > "$OUT/changed" || true   # new or changed since restore
@@ -38,7 +41,7 @@ case "$1" in
       git -C "$OUT/w" add -A results
       git -C "$OUT/w" diff --cached --quiet && { echo "no changes"; exit 0; }
       git -C "$OUT/w" commit -qm "$2"
-      git -C "$OUT/w" push -q origin "HEAD:refs/heads/$BR" && { echo "saved to $BR"; exit 0; }
+      git -C "$OUT/w" ${AUTH[@]+"${AUTH[@]}"} push -q origin "HEAD:refs/heads/$BR" && { echo "saved to $BR"; exit 0; }
       sleep $((RANDOM % 20 + 5))   # the other job pushed first: redo on top of it
     done
     exit 1

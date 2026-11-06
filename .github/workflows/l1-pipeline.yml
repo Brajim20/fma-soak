@@ -23,9 +23,9 @@ concurrency:
   group: fma-l1
   cancel-in-progress: false
 
+# both jobs write the results branch and the L1 alert issue; nothing else
 permissions:
-  contents: write   # the results branch only
-  issues: write     # the L1 alert
+  contents: read
 
 env:
   TZ: America/Puerto_Rico
@@ -35,46 +35,50 @@ jobs:
   l1:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    permissions: { contents: write, issues: write }
     strategy:
       fail-fast: false
       max-parallel: 1   # one results-branch save at a time is simpler; each target takes ~20 min
       matrix:
         target: [release, rc, main]
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - name: Revision under test
         id: rev
+        env: { REV: "${{ inputs.rev }}", TARGET: "${{ matrix.target }}" }   # never pasted into the script: a dispatch input
         run: |
-          if [[ -n "${{ inputs.rev }}" ]]; then
-            [[ "${{ matrix.target }}" != rc ]] && { echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; }
-            ref="${{ inputs.rev }}"; ver="$ref"
-          elif [[ "${{ matrix.target }}" == release ]]; then
+          if [[ -n "$REV" ]]; then
+            [[ "$TARGET" != rc ]] && { echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; }
+            [[ "$REV" =~ ^[A-Za-z0-9._/-]+$ ]] || { echo "rev must be a sha or branch name"; exit 1; }
+            ref="$REV"; ver="$ref"
+          elif [[ "$TARGET" == release ]]; then
             ref=$(git ls-remote --tags --refs https://github.com/fleetdm/fleet 'fleet-v4.*' | awk -F/ '{print $3}' \
                   | grep -E '^fleet-v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1); ver=${ref#fleet-v}
-          elif [[ "${{ matrix.target }}" == rc ]]; then
+          elif [[ "$TARGET" == rc ]]; then
             v=$(curl -fsS "$FLEET_URL/version"); ref=$(jq -r .revision <<<"$v"); ver=$(jq -r .version <<<"$v")
           else
             ref=main; ver=main
           fi
           echo "ref=$ref" >> "$GITHUB_OUTPUT"; echo "ver=$ver" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         if: steps.rev.outputs.skip != '1'
-        with: { repository: fleetdm/fleet, ref: "${{ steps.rev.outputs.ref }}", path: fleet }
-      - uses: actions/setup-go@v5
+        with: { repository: fleetdm/fleet, ref: "${{ steps.rev.outputs.ref }}", path: fleet, persist-credentials: false }
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         if: steps.rev.outputs.skip != '1'
         with: { go-version-file: fleet/go.mod, cache-dependency-path: fleet/go.sum }
       - name: Build fleet + fleetctl (API only; no frontend bundle)
         id: build
         if: steps.rev.outputs.skip != '1'
         working-directory: fleet
+        env: { VER: "${{ steps.rev.outputs.ver }}", TARGET: "${{ matrix.target }}" }
         run: |
           rev=$(git rev-parse HEAD); short=${rev:0:7}
           mkdir -p assets
           go run github.com/kevinburke/go-bindata/go-bindata -pkg=bindata -tags full -o=server/bindata/generated.go \
             frontend/templates/ assets/... server/mail/templates
           V=github.com/fleetdm/fleet/v4/server/version
-          LDF="-s -w -X $V.appName=fleet -X $V.version=${{ steps.rev.outputs.ver }} -X $V.revision=$rev -X $V.branch=${{ matrix.target }} -X $V.buildDate=$(date -u +%FT%TZ)"
+          LDF="-s -w -X $V.appName=fleet -X $V.version=$VER -X $V.revision=$rev -X $V.branch=$TARGET -X $V.buildDate=$(date -u +%FT%TZ)"
           mkdir -p ../harness/pipeline/bin
           CGO_ENABLED=1 go build -tags full,fts5,netgo -ldflags "$LDF" -o ../harness/pipeline/bin/fleet-$short ./cmd/fleet
           CGO_ENABLED=0 go build -ldflags "${LDF/appName=fleet/appName=fleetctl}" -o ../harness/pipeline/bin/fleetctl-$short ./cmd/fleetctl
@@ -101,6 +105,7 @@ jobs:
         id: suite
         if: steps.rev.outputs.skip != '1'
         working-directory: harness/pipeline
+        env: { REF: "${{ steps.rev.outputs.ref }}", TARGET: "${{ matrix.target }}" }
         run: |
           set +e
           PIPE_BUILD=${{ steps.build.outputs.short }} python3 suite.py; rc=$?
@@ -108,8 +113,8 @@ jobs:
           res=$(ls ../results/pipeline-*-${{ steps.build.outputs.short }}.json | tail -1)
           echo "result=$res" >> "$GITHUB_OUTPUT"
           # the compare job finds each target's latest result here
-          mkdir -p ../results/state && echo "{\"target\": \"${{ matrix.target }}\", \"ref\": \"${{ steps.rev.outputs.ref }}\", \"result\": \"results/${res##*/}\"}" \
-            > ../results/state/l1-latest-${{ matrix.target }}.json
+          mkdir -p ../results/state && jq -n --arg t "$TARGET" --arg r "$REF" --arg res "results/${res##*/}" '{target: $t, ref: $r, result: $res}' \
+            > "../results/state/l1-latest-$TARGET.json"
           cat ../results/pipeline-*-${{ steps.build.outputs.short }}.md >> "$GITHUB_STEP_SUMMARY"
       - name: Alert
         # the release is the baseline: tests it fails (features newer than it) are expected, not alerts
@@ -120,10 +125,11 @@ jobs:
       - name: Save results
         if: always() && steps.rev.outputs.skip != '1'
         working-directory: harness
+        env: { RESULTS_TOKEN: "${{ github.token }}" }
         run: ./ci/results.sh save "l1 ${{ matrix.target }} ${{ steps.build.outputs.short }} ${{ github.run_id }}"
       - name: Server log
         if: always() && steps.rev.outputs.skip != '1'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: l1-${{ matrix.target }}-server-log
           path: harness/pipeline/state/*.log
@@ -137,13 +143,15 @@ jobs:
     needs: l1
     if: always() && inputs.rev == ''
     runs-on: ubuntu-latest
+    permissions: { contents: write, issues: write }
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - run: ./harness/ci/results.sh restore
       - name: Compare with the release
         env: { GH_TOKEN: "${{ github.token }}" }
         working-directory: harness
         run: python3 ci/l1_compare.py >> "$GITHUB_STEP_SUMMARY"
       - if: always()
+        env: { RESULTS_TOKEN: "${{ github.token }}" }
         run: ./harness/ci/results.sh save "l1 compare ${{ github.run_id }}"

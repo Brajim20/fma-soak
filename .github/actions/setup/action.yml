@@ -7,7 +7,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
       with: { python-version: "3.12" }
     - shell: bash
       run: |
@@ -23,7 +23,7 @@ runs:
         git -C "$FMA_CATALOG_REPO" sparse-checkout set ee/maintained-apps
         git -C "$FMA_CATALOG_REPO" checkout -q "$(git -C "$FMA_CATALOG_REPO" rev-list -1 --before=8.days HEAD)"
         git -C "$FMA_CATALOG_REPO" checkout -q -
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
       if: inputs.browser == 'true'
       with: { node-version: "20" }
     - if: inputs.browser == 'true'

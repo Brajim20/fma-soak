@@ -1,0 +1,9 @@
+# Keeps the SHA-pinned actions current: a monthly PR bumping each pin and its version comment.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directories: ["/", "/.github/actions/setup"]
+    schedule: { interval: monthly }
+    cooldown: { default-days: 7 }   # never a release younger than a week
+    groups:
+      actions: { patterns: ["*"] }

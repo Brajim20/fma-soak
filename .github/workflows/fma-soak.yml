@@ -44,10 +44,9 @@ concurrency:
   group: fma-soak-${{ github.event.schedule == '0 11 * * *' && 'audit' || inputs.job || 'soak' }}
   cancel-in-progress: false   # never kill a pass mid-install; the next one waits
 
+# each job asks for what it uses: contents (the results branch), issues (alerts here), actions (the next run)
 permissions:
-  contents: write   # the results branch only
-  actions: write    # the next soak run
-  issues: write     # host-outage alerts
+  contents: read
 
 env:
   TZ: America/Puerto_Rico   # digest dates in the tester's local time
@@ -67,6 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 340
+    permissions: { contents: write }
     strategy:
       fail-fast: false
       matrix:
@@ -86,9 +86,9 @@ jobs:
           h=$(echo "$HOSTS" | tr -d ' ' | cut -d, -f$(( ${{ matrix.slot }} + 1 )) -s)
           [[ ${{ matrix.slot }} == 0 ]] && h=${HOSTS%%,*}
           [[ -n $h ]] && echo "host=$h" >> "$GITHUB_OUTPUT" || echo "no host in slot ${{ matrix.slot }}: skipping"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         if: steps.slot.outputs.host
-        with: { path: harness }
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         if: steps.slot.outputs.host
       - name: Restore state
@@ -107,8 +107,9 @@ jobs:
         run: zsh pass.sh ${{ matrix.platform }} ${{ matrix.slot != 0 && steps.slot.outputs.host || '' }}
       - name: Save state and records
         if: always() && steps.slot.outputs.host
-        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} ${{ steps.slot.outputs.host }} ${{ github.run_id }}"
-      - uses: actions/upload-artifact@v4
+        env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.slot.outputs.host }}" }
+        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} $HOST ${{ github.run_id }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always() && steps.slot.outputs.host
         with:
           name: soak-${{ matrix.platform }}-${{ matrix.slot }}-${{ github.run_id }}
@@ -129,6 +130,7 @@ jobs:
     runs-on: macos-15
     environment: fma-soak
     timeout-minutes: 340
+    permissions: { contents: write }
     strategy:
       fail-fast: false
       matrix:
@@ -139,8 +141,8 @@ jobs:
       FMA_SOAK_PASS_MINUTES: 285   # enrolling and the finish step take the rest of the soak job's 300
       RUNNER_HOSTNAME: fma-pool-${{ matrix.slot }}-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - name: Restore state
@@ -170,19 +172,22 @@ jobs:
       - name: Pass
         if: steps.enroll.outputs.host
         working-directory: harness/soak
-        run: zsh pass.sh darwin ${{ steps.enroll.outputs.host }}
+        env: { HOST: "${{ steps.enroll.outputs.host }}" }
+        run: zsh pass.sh darwin "$HOST"
       - name: Uninstall leftovers and delete this runner's host
         if: always() && steps.enroll.outputs.host
         working-directory: harness/soak
+        env: { HOST: "${{ steps.enroll.outputs.host }}" }
         run: |
-          python3 -u runner.py --cleanup darwin --host ${{ steps.enroll.outputs.host }} || true
+          python3 -u runner.py --cleanup darwin --host "$HOST" || true
           # stop fleetd first: a running fleetd re-enrolls within seconds of the delete and leaves an orphan host
           sudo launchctl bootout system/com.fleetdm.orbit 2>/dev/null || true
-          python3 -u pool.py finish --host ${{ steps.enroll.outputs.host }} --hostname "$RUNNER_HOSTNAME"
+          python3 -u pool.py finish --host "$HOST" --hostname "$RUNNER_HOSTNAME"
       - name: Save state and records
         if: always()
-        run: ./harness/ci/results.sh save "pool ${{ matrix.slot }} ${{ steps.enroll.outputs.host }} ${{ github.run_id }}"
-      - uses: actions/upload-artifact@v4
+        env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.enroll.outputs.host }}" }
+        run: ./harness/ci/results.sh save "pool $FMA_SOAK_POOL_SLOT $HOST ${{ github.run_id }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: pool-${{ matrix.slot }}-${{ github.run_id }}
@@ -197,13 +202,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 340
+    permissions: { contents: write, issues: write, actions: read }
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
+      RESULTS_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
@@ -248,7 +255,7 @@ jobs:
             soak_done && { echo "both passes finished: stopping"; break; }
             tick=$((tick + 1))
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: watch-${{ github.run_id }}
@@ -262,11 +269,12 @@ jobs:
     if: always() && needs.soak.result != 'skipped'
     runs-on: ubuntu-latest
     environment: fma-soak   # the ledger reads the instance's FMA catalog for coverage totals
+    permissions: { contents: write, issues: write }
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
@@ -285,6 +293,7 @@ jobs:
           for d in $(date -d yesterday +%F) $(date +%F); do python3 notify.py --date $d; done
           python3 rc_report.py --alert   # RC gate: apps that regressed on the instance's current build
       - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
+        env: { RESULTS_TOKEN: "${{ github.token }}" }
 
   next:
     # Start the next soak run. Not after a cancel (that's a person stopping it). A run that ended early (instance down,
@@ -294,6 +303,7 @@ jobs:
       always() && vars.FMA_SOAK_CHAIN != 'off' &&
       (needs.soak.result == 'success' || needs.soak.result == 'failure') && needs.watch.result != 'cancelled'
     runs-on: ubuntu-latest
+    permissions: { actions: write }
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -311,11 +321,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 30
+    permissions: { contents: write }
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
@@ -326,6 +337,7 @@ jobs:
           python3 -u hosts.py
           python3 -u stuck.py
       - if: always()
+        env: { RESULTS_TOKEN: "${{ github.token }}" }
         run: ./harness/ci/results.sh save "watcher ${{ github.run_id }}"
 
   audit:
@@ -334,11 +346,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: fma-soak
     timeout-minutes: 120
+    permissions: { contents: write }
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-        with: { path: harness }
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
@@ -348,8 +361,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: zsh run-daily.sh
       - if: always()
+        env: { RESULTS_TOKEN: "${{ github.token }}" }
         run: ./harness/ci/results.sh save "audit ${{ github.run_id }}"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: audit-${{ github.run_id }}
