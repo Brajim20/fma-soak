@@ -60,8 +60,13 @@ cat > $OUT/.settings.json <<EOF
            "Bash(fleetctl:*)", "Bash(python3:*)", "Bash(python:*)", "Bash(sh:*)", "Bash(bash:*)", "Bash(zsh:*)",
            "Bash(hdiutil:*)", "Bash(open:*)", "Bash(osascript:*)",
            "Read(//**/.env)", "Read(//**/.env.*)", "Read(//**/.auth/**)", "Read(//**/config.local.json)", "Read(~/.config/**)",
-           "Read(~/.fleet/**)", "Read(~/.ssh/**)", "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(grep:*)",
-           "Bash(curl * file:*)", "Bash(curl *-o /*..*)", "Bash(curl *-d *)", "Bash(curl *-F *)", "Bash(curl *-T *)"]}}
+           "Read(~/.fleet/**)", "Read(~/.ssh/**)", "Read(~/.aws/**)", "Read(~/.netrc)", "Read(~/.npmrc)", "Read(~/.docker/**)",
+           "Read(~/.gitconfig)", "Read(~/.git-credentials)", "Read(~/.kube/**)", "Read(~/.gnupg/**)", "Read(~/Library/**)",
+           "Bash(cat:*)", "Bash(head:*)", "Bash(tail:*)", "Bash(grep:*)",
+           "Bash(curl * file:*)", "Bash(curl *-o /*..*)", "Bash(curl *-d *)", "Bash(curl *-F *)", "Bash(curl *-T *)",
+           "Bash(curl *--data*)", "Bash(curl *--json*)", "Bash(curl *--form*)", "Bash(curl *--upload-file*)",
+           "Bash(curl *-K *)", "Bash(curl *--config*)", "Bash(curl *@*)", "Bash(curl *-X *)", "Bash(curl *--request*)",
+           "Bash(curl *-H *)", "Bash(curl *--header*)", "Bash(curl *;*)", "Bash(curl *|*)", "Bash(curl *&*)"]}}
 EOF
 
 # the output directory is the session's only working directory, so it's the only place the agent can write
