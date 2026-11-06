@@ -1,0 +1,80 @@
+{
+ "slug": "krita/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T12:44:54",
+ "catalog_version": "5.3.4.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after context_after_install, second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T16:44:48Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 26985,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "5.3.4.1"
+ ],
+ "package_version": "5.3.4.1",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 32,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Krita (x64)\\uninstall.exe\nUninstall args: /S /S\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Krita (x64)\\uninstall.exe\nUninstall args: /S /S\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-06T12:56:47",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T16:56:41Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/krita_windows-629-124454-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/krita_windows-629-124454-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/krita_windows-629-124454.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/krita_windows-629-123517.json",
+ "crosshost_of": "soak/2026-11-06/krita_windows-635-054542.json"
+}
