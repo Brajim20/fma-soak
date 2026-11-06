@@ -14,7 +14,7 @@ Every step is recorded; the cycle JSON goes to results/soak/<date>/.
   python3 runner.py <slug> [--host <id>]     one cycle (host defaults to the platform's soak host)
   python3 runner.py --canaries [darwin|windows]
 """
-import argparse, shlex, datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request
+import argparse, shlex, datetime, json, os, re, socket, subprocess, sys, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
@@ -44,9 +44,16 @@ TOKEN = token()
 BASE = CFG["instance"].rstrip("/") + "/api/latest/fleet"
 
 
+# POSTs that are safe to send twice: a live query, a refetch, a login
+SAFE_POST = ("/query", "/refetch", "/login")
+
+
 def api(method, path, body=None, timeout=120, tries=5):
     """HTTP errors are returned as (status, body). Connection errors on this side (DNS, resets, timeouts)
-    are retried; after the last try they come back as status 0 so a cycle records them instead of crashing."""
+    are retried; after the last try they come back as status 0 so a cycle records them instead of crashing.
+    A POST/PATCH/PUT that may have reached the server (timeout, reset) is not retried: a second install or script
+    request would queue twice. Callers already treat status 0 as "no answer" and wait for the result."""
+    resend = method in ("GET", "DELETE") or path.split("?")[0].endswith(SAFE_POST)
     for i in range(tries):
         req = urllib.request.Request(BASE + path, method=method, data=json.dumps(body).encode() if body is not None else None,
                                      headers={"Authorization": "Bearer " + TOKEN, "User-Agent": "fleet-qa-fma-soak", "Content-Type": "application/json"})
@@ -62,6 +69,9 @@ def api(method, path, body=None, timeout=120, tries=5):
                 return e.code, {"message": raw[:300].decode(errors="replace")}
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             err = f"{type(e).__name__}: {e}"
+            unsent = isinstance(getattr(e, "reason", e), (socket.gaierror, ConnectionRefusedError))
+            if not (resend or unsent):
+                return 0, {"message": f"no answer to {method} (not retried, it may have reached the server): {err}"}
             time.sleep(15 * (i + 1))
     return 0, {"message": f"connection failed after {tries} tries: {err}"}
 
@@ -178,6 +188,7 @@ HOST_OFFLINE_SEEN = []
 
 def start_watch(host):
     HOST_OFFLINE_SEEN.clear()
+    PRESENCE_ERRORS.clear()  # per cycle: --canaries / --update-all run many cycles in one process
     return host_snapshot(host)
 
 
@@ -266,12 +277,25 @@ ERROR_MARKERS = re.compile(r"realpath: .*No such file|hdiutil: .*failed|image no
                            r"cannot open|is damaged|No space left", re.I)
 
 
+# the whole version is a numeric release plus a pre-release suffix (not a hash: spotify 1.3.6.1921.g7086c071a617)
+PRE = re.compile(r"(?i)(?<=\d)[._-]?(alpha|beta|preview|pre|dev|rc|a|b)\.?(\d*)$")
+
+
+def vkey(v):
+    """(release numbers, pre-release rank): a pre-release (160.0b2) sorts below its release (160.0)."""
+    s = str(v)
+    m = PRE.search(s) if re.fullmatch(r"(?i)v?\d+(?:[._]\d+)*[._-]?(?:alpha|beta|preview|pre|dev|rc|a|b)\.?\d*", s) else None
+    rank = {"dev": 0, "alpha": 1, "a": 1, "beta": 2, "b": 2}
+    rel, pre = (s[:m.start()], (rank.get(m.group(1).lower(), 3), int(m.group(2) or 0))) if m else (s, (4, 0))
+    return [int(x) for x in re.findall(r"\d+", rel)], pre
+
+
 def vcmp(a, b):
-    """Numeric compare; trailing zeros don't matter (2.42304.2.0 == 2.42304.2)."""
-    pa, pb = [int(x) for x in re.findall(r"\d+", str(a))], [int(x) for x in re.findall(r"\d+", str(b))]
+    """Numeric compare; trailing zeros don't matter (2.42304.2.0 == 2.42304.2); 160.0b2 < 160.0."""
+    (pa, ra), (pb, rb) = vkey(a), vkey(b)
     n = max(len(pa), len(pb))
-    pa, pb = pa + [0] * (n - len(pa)), pb + [0] * (n - len(pb))
-    return (pa > pb) - (pa < pb)
+    ka, kb = (pa + [0] * (n - len(pa)), ra), (pb + [0] * (n - len(pb)), rb)
+    return (ka > kb) - (ka < kb)
 
 
 def vshape(v):
@@ -313,7 +337,7 @@ def install(host, tid, rec, label):
         st, r = api("GET", f"/software/install/{uuid}/results")
         res = r.get("results", {})
         out = res.get("output") or ""
-        rec[f"{label}_output_tail"] = scrub(out[-600:])
+        rec[f"{label}_output_tail"] = scrub(out)[-600:]
         rec[f"{label}_error_markers"] = sorted({m.group(0)[:80] for m in ERROR_MARKERS.finditer(out)})
         # quit/relaunch lines from the install script come early, before the tail (S6, running.py)
         rec[f"{label}_app_lines"] = [scrub(l.strip())[:160] for l in out.splitlines()
@@ -337,7 +361,7 @@ def uninstall(host, tid, rec, label):
     eid = (((s or {}).get("software_package") or {}).get("last_uninstall") or {}).get("script_execution_id")
     if eid:
         st, r = api("GET", f"/scripts/results/{eid}")
-        rec[f"{label}_output_tail"] = scrub((r.get("output") or "")[-600:])
+        rec[f"{label}_output_tail"] = scrub(r.get("output") or "")[-600:]
         rec[f"{label}_exit_code"] = r.get("exit_code")
     return s
 
@@ -529,11 +553,11 @@ def cycle(slug, host):
         ustatus = rec.get(f"{rnd}_uninstall_status")
         if p is True:
             find("S3" if ustatus not in ("failed_uninstall",) else "uninstall", f"{rnd} uninstall: app still on host (status {ustatus})")
-        else:
+        elif p is False:  # None: the host didn't answer, so keep it for cleanup_leftovers
             state["harness_installed"].pop(key, None); save_state(state, host)
     if rec.get("fleetd_desktop_before") and fleetd_desktop_running(host, plat) is False:
         find("S2", "fleetd's own Fleet Desktop isn't running after uninstalling the Fleet Desktop FMA")
-    unknown = [k for k, v in rec.items() if k.endswith(("_after_install", "_after_uninstall")) and v is None]
+    unknown = [k for k, v in rec.items() if k.endswith(("_present_after_install", "_present_after_uninstall")) and v is None]
     if unknown:
         find("harness", f"presence unknown after {', '.join(unknown)} (host didn't answer the live query)")
     rec["presence_query_errors"] = PRESENCE_ERRORS[:]
@@ -542,6 +566,10 @@ def cycle(slug, host):
     if known and rec["findings"]:
         rec["outcome"], rec["known_environment"] = "environment (known)", known
     return finish(rec)
+
+
+def sql_str(v):
+    return "'" + str(v).replace("'", "''") + "'"
 
 
 def context(host, exists_q, tries=4):
@@ -557,7 +585,7 @@ def context(host, exists_q, tries=4):
                 app = rows[0]["path"]
                 exe = f"{app}/Contents/MacOS/{rows[0]['bundle_executable']}"
                 st2, d2 = api("POST", f"/hosts/{host}/query",
-                              {"query": f"SELECT path, uid, gid, mode FROM file WHERE path IN ('{app}', '{exe}');"}, timeout=180)
+                              {"query": "SELECT path, uid, gid, mode FROM file WHERE path IN (%s, %s);" % (sql_str(app), sql_str(exe))}, timeout=180)
                 files = {r["path"]: f"{r['uid']}:{r['gid']} {r['mode']}" for r in d2.get("rows") or []}
                 return {"path": app, "bundle": files.get(app), "executable": files.get(exe), "exe": exe,
                         "bundle_id": rows[0].get("bundle_identifier"),
@@ -781,6 +809,14 @@ def update_path(slug, host):
         rec["active_after_unpin"] = title_pkg(tid).get("version")
     if rec["active_after_unpin"] != newest:
         find("S4", f"setting Latest left {rec['active_after_unpin']} active, expected {newest}")
+    if rec.get("old_install_status") != "installed":
+        # without the older version on the host, the upgrade would be a fresh install of the latest: no update path
+        find("install", f"install of {older} ended as {rec.get('old_install_status')}; upgrade not tested")
+        uninstall(host, tid, rec, "cleanup_uninstall")
+        if present(host, exists_q) is False:
+            state["harness_installed"].pop(key, None); save_state(state, host)
+        rec["outcome"] = "findings"
+        return finish(rec)
     # S6 (running.py): on alternate days per app the older version is open during the upgrade, on the others it isn't
     import running
     plat = slug.split("/")[1]
@@ -834,12 +870,27 @@ def update_path(slug, host):
 SHOT = os.path.join(HERE, "tools", "shot.mjs")
 
 
+# account names seen so far (in paths), plus FMA_SOAK_SCRUB_NAMES (comma-separated, a CI secret): replaced wherever
+# they appear, since installers also print them in prose ("Restarting Chrome for user: <name>")
+SCRUB_NAMES = {n.strip() for n in os.environ.get("FMA_SOAK_SCRUB_NAMES", "").split(",") if len(n.strip()) >= 3}
+_PATH_USER = re.compile(r"(?i)(?:/Users/(?!Shared/)([^/\s\"']+)|C:\\Users\\(?!Public\\)([^\\\r\n\"'<>|]+))")
+
+
 def scrub(text):
-    """Saved output is meant to be publishable (task 4.9): hide local account names in paths."""
-    text = re.sub(r"/Users/(?!Shared/)[^/\s]+", "/Users/<user>", text or "")
+    """Saved output is meant to be publishable (task 4.9): hide local account names in paths and prose.
+    Scrub the whole text before cutting it: a tail that starts mid-path ("/jane/Library/...") isn't a path any more."""
+    text = text or ""
+    SCRUB_NAMES.update(n for m in _PATH_USER.finditer(text) for n in m.groups()
+                       if n and len(n) >= 3 and n not in ("<user>", "runner", "Default", "All Users"))
+    text = re.sub(r"/Users/(?!Shared/)[^/\s]+", "/Users/<user>", text)
     # a profile folder can have spaces ("C:\\Users\\Jane Doe\\..."): everything up to the next separator
     text = re.sub(r"(?i)(C:\\Users\\)(?!Public\\)[^\\\r\n\"'<>|]+", r"\1<user>", text)
     text = re.sub(r"\buser=[^\s\\'\"]+", "user=<user>", text)   # the #51127 probe's "user=<name>"
+    # installer prose: "for user: jane", "for user 'jane'", "Console user: jane (uid 501)", "ownership of X.app to 'jane'"
+    text = re.sub(r"(?i)\b((?:for|console) user:? '?)(?!<user>)[A-Za-z0-9._-]+", r"\1<user>", text)
+    text = re.sub(r"(ownership of .{1,80}? to ')[^']+'", r"\1<user>'", text)
+    for n in sorted(SCRUB_NAMES, key=len, reverse=True):
+        text = re.sub(r"(?<![\w.-])" + re.escape(n) + r"(?![\w-])", "<user>", text)
     # Windows account names ("HOSTNAME\\user"), which name the soak VM; not built-ins or registry roots
     # host names can have underscores (NUCBOX_G10) and account names spaces ("Jane Doe")
     return re.sub(r"(?<![\\\w])(?!(?:AUTHORITY|BUILTIN|HKLM|HKCU|HKCR|HKU|HKEY_\w+|NT SERVICE|SYSTEM)\\)([A-Z][A-Z0-9_-]{2,14})\\\\?"
@@ -885,7 +936,19 @@ def evidence(rec, base):
     return shots
 
 
+def scrub_all(v):
+    """Every string in the record, nested ones too (context() paths and names, script output)."""
+    if isinstance(v, str):
+        return scrub(v)
+    if isinstance(v, dict):
+        return {k: scrub_all(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [scrub_all(x) for x in v]
+    return v
+
+
 def finish(rec):
+    rec.update(scrub_all({k: v for k, v in rec.items() if k not in ("record", "retry_of")}))
     rec["finished"] = datetime.datetime.now().isoformat(timespec="seconds")
     if rec.get("host_at_start"):
         rec["host_at_end"] = host_snapshot(rec["host"])
@@ -911,6 +974,11 @@ def finish(rec):
     return rec
 
 
+def norm(f):
+    """A finding's identity across runs: shape and message, numbers (durations, ids, pids) blanked."""
+    return f["shape"], re.sub(r"\d+", "#", f["msg"])
+
+
 def run(fn, slug, host):
     """Task 3.8: a cycle with findings runs once more before it counts. Same result twice = reproducible;
     a clean second run = flaky, reported as its own class, never folded into pass."""
@@ -923,7 +991,9 @@ def run(fn, slug, host):
     if second.get("outcome") == "pass":
         second["outcome"] = "flaky: findings on the first run, clean on the retry"
     elif second.get("outcome") == "findings":
-        same = {f["shape"] for f in first["findings"]} & {f["shape"] for f in second["findings"]}
+        # a harness finding is about the harness, not the app: it never makes a finding "reproduced"
+        same = ({norm(f) for f in first["findings"] if f["shape"] != "harness"}
+                & {norm(f) for f in second["findings"] if f["shape"] != "harness"})
         second["outcome"] = "findings (reproduced on retry)" if same else "findings (different on retry)"
     json.dump(second, open(second["record"], "w"), indent=1)
     print(f"   verdict: {second['outcome']}")

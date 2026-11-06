@@ -1,0 +1,18 @@
+# The harness's own pure-function tests (version compare, scrubbing, finding identity). No secrets, no Fleet calls.
+name: Harness tests
+
+on:
+  push:
+    branches: [main]
+    paths: ["soak/**", "tests/**", ".github/workflows/tests.yml"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -v tests
