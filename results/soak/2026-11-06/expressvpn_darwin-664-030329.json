@@ -1,0 +1,143 @@
+{
+ "slug": "expressvpn/darwin",
+ "host": 664,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T03:03:29",
+ "catalog_version": "14.3.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T07:03:29Z",
+  "restarted": "2026-11-06T05:38:13.678519Z"
+ },
+ "title_id": 26546,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "essagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installing browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installed browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Processed browser helper manifests\n\u001b[92m\u2714\u001b[0m Installed command-line symlink\n\u001b[92m\u2714\u001b[0m Enabled LaunchDaemon (launchctl enable exited with status 0)\n\u001b[92m\u2714\u001b[0m Loaded LaunchDaemon (launchctl bootstrap exited with status 0)\n\u001b[92m\u2714\u001b[0m Launched daemon\n\u001b[92m\u2714\u001b[0m Install completed in 1s\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "14.3.1"
+ ],
+ "package_version": "14.3.1",
+ "context_after_install": {
+  "path": "/Applications/ExpressVPN.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/ExpressVPN.app/Contents/MacOS/ExpressVPN",
+  "bundle_id": "com.express.vpn",
+  "versions": [
+   "14.3.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing launchctl service com.express.vpn.client\nRemoving launchctl service com.express.vpn.daemon\nRemoving launchctl service com.express.vpn.installhelper\nremoving /Library/Application Support/com.express.vpn.\nremoving /Library/Preferences/com.express.vpn.\n/Users/<user>/Library/Application Support/com.express.vpn doesn't exist.\n/Users/<user>/Library/Caches/com.express.vpn doesn't exist.\n/Users/<user>/Library/Preferences/com.express.vpn doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "ingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installing browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installed browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Processed browser helper manifests\n\u001b[92m\u2714\u001b[0m Command-line symlink already exists\n\u001b[92m\u2714\u001b[0m Enabled LaunchDaemon (launchctl enable exited with status 0)\n\u001b[92m\u2714\u001b[0m Loaded LaunchDaemon (launchctl bootstrap exited with status 0)\n\u001b[92m\u2714\u001b[0m Launched daemon\n\u001b[92m\u2714\u001b[0m Install completed in 1s\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "65199",
+   "67559"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "ingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installing browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Installed browser helper manifest: /Library/Application Support/Mozilla/NativeMessagingHosts/com.expressvpn.helper.json\n\u001b[92m\u2714\u001b[0m Processed browser helper manifests\n\u001b[92m\u2714\u001b[0m Command-line symlink already exists\n\u001b[92m\u2714\u001b[0m Enabled LaunchDaemon (launchctl enable exited with status 0)\n\u001b[92m\u2714\u001b[0m Loaded LaunchDaemon (launchctl bootstrap exited with status 0)\n\u001b[92m\u2714\u001b[0m Launched daemon\n\u001b[92m\u2714\u001b[0m Install completed in 1s\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Quitting application 'com.express.vpn'...",
+  "Application 'com.express.vpn' quit successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "68837",
+   "path": "/Applications/ExpressVPN.app/Contents/MacOS/expressvpn-daemon",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Removing launchctl service com.express.vpn.client\nRemoving launchctl service com.express.vpn.daemon\nRemoving launchctl service com.express.vpn.installhelper\nremoving /Library/Application Support/com.express.vpn.\nremoving /Library/Preferences/com.express.vpn.\nremoving /Users/<user>/Library/Application Support/com.express.vpn.\nremoving /Users/<user>/Library/Caches/com.express.vpn.\nremoving /Users/<user>/Library/Preferences/com.express.vpn.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T03:12:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T07:12:52Z",
+  "restarted": "2026-11-06T05:38:13.678519Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/expressvpn_darwin-664-030329.json",
+ "pool_slot": 90004
+}
