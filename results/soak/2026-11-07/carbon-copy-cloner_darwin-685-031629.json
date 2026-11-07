@@ -1,0 +1,66 @@
+{
+ "slug": "carbon-copy-cloner/darwin",
+ "host": 685,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T03:16:29",
+ "catalog_version": "7.2.2",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T07:16:08Z",
+  "restarted": "2026-11-07T05:42:35.344586Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 27754,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 94,
+ "first_install_output_tail": "Installing software...\nFailed\nditto: Couldn't read PKZip signature\ncp: /private/tmp/1163114049/Carbon Copy Cloner.app: No such file or directory\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Library/LaunchDaemons/com.bombich.ccchelper.plist doesn't exist.\n/Users/<user>/Library/Application Support/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/Caches/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/Preferences/com.bombich.ccc.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.bombich.cccuseragent.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.bombich.ccc.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 78,
+ "second_install_output_tail": "Installing software...\nFailed\nditto: Couldn't read PKZip signature\ncp: /private/tmp/3971231783/Carbon Copy Cloner.app: No such file or directory\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Library/LaunchDaemons/com.bombich.ccchelper.plist doesn't exist.\n/Users/<user>/Library/Application Support/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/Caches/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.bombich.ccc doesn't exist.\n/Users/<user>/Library/Preferences/com.bombich.ccc.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.bombich.cccuseragent.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.bombich.ccc.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T03:21:53",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T07:21:50Z",
+  "restarted": "2026-11-07T05:42:35.344586Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/carbon-copy-cloner_darwin-685-031629.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/carbon-copy-cloner_darwin-685-031627.json"
+}
