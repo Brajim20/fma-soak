@@ -1,0 +1,66 @@
+{
+ "slug": "sony-ps-remote-play/darwin",
+ "host": 686,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T04:13:12",
+ "catalog_version": "9.5.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T08:13:08Z",
+  "restarted": "2026-11-07T05:25:00.41071Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 27792,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/2368335980/RemotePlayInstaller.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": ".pkg' found at '/'.\n/Users/<user>/Library/Application Support/Sony Corporation/PS Remote Play doesn't exist.\n/Users/<user>/Library/Application Support/Sony Corporation/PS4 Remote Play doesn't exist.\n/Users/<user>/Library/Caches/com.playstation.RemotePlay doesn't exist.\n/Users/<user>/Library/Cookies/com.playstation.RemotePlay.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.playstation.RemotePlay.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.playstation.RemotePlay.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.playstation.RemotePlay doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 93,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/3681147039/RemotePlayInstaller.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": ".pkg' found at '/'.\n/Users/<user>/Library/Application Support/Sony Corporation/PS Remote Play doesn't exist.\n/Users/<user>/Library/Application Support/Sony Corporation/PS4 Remote Play doesn't exist.\n/Users/<user>/Library/Caches/com.playstation.RemotePlay doesn't exist.\n/Users/<user>/Library/Cookies/com.playstation.RemotePlay.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.playstation.RemotePlay.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.playstation.RemotePlay.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.playstation.RemotePlay doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T04:19:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T08:19:23Z",
+  "restarted": "2026-11-07T05:25:00.41071Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/sony-ps-remote-play_darwin-686-041312.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/sony-ps-remote-play_darwin-686-041308.json"
+}
