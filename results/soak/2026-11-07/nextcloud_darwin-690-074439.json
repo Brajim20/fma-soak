@@ -1,0 +1,74 @@
+{
+ "slug": "nextcloud/darwin",
+ "host": 690,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T07:44:39",
+ "catalog_version": "35.0.3",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T11:44:43Z",
+  "restarted": "2026-11-07T10:03:10.601889Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 20349,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 78,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/3840479386/Nextcloud-35.0.3.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "y/Application Support/Nextcloud doesn't exist.\n/Users/<user>/Library/Caches/Nextcloud doesn't exist.\n/Users/<user>/Library/Containers/com.nextcloud.desktopclient.FileProviderExt doesn't exist.\n/Users/<user>/Library/Containers/com.nextcloud.desktopclient.FinderSyncExt doesn't exist.\n/Users/<user>/Library/Group Containers/com.nextcloud.desktopclient doesn't exist.\n/Users/<user>/Library/Group Containers/NKUJUXUJ3B.com.nextcloud.desktopclient doesn't exist.\n/Users/<user>/Library/Preferences/com.nextcloud.desktopclient.plist doesn't exist.\n/Users/<user>/Library/Preferences/Nextcloud doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 93,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/856779486/Nextcloud-35.0.3.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "y/Application Support/Nextcloud doesn't exist.\n/Users/<user>/Library/Caches/Nextcloud doesn't exist.\n/Users/<user>/Library/Containers/com.nextcloud.desktopclient.FileProviderExt doesn't exist.\n/Users/<user>/Library/Containers/com.nextcloud.desktopclient.FinderSyncExt doesn't exist.\n/Users/<user>/Library/Group Containers/com.nextcloud.desktopclient doesn't exist.\n/Users/<user>/Library/Group Containers/NKUJUXUJ3B.com.nextcloud.desktopclient doesn't exist.\n/Users/<user>/Library/Preferences/com.nextcloud.desktopclient.plist doesn't exist.\n/Users/<user>/Library/Preferences/Nextcloud doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: write tcp 10.31.204.238:50780->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T07:51:30",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T11:51:27Z",
+  "restarted": "2026-11-07T10:03:10.601889Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/nextcloud_darwin-690-074439.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/nextcloud_darwin-690-074435.json"
+}
