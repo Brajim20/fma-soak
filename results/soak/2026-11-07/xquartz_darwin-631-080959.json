@@ -1,0 +1,72 @@
+{
+ "slug": "xquartz/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T08:09:59",
+ "catalog_version": "2.8.6",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T12:09:57Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 27977,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/tmp/444786249/XQuartz-2.8.6.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "rg.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Cookies/org.xquartz.X11.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/org.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log.old doesn't exist.\n/Users/<user>/Library/Preferences/org.macosforge.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.xquartz.X11.savedState doesn't exist.\n/Users/<user>/Library/WebKit/org.xquartz.X11 doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 78,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/tmp/494799475/XQuartz-2.8.6.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "rg.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Cookies/org.xquartz.X11.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/org.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log.old doesn't exist.\n/Users/<user>/Library/Preferences/org.macosforge.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.xquartz.X11.savedState doesn't exist.\n/Users/<user>/Library/WebKit/org.xquartz.X11 doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: write tcp 10.31.204.238:47634->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T08:16:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T12:16:21Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/xquartz_darwin-631-080959-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/xquartz_darwin-631-080959-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/xquartz_darwin-631-080959.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/xquartz_darwin-631-080945.json"
+}
