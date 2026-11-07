@@ -1,0 +1,66 @@
+{
+ "slug": "egnyte-webedit/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T09:35:03",
+ "catalog_version": "2.4.1400.90",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T13:35:02Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 28064,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:F8) [05:36:16:822]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:F8) [05:36:16:822]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (FC:34) [05:36:16:824]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (FC:34) [05:36:16:825]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  5:36:16 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:F8) [05:38:23:476]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:F8) [05:38:23:476]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (54:24) [05:38:23:478]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (54:24) [05:38:23:478]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  5:38:23 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T09:39:23",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T13:39:14Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/egnyte-webedit_windows-635-093503-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/egnyte-webedit_windows-635-093503-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/egnyte-webedit_windows-635-093503.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/egnyte-webedit_windows-635-093452.json"
+}

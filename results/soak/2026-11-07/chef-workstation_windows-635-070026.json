@@ -1,0 +1,68 @@
+{
+ "slug": "chef-workstation/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T07:00:26",
+ "catalog_version": "25.14.2.1",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T11:00:19Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 27897,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (7C:DC) [03:02:01:642]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (7C:DC) [03:02:01:642]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (44:0C) [03:02:01:644]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (44:0C) [03:02:01:644]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  3:02:01 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (7C:DC) [03:05:08:156]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (7C:DC) [03:05:08:156]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:34) [03:05:08:158]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:34) [03:05:08:158]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  3:05:08 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T07:06:00",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T11:05:48Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/chef-workstation_windows-635-070026-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/chef-workstation_windows-635-070026-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/chef-workstation_windows-635-070026.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/chef-workstation_windows-635-065959.json"
+}

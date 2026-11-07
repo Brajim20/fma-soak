@@ -1,0 +1,70 @@
+{
+ "slug": "calibre/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T09:00:22",
+ "catalog_version": "9.18.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T13:00:22Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 28030,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (DC:AC) [05:01:47:343]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (DC:AC) [05:01:47:344]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (CC:D8) [05:01:47:346]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (CC:D8) [05:01:47:346]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  5:01:47 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (DC:08) [05:04:53:747]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (DC:08) [05:04:53:747]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (44:00) [05:04:53:749]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (44:00) [05:04:53:749]: MainEngineThread is returning 1620\r\n=== Verbose logging stopped: 11/7/2026  5:04:53 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T09:05:53",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T13:05:53Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/calibre_windows-635-090022-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/calibre_windows-635-090022-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/calibre_windows-635-090022.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/calibre_windows-635-085956.json"
+}
