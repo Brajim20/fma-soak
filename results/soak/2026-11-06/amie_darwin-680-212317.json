@@ -1,0 +1,95 @@
+{
+ "slug": "amie/darwin",
+ "host": 680,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T21:23:17",
+ "catalog_version": "260909.0.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T01:23:17Z",
+  "restarted": "0001-01-01T00:00:00Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 27353,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 502,
+ "first_install_error": "error code: 502\n",
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/amie-desktop doesn't exist.\n/Users/<user>/Library/Caches/amie-desktop doesn't exist.\n/Users/<user>/Library/Logs/amie-desktop doesn't exist.\n/Users/<user>/Library/Preferences/so.amie.electron-app.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/so.amie.electron-app.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "11447"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 34,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'so.amie.electron-app' was running; will relaunch after installation.\nQuitting application 'so.amie.electron-app'...\nApplication 'so.amie.electron-app' quit successfully.\nRelaunching application 'so.amie.electron-app'...\nApplication 'so.amie.electron-app' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'so.amie.electron-app' was running; will relaunch after installation.",
+  "Quitting application 'so.amie.electron-app'...",
+  "Application 'so.amie.electron-app' quit successfully.",
+  "Relaunching application 'so.amie.electron-app'...",
+  "Application 'so.amie.electron-app' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "12278",
+   "path": "/Applications/Amie.app/Contents/MacOS/Amie",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/amie-desktop.\nremoving /Users/<user>/Library/Caches/amie-desktop.\nremoving /Users/<user>/Library/Logs/amie-desktop.\nremoving /Users/<user>/Library/Preferences/so.amie.electron-app.plist.\n/Users/<user>/Library/Saved Application State/so.amie.electron-app.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: write tcp 10.31.204.212:53054->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-07T01:21:54.831428Z)",
+ "finished": "2026-11-06T21:32:19",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T01:32:20Z",
+  "restarted": "2026-11-07T01:21:54.831428Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-07T01:21:54.831428Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/amie_darwin-680-212317.json"
+}

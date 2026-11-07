@@ -1,0 +1,120 @@
+{
+ "slug": "logitune/darwin",
+ "host": 680,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T22:39:06",
+ "catalog_version": "3.14.72",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T02:39:02Z",
+  "restarted": "2026-11-07T01:21:54.831428Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 27558,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Logi Tune\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.15.96"
+ ],
+ "package_version": "3.14.72",
+ "context_after_install": {
+  "path": "/Applications/Logi Tune.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Logi Tune.app/Contents/MacOS/LogiTune",
+  "bundle_id": "com.logitech.logitune",
+  "versions": [
+   "3.15.96"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "00007 <blob>=\"logitune Safe Storage\"\n    0x00000008 <blob>=<NULL>\n    \"acct\"<blob>=\"logitune Key\"\n    \"cdat\"<timedate>=0x32303236313130373032333935395A00  \"20261107023959Z\\000\"\n    \"crtr\"<uint32>=<NULL>\n    \"cusi\"<sint32>=<NULL>\n    \"desc\"<blob>=<NULL>\n    \"gena\"<blob>=<NULL>\n    \"icmt\"<blob>=<NULL>\n    \"invi\"<sint32>=<NULL>\n    \"mdat\"<timedate>=0x32303236313130373032333935395A00  \"20261107023959Z\\000\"\n    \"nega\"<sint32>=<NULL>\n    \"prot\"<blob>=<NULL>\n    \"scrp\"<sint32>=<NULL>\n    \"svce\"<blob>=\"logitune Safe Storage\"\n    \"type\"<uint32>=<NULL>\nForgot package 'com.logitech.pkg.logitune' on '/'.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Logi Tune\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "81483",
+   "81485",
+   "81492",
+   "81494"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nQuitting application 'com.logitech.logitune'...\nApplication 'com.logitech.logitune' quit successfully.\ninstaller: Package name is Logi Tune\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Quitting application 'com.logitech.logitune'...",
+  "Application 'com.logitech.logitune' quit successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "86874",
+   "path": "/Applications/Logi Tune.app/Contents/MacOS/LogiTuneCrashpadHandler",
+   "on_disk": "1"
+  },
+  {
+   "pid": "86876",
+   "path": "/Applications/Logi Tune.app/Contents/MacOS/LogiTuneUpdater",
+   "on_disk": "1"
+  },
+  {
+   "pid": "86883",
+   "path": "/Applications/Logi Tune.app/Contents/MacOS/LogiTuneAgent",
+   "on_disk": "1"
+  },
+  {
+   "pid": "86885",
+   "path": "/Applications/Logi Tune.app/Contents/MacOS/LogiTune",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "92038",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 77,
+ "second_uninstall_output_tail": "00007 <blob>=\"logitune Safe Storage\"\n    0x00000008 <blob>=<NULL>\n    \"acct\"<blob>=\"logitune Key\"\n    \"cdat\"<timedate>=0x32303236313130373032343431335A00  \"20261107024413Z\\000\"\n    \"crtr\"<uint32>=<NULL>\n    \"cusi\"<sint32>=<NULL>\n    \"desc\"<blob>=<NULL>\n    \"gena\"<blob>=<NULL>\n    \"icmt\"<blob>=<NULL>\n    \"invi\"<sint32>=<NULL>\n    \"mdat\"<timedate>=0x32303236313130373032343431335A00  \"20261107024413Z\\000\"\n    \"nega\"<sint32>=<NULL>\n    \"prot\"<blob>=<NULL>\n    \"scrp\"<sint32>=<NULL>\n    \"svce\"<blob>=\"logitune Safe Storage\"\n    \"type\"<uint32>=<NULL>\nForgot package 'com.logitech.pkg.logitune' on '/'.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T22:50:21",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T02:50:12Z",
+  "restarted": "2026-11-07T01:21:54.831428Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/logitune_darwin-680-223906.json"
+}
