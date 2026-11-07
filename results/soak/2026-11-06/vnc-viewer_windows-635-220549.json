@@ -1,0 +1,87 @@
+{
+ "slug": "vnc-viewer/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T22:05:49",
+ "catalog_version": "8.6.0.15",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T02:05:42Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 27500,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code (msiexec): 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "8.6.0.15",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "RealVNC Connect Viewer 8.6.0"
+  ],
+  "versions": [
+   "8.6.0.15"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Uninstall command: MsiExec.exe\nUninstall args: /X {B4A38E5A-5EFF-4CD0-B606-7395D45329BE} /qn /norestart\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code (msiexec): 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: MsiExec.exe\nUninstall args: /X {B4A38E5A-5EFF-4CD0-B606-7395D45329BE} /qn /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-06T22:26:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T02:26:32Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/vnc-viewer_windows-635-220549-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/vnc-viewer_windows-635-220549-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/vnc-viewer_windows-635-220549.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/vnc-viewer_windows-635-214507.json",
+ "crosshost_of": "soak/2026-11-06/vnc-viewer_windows-629-210016.json"
+}
