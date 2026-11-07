@@ -1,0 +1,109 @@
+{
+ "slug": "dante-controller/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T12:30:39",
+ "catalog_version": "4.18.1.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T16:30:36Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 27189,
+ "title_added_by_harness": true,
+ "present_before": true,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "ey>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\ninstaller: Package name is Dante Controller\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.18.1.1"
+ ],
+ "package_version": "4.18.1.1",
+ "context_after_install": {
+  "path": "/Applications/Dante Controller.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Dante Controller.app/Contents/MacOS/Dante Controller",
+  "bundle_id": "com.audinate.dante.DanteController",
+  "versions": [
+   "4.18.1.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "args -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.audinate.dante.pkg.DanteUpdater\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Dante Updater.app\" 2>/dev/null || :\nForgot package 'com.audinate.dante.pkg.DanteUpdater' on '/'.\nremoving /Users/<user>/Library/Application Support/Dante Controller.\nremoving /Users/<user>/Library/Preferences/com.audinate.dante.controller.plist.\n/Users/<user>/Library/Saved Application State/com.audinate.dante.DanteController.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "y>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\ninstaller: Package name is Dante Controller\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "23263"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "ed-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\nApplication 'com.audinate.dante.DanteController' was running; will relaunch after installation.\nQuitting application 'com.audinate.dante.DanteController'...\nApplication 'com.audinate.dante.DanteController' quit successfully.\ninstaller: Package name is Dante Controller\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.audinate.dante.DanteController'...\nApplication 'com.audinate.dante.DanteController' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.audinate.dante.DanteController' was running; will relaunch after installation.",
+  "Quitting application 'com.audinate.dante.DanteController'...",
+  "Application 'com.audinate.dante.DanteController' quit successfully.",
+  "Relaunching application 'com.audinate.dante.DanteController'...",
+  "Application 'com.audinate.dante.DanteController' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "23383",
+   "path": "/Applications/Dante Controller.app/Contents/MacOS/Dante Controller",
+   "on_disk": "1"
+  },
+  {
+   "pid": "24212",
+   "path": "/Applications/Dante Controller.app/Contents/MacOS/DanteControllerAgent",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "-0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.audinate.dante.pkg.DanteUpdater\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Dante Updater.app\" 2>/dev/null || :\nForgot package 'com.audinate.dante.pkg.DanteUpdater' on '/'.\nremoving /Users/<user>/Library/Application Support/Dante Controller.\n/Users/<user>/Library/Preferences/com.audinate.dante.controller.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.audinate.dante.DanteController.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-07T12:41:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T16:41:16Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/dante-controller_darwin-636-123039.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/dante-controller_darwin-636-121819.json"
+}

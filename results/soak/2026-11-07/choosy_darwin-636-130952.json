@@ -1,0 +1,107 @@
+{
+ "slug": "choosy/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T13:09:52",
+ "catalog_version": "2.5.2",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T17:09:46Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 28390,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Choosy\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.5.2"
+ ],
+ "package_version": "2.5.2",
+ "context_after_install": {
+  "path": "/Applications/Choosy.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Choosy.app/Contents/MacOS/Choosy",
+  "bundle_id": "com.choosyosx.Choosy",
+  "versions": [
+   "2.5.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "osyosx.Choosy.Safari to the Trash.\nremoving /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share.\nmv: rename /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share to /Users/<user>/.Trash/com.choosyosx.Choosy.Share_2026-11-07-1794071582_43382: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share to the Trash.\nremoving /Users/<user>/Library/Group Containers/5YVSNS92FV.com.choosyosx.Choosy.\nremoving /Users/<user>/Library/HTTPStorages/com.choosyosx.Choosy.\n/Users/<user>/Library/Preferences/com.choosyosx.ChoosyPrefPane.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Choosy\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "37188"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.choosyosx.Choosy' was running; will relaunch after installation.\nQuitting application 'com.choosyosx.Choosy'...\nApplication 'com.choosyosx.Choosy' quit successfully.\ninstaller: Package name is Choosy\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.choosyosx.Choosy'...\nApplication 'com.choosyosx.Choosy' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.choosyosx.Choosy' was running; will relaunch after installation.",
+  "Quitting application 'com.choosyosx.Choosy'...",
+  "Application 'com.choosyosx.Choosy' quit successfully.",
+  "Relaunching application 'com.choosyosx.Choosy'...",
+  "Application 'com.choosyosx.Choosy' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "38038",
+   "path": "/Applications/Choosy.app/Contents/MacOS/Choosy",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 17,
+ "second_uninstall_output_tail": "osyosx.Choosy.Safari to the Trash.\nremoving /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share.\nmv: rename /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share to /Users/<user>/.Trash/com.choosyosx.Choosy.Share_2026-11-07-1794071892_65459: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/com.choosyosx.Choosy.Share to the Trash.\nremoving /Users/<user>/Library/Group Containers/5YVSNS92FV.com.choosyosx.Choosy.\nremoving /Users/<user>/Library/HTTPStorages/com.choosyosx.Choosy.\n/Users/<user>/Library/Preferences/com.choosyosx.ChoosyPrefPane.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T13:20:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T17:20:03Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/choosy_darwin-636-130952.json"
+}
