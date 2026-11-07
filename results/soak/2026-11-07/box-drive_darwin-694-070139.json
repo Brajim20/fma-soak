@@ -1,0 +1,106 @@
+{
+ "slug": "box-drive/darwin",
+ "host": 694,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T07:01:39",
+ "catalog_version": "2.54.172",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T11:01:37Z",
+  "restarted": "2026-11-07T10:04:59.790315Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 13114,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 32,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Box\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.54.172"
+ ],
+ "package_version": "2.54.172",
+ "context_after_install": {
+  "path": "/Applications/Box.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Box.app/Contents/MacOS/Box",
+  "bundle_id": "com.box.desktop",
+  "versions": [
+   "2.54.172"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "ID: com.box.desktop.installer.*\nExpanding wildcard for PKGID: com.box.desktop.installer.*\nremoving /Users/<user>/.Box_EngineServer.\nremoving /Users/<user>/.Box_UIServer.\n/Users/<user>/Library/Application Support/Box/Box doesn't exist.\nremoving /Users/<user>/Library/Application Support/FileProvider/com.box.desktop.boxfileprovider.\n/Users/<user>/Library/Containers/com.box.desktop.findersyncext doesn't exist.\n/Users/<user>/Library/Logs/Box/Box doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.box.desktop.plist.\n/Users/<user>/Library/Preferences/com.box.desktop.ui.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Box\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "97016"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.box.desktop' was running; will relaunch after installation.\nQuitting application 'com.box.desktop'...\nApplication 'com.box.desktop' quit successfully.\ninstaller: Package name is Box\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.box.desktop'...\nApplication 'com.box.desktop' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.box.desktop' was running; will relaunch after installation.",
+  "Quitting application 'com.box.desktop'...",
+  "Application 'com.box.desktop' quit successfully.",
+  "Relaunching application 'com.box.desktop'...",
+  "Application 'com.box.desktop' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "139",
+   "path": "/Applications/Box.app/Contents/MacOS/Box",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 47,
+ "second_uninstall_output_tail": "ID: com.box.desktop.installer.*\nExpanding wildcard for PKGID: com.box.desktop.installer.*\nremoving /Users/<user>/.Box_EngineServer.\nremoving /Users/<user>/.Box_UIServer.\n/Users/<user>/Library/Application Support/Box/Box doesn't exist.\nremoving /Users/<user>/Library/Application Support/FileProvider/com.box.desktop.boxfileprovider.\n/Users/<user>/Library/Containers/com.box.desktop.findersyncext doesn't exist.\n/Users/<user>/Library/Logs/Box/Box doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.box.desktop.plist.\n/Users/<user>/Library/Preferences/com.box.desktop.ui.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T07:11:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T11:11:48Z",
+  "restarted": "2026-11-07T10:04:59.790315Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/box-drive_darwin-694-070139.json"
+}
