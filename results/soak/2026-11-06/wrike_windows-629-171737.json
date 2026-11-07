@@ -1,0 +1,88 @@
+{
+ "slug": "wrike/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T17:17:37",
+ "catalog_version": "4.6.2",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Apps\\Wrike.com\\Wrike for Windows\\), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T21:17:27Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 27026,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A4:A0) [17:18:17:893]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A4:A0) [17:18:17:893]: Destroying RemoteAPI object.\r\nMSI (s) (A4:88) [17:18:17:893]: Custom Action Manager thread ending.\r\nMSI (c) (90:84) [17:18:17:893]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (90:84) [17:18:17:901]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/6/2026  17:18:17 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.6.2.3052"
+ ],
+ "package_version": "4.6.2",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Apps\\Wrike.com\\Wrike for Windows\\"
+  ],
+  "names": [
+   "Wrike for Windows (64 bit)"
+  ],
+  "versions": [
+   "4.6.2.3052"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A4:8C) [17:20:34:115]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A4:8C) [17:20:34:115]: Destroying RemoteAPI object.\r\nMSI (s) (A4:14) [17:20:34:115]: Custom Action Manager thread ending.\r\nMSI (c) (DC:A0) [17:20:34:115]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (DC:A0) [17:20:34:115]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/6/2026  17:20:34 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-06T17:24:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T21:24:15Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/wrike_windows-629-171737-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/wrike_windows-629-171737-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/wrike_windows-629-171737.json"
+}
