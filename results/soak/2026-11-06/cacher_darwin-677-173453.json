@@ -1,0 +1,106 @@
+{
+ "slug": "cacher/darwin",
+ "host": 677,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T17:34:53",
+ "catalog_version": "2.47.9",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T21:34:45Z",
+  "restarted": "2026-11-06T20:35:37.701514Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 27140,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.47.9"
+ ],
+ "package_version": "2.47.9",
+ "context_after_install": {
+  "path": "/Applications/Cacher.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Cacher.app/Contents/MacOS/Cacher",
+  "bundle_id": "net.PenguinLabs.Cacher",
+  "versions": [
+   "2.47.9"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/.cacher doesn't exist.\n/Users/<user>/Library/Application Support/Cacher doesn't exist.\n/Users/<user>/Library/Preferences/net.PenguinLabs.Cacher.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/net.PenguinLabs.Cacher.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "29019"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'net.PenguinLabs.Cacher' was running; will relaunch after installation.\nQuitting application 'net.PenguinLabs.Cacher'...\nApplication 'net.PenguinLabs.Cacher' quit successfully.\nRelaunching application 'net.PenguinLabs.Cacher'...\nApplication 'net.PenguinLabs.Cacher' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'net.PenguinLabs.Cacher' was running; will relaunch after installation.",
+  "Quitting application 'net.PenguinLabs.Cacher'...",
+  "Application 'net.PenguinLabs.Cacher' quit successfully.",
+  "Relaunching application 'net.PenguinLabs.Cacher'...",
+  "Application 'net.PenguinLabs.Cacher' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "30169",
+   "path": "/Applications/Cacher.app/Contents/MacOS/Cacher",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/.cacher.\nremoving /Users/<user>/Library/Application Support/Cacher.\nremoving /Users/<user>/Library/Preferences/net.PenguinLabs.Cacher.plist.\n/Users/<user>/Library/Saved Application State/net.PenguinLabs.Cacher.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T17:43:40",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T21:43:33Z",
+  "restarted": "2026-11-06T20:35:37.701514Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/cacher_darwin-677-173453.json"
+}
