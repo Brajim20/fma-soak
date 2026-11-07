@@ -185,5 +185,11 @@
   "_doc": "titles.py sweep (report job, after every soak and pool job): removes the soak's FMA titles from the soak fleet so stored installers don't fill the instance's disk (#57132 on qa.fleetdm.com, 2026-11-06). keep_title_ids: titles Brayan added before the soak (fleet 65 activity log, 2026-11-07); canaries, residents, patch_closed apps, apps still on a host and queued titles are kept by rule.",
   "keep_title_ids": [815, 12457, 12955, 12956, 13109, 13118, 16683, 17203, 17550, 17579, 17719, 18027, 18245, 18520, 19734, 20023, 20130, 20163, 20416, 20665, 22809, 23299]
  },
+ "rerun": {
+  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding.",
+  "since": "2026-11-07T11:15",
+  "why": "clean run after qa's installer store was fixed",
+  "apps": ["affinity-photo@1/darwin", "amazon-workspaces/darwin", "bdash/darwin", "bezel/darwin", "bulk-crap-uninstaller/windows", "citrix-workspace/darwin", "darktable/windows", "gather/darwin", "goldendict-ng/windows", "graphviz/windows", "grids/darwin", "hey-desktop/darwin", "hidock/darwin", "jordanbaird-ice/darwin", "keystore-explorer/windows", "mist/darwin", "naps2/darwin", "nextcloud/darwin", "notesollama/darwin", "okta-verify/darwin", "openvpn-connect/darwin", "pearcleaner/darwin", "pibar/darwin", "power-automate/windows", "prisma-browser/darwin", "pritunl/darwin", "secretive/darwin", "shifty/darwin", "simple-comic/darwin", "slidepad/darwin", "teamviewer/darwin", "unicodechecker/darwin", "wifiman/darwin", "windsurf/windows", "wordservice/darwin", "yacreader/windows", "yattee/darwin"]
+ },
  "triage_expire_days": 30
 }

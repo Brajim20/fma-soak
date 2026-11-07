@@ -2,6 +2,8 @@
 
 Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no app repeated before all are done.
 
+- Reruns: apps listed in config `rerun.apps` go first, once each, until one of their lifecycle cycles started after
+  `rerun.since` (e.g. apps whose findings came from a broken environment and that need a clean run).
 - New apps: an app that shows up in the instance's catalog (results/sample/catalog-<plat>.json, kept by the report
   job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary deck app.
 
@@ -223,6 +225,12 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
     been cycled since the change window began."""
     week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
     skip = excluded(plat, host)
+    rr = R.CFG.get("rerun", {})
+    for s in rr.get("apps", []):
+        last = max((((ledger.get(f"{s}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),
+                   default="")
+        if s in set(catalog) and s not in skip and last < rr.get("since", ""):
+            return s, "rerun: " + rr.get("why", "listed in config rerun")
     fresh = [s for s in new_apps(plat, catalog, ledger) if s not in skip]
     if fresh:
         return fresh[0], "new to the catalog"
