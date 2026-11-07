@@ -1,0 +1,123 @@
+{
+ "slug": "redcine-x-pro/darwin",
+ "host": 681,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T00:11:20",
+ "catalog_version": "65.2.1",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 65.2.1: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory ['1.0'] is lower than the installed package 65.2.1 (#51377 shape: the patch policy can't pass)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T04:11:13Z",
+  "restarted": "2026-11-07T01:13:33.985613Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 27624,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nSuccess\nApplication 'com.red.RED-Tether' was running; will relaunch after installation.\nQuitting application 'com.red.RED-Tether'...\nApplication 'com.red.RED-Tether' quit successfully.\ninstaller: Package name is REDCINE-X PRO\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.red.RED-Tether'...\nApplication 'com.red.RED-Tether' relaunched successfully.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "Application 'com.red.RED-Tether' was running; will relaunch after installation.",
+  "Quitting application 'com.red.RED-Tether'...",
+  "Application 'com.red.RED-Tether' quit successfully.",
+  "Relaunching application 'com.red.RED-Tether'...",
+  "Application 'com.red.RED-Tether' relaunched successfully."
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.0"
+ ],
+ "package_version": "65.2.1",
+ "context_after_install": {
+  "path": "/Applications/REDCINE-X Professional/RED Tether.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/REDCINE-X Professional/RED Tether.app/Contents/MacOS/RED Tether",
+  "bundle_id": "com.red.RED-Tether",
+  "versions": [
+   "1.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": false,
+  "note": "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+ },
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "s\" | sed \"s|^|/Library/Application Support/red/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.red.pkg.SupportLibs\" | sed \"s|^|/Library/Application Support/red/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.red.pkg.SupportLibs' on '/'.\nremoving /Users/<user>/Library/Application Support/red.\n/Users/<user>/Library/Logs/DiagnosticReports/RED PLAYER* doesn't exist.\n/Users/<user>/Library/Saved Application State/com.red.RED-Tether.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 108,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is REDCINE-X PRO\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "48601"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 93,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.red.RED-Tether' was running; will relaunch after installation.\nQuitting application 'com.red.RED-Tether'...\nApplication 'com.red.RED-Tether' quit successfully.\ninstaller: Package name is REDCINE-X PRO\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.red.RED-Tether'...\nApplication 'com.red.RED-Tether' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.red.RED-Tether' was running; will relaunch after installation.",
+  "Quitting application 'com.red.RED-Tether'...",
+  "Application 'com.red.RED-Tether' quit successfully.",
+  "Relaunching application 'com.red.RED-Tether'...",
+  "Application 'com.red.RED-Tether' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "51456",
+   "path": "/Applications/REDCINE-X Professional/RED Tether.app/Contents/MacOS/RED Tether",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "s\" | sed \"s|^|/Library/Application Support/red/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.red.pkg.SupportLibs\" | sed \"s|^|/Library/Application Support/red/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.red.pkg.SupportLibs' on '/'.\nremoving /Users/<user>/Library/Application Support/red.\n/Users/<user>/Library/Logs/DiagnosticReports/RED PLAYER* doesn't exist.\n/Users/<user>/Library/Saved Application State/com.red.RED-Tether.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-07T00:24:25",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T04:24:17Z",
+  "restarted": "2026-11-07T01:13:33.985613Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/redcine-x-pro_darwin-681-001120.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/redcine-x-pro_darwin-681-235902.json"
+}
