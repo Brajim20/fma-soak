@@ -1,0 +1,103 @@
+{
+ "slug": "amadeus-pro/darwin",
+ "host": 689,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T02:36:06",
+ "catalog_version": "3.0.4",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T06:36:01Z",
+  "restarted": "2026-11-07T05:41:12.191047Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 27721,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.0.4"
+ ],
+ "package_version": "3.0.4",
+ "context_after_install": {
+  "path": "/Applications/Amadeus Pro 3.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Amadeus Pro 3.app/Contents/MacOS/Amadeus Pro 3",
+  "bundle_id": "com.HairerSoft.AmadeusPro3",
+  "versions": [
+   "3.0.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "st.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.hairersoft.amadeuspro*.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.HairerSoft.AmadeusPro* doesn't exist.\n/Users/<user>/Library/Group Containers/FWDH9W45C2.com.HairerSoft.AmadeusPro*.shared doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.HairerSoft.AmadeusPro* doesn't exist.\n/Users/<user>/Library/Preferences/com.HairerSoft.AmadeusPro*.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.HairerSoft.AmadeusPro*.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "12772"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 124,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.HairerSoft.AmadeusPro3' was running; will relaunch after installation.\nQuitting application 'com.HairerSoft.AmadeusPro3'...\nApplication 'com.HairerSoft.AmadeusPro3' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.HairerSoft.AmadeusPro3' was running; will relaunch after installation.",
+  "Quitting application 'com.HairerSoft.AmadeusPro3'...",
+  "Application 'com.HairerSoft.AmadeusPro3' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "12772",
+   "path": "/Applications/Amadeus Pro 3.app/Contents/MacOS/Amadeus Pro 3",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "t/Amadeus Pro doesn't exist.\nremoving /Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.hairersoft.amadeuspro3.sfl3.\nremoving /Users/<user>/Library/Caches/com.HairerSoft.AmadeusPro3.\nremoving /Users/<user>/Library/Group Containers/FWDH9W45C2.com.HairerSoft.AmadeusPro3.shared.\nremoving /Users/<user>/Library/HTTPStorages/com.HairerSoft.AmadeusPro3.\nremoving /Users/<user>/Library/Preferences/com.HairerSoft.AmadeusPro3.plist.\n/Users/<user>/Library/Saved Application State/com.HairerSoft.AmadeusPro*.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T02:46:34",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T06:46:27Z",
+  "restarted": "2026-11-07T05:41:12.191047Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/amadeus-pro_darwin-689-023606.json"
+}
