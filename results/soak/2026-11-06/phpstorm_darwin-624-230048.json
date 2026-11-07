@@ -1,0 +1,113 @@
+{
+ "slug": "phpstorm/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T23:00:48",
+ "catalog_version": "2026.3",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T03:00:42Z",
+  "restarted": "2026-11-06T17:57:18.963124Z"
+ },
+ "title_id": 27546,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 291,
+ "first_install_output_tail": "y>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk12</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk12s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\nhdiutil: couldn't eject \"disk12\" - Resource busy\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.3"
+ ],
+ "package_version": "2026.3",
+ "context_after_install": {
+  "path": "/Applications/PhpStorm.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/PhpStorm.app/Contents/MacOS/phpstorm",
+  "bundle_id": "com.jetbrains.PhpStorm",
+  "versions": [
+   "2026.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "emoving launchctl service application.com.jetbrains.app.daemon.*\nNo loaded launchctl service matches application.com.jetbrains.app.daemon.*\n/Users/<user>/Library/Application Support/JetBrains/consentOptions doesn't exist.\n/Users/<user>/Library/Application Support/JetBrains/PhpStorm2026.3 doesn't exist.\n/Users/<user>/Library/Caches/JetBrains/PhpStorm2026.3 doesn't exist.\n/Users/<user>/Library/Logs/JetBrains/PhpStorm2026.3 doesn't exist.\n/Users/<user>/Library/Preferences/com.jetbrains.PhpStorm.plist doesn't exist.\n/Users/<user>/Library/Preferences/jetbrains.jetprofile.asset.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 534,
+ "second_install_output_tail": "key>\n\t\t\t<string>/private/tmp/dmg_mount_T9wGkz</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk14s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\nhdiutil: couldn't eject \"disk14\" - Resource busy\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "50506"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "no result in time"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+ "finished": "2026-11-07T00:02:08",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-07T04:00:46Z",
+  "restarted": "2026-11-06T17:57:18.963124Z"
+ },
+ "host_disruption": [
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-06/evidence/phpstorm_darwin-624-230048-library.png",
+  "inventory": "results/soak/2026-11-06/evidence/phpstorm_darwin-624-230048-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/phpstorm_darwin-624-230048.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/phpstorm_darwin-624-222349.json",
+ "crosshost_of": "soak/2026-11-06/phpstorm_darwin-631-204305.json"
+}
