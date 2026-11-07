@@ -1,0 +1,83 @@
+{
+ "slug": "teleport-suite/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T12:53:09",
+ "catalog_version": "18.11.9",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T16:53:00Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 23434,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "18.11.9"
+ ],
+ "package_version": "18.11.9",
+ "context_after_install": {
+  "path": "/Applications/tsh.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/tsh.app/Contents/MacOS/tsh",
+  "bundle_id": "com.gravitational.teleport.tsh",
+  "versions": [
+   "18.11.9"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "ional.teleport.tsh' found at '/'.\nNo receipt for '(.*).com.gravitational.teleport.tsh' found at '/'.\npkgutil --pkg-info-plist \"com.gravitational.teleport\"\nsudo pkgutil --only-files --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.gravitational.teleport' on '/'.\n/Users/<user>/.tsh doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": ".gravitational.teleport.tsh' found at '/'.\npkgutil --pkg-info-plist \"com.gravitational.teleport\"\nsudo pkgutil --only-files --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.gravitational.teleport\" | sed \"s|^|/usr/local/bin/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.gravitational.teleport' on '/'.\nRemoving Teleport client-tools cache '/Users/<user>/.tsh/bin'.\nremoving /Users/<user>/.tsh.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T13:01:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T17:01:32Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/teleport-suite_darwin-631-125309.json"
+}
