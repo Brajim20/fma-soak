@@ -1,0 +1,100 @@
+{
+ "slug": "fsmonitor/darwin",
+ "host": 697,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T11:53:03",
+ "catalog_version": "2.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T15:52:54Z",
+  "restarted": "2026-11-07T14:31:35.173232Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 28300,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.0"
+ ],
+ "package_version": "2.0",
+ "context_after_install": {
+  "path": "/Applications/FSMonitor.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/FSMonitor.app/Contents/MacOS/FSMonitor",
+  "bundle_id": "com.tristan.FSMonitor",
+  "versions": [
+   "2.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing launchctl service com.tristan.fseventstool\n/Users/Shared/FSMonitor doesn't exist.\n/Users/<user>/Library/Application Support/com.tristan.FSMonitor doesn't exist.\n/Users/<user>/Library/Application Support/FSMonitor doesn't exist.\n/Users/<user>/Library/Caches/com.tristan.FSMonitor doesn't exist.\n/Users/<user>/Library/Preferences/com.tristan.FSMonitor.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.tristan.FSMonitor.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "61062"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 16,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.tristan.FSMonitor' was running; will relaunch after installation.\nQuitting application 'com.tristan.FSMonitor'...\nApplication 'com.tristan.FSMonitor' quit successfully.\nRelaunching application 'com.tristan.FSMonitor'...\nApplication 'com.tristan.FSMonitor' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.tristan.FSMonitor' was running; will relaunch after installation.",
+  "Quitting application 'com.tristan.FSMonitor'...",
+  "Application 'com.tristan.FSMonitor' quit successfully.",
+  "Relaunching application 'com.tristan.FSMonitor'...",
+  "Application 'com.tristan.FSMonitor' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing launchctl service com.tristan.fseventstool\nremoving /Users/Shared/FSMonitor.\n/Users/<user>/Library/Application Support/com.tristan.FSMonitor doesn't exist.\nremoving /Users/<user>/Library/Application Support/FSMonitor.\n/Users/<user>/Library/Caches/com.tristan.FSMonitor doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.tristan.FSMonitor.plist.\n/Users/<user>/Library/Saved Application State/com.tristan.FSMonitor.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T12:02:09",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T16:02:01Z",
+  "restarted": "2026-11-07T14:31:35.173232Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/fsmonitor_darwin-697-115303.json"
+}
