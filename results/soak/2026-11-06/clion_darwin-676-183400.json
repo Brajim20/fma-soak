@@ -1,0 +1,70 @@
+{
+ "slug": "clion/darwin",
+ "host": 676,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T18:34:00",
+ "catalog_version": "2026.3",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T22:33:57Z",
+  "restarted": "2026-11-06T20:35:30.645738Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 27182,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nFailed\nhdiutil: attach failed - image not recognized\n",
+ "first_install_error_markers": [
+  "hdiutil: attach failed"
+ ],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing launchctl service application.com.jetbrains.app.daemon.*\nNo loaded launchctl service matches application.com.jetbrains.app.daemon.*\n/Users/<user>/Library/Application Support/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Caches/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Logs/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Preferences/com.jetbrains.CLion.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.jetbrains.CLion.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nFailed\nhdiutil: attach failed - image not recognized\n",
+ "second_install_error_markers": [
+  "hdiutil: attach failed"
+ ],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Removing launchctl service application.com.jetbrains.app.daemon.*\nNo loaded launchctl service matches application.com.jetbrains.app.daemon.*\n/Users/<user>/Library/Application Support/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Caches/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Logs/JetBrains/CLion2026.3 doesn't exist.\n/Users/<user>/Library/Preferences/com.jetbrains.CLion.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.jetbrains.CLion.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-06T18:39:25",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T22:39:25Z",
+  "restarted": "2026-11-06T20:35:30.645738Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/clion_darwin-676-183400.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/clion_darwin-676-183325.json"
+}
