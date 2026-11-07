@@ -278,6 +278,10 @@ jobs:
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
+      - name: Remove the run's titles from the soak fleet (stored installers fill the instance's disk, #57132)
+        working-directory: harness/soak
+        continue-on-error: true   # a failed sweep must not block the digest or the next run
+        run: python3 -u titles.py sweep
       - name: Ledger, digest, monthly draft
         working-directory: harness/soak
         env:

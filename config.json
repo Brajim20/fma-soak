@@ -181,5 +181,9 @@
   "note": "closed FMA catalog bugs rerun on the host that found them, at least settle_minutes after the close (fixes ship ~1 h after merge); recheck.py",
   "label": "~fma-soak"
  },
+ "title_cleanup": {
+  "_doc": "titles.py sweep (report job, after every soak and pool job): removes the soak's FMA titles from the soak fleet so stored installers don't fill the instance's disk (#57132 on qa.fleetdm.com, 2026-11-06). keep_title_ids: titles Brayan added before the soak (fleet 65 activity log, 2026-11-07); canaries, residents, patch_closed apps, apps still on a host and queued titles are kept by rule.",
+  "keep_title_ids": [815, 12457, 12955, 12956, 13109, 13118, 16683, 17203, 17550, 17579, 17719, 18027, 18245, 18520, 19734, 20023, 20130, 20163, 20416, 20665, 22809, 23299]
+ },
  "triage_expire_days": 30
 }
