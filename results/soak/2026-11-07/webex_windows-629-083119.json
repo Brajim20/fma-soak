@@ -1,0 +1,66 @@
+{
+ "slug": "webex/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T08:31:19",
+ "catalog_version": "46.11.0.36194",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T12:31:11Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 27998,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 122,
+ "first_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:E8) [08:33:19:863]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:E8) [08:33:19:863]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (20:80) [08:33:19:863]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (20:80) [08:33:19:863]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/7/2026  8:33:19 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 184,
+ "second_install_output_tail": "ersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:E8) [08:36:53:208]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:E8) [08:36:53:208]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (58:6C) [08:36:53:208]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (58:6C) [08:36:53:208]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/7/2026  8:36:53 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-07T08:37:47",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T12:37:42Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/webex_windows-629-083119-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/webex_windows-629-083119-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/webex_windows-629-083119.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/webex_windows-629-082525.json"
+}

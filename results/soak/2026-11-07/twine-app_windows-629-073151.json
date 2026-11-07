@@ -1,0 +1,83 @@
+{
+ "slug": "twine-app/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T07:31:51",
+ "catalog_version": "2.12.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['2.12.1']: another app's inventory matches this title (#51299 shape)"
+  },
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T11:31:49Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 23908,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [
+  "2.12.1"
+ ],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "2.12.1"
+ ],
+ "package_version": "2.12.1",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstaller: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Twine\\Uninstall Twine.exe\nInstall dir: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Twine\nError: This command cannot be run due to the error: The system cannot find the file specified.\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Uninstaller: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Twine\\Uninstall Twine.exe\nInstall dir: C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Twine\nError: This command cannot be run due to the error: The system cannot find the file specified.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-07T07:47:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T11:47:47Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/twine-app_windows-629-073151-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/twine-app_windows-629-073151-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/twine-app_windows-629-073151.json"
+}
