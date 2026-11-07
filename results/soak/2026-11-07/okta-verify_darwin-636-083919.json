@@ -1,0 +1,68 @@
+{
+ "slug": "okta-verify/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T08:39:19",
+ "catalog_version": "9.73.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T12:39:17Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 12440,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/286152744/OktaVerify-9.73.0-6632-54ce62d.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "nd at '/'.\nNo receipt for 'com.okta.mobile' found at '/'.\nNo receipt for 'com.okta.mobile' found at '/'.\n/Users/<user>/Library/Application Scripts/com.okta.mobile.auth-service-extension doesn't exist.\n/Users/<user>/Library/Containers/com.okta.mobile doesn't exist.\n/Users/<user>/Library/Containers/com.okta.mobile.auth-service-extension doesn't exist.\n/Users/<user>/Library/Preferences/B7F62B65BN.group.okta.verify.shared.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.okta.mobile.plist doesn't exist.\n/Users/<user>/Library/Preferences/group.com.okta.mobile.firebase.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/1862846002/OktaVerify-9.73.0-6632-54ce62d.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "nd at '/'.\nNo receipt for 'com.okta.mobile' found at '/'.\nNo receipt for 'com.okta.mobile' found at '/'.\n/Users/<user>/Library/Application Scripts/com.okta.mobile.auth-service-extension doesn't exist.\n/Users/<user>/Library/Containers/com.okta.mobile doesn't exist.\n/Users/<user>/Library/Containers/com.okta.mobile.auth-service-extension doesn't exist.\n/Users/<user>/Library/Preferences/B7F62B65BN.group.okta.verify.shared.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.okta.mobile.plist doesn't exist.\n/Users/<user>/Library/Preferences/group.com.okta.mobile.firebase.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T08:44:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T12:44:47Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-07/evidence/okta-verify_darwin-636-083919-library.png",
+  "inventory": "results/soak/2026-11-07/evidence/okta-verify_darwin-636-083919-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/okta-verify_darwin-636-083919.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/okta-verify_darwin-636-083905.json"
+}
