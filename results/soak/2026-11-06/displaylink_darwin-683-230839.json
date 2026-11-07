@@ -1,0 +1,66 @@
+{
+ "slug": "displaylink/darwin",
+ "host": 683,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T23:08:39",
+ "catalog_version": "17.1",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T03:08:37Z",
+  "restarted": "2026-11-07T01:18:13.930385Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 25807,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 93,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/3438500844/DisplayLink Manager Graphics Connectivity17.1-EXE.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": " wildcard for PKGID: com.displaylink.*\n/Users/<user>/Library/Application Scripts/73YQY62QM3.com.displaylink.DisplayLinkShared doesn't exist.\n/Users/<user>/Library/Application Scripts/com.displaylink.DisplayLinkUserAgent doesn't exist.\n/Users/<user>/Library/Application Scripts/com.displaylink.DisplayLinkXpcService doesn't exist.\n/Users/<user>/Library/Containers/com.displaylink.DisplayLinkUserAgent doesn't exist.\n/Users/<user>/Library/Containers/com.displaylink.DisplayLinkXpcService doesn't exist.\n/Users/<user>/Library/Group Containers/73YQY62QM3.com.displaylink.DisplayLinkShared doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/4040156008/DisplayLink Manager Graphics Connectivity17.1-EXE.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": " wildcard for PKGID: com.displaylink.*\n/Users/<user>/Library/Application Scripts/73YQY62QM3.com.displaylink.DisplayLinkShared doesn't exist.\n/Users/<user>/Library/Application Scripts/com.displaylink.DisplayLinkUserAgent doesn't exist.\n/Users/<user>/Library/Application Scripts/com.displaylink.DisplayLinkXpcService doesn't exist.\n/Users/<user>/Library/Containers/com.displaylink.DisplayLinkUserAgent doesn't exist.\n/Users/<user>/Library/Containers/com.displaylink.DisplayLinkXpcService doesn't exist.\n/Users/<user>/Library/Group Containers/73YQY62QM3.com.displaylink.DisplayLinkShared doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-06T23:14:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T03:13:57Z",
+  "restarted": "2026-11-07T01:18:13.930385Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/displaylink_darwin-683-230839.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/displaylink_darwin-683-230837.json"
+}
