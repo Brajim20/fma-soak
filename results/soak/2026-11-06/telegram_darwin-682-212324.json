@@ -1,0 +1,111 @@
+{
+ "slug": "telegram/darwin",
+ "host": 682,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T21:23:24",
+ "catalog_version": "13.2.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T01:23:24Z",
+  "restarted": "0001-01-01T00:00:00Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 18068,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": true,
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "13.2.0"
+ ],
+ "package_version": "13.2.0",
+ "context_after_install": {
+  "path": "/Applications/Telegram.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Telegram.app/Contents/MacOS/Telegram",
+  "bundle_id": "ru.keepcoder.Telegram",
+  "versions": [
+   "13.2.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "legram doesn't exist.\n/Users/<user>/Library/Containers/ru.keepcoder.Telegram.TelegramShare doesn't exist.\n/Users/<user>/Library/Cookies/ru.keepcoder.Telegram.binarycookies doesn't exist.\n/Users/<user>/Library/Group Containers/*.ru.keepcoder.Telegram doesn't exist.\n/Users/<user>/Library/Group Containers/*.ru.keepcoder.Telegram.TelegramShare doesn't exist.\n/Users/<user>/Library/HTTPStorages/ru.keepcoder.Telegram doesn't exist.\n/Users/<user>/Library/Preferences/ru.keepcoder.Telegram.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/ru.keepcoder.Telegram.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "17998"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'ru.keepcoder.Telegram' was running; will relaunch after installation.\nQuitting application 'ru.keepcoder.Telegram'...\nApplication 'ru.keepcoder.Telegram' quit successfully.\nRelaunching application 'ru.keepcoder.Telegram'...\nApplication 'ru.keepcoder.Telegram' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'ru.keepcoder.Telegram' was running; will relaunch after installation.",
+  "Quitting application 'ru.keepcoder.Telegram'...",
+  "Application 'ru.keepcoder.Telegram' quit successfully.",
+  "Relaunching application 'ru.keepcoder.Telegram'...",
+  "Application 'ru.keepcoder.Telegram' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "18964",
+   "path": "/Applications/Telegram.app/Contents/MacOS/Telegram",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "der.Telegram doesn't exist.\n/Users/<user>/Library/Containers/ru.keepcoder.Telegram.TelegramShare doesn't exist.\n/Users/<user>/Library/Cookies/ru.keepcoder.Telegram.binarycookies doesn't exist.\nremoving /Users/<user>/Library/Group Containers/6N38VWS5BX.ru.keepcoder.Telegram.\n/Users/<user>/Library/Group Containers/*.ru.keepcoder.Telegram.TelegramShare doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/ru.keepcoder.Telegram.\nremoving /Users/<user>/Library/Preferences/ru.keepcoder.Telegram.plist.\n/Users/<user>/Library/Saved Application State/ru.keepcoder.Telegram.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: write tcp 10.31.204.212:53136->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-06T21:33:59",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T01:33:38Z",
+  "restarted": "2026-11-07T01:20:04.694615Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-07T01:20:04.694615Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/telegram_darwin-682-212324.json"
+}
