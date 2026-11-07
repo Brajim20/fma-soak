@@ -1,0 +1,63 @@
+{
+ "slug": "mist/darwin",
+ "host": 678,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-06T19:08:32",
+ "catalog_version": "0.40",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-06T23:08:33Z",
+  "restarted": "2026-11-06T20:36:06.227407Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 20309,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 93,
+ "first_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/367004542/Mist.0.40.pkg'.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "found at '/'.\nsudo pkgutil --only-dirs --files \"com.ninxsoft.pkg.mist\" | sed \"s|^|/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\n/Users/Shared/Mist doesn't exist.\n/Users/<user>/Library/Caches/com.ninxsoft.mist doesn't exist.\n/Users/<user>/Library/Preferences/com.ninxsoft.mist.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.ninxsoft.mist.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 93,
+ "second_install_output_tail": "Installing software...\nFailed\ninstaller: Error - the package path specified was invalid: '/private/tmp/2836695203/Mist.0.40.pkg'.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "found at '/'.\nsudo pkgutil --only-dirs --files \"com.ninxsoft.pkg.mist\" | sed \"s|^|/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\nNo receipt for 'com.ninxsoft.pkg.mist' found at '/'.\n/Users/Shared/Mist doesn't exist.\n/Users/<user>/Library/Caches/com.ninxsoft.mist doesn't exist.\n/Users/<user>/Library/Preferences/com.ninxsoft.mist.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.ninxsoft.mist.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-06T19:13:41",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-06T23:13:34Z",
+  "restarted": "2026-11-06T20:36:06.227407Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/mist_darwin-678-190832.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-06/mist_darwin-678-190830.json"
+}
