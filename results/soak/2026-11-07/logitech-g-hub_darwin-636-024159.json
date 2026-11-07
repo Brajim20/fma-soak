@@ -1,0 +1,145 @@
+{
+ "slug": "logitech-g-hub/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T02:41:59",
+ "catalog_version": "2026.7.1011216",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-07T06:41:54Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 27724,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "x.mm:638] [0 ms] Shutting down...\n[2026-11-06] [22:42:58.744] [ControllerImplLogger:4703170] [info] [application_delegate_osx.mm:1150] [255 ms] App is about to be terminated.\n[2026-11-06] [22:42:58.744] [ControllerImplLogger:4703170] [info] [pipeline_impl.cpp:240] [0 ms] Stopping pipeline_impl\n[2026-11-06] [22:42:58.744] [ControllerImplLogger:4703170] [debug] [pipeline_impl.cpp:2381] [0 ms] Changing pipeline client status to NO_UPDATES err ''\n[2026-11-06] [22:42:58.747] [ControllerImplLogger:4703170] [info] [downloader_running_jobs.cpp:53] [2 ms] Downloader: Aborted all running download jobs.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.7.1011216"
+ ],
+ "package_version": "2026.7.1011216",
+ "context_after_install": {
+  "path": "/Applications/lghub.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/lghub.app/Contents/MacOS/lghub_system_tray",
+  "bundle_id": "com.logi.ghub",
+  "versions": [
+   ""
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 153,
+ "first_uninstall_output_tail": "i.ghub\nRemoving launchctl service com.logi.ghub.agent\nRemoving launchctl service com.logi.ghub.updater\nQuitting application 'com.logi.ghub'...\nApplication 'com.logi.ghub' quit successfully.\nQuitting application 'com.logi.ghub.agent'...\nApplication 'com.logi.ghub.agent' did not quit.\n/Users/Shared/LGHUB doesn't exist.\nremoving /Users/<user>/Library/Application Support/lghub.\n/Users/<user>/Library/Caches/com.logi.ghub.installer doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.ghub.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.logi.ghub.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 76,
+ "second_install_output_tail": "x.mm:638] [0 ms] Shutting down...\n[2026-11-06] [22:50:36.947] [ControllerImplLogger:4716800] [info] [application_delegate_osx.mm:1150] [439 ms] App is about to be terminated.\n[2026-11-06] [22:50:36.948] [ControllerImplLogger:4716800] [info] [pipeline_impl.cpp:240] [0 ms] Stopping pipeline_impl\n[2026-11-06] [22:50:36.948] [ControllerImplLogger:4716800] [debug] [pipeline_impl.cpp:2381] [0 ms] Changing pipeline client status to NO_UPDATES err ''\n[2026-11-06] [22:50:36.949] [ControllerImplLogger:4716800] [info] [downloader_running_jobs.cpp:53] [1 ms] Downloader: Aborted all running download jobs.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "17739",
+   "17741",
+   "17750",
+   "17753",
+   "17757",
+   "17758",
+   "17759",
+   "17760"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "22370] [debug] [pipeline_file_storage.cpp:1347] [0 ms] Adding new key '23c70bda-14d9-46a5-bc8b-bba761f4eb17'.\n[2026-11-06] [22:52:47.700] [ControllerImplLogger:4722370] [info] [pipeline_file_storage.cpp:314] [0 ms] Pipeline storage prepared\n[2026-11-06] [22:52:47.700] [ControllerImplLogger:4722370] [info] [application_delegate_osx.mm:638] [0 ms] Shutting down...\n[2026-11-06] [22:52:47.702] [ControllerImplLogger:4722370] [info] [application_delegate_osx.mm:1150] [1 ms] App is about to be terminated.\nRelaunching application 'com.logi.ghub'...\nApplication 'com.logi.ghub' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Relaunching application 'com.logi.ghub'...",
+  "Application 'com.logi.ghub' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "18595",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_updater.app/Contents/MacOS/lghub_updater",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18602",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_system_tray",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18603",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_agent.app/Contents/MacOS/lghub_agent",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18605",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_ui.app/Contents/MacOS/lghub_ui",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18607",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_ui.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Helpers/chrome_crashpad_handler",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18608",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_ui.app/Contents/Frameworks/lghub_ui Helper.app/Contents/MacOS/lghub_ui Helper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18609",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_ui.app/Contents/Frameworks/lghub_ui Helper.app/Contents/MacOS/lghub_ui Helper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "18610",
+   "path": "/Applications/lghub.app/Contents/MacOS/lghub_ui.app/Contents/Frameworks/lghub_ui Helper (Renderer).app/Contents/MacOS/lghub_ui Helper (Renderer)",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Removing launchctl service com.logi.ghub\nRemoving launchctl service com.logi.ghub.agent\nRemoving launchctl service com.logi.ghub.updater\n/Users/Shared/LGHUB doesn't exist.\nremoving /Users/<user>/Library/Application Support/lghub.\n/Users/<user>/Library/Caches/com.logi.ghub.installer doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.ghub.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.logi.ghub.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-07T02:55:51",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-07T06:55:47Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/logitech-g-hub_darwin-636-024159.json"
+}
