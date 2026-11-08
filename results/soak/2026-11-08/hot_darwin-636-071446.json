@@ -1,0 +1,106 @@
+{
+ "slug": "hot/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T07:14:46",
+ "catalog_version": "1.9.4",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T11:14:46Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 29291,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.9.4"
+ ],
+ "package_version": "1.9.4",
+ "context_after_install": {
+  "path": "/Applications/Hot.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Hot.app/Contents/MacOS/Hot",
+  "bundle_id": "com.xs-labs.Hot",
+  "versions": [
+   "1.9.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Caches/com.xs-labs.Hot doesn't exist.\n/Users/<user>/Library/Preferences/com.xs-labs.Hot.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 32,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "76525"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.xs-labs.Hot' was running; will relaunch after installation.\nQuitting application 'com.xs-labs.Hot'...\nApplication 'com.xs-labs.Hot' quit successfully.\nRelaunching application 'com.xs-labs.Hot'...\nApplication 'com.xs-labs.Hot' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.xs-labs.Hot' was running; will relaunch after installation.",
+  "Quitting application 'com.xs-labs.Hot'...",
+  "Application 'com.xs-labs.Hot' quit successfully.",
+  "Relaunching application 'com.xs-labs.Hot'...",
+  "Application 'com.xs-labs.Hot' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "76579",
+   "path": "/Applications/Hot.app/Contents/MacOS/Hot",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Caches/com.xs-labs.Hot.\n/Users/<user>/Library/Preferences/com.xs-labs.Hot.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-08T07:25:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T11:25:15Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/hot_darwin-636-071446.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/hot_darwin-636-070539.json"
+}
