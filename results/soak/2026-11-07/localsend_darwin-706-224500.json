@@ -1,0 +1,69 @@
+{
+ "slug": "localsend/darwin",
+ "host": 706,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T22:45:00",
+ "catalog_version": "1.18.2",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T02:44:46Z",
+  "restarted": "2026-11-07T23:40:19.774331Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 20471,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 78,
+ "first_install_output_tail": "Installing software...\nFailed\nhdiutil: attach failed - image not recognized\n",
+ "first_install_error_markers": [
+  "hdiutil: attach failed"
+ ],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Scripts/org.localsend.localsendApp doesn't exist.\n/Users/<user>/Library/Application Scripts/org.localsend.localsendApp.ShareExtension doesn't exist.\n/Users/<user>/Library/Containers/org.localsend.localsendApp doesn't exist.\n/Users/<user>/Library/Containers/org.localsend.localsendApp.ShareExtension doesn't exist.\n/Users/<user>/Library/Preferences/org.localsend.localsendApp.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.localsend.localsendApp.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 94,
+ "second_install_output_tail": "Installing software...\nFailed\nhdiutil: attach failed - image not recognized\n",
+ "second_install_error_markers": [
+  "hdiutil: attach failed"
+ ],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Scripts/org.localsend.localsendApp doesn't exist.\n/Users/<user>/Library/Application Scripts/org.localsend.localsendApp.ShareExtension doesn't exist.\n/Users/<user>/Library/Containers/org.localsend.localsendApp doesn't exist.\n/Users/<user>/Library/Containers/org.localsend.localsendApp.ShareExtension doesn't exist.\n/Users/<user>/Library/Preferences/org.localsend.localsendApp.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.localsend.localsendApp.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-07T22:50:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T02:50:22Z",
+  "restarted": "2026-11-07T23:40:19.774331Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/localsend_darwin-706-224500.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/localsend_darwin-706-224457.json"
+}
