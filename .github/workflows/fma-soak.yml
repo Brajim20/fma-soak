@@ -282,6 +282,14 @@ jobs:
         working-directory: harness/soak
         continue-on-error: true   # a failed sweep must not block the digest or the next run
         run: python3 -u titles.py sweep
+      - name: Alert when the instance served broken stored installers (#57132)
+        working-directory: harness/soak
+        env: { GH_TOKEN: "${{ github.token }}", GH_REPO: "${{ github.repository }}" }
+        run: |
+          set +e   # store.py exits 1 to raise the alert; alert.sh must still run
+          python3 -u store.py > "$RUNNER_TEMP/store.out" 2>&1; rc=$?
+          cat "$RUNNER_TEMP/store.out"
+          ../ci/alert.sh "$RUNNER_TEMP/store.out" $rc "Soak installer store broken" "installer store OK again"
       - name: Ledger, digest, monthly draft
         working-directory: harness/soak
         env:

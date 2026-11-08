@@ -4,6 +4,8 @@ Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no 
 
 - Reruns: apps listed in config `rerun.apps` go first, once each, until one of their lifecycle cycles started after
   `rerun.since` (e.g. apps whose findings came from a broken environment and that need a clean run).
+- A broken stored installer (runner.store_problem) records the pick as environment and leaves the app in the deck;
+  three in a row stop the pass (store.py alerts).
 - New apps: an app that shows up in the instance's catalog (results/sample/catalog-<plat>.json, kept by the report
   job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary deck app.
 - Catch-up: until every app on the platform is covered, uncovered apps come before any repeat (version changes,
@@ -361,7 +363,7 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
     # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
     # installer downloads), and a pass that overruns delays the next one
     stop = until - datetime.timedelta(minutes=R.CFG["loop"].get("cycle_budget_minutes", 30)) if until else None
-    n = 0
+    n = broken = 0
     while (not stop or datetime.datetime.now() < stop) and (not count or n < count):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
@@ -389,6 +391,15 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         print(f"   {slug} ({why}): {entry['outcome']} [{entry.get('cleanup', '')}]", flush=True)
         day["picks"].append(entry)
         json.dump(day, open(day_path, "w"), indent=1)
+        if str(entry["outcome"]).startswith(R.STORE_BROKEN):
+            # not this app's turn used up: it stays in the deck for when the store is fixed. Three in a row means the
+            # store is broken, not one file, and every pick would end the same way
+            broken += 1
+            if broken >= 3:
+                print(f"sample {plat}: stopping, the instance served 3 broken installers in a row (store.py alerts)")
+                break
+            continue
+        broken = 0
         e = ledger.setdefault(f"{slug}@{me}", {"lifecycle_runs": 0, "update_runs": 0})
         e["last_lifecycle"] = {"date": entry["started"], "outcome": entry["outcome"]}
         e["lifecycle_runs"] = e.get("lifecycle_runs", 0) + 1

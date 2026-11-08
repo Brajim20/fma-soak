@@ -432,6 +432,56 @@ def restores_preexisting(host):
     return host in CFG.get("replace_preexisting", {}).get("except_hosts", [])
 
 
+STORE_BROKEN = "environment: installer store"
+
+
+def http_size(url, headers=None):
+    """Content-Length of a GET (headers only, body not read), or None when the server doesn't say or can't be reached."""
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "fleet-qa-fma-soak", **(headers or {})}),
+                                    timeout=60) as r:
+            n = r.headers.get("Content-Length")
+            return int(n) if n is not None else None
+    except Exception:
+        return None
+
+
+def stored_sha256(tid):
+    """SHA-256 of the installer Fleet serves for the title, or None if the download fails (Cloudflare 502s on big ones)."""
+    import hashlib
+    h = hashlib.sha256()
+    try:
+        req = urllib.request.Request(f"{BASE}/software/titles/{tid}/package?alt=media&fleet_id={FID}",
+                                     headers={"Authorization": "Bearer " + TOKEN, "User-Agent": "fleet-qa-fma-soak"})
+        with urllib.request.urlopen(req, timeout=1800) as r:
+            for chunk in iter(lambda: r.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return None
+
+
+def store_problem(tid, installer_url):
+    """Why the installer the instance serves for title tid is broken, or None (fine, or can't tell: the cycle runs).
+    On qa.fleetdm.com's filesystem store a full disk left empty or truncated files that every install then failed
+    on (#57132, 2026-11-06): ~700 false failures in a day. Fleet's Content-Length is the stored file's size and
+    comes back in a second, so: 0 bytes is broken; smaller than the vendor's file is checked by hash against the
+    title's (computed from the full download at add time), since a vendor can also ship a smaller file at the same
+    URL; larger, the same, or a vendor that doesn't say is taken as fine."""
+    stored = http_size(f"{BASE}/software/titles/{tid}/package?alt=media&fleet_id={FID}", {"Authorization": "Bearer " + TOKEN})
+    if stored == 0:
+        return "the instance serves this title's installer as 0 bytes"
+    vendor = http_size(installer_url) if stored else None
+    if not stored or not vendor or stored >= vendor:
+        return None
+    st, d = api("GET", f"/software/titles/{tid}?fleet_id={FID}")
+    want = (((d.get("software_title") or {}).get("software_package") or {}).get("hash_sha256") or "") if st == 200 else ""
+    got = stored_sha256(tid) if want else None
+    if got and got != want:
+        return f"the instance serves {stored} bytes of the vendor's {vendor} and the SHA-256 doesn't match the title's"
+    return None
+
+
 def cycle(slug, host):
     state = load_state(host)
     man = catalog_manifest(slug)
@@ -455,6 +505,10 @@ def cycle(slug, host):
         rec["outcome"] = "findings"
         return finish(rec)
     rec.update(title_id=tid, title_added_by_harness=added)
+    bad = store_problem(tid, v.get("installer_url"))
+    if bad:
+        rec["outcome"] = f"{STORE_BROKEN}: {bad}"
+        return finish(rec)
     if slug in busy_slugs():
         rec["outcome"] = "skipped: held by the patch-when-closed scenario"
         return finish(rec)
