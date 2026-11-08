@@ -1,0 +1,67 @@
+{
+ "slug": "lenovo-system-update/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T01:14:24",
+ "catalog_version": "5.08.04.85",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T05:14:16Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 28898,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 91,
+ "first_install_output_tail": "Installing software...\nFailed\nError: This command cannot be run due to the error: The specified executable is not a valid application for this OS platform..\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall entry not found for 'TVSU_is1'.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nFailed\nError: This command cannot be run due to the error: The specified executable is not a valid application for this OS platform..\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 17,
+ "second_uninstall_output_tail": "Uninstall entry not found for 'TVSU_is1'.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-08T01:18:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T05:18:42Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/lenovo-system-update_windows-635-011424-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/lenovo-system-update_windows-635-011424-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/lenovo-system-update_windows-635-011424.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/lenovo-system-update_windows-635-010956.json",
+ "crosshost_of": "soak/2026-11-07/lenovo-system-update_windows-629-231008.json"
+}
