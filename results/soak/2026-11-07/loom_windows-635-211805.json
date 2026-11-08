@@ -1,0 +1,115 @@
+{
+ "slug": "loom/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-07T21:18:05",
+ "catalog_version": "0.371.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T01:17:58Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 28789,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Loom for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.371.1"
+ ],
+ "package_version": "0.371.1",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Loom 0.371.1"
+  ],
+  "versions": [
+   "0.371.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Removing 'Loom 0.371.1' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\3643b966-bc28-5bc8-95ff-3d47d66438db)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\\Uninstall Loom.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\"\nLoom removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Loom for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1708",
+   "2328",
+   "3852",
+   "4512",
+   "12976",
+   "13040",
+   "13996",
+   "14800",
+   "15328",
+   "18516"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 122,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Loom for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "796",
+   "3304",
+   "4204",
+   "5932",
+   "6328",
+   "7060",
+   "7276",
+   "12300",
+   "15064",
+   "15168",
+   "18104",
+   "18408"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing 'Loom 0.371.1' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\3643b966-bc28-5bc8-95ff-3d47d66438db)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\\Uninstall Loom.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\Loom\"\nLoom removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-07T21:31:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T01:30:58Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/loom_windows-635-211805.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-07/loom_windows-635-210240.json"
+}
