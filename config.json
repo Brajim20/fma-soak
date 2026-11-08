@@ -49,6 +49,9 @@
   "full_hash_rotation_days": 7
  },
  "known_environment": {
+  "010-editor/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "microsoft-edge/windows@629": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@635": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
   "7-zip/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "python-3.14/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "virtualbox/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
@@ -167,7 +170,7 @@
   ],
   "allow": {
    "_doc": "except_hosts exceptions: apps that may be replaced there anyway, approved by Brayan 2026-11-08 to complete the catalog. Reinstalled at the catalog version when the cycle ends (runner.restore).",
-   "635": ["7-zip/windows", "python-3.14/windows", "virtualbox/windows", "adobe-acrobat-pro/windows", "microsoft-odbc-driver-18/windows", "vc-redist-x64/windows", "8x8-work/windows"]
+   "635": ["7-zip/windows", "python-3.14/windows", "virtualbox/windows", "adobe-acrobat-pro/windows", "microsoft-odbc-driver-18/windows", "vc-redist-x64/windows", "8x8-work/windows", "010-editor/windows"]
   },
   "keep": [
    "fleet-desktop/darwin",

@@ -475,7 +475,11 @@ def build_ledger(write=False):
             track_catalog(plat, cat)
         # an app counts once, whichever of the platform's hosts covered it
         n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
-        coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None}
+        # apps no host can run (known_environment on every host, e.g. Edge) are listed, not counted as missing
+        nope = sorted(s for s in cat if owner(plat, s) is None) if write else []
+        total = total - len(nope) if write else None
+        coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None,
+                          "not_coverable": nope}
         speed = pace(plat, hosts, apps) if write else {}
         for h in hosts:
             dp = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, h)}.json")
