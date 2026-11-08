@@ -1,0 +1,105 @@
+{
+ "slug": "blip/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T02:55:36",
+ "catalog_version": "1.2.8",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T06:55:28Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 29169,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.2.8"
+ ],
+ "package_version": "1.2.8",
+ "context_after_install": {
+  "path": "/Applications/Blip.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Blip.app/Contents/MacOS/Blip",
+  "bundle_id": "net.blip.macos",
+  "versions": [
+   "1.2.8"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "xist.\nremoving /Users/<user>/Library/Containers/net.blip.macos.share.\nmv: rename /Users/<user>/Library/Containers/net.blip.macos.share to /Users/<user>/.Trash/net.blip.macos.share_2026-11-07-1794121108_18735: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/net.blip.macos.share to the Trash.\n/Users/<user>/Library/Group Containers/AY8UB8KTUX.blip doesn't exist.\n/Users/<user>/Library/HTTPStorages/net.blip.macos doesn't exist.\n/Users/<user>/Library/HTTPStorages/net.blip.macos.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/net.blip.macos.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "65417"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 458,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'net.blip.macos' was running; will relaunch after installation.\nQuitting application 'net.blip.macos'...\nApplication 'net.blip.macos' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'net.blip.macos' was running; will relaunch after installation.",
+  "Quitting application 'net.blip.macos'...",
+  "Application 'net.blip.macos' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "65417",
+   "path": "/Applications/Blip.app/Contents/MacOS/Blip",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "n't exist.\nremoving /Users/<user>/Library/Containers/net.blip.macos.share.\nmv: rename /Users/<user>/Library/Containers/net.blip.macos.share to /Users/<user>/.Trash/net.blip.macos.share_2026-11-07-1794121943_61788: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/net.blip.macos.share to the Trash.\nremoving /Users/<user>/Library/Group Containers/AY8UB8KTUX.blip.\n/Users/<user>/Library/HTTPStorages/net.blip.macos doesn't exist.\n/Users/<user>/Library/HTTPStorages/net.blip.macos.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/net.blip.macos.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-08T03:13:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T07:13:15Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/blip_darwin-636-025536.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/blip_darwin-636-023557.json"
+}
