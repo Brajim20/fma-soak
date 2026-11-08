@@ -304,7 +304,9 @@ jobs:
         run: |
           for d in $(date -d yesterday +%F) $(date +%F); do python3 notify.py --date $d; done
           python3 rc_report.py --alert   # RC gate: apps that regressed on the instance's current build
-      - run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
+      # save the ledger and digest even when announcing failed: they don't depend on it
+      - if: ${{ !cancelled() }}
+        run: ./harness/ci/results.sh save "report ${{ github.run_id }}"
         env: { RESULTS_TOKEN: "${{ github.token }}" }
 
   next:

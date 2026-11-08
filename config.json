@@ -206,10 +206,10 @@
   ]
  },
  "rerun": {
-  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query) and are queued again.",
-  "since": "2026-11-08T00:05",
-  "why": "clean run after qa's installer store was fixed",
-  "apps": ["mist/darwin", "shifty/darwin"]
+  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636).",
+  "since": "2026-11-08T20:00",
+  "why": "clean rerun: grammarly-desktop failed relaunch-after-install 2/2 on 636, passed on 631 (2026-11-08)",
+  "apps": ["grammarly-desktop/darwin"]
  },
  "triage_expire_days": 30
 }

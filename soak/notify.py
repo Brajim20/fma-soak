@@ -34,6 +34,22 @@ def body(items, date, repo):
     return "\n".join(L)
 
 
+LIMIT = 60000  # GitHub rejects an issue or comment body over 65536 characters
+
+
+def parts(text, limit=LIMIT):
+    # split on line breaks so each finding stays whole; a single line longer than the limit is cut
+    out, cur = [], ""
+    for line in text.split("\n"):
+        while len(line) > limit:
+            out.append(line[:limit]); line = line[limit:]
+        if cur and len(cur) + 1 + len(line) > limit:
+            out.append(cur); cur = line
+        else:
+            cur = f"{cur}\n{line}" if cur else line
+    return out + [cur] if cur else out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=datetime.date.today().isoformat())
@@ -56,10 +72,14 @@ def main():
                             "--json", "number,title", "--jq", f'.[] | select(.title == "{title}") | .number'],
                            capture_output=True, text=True, check=True).stdout.split()
     # the body goes on stdin: a day with hundreds of findings is longer than one command-line argument may be (E2BIG)
-    if found:
-        subprocess.run(["gh", "issue", "comment", found[0], "-R", repo, "--body-file", "-"], input=text, text=True, check=True)
-    else:
-        subprocess.run(["gh", "issue", "create", "-R", repo, "--title", title, "--body-file", "-"], input=text, text=True, check=True)
+    # a day with hundreds of findings is longer than one issue body may be: the rest goes on as comments
+    chunks = parts(text)
+    if not found:
+        url = subprocess.run(["gh", "issue", "create", "-R", repo, "--title", title, "--body-file", "-"],
+                             input=chunks.pop(0), text=True, capture_output=True, check=True).stdout.strip()
+        found = [url.rsplit("/", 1)[-1]]
+    for c in chunks:
+        subprocess.run(["gh", "issue", "comment", found[0], "-R", repo, "--body-file", "-"], input=c, text=True, check=True)
     sent[a.date] = sorted(done | {key(n) for n in new})
     for d in sorted(sent)[:-14]:  # keep two weeks
         sent.pop(d)
