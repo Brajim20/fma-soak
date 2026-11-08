@@ -1,0 +1,86 @@
+{
+ "slug": "prism/darwin",
+ "host": 718,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T12:00:24",
+ "catalog_version": "11.1.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T16:00:14Z",
+  "restarted": "2026-11-08T14:20:54.117827Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 29809,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 154,
+ "first_install_output_tail": "\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.GraphPad.Prism' was running; will relaunch after installation.\nQuitting application 'com.GraphPad.Prism'...\nApplication 'com.GraphPad.Prism' did not quit.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "Application 'com.GraphPad.Prism' was running; will relaunch after installation.",
+  "Quitting application 'com.GraphPad.Prism'...",
+  "Application 'com.GraphPad.Prism' did not quit."
+ ],
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Quitting application 'com.GraphPad.Prism'...\nApplication 'com.GraphPad.Prism' did not quit.\n\nscript execution error: exit status 1",
+ "first_uninstall_exit_code": 1,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 124,
+ "second_install_output_tail": "\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.GraphPad.Prism' was running; will relaunch after installation.\nQuitting application 'com.GraphPad.Prism'...\nApplication 'com.GraphPad.Prism' did not quit.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "Application 'com.GraphPad.Prism' was running; will relaunch after installation.",
+  "Quitting application 'com.GraphPad.Prism'...",
+  "Application 'com.GraphPad.Prism' did not quit."
+ ],
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "Quitting application 'com.GraphPad.Prism'...\nApplication 'com.GraphPad.Prism' did not quit.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-08T12:06:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T16:06:44Z",
+  "restarted": "2026-11-08T14:20:54.117827Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/prism_darwin-718-120024.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/prism_darwin-718-114948.json"
+}
