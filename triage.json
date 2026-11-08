@@ -3520,6 +3520,45 @@
       "app": "malwarebytes/darwin",
       "verdict": "filed #58052: manifest 5.28.4.4244 vs inventory 5.28.4, Update available forever; patch policy passes (bundle_version list, not in version_shortener)",
       "added": "2026-11-07"
+    },
+    {
+      "app": "grepwin/windows",
+      "verdict": "filed #58069: MSI registers 'grepWin x64', exists query wants name = 'grepWin' (4/4 installs, 629+635)",
+      "added": "2026-11-08"
+    },
+    {
+      "app": "rtools/windows",
+      "verdict": "filed #58070: install script stops the installer at its own 480s cap; host allows 1h (2/2 installs on 635)",
+      "added": "2026-11-08"
+    },
+    {
+      "app": "twine-app/darwin",
+      "verdict": "commented on #58044: installed but never detected; DMG CFBundleIdentifier org.twinery.twine matches the query (10/10 installs, 3 hosts)",
+      "added": "2026-11-08"
+    },
+    {
+      "app": "dell-command-update/windows",
+      "verdict": "environment: both records inside the qa storage outage (Nov 6 15:00 - Nov 7 11:15); let it rerun",
+      "added": "2026-11-08",
+      "before": "2026-11-08T10:00:23"
+    },
+    {
+      "app": "ticktick/darwin",
+      "verdict": "environment: 400s on pool runner 697 with 3 live-query timeouts in the same run; let it rerun",
+      "added": "2026-11-08",
+      "before": "2026-11-08T10:00:23"
+    },
+    {
+      "app": "topaz-video-ai/darwin",
+      "verdict": "environment: cert-not-trusted on 631 only after an add 502; 699 installed the same 7.1.5 pkg cleanly; let it rerun",
+      "added": "2026-11-08",
+      "before": "2026-11-08T10:00:23"
+    },
+    {
+      "app": "zeplin/darwin",
+      "verdict": "environment: one add 422 at 03:17, retry 20s later added fine; passed Nov 5 and Nov 6",
+      "added": "2026-11-08",
+      "before": "2026-11-08T10:00:23"
     }
   ]
 }
