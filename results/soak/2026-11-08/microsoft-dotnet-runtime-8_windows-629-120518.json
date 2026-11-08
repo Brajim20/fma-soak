@@ -1,0 +1,110 @@
+{
+ "slug": "microsoft-dotnet-runtime-8/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T12:05:18",
+ "catalog_version": "8.0.33",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T16:05:08Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 29804,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "8.0.33",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Microsoft .NET Runtime - 8.0.33 (x64)"
+  ],
+  "versions": [
+   "64.132.61667",
+   "8.0.33.36622"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\ProgramData\\Package Cache\\{020c93ee-59e0-4340-a87c-53e70bdd2374}\\dotnet-runtime-8.0.33-win-x64.exe\nUninstall args: /uninstall /quiet /norestart\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "10892",
+   "12736"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "10892",
+   "path": "C:\\ProgramData\\Package Cache\\{020c93ee-59e0-4340-a87c-53e70bdd2374}\\dotnet-runtime-8.0.33-win-x64.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "12736",
+   "path": "C:\\ProgramData\\Package Cache\\{020c93ee-59e0-4340-a87c-53e70bdd2374}\\dotnet-runtime-8.0.33-win-x64.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\ProgramData\\Package Cache\\{020c93ee-59e0-4340-a87c-53e70bdd2374}\\dotnet-runtime-8.0.33-win-x64.exe\nUninstall args: /uninstall /quiet /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-08T12:27:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T16:27:53Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/microsoft-dotnet-runtime-8_windows-629-120518-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/microsoft-dotnet-runtime-8_windows-629-120518-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/microsoft-dotnet-runtime-8_windows-629-120518.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/microsoft-dotnet-runtime-8_windows-629-114442.json"
+}
