@@ -1,0 +1,107 @@
+{
+ "slug": "box-tools/darwin",
+ "host": 722,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T17:09:39",
+ "catalog_version": "4.32",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T21:09:40Z",
+  "restarted": "2026-11-08T19:27:55.557432Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 30145,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\nBox Tools installed for user <user>\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.32.0"
+ ],
+ "package_version": "4.32",
+ "context_after_install": {
+  "path": "/Users/<user>/Library/Application Support/Box/Box Edit/Box Edit.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Users/<user>/Library/Application Support/Box/Box Edit/Box Edit.app/Contents/MacOS/Box Edit",
+  "bundle_id": "com.Box.Box-Edit",
+  "versions": [
+   "4.32.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/Box/Box Edit\nBox Tools uninstalled\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\nBox Tools installed for user <user>\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2714"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "; will relaunch after installation.\nQuitting application 'com.Box.Box-Edit'...\nApplication 'com.Box.Box-Edit' quit successfully.\nApplication 'com.box.Box-Local-Com-Server' was running; will relaunch after installation.\nQuitting application 'com.box.Box-Local-Com-Server'...\nApplication 'com.box.Box-Local-Com-Server' quit successfully.\nRelaunching application 'com.Box.Box-Edit'...\nApplication 'com.Box.Box-Edit' relaunched successfully.\nRelaunching application 'com.box.Box-Local-Com-Server'...\nApplication 'com.box.Box-Local-Com-Server' relaunched successfully.\nBox Tools installed for user <user>\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.Box.Box-Edit' was running; will relaunch after installation.",
+  "Quitting application 'com.Box.Box-Edit'...",
+  "Application 'com.Box.Box-Edit' quit successfully.",
+  "Application 'com.box.Box-Local-Com-Server' was running; will relaunch after installation.",
+  "Quitting application 'com.box.Box-Local-Com-Server'...",
+  "Application 'com.box.Box-Local-Com-Server' quit successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "3721",
+   "path": "/Users/<user>/Library/Application Support/Box/Box Edit/Box Edit.app/Contents/MacOS/Box Edit",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "Quitting application 'com.box.Box-Local-Com-Server'...\nApplication 'com.box.Box-Local-Com-Server' quit successfully.\nremoving /Users/<user>/Library/Application Support/Box/Box Edit\nBox Tools uninstalled\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-08T17:19:00",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T21:18:52Z",
+  "restarted": "2026-11-08T19:27:55.557432Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/box-tools_darwin-722-170939.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/box-tools_darwin-722-170006.json"
+}
