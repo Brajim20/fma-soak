@@ -1,0 +1,75 @@
+{
+ "slug": "devolutions-workspace/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T07:06:01",
+ "catalog_version": "2026.3.4.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T11:06:01Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 29292,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "41:476]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (90:BC) [03:06:41:477]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (90:BC) [03:06:41:477]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (70:94) [03:06:41:479]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (70:94) [03:06:41:480]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/8/2026  3:06:41 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.3.4.0"
+ ],
+ "package_version": "2026.3.4.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Devolutions\\Devolutions Password Manager\\"
+  ],
+  "names": [
+   "Devolutions Password Manager"
+  ],
+  "versions": [
+   "2026.3.4.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": false,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-08T07:10:21",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/devolutions-workspace_windows-635-070601-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/devolutions-workspace_windows-635-070601-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/devolutions-workspace_windows-635-070601.json"
+}
