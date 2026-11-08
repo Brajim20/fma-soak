@@ -1,0 +1,114 @@
+{
+ "slug": "gpg-suite/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T08:15:23",
+ "catalog_version": "2023.3",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T12:15:23Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 29339,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "ble</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\ninstaller: Package name is GPG Suite\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2023.3"
+ ],
+ "package_version": "2023.3",
+ "context_after_install": {
+  "path": "/Library/Application Support/GPGTools/GPGSuite_Updater.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Library/Application Support/GPGTools/GPGSuite_Updater.app/Contents/MacOS/GPGSuite_Updater",
+  "bundle_id": "org.gpgtools.updater",
+  "versions": [
+   "2023.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "amework doesn't exist.\n/Users/<user>/Library/Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Frameworks/Libmacgpg.framework doesn't exist.\n/Users/<user>/Library/HTTPStorages/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/LaunchAgents/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Mail/Bundles/GPGMail.mailbundle doesn't exist.\n/Users/<user>/Library/PreferencePanes/GPGPreferences.prefPane doesn't exist.\n/Users/<user>/Library/Preferences/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Services/GPGServices.service doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ble</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\ninstaller: Package name is GPG Suite\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "27204"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "able</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\ninstaller: Package name is GPG Suite\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "28153"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "amework doesn't exist.\n/Users/<user>/Library/Containers/com.apple.mail/Data/Library/Preferences/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Frameworks/Libmacgpg.framework doesn't exist.\n/Users/<user>/Library/HTTPStorages/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/LaunchAgents/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Mail/Bundles/GPGMail.mailbundle doesn't exist.\n/Users/<user>/Library/PreferencePanes/GPGPreferences.prefPane doesn't exist.\n/Users/<user>/Library/Preferences/org.gpgtools.* doesn't exist.\n/Users/<user>/Library/Services/GPGServices.service doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-08T08:26:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T12:26:23Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/gpg-suite_darwin-631-081523-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/gpg-suite_darwin-631-081523-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/gpg-suite_darwin-631-081523.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/gpg-suite_darwin-631-080208.json"
+}
