@@ -1,0 +1,60 @@
+{
+ "slug": "notesollama/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T17:54:04",
+ "catalog_version": "0.2.6",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as None"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T21:53:06Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "title_id": 30179,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": null,
+ "first_install_seconds": null,
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-08T17:59:42; offline when the cycle ended)",
+ "finished": "2026-11-08T18:25:20",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-08T21:53:06Z",
+  "restarted": "2026-11-02T18:11:28.885968Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-08T17:59:42",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/notesollama_darwin-631-175404-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/notesollama_darwin-631-175404-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/notesollama_darwin-631-175404.json",
+ "crosshost_of": "soak/2026-11-08/notesollama_darwin-717-133313.json"
+}
