@@ -49,6 +49,13 @@
   "full_hash_rotation_days": 7
  },
  "known_environment": {
+  "7-zip/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "python-3.14/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "virtualbox/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "adobe-acrobat-pro/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "microsoft-odbc-driver-18/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "vc-redist-x64/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "8x8-work/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "google-chrome/windows@629": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
   "docker/windows@629": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
   "protopie/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
@@ -158,6 +165,10 @@
   "except_hosts": [
    635
   ],
+  "allow": {
+   "_doc": "except_hosts exceptions: apps that may be replaced there anyway, approved by Brayan 2026-11-08 to complete the catalog. Reinstalled at the catalog version when the cycle ends (runner.restore).",
+   "635": ["7-zip/windows", "python-3.14/windows", "virtualbox/windows", "adobe-acrobat-pro/windows", "microsoft-odbc-driver-18/windows", "vc-redist-x64/windows", "8x8-work/windows"]
+  },
   "keep": [
    "fleet-desktop/darwin",
    "fleet-desktop/windows"

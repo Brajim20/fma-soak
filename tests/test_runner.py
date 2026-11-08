@@ -1,5 +1,6 @@
 """Pure-function tests for soak/runner.py. Run: python3 -m unittest discover tests"""
 import os, sys, unittest
+from unittest import mock
 
 os.environ.setdefault("FMA_SOAK_TOKEN", "test")  # runner reads a token at import; nothing here calls the API
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "soak"))
@@ -68,6 +69,59 @@ class Helpers(unittest.TestCase):
         b = {"shape": "install", "msg": "timed out after 1801 s (pid 9)"}
         self.assertEqual(runner.norm(a), runner.norm(b))
         self.assertNotEqual(runner.norm(a), runner.norm({"shape": "S3", "msg": a["msg"]}))
+
+
+
+class ReplacePreexisting(unittest.TestCase):
+    def setUp(self):
+        cfg = {"hosts": {"windows": [629, 635]},
+               "replace_preexisting": {"enabled": True, "except_hosts": [635], "keep": ["fleet-desktop/windows"],
+                                       "allow": {"_doc": "x", "635": ["7-zip/windows"]}}}
+        p = mock.patch.dict(runner.CFG, cfg)
+        p.start()
+        self.addCleanup(p.stop)
+
+    def test_ordinary_soak_host_replaces(self):
+        self.assertTrue(runner.replaces_preexisting("vlc/windows", 629))
+        self.assertFalse(runner.restores_preexisting(629))
+
+    def test_except_host_only_for_allowed_apps_and_restores(self):
+        self.assertTrue(runner.replaces_preexisting("7-zip/windows", 635))
+        self.assertFalse(runner.replaces_preexisting("vlc/windows", 635))
+        self.assertTrue(runner.restores_preexisting(635))
+
+    def test_keep_wins(self):
+        self.assertFalse(runner.replaces_preexisting("fleet-desktop/windows", 629))
+
+    def test_not_a_soak_host(self):
+        self.assertFalse(runner.replaces_preexisting("7-zip/windows", 228))
+
+
+class Restore(unittest.TestCase):
+    def rec(self):
+        return {"slug": "7-zip/windows", "host": 635, "title_id": 9, "restore_after": True}
+
+    def run_restore(self, present, status):
+        calls = []
+        def install(host, tid, rec, label):
+            calls.append((host, tid, label))
+            rec[f"{label}_status"] = status
+        with mock.patch.object(runner, "present", lambda h, q: present), mock.patch.object(runner, "install", install), \
+             mock.patch.object(runner, "queue_idle", lambda h: True), \
+             mock.patch.object(runner, "catalog_manifest", lambda s: {"versions": [{"queries": {"exists": "q"}}]}):
+            r = self.rec()
+            runner.restore(r)
+        return r, calls
+
+    def test_reinstalls_when_the_app_is_gone(self):
+        r, calls = self.run_restore(False, "installed")
+        self.assertEqual(calls, [(635, 9, "restore_install")])
+        self.assertEqual(r["restore_install_status"], "installed")
+
+    def test_leaves_it_when_already_back(self):
+        r, calls = self.run_restore(True, "installed")
+        self.assertEqual(calls, [])
+        self.assertEqual(r["restore_install_status"], "already on host")
 
 
 if __name__ == "__main__":

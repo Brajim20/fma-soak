@@ -419,11 +419,17 @@ def arch_findings(host, ctx, slug, rec, find):
 
 def replaces_preexisting(slug, host):
     """Whether a copy of the app that the harness didn't install gets uninstalled so the FMA can be tested. Only on
-    the soak's own hosts and pool runners: a one-off cycle on a shared host (Mac 50 on main) never removes apps."""
+    the soak's own hosts and pool runners: a one-off cycle on a shared host (Mac 50 on main) never removes apps. On an
+    except_hosts host only the apps its `allow` list names, and those are reinstalled afterwards (restores_preexisting)."""
     c = CFG.get("replace_preexisting", {})
     soak_host = host in {h for hs in CFG["hosts"].values() for h in hs} or bool(os.environ.get("FMA_SOAK_POOL_SLOT"))
-    return (bool(c.get("enabled")) and soak_host and host not in c.get("except_hosts", [])
-            and slug not in c.get("keep", []))
+    allowed = host not in c.get("except_hosts", []) or slug in c.get("allow", {}).get(str(host), [])
+    return bool(c.get("enabled")) and soak_host and allowed and slug not in c.get("keep", [])
+
+
+def restores_preexisting(host):
+    """A host people use (except_hosts) gets a replaced app back: reinstalled at the catalog version when the cycle ends."""
+    return host in CFG.get("replace_preexisting", {}).get("except_hosts", [])
 
 
 def cycle(slug, host):
@@ -461,6 +467,8 @@ def cycle(slug, host):
             return finish(rec)
         # a copy that was on the host before the soak blocks this app's test and takes disk (631 ran out on
         # 2026-11-05): remove it with the FMA's own uninstall, as an admin would, then test the FMA normally
+        if restores_preexisting(host):
+            rec["restore_after"] = True  # set first, so every way out of the cycle puts it back (finish)
         uninstall(host, tid, rec, "preexisting_uninstall")
         pre = present(host, exists_q)
         rec["preexisting_removed"] = pre is False
@@ -951,7 +959,24 @@ def scrub_all(v):
     return v
 
 
+def restore(rec):
+    """Reinstall an app this cycle removed from a host people use; reported on the record, not as an app finding."""
+    host, tid = rec["host"], rec["title_id"]
+    if present(host, catalog_manifest(rec["slug"])["versions"][0]["queries"]["exists"]):
+        rec["restore_install_status"] = "already on host"
+        return
+    queue_idle(host)
+    install(host, tid, rec, "restore_install")
+    if rec.get("restore_install_status") != "installed":
+        print(f"   RESTORE FAILED: {rec['slug']} on {host} ended as {rec.get('restore_install_status')}; reinstall it by hand")
+
+
 def finish(rec):
+    if rec.get("restore_after") and "restore_install_status" not in rec:
+        try:
+            restore(rec)
+        except Exception as e:
+            rec["restore_install_status"] = f"error: {type(e).__name__}: {e}"
     rec.update(scrub_all({k: v for k, v in rec.items() if k not in ("record", "retry_of")}))
     rec["finished"] = datetime.datetime.now().isoformat(timespec="seconds")
     if rec.get("host_at_start"):
