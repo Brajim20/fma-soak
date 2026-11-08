@@ -18,6 +18,14 @@ class StoreProblem(unittest.TestCase):
                 mock.patch.object(runner, "api", lambda *a, **k: (200, TITLE)):
             return runner.store_problem(7, VENDOR)
 
+    def test_missing_file_is_broken(self):
+        def sizes(url, headers=None):
+            if url == VENDOR:
+                return 5000
+            raise FileNotFoundError(url)
+        with mock.patch.object(runner, "http_size", sizes):
+            self.assertIn("404", runner.store_problem(7, VENDOR))
+
     def test_empty_file_is_broken(self):
         self.assertIn("0 bytes", self.problem(0, None))
 

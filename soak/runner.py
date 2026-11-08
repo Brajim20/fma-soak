@@ -436,12 +436,17 @@ STORE_BROKEN = "environment: installer store"
 
 
 def http_size(url, headers=None):
-    """Content-Length of a GET (headers only, body not read), or None when the server doesn't say or can't be reached."""
+    """Content-Length of a GET (headers only, body not read), or None when the server doesn't say or can't be reached.
+    A 404 raises FileNotFoundError: for the instance's own installer that means the store lost the file."""
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "fleet-qa-fma-soak", **(headers or {})}),
                                     timeout=60) as r:
             n = r.headers.get("Content-Length")
             return int(n) if n is not None else None
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            raise FileNotFoundError(url)
+        return None
     except Exception:
         return None
 
@@ -468,10 +473,17 @@ def store_problem(tid, installer_url):
     comes back in a second, so: 0 bytes is broken; smaller than the vendor's file is checked by hash against the
     title's (computed from the full download at add time), since a vendor can also ship a smaller file at the same
     URL; larger, the same, or a vendor that doesn't say is taken as fine."""
-    stored = http_size(f"{BASE}/software/titles/{tid}/package?alt=media&fleet_id={FID}", {"Authorization": "Bearer " + TOKEN})
+    try:
+        stored = http_size(f"{BASE}/software/titles/{tid}/package?alt=media&fleet_id={FID}", {"Authorization": "Bearer " + TOKEN})
+    except FileNotFoundError:
+        # fleetd gets the same 404 ("Resource Not Found") and reports "Software installer download failed" (2026-11-07)
+        return "the instance answers 404 for this title's installer: the store has no file for it"
     if stored == 0:
         return "the instance serves this title's installer as 0 bytes"
-    vendor = http_size(installer_url) if stored else None
+    try:
+        vendor = http_size(installer_url) if stored else None
+    except FileNotFoundError:
+        vendor = None
     if not stored or not vendor or stored >= vendor:
         return None
     st, d = api("GET", f"/software/titles/{tid}?fleet_id={FID}")
