@@ -1,0 +1,106 @@
+{
+ "slug": "cardhop/darwin",
+ "host": 717,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T11:19:16",
+ "catalog_version": "2.5.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T15:19:08Z",
+  "restarted": "2026-11-08T14:22:35.202455Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 29777,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.5.1"
+ ],
+ "package_version": "2.5.1",
+ "context_after_install": {
+  "path": "/Applications/Cardhop.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Cardhop.app/Contents/MacOS/Cardhop",
+  "bundle_id": "com.flexibits.cardhop.mac",
+  "versions": [
+   "2.5.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "er>/Library/Application Scripts/com.flexibits.cardhop.mac.BluetoothDialer doesn't exist.\n/Users/<user>/Library/Application Scripts/com.flexibits.cardhop.mac.launcher doesn't exist.\n/Users/<user>/Library/Containers/com.flexibits.cardhop.mac doesn't exist.\n/Users/<user>/Library/Containers/com.flexibits.cardhop.mac.BluetoothDialer doesn't exist.\n/Users/<user>/Library/Containers/com.flexibits.cardhop.mac.launcher doesn't exist.\n/Users/<user>/Library/Group Containers/85C27NK92C.com.flexibits.cardhop.mac doesn't exist.\n/Users/<user>/Library/Preferences/com.flexibits.cardhop.mac.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "13311"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.flexibits.cardhop.mac' was running; will relaunch after installation.\nQuitting application 'com.flexibits.cardhop.mac'...\nApplication 'com.flexibits.cardhop.mac' quit successfully.\nRelaunching application 'com.flexibits.cardhop.mac'...\nApplication 'com.flexibits.cardhop.mac' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.flexibits.cardhop.mac' was running; will relaunch after installation.",
+  "Quitting application 'com.flexibits.cardhop.mac'...",
+  "Application 'com.flexibits.cardhop.mac' quit successfully.",
+  "Relaunching application 'com.flexibits.cardhop.mac'...",
+  "Application 'com.flexibits.cardhop.mac' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "14109",
+   "path": "/Applications/Cardhop.app/Contents/MacOS/Cardhop",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Scripts/com.flexibits.cardhop.mac.BluetoothDialer doesn't exist.\n/Users/<user>/Library/Application Scripts/com.flexibits.cardhop.mac.launcher doesn't exist.\nremoving /Users/<user>/Library/Containers/com.flexibits.cardhop.mac.\n/Users/<user>/Library/Containers/com.flexibits.cardhop.mac.BluetoothDialer doesn't exist.\n/Users/<user>/Library/Containers/com.flexibits.cardhop.mac.launcher doesn't exist.\nremoving /Users/<user>/Library/Group Containers/85C27NK92C.com.flexibits.cardhop.mac.\n/Users/<user>/Library/Preferences/com.flexibits.cardhop.mac.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-08T11:28:37",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T15:28:28Z",
+  "restarted": "2026-11-08T14:22:35.202455Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/cardhop_darwin-717-111916.json"
+}

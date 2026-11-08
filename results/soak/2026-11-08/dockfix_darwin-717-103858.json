@@ -1,0 +1,89 @@
+{
+ "slug": "dockfix/darwin",
+ "host": 717,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T10:38:58",
+ "catalog_version": "5.3.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T14:38:56Z",
+  "restarted": "2026-11-08T14:22:35.202455Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 29739,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 32,
+ "first_install_output_tail": "ontent-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.3.0"
+ ],
+ "package_version": "5.3.0",
+ "context_after_install": {
+  "path": "/Applications/DockFix.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/DockFix.app/Contents/MacOS/DockFix",
+  "bundle_id": "dk.FIrstForm.DockFix",
+  "versions": [
+   "5.3.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Caches/dk.FIrstForm.DockFix doesn't exist.\n/Users/<user>/Library/HTTPStorages/dk.FIrstForm.DockFix doesn't exist.\n/Users/<user>/Library/Preferences/dk.FIrstForm.DockFix.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ontent-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+ "finished": "2026-11-08T10:47:17",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-08T14:46:06Z",
+  "restarted": "2026-11-08T14:22:35.202455Z"
+ },
+ "host_disruption": [
+  "offline when the cycle ended"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/dockfix_darwin-717-103858.json"
+}
