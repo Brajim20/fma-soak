@@ -55,10 +55,11 @@ def main():
     found = subprocess.run(["gh", "issue", "list", "-R", repo, "--state", "all", "--search", f'"{title}" in:title',
                             "--json", "number,title", "--jq", f'.[] | select(.title == "{title}") | .number'],
                            capture_output=True, text=True, check=True).stdout.split()
+    # the body goes on stdin: a day with hundreds of findings is longer than one command-line argument may be (E2BIG)
     if found:
-        subprocess.run(["gh", "issue", "comment", found[0], "-R", repo, "--body", text], check=True)
+        subprocess.run(["gh", "issue", "comment", found[0], "-R", repo, "--body-file", "-"], input=text, text=True, check=True)
     else:
-        subprocess.run(["gh", "issue", "create", "-R", repo, "--title", title, "--body", text], check=True)
+        subprocess.run(["gh", "issue", "create", "-R", repo, "--title", title, "--body-file", "-"], input=text, text=True, check=True)
     sent[a.date] = sorted(done | {key(n) for n in new})
     for d in sorted(sent)[:-14]:  # keep two weeks
         sent.pop(d)
