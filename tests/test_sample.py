@@ -1,4 +1,4 @@
-"""Tests for sample.py next_pick's config rerun list. Run: python3 -m unittest discover tests"""
+"""Tests for sample.py next_pick: the config rerun list and catch-up. Run: python3 -m unittest discover tests"""
 import os, random, sys, unittest
 from unittest import mock
 
@@ -32,8 +32,69 @@ class Rerun(unittest.TestCase):
         self.assertEqual(self.pick(ledger)[0], "bezel/darwin")
 
     def test_apps_outside_this_hosts_catalog_are_left_to_their_host(self):
-        ledger = {s + "@631": {"last_lifecycle": {"date": "2026-11-08"}} for s in ("mist/darwin", "bezel/darwin")}
+        ledger = {s + "@631": {"last_lifecycle": {"date": "2026-11-08"}, "first_cycled": "2026-11-08"} for s in ("mist/darwin", "bezel/darwin")}
+        ledger["warp/darwin@636"] = {"first_cycled": "2026-10-31"}  # covered in an earlier round, due again
         self.assertEqual(self.pick(ledger), ("warp/darwin", "deck round 1"))
+
+
+FULL = [f"app{i}/darwin" for i in range(30)]
+
+
+class CatchUp(unittest.TestCase):
+    """Uncovered apps come before repeats, and each has an owner and a backup host."""
+    def setUp(self):
+        cfg = {"rerun": {}, "random_sample": {"changed_share": 0, "blind_share": 0, "host_weights": {}},
+               "coverage": {"invalid_windows": [{"after": "2026-11-06T15:00", "before": "2026-11-07T11:15"}]}}
+        for p in (mock.patch.dict(runner.CFG, cfg), mock.patch.object(sample, "excluded", lambda plat, host: set()),
+                  mock.patch.object(sample, "new_apps", lambda *a: []), mock.patch.object(sample, "known_env_hosts", lambda s: set()),
+                  mock.patch.object(sample, "pool_for", lambda plat: []), mock.patch.object(sample, "hosts_for", lambda plat: [631, 636, 624]),
+                  mock.patch.object(sample, "is_up", lambda plat, h: h != 624)):  # 624 offline
+            p.start()
+            self.addCleanup(p.stop)
+
+    def deck(self, host):
+        mine = sample.shard("darwin", FULL, host)
+        return {"order": mine, "done": [], "round": 2, "started": "2026-11-01T00:00"}, mine
+
+    def pick(self, host, ledger, tried=()):
+        deck, mine = self.deck(host)
+        return sample.next_pick("darwin", deck, mine, set(), ledger, random.Random(1), host, None, FULL, set(tried))
+
+    def test_an_offline_hosts_share_is_picked_up_by_its_backups(self):
+        covered = {s + "@631": {"first_cycled": "2026-11-01"} for s in FULL if sample.owner("darwin", s) != 624}
+        theirs = [s for s in FULL if sample.owner("darwin", s) == 624]
+        self.assertTrue(theirs)
+        picked = set()
+        for h in (631, 636):
+            tried = set()
+            while (p := self.pick(h, covered, tried)) and p[1].startswith("catch-up"):
+                picked.add(p[0]); tried.add(p[0])
+        self.assertEqual(picked, set(theirs))
+
+    def test_uncovered_comes_before_a_deck_repeat(self):
+        s = next(x for x in FULL if sample.catch_up_host("darwin", x) == 631)
+        ledger = {x + "@636": {"first_cycled": "2026-11-01"} for x in FULL if x != s}
+        self.assertEqual(self.pick(631, ledger), (s, "catch-up: not covered on any host yet"))
+
+    def test_tried_once_per_pass(self):
+        s = next(x for x in FULL if sample.catch_up_host("darwin", x) == 631)
+        ledger = {x + "@636": {"first_cycled": "2026-11-01"} for x in FULL if x != s}
+        self.assertTrue(self.pick(631, ledger, {s})[1].startswith("deck"))
+
+    def test_each_uncovered_app_goes_to_exactly_one_online_host(self):
+        takers = {s: [h for h in (631, 636, 624) if s in sample.catch_up("darwin", FULL, {}, h, set(), set())] for s in FULL}
+        self.assertTrue(all(len(v) == 1 and v[0] != 624 for v in takers.values()), takers)
+        self.assertEqual({v[0] for v in takers.values()}, {631, 636})
+
+    def test_every_app_covered_means_normal_rounds(self):
+        ledger = {x + "@636": {"first_cycled": "2026-11-01"} for x in FULL}
+        self.assertTrue(self.pick(631, ledger)[1].startswith("deck"))
+
+    def test_failure_inside_an_invalid_window_is_not_coverage(self):
+        self.assertFalse(sample.counts_as_cycle("findings", "2026-11-06T20:00"))
+        self.assertTrue(sample.counts_as_cycle("pass", "2026-11-06T20:00"))
+        self.assertTrue(sample.counts_as_cycle("findings", "2026-11-07T12:00"))
+        self.assertFalse(sample.counts_as_cycle("skipped: app already on host", "2026-11-08T01:00"))
 
 
 if __name__ == "__main__":

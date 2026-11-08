@@ -185,6 +185,12 @@
   "_doc": "titles.py sweep (report job, after every soak and pool job): removes the soak's FMA titles from the soak fleet so stored installers don't fill the instance's disk (#57132 on qa.fleetdm.com, 2026-11-06). keep_title_ids: titles Brayan added before the soak (fleet 65 activity log, 2026-11-07); canaries, residents, patch_closed apps, apps still on a host and queued titles are kept by rule.",
   "keep_title_ids": [815, 12457, 12955, 12956, 13109, 13118, 16683, 17203, 17550, 17579, 17719, 18027, 18245, 18520, 19734, 20023, 20130, 20163, 20416, 20665, 22809, 23299]
  },
+ "coverage": {
+  "_doc": "sample.py: a lifecycle cycle started inside an invalid window that didn't pass doesn't count as coverage, so the app goes back to catch-up for a clean run. Times are local, like records.",
+  "invalid_windows": [
+   {"after": "2026-11-06T15:00", "before": "2026-11-07T11:15", "why": "qa installer store full (#57132): adds 500 'no space left', installs 'image not recognized'"}
+  ]
+ },
  "rerun": {
   "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query) and are queued again.",
   "since": "2026-11-08T00:05",

@@ -6,6 +6,13 @@ Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no 
   `rerun.since` (e.g. apps whose findings came from a broken environment and that need a clean run).
 - New apps: an app that shows up in the instance's catalog (results/sample/catalog-<plat>.json, kept by the report
   job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary deck app.
+- Catch-up: until every app on the platform is covered, uncovered apps come before any repeat (version changes,
+  blind spots, the deck). Each one goes to exactly one host: its owner, or a backup (a second pick, hashed apart, with
+  the owner left out). An offline owner's apps go to their backups, an offline backup's stay with the owner, and when
+  both are online they split them, so a slow or offline host's share spreads over the others and nothing runs twice.
+  Online is read from Fleet once per pass; pool slots count as online. A host tries each app once per pass.
+- Invalid windows: config `coverage.invalid_windows` ({after, before, why}) are times the environment broke every
+  install (qa's full installer store, #57132). A cycle started inside one that didn't pass doesn't count as coverage.
 
 - The deck: per platform, the catalog in a seeded random order (results/sample/deck-<plat>.json). Picks come off
   the top, skipping apps already covered this round, so every app comes up exactly once per round. When the
@@ -95,17 +102,17 @@ def known_env_hosts(slug):
     return {int(k.rsplit("@", 1)[1]) for k in R.CFG.get("known_environment", {}) if R.app_slug(k) == slug and k != slug}
 
 
-def owner(plat, slug):
+def owner(plat, slug, without=(), salt=""):
     """The one host on this platform that samples this app, or None if no host can run it. Split by capacity
     (random_sample.host_weights, default 1): the primary spends most of its day on canaries, the update path and
     scenarios, so an even split would leave its share far behind the sample-only host's."""
-    able = [h for h in all_hosts(plat) if h not in known_env_hosts(slug)]
+    able = [h for h in all_hosts(plat) if h not in known_env_hosts(slug) and h not in without]
     if not able:
         return None
     w = R.CFG["random_sample"].get("host_weights", {})
     pool = set(pool_for(plat))
     weights = [max(float(w.get(str(h), w.get("pool", 1) if h in pool else 1)), 0) for h in able]
-    x = (zlib.crc32(slug.encode()) % 10000) / 10000 * sum(weights)
+    x = (zlib.crc32((salt + slug).encode()) % 10000) / 10000 * sum(weights)
     for h, wt in zip(able, weights):
         if x < wt:
             return h
@@ -220,7 +227,50 @@ def new_apps(plat, catalog, ledger):
     return [s for _, s in sorted(out)]
 
 
-def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
+def counts_as_cycle(outcome, started):
+    """A lifecycle cycle that really ran: not a skip, harness error or environment problem, and not a failure inside
+    a config coverage.invalid_windows window (every install broke there, whatever the app)."""
+    o = str(outcome)
+    if o.startswith(NOT_A_CYCLE) or not started:
+        return False
+    return o.startswith("pass") or not any(w["after"] <= started < w["before"]
+                                           for w in R.CFG.get("coverage", {}).get("invalid_windows", []))
+
+
+_UP = {}
+
+
+def is_up(plat, host):
+    """Online right now, read once per pass. A pool slot only exists while it runs, so it counts as up."""
+    if host in pool_for(plat):
+        return True
+    if host not in _UP:
+        _UP[host] = R.host_snapshot(host)["status"] == "online"
+    return _UP[host]
+
+
+def catch_up_host(plat, slug):
+    """The one host that takes this uncovered app (see Catch-up above)."""
+    first = owner(plat, slug)
+    if first is None:
+        return None
+    second = owner(plat, slug, without={first}, salt="backup:")
+    if second is None or not is_up(plat, second):
+        return first
+    if not is_up(plat, first):
+        return second
+    return first if zlib.crc32(("split:" + slug).encode()) % 2 == 0 else second
+
+
+def catch_up(plat, full, ledger, host, skip, tried):
+    """Uncovered apps on the whole platform that this host takes, in a seeded order."""
+    covered = {k.split("@")[0] for k, e in ledger.items() if e.get("first_cycled")}
+    out = [s for s in full if s not in covered and s not in skip and s not in tried and catch_up_host(plat, s) == host]
+    random.Random(f"catch-up-{host}").shuffle(out)
+    return out
+
+
+def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None, full=None, tried=()):
     """(slug, why) or None. An app new to the catalog goes first, once. A version-changed app is due if it hasn't
     been cycled since the change window began."""
     week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
@@ -234,6 +284,9 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None):
     fresh = [s for s in new_apps(plat, catalog, ledger) if s not in skip]
     if fresh:
         return fresh[0], "new to the catalog"
+    due = catch_up(plat, full or catalog, ledger, host, skip, tried)
+    if due:
+        return due[0], "catch-up: not covered on any host yet"
     if rng.random() < R.CFG["random_sample"].get("changed_share", 0.3):
         due = sorted(s for s in changed if s in set(catalog) and s not in skip and
                      ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") < week_ago)
@@ -292,7 +345,9 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
     if slot is None and host not in hosts_for(plat):
         sys.exit(f"host {host} isn't a {plat} soak host ({hosts_for(plat)})")
     me = host if slot is None else slot
-    catalog = shard(plat, instance_catalog(plat), me)
+    full = instance_catalog(plat)
+    catalog = shard(plat, full, me)
+    tried = set()
     deck, changed, blind = load_deck(plat, catalog, me), changed_last_7_days(plat), blind_spots(plat)
     ledger = build_ledger()["apps"]
     today = datetime.date.today().isoformat()
@@ -311,10 +366,11 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
             break
-        pick = next_pick(plat, deck, catalog, changed, ledger, rng, me, blind)
+        pick = next_pick(plat, deck, catalog, changed, ledger, rng, me, blind, full, tried)
         if not pick:
             break
         slug, why = pick
+        tried.add(slug)
         n += 1
         if dry:
             print(f"   would pick {slug} ({why})")
@@ -336,10 +392,10 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         e = ledger.setdefault(f"{slug}@{me}", {"lifecycle_runs": 0, "update_runs": 0})
         e["last_lifecycle"] = {"date": entry["started"], "outcome": entry["outcome"]}
         e["lifecycle_runs"] = e.get("lifecycle_runs", 0) + 1
-        if not str(entry["outcome"]).startswith(NOT_A_CYCLE):
+        if counts_as_cycle(entry["outcome"], entry["started"]):
             e["first_cycled"] = e.get("first_cycled") or entry["started"]
         changed.discard(slug)
-        if slug not in deck["done"]:
+        if slug in deck["order"] and slug not in deck["done"]:
             deck["done"].append(slug)  # a version-change pick counts for the round too
         save_deck(deck)
     # no ledger write here: several jobs sample at once and each would push its own partial view; the report job
@@ -394,7 +450,7 @@ def build_ledger(write=False):
         e = apps.setdefault(f"{r['slug']}@{r.get('pool_slot') or r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
         kind = "update" if r.get("kind") in ("update_path", "patch_when_closed") else "lifecycle"
         e[f"{kind}_runs"] += 1
-        if kind == "lifecycle" and not str(r["outcome"]).startswith(NOT_A_CYCLE) and r.get("started"):
+        if kind == "lifecycle" and counts_as_cycle(r["outcome"], r.get("started")):
             e["first_cycled"] = min(e.get("first_cycled") or r["started"], r["started"])
         e[f"last_{kind}"] = {"outcome": r["outcome"], "date": r.get("started"), "build": r.get("build"),
                              "catalog_version": r.get("catalog_version"), "record": os.path.relpath(p, R.WS),
