@@ -1,0 +1,112 @@
+{
+ "slug": "mattermost/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T08:19:46",
+ "catalog_version": "6.3.2",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T12:19:41Z",
+  "restarted": "2026-11-08T04:28:20.844193Z"
+ },
+ "title_id": 20383,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "6.3.2"
+ ],
+ "package_version": "6.3.2",
+ "context_after_install": {
+  "path": "/Applications/Mattermost.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Mattermost.app/Contents/MacOS/Mattermost",
+  "bundle_id": "Mattermost.Desktop",
+  "versions": [
+   "6.3.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/mattermost.desktop.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/Mattermost doesn't exist.\n/Users/<user>/Library/Containers/Mattermost.Desktop doesn't exist.\n/Users/<user>/Library/Logs/Mattermost doesn't exist.\n/Users/<user>/Library/Preferences/Mattermost.Desktop.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/Mattermost.Desktop.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "48568"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "no result in time"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-08T09:27:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T13:27:26Z",
+  "restarted": "2026-11-08T04:28:20.844193Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/mattermost_darwin-624-081946-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/mattermost_darwin-624-081946-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/mattermost_darwin-624-081946.json"
+}
