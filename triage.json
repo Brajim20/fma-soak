@@ -384,7 +384,7 @@
     },
     {
       "app": "010-editor/darwin@631",
-      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 \u2192 17.0).",
+      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 → 17.0).",
       "before": "2026-10-31T15:00:00",
       "added": "2026-10-31"
     },
@@ -834,7 +834,7 @@
     },
     {
       "app": "snagit/darwin",
-      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
+      "verdict": "filed #57748: after Snagit is opened, 'application id … is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
       "added": "2026-11-05"
     },
     {
@@ -849,7 +849,7 @@
     },
     {
       "app": "burp-suite/darwin",
-      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
+      "verdict": "filed #57806: unique_identifier com.install4j.9806-… is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
       "added": "2026-11-05"
     },
     {
@@ -3489,6 +3489,21 @@
       "after": "2026-11-06T15:00",
       "before": "2026-11-07T11:15",
       "verdict": "environment: qa.fleetdm.com's installer store was full (#57132); fixed by removing the soak's leftover titles, verified 2026-11-07",
+      "added": "2026-11-07"
+    },
+    {
+      "app": "burp-suite-community/windows",
+      "verdict": "filed #58043: install script has no stop step; install over the open app exits 1, process survives (3/3, 629+635)",
+      "added": "2026-11-07"
+    },
+    {
+      "app": "ferdium/darwin",
+      "verdict": "filed #58044: installed with exit 0 but never detected; bundle ID matches the shipped app, cause unknown (6/6 installs, 636+658)",
+      "added": "2026-11-07"
+    },
+    {
+      "app": "vernier-spectral-analysis/windows",
+      "verdict": "filed #58045: exists query publisher equality never matches; inventory lists 5.1.0-2993 (4/4 installs on 635)",
       "added": "2026-11-07"
     }
   ]
