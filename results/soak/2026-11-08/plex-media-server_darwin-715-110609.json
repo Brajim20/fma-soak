@@ -1,0 +1,174 @@
+{
+ "slug": "plex-media-server/darwin",
+ "host": 715,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T11:06:09",
+ "catalog_version": "1.43.5.11079",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory shows ['1.43.5'] after installing 1.43.5.11079; the patch query passes, so only the version Fleet displays is behind"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T15:06:08Z",
+  "restarted": "2026-11-08T14:23:36.249578Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 29764,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.43.5"
+ ],
+ "package_version": "1.43.5.11079",
+ "context_after_install": {
+  "path": "/Applications/Plex Media Server.app",
+  "bundle": null,
+  "executable": null,
+  "exe": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Media Server",
+  "bundle_id": "com.plexapp.plexmediaserver",
+  "versions": [
+   "1.43.5"
+  ]
+ },
+ "arch": {
+  "host": null,
+  "exe": null
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing launchctl service com.plexapp.mediaserver\n/Users/<user>/Library/Application Support/Plex Media Server doesn't exist.\n/Users/<user>/Library/Caches/PlexMediaServer doesn't exist.\n/Users/<user>/Library/Logs/Plex Media Server doesn't exist.\n/Users/<user>/Library/Preferences/com.plexapp.plexmediaserver.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "92941"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 33,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.plexapp.plexmediaserver' was running; will relaunch after installation.\nQuitting application 'com.plexapp.plexmediaserver'...\nApplication 'com.plexapp.plexmediaserver' quit successfully.\nRelaunching application 'com.plexapp.plexmediaserver'...\nApplication 'com.plexapp.plexmediaserver' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.plexapp.plexmediaserver' was running; will relaunch after installation.",
+  "Quitting application 'com.plexapp.plexmediaserver'...",
+  "Application 'com.plexapp.plexmediaserver' quit successfully.",
+  "Relaunching application 'com.plexapp.plexmediaserver'...",
+  "Application 'com.plexapp.plexmediaserver' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "94045",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Media Server",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94105",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94144",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Tuner Service",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94145",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94146",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94147",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94154",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94156",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94157",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94158",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94160",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94164",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  },
+  {
+   "pid": "94165",
+   "path": "/Applications/Plex Media Server.app/Contents/MacOS/Plex Script Host",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing launchctl service com.plexapp.mediaserver\nremoving /Users/<user>/Library/Application Support/Plex Media Server.\nremoving /Users/<user>/Library/Caches/PlexMediaServer.\nremoving /Users/<user>/Library/Logs/Plex Media Server.\nremoving /Users/<user>/Library/Preferences/com.plexapp.plexmediaserver.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-08T11:15:51",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T15:15:52Z",
+  "restarted": "2026-11-08T14:23:36.249578Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/plex-media-server_darwin-715-110609.json"
+}
