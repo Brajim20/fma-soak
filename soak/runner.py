@@ -505,11 +505,14 @@ def low_disk(host):
     631 froze for 2.5 h on 2026-11-08 when Topaz Gigapixel AI (a 396 MB pkg that installs 13 GB) filled its disk;
     an install on a nearly full host fails for the host's sake, not the app's, and can take the host down."""
     code, d = api("GET", f"/hosts/{host}")
-    free = (d.get("host") or {}).get("gigs_disk_space_available") if code == 200 else None
+    h = (d.get("host") or {}) if code == 200 else {}
+    free, total = h.get("gigs_disk_space_available"), h.get("gigs_total_disk_space")
+    if not total:  # not reported yet: Fleet shows 0 free until the host's details come in, which skipped every pool cycle 2026-11-08/09
+        free = None
     floor = CFG.get("disk", {}).get("min_gb", 5)
     if free is None or free >= floor:
         return None
-    return f"host low on disk ({free} GB free, below disk.min_gb {floor})"
+    return f"host low on disk ({free} GB free of {total}, below disk.min_gb {floor})"
 
 
 def cycle(slug, host):

@@ -98,21 +98,27 @@ def serve(state_dir, port):
                 shutil.copyfileobj(f, self.wfile)
             return size
 
+        def _inside(self, root, rel):
+            """The file under root that rel names, or None when rel climbs out of it (/../x.json)."""
+            root = os.path.realpath(root)
+            f = os.path.realpath(os.path.join(root, rel))
+            return f if f.startswith(root + os.sep) else None
+
         def _handle(self, head=False):
             p = self.path.split("?")[0]
             if p.startswith("/installers/"):
-                f = os.path.join(o.installers, os.path.basename(p))
+                f = self._inside(o.installers, os.path.basename(p))
                 rec = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"), "method": self.command, "file": os.path.basename(p),
                        "if_none_match": self.headers.get("If-None-Match"), "status": 404, "bytes": 0}
-                if os.path.isfile(f):
+                if f and os.path.isfile(f):
                     rec["status"], rec["bytes"] = 200, self._file(f, "application/octet-stream", head)
                 else:
                     self.send_response(404); self.end_headers()
                 with open(o.hits_path, "a") as h:
                     h.write(json.dumps(rec) + "\n")
                 return
-            f = os.path.join(o.catalog, p.lstrip("/"))
-            if p.endswith(".json") and os.path.isfile(f):
+            f = self._inside(o.catalog, p.lstrip("/"))
+            if p.endswith(".json") and f and os.path.isfile(f):
                 self._file(f, "application/json", head)
             else:
                 self.send_response(404); self.end_headers()
