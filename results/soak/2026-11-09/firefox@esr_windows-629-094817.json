@@ -1,0 +1,115 @@
+{
+ "slug": "firefox@esr/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T09:48:17",
+ "catalog_version": "153.6.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T13:48:05Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 20203,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "14748",
+   "15060",
+   "17900"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "15060",
+   "path": "C:\\Program Files\\Mozilla Firefox\\tobedeleted\\nsn9BC3.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "17900",
+   "path": "C:\\Program Files\\Mozilla Firefox\\tobedeleted\\nsn9BC3.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "14748",
+   "path": "C:\\Program Files\\Mozilla Firefox\\tobedeleted\\nsn9BC3.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "open_reinstall_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Mozilla Firefox\\tobedeleted\\nsn9BC3.tmp, pid 15060); expected on Windows",
+ "open_reinstall_after_old_close": "0",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "11216",
+   "15548",
+   "16876"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 62,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\nUninstall args: /S\nUninstall exit code: 0\nStopping hung Default Browser Agent cleanup (PID 17732)\nStopping hung Default Browser Agent cleanup (PID 2148)\nStopping hung Default Browser Agent cleanup (PID 11016)\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-09T10:27:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T14:26:59Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-09/evidence/firefox@esr_windows-629-094817-library.png",
+  "inventory": "results/soak/2026-11-09/evidence/firefox@esr_windows-629-094817-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/firefox@esr_windows-629-094817.json"
+}
