@@ -2,6 +2,11 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "vnc-viewer/windows",
+      "verdict": "duplicate of open #57139: MSI install reports upgrade code {33634170-CB8A-4DFD-BA15-7E6EEB7F59F0}, so the name match is skipped and the FMA title (upgrade_code '') never links; separate title 'RealVNC Connect Viewer 8.6.0' still unmerged 1h40m later (control on 629, 2026-11-08)",
+      "added": "2026-11-09"
+    },
+    {
       "app": "i1profiler/darwin",
       "verdict": "filed #58089: open app ignores the 10 s quit, installs/uninstalls fail 'did not quit' (pool host 677, single record). Control on 636 impossible: installer needs Rosetta 2",
       "added": "2026-11-08"
