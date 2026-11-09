@@ -1,0 +1,105 @@
+{
+ "slug": "sonobus/darwin",
+ "host": 728,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T23:49:17",
+ "catalog_version": "1.7.2",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T03:49:18Z",
+  "restarted": "2026-11-09T00:24:31.837915Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 30540,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is SonoBus\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.7.2"
+ ],
+ "package_version": "1.7.2",
+ "context_after_install": {
+  "path": "/Applications/SonoBus.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/SonoBus.app/Contents/MacOS/SonoBus",
+  "bundle_id": "com.Sonosaurus.SonoBus",
+  "versions": [
+   "1.7.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "vst3\"\nsudo pkgutil --only-files --files \"net.sonobus.pkg.vst3\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"net.sonobus.pkg.vst3\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'net.sonobus.pkg.vst3' on '/'.\n/Users/<user>/Library/Application Support/SonoBus doesn't exist.\n/Users/<user>/Library/Caches/com.Sonosaurus.SonoBus doesn't exist.\n/Users/<user>/Library/Saved Application State/com.Sonosaurus.SonoBus.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is SonoBus\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "58943"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 154,
+ "open_reinstall_output_tail": "hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.Sonosaurus.SonoBus' was running; will relaunch after installation.\nQuitting application 'com.Sonosaurus.SonoBus'...\nApplication 'com.Sonosaurus.SonoBus' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.Sonosaurus.SonoBus' was running; will relaunch after installation.",
+  "Quitting application 'com.Sonosaurus.SonoBus'...",
+  "Application 'com.Sonosaurus.SonoBus' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "58943",
+   "path": "/Applications/SonoBus.app/Contents/MacOS/SonoBus",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": ".pkg.vst3\"\nsudo pkgutil --only-files --files \"net.sonobus.pkg.vst3\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"net.sonobus.pkg.vst3\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'net.sonobus.pkg.vst3' on '/'.\nremoving /Users/<user>/Library/Application Support/SonoBus.\n/Users/<user>/Library/Caches/com.Sonosaurus.SonoBus doesn't exist.\n/Users/<user>/Library/Saved Application State/com.Sonosaurus.SonoBus.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-09T00:00:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T04:00:50Z",
+  "restarted": "2026-11-09T00:24:31.837915Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/sonobus_darwin-728-234917.json"
+}
