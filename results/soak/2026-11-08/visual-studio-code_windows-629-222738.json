@@ -1,0 +1,59 @@
+{
+ "slug": "visual-studio-code/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-08T22:27:38",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 1.141.1 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "install of 1.141.1 ended as pending_install; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T02:27:29Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 23299,
+ "cached_versions": [
+  "1.141.1",
+  "1.142.0"
+ ],
+ "active_before": "1.142.0",
+ "pin_older_status": 200,
+ "active_after_pin": "1.141.1",
+ "old_install_request": 202,
+ "old_install_status": "pending_install",
+ "old_install_seconds": null,
+ "old_install_cancelled_after_timeout": [],
+ "old_install_output_tail": "",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "1.142.0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "failed_uninstall",
+ "cleanup_uninstall_seconds": 1766,
+ "cleanup_uninstall_output_tail": "Error: Cannot find path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{EA457B21-F73E-494C-ACAB-524FDE069978}_is1' because it does not exist.\n\nscript execution error: exit status 1",
+ "cleanup_uninstall_exit_code": 1,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-08T23:30:14",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T03:30:14Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/visual-studio-code_windows-629-222738-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/visual-studio-code_windows-629-222738-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/visual-studio-code_windows-629-222738.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/visual-studio-code_windows-629-212601.json"
+}
