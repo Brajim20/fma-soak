@@ -8,7 +8,8 @@ needs no Automation permission, unlike utmctl) when Fleet has seen that host off
 most once per COOLDOWN_MIN. VMs that match no soak host are never touched. If Fleet can't be read, nothing happens:
 a network outage must not restart every VM. The VMs sign in on their own, so the soak resumes without a person.
 
-Setup (once per Mac): put a Fleet API token for qa.fleetdm.com in ~/.config/fma-vm-watchdog/token (chmod 600).
+Setup (once per Mac): put a Fleet API token for qa.fleetdm.com in ~/.config/fma-vm-watchdog/token (chmod 600), and
+the VMs on this Mac in ~/.config/fma-vm-watchdog/vms.json, e.g. {"624": "macOS new vm for upadte"} (UTM's names).
   python3 vm-watchdog.py --dry-run   # prints the VM <-> host matches and what it would do
 """
 import datetime, glob, json, os, plistlib, subprocess, sys, time, urllib.parse, urllib.request
@@ -20,6 +21,7 @@ COOLDOWN_MIN = int(os.environ.get("COOLDOWN_MIN", "120"))
 DOCS = os.path.expanduser("~/Library/Containers/com.utmapp.UTM/Data/Documents")
 CFG = os.path.expanduser("~/.config/fma-vm-watchdog")
 STATE = os.path.join(CFG, "state.json")
+VMS = os.path.join(CFG, "vms.json")
 DRY = "--dry-run" in sys.argv
 
 
@@ -70,9 +72,12 @@ def utm(action, name):
 def main():
     token = open(os.path.join(CFG, "token")).read().strip()
     state = json.load(open(STATE)) if os.path.exists(STATE) else {}
-    vms = vm_macs()
-    if not vms:
-        log(f"no UTM VM readable in {DOCS}; nothing to watch")
+    # macOS keeps other apps (Terminal, launchd jobs) out of UTM's container, so the usual source is vms.json:
+    # {"<fleet host id>": "<UTM VM name>"}, only the VMs on this Mac. MAC matching is used when the container is readable.
+    named = json.load(open(VMS)) if os.path.exists(VMS) else {}
+    vms = vm_macs() if not named else {}
+    if not named and not vms:
+        log(f"no UTM VM readable in {DOCS} and no {VMS}; nothing to watch")
         return
     now = datetime.datetime.now(datetime.timezone.utc)
     for hid in HOSTS:
@@ -81,7 +86,7 @@ def main():
         except Exception as e:
             log(f"host {hid}: can't read Fleet ({e}); doing nothing")
             return
-        name = vms.get(mac(h.get("primary_mac")))
+        name = named.get(str(hid)) or vms.get(mac(h.get("primary_mac")))
         if not name:
             continue  # not on this Mac
         seen = datetime.datetime.fromisoformat(h["seen_time"].replace("Z", "+00:00"))
