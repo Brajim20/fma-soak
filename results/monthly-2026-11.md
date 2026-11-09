@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 5760 cycles: pass 2151, findings 1721, flaky 260, environment 71, harness 153, skipped 1404
+**1. Runs** — 5887 cycles: pass 2184, findings 1732, flaky 260, environment 71, harness 153, skipped 1487
 
-**2. Coverage** — darwin 948/963 (98.4%), round 4; windows 451/460 (98.0%), round 4
+**2. Coverage** — darwin 948/963 (98.4%), round 4; windows 451/460 (98.0%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -19,6 +19,7 @@
 | #50937 | open | Allow multi-file software installers via archive extraction |
 | #51793 | open | Build dependency checking and installation into Windows FMAs |
 | #51875 | closed | Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusable and often unremovable |
+| #51940 | merged | Fix per-user install context for 32 Windows Fleet-maintained apps |
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
 | #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
@@ -130,6 +131,10 @@
 | #58082 | open | Fleet-maintained apps: Logi Options+ (macOS) install doesn't quit the app when it's open |
 | #58084 | open | Fleet-maintained apps: Notion (Windows) shows as installed with Notion Calendar's version on hosts that only have Notion Calendar |
 | #58089 | open | Fleet-maintained apps: i1Profiler (macOS) can't be updated or uninstalled while it's open ("did not quit") |
+| #58132 | open | Fleet-maintained apps: MEGAsync (Windows) install always fails with exit code 2 |
+| #58133 | open | Fleet-maintained apps: PureVPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
+| #58134 | open | Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #58135 | open | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
 
 **4. Build changes**
 
