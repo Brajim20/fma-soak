@@ -1,0 +1,83 @@
+{
+ "slug": "outset/darwin",
+ "host": 727,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T21:43:36",
+ "catalog_version": "4.2.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T01:43:27Z",
+  "restarted": "2026-11-09T00:34:41.872952Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 30457,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.2.0"
+ ],
+ "package_version": "4.2.0",
+ "context_after_install": {
+  "path": "/usr/local/outset/Outset.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/usr/local/outset/Outset.app/Contents/MacOS/Outset",
+  "bundle_id": "io.macadmins.Outset",
+  "versions": [
+   "4.2.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 32,
+ "first_uninstall_output_tail": "r/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'io.macadmins.Outset' on '/'.\n/Library/LaunchAgents/io.macadmins.outset.login-window.plist doesn't exist.\n/Library/LaunchAgents/io.macadmins.outset.login.plist doesn't exist.\n/Library/LaunchAgents/io.macadmins.outset.on-demand.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.boot.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.cleanup.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.login-privileged.plist doesn't exist.\nremoving /Library/Preferences/io.macadmins.Outset.plist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'io.macadmins.Outset' on '/'.\n/Library/LaunchAgents/io.macadmins.outset.login-window.plist doesn't exist.\n/Library/LaunchAgents/io.macadmins.outset.login.plist doesn't exist.\n/Library/LaunchAgents/io.macadmins.outset.on-demand.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.boot.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.cleanup.plist doesn't exist.\n/Library/LaunchDaemons/io.macadmins.outset.login-privileged.plist doesn't exist.\n/Library/Preferences/io.macadmins.Outset.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-08T21:51:13",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T01:51:07Z",
+  "restarted": "2026-11-09T00:34:41.872952Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/outset_darwin-727-214336.json"
+}
