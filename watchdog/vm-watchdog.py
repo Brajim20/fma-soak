@@ -46,7 +46,8 @@ def vm_macs():
     for b in glob.glob(os.path.join(DOCS, "*.utm")):
         try:
             c = plistlib.load(open(os.path.join(b, "config.plist"), "rb"))
-        except Exception:
+        except Exception as e:
+            log(f"can't read {b}: {e}")
             continue
         name = (c.get("Information") or {}).get("Name") or os.path.basename(b)[:-4]
         found = []
@@ -70,6 +71,9 @@ def main():
     token = open(os.path.join(CFG, "token")).read().strip()
     state = json.load(open(STATE)) if os.path.exists(STATE) else {}
     vms = vm_macs()
+    if not vms:
+        log(f"no UTM VM readable in {DOCS}; nothing to watch")
+        return
     now = datetime.datetime.now(datetime.timezone.utc)
     for hid in HOSTS:
         try:

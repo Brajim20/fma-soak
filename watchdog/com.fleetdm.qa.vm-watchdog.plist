@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
   <key>Label</key><string>com.fleetdm.qa.vm-watchdog</string>
-  <!-- install.sh replaces REPO with this clone's path -->
+  <!-- install.sh copies the script to HOME/.config: launchd jobs can't read ~/Documents (TCC) -->
   <key>ProgramArguments</key>
-  <array><string>/usr/bin/python3</string><string>REPO/watchdog/vm-watchdog.py</string></array>
+  <array><string>/usr/bin/python3</string><string>HOME/.config/fma-vm-watchdog/vm-watchdog.py</string></array>
   <key>StartInterval</key><integer>600</integer>
   <key>StandardOutPath</key><string>/tmp/fma-vm-watchdog.log</string>
   <key>StandardErrorPath</key><string>/tmp/fma-vm-watchdog.log</string>
