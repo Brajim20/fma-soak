@@ -1,0 +1,105 @@
+{
+ "slug": "macsyzones/darwin",
+ "host": 731,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T02:06:05",
+ "catalog_version": "3.1.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T06:05:57Z",
+  "restarted": "2026-11-09T05:40:52.944614Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 30583,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.1.1"
+ ],
+ "package_version": "3.1.1",
+ "context_after_install": {
+  "path": "/Applications/MacsyZones.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/MacsyZones.app/Contents/MacOS/MacsyZones",
+  "bundle_id": "MeowingCat.MacsyZones",
+  "versions": [
+   "3.1.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/MacsyZones doesn't exist.\n/Users/<user>/Library/Logs/MacsyZones doesn't exist.\n/Users/<user>/Library/Preferences/com.macsyzones.MacsyZones.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "58481"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'MeowingCat.MacsyZones' was running; will relaunch after installation.\nQuitting application 'MeowingCat.MacsyZones'...\nApplication 'MeowingCat.MacsyZones' quit successfully.\nRelaunching application 'MeowingCat.MacsyZones'...\nApplication 'MeowingCat.MacsyZones' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'MeowingCat.MacsyZones' was running; will relaunch after installation.",
+  "Quitting application 'MeowingCat.MacsyZones'...",
+  "Application 'MeowingCat.MacsyZones' quit successfully.",
+  "Relaunching application 'MeowingCat.MacsyZones'...",
+  "Application 'MeowingCat.MacsyZones' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "59417",
+   "path": "/Applications/MacsyZones.app/Contents/MacOS/MacsyZones",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/MacsyZones doesn't exist.\n/Users/<user>/Library/Logs/MacsyZones doesn't exist.\n/Users/<user>/Library/Preferences/com.macsyzones.MacsyZones.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-09T02:15:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T06:14:56Z",
+  "restarted": "2026-11-09T05:40:52.944614Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/macsyzones_darwin-731-020605.json"
+}
