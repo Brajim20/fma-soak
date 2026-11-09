@@ -298,6 +298,12 @@ def vcmp(a, b):
     return (ka > kb) - (ka < kb)
 
 
+def same_version(got, want):
+    """True when the host's version is the catalog's, allowing a trailing build number the installer adds
+    (8x8 Work pinned to 8.37.2 registers as 8.37.2.1)."""
+    return vcmp(got, want) == 0 or str(got).startswith(f"{want}.")
+
+
 def vshape(v):
     return len([p for p in re.split(r"[.\-_ ]", str(v)) if p])
 
@@ -894,7 +900,7 @@ def update_path(slug, host):
         context_findings(rec["context_old"], find, f"install of {older}", slug)
         # the pin is only real if the host ends up with that version (#56873: hashless rows can hold newer bytes)
         got = (rec["context_old"] or {}).get("versions") or []
-        if got and not any(vcmp(g, older) == 0 for g in got):
+        if got and not any(same_version(g, older) for g in got):
             find("S4", f"pinned {older}, but the host has {got} after installing it (#56873 shape)")
         if rec["old_patched_query_passes"] is True:
             find("S1", f"patched query passes with {older} installed: the patch policy can't see this host is outdated")

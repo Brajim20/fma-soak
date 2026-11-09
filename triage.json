@@ -2,6 +2,59 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "notion/windows",
+      "verdict": "filed #58084: with no Notion Calendar title, 'Notion Calendar 1.133.0' prefix-matches the Notion FMA (windowsFMAPrefixes skips FMAs without a TitleID); live on 635",
+      "added": "2026-11-08"
+    },
+    {
+      "app": "zoom-rooms/darwin",
+      "verdict": "rerun: one 400 on the second uninstall right after a clean reinstall, no explanation in the record; queued in config.json rerun",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "8x8-work/windows",
+      "verdict": "harness: the S4 pin check wanted exactly 8.37.2 but Windows registers 8.37.2.1; fixed with same_version(). The patched check compares against the newest (8.38.4), so false with 8.37.2 installed is correct",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "bbedit/darwin",
+      "verdict": "flaky: 'did not quit' on pool host 705 only, no record of why BBEdit was open; 26/28 other apps in the batch quit fine. A repeat comes back as a new finding",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "intellidock/darwin",
+      "verdict": "environment: only on 624, with 3 live-query timeouts in the same run, hours before 624 went offline",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "freecad/windows",
+      "verdict": "flaky: add 422 twice in a row; a manual add 2026-11-08 22:30 returned 200 (title deleted after)",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "devin-desktop/darwin",
+      "verdict": "flaky: add 422 on 636; a manual add 2026-11-08 22:30 returned 200 (title deleted after)",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "bunch/darwin",
+      "verdict": "upstream: brettterpstra.com (Cloudflare) returns 403 to qa.fleetdm.com's downloads; fine from a home network with Fleet's User-Agent. Same as twobird/darwin. Recheck later",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
+      "app": "twobird/darwin",
+      "verdict": "upstream: twobird.com (Cloudflare) returns 403 to qa.fleetdm.com's downloads; the same URL downloads from a home network with Fleet's exact User-Agent (fleet/4.94.0 Go-http-client/1.1), so it blocks the server's network, not Fleet. Fleet's 422 names the URL and the 403. Recheck later",
+      "added": "2026-11-08",
+      "before": "2026-11-08T22:45"
+    },
+    {
       "app": "topaz-gigapixel-ai/darwin",
       "verdict": "environment: the 396 MB pkg installs a 13 GB app; on the 4 GB / ~14 GB-free soak VMs it fills the disk (631 froze 2026-11-08, 0.8 GB free) and the app can't stay open. Kept off 631/636/624 (known_environment).",
       "added": "2026-11-08"

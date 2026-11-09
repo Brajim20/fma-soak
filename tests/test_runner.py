@@ -30,6 +30,17 @@ class Vcmp(unittest.TestCase):
         self.assertEqual(runner.vcmp("1.0 (build 5)", "1.0 (build 5)"), 0)
 
 
+class SameVersion(unittest.TestCase):
+    def test_trailing_build_number_is_the_pinned_version(self):
+        self.assertTrue(runner.same_version("8.37.2.1", "8.37.2"))
+        self.assertTrue(runner.same_version("8.37.2", "8.37.2"))
+
+    def test_a_different_build_is_not(self):
+        # #56873: the stored file held the newest build under the older label
+        self.assertFalse(runner.same_version("8.38.4", "8.37.2"))
+        self.assertFalse(runner.same_version("8.37.21", "8.37.2"))
+
+
 class Scrub(unittest.TestCase):
     def setUp(self):
         runner.SCRUB_NAMES.clear()
