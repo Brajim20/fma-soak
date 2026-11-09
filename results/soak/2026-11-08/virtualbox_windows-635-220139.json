@@ -1,0 +1,97 @@
+{
+ "slug": "virtualbox/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T22:01:39",
+ "catalog_version": "7.2.22",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T02:01:29Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 30452,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "restore_after": true,
+ "preexisting_uninstall_request": 202,
+ "preexisting_uninstall_status": null,
+ "preexisting_uninstall_seconds": 170,
+ "preexisting_uninstall_output_tail": "Selected entry DisplayName: Oracle VirtualBox 7.2.22\nUninstall command: MsiExec.exe\nUninstall args: /X {D726D65F-25B7-436D-85D5-41310BA0E8EA} /qn /norestart\nUninstall exit code: 0\n",
+ "preexisting_uninstall_exit_code": 0,
+ "preexisting_removed": true,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "7.2.22",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Oracle VirtualBox 7.2.22"
+  ],
+  "versions": [
+   "7.2.22"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 184,
+ "first_uninstall_output_tail": "Selected entry DisplayName: Oracle VirtualBox 7.2.22\nUninstall command: MsiExec.exe\nUninstall args: /X {D726D65F-25B7-436D-85D5-41310BA0E8EA} /qn /norestart\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 108,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 169,
+ "second_uninstall_output_tail": "Selected entry DisplayName: Oracle VirtualBox 7.2.22\nUninstall command: MsiExec.exe\nUninstall args: /X {D726D65F-25B7-436D-85D5-41310BA0E8EA} /qn /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "restore_install_request": 202,
+ "restore_install_status": "installed",
+ "restore_install_seconds": 153,
+ "restore_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "restore_install_error_markers": [],
+ "restore_install_app_lines": [],
+ "finished": "2026-11-08T22:34:43",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T02:34:36Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/virtualbox_windows-635-220139-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/virtualbox_windows-635-220139-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/virtualbox_windows-635-220139.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/virtualbox_windows-635-212917.json"
+}
