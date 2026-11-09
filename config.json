@@ -209,10 +209,10 @@
   ]
  },
  "rerun": {
-  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636). 2026-11-08 22:45: zoom-rooms/darwin (one unexplained 400 on the second uninstall).",
-  "since": "2026-11-08T20:00",
-  "why": "clean rerun: grammarly-desktop failed relaunch-after-install 2/2 on 636, passed on 631 (2026-11-08)",
-  "apps": ["grammarly-desktop/darwin", "zoom-rooms/darwin"]
+  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636). 2026-11-08 22:45: zoom-rooms/darwin (one unexplained 400 on the second uninstall). 2026-11-09: hex-fiend/darwin (stuck pending on 636 in the afternoon install-delivery stall); since moved to 2026-11-09T16:00, so grammarly and zoom-rooms get one more pass too.",
+  "since": "2026-11-09T16:00",
+  "why": "clean rerun: grammarly-desktop failed relaunch-after-install 2/2 on 636, passed on 631 (2026-11-08); hex-fiend/darwin open-app reinstall stuck pending_install on 636 (2026-11-09)",
+  "apps": ["grammarly-desktop/darwin", "zoom-rooms/darwin", "hex-fiend/darwin"]
  },
  "triage_expire_days": 30
 }

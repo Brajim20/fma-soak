@@ -2,6 +2,27 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "antigravity-ide/windows@635",
+      "verdict": "filed #58197: installs into the SYSTEM profile (installer_scope user, script runs as SYSTEM)",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "knime/windows",
+      "verdict": "filed #58198: exists/patched query needs text after 'KNIME Analytics Platform ', ARP name has none, so never detected",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "microsoft-dotnet-desktop-runtime-10/windows",
+      "verdict": "already-filed #50077: title matches by unique_identifier prefix, so .NET 8 Desktop Runtime entries (incl. MSI component 64.132.61678) land on the .NET 10 title; commented there",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "hex-fiend/darwin@636",
+      "verdict": "environment: open-app reinstall stuck pending_install with no output then 400s, same 2026-11-09 afternoon signature as postman/darwin@631 and google-chrome/darwin; queued in rerun",
+      "added": "2026-11-09",
+      "before": "2026-11-09T18:00"
+    },
+    {
       "app": "phpstorm/windows@629",
       "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
       "added": "2026-11-09"
