@@ -494,6 +494,18 @@ def store_problem(tid, installer_url):
     return None
 
 
+def low_disk(host):
+    """A reason to skip the cycle when the host is below disk.min_gb free (Fleet's host details, like disk.py), else None.
+    631 froze for 2.5 h on 2026-11-08 when Topaz Gigapixel AI (a 396 MB pkg that installs 13 GB) filled its disk;
+    an install on a nearly full host fails for the host's sake, not the app's, and can take the host down."""
+    code, d = api("GET", f"/hosts/{host}")
+    free = (d.get("host") or {}).get("gigs_disk_space_available") if code == 200 else None
+    floor = CFG.get("disk", {}).get("min_gb", 5)
+    if free is None or free >= floor:
+        return None
+    return f"host low on disk ({free} GB free, below disk.min_gb {floor})"
+
+
 def cycle(slug, host):
     state = load_state(host)
     man = catalog_manifest(slug)
@@ -508,6 +520,10 @@ def cycle(slug, host):
 
     if f"{slug}@{host}" in QUARANTINE:
         rec["outcome"] = f"skipped: quarantined on this host ({QUARANTINE[f'{slug}@{host}']})"
+        return finish(rec)
+    low = low_disk(host)
+    if low:
+        rec["outcome"] = f"skipped: {low}"
         return finish(rec)
     try:
         tid, added = ensure_title(slug, state, host)
