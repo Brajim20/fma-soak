@@ -1,0 +1,53 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-pro/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-pro.json"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "77282484c2",
+   "date": "2026-10-20",
+   "title": "Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321)"
+  },
+  {
+   "sha": "71922079ed",
+   "date": "2026-10-16",
+   "title": "Lift stale freezes: Adobe Acrobat Pro and NordPass (Windows) (#55763)"
+  },
+  {
+   "sha": "005e786b9a",
+   "date": "2026-09-29",
+   "title": "Update Fleet-maintained apps (#54306)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 48250,
+   "state": "open",
+   "title": "GetFleetMaintainedApp always fetches manifest live, causing 500 on network timeout"
+  },
+  {
+   "number": 43441,
+   "state": "closed",
+   "title": "Some FMA manifests are missing `queries.patched` after ingestion"
+  },
+  {
+   "number": 50377,
+   "state": "closed",
+   "title": "Add Dante Controller as a Fleet-maintained app (macOS)"
+  },
+  {
+   "number": 43287,
+   "state": "closed",
+   "title": "Mismatched Adobe FMA icons"
+  },
+  {
+   "number": 21567,
+   "state": "closed",
+   "title": "Uninstall packages - UI: Host details > Software > Activity details modal"
+  }
+ ]
+}
