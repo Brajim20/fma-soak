@@ -1,0 +1,89 @@
+{
+ "slug": "radio-silence/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T04:57:30",
+ "catalog_version": "3.4",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T08:57:30Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 30765,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Radio Silence\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.4"
+ ],
+ "package_version": "3.4",
+ "context_after_install": {
+  "path": "/Applications/Radio Silence.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Radio Silence.app/Contents/MacOS/Radio Silence",
+  "bundle_id": "com.radiosilenceapp.client",
+  "versions": [
+   "3.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ient\"\nsudo pkgutil --only-files --files \"com.radiosilenceapp.client\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.radiosilenceapp.client\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nExpanding wildcard for PKGID: com.radiosilenceapp.*\nProcessing com.radiosilenceapp.client\nForgot package 'com.radiosilenceapp.client' on '/'.\n/Users/<user>/Library/Application Support/Radio Silence doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing launchctl service com.radiosilenceapp.agent\nRemoving launchctl service com.radiosilenceapp.nke\nRemoving launchctl service com.radiosilenceapp.trial\nExecuting: /usr/bin/kmutil unload -b com.radiosilenceapp.nke.filter\nError occurred unloading extensions: Missing extension with identifier com.radiosilenceapp.nke.filter : Could not find: Extension with identifier 'com.radiosilenceapp.nke.filter' not found\nExpanding wildcard for PKGID: com.radiosilenceapp.*\nExpanding wildcard for PKGID: com.radiosilenceapp.*\n/Users/<user>/Library/Application Support/Radio Silence doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-09T05:04:23",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T09:04:24Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-09/evidence/radio-silence_darwin-636-045730-library.png",
+  "inventory": "results/soak/2026-11-09/evidence/radio-silence_darwin-636-045730-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/radio-silence_darwin-636-045730.json"
+}

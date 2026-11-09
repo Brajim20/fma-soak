@@ -1,0 +1,84 @@
+{
+ "slug": "gitfinder/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T04:29:42",
+ "catalog_version": "1.7.11",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as not_run (no new install result; status was installed)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T08:29:32Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 30756,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "pursuing all legal and equitable remedies against him or her. You",
+  "equity, be entitled to injunctive relief, without posting a bond,"
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.7.11"
+ ],
+ "package_version": "1.7.11",
+ "context_after_install": {
+  "path": "/Applications/GitFinder.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/GitFinder.app/Contents/MacOS/GitFinder",
+  "bundle_id": "ag.zigz.GitFinder",
+  "versions": [
+   "1.7.11"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "itFinderSignIn_2026-11-09-1794213174_32666_2: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSignIn to the Trash.\nremoving /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync.\nmv: rename /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync to /Users/<user>/.Trash/ag.zigz.GitFinder.GitFinderSync_2026-11-09-1794213174_32666_3: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync to the Trash.\nremoving /Users/<user>/Library/Group Containers/MQ76M469AB.ag.zigz.GitFinder.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "not_run (no new install result; status was installed)",
+ "second_install_seconds": 76,
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "itFinderSignIn_2026-11-09-1794213328_34783_2: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSignIn to the Trash.\nremoving /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync.\nmv: rename /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync to /Users/<user>/.Trash/ag.zigz.GitFinder.GitFinderSync_2026-11-09-1794213328_34783_3: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/ag.zigz.GitFinder.GitFinderSync to the Trash.\nremoving /Users/<user>/Library/Group Containers/MQ76M469AB.ag.zigz.GitFinder.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-09T04:36:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T08:36:18Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-09/evidence/gitfinder_darwin-636-042942-library.png",
+  "inventory": "results/soak/2026-11-09/evidence/gitfinder_darwin-636-042942-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/gitfinder_darwin-636-042942.json"
+}
