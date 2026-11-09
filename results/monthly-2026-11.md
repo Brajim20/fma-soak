@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 5043 cycles: pass 2037, findings 1671, flaky 253, environment 71, harness 152, skipped 859
+**1. Runs** — 5267 cycles: pass 2113, findings 1697, flaky 259, environment 71, harness 153, skipped 974
 
-**2. Coverage** — darwin 941/963 (97.7%), round 4; windows 429/460 (93.3%), round 4
+**2. Coverage** — darwin 945/963 (98.1%), round 4; windows 444/460 (96.5%), round 4
 
 **3. Escapes caught or confirmed**
 
@@ -99,7 +99,7 @@
 | #57809 | closed | Fleet-maintained apps: RStudio (Windows) install fails with exit code 2 while the app is open |
 | #57810 | open | Fleet-maintained apps: XnView MP (Windows) is never detected after install, so its patch policy always passes |
 | #57817 | closed | Fleet-maintained apps: Processing (macOS) is never detected after install (bundle ID org.processing.four vs org.processing.app) |
-| #57818 | open | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
+| #57818 | closed | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
 | #57819 | closed | Fleet-maintained apps: OnionShare (macOS) is never detected after install (bundle ID org.onionshare.onionshare vs OnionShare) |
 | #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
 | #57915 | closed | Fleet-maintained apps: Novabench (macOS) installs root-only, so users can't open it |
@@ -128,6 +128,8 @@
 | #58080 | open | Fleet-maintained apps: Prism (macOS) can't be updated or uninstalled while it's open ("did not quit") |
 | #58081 | open | Fleet-maintained apps: ShareFile (macOS) never shows an installed version and its patch policy always fails (catalog bundle ID is a nested XPC service) |
 | #58082 | open | Fleet-maintained apps: Logi Options+ (macOS) install doesn't quit the app when it's open |
+| #58084 | open | Fleet-maintained apps: Notion (Windows) shows as installed with Notion Calendar's version on hosts that only have Notion Calendar |
+| #58089 | open | Fleet-maintained apps: i1Profiler (macOS) can't be updated or uninstalled while it's open ("did not quit") |
 
 **4. Build changes**
 
