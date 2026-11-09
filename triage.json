@@ -2,6 +2,31 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "megasync/windows",
+      "verdict": "filed #58132: install exit 2 on 6/6 attempts across 629 (ARM) and 635 (x64), catalog 6.7.0.3",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "purevpn/darwin",
+      "verdict": "filed #58133: app left running after install, every later install/uninstall fails 'did not quit' (636 and pool 720)",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "spotify/windows",
+      "verdict": "filed #58134: installs into SYSTEM profile (6/6, 629 and 635); spotify_install.ps1 never got the #51940 hand-off",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "vivaldi/windows",
+      "verdict": "filed #58135: install over open Vivaldi never finishes; leftover setup.exe (#57148, Windows) makes later installs fail and uninstalls exit 60. Orphans killed on 629/635 2026-11-09 ~15:30Z",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "vnc-server/windows",
+      "verdict": "duplicate of open #57139 (commented 2026-11-09): MSI, inventory title 'RealVNC Server 7.18.1' separate from FMA title 'RealVNC Server'; RealVNC Server MSI upgrade code {B7276DED-0DEC-42C1-B19A-8798301AFD93}, manifest has none",
+      "added": "2026-11-09"
+    },
+    {
       "app": "vnc-viewer/windows",
       "verdict": "duplicate of open #57139: MSI install reports upgrade code {33634170-CB8A-4DFD-BA15-7E6EEB7F59F0}, so the name match is skipped and the FMA title (upgrade_code '') never links; separate title 'RealVNC Connect Viewer 8.6.0' still unmerged 1h40m later (control on 629, 2026-11-08)",
       "added": "2026-11-09"
