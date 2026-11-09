@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 2126 cycles: pass 1041, findings 510, flaky 118, environment 45, harness 74, skipped 338
+**1. Runs** — 5043 cycles: pass 2037, findings 1671, flaky 253, environment 71, harness 152, skipped 859
 
-**2. Coverage** — darwin 716/962 (74.4%), round 2; windows 399/461 (86.6%), round 3
+**2. Coverage** — darwin 941/963 (97.7%), round 4; windows 429/460 (93.3%), round 4
 
 **3. Escapes caught or confirmed**
 
@@ -39,6 +39,7 @@
 | #57118 | closed | Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host |
 | #57119 | closed | Fleet-maintained apps: Sequel Ace (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
 | #57120 | closed | Fleet-maintained apps: JASP (macOS) detection uses an outdated bundle ID (org.jasp-stats.JASP → org.jaspstats.jasp) |
+| #57132 | open | Software installers: after a failed upload, uploading the same package again serves a truncated installer (local filesystem store) |
 | #57136 | open | Fleet-maintained apps: Galaxy Modeler (Windows) is never detected, so its patch policy always passes |
 | #57137 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) is never detected (installer registers "PostgreSQL 18 " with a trailing space) |
 | #57138 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) can't be reinstalled after an uninstall, and the uninstall is reported as failed |
@@ -67,7 +68,7 @@
 | #57500 | open | Fleet-maintained apps: NoSQL Workbench (Windows) is never detected, so its patch policy always passes |
 | #57501 | open | Fleet-maintained apps: Paint.NET (Windows) install always fails and nothing is installed |
 | #57502 | open | Fleet-maintained apps: ShareFile (Windows) is never detected, so its patch policy always passes |
-| #57503 | open | Fleet-maintained apps: Tower (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #57503 | closed | Fleet-maintained apps: Tower (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #57504 | open | Fleet-maintained apps: Wacom Tablet (Windows) is never detected, so its patch policy always passes |
 | #57506 | closed | Fleet-maintained apps: XQuartz (macOS) is never detected (bundle ID org.macosforge.xquartz.X11 vs org.xquartz.X11) |
 | #57547 | open | Fleet-maintained apps: Descript (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
@@ -79,7 +80,7 @@
 | #57553 | open | Fleet-maintained apps: Geany (Windows) is never detected after install, so its patch policy always passes |
 | #57554 | closed | Fleet-maintained apps: GoLand (Windows) install doesn't finish while GoLand is open, and the host's queue stays blocked behind it |
 | #57555 | open | Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so "patch when closed" can't hold the install back |
-| #57556 | open | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57556 | closed | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #57558 | closed | Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes |
 | #57601 | closed | Fleet-maintained apps: OpenVPN Connect (Windows) is never detected, so its patch policy always passes |
@@ -95,7 +96,7 @@
 | #57806 | closed | Fleet-maintained apps: Burp Suite Community Edition (macOS) is never detected after install |
 | #57807 | closed | Fleet-maintained apps: Mozilla VPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
 | #57808 | open | Fleet-maintained apps: Mozilla VPN (macOS) install hangs until Fleet kills it on some Macs, blocking the host's queue for an hour |
-| #57809 | open | Fleet-maintained apps: RStudio (Windows) install fails with exit code 2 while the app is open |
+| #57809 | closed | Fleet-maintained apps: RStudio (Windows) install fails with exit code 2 while the app is open |
 | #57810 | open | Fleet-maintained apps: XnView MP (Windows) is never detected after install, so its patch policy always passes |
 | #57817 | closed | Fleet-maintained apps: Processing (macOS) is never detected after install (bundle ID org.processing.four vs org.processing.app) |
 | #57818 | open | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
@@ -103,14 +104,30 @@
 | #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
 | #57915 | closed | Fleet-maintained apps: Novabench (macOS) installs root-only, so users can't open it |
 | #57916 | open | Software: adding a macOS app attaches it to another app's title when only the name matches (Recents → Apple's Finder Recents) |
-| #57917 | open | Fleet-maintained apps: Requestly (Windows) installs into the SYSTEM profile and can't be uninstalled |
-| #57918 | open | Fleet-maintained apps: Stretchly (Windows) installs into the SYSTEM profile and can't be uninstalled |
-| #57919 | open | Fleet-maintained apps: Syncovery (macOS) patch policy fails right after installing the current version |
-| #57920 | open | Fleet-maintained apps: Tailscale (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
-| #57921 | open | Fleet-maintained apps: Thorium Reader (Windows) installs into the SYSTEM profile and can't be uninstalled |
-| #57922 | open | Fleet-maintained apps: Zed (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #57917 | closed | Fleet-maintained apps: Requestly (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57918 | closed | Fleet-maintained apps: Stretchly (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57919 | closed | Fleet-maintained apps: Syncovery (macOS) patch policy fails right after installing the current version |
+| #57920 | closed | Fleet-maintained apps: Tailscale (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
+| #57921 | closed | Fleet-maintained apps: Thorium Reader (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #57922 | closed | Fleet-maintained apps: Zed (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #57923 | open | Fleet-maintained apps: coconutBattery (macOS) never shows an installed version (catalog bundle ID is its login-item helper) |
-| #57924 | open | Fleet-maintained apps: WezTerm (macOS) can't be updated while it's open ("did not quit") |
+| #57924 | closed | Fleet-maintained apps: WezTerm (macOS) can't be updated while it's open ("did not quit") |
+| #57957 | open | Fleet-maintained apps: Affinity (macOS) install over the open app quits it and doesn't relaunch it |
+| #58021 | open | Fleet-maintained apps: Burp Suite Professional (Windows) install fails with exit code 1 while the app is open |
+| #58022 | open | Fleet-maintained apps: Krita (Windows) exists query never matches, so its patch policy always passes |
+| #58023 | closed | Fleet-maintained apps: Smartsheet (Windows) installs into the SYSTEM profile and can't be uninstalled |
+| #58024 | open | Fleet-maintained apps: Wrike (Windows) installs into the SYSTEM profile instead of a machine-wide location |
+| #58043 | open | Fleet-maintained apps: Burp Suite Community Edition (Windows) install fails with exit code 1 while the app is open |
+| #58044 | open | Fleet-maintained apps: Ferdium (macOS) is never detected after install, so its patch policy always passes |
+| #58045 | open | Fleet-maintained apps: Vernier Spectral Analysis (Windows) is never detected, so its patch policy always passes |
+| #58051 | open | Fleet-maintained apps: NordVPN (Windows) is never detected, so its patch policy always passes |
+| #58052 | open | Fleet-maintained apps: SigmaOS and Malwarebytes for Mac (macOS) show "Update available" forever after installing the current version |
+| #58069 | open | Fleet-maintained apps: grepWin (Windows) is never detected, so its patch policy always passes |
+| #58070 | open | Fleet-maintained apps: Rtools (Windows) install fails because its script stops the installer after 480 seconds |
+| #58075 | open | Fleet-maintained apps: Cursor (Windows) install fails with exit code 5 while the app is open |
+| #58080 | open | Fleet-maintained apps: Prism (macOS) can't be updated or uninstalled while it's open ("did not quit") |
+| #58081 | open | Fleet-maintained apps: ShareFile (macOS) never shows an installed version and its patch policy always fails (catalog bundle ID is a nested XPC service) |
+| #58082 | open | Fleet-maintained apps: Logi Options+ (macOS) install doesn't quit the app when it's open |
 
 **4. Build changes**
 
