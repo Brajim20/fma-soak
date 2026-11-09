@@ -2,6 +2,31 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "phpstorm/windows@629",
+      "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "rubymine/windows@629",
+      "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "intellij-idea/windows@629",
+      "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "goland/windows@629",
+      "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
+      "added": "2026-11-09"
+    },
+    {
+      "app": "clion/windows@629",
+      "verdict": "#58160 (commented 2026-11-09): first install hangs on Windows on ARM (629); installer idle, no install dir. PhpStorm reproduced on a clean 629 2026-11-09",
+      "added": "2026-11-09"
+    },
+    {
       "app": "intellij-idea/windows@635",
       "verdict": "filed #58173: reinstall over an existing copy hangs pending_install (JetBrains non-empty-dir prompt; #57888 fixed only GoLand); the second-uninstall finding is its consequence (uninstall rejected while the install is pending)",
       "added": "2026-11-09"
@@ -541,11 +566,6 @@
       "app": "blurscreen/darwin@631",
       "verdict": "environment: Intel-only pkg, 631 had no Rosetta (installed 2026-10-30 ~02:30)",
       "before": "2026-10-30T03:00:00",
-      "added": "2026-10-31"
-    },
-    {
-      "app": "clion/windows@629",
-      "verdict": "environment: ~1 GB installer at qa.fleetdm.com's ~67 KB/s exceeds the 30 min step timeout",
       "added": "2026-10-31"
     },
     {
