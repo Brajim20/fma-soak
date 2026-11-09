@@ -1,0 +1,78 @@
+{
+ "slug": "amazon-chime/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T12:02:53",
+ "catalog_version": "5.23.32138",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T16:02:39Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 30959,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 63,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Amazon Chime for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.23.32138"
+ ],
+ "package_version": "5.23.32138",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\AmazonChime"
+  ],
+  "names": [
+   "Amazon Chime"
+  ],
+  "versions": [
+   "5.23.32138"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 62,
+ "first_uninstall_output_tail": "Uninstall\\AmazonChime)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\AmazonChime\\Update.exe --uninstall -s\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\AmazonChime behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\AmazonChime\"\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c del /f /q \"C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon.com Services <host>\\<user>.lnk\" \"C:\\Users\\<user>\\Desktop\\Amazon Chime.lnk\"\nAmazon Chime removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 62,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Amazon Chime for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Uninstall\\AmazonChime)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\AmazonChime\\Update.exe --uninstall -s\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\AmazonChime behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\AmazonChime\"\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c del /f /q \"C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon.com Services <host>\\<user>.lnk\" \"C:\\Users\\<user>\\Desktop\\Amazon Chime.lnk\"\nAmazon Chime removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-09T12:11:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T16:11:29Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/amazon-chime_windows-635-120253.json",
+ "crosshost_of": "soak/2026-11-07/amazon-chime_windows-629-083809.json"
+}
