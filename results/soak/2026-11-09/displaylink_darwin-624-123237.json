@@ -1,0 +1,38 @@
+{
+ "slug": "displaylink/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T12:32:37",
+ "catalog_version": "17.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['14.0.0']: another app's inventory matches this title (#51299 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T16:32:29Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "title_id": 25807,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "14.0.0"
+ ],
+ "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+ "finished": "2026-11-09T13:08:07",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T17:07:59Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-09/evidence/displaylink_darwin-624-123237-library.png",
+  "inventory": "results/soak/2026-11-09/evidence/displaylink_darwin-624-123237-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/displaylink_darwin-624-123237.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/displaylink_darwin-624-115002.json",
+ "crosshost_of": "soak/2026-11-09/displaylink_darwin-734-103307.json"
+}
