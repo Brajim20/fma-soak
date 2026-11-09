@@ -1,0 +1,69 @@
+{
+ "slug": "vnc-viewer/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-08T18:18:43",
+ "catalog_version": "8.6.0.15",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-08T22:18:36Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 30188,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code (msiexec): 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: MsiExec.exe\nUninstall args: /X {B4A38E5A-5EFF-4CD0-B606-7395D45329BE} /qn /norestart\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-08T18:51:46",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-08T22:51:36Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-08/evidence/vnc-viewer_windows-629-181843-library.png",
+  "inventory": "results/soak/2026-11-08/evidence/vnc-viewer_windows-629-181843-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-08/vnc-viewer_windows-629-181843.json"
+}
