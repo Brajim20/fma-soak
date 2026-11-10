@@ -1,0 +1,104 @@
+{
+ "slug": "microsoft-365-copilot/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T00:48:00",
+ "catalog_version": "1.2610",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T04:47:51Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 31663,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft 365 Copilot\ninstaller: choices changes file '/tmp/choice_xml_hgV' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.2610"
+ ],
+ "package_version": "1.2610",
+ "context_after_install": {
+  "path": "/Applications/Microsoft 365 Copilot.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Microsoft 365 Copilot.app/Contents/MacOS/Microsoft 365 Copilot",
+  "bundle_id": "com.microsoft.m365copilot",
+  "versions": [
+   "1.2610"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "plications/Microsoft 365 Copilot.app\" 2>/dev/null || :\nForgot package 'com.microsoft.m365copilot' on '/'.\n/Users/<user>/Library/Application Scripts/com.microsoft.m365copilot doesn't exist.\nremoving /Users/<user>/Library/Containers/com.microsoft.m365copilot.\nmv: rename /Users/<user>/Library/Containers/com.microsoft.m365copilot to /Users/<user>/.Trash/com.microsoft.m365copilot_2026-11-09-1794286311_28259: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/com.microsoft.m365copilot to the Trash.\n/Users/<user>/Library/Preferences/com.microsoft.m365copilot.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft 365 Copilot\ninstaller: choices changes file '/tmp/choice_xml_tEl' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "79078"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 154,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.microsoft.m365copilot' was running; will relaunch after installation.\nQuitting application 'com.microsoft.m365copilot'...\nApplication 'com.microsoft.m365copilot' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.m365copilot' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.m365copilot'...",
+  "Application 'com.microsoft.m365copilot' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "79078",
+   "path": "/Applications/Microsoft 365 Copilot.app/Contents/MacOS/Microsoft 365 Copilot",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "plications/Microsoft 365 Copilot.app\" 2>/dev/null || :\nForgot package 'com.microsoft.m365copilot' on '/'.\n/Users/<user>/Library/Application Scripts/com.microsoft.m365copilot doesn't exist.\nremoving /Users/<user>/Library/Containers/com.microsoft.m365copilot.\nmv: rename /Users/<user>/Library/Containers/com.microsoft.m365copilot to /Users/<user>/.Trash/com.microsoft.m365copilot_2026-11-09-1794286723_26335: Operation not permitted\nFailed to move /Users/<user>/Library/Containers/com.microsoft.m365copilot to the Trash.\n/Users/<user>/Library/Preferences/com.microsoft.m365copilot.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T00:59:42",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T04:59:33Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/microsoft-365-copilot_darwin-636-004800.json"
+}
