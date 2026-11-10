@@ -1,0 +1,81 @@
+{
+ "slug": "qgis@ltr/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T00:06:57",
+ "catalog_version": "3.44.15",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T04:06:57Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 31572,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 137,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (24:7C) [00:09:45:547]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (24:7C) [00:09:45:574]: Destroying RemoteAPI object.\r\nMSI (s) (24:84) [00:09:45:574]: Custom Action Manager thread ending.\r\nMSI (c) (0C:C4) [00:09:45:577]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (0C:C4) [00:09:45:578]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/10/2026  0:09:45 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "3.44.15",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "QGIS 3.44.15 'Solothurn'"
+  ],
+  "versions": [
+   "3.44.15"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 122,
+ "first_uninstall_output_tail": "Uninstalling QGIS 3.44.15 'Solothurn' ({E39B4920-F79A-1014-863B-E5879587D155})\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 137,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (74:4C) [00:30:10:602]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (74:4C) [00:30:10:602]: Destroying RemoteAPI object.\r\nMSI (s) (74:F4) [00:30:10:602]: Custom Action Manager thread ending.\r\nMSI (c) (2C:04) [00:30:10:602]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (2C:04) [00:30:10:602]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/10/2026  0:30:10 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 137,
+ "second_uninstall_output_tail": "Uninstalling QGIS 3.44.15 'Solothurn' ({E39B4920-F79A-1014-863B-E5879587D155})\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-10T00:33:12",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T04:33:09Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-10/evidence/qgis@ltr_windows-629-000657-library.png",
+  "inventory": "results/soak/2026-11-10/evidence/qgis@ltr_windows-629-000657-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/qgis@ltr_windows-629-000657.json"
+}
