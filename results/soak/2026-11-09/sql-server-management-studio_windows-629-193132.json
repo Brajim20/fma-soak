@@ -1,0 +1,101 @@
+{
+ "slug": "sql-server-management-studio/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-09T19:31:32",
+ "catalog_version": "22.11.3",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-09T23:31:32Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 31337,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 138,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "22.11.3"
+ ],
+ "package_version": "22.11.3",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Microsoft SQL Server Management Studio 22\\Release"
+  ],
+  "names": [
+   "SQL Server Management Studio 22"
+  ],
+  "versions": [
+   "22.11.3"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "3dda547e65a5dc9d470096/SSMS.vsman\" and using the channel URI \"https://aka.ms/ssms/22/release/channel\".\r\n[3f14:0005][2026-11-09T19:35:33] Download requested: https://download.visualstudio.microsoft.com/download/pr/5f474104-723f-4007-bf4c-92e42a23dcc6/244b80b4e68821937ee752eec3ee3925639f5c37f93dda547e65a5dc9d470096/SSMS.vsman\r\n[3f14:001a][2026-11-09T19:35:33] Attempting download 'https://download.visualstudio.microsoft.com/download/pr/5f474104-723f-4007-bf4c-92e42a23dcc6/244b80b4e68821937ee752eec3ee3925639f5c37f93dda547e65a5dc9d470096/SSMS.vsman' using engine 'WebClient'\r\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 138,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "15624"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 154,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nInstall exit code: 1\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "15624",
+   "path": "C:\\Program Files\\Microsoft SQL Server Management Studio 22\\Release\\Common7\\IDE\\SSMS.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "://aka.ms/ssms/22/release/channel\".\r\n[1168:0008][2026-11-09T19:43:19] Download requested: https://download.visualstudio.microsoft.com/download/pr/5f474104-723f-4007-bf4c-92e42a23dcc6/244b80b4e68821937ee752eec3ee3925639f5c37f93dda547e65a5dc9d470096/SSMS.vsman\r\n[1168:001c][2026-11-09T19:43:19] Attempting download 'https://download.visualstudio.microsoft.com/download/pr/5f474104-723f-4007-bf4c-92e42a23dcc6/244b80b4e68821937ee752eec3ee3925639f5c37f93dda547e65a5dc9d470096/SSMS.vsman' using engine 'WebClient'\r\n[1168:0001][2026-11-09T19:43:19] ManifestVerifier Result: Success\r\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-09T19:43:28",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-09T23:43:26Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-09/evidence/sql-server-management-studio_windows-629-193132-library.png",
+  "inventory": "results/soak/2026-11-09/evidence/sql-server-management-studio_windows-629-193132-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/sql-server-management-studio_windows-629-193132.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-09/sql-server-management-studio_windows-629-191649.json"
+}
