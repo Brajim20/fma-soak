@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 5887 cycles: pass 2184, findings 1732, flaky 260, environment 71, harness 153, skipped 1487
+**1. Runs** — 5971 cycles: pass 2230, findings 1749, flaky 260, environment 72, harness 153, skipped 1507
 
-**2. Coverage** — darwin 948/963 (98.4%), round 4; windows 451/460 (98.0%), round 5
+**2. Coverage** — darwin 951/963 (98.8%), round 4; windows 451/460 (98.0%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -103,6 +103,7 @@
 | #57818 | closed | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
 | #57819 | closed | Fleet-maintained apps: OnionShare (macOS) is never detected after install (bundle ID org.onionshare.onionshare vs OnionShare) |
 | #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
+| #57888 | merged | Fix GoLand (Windows) reinstall hanging on the installer's non-empty-directory prompt |
 | #57915 | closed | Fleet-maintained apps: Novabench (macOS) installs root-only, so users can't open it |
 | #57916 | open | Software: adding a macOS app attaches it to another app's title when only the name matches (Recents → Apple's Finder Recents) |
 | #57917 | closed | Fleet-maintained apps: Requestly (Windows) installs into the SYSTEM profile and can't be uninstalled |
@@ -135,6 +136,8 @@
 | #58133 | open | Fleet-maintained apps: PureVPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
 | #58134 | open | Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 | #58135 | open | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
+| #58160 | open | Fleet-maintained apps: Pale Moon (Windows) install never finishes on Windows on ARM |
+| #58173 | open | Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory) |
 
 **4. Build changes**
 
