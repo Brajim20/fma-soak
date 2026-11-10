@@ -1,0 +1,98 @@
+{
+ "slug": "snagit/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T05:25:56",
+ "catalog_version": "2026.4.3",
+ "findings": [
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T09:25:53Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 32021,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_AAW7Go</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "inventory_versions": [
+  "2026.4.3"
+ ],
+ "package_version": "2026.4.3",
+ "context_after_install": {
+  "path": "/Applications/Snagit.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Snagit.app/Contents/MacOS/Snagit",
+  "bundle_id": "com.TechSmith.Snagit",
+  "versions": [
+   "2026.4.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "<user>/Library/Application Support/Snagit doesn't exist.\n/Users/<user>/Library/Caches/com.TechSmith.Snagit* doesn't exist.\n/Users/<user>/Library/Group Containers/*.com.techsmith.snagit doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.TechSmith.Snagit* doesn't exist.\n/Users/<user>/Library/Preferences/com.TechSmith.Snagit*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.techsmith.snagit.capturehelper*.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.TechSmith.Snagit*.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.TechSmith.Snagit* doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_38UZNp</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Quitting application 'com.TechSmith.Snagit'...\nApplication 'com.TechSmith.Snagit' did not quit.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-10T05:37:26",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T09:37:25Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-10/evidence/snagit_darwin-636-052556-library.png",
+  "inventory": "results/soak/2026-11-10/evidence/snagit_darwin-636-052556-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/snagit_darwin-636-052556.json"
+}
