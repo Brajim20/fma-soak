@@ -1,0 +1,108 @@
+{
+ "slug": "franz/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T04:29:18",
+ "catalog_version": "5.11.0",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T08:29:08Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 24841,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Franz for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.11.0"
+ ],
+ "package_version": "5.11.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Franz 5.11.0"
+  ],
+  "versions": [
+   "5.11.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing 'Franz 5.11.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\41ea870c-e358-5c9f-80c2-feeb2c3c8132)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\franz\\Uninstall Franz.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\franz behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\franz\"\nFranz removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Franz for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "11064",
+   "18824",
+   "19784",
+   "20256"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Franz for NUCBOX_G10\\<user>.\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "144",
+   "8764",
+   "14980",
+   "18512"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "Removing 'Franz 5.11.0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1755836038-3094048784-1673080396-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\41ea870c-e358-5c9f-80c2-feeb2c3c8132)\n  Running as NUCBOX_G10\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\franz\\Uninstall Franz.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\franz behind; removing it.\n  Running as NUCBOX_G10\\<user>: C:\\windows\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\franz\"\nFranz removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-10T04:39:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T08:39:08Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-10/evidence/franz_windows-635-042918-library.png",
+  "inventory": "results/soak/2026-11-10/evidence/franz_windows-635-042918-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/franz_windows-635-042918.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/franz_windows-635-041754.json"
+}
