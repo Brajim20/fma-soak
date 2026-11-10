@@ -1,0 +1,106 @@
+{
+ "slug": "wifiman/darwin",
+ "host": 755,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T04:48:34",
+ "catalog_version": "1.3.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T08:48:27Z",
+  "restarted": "2026-11-10T06:39:14.885174Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 31999,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.3.0"
+ ],
+ "package_version": "1.3.0",
+ "context_after_install": {
+  "path": "/Applications/WiFiman Desktop.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/WiFiman Desktop.app/Contents/MacOS/WiFiman Desktop",
+  "bundle_id": "ui.wifiman.desktop",
+  "versions": [
+   "1.3.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "rmdir -p \"/Applications/WiFiman/WiFiman Companion.app\" 2>/dev/null || :\nForgot package 'ui.wifiman.network.helper.WiFimanNetworkHelper' on '/'.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/ui.wifiman-desktop.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/wifiman-desktop doesn't exist.\n/Users/<user>/Library/Logs/wifiman-desktop doesn't exist.\n/Users/<user>/Library/Preferences/ui.wifiman-desktop.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/ui.wifiman-desktop.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "51665"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'ui.wifiman.desktop' was running; will relaunch after installation.\nQuitting application 'ui.wifiman.desktop'...\nApplication 'ui.wifiman.desktop' quit successfully.\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'ui.wifiman.desktop'...\nApplication 'ui.wifiman.desktop' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'ui.wifiman.desktop' was running; will relaunch after installation.",
+  "Quitting application 'ui.wifiman.desktop'...",
+  "Application 'ui.wifiman.desktop' quit successfully.",
+  "Relaunching application 'ui.wifiman.desktop'...",
+  "Application 'ui.wifiman.desktop' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "52950",
+   "path": "/Applications/WiFiman Desktop.app/Contents/MacOS/WiFiman Desktop",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "rmdir -p \"/Applications/WiFiman/WiFiman Companion.app\" 2>/dev/null || :\nForgot package 'ui.wifiman.network.helper.WiFimanNetworkHelper' on '/'.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/ui.wifiman-desktop.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/wifiman-desktop doesn't exist.\n/Users/<user>/Library/Logs/wifiman-desktop doesn't exist.\n/Users/<user>/Library/Preferences/ui.wifiman-desktop.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/ui.wifiman-desktop.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T04:58:25",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T08:58:19Z",
+  "restarted": "2026-11-10T06:39:14.885174Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/wifiman_darwin-755-044834.json"
+}
