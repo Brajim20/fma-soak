@@ -1,0 +1,114 @@
+{
+ "slug": "middleclick/darwin",
+ "host": 757,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T09:12:10",
+ "catalog_version": "3.3.0",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T13:12:10Z",
+  "restarted": "2026-11-10T11:34:30.010404Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 32411,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.3.0"
+ ],
+ "package_version": "3.3.0",
+ "context_after_install": {
+  "path": "/Applications/MiddleClick.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/MiddleClick.app/Contents/MacOS/MiddleClick",
+  "bundle_id": "art.ginzburg.MiddleClick",
+  "versions": [
+   "3.3.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Preferences/art.ginzburg.MiddleClick.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "14140"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'art.ginzburg.MiddleClick' was running; will relaunch after installation.\nQuitting application 'art.ginzburg.MiddleClick'...\nApplication 'art.ginzburg.MiddleClick' quit successfully.\nRelaunching application 'art.ginzburg.MiddleClick'...\nApplication 'art.ginzburg.MiddleClick' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'art.ginzburg.MiddleClick' was running; will relaunch after installation.",
+  "Quitting application 'art.ginzburg.MiddleClick'...",
+  "Application 'art.ginzburg.MiddleClick' quit successfully.",
+  "Relaunching application 'art.ginzburg.MiddleClick'...",
+  "Application 'art.ginzburg.MiddleClick' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "15039",
+   "path": "/Applications/MiddleClick.app/Contents/MacOS/MiddleClick",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Preferences/art.ginzburg.MiddleClick.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-10T09:22:41",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T13:22:31Z",
+  "restarted": "2026-11-10T11:34:30.010404Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/middleclick_darwin-757-091210.json"
+}

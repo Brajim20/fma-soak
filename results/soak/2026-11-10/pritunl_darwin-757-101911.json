@@ -1,0 +1,106 @@
+{
+ "slug": "pritunl/darwin",
+ "host": 757,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T10:19:11",
+ "catalog_version": "1.4.4791.77",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T14:19:01Z",
+  "restarted": "2026-11-10T11:34:30.010404Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 32490,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Pritunl\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.4.4791.77"
+ ],
+ "package_version": "1.4.4791.77",
+ "context_after_install": {
+  "path": "/Applications/Pritunl.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Pritunl.app/Contents/MacOS/Pritunl",
+  "bundle_id": "com.electron.pritunl",
+  "versions": [
+   "1.4.4791.77"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": " --only-files --files \"com.pritunl.pkg.Pritunl\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.pritunl.pkg.Pritunl\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.pritunl.pkg.Pritunl' on '/'.\n/Users/<user>/Library/Application Support/pritunl doesn't exist.\n/Users/<user>/Library/Caches/pritunl doesn't exist.\n/Users/<user>/Library/Preferences/com.electron.pritunl* doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Pritunl\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "57433"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.electron.pritunl' was running; will relaunch after installation.\nQuitting application 'com.electron.pritunl'...\nApplication 'com.electron.pritunl' quit successfully.\ninstaller: Package name is Pritunl\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.electron.pritunl'...\nApplication 'com.electron.pritunl' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.electron.pritunl' was running; will relaunch after installation.",
+  "Quitting application 'com.electron.pritunl'...",
+  "Application 'com.electron.pritunl' quit successfully.",
+  "Relaunching application 'com.electron.pritunl'...",
+  "Application 'com.electron.pritunl' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "58963",
+   "path": "/Applications/Pritunl.app/Contents/MacOS/Pritunl",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "gutil --only-files --files \"com.pritunl.pkg.Pritunl\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.pritunl.pkg.Pritunl\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.pritunl.pkg.Pritunl' on '/'.\nremoving /Users/<user>/Library/Application Support/pritunl.\n/Users/<user>/Library/Caches/pritunl doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.electron.pritunl.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T10:30:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T14:30:25Z",
+  "restarted": "2026-11-10T11:34:30.010404Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/pritunl_darwin-757-101911.json"
+}
