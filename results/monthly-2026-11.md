@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 5971 cycles: pass 2230, findings 1749, flaky 260, environment 72, harness 153, skipped 1507
+**1. Runs** — 6179 cycles: pass 2273, findings 1758, flaky 260, environment 73, harness 153, skipped 1662
 
 **2. Coverage** — darwin 951/963 (98.8%), round 4; windows 451/460 (98.0%), round 5
 
@@ -138,6 +138,8 @@
 | #58135 | open | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
 | #58160 | open | Fleet-maintained apps: Pale Moon (Windows) install never finishes on Windows on ARM |
 | #58173 | open | Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory) |
+| #58197 | open | Fleet-maintained apps: Antigravity IDE (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #58198 | closed | Fleet-maintained apps: KNIME Analytics Platform (Windows) is never detected, so its patch policy always passes |
 
 **4. Build changes**
 
