@@ -1,0 +1,115 @@
+{
+ "slug": "nordpass/darwin",
+ "host": 765,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T14:15:03",
+ "catalog_version": "7.12.15",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T18:15:03Z",
+  "restarted": "2026-11-10T16:33:47.274721Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 32802,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_WSVqr8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.12.15"
+ ],
+ "package_version": "7.12.15",
+ "context_after_install": {
+  "path": "/Applications/NordPass.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/NordPass.app/Contents/MacOS/NordPass",
+  "bundle_id": "com.nordsec.nordpass",
+  "versions": [
+   "7.12.15"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 33,
+ "first_uninstall_output_tail": "r>/Library/Application Support/NordPass doesn't exist.\n/Users/<user>/Library/Caches/com.nordsec.nordpass* doesn't exist.\n/Users/<user>/Library/Caches/nordpass-updater doesn't exist.\n/Users/<user>/Library/Containers/com.nordsec.nordpass.safari.extension doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nordsec.nordpass doesn't exist.\n/Users/<user>/Library/Preferences/ByHost/com.nordsec.nordpass.ShipIt.*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nordsec.nordpass.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.nordsec.nordpass.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_icU7gG</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1777"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "t>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.nordsec.nordpass' was running; will relaunch after installation.\nQuitting application 'com.nordsec.nordpass'...\nApplication 'com.nordsec.nordpass' quit successfully.\nRelaunching application 'com.nordsec.nordpass'...\nApplication 'com.nordsec.nordpass' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.nordsec.nordpass' was running; will relaunch after installation.",
+  "Quitting application 'com.nordsec.nordpass'...",
+  "Application 'com.nordsec.nordpass' quit successfully.",
+  "Relaunching application 'com.nordsec.nordpass'...",
+  "Application 'com.nordsec.nordpass' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "3137",
+   "path": "/Applications/NordPass.app/Contents/MacOS/NordPass",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "502 error code: 502\n"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_running_note": "pool runner: the app didn't stay open after the install; not judged",
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-10T14:24:58",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T18:24:58Z",
+  "restarted": "2026-11-10T16:33:47.274721Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/nordpass_darwin-765-141503.json"
+}
