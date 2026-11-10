@@ -1,0 +1,83 @@
+{
+ "slug": "aws-cli/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-10T02:53:31",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T06:53:27Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "title_id": 23464,
+ "cached_versions": [
+  "2.39.3",
+  "2.39.5"
+ ],
+ "active_before": "2.39.5",
+ "pin_older_status": 200,
+ "active_after_pin": "2.39.3",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "7:149]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (34:B4) [02:54:17:149]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (34:B4) [02:54:17:149]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C4:BC) [02:54:17:149]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C4:BC) [02:54:17:149]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/10/2026  2:54:17 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "AWS Command Line Interface v2"
+  ],
+  "versions": [
+   "2.39.3.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "2.39.5",
+ "upgrade_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "app_during_upgrade": "open failed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 76,
+ "upgrade_install_output_tail": "03:515]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\{8D4D2D6C-CF32-4327-B1BC-2F4C4575B69C}\\awsicon'\r\nMSI (s) (34:88) [02:56:03:515]: Post-install cleanup: removing installer folder 'C:\\WINDOWS\\Installer\\{8D4D2D6C-CF32-4327-B1BC-2F4C4575B69C}\\' (if empty)\r\nMSI (s) (34:88) [02:56:03:515]: Note: 1: 2318 2:  \r\nMSI (c) (C4:08) [02:56:03:515]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C4:08) [02:56:03:515]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/10/2026  2:56:03 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "AWS Command Line Interface v2"
+  ],
+  "versions": [
+   "2.39.5.0"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 46,
+ "outcome": "pass",
+ "finished": "2026-11-10T02:57:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T06:57:33Z",
+  "restarted": "2026-11-01T04:14:16.568587Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/aws-cli_windows-629-025331.json"
+}
