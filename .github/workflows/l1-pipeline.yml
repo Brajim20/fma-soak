@@ -42,7 +42,7 @@ jobs:
       matrix:
         target: [release, rc, main]
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - name: Revision under test
         id: rev
@@ -61,10 +61,10 @@ jobs:
             ref=main; ver=main
           fi
           echo "ref=$ref" >> "$GITHUB_OUTPUT"; echo "ver=$ver" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: steps.rev.outputs.skip != '1'
         with: { repository: fleetdm/fleet, ref: "${{ steps.rev.outputs.ref }}", path: fleet, persist-credentials: false }
-      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         if: steps.rev.outputs.skip != '1'
         with: { go-version-file: fleet/go.mod, cache-dependency-path: fleet/go.sum }
       - name: Build fleet + fleetctl (API only; no frontend bundle)
@@ -129,7 +129,7 @@ jobs:
         run: ./ci/results.sh save "l1 ${{ matrix.target }} ${{ steps.build.outputs.short }} ${{ github.run_id }}"
       - name: Server log
         if: always() && steps.rev.outputs.skip != '1'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: l1-${{ matrix.target }}-server-log
           path: harness/pipeline/state/*.log
@@ -145,7 +145,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: { contents: write, issues: write }
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - run: ./harness/ci/results.sh restore
       - name: Compare with the release

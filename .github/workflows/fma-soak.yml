@@ -86,7 +86,7 @@ jobs:
           h=$(echo "$HOSTS" | tr -d ' ' | cut -d, -f$(( ${{ matrix.slot }} + 1 )) -s)
           [[ ${{ matrix.slot }} == 0 ]] && h=${HOSTS%%,*}
           [[ -n $h ]] && echo "host=$h" >> "$GITHUB_OUTPUT" || echo "no host in slot ${{ matrix.slot }}: skipping"
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         if: steps.slot.outputs.host
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
@@ -109,7 +109,7 @@ jobs:
         if: always() && steps.slot.outputs.host
         env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.slot.outputs.host }}" }
         run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} $HOST ${{ github.run_id }}"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always() && steps.slot.outputs.host
         with:
           name: soak-${{ matrix.platform }}-${{ matrix.slot }}-${{ github.run_id }}
@@ -141,7 +141,7 @@ jobs:
       FMA_SOAK_PASS_MINUTES: 285   # enrolling and the finish step take the rest of the soak job's 300
       RUNNER_HOSTNAME: fma-pool-${{ matrix.slot }}-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
@@ -187,7 +187,7 @@ jobs:
         if: always()
         env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.enroll.outputs.host }}" }
         run: ./harness/ci/results.sh save "pool $FMA_SOAK_POOL_SLOT $HOST ${{ github.run_id }}"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: pool-${{ matrix.slot }}-${{ github.run_id }}
@@ -209,7 +209,7 @@ jobs:
       GH_REPO: ${{ github.repository }}
       RESULTS_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
@@ -255,7 +255,7 @@ jobs:
             soak_done && { echo "both passes finished: stopping"; break; }
             tick=$((tick + 1))
           done
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: watch-${{ github.run_id }}
@@ -273,7 +273,7 @@ jobs:
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
@@ -339,7 +339,7 @@ jobs:
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
@@ -364,7 +364,7 @@ jobs:
     env:
       FMA_SOAK_TOKEN: ${{ secrets.FMA_SOAK_TOKEN }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { path: harness, persist-credentials: false }
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
@@ -377,7 +377,7 @@ jobs:
       - if: always()
         env: { RESULTS_TOKEN: "${{ github.token }}" }
         run: ./harness/ci/results.sh save "audit ${{ github.run_id }}"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: audit-${{ github.run_id }}
