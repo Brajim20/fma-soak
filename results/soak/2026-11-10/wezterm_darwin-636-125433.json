@@ -1,0 +1,116 @@
+{
+ "slug": "wezterm/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T12:54:33",
+ "catalog_version": "20240203-110809",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory shows ['0.1.0'] after installing 20240203-110809; the patch query passes, so only the version Fleet displays is behind"
+  },
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T16:54:22Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "title_id": 32691,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "tmp/3809937752/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/bash  \n  inflating: /private/tmp/3809937752/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/zsh  \n  inflating: /private/tmp/3809937752/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/fish  \n  inflating: /private/tmp/3809937752/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/wezterm.sh  \n  inflating: /private/tmp/3809937752/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Info.plist  \n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.1.0"
+ ],
+ "package_version": "20240203-110809",
+ "context_after_install": {
+  "path": "/Applications/WezTerm.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/WezTerm.app/Contents/MacOS/wezterm-gui",
+  "bundle_id": "com.github.wez.wezterm",
+  "versions": [
+   "0.1.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/.local/share/wezterm doesn't exist.\n/Users/<user>/Library/Saved Application State/com.github.wez.wezterm.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "tmp/2471516045/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/bash  \n  inflating: /private/tmp/2471516045/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/zsh  \n  inflating: /private/tmp/2471516045/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/fish  \n  inflating: /private/tmp/2471516045/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/wezterm.sh  \n  inflating: /private/tmp/2471516045/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Info.plist  \n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "42332"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "tmp/2527361859/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/bash  \n  inflating: /private/tmp/2527361859/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/zsh  \n  inflating: /private/tmp/2527361859/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/fish  \n  inflating: /private/tmp/2527361859/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/wezterm.sh  \n  inflating: /private/tmp/2527361859/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Info.plist  \n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "43131"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": null,
+ "open_reinstall_after_running_note": "host didn't answer the process query after opening; not judged",
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/.local/share/wezterm.\n/Users/<user>/Library/Saved Application State/com.github.wez.wezterm.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-10T13:05:23",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T17:05:15Z",
+  "restarted": "2026-11-04T11:58:14.451601Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-10/evidence/wezterm_darwin-636-125433-library.png",
+  "inventory": "results/soak/2026-11-10/evidence/wezterm_darwin-636-125433-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/wezterm_darwin-636-125433.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/wezterm_darwin-636-124403.json",
+ "crosshost_of": "soak/2026-11-10/wezterm_darwin-759-104519.json"
+}
