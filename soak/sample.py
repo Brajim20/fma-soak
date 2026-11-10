@@ -368,6 +368,9 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         if not R.wait_online(host):
             print(f"sample {plat}: stopping, host {host} is offline")
             break
+        if n == 0 and slot is not None and not dry and not R.answers_live_query(host):
+            print(f"sample {plat}: stopping, pool runner {host} doesn't answer live queries")
+            break
         pick = next_pick(plat, deck, catalog, changed, ledger, rng, me, blind, full, tried)
         if not pick:
             break

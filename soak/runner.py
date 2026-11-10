@@ -786,6 +786,21 @@ def wait_online(host, minutes=None):
         time.sleep(60)
 
 
+def answers_live_query(host, minutes=10):
+    """True once the host answers a live query, waiting up to `minutes`. A pool runner shows online within a minute
+    of enrolling but doesn't answer live queries yet, so its first cycles skipped as "didn't answer the presence
+    query" (druva-insync@govcloud, icon-composer, affinity-designer@1 at the start of both runs on 2026-11-09)."""
+    end = time.time() + minutes * 60
+    while True:
+        st, d = api("POST", f"/hosts/{host}/query", {"query": "SELECT 1;"}, timeout=120)
+        if st == 200 and not d.get("error"):
+            return True
+        if time.time() >= end:
+            print(f"host {host} still doesn't answer live queries after {minutes} min ({st} {d.get('error') or d.get('message')})")
+            return False
+        time.sleep(30)
+
+
 def cancel_stale_queue(host):
     """Pass start: cancel installs, uninstalls and scripts the harness user queued on this host in an earlier run that
     was cancelled or crashed. Left in Fleet's queue they run later with nobody watching (2026-11-01: three Dialpad
