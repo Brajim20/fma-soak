@@ -72,6 +72,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/druva-insync@govcloud/darwin.json), [druva-insync@govcloud.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/druva-insync@govcloud.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-09-08 Add Druva inSync (GovCloud) as a macOS Fleet-maintained app (#52710) \u00b7 issues mentioning it: #57051 (open), #52732 (open), #57052 (open), #52612 (closed)"
  },
  {
+  "app": "druva-insync@govcloud/darwin@763",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/druva-insync@govcloud_darwin-763-130224.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/druva-insync@govcloud/darwin.json), [druva-insync@govcloud.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/druva-insync@govcloud.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-09-08 Add Druva inSync (GovCloud) as a macOS Fleet-maintained app (#52710) \u00b7 issues mentioning it: #57051 (open), #52732 (open), #57052 (open), #52612 (closed)"
+ },
+ {
   "app": "klokki/darwin@631",
   "shape": "S1",
   "msgs": [
@@ -92,7 +104,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 629 [record](soak/2026-11-10/microsoft-dotnet-sdk-10_windows-629-141742.json)",
   "record": "results/soak/2026-11-10/microsoft-dotnet-sdk-10_windows-635-101405.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-10/windows.json), [microsoft-dotnet-sdk-10.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-10.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
  },
@@ -139,9 +151,9 @@
    "inventory never reported the app after install + refetch"
   ],
   "retried": "reproduced on retry",
-  "runs": 3,
+  "runs": 4,
   "other_host": null,
-  "record": "results/soak/2026-11-10/qgis@ltr_windows-629-081435.json",
+  "record": "results/soak/2026-11-10/qgis@ltr_windows-629-163721.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/qgis@ltr/windows.json), [qgis@ltr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/qgis@ltr.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-21 Add QGIS and QGIS LTR as macOS and Windows Fleet-maintained apps (#54685) \u00b7 issues mentioning it: none"
  },
  {
@@ -181,6 +193,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/suspicious-package/darwin.json), [suspicious-package.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/suspicious-package.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Fixing Suspicious Package, CFBundleIdentifier is wrong (#47243); 2025-12-11 Add multiple macOS Fleet-maintained apps (#37101) \u00b7 issues mentioning it: #7852 (open), #37100 (open), #29719 (closed), #38137 (closed), #31306 (closed)"
  },
  {
+  "app": "syncmate/darwin@766",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['8.11'] after installing 8.11.604; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/syncmate_darwin-766-140409.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/syncmate/darwin.json), [syncmate.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/syncmate.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-10 Add macOS Fleet-maintained apps (S) (#47250) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "transmission/darwin@631",
   "shape": "S1",
   "msgs": [
@@ -193,6 +217,30 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/transmission/darwin.json), [transmission.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/transmission.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (T) (#47333) \u00b7 issues mentioning it: #17697 (closed)"
  },
  {
+  "app": "wezterm/darwin@624",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['0.1.0'] after installing 20240203-110809; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/wezterm_darwin-624-125531.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #58221 (open), #53825 (closed), #58080 (open)"
+ },
+ {
+  "app": "wezterm/darwin@636",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['0.1.0'] after installing 20240203-110809; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/wezterm_darwin-636-125433.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #58221 (open), #53825 (closed), #58080 (open)"
+ },
+ {
   "app": "wezterm/darwin@759",
   "shape": "S1",
   "msgs": [
@@ -200,9 +248,22 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "not on 631 (skipped) [record](soak/2026-11-10/wezterm_darwin-631-140349.json)",
   "record": "results/soak/2026-11-10/wezterm_darwin-759-104519.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #58221 (open), #53825 (closed), #58080 (open)"
+ },
+ {
+  "app": "deckset/darwin@631",
+  "shape": "S3",
+  "msgs": [
+   "first uninstall: app still on host (status None)",
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/deckset_darwin-631-133243.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/deckset/darwin.json), [deckset.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/deckset.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: none"
  },
  {
   "app": "displaylink/darwin@753",
@@ -229,6 +290,30 @@
   "other_host": null,
   "record": "results/soak/2026-11-10/dupeguru_windows-635-035117.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dupeguru/windows.json), [dupeguru.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dupeguru.json), [dupeguru_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_install.ps1), [dupeguru_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dupeguru_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #57333 (open)"
+ },
+ {
+  "app": "keystore-explorer/darwin@762",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/keystore-explorer_darwin-762-125507.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/keystore-explorer/darwin.json), [keystore-explorer.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/keystore-explorer.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (K) (#47316) \u00b7 issues mentioning it: #51796 (closed)"
+ },
+ {
+  "app": "nordpass/darwin@765",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/nordpass_darwin-765-141503.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nordpass/darwin.json), [nordpass.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/nordpass.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-11 Add multiple macOS Fleet-maintained apps (#37101) \u00b7 issues mentioning it: #48248 (open), #51875 (closed)"
  },
  {
   "app": "pdf-expert/darwin@758",
@@ -328,7 +413,19 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/grammarly-desktop/darwin.json), [grammarly-desktop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/grammarly-desktop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2025-11-20 Add Grammarly Desktop as a macOS FMA (#35743) \u00b7 issues mentioning it: #51796 (closed), #51820 (closed), #47286 (closed)"
  },
  {
-  "app": "tableau-prep/windows@635",
+  "app": "plugdata/darwin@762",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/plugdata_darwin-762-132424.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/plugdata/darwin.json), [plugdata.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/plugdata.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-05-28 Add PlugData as a macOS FMA (#46337) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "pycharm-ce/darwin@636",
   "shape": "S6",
   "msgs": [
    "reinstall over the open app: the install over the open app ended as failed_install"
@@ -336,8 +433,93 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-10/pycharm-ce_darwin-636-141506.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/pycharm-ce/darwin.json), [pycharm-ce.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/pycharm-ce.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2025-11-18 Add PyCharm CE as a macOS FMA (#35895) \u00b7 issues mentioning it: #58173 (open)"
+ },
+ {
+  "app": "tableau-prep/windows@629",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/tableau-prep_windows-629-134319.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tableau-prep/windows.json), [tableau-prep.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/tableau-prep.json) \u00b7 last changes: 2026-09-09 Add Tableau Prep Builder as a Windows Fleet-maintained app (#52653) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "tableau-prep/windows@635",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 629 [record](soak/2026-11-10/tableau-prep_windows-629-134319.json)",
   "record": "results/soak/2026-11-10/tableau-prep_windows-635-105805.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tableau-prep/windows.json), [tableau-prep.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/tableau-prep.json) \u00b7 last changes: 2026-09-09 Add Tableau Prep Builder as a Windows Fleet-maintained app (#52653) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "wezterm/darwin@624",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)",
+   "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/wezterm_darwin-624-125531.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #58221 (open), #53825 (closed), #58080 (open)"
+ },
+ {
+  "app": "wezterm/darwin@636",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/wezterm_darwin-636-125433.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #58221 (open), #53825 (closed), #58080 (open)"
+ },
+ {
+  "app": "ableton-live-suite/darwin@624",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/ableton-live-suite_darwin-624-130739.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "ableton-live-suite/darwin@631",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/ableton-live-suite_darwin-631-143646.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "ableton-live-suite/darwin@636",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/ableton-live-suite_darwin-636-130740.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
  },
  {
   "app": "ableton-live-suite/darwin@757",
@@ -347,7 +529,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 631 [record](soak/2026-11-10/ableton-live-suite_darwin-631-143646.json)",
   "record": "results/soak/2026-11-10/ableton-live-suite_darwin-757-103931.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
  },
@@ -383,7 +565,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 631 [record](soak/2026-11-10/deckset_darwin-631-133243.json)",
   "record": "results/soak/2026-11-10/deckset_darwin-758-110758.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/deckset/darwin.json), [deckset.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/deckset.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: none"
  },
@@ -424,16 +606,52 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@esr/darwin.json), [firefox@esr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox@esr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2026-03-19 Add Firefox ESR as macOS & Windows FMAs (#40089) \u00b7 issues mentioning it: #56168 (open), #57161 (open), #50077 (open), #25407 (open), #55683 (closed)"
  },
  {
+  "app": "firefox@esr/darwin@762",
+  "shape": "add",
+  "msgs": [
+   "add failed 409: Conflict"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/firefox@esr_darwin-762-123222.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@esr/darwin.json), [firefox@esr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox@esr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-09 Fix Firefox macOS FMA permissions with custom install scripts (#55203); 2026-03-19 Add Firefox ESR as macOS & Windows FMAs (#40089) \u00b7 issues mentioning it: #56168 (open), #57161 (open), #50077 (open), #25407 (open), #55683 (closed)"
+ },
+ {
   "app": "firefox@nightly-arm64/windows@629",
   "shape": "add",
   "msgs": [
    "add failed 409: Conflict"
   ],
   "retried": "reproduced on retry",
-  "runs": 3,
+  "runs": 4,
   "other_host": null,
-  "record": "results/soak/2026-11-10/firefox@nightly-arm64_windows-629-074654.json",
+  "record": "results/soak/2026-11-10/firefox@nightly-arm64_windows-629-161032.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@nightly-arm64/windows.json), [firefox@nightly-arm64.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/firefox@nightly-arm64.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-09-16 Add ARM64 Firefox Developer Edition and Firefox Nightly Windows FMAs (#52964) \u00b7 issues mentioning it: #53050 (open)"
+ },
+ {
+  "app": "lastpass/windows@635",
+  "shape": "add",
+  "msgs": [
+   "add failed 500: mismatch in maintained app SHA256 hash"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/lastpass_windows-635-135003.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/lastpass/windows.json), [lastpass.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/lastpass.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-02 Fix exists queries for 4 Windows Fleet-maintained apps (#57179); 2026-02-20 Add LastPass as a Windows FMA (#40153) \u00b7 issues mentioning it: #37326 (closed), #30362 (closed), #5691 (closed)"
+ },
+ {
+  "app": "qgis/darwin@764",
+  "shape": "add",
+  "msgs": [
+   "add failed 524: error code: 524\n"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/qgis_darwin-764-131351.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/qgis/darwin.json), [qgis.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/qgis.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-21 Add QGIS and QGIS LTR as macOS and Windows Fleet-maintained apps (#54685) \u00b7 issues mentioning it: none"
  },
  {
   "app": "qgis@ltr/darwin@756",
@@ -457,6 +675,18 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-10/qgis@ltr_darwin-760-084220.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/qgis@ltr/darwin.json), [qgis@ltr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/qgis@ltr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-21 Add QGIS and QGIS LTR as macOS and Windows Fleet-maintained apps (#54685) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "qgis@ltr/darwin@763",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/qgis@ltr_darwin-763-133156.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/qgis@ltr/darwin.json), [qgis@ltr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/qgis@ltr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-21 Add QGIS and QGIS LTR as macOS and Windows Fleet-maintained apps (#54685) \u00b7 issues mentioning it: none"
  },
  {
@@ -484,6 +714,43 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tor-browser/darwin.json), [tor-browser.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/tor-browser.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-03-17 Add Tor Browser as a Fleet-maintained app (#41551) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "zoom@government/darwin@624",
+  "shape": "add",
+  "msgs": [
+   "add failed 409: Conflict"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/zoom@government_darwin-624-131032.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom@government/darwin.json), [zoom@government.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/zoom@government.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-09-30 Add Zoom for Government as a macOS Fleet-maintained app (#54459) \u00b7 issues mentioning it: #55140 (open), #54478 (open), #54284 (closed)"
+ },
+ {
+  "app": "bluej/darwin@763",
+  "shape": "install",
+  "msgs": [
+   "first install ended as not_run (no new install result; status was installed)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/bluej_darwin-763-135605.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/bluej/darwin.json), [bluej.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/bluej.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-08 Add several macOS FMAs (#47064) \u00b7 issues mentioning it: #48248 (open), #51875 (closed), #37326 (closed)"
+ },
+ {
+  "app": "deckset/darwin@631",
+  "shape": "install",
+  "msgs": [
+   "first install ended as pending_install",
+   "second install ended as None"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/deckset_darwin-631-133243.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/deckset/darwin.json), [deckset.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/deckset.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "displaylink/darwin@753",
   "shape": "install",
   "msgs": [
@@ -494,6 +761,19 @@
   "other_host": null,
   "record": "results/soak/2026-11-10/displaylink_darwin-753-052911.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/displaylink/darwin.json), [displaylink.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/displaylink.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-12-26 Update Fleet-maintained apps (#37685); 2025-11-25 macOS FMA: DisplayLink Manager (#36239) \u00b7 issues mentioning it: #51796 (closed)"
+ },
+ {
+  "app": "fellow/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as pending_install",
+   "second install ended as None"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/fellow_windows-629-151333.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/fellow/windows.json), [fellow.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/fellow.json), [fellow_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_install.ps1), [fellow_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/fellow_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-09 Remove stranded SysWOW64 copies in per-user Windows FMA uninstall scripts (#58086); 2026-11-07 Align per-user Windows FMA uninstall scripts with Zed's template (#58010); 2026-11-04 Harden per-user Windows FMA install and uninstall scripts (A\u2013K) (#57371) \u00b7 issues mentioning it: #48248 (open), #51875 (closed), #36402 (closed)"
  },
  {
   "app": "microsoft-outlook/darwin@755",
@@ -519,6 +799,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-10/paint-dot-net_windows-629-112639.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/paint-dot-net/windows.json), [paint-dot-net.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/paint-dot-net.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-03 Add Paint.NET as a Windows Fleet-maintained app (#50340) \u00b7 issues mentioning it: #57501 (open)"
+ },
+ {
+  "app": "sloth/darwin@765",
+  "shape": "install",
+  "msgs": [
+   "second install ended as not_run (no new install result; status was installed)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-10/sloth_darwin-765-132842.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sloth/darwin.json), [sloth.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/sloth.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (S) (#47250) \u00b7 issues mentioning it: none"
  },
  {
   "app": "snagit/darwin@636",

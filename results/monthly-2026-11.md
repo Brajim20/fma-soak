@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 6684 cycles: pass 2501, findings 1815, flaky 293, environment 75, harness 176, skipped 1824
+**1. Runs** — 6860 cycles: pass 2616, findings 1842, flaky 306, environment 77, harness 182, skipped 1837
 
-**2. Coverage** — darwin 956/963 (99.3%), round 4; windows 452/460 (98.3%), round 5
+**2. Coverage** — darwin 957/963 (99.4%), round 4; windows 452/462 (97.8%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -46,16 +46,16 @@
 | #57138 | open | Fleet-maintained apps: PostgreSQL 18 (Windows) can't be reinstalled after an uninstall, and the uninstall is reported as failed |
 | #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
 | #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
-| #57149 | open | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
+| #57149 | closed | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
 | #57151 | closed | Fleet-maintained apps: OpenCloud Desktop (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
 | #57152 | closed | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | open | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
-| #57157 | open | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
+| #57157 | closed | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
 | #57190 | merged | Regenerate macOS zip FMA outputs for ditto extraction (2/4) |
 | #57224 | closed | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
 | #57225 | open | Fleet-maintained apps: AnyBurn (Windows) patch policy fails right after installing the current version (6.9.0.0 vs 6.9) |
 | #57321 | open | Fleet-maintained apps: Webex (Windows) is never detected, so its patch policy always passes |
-| #57333 | open | Fleet-maintained apps: dupeGuru (Windows) is never detected, so its patch policy always passes |
+| #57333 | closed | Fleet-maintained apps: dupeGuru (Windows) is never detected, so its patch policy always passes |
 | #57334 | open | Fleet-maintained apps: Plantronics Hub (Windows) is never detected, so its patch policy always passes |
 | #57335 | open | Fleet-maintained apps: Ollama (Windows) install always fails with exit code 1 |
 | #57336 | open | Fleet-maintained apps: Steam (macOS) can't be added: 422 Validation Failed |
@@ -80,12 +80,12 @@
 | #57552 | open | Software: uninstall scripts are killed after 5 minutes instead of the documented 1 hour |
 | #57553 | open | Fleet-maintained apps: Geany (Windows) is never detected after install, so its patch policy always passes |
 | #57554 | closed | Fleet-maintained apps: GoLand (Windows) install doesn't finish while GoLand is open, and the host's queue stays blocked behind it |
-| #57555 | open | Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so "patch when closed" can't hold the install back |
+| #57555 | closed | Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so "patch when closed" can't hold the install back |
 | #57556 | closed | Fleet-maintained apps: Twine (Windows) installs into the SYSTEM profile and can't be uninstalled |
-| #57557 | open | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
+| #57557 | closed | Fleet-maintained apps: Visual Studio Professional 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #57558 | closed | Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes |
 | #57601 | closed | Fleet-maintained apps: OpenVPN Connect (Windows) is never detected, so its patch policy always passes |
-| #57659 | open | Fleet-maintained apps: GoAnywhere OpenPGP Studio (Windows) install fails with exit code 1 while the app is open |
+| #57659 | closed | Fleet-maintained apps: GoAnywhere OpenPGP Studio (Windows) install fails with exit code 1 while the app is open |
 | #57660 | open | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57673 | open | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
 | #57674 | closed | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
@@ -93,7 +93,7 @@
 | #57700 | closed | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
 | #57701 | closed | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
 | #57748 | open | Fleet-maintained apps: Snagit (macOS) can't be reinstalled or uninstalled after it's been opened ("did not quit" though it isn't running) |
-| #57805 | open | Fleet-maintained apps: Autopsy (Windows) is never detected after install, so its patch policy always passes |
+| #57805 | closed | Fleet-maintained apps: Autopsy (Windows) is never detected after install, so its patch policy always passes |
 | #57806 | closed | Fleet-maintained apps: Burp Suite Community Edition (macOS) is never detected after install |
 | #57807 | closed | Fleet-maintained apps: Mozilla VPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
 | #57808 | open | Fleet-maintained apps: Mozilla VPN (macOS) install hangs until Fleet kills it on some Macs, blocking the host's queue for an hour |
@@ -140,6 +140,8 @@
 | #58173 | open | Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory) |
 | #58197 | open | Fleet-maintained apps: Antigravity IDE (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 | #58198 | closed | Fleet-maintained apps: KNIME Analytics Platform (Windows) is never detected, so its patch policy always passes |
+| #58227 | open | Fleet-maintained apps: Klokki (macOS) never shows an installed version and its patch policy always fails (catalog bundle ID is its login-item helper) |
+| #58228 | open | Fleet-maintained apps: Notesnook (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
 
 **4. Build changes**
 
