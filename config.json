@@ -97,9 +97,10 @@
    ],
    "windows": [
     "aptakube/windows",
-    "aws-cli/windows"
+    "asana/windows"
    ]
   },
+  "residents_note": "2026-11-11: asana/windows replaced aws-cli/windows. AWS CLI's patch policy always passes (#56971), so its transitions could never fire, and as a resident it never got a lifecycle cycle (the last Windows app uncovered). Asana: 11 catalog versions in 30 days, clean lifecycle on 629.",
   "window_hours": 24,
   "main_lag_hours": 72
  },
