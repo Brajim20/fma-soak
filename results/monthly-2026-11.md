@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 7628 cycles: pass 2863, findings 1922, flaky 345, environment 95, harness 211, skipped 2192
+**1. Runs** — 7924 cycles: pass 3011, findings 1961, flaky 369, environment 108, harness 228, skipped 2247
 
 **2. Coverage** — darwin 965/962 (100.3%), round 4; windows 454/462 (98.3%), round 5
 
@@ -72,7 +72,7 @@
 | #57503 | closed | Fleet-maintained apps: Tower (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #57504 | closed | Fleet-maintained apps: Wacom Tablet (Windows) is never detected, so its patch policy always passes |
 | #57506 | closed | Fleet-maintained apps: XQuartz (macOS) is never detected (bundle ID org.macosforge.xquartz.X11 vs org.xquartz.X11) |
-| #57547 | open | Fleet-maintained apps: Descript (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
+| #57547 | closed | Fleet-maintained apps: Descript (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
 | #57548 | open | Fleet-maintained apps: Jabra Direct (Windows) is never detected, so its patch policy always passes |
 | #57549 | closed | Fleet-maintained apps: Microsoft Teams (Windows) uninstall removes Teams but reports failure (exit 1603) |
 | #57550 | closed | Fleet-maintained apps: OBS Studio (Windows) install fails with exit code 2 while the app is open |
@@ -125,7 +125,7 @@
 | #58051 | open | Fleet-maintained apps: NordVPN (Windows) is never detected, so its patch policy always passes |
 | #58052 | closed | Fleet-maintained apps: SigmaOS and Malwarebytes for Mac (macOS) show "Update available" forever after installing the current version |
 | #58069 | open | Fleet-maintained apps: grepWin (Windows) is never detected, so its patch policy always passes |
-| #58070 | open | Fleet-maintained apps: Rtools (Windows) install fails because its script stops the installer after 480 seconds |
+| #58070 | closed | Fleet-maintained apps: Rtools (Windows) install fails because its script stops the installer after 480 seconds |
 | #58075 | open | Fleet-maintained apps: Cursor (Windows) install fails with exit code 5 while the app is open |
 | #58080 | open | Fleet-maintained apps: Prism (macOS) can't be updated or uninstalled while it's open ("did not quit") |
 | #58081 | closed | Fleet-maintained apps: ShareFile (macOS) never shows an installed version and its patch policy always fails (catalog bundle ID is a nested XPC service) |
@@ -134,7 +134,7 @@
 | #58089 | open | Fleet-maintained apps: i1Profiler (macOS) can't be updated or uninstalled while it's open ("did not quit") |
 | #58132 | open | Fleet-maintained apps: MEGAsync (Windows) install always fails with exit code 2 |
 | #58133 | closed | Fleet-maintained apps: PureVPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
-| #58134 | open | Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #58134 | closed | Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 | #58135 | open | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
 | #58160 | open | Fleet-maintained apps: Pale Moon (Windows) install never finishes on Windows on ARM |
 | #58173 | closed | Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory) |
