@@ -222,7 +222,7 @@ def new_apps(plat, catalog, ledger):
         d = first.get(s)
         if not d or d < since:
             continue
-        es = [e for k, e in ledger.items() if k.split("@")[0] == s]
+        es = [e for k, e in ledger.items() if R.app_slug(k) == s]
         if any(e.get("first_cycled") for e in es) or sum(e.get("lifecycle_runs", 0) for e in es) >= rs.get("new_app_tries", 3):
             continue
         out.append((d, s))
@@ -266,7 +266,7 @@ def catch_up_host(plat, slug):
 
 def catch_up(plat, full, ledger, host, skip, tried):
     """Uncovered apps on the whole platform that this host takes, in a seeded order."""
-    covered = {k.split("@")[0] for k, e in ledger.items() if e.get("first_cycled")}
+    covered = {R.app_slug(k) for k, e in ledger.items() if e.get("first_cycled")}
     out = [s for s in full if s not in covered and s not in skip and s not in tried and catch_up_host(plat, s) == host]
     random.Random(f"catch-up-{host}").shuffle(out)
     return out
@@ -477,7 +477,7 @@ def build_ledger(write=False):
         if write:
             track_catalog(plat, cat)
         # an app counts once, whichever of the platform's hosts covered it
-        n = len({k.split("@")[0] for k, e in apps.items() if k.split("@")[0].endswith("/" + plat) and is_covered(e)})
+        n = len({R.app_slug(k) for k, e in apps.items() if R.app_slug(k).endswith("/" + plat) and is_covered(e)})
         # apps no host can run (known_environment on every host, e.g. Edge) are listed, not counted as missing
         nope = sorted(s for s in cat if owner(plat, s) is None) if write else []
         total = total - len(nope) if write else None

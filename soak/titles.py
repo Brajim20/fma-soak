@@ -37,7 +37,7 @@ def kept_slugs():
     keep.update({s: "held by patch_closed" for s in R.busy_slugs()})
     for f in glob.glob(os.path.join(STATE, "state-*.json")):
         for key in json.load(open(f)).get("harness_installed", {}):
-            keep.setdefault(key.split("@")[0], f"still on host {key.split('@')[-1]}")
+            keep.setdefault(R.app_slug(key), f"still on host {key.split('@')[-1]}")
     return keep
 
 

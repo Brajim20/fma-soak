@@ -86,6 +86,12 @@ class CatchUp(unittest.TestCase):
         self.assertTrue(all(len(v) == 1 and v[0] != 624 for v in takers.values()), takers)
         self.assertEqual({v[0] for v in takers.values()}, {631, 636})
 
+    def test_a_slug_with_an_at_sign_counts_as_covered(self):
+        full = FULL + ["firefox@esr/darwin"]
+        ledger = {x + "@636": {"first_cycled": "2026-11-01"} for x in full}
+        host = sample.catch_up_host("darwin", "firefox@esr/darwin")
+        self.assertNotIn("firefox@esr/darwin", sample.catch_up("darwin", full, ledger, host, set(), set()))
+
     def test_every_app_covered_means_normal_rounds(self):
         ledger = {x + "@636": {"first_cycled": "2026-11-01"} for x in FULL}
         self.assertTrue(self.pick(631, ledger)[1].startswith("deck"))

@@ -116,7 +116,7 @@ def ready(meta):
 
 def origin(entry, recs):
     """(host, kind) of the newest record whose finding this triage entry matched, on a long-standing host."""
-    slug = entry["app"].split("@")[0]
+    slug = R.app_slug(entry["app"])
     for r in reversed(recs):
         if r["slug"] != slug or r.get("recheck_of") or D.category(r) != "findings":
             continue
@@ -171,8 +171,8 @@ def refresh():
                           "fix_prs": [{"number": p[1], "url": p[2], "merged": p[0]} for p in meta["prs"]],
                           "not_before": "", "since": "", "seen": ""})
             continue
-        for slug in sorted({t["app"].split("@")[0] for t in entries}):
-            e = [t for t in entries if t["app"].split("@")[0] == slug]
+        for slug in sorted({R.app_slug(t["app"]) for t in entries}):
+            e = [t for t in entries if R.app_slug(t["app"]) == slug]
             prev = next((x for x in old["items"] if x["issue"] == n and x["slug"] == slug), {})
             host, kind = origin(e[0], recs)
             # the fix has to be live before a run counts: settle after the newest merged PR, or after QA first saw
