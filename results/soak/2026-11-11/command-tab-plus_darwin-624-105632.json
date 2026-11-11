@@ -1,0 +1,97 @@
+{
+ "slug": "command-tab-plus/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T10:56:32",
+ "catalog_version": "2.9.14",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install, first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T14:55:46Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "title_id": 33973,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": null,
+ "inventory_versions": [],
+ "package_version": "2.9.14",
+ "context_after_install": null,
+ "patched_query_passes": null,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sergey-gerasimenko.command-tab-plus-2.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/Caches/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sergey-gerasimenko.Command-Tab-Plus-2.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.sergey-gerasimenko.Command-Tab-Plus-2.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 94,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 77,
+ "second_uninstall_output_tail": "ist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sergey-gerasimenko.command-tab-plus-2.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/Caches/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sergey-gerasimenko.Command-Tab-Plus-2 doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.sergey-gerasimenko.Command-Tab-Plus-2.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.sergey-gerasimenko.Command-Tab-Plus-2.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+ "finished": "2026-11-11T11:34:49",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T15:32:19Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "host_disruption": [
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/command-tab-plus_darwin-624-105632-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/command-tab-plus_darwin-624-105632-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/command-tab-plus_darwin-624-105632.json"
+}
