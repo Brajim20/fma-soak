@@ -1,0 +1,79 @@
+{
+ "slug": "4k-video-to-mp3/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T00:29:44",
+ "catalog_version": "3.0.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 3.0.1: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T04:28:44Z",
+  "restarted": "2026-11-04T17:47:10.114284Z"
+ },
+ "title_id": 33424,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 502,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_4XJcLy</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [],
+ "package_version": "3.0.1",
+ "context_after_install": null,
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": null,
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-11T00:35:21; offline when the cycle ended)",
+ "finished": "2026-11-11T01:29:23",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T04:38:52Z",
+  "restarted": "2026-11-04T17:47:10.114284Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-11T00:35:21",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/4k-video-to-mp3_darwin-636-002944-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/4k-video-to-mp3_darwin-636-002944-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/4k-video-to-mp3_darwin-636-002944.json",
+ "crosshost_of": "soak/2026-11-10/4k-video-to-mp3_darwin-769-200223.json"
+}

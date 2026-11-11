@@ -1,0 +1,98 @@
+{
+ "slug": "memory-cleaner/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T01:31:01",
+ "catalog_version": "5.5.4",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 5.5.4: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as pending_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T05:30:17Z",
+  "restarted": "2026-11-04T19:20:58.65384Z"
+ },
+ "title_id": 33472,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 1717,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_BftYdV</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "5.5.4"
+ ],
+ "package_version": "5.5.4",
+ "context_after_install": {
+  "path": "/Applications/Memory Cleaner 5.app",
+  "bundle": null,
+  "executable": null,
+  "exe": "/Applications/Memory Cleaner 5.app/Contents/MacOS/Memory Cleaner 5",
+  "bundle_id": "com.nektony.Memory-Cleaner-SIII",
+  "versions": [
+   "5.5.4"
+  ]
+ },
+ "arch": {
+  "host": null,
+  "exe": null
+ },
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 1079,
+ "first_uninstall_output_tail": "m.apple.LSSharedFileList.ApplicationRecentDocuments/com.nektony.memory-cleaner-siii.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/com.nektony.Memory-Cleaner-SII* doesn't exist.\n/Users/<user>/Library/Application Support/Memory Cleaner doesn't exist.\n/Users/<user>/Library/Caches/com.nektony.Memory-Cleaner-SII* doesn't exist.\n/Users/<user>/Library/Cookies/com.nektony.Memory-Cleaner-SII.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nektony.Memory-Cleaner-SII* doesn't exist.\n/Users/<user>/Library/Preferences/com.nektony.Memory-Cleaner-SII*.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "pending_install",
+ "second_install_seconds": null,
+ "second_install_cancelled_after_timeout": [],
+ "second_install_output_tail": "",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (restarted at 2026-11-04T20:06:24.053367Z; offline at 2026-11-11T01:36:37; offline when the cycle ended)",
+ "finished": "2026-11-11T03:12:45",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T06:41:07Z",
+  "restarted": "2026-11-04T20:06:24.053367Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-04T20:06:24.053367Z",
+  "offline at 2026-11-11T01:36:37",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/memory-cleaner_darwin-636-013101-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/memory-cleaner_darwin-636-013101-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/memory-cleaner_darwin-636-013101.json"
+}
