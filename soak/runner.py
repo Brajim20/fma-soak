@@ -262,11 +262,30 @@ def ensure_title(slug, state, host):
     if row.get("software_title_id"):
         return row["software_title_id"], False
     st, d = api("POST", "/software/fleet_maintained_apps", {"fleet_maintained_app_id": row["id"], "fleet_id": FID}, timeout=900)
-    if st >= 300:
+    tid = d.get("software_title_id") if st < 300 else None
+    if st >= 500 or st == 0:
+        tid = added_late(slug)
+    if not tid:
         raise RuntimeError(f"add failed {st}: {d.get('message')}")
-    state["harness_titles"][slug] = d["software_title_id"]
+    state["harness_titles"][slug] = tid
     save_state(state, host)
-    return d["software_title_id"], True
+    return tid, True
+
+
+def added_late(slug, minutes=10):
+    """The title Fleet created after the add request itself failed, or None. Cloudflare in front of qa gives up on
+    a request after ~100 s (524, or 502 through the tunnel) while Fleet keeps downloading the installer and adds the
+    title anyway: QGIS LTR's 1.55 GB DMG took 125 s and was in the fleet at 15:13 (2026-11-11). Without this the
+    cycle fails at "add" and the title stays behind as if someone else had added it."""
+    end = time.time() + minutes * 60
+    while time.time() < end:
+        time.sleep(30)
+        st, d = api("GET", f"/software/fleet_maintained_apps?fleet_id={FID}&per_page=2000")
+        row = next((a for a in d.get("fleet_maintained_apps", []) if a["slug"] == slug), None)
+        if row and row.get("software_title_id"):
+            print(f"{slug}: the add request failed but Fleet added it anyway (title {row['software_title_id']})")
+            return row["software_title_id"]
+    return None
 
 
 # Error text that means the install script really failed, even if Fleet says "installed" and the app is on disk

@@ -2,6 +2,13 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "qgis@ltr/darwin",
+      "shape": "add",
+      "before": "2026-11-11T19:00",
+      "verdict": "environment: Cloudflare in front of qa gives up after ~100 s (524, or 502 through the tunnel) while Fleet keeps adding the 1.55 GB DMG; a manual add got 524 at 125 s and the title was in the fleet at 15:13 (2026-11-11). Harness now waits for a late title after a 5xx (runner.added_late), so a recurrence after this comes back as new",
+      "added": "2026-11-11"
+    },
+    {
       "app": "usage-app/darwin",
       "verdict": "already-filed #57827: add 422 'URL ... received response status code 403'; www.mediaatelier.com (Cloudflare) returns 403 to Fleet's 'fleet/<v> Go-http-client/1.1' User-Agent and 206 to 'fleet/<v>' or a browser UA (checked 2026-11-11)",
       "added": "2026-11-11"
