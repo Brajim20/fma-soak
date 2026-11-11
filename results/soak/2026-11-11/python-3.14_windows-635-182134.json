@@ -1,0 +1,91 @@
+{
+ "slug": "python-3.14/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T18:21:34",
+ "catalog_version": "3.14.10",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T22:21:33Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 33898,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "3.14.10",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Python 3.14.10 Add to Path (64-bit)",
+   "Python 3.14.10 Core Interpreter (64-bit)",
+   "Python 3.14.10 Development Libraries (64-bit)",
+   "Python 3.14.10 Documentation (64-bit)",
+   "Python 3.14.10 Executables (64-bit)",
+   "Python 3.14.10 Standard Library (64-bit)",
+   "Python 3.14.10 Tcl/Tk Support (64-bit)",
+   "Python 3.14.10 Test Suite (64-bit)",
+   "Python 3.14.10 pip Bootstrap (64-bit)"
+  ],
+  "versions": [
+   "3.14.10150.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 77,
+ "first_uninstall_output_tail": "4.10 Development Libraries (64-bit)' ({4BFB652A-E510-4B01-B7A4-B532E2721FAE})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 pip Bootstrap (64-bit)' ({04AB0737-B64C-48B5-8A40-C891E30F77DC})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Documentation (64-bit)' ({1E4641CE-4DCA-410D-AB23-0393727AF45A})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Executables (64-bit)' ({0D0BD025-7CEC-44ED-AC9F-06B8A57F1CBA})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Core Interpreter (64-bit)' ({1D701FC9-914A-48C9-B78E-73B8939A194F})\n  Exit code: 0\nAll Python 3.14 (64-bit) entries removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 153,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 122,
+ "second_uninstall_output_tail": "32E2721FAE})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 pip Bootstrap (64-bit)' ({04AB0737-B64C-48B5-8A40-C891E30F77DC})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Documentation (64-bit)' ({1E4641CE-4DCA-410D-AB23-0393727AF45A})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Executables (64-bit)' ({0D0BD025-7CEC-44ED-AC9F-06B8A57F1CBA})\n  Exit code: 0\nRemoving component: 'Python 3.14.10 Core Interpreter (64-bit)' ({1D701FC9-914A-48C9-B78E-73B8939A194F})\n  Exit code: 0\nRemoving leftover bundle registration: 'Python 3.14.10 (64-bit)'\nAll Python 3.14 (64-bit) entries removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-11T18:46:46",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T22:46:37Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/python-3.14_windows-635-182134-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/python-3.14_windows-635-182134-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/python-3.14_windows-635-182134.json"
+}
