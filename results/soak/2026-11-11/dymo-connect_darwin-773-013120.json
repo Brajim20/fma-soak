@@ -1,0 +1,113 @@
+{
+ "slug": "dymo-connect/darwin",
+ "host": 773,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T01:31:20",
+ "catalog_version": "1.6.1.4",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the installed executable is x86_64 only on an Apple Silicon host, though the Homebrew cask has an Apple Silicon build (#48010 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T05:31:17Z",
+  "restarted": "2026-11-11T01:42:27.125254Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 33465,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.6.1.4"
+ ],
+ "package_version": "1.6.1.4",
+ "context_after_install": {
+  "path": "/Applications/DYMO.WebApi.Mac.Host.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/DYMO.WebApi.Mac.Host.app/Contents/MacOS/DYMO.WebApi.Mac.Host",
+  "bundle_id": "com.dymo.DYMO-WebApi-Mac-Host",
+  "versions": [
+   "1.6.1.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": true
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "|| :\nForgot package 'com.dymo.dymo-connect' on '/'.\npkgutil --pkg-info-plist \"com.dymo.webapi.host\"\nsudo pkgutil --only-files --files \"com.dymo.webapi.host\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.dymo.webapi.host\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.dymo.webapi.host' on '/'.\n/Users/<user>/Library/Preferences/com.dymo.DYMO-WebApi-Mac-Host.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "33807"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.dymo.DYMO-WebApi-Mac-Host' was running; will relaunch after installation.\nQuitting application 'com.dymo.DYMO-WebApi-Mac-Host'...\nApplication 'com.dymo.DYMO-WebApi-Mac-Host' quit successfully.\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.dymo.DYMO-WebApi-Mac-Host'...\nApplication 'com.dymo.DYMO-WebApi-Mac-Host' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.dymo.DYMO-WebApi-Mac-Host' was running; will relaunch after installation.",
+  "Quitting application 'com.dymo.DYMO-WebApi-Mac-Host'...",
+  "Application 'com.dymo.DYMO-WebApi-Mac-Host' quit successfully.",
+  "Relaunching application 'com.dymo.DYMO-WebApi-Mac-Host'...",
+  "Application 'com.dymo.DYMO-WebApi-Mac-Host' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "37625",
+   "path": "/Applications/DYMO.WebApi.Mac.Host.app/Contents/MacOS/DYMO.WebApi.Mac.Host",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "|| :\nForgot package 'com.dymo.dymo-connect' on '/'.\npkgutil --pkg-info-plist \"com.dymo.webapi.host\"\nsudo pkgutil --only-files --files \"com.dymo.webapi.host\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.dymo.webapi.host\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.dymo.webapi.host' on '/'.\n/Users/<user>/Library/Preferences/com.dymo.DYMO-WebApi-Mac-Host.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-11T01:42:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T05:42:07Z",
+  "restarted": "2026-11-11T01:42:27.125254Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/dymo-connect_darwin-773-013120.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/dymo-connect_darwin-773-012109.json"
+}
