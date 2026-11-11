@@ -1,0 +1,109 @@
+{
+ "slug": "postgres-app/darwin",
+ "host": 774,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T22:08:01",
+ "catalog_version": "2.9.6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T02:07:58Z",
+  "restarted": "2026-11-11T01:39:35.222212Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 33343,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "2</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_oiz7yh</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.9.6"
+ ],
+ "package_version": "2.9.6",
+ "context_after_install": {
+  "path": "/Applications/Postgres.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Postgres.app/Contents/MacOS/Postgres",
+  "bundle_id": "com.postgresapp.Postgres2",
+  "versions": [
+   "2.9.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing launchctl service com.postgresapp.Postgres2LoginHelper\n/Users/<user>/Library/Application Support/Postgres doesn't exist.\n/Users/<user>/Library/Caches/com.postgresapp.Postgres2 doesn't exist.\n/Users/<user>/Library/Cookies/com.postgresapp.Postgres2.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.postgresapp.Postgres2.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 138,
+ "second_install_output_tail": "ey>\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>msdos</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "64293",
+   "64298"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 93,
+ "open_reinstall_output_tail": "int</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.postgresapp.Postgres2' was running; will relaunch after installation.\nQuitting application 'com.postgresapp.Postgres2'...\nApplication 'com.postgresapp.Postgres2' quit successfully.\nRelaunching application 'com.postgresapp.Postgres2'...\nFailed to relaunch application 'com.postgresapp.Postgres2'.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.postgresapp.Postgres2' was running; will relaunch after installation.",
+  "Quitting application 'com.postgresapp.Postgres2'...",
+  "Application 'com.postgresapp.Postgres2' quit successfully.",
+  "Relaunching application 'com.postgresapp.Postgres2'...",
+  "Failed to relaunch application 'com.postgresapp.Postgres2'."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_running_note": "pool runner: the install closed the open app and didn't reopen it; the script said it would relaunch it",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "64298",
+   "70500"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing launchctl service com.postgresapp.Postgres2LoginHelper\nremoving /Users/<user>/Library/Application Support/Postgres.\n/Users/<user>/Library/Caches/com.postgresapp.Postgres2 doesn't exist.\n/Users/<user>/Library/Cookies/com.postgresapp.Postgres2.binarycookies doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.postgresapp.Postgres2.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T22:21:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T02:21:03Z",
+  "restarted": "2026-11-11T01:39:35.222212Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/postgres-app_darwin-774-220801.json"
+}
