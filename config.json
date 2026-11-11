@@ -54,6 +54,7 @@
   "microsoft-edge/windows@635": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
   "7-zip/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "python-3.14/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "python-3.14/windows@635": "635 holds 8 dead 'Python 3.14.0' uninstall entries from 2026-02-25 (msiexec 1605 for each, no python.exe in Program Files\\Python314), so the uninstall's leftover check fails every cycle. The FMA itself passed by hand 2026-11-11: install 3.14.10 OK, its 11 parts removed with exit 0. Drop this once those registry keys are deleted.",
   "virtualbox/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "adobe-acrobat-pro/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "microsoft-odbc-driver-18/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
