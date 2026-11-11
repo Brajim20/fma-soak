@@ -1,0 +1,105 @@
+{
+ "slug": "microsoft-word/darwin",
+ "host": 779,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T05:03:28",
+ "catalog_version": "16.114",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T09:03:29Z",
+  "restarted": "2026-11-11T07:14:10.212994Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 389,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Word\ninstaller: choices changes file '/tmp/choice_xml_jfC' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.114.4"
+ ],
+ "package_version": "16.114",
+ "context_after_install": {
+  "path": "/Applications/Microsoft Word.app",
+  "bundle": "0:0 0775",
+  "executable": "0:0 0775",
+  "exe": "/Applications/Microsoft Word.app/Contents/MacOS/Microsoft Word",
+  "bundle_id": "com.microsoft.Word",
+  "versions": [
+   "16.114.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "'com.microsoft.pkg.licensing' on '/'.\n/Users/<user>/Library/Application Scripts/com.microsoft.Word doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.microsoft.word.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/CrashReporter/Microsoft Word_*.plist doesn't exist.\n/Users/<user>/Library/Containers/com.microsoft.Word doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.Word.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.Word.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Word\ninstaller: choices changes file '/tmp/choice_xml_WI7' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "11380"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 230,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.microsoft.Word' was running; will relaunch after installation.\nQuitting application 'com.microsoft.Word'...\nApplication 'com.microsoft.Word' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.Word' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.Word'...",
+  "Application 'com.microsoft.Word' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "11380",
+   "path": "/Applications/Microsoft Word.app/Contents/MacOS/Microsoft Word",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "t package 'com.microsoft.pkg.licensing' on '/'.\nremoving /Users/<user>/Library/Application Scripts/com.microsoft.Word.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.microsoft.word.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/CrashReporter/Microsoft Word_*.plist doesn't exist.\nremoving /Users/<user>/Library/Containers/com.microsoft.Word.\n/Users/<user>/Library/Preferences/com.microsoft.Word.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.Word.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-11T05:19:07",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T09:19:01Z",
+  "restarted": "2026-11-11T07:14:10.212994Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/microsoft-word_darwin-779-050328.json"
+}

@@ -1,0 +1,105 @@
+{
+ "slug": "jasp/darwin",
+ "host": 779,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T06:31:03",
+ "catalog_version": "0.99.0.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T10:31:02Z",
+  "restarted": "2026-11-11T07:14:10.212994Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 33796,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 200,
+ "first_install_output_tail": "2</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_jUA3vm</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.99"
+ ],
+ "package_version": "0.99.0.0",
+ "context_after_install": {
+  "path": "/Applications/JASP.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/JASP.app/Contents/MacOS/JASP",
+  "bundle_id": "org.jaspstats.jasp",
+  "versions": [
+   "0.99"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/.JASP doesn't exist.\n/Users/<user>/Library/Application Support/JASP doesn't exist.\n/Users/<user>/Library/Caches/JASP doesn't exist.\n/Users/<user>/Library/Preferences/org.jasp-stats.JASP.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.jasp-stats.jasp.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 170,
+ "second_install_output_tail": "2</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_LJnAaJ</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "85056"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 431,
+ "open_reinstall_output_tail": "t-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk9s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>msdos</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk9\" ejected.\nApplication 'org.jaspstats.jasp' was running; will relaunch after installation.\nQuitting application 'org.jaspstats.jasp'...\nApplication 'org.jaspstats.jasp' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'org.jaspstats.jasp' was running; will relaunch after installation.",
+  "Quitting application 'org.jaspstats.jasp'...",
+  "Application 'org.jaspstats.jasp' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "85056",
+   "path": "/Applications/JASP.app/Contents/MacOS/JASP",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/.JASP doesn't exist.\nremoving /Users/<user>/Library/Application Support/JASP.\nremoving /Users/<user>/Library/Caches/JASP.\nremoving /Users/<user>/Library/Preferences/org.jasp-stats.JASP.plist.\n/Users/<user>/Library/Saved Application State/org.jasp-stats.jasp.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-11T06:52:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T10:51:58Z",
+  "restarted": "2026-11-11T07:14:10.212994Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/jasp_darwin-779-063103.json"
+}
