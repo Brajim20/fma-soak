@@ -12,7 +12,9 @@ Parallels VMs (629, Windows ARM) restart with prlctl stop --kill / start; name t
 It also posts to Slack when soak hosts have been offline for ALERT_MIN minutes, in one message per batch, and again
 when they're back. That's for what a restart can't fix: on 2026-11-10/11 629, 631 and 636 were offline together for
 16 h (their Mac or its network, not a VM), and the only alert was a GitHub issue nobody saw overnight. Every soak host
-is checked, not just this Mac's, so the watchdog on the other Mac reports this one's VMs when this Mac goes down.
+is checked except this Mac's own VMs: a frozen VM gets restarted here, and when this whole Mac is down the
+watchdog on the other Mac reports it, so each outage is posted once. A host on neither Mac (635) would be posted by
+both; set "_alerts": [<host ids>] in one Mac's vms.json to limit what it reports (e.g. [624] on the other Mac).
 Needs a webhook: ~/.config/fma-vm-watchdog/slack-webhook-url, else the triage one (~/.config/fma-triage/...).
 
 Setup (once per Mac): put a Fleet API token for qa.fleetdm.com in ~/.config/fma-vm-watchdog/token (chmod 600), and
@@ -153,7 +155,9 @@ def main():
         except Exception as e:
             log(f"host {hid}: can't read Fleet ({e}); doing nothing")
             return
-    msgs, alerted = outages(hosts, state, now)
+    local = {hid for hid, h in hosts.items() if named.get(str(hid)) or vms.get(mac(h.get("primary_mac")))}
+    report = set(named.get("_alerts") or [hid for hid in hosts if hid not in local])
+    msgs, alerted = outages({hid: h for hid, h in hosts.items() if hid in report}, state, now)
     for m in msgs:
         log(f"slack: {m}")
         if not DRY and not slack(m):
