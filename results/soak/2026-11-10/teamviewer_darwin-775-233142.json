@@ -1,0 +1,106 @@
+{
+ "slug": "teamviewer/darwin",
+ "host": 775,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T23:31:42",
+ "catalog_version": "15.82.6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T03:31:37Z",
+  "restarted": "2026-11-11T01:40:20.456119Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 13119,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is TeamViewer\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "15.82.6"
+ ],
+ "package_version": "15.82.6",
+ "context_after_install": {
+  "path": "/Applications/TeamViewer.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/TeamViewer.app/Contents/MacOS/TeamViewer",
+  "bundle_id": "com.teamviewer.TeamViewer",
+  "versions": [
+   "15.82.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "TTPStorages/com.teamviewer.TeamViewer.\nremoving /Users/<user>/Library/HTTPStorages/com.teamviewer.TeamViewer.binarycookies.\n/Users/<user>/Library/Logs/TeamViewer doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.teamviewer.preferences.Machine.plist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.TeamViewer.plist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.teamviewer.preferences.plist.\n/Users/<user>/Library/Saved Application State/com.teamviewer.TeamViewer.savedState doesn't exist.\nremoving /Users/<user>/Library/WebKit/com.teamviewer.TeamViewer.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is TeamViewer\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "26796"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.teamviewer.TeamViewer' was running; will relaunch after installation.\nQuitting application 'com.teamviewer.TeamViewer'...\nApplication 'com.teamviewer.TeamViewer' quit successfully.\ninstaller: Package name is TeamViewer\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.teamviewer.TeamViewer'...\nApplication 'com.teamviewer.TeamViewer' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.teamviewer.TeamViewer' was running; will relaunch after installation.",
+  "Quitting application 'com.teamviewer.TeamViewer'...",
+  "Application 'com.teamviewer.TeamViewer' quit successfully.",
+  "Relaunching application 'com.teamviewer.TeamViewer'...",
+  "Application 'com.teamviewer.TeamViewer' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "30764",
+   "path": "/Applications/TeamViewer.app/Contents/MacOS/TeamViewer",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "mviewer.TeamViewer doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.teamviewer.TeamViewer.binarycookies doesn't exist.\n/Users/<user>/Library/Logs/TeamViewer doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.teamviewer.preferences.Machine.plist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.TeamViewer.plist.\nremoving /Users/<user>/Library/Preferences/com.teamviewer.teamviewer.preferences.plist.\n/Users/<user>/Library/Saved Application State/com.teamviewer.TeamViewer.savedState doesn't exist.\nremoving /Users/<user>/Library/WebKit/com.teamviewer.TeamViewer.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T23:41:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T03:41:53Z",
+  "restarted": "2026-11-11T01:40:20.456119Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/teamviewer_darwin-775-233142.json"
+}
