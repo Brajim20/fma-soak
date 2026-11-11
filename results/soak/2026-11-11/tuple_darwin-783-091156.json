@@ -1,0 +1,114 @@
+{
+ "slug": "tuple/darwin",
+ "host": 783,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T09:11:56",
+ "catalog_version": "3.3.23",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T13:11:45Z",
+  "restarted": "2026-11-11T11:42:06.109605Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 33864,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.3.23"
+ ],
+ "package_version": "3.3.23",
+ "context_after_install": {
+  "path": "/Applications/Tuple.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Tuple.app/Contents/MacOS/Tuple",
+  "bundle_id": "app.tuple.app",
+  "versions": [
+   "3.3.23"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": ".mac.data/app.tuple.app doesn't exist.\n/Users/<user>/Library/Containers/app.tuple.app-LaunchAtLoginHelper doesn't exist.\n/Users/<user>/Library/Containers/app.tuple.log doesn't exist.\n/Users/<user>/Library/Containers/app.tuple.webcam-capturer doesn't exist.\n/Users/<user>/Library/Group Containers/DQYU7DR9Q7.app.tuple.app doesn't exist.\n/Users/<user>/Library/HTTPStorages/app.tuple.app doesn't exist.\n/Users/<user>/Library/Preferences/app.tuple.app.plist doesn't exist.\n/Users/<user>/Library/Preferences/app.tuple.app.web.plist doesn't exist.\n/Users/<user>/Library/WebKit/app.tuple.app doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "68192"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'app.tuple.app' was running; will relaunch after installation.\nQuitting application 'app.tuple.app'...\nApplication 'app.tuple.app' quit successfully.\nRelaunching application 'app.tuple.app'...\nApplication 'app.tuple.app' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'app.tuple.app' was running; will relaunch after installation.",
+  "Quitting application 'app.tuple.app'...",
+  "Application 'app.tuple.app' quit successfully.",
+  "Relaunching application 'app.tuple.app'...",
+  "Application 'app.tuple.app' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "69031",
+   "path": "/Applications/Tuple.app/Contents/MacOS/Tuple",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": ">/Library/Caches/io.fabric.sdk.mac.data/app.tuple.app doesn't exist.\n/Users/<user>/Library/Containers/app.tuple.app-LaunchAtLoginHelper doesn't exist.\n/Users/<user>/Library/Containers/app.tuple.log doesn't exist.\nremoving /Users/<user>/Library/Containers/app.tuple.webcam-capturer.\nremoving /Users/<user>/Library/Group Containers/DQYU7DR9Q7.app.tuple.app.\nremoving /Users/<user>/Library/HTTPStorages/app.tuple.app.\nremoving /Users/<user>/Library/Preferences/app.tuple.app.plist.\nremoving /Users/<user>/Library/Preferences/app.tuple.app.web.plist.\nremoving /Users/<user>/Library/WebKit/app.tuple.app.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-11T09:22:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T13:21:25Z",
+  "restarted": "2026-11-11T11:42:06.109605Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/tuple_darwin-783-091156.json"
+}
