@@ -1,0 +1,59 @@
+{
+ "slug": "010-editor/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-11T07:42:45",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "install of 17.0 ended as pending_install; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T11:41:39Z",
+  "restarted": "2026-11-09T13:44:11.223021Z"
+ },
+ "title_id": 17550,
+ "cached_versions": [
+  "17.0",
+  "17.0.1"
+ ],
+ "active_before": "17.0.1",
+ "pin_older_status": 200,
+ "active_after_pin": "17.0",
+ "old_install_request": 202,
+ "old_install_status": "pending_install",
+ "old_install_seconds": null,
+ "old_install_cancelled_after_timeout": [],
+ "old_install_output_tail": "",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "17.0.1",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "pending_uninstall",
+ "cleanup_uninstall_seconds": null,
+ "cleanup_uninstall_cancelled_after_timeout": [],
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": null,
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-11T07:48:24; offline when the cycle ended)",
+ "finished": "2026-11-11T08:45:13",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T11:41:39Z",
+  "restarted": "2026-11-09T13:44:11.223021Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-11T07:48:24",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/010-editor_darwin-631-074245-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/010-editor_darwin-631-074245-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/010-editor_darwin-631-074245.json"
+}

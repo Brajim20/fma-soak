@@ -1,0 +1,82 @@
+{
+ "slug": "affinity/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-11T10:23:35",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "upgrade over 3.3.1 ended as pending_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T14:23:30Z",
+  "restarted": "2026-11-11T14:04:35.114755Z"
+ },
+ "title_id": 20416,
+ "cached_versions": [
+  "3.3.1",
+  "3.3.3"
+ ],
+ "active_before": "3.3.3",
+ "pin_older_status": 200,
+ "active_after_pin": "3.3.1",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "Installing software...\nSuccess\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Affinity.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+  "bundle_id": "com.canva.affinity",
+  "versions": [
+   "3.3.1"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "3.3.3",
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "pending_install",
+ "upgrade_install_seconds": null,
+ "upgrade_install_cancelled_after_timeout": [],
+ "upgrade_install_output_tail": "",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": false,
+ "context_upgraded": {
+  "path": "/Applications/Affinity.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+  "bundle_id": "com.canva.affinity",
+  "versions": [
+   "3.3.1"
+  ]
+ },
+ "cleanup_uninstall_request": 400,
+ "cleanup_uninstall_error": "Bad request",
+ "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+ "finished": "2026-11-11T10:58:08",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T14:56:58Z",
+  "restarted": "2026-11-11T14:04:35.114755Z"
+ },
+ "host_disruption": [
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/affinity_darwin-631-102335-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/affinity_darwin-631-102335-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/affinity_darwin-631-102335.json"
+}
