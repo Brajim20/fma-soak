@@ -1,0 +1,109 @@
+{
+ "slug": "fluid/darwin",
+ "host": 778,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T04:50:37",
+ "catalog_version": "2.1.2",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T08:50:37Z",
+  "restarted": "2026-11-11T07:13:47.645318Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 33651,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.1.2"
+ ],
+ "package_version": "2.1.2",
+ "context_after_install": {
+  "path": "/Applications/Fluid.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Fluid.app/Contents/MacOS/Fluid",
+  "bundle_id": "com.fluidapp.Fluid2",
+  "versions": [
+   "2.1.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": false,
+  "note": "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/Fluid doesn't exist.\n/Users/<user>/Library/Caches/com.fluidapp.Fluid2 doesn't exist.\n/Users/<user>/Library/Preferences/com.fluidapp.Fluid* doesn't exist.\n/Users/<user>/Library/Saved Application State/com.fluidapp.Fluid* doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 32,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "82118"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.fluidapp.Fluid2' was running; will relaunch after installation.\nQuitting application 'com.fluidapp.Fluid2'...\nApplication 'com.fluidapp.Fluid2' quit successfully.\nRelaunching application 'com.fluidapp.Fluid2'...\nApplication 'com.fluidapp.Fluid2' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.fluidapp.Fluid2' was running; will relaunch after installation.",
+  "Quitting application 'com.fluidapp.Fluid2'...",
+  "Application 'com.fluidapp.Fluid2' quit successfully.",
+  "Relaunching application 'com.fluidapp.Fluid2'...",
+  "Application 'com.fluidapp.Fluid2' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "82824",
+   "path": "/Applications/Fluid.app/Contents/MacOS/Fluid",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/Fluid.\n/Users/<user>/Library/Caches/com.fluidapp.Fluid2 doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.fluidapp.Fluid2.plist.\n/Users/<user>/Library/Saved Application State/com.fluidapp.Fluid* doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-11T05:00:32",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T09:00:23Z",
+  "restarted": "2026-11-11T07:13:47.645318Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/fluid_darwin-778-045037.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/fluid_darwin-778-044301.json"
+}
