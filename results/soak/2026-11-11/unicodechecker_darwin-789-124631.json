@@ -1,0 +1,111 @@
+{
+ "slug": "unicodechecker/darwin",
+ "host": 789,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T12:46:31",
+ "catalog_version": "1.25.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T16:46:27Z",
+  "restarted": "0001-01-01T00:00:00Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 34074,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.25.1"
+ ],
+ "package_version": "1.25.1",
+ "context_after_install": {
+  "path": "/Applications/UnicodeChecker.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/UnicodeChecker.app/Contents/MacOS/UnicodeChecker",
+  "bundle_id": "net.earthlingsoft.UnicodeChecker",
+  "versions": [
+   "1.25.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/UnicodeChecker doesn't exist.\n/Users/<user>/Library/Caches/net.earthlingsoft.UnicodeChecker doesn't exist.\n/Users/<user>/Library/Preferences/net.earthlingsoft.UnicodeChecker.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "19513"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 124,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'net.earthlingsoft.UnicodeChecker' was running; will relaunch after installation.\nQuitting application 'net.earthlingsoft.UnicodeChecker'...\nApplication 'net.earthlingsoft.UnicodeChecker' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'net.earthlingsoft.UnicodeChecker' was running; will relaunch after installation.",
+  "Quitting application 'net.earthlingsoft.UnicodeChecker'...",
+  "Application 'net.earthlingsoft.UnicodeChecker' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "19513",
+   "path": "/Applications/UnicodeChecker.app/Contents/MacOS/UnicodeChecker",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/UnicodeChecker doesn't exist.\n/Users/<user>/Library/Caches/net.earthlingsoft.UnicodeChecker doesn't exist.\nremoving /Users/<user>/Library/Preferences/net.earthlingsoft.UnicodeChecker.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-11T12:59:56",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T16:59:47Z",
+  "restarted": "2026-11-11T16:44:20.156265Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-11T16:44:20.156265Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/unicodechecker_darwin-789-124631.json"
+}
