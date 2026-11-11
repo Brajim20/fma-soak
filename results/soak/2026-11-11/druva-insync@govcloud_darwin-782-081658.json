@@ -1,0 +1,97 @@
+{
+ "slug": "druva-insync@govcloud/darwin",
+ "host": 782,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T08:16:58",
+ "catalog_version": "8.1.8",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T12:16:56Z",
+  "restarted": "2026-11-11T11:41:47.556478Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 33608,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 123,
+ "first_install_output_tail": "isk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is Druva inSync\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "8.1.8",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "va.inSync.pkg\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Druva inSync.app\" 2>/dev/null || :\nForgot package 'com.druva.inSync.pkg' on '/'.\n/Users/<user>/Library/Application Support/Druva doesn't exist.\n/Users/<user>/Library/Caches/com.druva.inSyncClient doesn't exist.\n/Users/<user>/Library/Logs/Druva doesn't exist.\n/Users/<user>/Library/Preferences/com.druva.inSyncClient.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.druva.inSyncClient.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 123,
+ "second_install_output_tail": "isk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is Druva inSync\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "7351"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 138,
+ "open_reinstall_output_tail": "tially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.druva.inSyncClient' was running; will relaunch after installation.\nQuitting application 'com.druva.inSyncClient'...\nApplication 'com.druva.inSyncClient' quit successfully.\ninstaller: Package name is Druva inSync\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.druva.inSyncClient'...\nApplication 'com.druva.inSyncClient' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.druva.inSyncClient' was running; will relaunch after installation.",
+  "Quitting application 'com.druva.inSyncClient'...",
+  "Application 'com.druva.inSyncClient' quit successfully.",
+  "Relaunching application 'com.druva.inSyncClient'...",
+  "Application 'com.druva.inSyncClient' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "11923",
+   "path": "/Applications/Druva inSync.app/Contents/Resources/inSync.app/Contents/MacOS/inSync",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "va.inSync.pkg\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Druva inSync.app\" 2>/dev/null || :\nForgot package 'com.druva.inSync.pkg' on '/'.\n/Users/<user>/Library/Application Support/Druva doesn't exist.\n/Users/<user>/Library/Caches/com.druva.inSyncClient doesn't exist.\n/Users/<user>/Library/Logs/Druva doesn't exist.\n/Users/<user>/Library/Preferences/com.druva.inSyncClient.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.druva.inSyncClient.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-11T08:46:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T12:46:50Z",
+  "restarted": "2026-11-11T11:41:47.556478Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/druva-insync@govcloud_darwin-782-081658.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/druva-insync@govcloud_darwin-782-074657.json"
+}
