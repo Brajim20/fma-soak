@@ -1,0 +1,70 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T09:01:59",
+ "catalog_version": "157.0.8103.51",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['157.0.8103.39']: another app's inventory matches this title (#51299 shape)"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as pending_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-11T12:52:45Z",
+  "restarted": "2026-11-01T18:51:57.104997Z"
+ },
+ "title_id": 20665,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "157.0.8103.39"
+ ],
+ "first_install_request": 202,
+ "first_install_status": "pending_install",
+ "first_install_seconds": null,
+ "first_install_cancelled_after_timeout": [],
+ "first_install_output_tail": "",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 400,
+ "first_uninstall_error": "Bad request",
+ "first_present_after_uninstall": false,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": false,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment (known)",
+ "known_environment": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
+ "finished": "2026-11-11T09:38:03",
+ "host_at_end": {
+  "status": "offline",
+  "seen": "2026-11-11T13:36:45Z",
+  "restarted": "2026-11-01T19:34:58.356474Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-01T19:34:58.356474Z",
+  "offline at 2026-11-11T09:11:51",
+  "offline when the cycle ended"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/google-chrome_windows-629-090159-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/google-chrome_windows-629-090159-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/google-chrome_windows-629-090159.json"
+}
