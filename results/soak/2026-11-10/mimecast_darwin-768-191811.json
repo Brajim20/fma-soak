@@ -1,0 +1,103 @@
+{
+ "slug": "mimecast/darwin",
+ "host": 768,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-10T19:18:11",
+ "catalog_version": "2.11",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-10T23:18:11Z",
+  "restarted": "2026-11-10T21:04:42.711091Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 33118,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_k9khGe</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.11.0"
+ ],
+ "package_version": "2.11",
+ "context_after_install": {
+  "path": "/Applications/Mimecast.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Mimecast.app/Contents/MacOS/Mimecast",
+  "bundle_id": "com.mimecast.Mimecast-Mail",
+  "versions": [
+   "2.11.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": false,
+  "note": "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/com.mimecast.Mimecast-Mail doesn't exist.\n/Users/<user>/Library/Caches/com.crashlytics.data/com.mimecast.Mimecast-Mail doesn't exist.\n/Users/<user>/Library/Caches/com.mimecast.Mimecast-Mail doesn't exist.\n/Users/<user>/Library/com.mimecast.Mimecast-Mail doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.mimecast.Mimecast-Mail doesn't exist.\n/Users/<user>/Library/Logs/Mimecast doesn't exist.\n/Users/<user>/Library/Preferences/com.mimecast.Mimecast-Mail.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_mR5mZR</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "79120"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.mimecast.Mimecast-Mail' was running; will relaunch after installation.\nQuitting application 'com.mimecast.Mimecast-Mail'...\nApplication 'com.mimecast.Mimecast-Mail' quit successfully.\nRelaunching application 'com.mimecast.Mimecast-Mail'...\nApplication 'com.mimecast.Mimecast-Mail' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.mimecast.Mimecast-Mail' was running; will relaunch after installation.",
+  "Quitting application 'com.mimecast.Mimecast-Mail'...",
+  "Application 'com.mimecast.Mimecast-Mail' quit successfully.",
+  "Relaunching application 'com.mimecast.Mimecast-Mail'...",
+  "Application 'com.mimecast.Mimecast-Mail' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/com.mimecast.Mimecast-Mail.\nremoving /Users/<user>/Library/Caches/com.crashlytics.data/com.mimecast.Mimecast-Mail.\nremoving /Users/<user>/Library/Caches/com.mimecast.Mimecast-Mail.\nremoving /Users/<user>/Library/com.mimecast.Mimecast-Mail.\nremoving /Users/<user>/Library/HTTPStorages/com.mimecast.Mimecast-Mail.\nremoving /Users/<user>/Library/Logs/Mimecast.\nremoving /Users/<user>/Library/Preferences/com.mimecast.Mimecast-Mail.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-10T19:28:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-10T23:28:49Z",
+  "restarted": "2026-11-10T21:04:42.711091Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-10/mimecast_darwin-768-191811.json"
+}
