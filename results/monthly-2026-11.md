@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 8421 cycles: pass 3221, findings 2013, flaky 391, environment 115, harness 248, skipped 2433
+**1. Runs** — 8740 cycles: pass 3304, findings 2045, flaky 403, environment 122, harness 254, skipped 2612
 
-**2. Coverage** — darwin 974/963 (101.1%), round 5; windows 462/463 (99.8%), round 5
+**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 462/463 (99.8%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -144,6 +144,7 @@
 | #58228 | closed | Fleet-maintained apps: Notesnook (Windows) can't be uninstalled — every uninstall fails "The system cannot find the file specified" |
 | #58319 | closed | Fleet-maintained apps: Tableau Prep (Windows) install fails with exit code 65535 while the app is open |
 | #58320 | closed | Fleet-maintained apps: Fellow (Windows on ARM) can't be uninstalled, and later installs stay pending |
+| #58497 | closed | Fleet-maintained apps: REDCINE-X PRO (macOS) shows version 1.0 and its patch policy always fails (catalog bundle ID is the bundled RED Tether app) |
 
 **4. Build changes**
 

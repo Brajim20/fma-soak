@@ -1,0 +1,55 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/spotify/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/spotify.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/spotify_install.ps1",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/spotify_uninstall.ps1"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "b0484734be",
+   "date": "2026-11-11",
+   "title": "Install Spotify (Windows) for the signed-in user instead of into the SYSTEM profile (#5836"
+  },
+  {
+   "sha": "dc329a7be1",
+   "date": "2026-11-10",
+   "title": "Move Windows FMA open-query overrides into the winget input manifests (#57936)"
+  },
+  {
+   "sha": "54f239826e",
+   "date": "2025-12-23",
+   "title": "Add Spotify as a Windows FMA (#37630)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 58134,
+   "state": "closed",
+   "title": "Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the s"
+  },
+  {
+   "number": 48248,
+   "state": "open",
+   "title": "Windows FMA patch policies don't distinguish per-user vs per-machine install scope, leavin"
+  },
+  {
+   "number": 51875,
+   "state": "closed",
+   "title": "Per-user Windows Fleet-maintained apps install into SYSTEM's profile, where they are unusa"
+  },
+  {
+   "number": 43863,
+   "state": "closed",
+   "title": "Can't install software via host details/self-service because it's not label scoped to my h"
+  },
+  {
+   "number": 49054,
+   "state": "closed",
+   "title": "Windows app store apps: engineering QA"
+  }
+ ]
+}
