@@ -1,0 +1,111 @@
+{
+ "slug": "nvidia-geforce-now/darwin",
+ "host": 636,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T17:59:24",
+ "catalog_version": "2.0.89.154",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T21:59:20Z",
+  "restarted": "2026-11-05T04:00:32.58311Z"
+ },
+ "title_id": 34293,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_v7z0m5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.0.90.126"
+ ],
+ "package_version": "2.0.89.154",
+ "context_after_install": {
+  "path": "/Applications/GeForceNOW.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/GeForceNOW.app/Contents/MacOS/GeForceNOW",
+  "bundle_id": "com.nvidia.gfnpc.mall",
+  "versions": [
+   "2.0.90.126"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ia.nvcontainer doesn't exist.\n/Users/<user>/Library/Caches/NVIDIA/GeForceNOW doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nvidia.gfnpc.mall doesn't exist.\n/Users/<user>/Library/Logs/DiagnosticReports/GeForceNOWContainer*.crash doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.gfnpc.mall.helper.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.gfnpc.mall.helper.renderer.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.nvcontainer.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.nvidia.gfnpc.mall.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_hrfQOd</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "24723"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 92,
+ "open_reinstall_output_tail": ">\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_195WyN</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\nApplication 'com.nvidia.gfnpc.mall' was running; will relaunch after installation.\nQuitting application 'com.nvidia.gfnpc.mall'...\nApplication 'com.nvidia.gfnpc.mall' quit successfully.\nRelaunching application 'com.nvidia.gfnpc.mall'...\nApplication 'com.nvidia.gfnpc.mall' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.nvidia.gfnpc.mall' was running; will relaunch after installation.",
+  "Quitting application 'com.nvidia.gfnpc.mall'...",
+  "Application 'com.nvidia.gfnpc.mall' quit successfully.",
+  "Relaunching application 'com.nvidia.gfnpc.mall'...",
+  "Application 'com.nvidia.gfnpc.mall' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "24911",
+   "path": "/Applications/GeForceNOW.app/Contents/MacOS/GeForceNOW",
+   "on_disk": "1"
+  },
+  {
+   "pid": "24924",
+   "path": "/Applications/GeForceNOW.app/Contents/MacOS/GeForceNOWContainer.app/Contents/MacOS/GeForceNOWContainer",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": ".nvidia.nvcontainer doesn't exist.\nremoving /Users/<user>/Library/Caches/NVIDIA/GeForceNOW.\n/Users/<user>/Library/HTTPStorages/com.nvidia.gfnpc.mall doesn't exist.\n/Users/<user>/Library/Logs/DiagnosticReports/GeForceNOWContainer*.crash doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.gfnpc.mall.helper.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.gfnpc.mall.helper.renderer.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nvidia.nvcontainer.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.nvidia.gfnpc.mall.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-11T18:11:59",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T22:11:59Z",
+  "restarted": "2026-11-05T04:00:32.58311Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/nvidia-geforce-now_darwin-636-175924.json",
+ "crosshost_of": "soak/2026-11-11/nvidia-geforce-now_darwin-788-162706.json"
+}
