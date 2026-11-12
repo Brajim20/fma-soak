@@ -1,0 +1,98 @@
+{
+ "slug": "p4v/darwin",
+ "host": 816,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T16:27:19",
+ "catalog_version": "2026.3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T20:27:14Z",
+  "restarted": "2026-11-12T18:04:29.873091Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 35275,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\np4v installed\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.3"
+ ],
+ "package_version": "2026.3",
+ "context_after_install": {
+  "path": "/Applications/p4v.app",
+  "bundle": "20666:20666 0755",
+  "executable": "20666:20666 0755",
+  "exe": "/Applications/p4v.app/Contents/MacOS/p4v",
+  "bundle_id": "com.perforce.p4v",
+  "versions": [
+   "2026.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "p4v suite uninstalled\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\np4v installed\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "97031"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 322,
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "p4v suite uninstalled\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T16:43:10",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T20:43:05Z",
+  "restarted": "2026-11-12T18:04:29.873091Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-12T16:38:34"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/p4v_darwin-816-162719.json"
+}
