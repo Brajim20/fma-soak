@@ -1,0 +1,62 @@
+{
+ "slug": "snagit/darwin",
+ "host": 631,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T04:59:42",
+ "findings": [],
+ "outcome": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "scenario": {
+  "slug": "snagit/darwin",
+  "host": 631,
+  "title_id": 32021,
+  "older": "2026.4.3",
+  "newest": "2027.0.0",
+  "phase": "start",
+  "started": "2026-11-12T08:59:42+00:00",
+  "started_local": "2026-11-12T04:59:42",
+  "findings": [],
+  "observations": [],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 61,
+  "old_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_WIYdos</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/Snagit.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/Snagit.app/Contents/MacOS/Snagit",
+   "bundle_id": "com.TechSmith.Snagit",
+   "versions": [
+    "2026.4.3"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/Snagit.app",
+   "exe": "/Applications/Snagit.app/Contents/MacOS/Snagit",
+   "bundle_id": "com.TechSmith.Snagit",
+   "pids": []
+  },
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": "failed_uninstall",
+  "end_uninstall_seconds": 31,
+  "end_uninstall_output_tail": "Quitting application 'com.TechSmith.Snagit'...\nApplication 'com.TechSmith.Snagit' did not quit.\n\nscript execution error: exit status 1",
+  "end_uninstall_exit_code": 1,
+  "ended": "2026-11-12T09:05:59+00:00"
+ },
+ "finished": "2026-11-12T05:05:59",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/snagit_darwin-631-045942.json"
+}
