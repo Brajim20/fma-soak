@@ -1,0 +1,74 @@
+{
+ "slug": "vagrant/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T16:25:35",
+ "catalog_version": "2.4.9",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T20:25:30Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "title_id": 35272,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 108,
+ "first_install_output_tail": "unter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (F0:74) [16:27:23:427]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\3887f2ff.msi'\r\nMSI (s) (F0:74) [16:27:23:427]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\389e5d2d.msi'\r\nMSI (c) (70:10) [16:27:23:436]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (70:10) [16:27:23:436]: MainEngineThread is returning 3010\r\n=== Verbose logging stopped: 11/12/2026  16:27:23 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.4.9"
+ ],
+ "package_version": "2.4.9",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Vagrant"
+  ],
+  "versions": [
+   "2.4.9"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 108,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 123,
+ "second_install_output_tail": "7]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (F0:D0) [16:32:23:207]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F0:D0) [16:32:23:207]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (FC:A0) [16:32:23:209]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (FC:A0) [16:32:23:209]: MainEngineThread is returning 3010\r\n=== Verbose logging stopped: 11/12/2026  16:32:23 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 92,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-12T16:34:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T20:34:42Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/vagrant_windows-629-162535.json"
+}
