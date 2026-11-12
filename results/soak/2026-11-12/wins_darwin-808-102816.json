@@ -1,0 +1,106 @@
+{
+ "slug": "wins/darwin",
+ "host": 808,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T10:28:16",
+ "catalog_version": "3.6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T14:28:15Z",
+  "restarted": "2026-11-12T12:48:16.565855Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 35074,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 32,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.6"
+ ],
+ "package_version": "3.6",
+ "context_after_install": {
+  "path": "/Applications/Wins.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Wins.app/Contents/MacOS/Wins",
+  "bundle_id": "cools.wins.main",
+  "versions": [
+   "3.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "sn't exist.\n/Users/<user>/Library/Application Support/cools.wins.main doesn't exist.\n/Users/<user>/Library/Application Support/Wins doesn't exist.\n/Users/<user>/Library/Caches/cools.wins.main doesn't exist.\n/Users/<user>/Library/Containers/cool.wins.WinsHelper doesn't exist.\n/Users/<user>/Library/Containers/WinsHelper doesn't exist.\n/Users/<user>/Library/HTTPStorages/cools.wins.main* doesn't exist.\n/Users/<user>/Library/PreferencePanes/Wins.prefPane doesn't exist.\n/Users/<user>/Library/Preferences/cools.wins.main.plist doesn't exist.\n/Users/<user>/Library/WebKit/cools.wins.main doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "86272"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'cools.wins.main' was running; will relaunch after installation.\nQuitting application 'cools.wins.main'...\nApplication 'cools.wins.main' quit successfully.\nRelaunching application 'cools.wins.main'...\nApplication 'cools.wins.main' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'cools.wins.main' was running; will relaunch after installation.",
+  "Quitting application 'cools.wins.main'...",
+  "Application 'cools.wins.main' quit successfully.",
+  "Relaunching application 'cools.wins.main'...",
+  "Application 'cools.wins.main' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "87209",
+   "path": "/Applications/Wins.app/Contents/MacOS/Wins",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "port/cools.wins.main doesn't exist.\nremoving /Users/<user>/Library/Application Support/Wins.\nremoving /Users/<user>/Library/Caches/cools.wins.main.\n/Users/<user>/Library/Containers/cool.wins.WinsHelper doesn't exist.\n/Users/<user>/Library/Containers/WinsHelper doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/cools.wins.main.\nremoving /Users/<user>/Library/HTTPStorages/cools.wins.main.binarycookies.\nremoving /Users/<user>/Library/PreferencePanes/Wins.prefPane.\nremoving /Users/<user>/Library/Preferences/cools.wins.main.plist.\n/Users/<user>/Library/WebKit/cools.wins.main doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T10:37:58",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T14:37:50Z",
+  "restarted": "2026-11-12T12:48:16.565855Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/wins_darwin-808-102816.json"
+}

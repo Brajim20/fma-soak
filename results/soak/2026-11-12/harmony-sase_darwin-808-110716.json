@@ -1,0 +1,83 @@
+{
+ "slug": "harmony-sase/darwin",
+ "host": 808,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T11:07:16",
+ "catalog_version": "12.11.0",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T15:07:04Z",
+  "restarted": "2026-11-12T12:48:16.565855Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 35112,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Harmony SASE\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "12.11.0"
+ ],
+ "package_version": "12.11.0",
+ "context_after_install": {
+  "path": "/Applications/Harmony SASE.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Harmony SASE.app/Contents/MacOS/Harmony SASE",
+  "bundle_id": "com.safervpn.osx.smb",
+  "versions": [
+   "12.11.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "ed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Harmony SASE.app\" 2>/dev/null || :\nForgot package 'com.safervpn.osx.smb' on '/'.\n/Users/<user>/Library/Application Support/com.safervpn.osx.smb doesn't exist.\n/Users/<user>/Library/Caches/com.safervpn.osx.smb doesn't exist.\n/Users/<user>/Library/Caches/Perimeter 81 doesn't exist.\n/Users/<user>/Library/Preferences/com.safervpn.osx.smb.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.safervpn.osx.smb.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Harmony SASE\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T11:14:30",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/harmony-sase_darwin-808-110716.json"
+}
