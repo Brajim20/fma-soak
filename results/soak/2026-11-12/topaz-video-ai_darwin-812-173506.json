@@ -1,0 +1,113 @@
+{
+ "slug": "topaz-video-ai/darwin",
+ "host": 812,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T17:35:06",
+ "catalog_version": "7.1.5",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T21:35:06Z",
+  "restarted": "2026-11-12T17:55:34.574488Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 35325,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Topaz Video AI\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "inventory_versions": [
+  "7.1.5"
+ ],
+ "package_version": "7.1.5",
+ "context_after_install": {
+  "path": "/Applications/Topaz Video AI.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Topaz Video AI.app/Contents/MacOS/Topaz Video AI",
+  "bundle_id": "com.topazlabs.Topaz-Video-AI",
+  "versions": [
+   "7.1.5"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "udo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.topazlabs.VAIPackage' on '/'.\n/Users/<user>/Library/Application Support/Topaz Labs LLC/Topaz Video AI doesn't exist.\n/Users/<user>/Library/Caches/com.topazlabs.Topaz-Video-AI doesn't exist.\n/Users/<user>/Library/Caches/Topaz Labs LLC/Topaz Video AI doesn't exist.\n/Users/<user>/Library/Preferences/com.topazlabs.Topaz Video AI.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.topazlabs.Topaz-Video-AI.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.topazlabs.Topaz-Video-AI.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 62,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Topaz Video AI\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "40315"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 77,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.topazlabs.Topaz-Video-AI' was running; will relaunch after installation.\nQuitting application 'com.topazlabs.Topaz-Video-AI'...\nApplication 'com.topazlabs.Topaz-Video-AI' quit successfully.\ninstaller: Package name is Topaz Video AI\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.topazlabs.Topaz-Video-AI'...\nApplication 'com.topazlabs.Topaz-Video-AI' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.topazlabs.Topaz-Video-AI' was running; will relaunch after installation.",
+  "Quitting application 'com.topazlabs.Topaz-Video-AI'...",
+  "Application 'com.topazlabs.Topaz-Video-AI' quit successfully.",
+  "Relaunching application 'com.topazlabs.Topaz-Video-AI'...",
+  "Application 'com.topazlabs.Topaz-Video-AI' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "41616",
+   "path": "/Applications/Topaz Video AI.app/Contents/MacOS/Topaz Video AI",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.topazlabs.VAIPackage' on '/'.\nremoving /Users/<user>/Library/Application Support/Topaz Labs LLC/Topaz Video AI.\n/Users/<user>/Library/Caches/com.topazlabs.Topaz-Video-AI doesn't exist.\nremoving /Users/<user>/Library/Caches/Topaz Labs LLC/Topaz Video AI.\nremoving /Users/<user>/Library/Preferences/com.topazlabs.Topaz Video AI.plist.\n/Users/<user>/Library/Preferences/com.topazlabs.Topaz-Video-AI.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.topazlabs.Topaz-Video-AI.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T17:52:08",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T21:51:59Z",
+  "restarted": "2026-11-12T17:55:34.574488Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/topaz-video-ai_darwin-812-173506.json"
+}
