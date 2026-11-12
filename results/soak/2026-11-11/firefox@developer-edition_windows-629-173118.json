@@ -1,0 +1,179 @@
+{
+ "slug": "firefox@developer-edition/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-11T17:31:18",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "after the upgrade to 160.0: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-11T21:31:17Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "title_id": 23409,
+ "cached_versions": [
+  "156.0",
+  "160.0"
+ ],
+ "active_before": "160.0",
+ "pin_older_status": 200,
+ "active_after_pin": "156.0",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   "C:\\Program Files\\Firefox Developer Edition"
+  ],
+  "names": [
+   "Firefox Developer Edition (x64 en-US)"
+  ],
+  "versions": [
+   "156.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "160.0",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "3252",
+   "3920",
+   "8100",
+   "8228",
+   "14212",
+   "15924",
+   "16828",
+   "18120",
+   "18252",
+   "18344"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [
+  {
+   "pid": "3252",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "18252",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "8100",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "15924",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "3920",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "18344",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "14212",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "8228",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "16828",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "18120",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "upgrade_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nssFC6F.tmp, pid 3252); expected on Windows",
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Program Files\\Firefox Developer Edition"
+  ],
+  "names": [
+   "Firefox Developer Edition (x64 en-US)"
+  ],
+  "versions": [
+   "160.0"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 0,
+  "pids": [
+   "3252",
+   "3920",
+   "8100",
+   "8228",
+   "14212",
+   "15924",
+   "16828",
+   "18120",
+   "18252",
+   "18344"
+  ],
+  "note": null
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_close": "0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "cleanup_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Firefox Developer Edition\\uninstall\\helper.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-11T17:37:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-11T21:36:57Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-11/evidence/firefox@developer-edition_windows-629-173118-library.png",
+  "inventory": "results/soak/2026-11-11/evidence/firefox@developer-edition_windows-629-173118-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/firefox@developer-edition_windows-629-173118.json"
+}
