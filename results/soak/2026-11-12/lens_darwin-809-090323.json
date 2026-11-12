@@ -1,0 +1,87 @@
+{
+ "slug": "lens/darwin",
+ "host": 809,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T09:03:23",
+ "catalog_version": "2026.11.91422-latest",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall, second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T13:03:15Z",
+  "restarted": "2026-11-12T12:47:48.103921Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 35014,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_sUeDJD</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.11.91422-latest"
+ ],
+ "package_version": "2026.11.91422-latest",
+ "context_after_install": {
+  "path": "/Applications/Lens.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Lens.app/Contents/MacOS/Lens",
+  "bundle_id": "com.electron.kontena-lens",
+  "versions": [
+   "2026.11.91422-latest"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.electron.kontena-lens.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/Lens doesn't exist.\n/Users/<user>/Library/Caches/Lens doesn't exist.\n/Users/<user>/Library/Logs/Lens doesn't exist.\n/Users/<user>/Library/Preferences/com.electron.kontena-lens.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.electron.kontena-lens.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 122,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.electron.kontena-lens.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/Lens doesn't exist.\n/Users/<user>/Library/Caches/Lens doesn't exist.\n/Users/<user>/Library/Logs/Lens doesn't exist.\n/Users/<user>/Library/Preferences/com.electron.kontena-lens.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.electron.kontena-lens.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T09:12:35",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/lens_darwin-809-090323.json"
+}
