@@ -2,6 +2,11 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "redcine-x-pro/darwin",
+      "verdict": "filed #58497: catalog bundle ID com.red.RED-Tether is the bundled RED Tether.app (always 1.0), so the title shows 1.0 and the patched query (vs 65.2.1) never passes; REDCINE-X PRO.app is com.red.RedCineX 65.2 / build 65.2.1 (pkg checked 2026-11-11)",
+      "added": "2026-11-12"
+    },
+    {
       "app": "qgis@ltr/darwin",
       "shape": "add",
       "before": "2026-11-11T19:00",
