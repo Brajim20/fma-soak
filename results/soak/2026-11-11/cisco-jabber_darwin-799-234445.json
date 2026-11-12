@@ -1,0 +1,106 @@
+{
+ "slug": "cisco-jabber/darwin",
+ "host": 799,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T23:44:45",
+ "catalog_version": "15.2.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T03:44:45Z",
+  "restarted": "2026-11-12T02:32:03.513617Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 34682,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Cisco Jabber\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "15.2.1"
+ ],
+ "package_version": "15.2.1",
+ "context_after_install": {
+  "path": "/Applications/Cisco Jabber.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Cisco Jabber.app/Contents/MacOS/Cisco Jabber",
+  "bundle_id": "com.cisco.Jabber",
+  "versions": [
+   "15.2.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "-0 -- /bin/rm -rf\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\n/Users/<user>/Library/Application Support/Cisco/Unified Communications/Jabber doesn't exist.\n/Users/<user>/Library/Caches/com.cisco.Jabber doesn't exist.\n/Users/<user>/Library/Logs/Jabber doesn't exist.\n/Users/<user>/Library/Preferences/com.cisco.Jabber.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.cisco.Jabber doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Cisco Jabber\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "45324"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.cisco.jabber' was running; will relaunch after installation.\nQuitting application 'com.cisco.jabber'...\nApplication 'com.cisco.jabber' quit successfully.\ninstaller: Package name is Cisco Jabber\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.cisco.jabber'...\nApplication 'com.cisco.jabber' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.cisco.jabber' was running; will relaunch after installation.",
+  "Quitting application 'com.cisco.jabber'...",
+  "Application 'com.cisco.jabber' quit successfully.",
+  "Relaunching application 'com.cisco.jabber'...",
+  "Application 'com.cisco.jabber' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "46443",
+   "path": "/Applications/Cisco Jabber.app/Contents/MacOS/Cisco Jabber",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "oot -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\nNo receipt for 'com.Sennheiser.pkg.SennheiserSDKv789904MacSDKv8602' found at '/'.\nremoving /Users/<user>/Library/Application Support/Cisco/Unified Communications/Jabber.\nremoving /Users/<user>/Library/Caches/com.cisco.Jabber.\nremoving /Users/<user>/Library/Logs/Jabber.\nremoving /Users/<user>/Library/Preferences/com.cisco.Jabber.plist.\nremoving /Users/<user>/Library/WebKit/com.cisco.Jabber.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-11T23:54:42",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T03:54:33Z",
+  "restarted": "2026-11-12T02:32:03.513617Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/cisco-jabber_darwin-799-234445.json"
+}
