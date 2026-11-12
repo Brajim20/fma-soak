@@ -1,0 +1,65 @@
+{
+ "slug": "slack/windows",
+ "host": 629,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-11T22:34:29",
+ "findings": [],
+ "outcome": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "scenario": {
+  "slug": "slack/windows",
+  "host": 629,
+  "title_id": 20130,
+  "older": "4.53.280",
+  "newest": "4.53.287",
+  "phase": "start",
+  "started": "2026-11-12T02:34:29+00:00",
+  "started_local": "2026-11-11T22:34:29",
+  "findings": [],
+  "observations": [],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 46,
+  "old_install_output_tail": "Installing software...\nSuccess\nProvisioning MSIX for all users...\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\nRegistering MSIX for logged-on user '<host>\\<user>' via scheduled task...\nPer-user registration completed for '<host>\\<user>'.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "install_locations": [
+    "C:\\Program Files\\WindowsApps\\com.tinyspeck.slackdesktop_4.53.280.0_x64__8yrtsj140pw4g"
+   ],
+   "names": [
+    "Slack"
+   ],
+   "versions": [
+    "4.53.280.0"
+   ]
+  },
+  "open_open": {
+   "exit": 4,
+   "pids": [],
+   "note": "NO_TARGET"
+  },
+  "target": {
+   "plat": "windows",
+   "names": [
+    "Slack"
+   ],
+   "locations": [
+    "C:\\Program Files\\WindowsApps\\com.tinyspeck.slackdesktop_4.53.280.0_x64__8yrtsj140pw4g"
+   ],
+   "pids": []
+  },
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 31,
+  "end_uninstall_output_tail": "Removing provisioned package: com.tinyspeck.slackdesktop_4.53.280.0_x64__8yrtsj140pw4g\n\r\n\r\nPath          : \r\nOnline        : True\r\nRestartNeeded : False\r\n\r\n\r\n\r\n\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-12T02:36:18+00:00"
+ },
+ "finished": "2026-11-11T22:36:18",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-11/slack_windows-629-223429.json"
+}

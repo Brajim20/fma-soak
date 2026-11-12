@@ -1,0 +1,124 @@
+{
+ "slug": "nosql-workbench/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T02:06:46",
+ "catalog_version": "3.20.5",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T06:06:38Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "title_id": 34776,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.20.5"
+ ],
+ "package_version": "3.20.5",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "NoSQL Workbench 3.20.5"
+  ],
+  "versions": [
+   "3.20.5"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Uninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "14896",
+   "15328",
+   "17588",
+   "18364"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "18364",
+   "path": "C:\\Program Files\\NoSQL Workbench\\NoSQL Workbench.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "17588",
+   "path": "C:\\Program Files\\NoSQL Workbench\\NoSQL Workbench.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "14896",
+   "path": "C:\\Program Files\\NoSQL Workbench\\NoSQL Workbench.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "15328",
+   "path": "C:\\Program Files\\NoSQL Workbench\\NoSQL Workbench.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-12T02:30:52)",
+ "finished": "2026-11-12T02:46:49",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T06:46:49Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-12T02:30:52"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-12/evidence/nosql-workbench_windows-629-020646-library.png",
+  "inventory": "results/soak/2026-11-12/evidence/nosql-workbench_windows-629-020646-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/nosql-workbench_windows-629-020646.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/nosql-workbench_windows-629-015747.json"
+}
