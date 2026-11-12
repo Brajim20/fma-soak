@@ -1,0 +1,30 @@
+{
+ "slug": "spotify/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T07:50:37",
+ "catalog_version": "1.3.8.620.g39b276d5d7ac",
+ "findings": [
+  {
+   "shape": "add",
+   "msg": "spotify/windows not in the FMA catalog on this instance"
+  }
+ ],
+ "host_at_start": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "outcome": "findings",
+ "finished": "2026-11-12T07:50:38",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T11:50:27Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "unavailable: ended on /login: token rejected, expired or API-only",
+  "inventory": "results/soak/2026-11-12/evidence/spotify_windows-635-075037-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/spotify_windows-635-075037.json"
+}
