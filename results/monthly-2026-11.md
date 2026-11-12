@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 8985 cycles: pass 3388, findings 2072, flaky 422, environment 125, harness 268, skipped 2710
+**1. Runs** — 9151 cycles: pass 3478, findings 2099, flaky 433, environment 132, harness 282, skipped 2727
 
-**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 462/463 (99.8%), round 5
+**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 462/485 (95.3%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -26,7 +26,7 @@
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56532 | closed | Sourcetree Fleet-maintained app installs with root-only permissions, so users can't open it |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
-| #56802 | open | Add ARM64 Windows Fleet-maintained apps for 23 popular apps |
+| #56802 | merged | Add ARM64 Windows Fleet-maintained apps for 23 popular apps |
 | #56873 | open | Fleet-maintained apps: pinning a hashless app to an older version installs the latest version |
 | #56891 | open | Fleet-maintained apps: a failed installer download returns 500 with the raw network error |
 | #56948 | open | Windows uninstall reports success when the app wasn't installed by its MSI, and the app stays installed |
@@ -145,6 +145,7 @@
 | #58319 | closed | Fleet-maintained apps: Tableau Prep (Windows) install fails with exit code 65535 while the app is open |
 | #58320 | closed | Fleet-maintained apps: Fellow (Windows on ARM) can't be uninstalled, and later installs stay pending |
 | #58497 | closed | Fleet-maintained apps: REDCINE-X PRO (macOS) shows version 1.0 and its patch policy always fails (catalog bundle ID is the bundled RED Tether app) |
+| #58530 | closed | Fleet-maintained apps: SuperCollider (Windows) is never detected after install, so its patch policy always passes |
 
 **4. Build changes**
 
