@@ -1,0 +1,89 @@
+{
+ "slug": "mockoon/darwin",
+ "host": 802,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T04:49:19",
+ "catalog_version": "9.10.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as not_run (no new install result; status was installed)"
+  },
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T08:49:20Z",
+  "restarted": "2026-11-12T08:00:39.691296Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 34842,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "not_run (no new install result; status was installed)",
+ "first_install_seconds": 213,
+ "first_present_after_install": true,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 154,
+ "second_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_lhgpTA</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "90123"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "/string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.mockoon.app' was running; will relaunch after installation.\nQuitting application 'com.mockoon.app'...\nApplication 'com.mockoon.app' quit successfully.\nRelaunching application 'com.mockoon.app'...\nApplication 'com.mockoon.app' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.mockoon.app' was running; will relaunch after installation.",
+  "Quitting application 'com.mockoon.app'...",
+  "Application 'com.mockoon.app' quit successfully.",
+  "Relaunching application 'com.mockoon.app'...",
+  "Application 'com.mockoon.app' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "91257",
+   "path": "/Applications/Mockoon.app/Contents/MacOS/Mockoon",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/mockoon.\nremoving /Users/<user>/Library/Logs/Mockoon.\nremoving /Users/<user>/Library/Preferences/com.mockoon.app.plist.\n/Users/<user>/Library/Saved Application State/com.mockoon.app.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T05:01:12",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T09:01:09Z",
+  "restarted": "2026-11-12T08:00:39.691296Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/mockoon_darwin-802-044919.json"
+}
