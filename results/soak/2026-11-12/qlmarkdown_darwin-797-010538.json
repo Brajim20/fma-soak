@@ -1,0 +1,105 @@
+{
+ "slug": "qlmarkdown/darwin",
+ "host": 797,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T01:05:38",
+ "catalog_version": "1.5.7",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T05:05:31Z",
+  "restarted": "2026-11-12T02:32:52.990847Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 34736,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.5.7"
+ ],
+ "package_version": "1.5.7",
+ "context_after_install": {
+  "path": "/Applications/QLMarkdown.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/QLMarkdown.app/Contents/MacOS/QLMarkdown",
+  "bundle_id": "org.sbarex.QLMarkdown",
+  "versions": [
+   "1.5.7"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "barex.QLMarkdown.QLExtension doesn't exist.\n/Users/<user>/Library/Containers/org.sbarex.QLMarkdown.Shortcut-Extension doesn't exist.\n/Users/<user>/Library/Group Containers/group.org.sbarex.qlmarkdown doesn't exist.\n/Users/<user>/Library/Group Containers/org.sbarex.QLMarkdown doesn't exist.\n/Users/<user>/Library/Group Containers/org.sbarex.qlmarkdown doesn't exist.\n/Users/<user>/Library/Preferences/org.sbarex.QLMarkdown.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.sbarex.QLMarkdownXPCHelper.plist doesn't exist.\n/Users/<user>/Library/QuickLook/QLMarkdown.qlgenerator doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "8504"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 77,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'org.sbarex.QLMarkdown' was running; will relaunch after installation.\nQuitting application 'org.sbarex.QLMarkdown'...\nApplication 'org.sbarex.QLMarkdown' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'org.sbarex.QLMarkdown' was running; will relaunch after installation.",
+  "Quitting application 'org.sbarex.QLMarkdown'...",
+  "Application 'org.sbarex.QLMarkdown' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "8504",
+   "path": "/Applications/QLMarkdown.app/Contents/MacOS/QLMarkdown",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "org.sbarex.QLMarkdown.QLExtension doesn't exist.\n/Users/<user>/Library/Containers/org.sbarex.QLMarkdown.Shortcut-Extension doesn't exist.\nremoving /Users/<user>/Library/Group Containers/group.org.sbarex.qlmarkdown.\n/Users/<user>/Library/Group Containers/org.sbarex.QLMarkdown doesn't exist.\n/Users/<user>/Library/Group Containers/org.sbarex.qlmarkdown doesn't exist.\n/Users/<user>/Library/Preferences/org.sbarex.QLMarkdown.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.sbarex.QLMarkdownXPCHelper.plist doesn't exist.\n/Users/<user>/Library/QuickLook/QLMarkdown.qlgenerator doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T01:17:50",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T05:17:46Z",
+  "restarted": "2026-11-12T02:32:52.990847Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/qlmarkdown_darwin-797-010538.json"
+}

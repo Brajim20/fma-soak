@@ -1,0 +1,86 @@
+{
+ "slug": "thumbsup/darwin",
+ "host": 797,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T02:27:03",
+ "catalog_version": "4.5.3",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall, second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T06:27:02Z",
+  "restarted": "2026-11-12T02:32:52.990847Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 34796,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.5.3"
+ ],
+ "package_version": "4.5.3",
+ "context_after_install": {
+  "path": "/Applications/ThumbsUp.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/ThumbsUp.app/Contents/MacOS/ThumbsUp",
+  "bundle_id": "com.devon-technologies.ThumbsUp",
+  "versions": [
+   "4.5.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": false,
+  "note": "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Caches/com.apple.helpd/Generated/com.devontechnologies.thumbsup.help* doesn't exist.\n/Users/<user>/Library/Caches/com.devon-technologies.ThumbsUp doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.devon-technologies.ThumbsUp doesn't exist.\n/Users/<user>/Library/Preferences/com.devon-technologies.ThumbsUp.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.devon-technologies.ThumbsUp.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T02:34:06",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/thumbsup_darwin-797-022703.json"
+}
