@@ -1,0 +1,103 @@
+{
+ "slug": "stretchly/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T09:30:14",
+ "catalog_version": "1.22.1",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T13:30:03Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 35045,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.22.1"
+ ],
+ "package_version": "1.22.1",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Stretchly 1.22.1"
+  ],
+  "versions": [
+   "1.22.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing Microsoft.PowerShell.Core\\Registry::HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\4f357cc2-fcfb-5fb1-89af-67446d29eff0\nUninstall command: C:\\Program Files\\Stretchly\\Uninstall Stretchly.exe\nUninstall args: /allusers /S _?=C:\\Program Files\\Stretchly\nUninstall exit code: 0\nStretchly is no longer present.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "7816",
+   "10740",
+   "14692",
+   "17176",
+   "19100"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 76,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "7940",
+   "10956",
+   "12448",
+   "13820",
+   "17372"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": null,
+ "open_reinstall_after_running_note": "host didn't answer the process query after opening; not judged",
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T09:39:57",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/stretchly_windows-635-093014.json",
+ "recheck_of": 57918
+}
