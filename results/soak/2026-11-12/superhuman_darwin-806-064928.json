@@ -1,0 +1,106 @@
+{
+ "slug": "superhuman/darwin",
+ "host": 806,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T06:49:28",
+ "catalog_version": "1044.0.5",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T10:49:28Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 34936,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1044.0.5"
+ ],
+ "package_version": "1044.0.5",
+ "context_after_install": {
+  "path": "/Applications/Superhuman.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Superhuman.app/Contents/MacOS/Superhuman",
+  "bundle_id": "com.superhuman.electron",
+  "versions": [
+   "1044.0.5"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "edfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.superhuman.electron.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/Superhuman doesn't exist.\n/Users/<user>/Library/Caches/com.superhuman.electron* doesn't exist.\n/Users/<user>/Library/Caches/Superhuman doesn't exist.\n/Users/<user>/Library/Logs/Superhuman doesn't exist.\n/Users/<user>/Library/Preferences/com.superhuman.electron.* doesn't exist.\n/Users/<user>/Library/Preferences/com.superhuman.mail.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.superhuman.electron.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "43155"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.superhuman.electron' was running; will relaunch after installation.\nQuitting application 'com.superhuman.electron'...\nApplication 'com.superhuman.electron' quit successfully.\nRelaunching application 'com.superhuman.electron'...\nApplication 'com.superhuman.electron' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.superhuman.electron' was running; will relaunch after installation.",
+  "Quitting application 'com.superhuman.electron'...",
+  "Application 'com.superhuman.electron' quit successfully.",
+  "Relaunching application 'com.superhuman.electron'...",
+  "Application 'com.superhuman.electron' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "44271",
+   "path": "/Applications/Superhuman.app/Contents/MacOS/Superhuman",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "pport/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.superhuman.electron.sfl3.\nremoving /Users/<user>/Library/Application Support/Superhuman.\n/Users/<user>/Library/Caches/com.superhuman.electron* doesn't exist.\n/Users/<user>/Library/Caches/Superhuman doesn't exist.\n/Users/<user>/Library/Logs/Superhuman doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.superhuman.electron.plist.\n/Users/<user>/Library/Preferences/com.superhuman.mail.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.superhuman.electron.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T06:58:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T10:58:49Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/superhuman_darwin-806-064928.json"
+}

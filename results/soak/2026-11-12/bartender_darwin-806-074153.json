@@ -1,0 +1,85 @@
+{
+ "slug": "bartender/darwin",
+ "host": 806,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T07:41:53",
+ "catalog_version": "7.2.0",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T11:41:49Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 34980,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.0"
+ ],
+ "package_version": "7.2.0",
+ "context_after_install": {
+  "path": "/Applications/Bartender 7.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Bartender 7.app/Contents/MacOS/Bartender 7",
+  "bundle_id": "com.surteesstudios.Bartender",
+  "versions": [
+   "7.2.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "\n/Users/<user>/Library/Application Support/com.surteesstudios.Bartender.revenuecat doesn't exist.\n/Users/<user>/Library/Caches/com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/Caches/com.surteesstudios.Bartender.revenuecat doesn't exist.\n/Users/<user>/Library/Cookies/com.surteesstudios.Bartender.binarycookies doesn't exist.\n/Users/<user>/Library/Group Containers/24J875RH8J.com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/Preferences/com.surteesstudios.Bartender.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T07:49:58",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T11:49:47Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/bartender_darwin-806-074153.json"
+}

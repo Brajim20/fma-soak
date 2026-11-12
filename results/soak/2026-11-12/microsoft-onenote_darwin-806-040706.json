@@ -1,0 +1,105 @@
+{
+ "slug": "microsoft-onenote/darwin",
+ "host": 806,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T04:07:06",
+ "catalog_version": "16.115",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T08:07:07Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 19560,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneNote\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.115"
+ ],
+ "package_version": "16.115",
+ "context_after_install": {
+  "path": "/Applications/Microsoft OneNote.app",
+  "bundle": "0:0 0775",
+  "executable": "0:0 0775",
+  "exe": "/Applications/Microsoft OneNote.app/Contents/MacOS/Microsoft OneNote",
+  "bundle_id": "com.microsoft.onenote.mac",
+  "versions": [
+   "16.115"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "|^|/Applications/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.microsoft.package.Microsoft_OneNote.app\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Microsoft OneNote.app\" 2>/dev/null || :\nForgot package 'com.microsoft.package.Microsoft_OneNote.app' on '/'.\n/Users/<user>/Library/Application Scripts/com.microsoft.onenote.mac* doesn't exist.\n/Users/<user>/Library/Containers/com.microsoft.onenote.mac* doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 78,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneNote\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "21667"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 170,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.microsoft.onenote.mac' was running; will relaunch after installation.\nQuitting application 'com.microsoft.onenote.mac'...\nApplication 'com.microsoft.onenote.mac' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.onenote.mac' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.onenote.mac'...",
+  "Application 'com.microsoft.onenote.mac' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "21667",
+   "path": "/Applications/Microsoft OneNote.app/Contents/MacOS/Microsoft OneNote",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "pp\" | sed \"s|^|/Applications/|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.microsoft.package.Microsoft_OneNote.app\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Microsoft OneNote.app\" 2>/dev/null || :\nForgot package 'com.microsoft.package.Microsoft_OneNote.app' on '/'.\nremoving /Users/<user>/Library/Application Scripts/com.microsoft.onenote.mac.\nremoving /Users/<user>/Library/Containers/com.microsoft.onenote.mac.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T04:20:46",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T08:20:47Z",
+  "restarted": "2026-11-12T08:00:40.432551Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/microsoft-onenote_darwin-806-040706.json"
+}
