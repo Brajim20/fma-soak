@@ -2,6 +2,11 @@
   "_doc": "Adjudicated digest items (task 4.6). A record's finding matches an entry when app matches and, if given, shape and msg_contains match. 'before' limits an entry to runs started before that time and 'after' to runs started at or after it: use it for harness bugs that were fixed, so a recurrence comes back as new. Matched findings are listed under 'Triaged' instead of 'Needs a look'. Entries without @host match the L0 confirm results by slug. App '*' matches every soak record (app@host); use it only with an after/before window. 'added' (YYYY-MM-DD, required on new entries) is when the verdict was made. Entries stop hiding new failures: one that says 'filed #N' for runs started after that issue closed as completed (so a regression after the fix shows up), and one with no shape, msg_contains, before or after for runs started triage_expire_days (config) after 'added'. recheck.py ignores both rules.",
   "entries": [
     {
+      "app": "supercollider/windows",
+      "verdict": "filed #58530: installer registers DisplayName 'SuperCollider Version 3.14.1' but the catalog exists/patched queries match name = 'SuperCollider', so exists never returns a row and the patch policy always passes (629 + 635, 4/4)",
+      "added": "2026-11-12"
+    },
+    {
       "app": "notepadexe/darwin@624",
       "before": "2026-11-12T01:38",
       "verdict": "environment: the 01:23 open-app reinstall came back installed with empty script output (no relaunch lines, app not running) during the 01:00-05:40 qa slowdown (live-query timeouts, Redis max clients on other apps); the retry on 624 at 01:38 and the 11-10 run both quit and relaunched it cleanly",
