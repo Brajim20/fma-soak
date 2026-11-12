@@ -1,0 +1,98 @@
+{
+ "slug": "cyberduck/darwin",
+ "host": 807,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T12:26:00",
+ "catalog_version": "9.6.0",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 9.6.0: the patch policy would flag an up-to-date host"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T16:25:49Z",
+  "restarted": "2026-11-12T12:46:55.844427Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 35160,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "9.6.0"
+ ],
+ "package_version": "9.6.0",
+ "context_after_install": null,
+ "patched_query_passes": false,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "43804"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 248,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'ch.sudo.cyberduck' was running; will relaunch after installation.\nQuitting application 'ch.sudo.cyberduck'...\nApplication 'ch.sudo.cyberduck' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'ch.sudo.cyberduck' was running; will relaunch after installation.",
+  "Quitting application 'ch.sudo.cyberduck'...",
+  "Application 'ch.sudo.cyberduck' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "43804",
+   "path": "/Applications/Cyberduck.app/Contents/MacOS/Cyberduck",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Scripts/G69SCX94XU.duck.\n/Users/<user>/Library/Application Support/Cyberduck doesn't exist.\nremoving /Users/<user>/Library/Caches/ch.sudo.cyberduck.\nremoving /Users/<user>/Library/Group Containers/G69SCX94XU.duck.\nremoving /Users/<user>/Library/HTTPStorages/ch.sudo.cyberduck.\nremoving /Users/<user>/Library/Logs/Cyberduck.\nremoving /Users/<user>/Library/Preferences/ch.sudo.cyberduck.plist.\n/Users/<user>/Library/Saved Application State/ch.sudo.cyberduck.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T12:39:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T16:39:57Z",
+  "restarted": "2026-11-12T12:46:55.844427Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/cyberduck_darwin-807-122600.json"
+}
