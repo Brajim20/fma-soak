@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 7924 cycles: pass 3011, findings 1961, flaky 369, environment 108, harness 228, skipped 2247
+**1. Runs** — 8224 cycles: pass 3133, findings 1986, flaky 376, environment 111, harness 234, skipped 2384
 
-**2. Coverage** — darwin 965/962 (100.3%), round 4; windows 454/462 (98.3%), round 5
+**2. Coverage** — darwin 974/962 (101.2%), round 5; windows 462/462 (100.0%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -132,10 +132,10 @@
 | #58082 | open | Fleet-maintained apps: Logi Options+ (macOS) install doesn't quit the app when it's open |
 | #58084 | open | Fleet-maintained apps: Notion (Windows) shows as installed with Notion Calendar's version on hosts that only have Notion Calendar |
 | #58089 | open | Fleet-maintained apps: i1Profiler (macOS) can't be updated or uninstalled while it's open ("did not quit") |
-| #58132 | open | Fleet-maintained apps: MEGAsync (Windows) install always fails with exit code 2 |
+| #58132 | closed | Fleet-maintained apps: MEGAsync (Windows) install always fails with exit code 2 |
 | #58133 | closed | Fleet-maintained apps: PureVPN (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
 | #58134 | closed | Fleet-maintained apps: Spotify (Windows) installs into the SYSTEM profile instead of the signed-in user's |
-| #58135 | open | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
+| #58135 | closed | Fleet-maintained apps: Vivaldi (Windows) install never finishes while Vivaldi is open, and later installs and uninstalls fail (exit 60) |
 | #58160 | open | Fleet-maintained apps: Pale Moon (Windows) install never finishes on Windows on ARM |
 | #58173 | closed | Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory) |
 | #58197 | closed | Fleet-maintained apps: Antigravity IDE (Windows) installs into the SYSTEM profile instead of the signed-in user's |
