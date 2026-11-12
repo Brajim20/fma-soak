@@ -1,0 +1,114 @@
+{
+ "slug": "dangerzone/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T00:37:53",
+ "catalog_version": "0.11.1",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T04:37:46Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "title_id": 34720,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 213,
+ "first_install_output_tail": "ey>\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>msdos</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk6\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.11.1"
+ ],
+ "package_version": "0.11.1",
+ "context_after_install": {
+  "path": "/Applications/Dangerzone.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Dangerzone.app/Contents/MacOS/dangerzone",
+  "bundle_id": "press.freedom.dangerzone",
+  "versions": [
+   "0.11.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/dangerzone doesn't exist.\n/Users/<user>/Library/Caches/dangerzone doesn't exist.\n/Users/<user>/Library/Saved Application State/press.freedom.dangerzone.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 350,
+ "second_install_output_tail": "2</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_sGGgTp</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk6\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "19149"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 973,
+ "open_reinstall_output_tail": "tWidgets: No space left on device\ncp: symlink: shiboken6/libshiboken6.abi3.6.11.dylib: No space left on device\ncp: symlink: ../Resources/setuptools: No space left on device\ncp: symlink: pymupdf/libmupdfcpp.so: No space left on device\ncp: symlink: pymupdf/libmupdf.dylib: No space left on device\ncp: symlink: PySide6/Qt/lib/QtCore.framework/Versions/A/QtCore: No space left on device\ncp: symlink: python3__dot__13: No space left on device\ncp: /Applications/Dangerzone.app/Contents/Frameworks/share: No space left on device\ncp: /Applications/Dangerzone.app/Contents/Info.plist: No space left on device\n",
+ "open_reinstall_error_markers": [
+  "No space left"
+ ],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "19507"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/dangerzone.\nremoving /Users/<user>/Library/Caches/dangerzone.\n/Users/<user>/Library/Saved Application State/press.freedom.dangerzone.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-12T01:03:17)",
+ "finished": "2026-11-12T01:12:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T05:11:56Z",
+  "restarted": "2026-11-09T01:22:42.23247Z"
+ },
+ "host_disruption": [
+  "offline at 2026-11-12T01:03:17"
+ ],
+ "evidence": {
+  "library": "results/soak/2026-11-12/evidence/dangerzone_darwin-624-003753-library.png",
+  "inventory": "results/soak/2026-11-12/evidence/dangerzone_darwin-624-003753-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/dangerzone_darwin-624-003753.json"
+}
