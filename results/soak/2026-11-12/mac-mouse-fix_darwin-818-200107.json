@@ -1,0 +1,105 @@
+{
+ "slug": "mac-mouse-fix/darwin",
+ "host": 818,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T20:01:07",
+ "catalog_version": "3.1.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T00:01:07Z",
+  "restarted": "2026-11-12T22:50:08.59392Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 35539,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.1.0"
+ ],
+ "package_version": "3.1.0",
+ "context_after_install": {
+  "path": "/Applications/Mac Mouse Fix.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Mac Mouse Fix.app/Contents/MacOS/Mac Mouse Fix",
+  "bundle_id": "com.nuebling.mac-mouse-fix",
+  "versions": [
+   "3.1.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": " exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.helper doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.helper.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.nuebling.mac-mouse-fix.helper.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.nuebling.mac-mouse-fix.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.nuebling.mac-mouse-fix doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "34759"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.nuebling.mac-mouse-fix' was running; will relaunch after installation.\nQuitting application 'com.nuebling.mac-mouse-fix'...\nApplication 'com.nuebling.mac-mouse-fix' quit successfully.\nRelaunching application 'com.nuebling.mac-mouse-fix'...\nApplication 'com.nuebling.mac-mouse-fix' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.nuebling.mac-mouse-fix' was running; will relaunch after installation.",
+  "Quitting application 'com.nuebling.mac-mouse-fix'...",
+  "Application 'com.nuebling.mac-mouse-fix' quit successfully.",
+  "Relaunching application 'com.nuebling.mac-mouse-fix'...",
+  "Application 'com.nuebling.mac-mouse-fix' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "35458",
+   "path": "/Applications/Mac Mouse Fix.app/Contents/MacOS/Mac Mouse Fix",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "er doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.helper doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.nuebling.mac-mouse-fix.helper.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.nuebling.mac-mouse-fix.helper.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.nuebling.mac-mouse-fix.plist.\n/Users/<user>/Library/WebKit/com.nuebling.mac-mouse-fix doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T20:10:37",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T00:10:29Z",
+  "restarted": "2026-11-12T22:50:08.59392Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/mac-mouse-fix_darwin-818-200107.json"
+}
