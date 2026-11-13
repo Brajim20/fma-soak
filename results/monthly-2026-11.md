@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 9151 cycles: pass 3478, findings 2099, flaky 433, environment 132, harness 282, skipped 2727
+**1. Runs** — 9350 cycles: pass 3560, findings 2131, flaky 450, environment 134, harness 290, skipped 2785
 
-**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 462/485 (95.3%), round 5
+**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 478/485 (98.6%), round 5
 
 **3. Escapes caught or confirmed**
 
@@ -112,11 +112,11 @@
 | #57920 | closed | Fleet-maintained apps: Tailscale (macOS) can't be updated or uninstalled after Fleet installs it ("did not quit") |
 | #57921 | closed | Fleet-maintained apps: Thorium Reader (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57922 | closed | Fleet-maintained apps: Zed (Windows) installs into the SYSTEM profile instead of a machine-wide location |
-| #57923 | open | Fleet-maintained apps: coconutBattery (macOS) never shows an installed version (catalog bundle ID is its login-item helper) |
+| #57923 | closed | Fleet-maintained apps: coconutBattery (macOS) never shows an installed version (catalog bundle ID is its login-item helper) |
 | #57924 | closed | Fleet-maintained apps: WezTerm (macOS) can't be updated while it's open ("did not quit") |
 | #57957 | closed | Fleet-maintained apps: Affinity (macOS) install over the open app quits it and doesn't relaunch it |
 | #58021 | closed | Fleet-maintained apps: Burp Suite Professional (Windows) install fails with exit code 1 while the app is open |
-| #58022 | open | Fleet-maintained apps: Krita (Windows) exists query never matches, so its patch policy always passes |
+| #58022 | closed | Fleet-maintained apps: Krita (Windows) exists query never matches, so its patch policy always passes |
 | #58023 | closed | Fleet-maintained apps: Smartsheet (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #58024 | closed | Fleet-maintained apps: Wrike (Windows) installs into the SYSTEM profile instead of a machine-wide location |
 | #58043 | closed | Fleet-maintained apps: Burp Suite Community Edition (Windows) install fails with exit code 1 while the app is open |
@@ -124,7 +124,7 @@
 | #58045 | closed | Fleet-maintained apps: Vernier Spectral Analysis (Windows) is never detected, so its patch policy always passes |
 | #58051 | closed | Fleet-maintained apps: NordVPN (Windows) is never detected, so its patch policy always passes |
 | #58052 | closed | Fleet-maintained apps: SigmaOS and Malwarebytes for Mac (macOS) show "Update available" forever after installing the current version |
-| #58069 | open | Fleet-maintained apps: grepWin (Windows) is never detected, so its patch policy always passes |
+| #58069 | closed | Fleet-maintained apps: grepWin (Windows) is never detected, so its patch policy always passes |
 | #58070 | closed | Fleet-maintained apps: Rtools (Windows) install fails because its script stops the installer after 480 seconds |
 | #58075 | closed | Fleet-maintained apps: Cursor (Windows) install fails with exit code 5 while the app is open |
 | #58080 | closed | Fleet-maintained apps: Prism (macOS) can't be updated or uninstalled while it's open ("did not quit") |
