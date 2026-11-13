@@ -1,0 +1,105 @@
+{
+ "slug": "acorn/darwin",
+ "host": 825,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T01:32:53",
+ "catalog_version": "8.7.3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T05:32:49Z",
+  "restarted": "2026-11-13T04:13:42.712065Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 35811,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "8.7.3"
+ ],
+ "package_version": "8.7.3",
+ "context_after_install": {
+  "path": "/Applications/Acorn.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Acorn.app/Contents/MacOS/Acorn",
+  "bundle_id": "com.flyingmeat.Acorn8",
+  "versions": [
+   "8.7.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "brary/Application Support/Acorn doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.flyingmeat.acorn8.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.flyingmeat.Acorn8 doesn't exist.\n/Users/<user>/Library/Containers/com.flyingmeat.Acorn8.Acornappex doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.flyingmeat.Acorn8 doesn't exist.\n/Users/<user>/Library/Preferences/com.flyingmeat.Acorn8.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.flyingmeat.Acorn8.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "65228"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.flyingmeat.Acorn8' was running; will relaunch after installation.\nQuitting application 'com.flyingmeat.Acorn8'...\nApplication 'com.flyingmeat.Acorn8' quit successfully.\nRelaunching application 'com.flyingmeat.Acorn8'...\nApplication 'com.flyingmeat.Acorn8' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.flyingmeat.Acorn8' was running; will relaunch after installation.",
+  "Quitting application 'com.flyingmeat.Acorn8'...",
+  "Application 'com.flyingmeat.Acorn8' quit successfully.",
+  "Relaunching application 'com.flyingmeat.Acorn8'...",
+  "Application 'com.flyingmeat.Acorn8' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "66135",
+   "path": "/Applications/Acorn.app/Contents/MacOS/Acorn",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "8.Acornappex.\nremoving /Users/<user>/Library/Application Support/Acorn.\nremoving /Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.flyingmeat.acorn8.sfl3.\nremoving /Users/<user>/Library/Caches/com.flyingmeat.Acorn8.\nremoving /Users/<user>/Library/Containers/com.flyingmeat.Acorn8.Acornappex.\nremoving /Users/<user>/Library/HTTPStorages/com.flyingmeat.Acorn8.\nremoving /Users/<user>/Library/Preferences/com.flyingmeat.Acorn8.plist.\n/Users/<user>/Library/Saved Application State/com.flyingmeat.Acorn8.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-13T01:41:56",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T05:41:48Z",
+  "restarted": "2026-11-13T04:13:42.712065Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/acorn_darwin-825-013253.json"
+}
