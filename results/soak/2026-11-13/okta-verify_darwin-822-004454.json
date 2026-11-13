@@ -1,0 +1,83 @@
+{
+ "slug": "okta-verify/darwin",
+ "host": 822,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T00:44:54",
+ "catalog_version": "9.73.0",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T04:44:45Z",
+  "restarted": "2026-11-13T04:12:14.762486Z"
+ },
+ "pool_slot": 90005,
+ "title_id": 12440,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Okta Verify\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "9.73.0"
+ ],
+ "package_version": "9.73.0",
+ "context_after_install": {
+  "path": "/Applications/Okta Verify.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Okta Verify.app/Contents/MacOS/Okta Verify",
+  "bundle_id": "com.okta.mobile",
+  "versions": [
+   "9.73.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "bin/rm -rf\nsudo rmdir -p \"/Applications/Okta Verify.app\" 2>/dev/null || :\nForgot package 'com.okta.mobile' on '/'.\nremoving /Users/<user>/Library/Application Scripts/com.okta.mobile.auth-service-extension.\n/Users/<user>/Library/Containers/com.okta.mobile doesn't exist.\nremoving /Users/<user>/Library/Containers/com.okta.mobile.auth-service-extension.\n/Users/<user>/Library/Preferences/B7F62B65BN.group.okta.verify.shared.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.okta.mobile.plist doesn't exist.\n/Users/<user>/Library/Preferences/group.com.okta.mobile.firebase.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Okta Verify\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: write tcp 10.27.230.25:44044->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-13T00:51:39",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/okta-verify_darwin-822-004454.json"
+}
