@@ -1,0 +1,145 @@
+{
+ "slug": "8x8-work/darwin",
+ "host": 631,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T00:45:08",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "the app was closed 3 h ago and the patch to 8.38.5 never installed (last attempt: installed, policy fail)"
+  }
+ ],
+ "outcome": "findings",
+ "scenario": {
+  "slug": "8x8-work/darwin",
+  "host": 631,
+  "title_id": 17579,
+  "older": "8.38.4",
+  "newest": "8.38.5",
+  "phase": "closed",
+  "started": "2026-11-13T04:45:08+00:00",
+  "started_local": "2026-11-13T00:45:08",
+  "findings": [
+   {
+    "shape": "S4",
+    "msg": "the app was closed 3 h ago and the patch to 8.38.5 never installed (last attempt: installed, policy fail)"
+   }
+  ],
+  "observations": [
+   {
+    "at": "2026-11-13T05:08:04+00:00",
+    "last_install": {
+     "uuid": "68e8d51a-50fa-464a-b0ad-65d7418de37d",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "8.38.4"
+     ]
+    },
+    "versions": [
+     "8.38.4"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-13T10:27:29+00:00",
+    "last_install": {
+     "uuid": "68e8d51a-50fa-464a-b0ad-65d7418de37d",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "8.38.4"
+     ]
+    },
+    "versions": [
+     "8.38.4"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-13T16:14:24+00:00",
+    "last_install": {
+     "uuid": "68e8d51a-50fa-464a-b0ad-65d7418de37d",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "8.38.4"
+     ]
+    },
+    "versions": [
+     "8.38.4"
+    ],
+    "policy": "fail",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 46,
+  "old_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_0OLWwi</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/8x8 Work.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/8x8 Work.app/Contents/MacOS/8x8 Work",
+   "bundle_id": "com.electron.8x8---virtual-office",
+   "versions": [
+    "8.38.4"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "80403"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/8x8 Work.app",
+   "exe": "/Applications/8x8 Work.app/Contents/MacOS/8x8 Work",
+   "bundle_id": "com.electron.8x8---virtual-office",
+   "pids": [
+    "80403"
+   ]
+  },
+  "pids": [
+   "80403"
+  ],
+  "before_uuid": "68e8d51a-50fa-464a-b0ad-65d7418de37d",
+  "patch_on": 200,
+  "policy": {
+   "id": 1248,
+   "name": "macOS - 8x8 Work up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "install_title": 17579
+  },
+  "opened_at": "2026-11-13T04:47:31+00:00",
+  "close_close": "",
+  "closed_at": "2026-11-13T10:28:15+00:00",
+  "end_close": "no result in time",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": "pending_uninstall",
+  "end_uninstall_seconds": null,
+  "end_uninstall_cancelled_after_timeout": [],
+  "end_uninstall_output_tail": "",
+  "end_uninstall_exit_code": null,
+  "ended": "2026-11-13T16:49:57+00:00"
+ },
+ "finished": "2026-11-13T12:49:57",
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/8x8-work_darwin-631-004508-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/8x8-work_darwin-631-004508-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/8x8-work_darwin-631-004508.json"
+}
