@@ -21,6 +21,9 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 Each platform has a priority list of 50 apps (`config.json` `priority.tiers`, kept by hand). The rest of the catalog
 is split into four fixed quarters (`quarters`), one per week, so every app gets a full cycle at least every 4 weeks.
 
+The first full run of the catalog took about two weeks: macOS (963 apps) 2026-10-29 → 11-12, 14 days; Windows (462
+apps) 2026-10-29 → 11-11, 13.5 days. 95% were covered after about 11 days; the last few waited on host problems.
+
 | Apps | Cycle at least every | Per platform |
 |---|---|---|
 | Priority 1–10 (`twice_daily`) | 12 h | 10 |
