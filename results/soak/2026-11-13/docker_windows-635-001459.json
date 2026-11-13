@@ -1,0 +1,57 @@
+{
+ "slug": "docker/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-13T00:14:59",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 4.98.0 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "install of 4.98.0 ended as failed_install; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T04:14:51Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 22809,
+ "cached_versions": [
+  "4.98.0",
+  "4.99.0"
+ ],
+ "active_before": "4.99.0",
+ "pin_older_status": 200,
+ "active_after_pin": "4.98.0",
+ "old_install_request": 202,
+ "old_install_status": "failed_install",
+ "old_install_seconds": 948,
+ "old_install_output_tail": "Installing software...\nFailed\nDocker Desktop did not register within timeout.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "4.99.0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "failed_uninstall",
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "Error: Docker Desktop registry entry not found in HKCU or HKLM.\n\nscript execution error: exit status 1",
+ "cleanup_uninstall_exit_code": 1,
+ "outcome": "findings",
+ "finished": "2026-11-13T00:32:56",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T04:32:48Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/docker_windows-635-001459-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/docker_windows-635-001459-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/docker_windows-635-001459.json"
+}

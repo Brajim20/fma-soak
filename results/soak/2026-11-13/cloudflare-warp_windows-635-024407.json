@@ -1,0 +1,74 @@
+{
+ "slug": "cloudflare-warp/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T02:44:07",
+ "catalog_version": "26.8.2115.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T06:44:06Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 35823,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:24) [22:44:50:803]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (EC:24) [22:44:50:805]: Destroying RemoteAPI object.\r\nMSI (s) (EC:60) [22:44:50:805]: Custom Action Manager thread ending.\r\nMSI (c) (A8:50) [22:44:50:809]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A8:50) [22:44:50:811]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/12/2026  22:44:50 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.8.2115.0"
+ ],
+ "package_version": "26.8.2115.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Cloudflare One Client"
+  ],
+  "versions": [
+   "26.8.2115.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (EC:2C) [22:47:37:770]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (EC:2C) [22:47:37:770]: Destroying RemoteAPI object.\r\nMSI (s) (EC:F0) [22:47:37:770]: Custom Action Manager thread ending.\r\nMSI (c) (70:4C) [22:47:37:786]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (70:4C) [22:47:37:786]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/12/2026  22:47:37 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-13T02:49:51",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T06:49:42Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/cloudflare-warp_windows-635-024407.json"
+}
