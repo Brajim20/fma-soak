@@ -1,0 +1,50 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/git/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/git.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/git_install.ps1",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/git_uninstall.ps1"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "1dc1a51313",
+   "date": "2026-08-03",
+   "title": "Fix Windows Git FMA patch policy never detecting outdated installs (#50424)"
+  },
+  {
+   "sha": "77b2cdcc6c",
+   "date": "2026-06-08",
+   "title": "Add R and Git as Windows Fleet-maintained apps (#46988)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 56040,
+   "state": "open",
+   "title": "Claude Code dangerous-command guard lets `git push origin main --force`, `rm -fr /` and `\\"
+  },
+  {
+   "number": 56236,
+   "state": "open",
+   "title": "Article: Zero to GitOps: set up Fleet GitOps and make changes with AI"
+  },
+  {
+   "number": 50077,
+   "state": "open",
+   "title": "Windows software with version in name still matches wrong title for apps needing a custom "
+  },
+  {
+   "number": 24382,
+   "state": "open",
+   "title": "Only report actions from GitOps run if actual changes are made"
+  },
+  {
+   "number": 58593,
+   "state": "open",
+   "title": "Remove unused ca_config_assets table"
+  }
+ ]
+}

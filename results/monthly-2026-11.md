@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 9350 cycles: pass 3560, findings 2131, flaky 450, environment 134, harness 290, skipped 2785
+**1. Runs** — 9464 cycles: pass 3613, findings 2152, flaky 458, environment 134, harness 292, skipped 2815
 
-**2. Coverage** — darwin 975/963 (101.2%), round 5; windows 478/485 (98.6%), round 5
+**2. Coverage** — darwin 975/963 (101.2%), quarter 4/4 this week 215/230, twice_daily 4/10 on time, daily 11/15 on time, twice_weekly 21/25 on time; windows 479/485 (98.8%), quarter 4/4 this week 86/118, twice_daily 9/10 on time, daily 11/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -103,6 +103,7 @@
 | #57818 | closed | Fleet-maintained apps: Elgato Wave Link (macOS) is never detected after install (bundle ID com.elgato.WaveLink vs com.elgato.WaveLink3) |
 | #57819 | closed | Fleet-maintained apps: OnionShare (macOS) is never detected after install (bundle ID org.onionshare.onionshare vs OnionShare) |
 | #57827 | open | Fleet-maintained apps: Crestron AirMedia (Windows) can't be added — vendor returns 403 to Fleet's download User-Agent (regression of #49123) |
+| #57883 | merged | Fleet-maintained apps: fix Visual Studio Professional 2022 (Windows) reinstall failing with exit code 1 |
 | #57888 | merged | Fix GoLand (Windows) reinstall hanging on the installer's non-empty-directory prompt |
 | #57915 | closed | Fleet-maintained apps: Novabench (macOS) installs root-only, so users can't open it |
 | #57916 | open | Software: adding a macOS app attaches it to another app's title when only the name matches (Recents → Apple's Finder Recents) |
@@ -146,6 +147,7 @@
 | #58320 | closed | Fleet-maintained apps: Fellow (Windows on ARM) can't be uninstalled, and later installs stay pending |
 | #58497 | closed | Fleet-maintained apps: REDCINE-X PRO (macOS) shows version 1.0 and its patch policy always fails (catalog bundle ID is the bundled RED Tether app) |
 | #58530 | closed | Fleet-maintained apps: SuperCollider (Windows) is never detected after install, so its patch policy always passes |
+| #58624 | open | Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 
 **4. Build changes**
 
@@ -158,7 +160,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: done
+2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests

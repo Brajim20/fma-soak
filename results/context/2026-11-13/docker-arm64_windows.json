@@ -1,0 +1,43 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker-arm64/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker-arm64.json"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "8707021b39",
+   "date": "2026-11-12",
+   "title": "Add ARM64 Windows Fleet-maintained apps for 23 popular apps (#56802)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 55727,
+   "state": "open",
+   "title": "fleetctl package: --outfile is ignored for Windows ARM64 .msi (--arch arm64)"
+  },
+  {
+   "number": 49273,
+   "state": "open",
+   "title": "fleetctl preview (no --tag) with a newer fleetctl aborts on starter library and enrolls no"
+  },
+  {
+   "number": 53123,
+   "state": "closed",
+   "title": "Build Fleet Desktop for Linux without the Docker image (pure Go static build)"
+  },
+  {
+   "number": 50503,
+   "state": "open",
+   "title": "Generate Windows .msi fleetd installers in pure Go (remove fleetdm/wix Docker dependency)"
+  },
+  {
+   "number": 52122,
+   "state": "closed",
+   "title": "Orbit does not gracefully handle downgrades when new flags are introduced"
+  }
+ ]
+}
