@@ -1,0 +1,94 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-13T16:00:45",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinned 156.0.8078.80, but the host has ['157.0.8103.79'] after installing it (#56873 shape)"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T20:00:42Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 20665,
+ "cached_versions": [
+  "156.0.8078.80",
+  "157.0.8103.79"
+ ],
+ "active_before": "157.0.8103.79",
+ "pin_older_status": 200,
+ "active_after_pin": "156.0.8078.80",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (6C:60) [12:01:40:219]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (6C:60) [12:01:40:221]: Destroying RemoteAPI object.\r\nMSI (s) (6C:28) [12:01:40:221]: Custom Action Manager thread ending.\r\nMSI (c) (D0:B8) [12:01:40:224]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D0:B8) [12:01:40:224]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/13/2026  12:01:40 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": true,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "157.0.8103.79",
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": ":853]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (6C:3C) [12:03:18:853]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (6C:3C) [12:03:18:853]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (E0:94) [12:03:18:853]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (E0:94) [12:03:18:853]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/13/2026  12:03:18 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 46,
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-13T16:05:33",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T20:05:29Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/google-chrome_windows-635-160045-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/google-chrome_windows-635-160045-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/google-chrome_windows-635-160045.json"
+}
