@@ -1,0 +1,112 @@
+{
+ "slug": "microsoft-outlook/darwin",
+ "host": 837,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T16:02:17",
+ "catalog_version": "16.115",
+ "findings": [],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-13T20:01:17Z",
+  "restarted": "0001-01-01T00:00:00Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 19670,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Outlook\ninstaller: choices changes file '/tmp/choice_xml_RkL' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.115"
+ ],
+ "package_version": "16.115",
+ "context_after_install": {
+  "path": "/Applications/Microsoft Outlook.app",
+  "bundle": "0:0 0775",
+  "executable": "0:0 0775",
+  "exe": "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook",
+  "bundle_id": "com.microsoft.Outlook",
+  "versions": [
+   "16.115"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "til --pkg-info-plist \"com.microsoft.pkg.licensing.v3\"\nsudo pkgutil --only-files --files \"com.microsoft.pkg.licensing.v3\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.microsoft.pkg.licensing.v3\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.microsoft.pkg.licensing.v3' on '/'.\n/Users/<user>/Library/Application Scripts/com.microsoft.Outlook doesn't exist.\n/Users/<user>/Library/Containers/com.microsoft.Outlook doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 92,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Outlook\ninstaller: choices changes file '/tmp/choice_xml_sZ9' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "25009"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 123,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.microsoft.Outlook' was running; will relaunch after installation.\nQuitting application 'com.microsoft.Outlook'...\nApplication 'com.microsoft.Outlook' quit successfully.\ninstaller: Package name is Microsoft Outlook\ninstaller: choices changes file '/tmp/choice_xml_NDx' applied\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.microsoft.Outlook'...\nApplication 'com.microsoft.Outlook' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.Outlook' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.Outlook'...",
+  "Application 'com.microsoft.Outlook' quit successfully.",
+  "Relaunching application 'com.microsoft.Outlook'...",
+  "Application 'com.microsoft.Outlook' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "29126",
+   "path": "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": " '/'.\npkgutil --pkg-info-plist \"com.microsoft.pkg.licensing.v3\"\nsudo pkgutil --only-files --files \"com.microsoft.pkg.licensing.v3\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.microsoft.pkg.licensing.v3\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nForgot package 'com.microsoft.pkg.licensing.v3' on '/'.\nremoving /Users/<user>/Library/Application Scripts/com.microsoft.Outlook.\nremoving /Users/<user>/Library/Containers/com.microsoft.Outlook.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-13T16:19:56",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T20:19:57Z",
+  "restarted": "2026-11-13T19:59:16.467438Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-13T19:59:16.467438Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/microsoft-outlook_darwin-837-160217.json"
+}
