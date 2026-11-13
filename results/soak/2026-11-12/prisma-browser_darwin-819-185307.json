@@ -1,0 +1,112 @@
+{
+ "slug": "prisma-browser/darwin",
+ "host": 819,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T18:53:07",
+ "catalog_version": "157.19.5.51",
+ "findings": [],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-12T22:52:05Z",
+  "restarted": "0001-01-01T00:00:00Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 35351,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Prisma Access Browser\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "157.19.5.51"
+ ],
+ "package_version": "157.19.5.51",
+ "context_after_install": {
+  "path": "/Applications/Prisma Access Browser.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Prisma Access Browser.app/Contents/MacOS/Prisma Access Browser",
+  "bundle_id": "com.talon-sec.Work",
+  "versions": [
+   "157.19.5.51"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 32,
+ "first_uninstall_output_tail": "om.talon-sec.Work\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Prisma Access Browser.app\" 2>/dev/null || :\nForgot package 'com.talon-sec.Work' on '/'.\n/Users/<user>/Library/Application Support/PAB doesn't exist.\n/Users/<user>/Library/Caches/com.paloaltonetworks.PrismaAccessBrowserUpdater doesn't exist.\n/Users/<user>/Library/Caches/PAB doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.paloaltonetworks.PrismaAccessBrowserUpdater doesn't exist.\n/Users/<user>/Library/PAB doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 63,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Prisma Access Browser\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "21804"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.talon-sec.Work' was running; will relaunch after installation.\nQuitting application 'com.talon-sec.Work'...\nApplication 'com.talon-sec.Work' quit successfully.\ninstaller: Package name is Prisma Access Browser\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.talon-sec.Work'...\nApplication 'com.talon-sec.Work' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.talon-sec.Work' was running; will relaunch after installation.",
+  "Quitting application 'com.talon-sec.Work'...",
+  "Application 'com.talon-sec.Work' quit successfully.",
+  "Relaunching application 'com.talon-sec.Work'...",
+  "Application 'com.talon-sec.Work' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "23357",
+   "path": "/Applications/Prisma Access Browser.app/Contents/MacOS/Prisma Access Browser",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "dirs --files \"com.talon-sec.Work\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Prisma Access Browser.app\" 2>/dev/null || :\nForgot package 'com.talon-sec.Work' on '/'.\nremoving /Users/<user>/Library/Application Support/PAB.\n/Users/<user>/Library/Caches/com.paloaltonetworks.PrismaAccessBrowserUpdater doesn't exist.\nremoving /Users/<user>/Library/Caches/PAB.\n/Users/<user>/Library/HTTPStorages/com.paloaltonetworks.PrismaAccessBrowserUpdater doesn't exist.\nremoving /Users/<user>/Library/PAB.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T19:06:54",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T23:06:47Z",
+  "restarted": "2026-11-12T22:50:42.383022Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-12T22:50:42.383022Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/prisma-browser_darwin-819-185307.json"
+}

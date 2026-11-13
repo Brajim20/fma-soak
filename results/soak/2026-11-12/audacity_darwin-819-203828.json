@@ -1,0 +1,121 @@
+{
+ "slug": "audacity/darwin",
+ "host": 819,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T20:38:28",
+ "catalog_version": "4.0.2",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T00:38:25Z",
+  "restarted": "2026-11-12T22:50:42.383022Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 17582,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_OiwW14</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "4.0.2",
+ "context_after_install": {
+  "path": "/Applications/Audacity 4.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Audacity 4.app/Contents/MacOS/audacity",
+  "bundle_id": "org.audacityteam.audacity4",
+  "versions": [
+   "4.0.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 32,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/audacity doesn't exist.\n/Users/<user>/Library/Caches/Audacity doesn't exist.\n/Users/<user>/Library/Preferences/org.audacityteam.Audacity4.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.audacityteam.audacity.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.audacityteam.audacity.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_tV9ccu</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "43789",
+   "43793"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 324,
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "43789",
+   "path": "/Applications/Audacity 4.app/Contents/MacOS/audacity",
+   "on_disk": "1"
+  },
+  {
+   "pid": "43793",
+   "path": "/Applications/Audacity 4.app/Contents/MacOS/crashpad_handler",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "43789",
+   "43793"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/audacity.\n/Users/<user>/Library/Caches/Audacity doesn't exist.\n/Users/<user>/Library/Preferences/org.audacityteam.Audacity4.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.audacityteam.audacity.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.audacityteam.audacity.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-12T21:09:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T01:09:48Z",
+  "restarted": "2026-11-12T22:50:42.383022Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/audacity_darwin-819-203828.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/audacity_darwin-819-200931.json"
+}
