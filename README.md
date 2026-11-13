@@ -12,9 +12,35 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 |---|---|---|
 | L0 | Audit of every manifest in `ee/maintained-apps/outputs` (dead URLs, hashes, versions behind upstream, Windows exists queries vs the name the installer registers), then a Fleet-side confirm of each suspect | daily |
 | L1 | Update-pipeline suite against a throwaway Fleet server (`pipeline/`): the revision the soak instance runs, and fleetdm/fleet main (`.github/workflows/l1-pipeline.yml`) | nightly |
-| L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from a pinned previous version. With the app open: a reinstall over the open app (every cycle), and the upgrade on alternate days | every 6 h |
+| L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from a pinned previous version. With the app open: a reinstall over the open app (every cycle), and the upgrade on alternate days. Which apps run when: see below | every 6 h pass |
 | L2 | Patch when closed: Fleet's own patch policy with "patch when closed" on one app a day per platform, over several passes: every attempt while the app is open must be a skip reported as one; after it's closed the patch must land without reopening it | daily |
 | L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host (hours the host was offline don't count) | every 2 h |
+
+## Which apps run when
+
+Each platform has a priority list of 50 apps (`config.json` `priority.tiers`, kept by hand). The rest of the catalog
+is split into four fixed quarters (`quarters`), one per week, so every app gets a full cycle at least every 4 weeks.
+
+| Apps | Cycle at least every | Per platform |
+|---|---|---|
+| Priority 1–10 (`twice_daily`) | 12 h | 10 |
+| Priority 11–25 (`daily`) | 24 h | 15 |
+| Priority 26–50 (`twice_weekly`) | 3.5 days | 25 |
+| Everything else | once in its quarter's week | ~230 macOS / ~110 Windows a week |
+
+Each pass picks in this order: reruns listed in `rerun`, overdue priority apps (most overdue first), apps new to the
+catalog, apps never cycled, a share of recently changed and validator blind-spot apps, then this week's quarter. A
+priority app's host rotates every period, and an offline host's apps go to another host. An app's quarter is
+`crc32(slug) % 4`; the weeks since `quarters.epoch` pick the quarter.
+
+The upgrade test (pin the previous version, install it, upgrade to the newest) needs two cached versions, which Fleet
+keeps only for titles that stay in the fleet while the vendor ships. The `twice_daily` titles stay (`priority.update.
+keep_tiers`); keeping more would store more installers on the instance's disk. For priority apps it runs only when the
+app shipped a new version, the instance moved to a new Fleet build (`new_build_tiers`), or a week has passed
+(`every_days`). Canaries and watcher residents keep their daily run.
+
+The digest shows the week's quarter (done/total, on pace or behind) and, per tier, how many apps are on time and
+which are overdue.
 
 Failures are grouped by shape, not by app:
 
@@ -72,7 +98,7 @@ export FMA_SOAK_TOKEN=...                         # or a fleetctl context named 
 cd soak
 python3 runner.py firefox/darwin                  # one lifecycle cycle
 python3 runner.py firefox/darwin --update         # upgrade from the previous version
-python3 sample.py --platform windows --count 3 --dry-run   # what the sample would pick next
+python3 sample.py --platform windows --count 3 --dry-run   # what the next pass would pick
 python3 loop.py --once                            # one full pass on both hosts
 python3 digest.py                                 # today's digest → results/digest-<date>.md
 ```
@@ -102,7 +128,8 @@ Check it isn't intended first: UI copy, docs, the sibling path that does the sam
 
 ```
 settings.py        config.json + config.local.json + environment variables
-config.json        canaries, known environment, loop and sample settings (nothing instance-specific)
+config.json        canaries, priority tiers, quarters, known environment, loop and sample settings
+                   (nothing instance-specific)
 triage.json        adjudicated findings, which the digest moves out of "Needs a look"
 soak/              runner.py (cycle, update path), sample.py, watcher.py, scenarios.py, loop.py, pass.sh,
                    digest.py, monthly.py (draft of the monthly #55961 update), tools/shot.mjs (screenshots),
