@@ -1,0 +1,83 @@
+{
+ "slug": "azul-zulu-25-jdk/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T01:53:59",
+ "catalog_version": "25.38.109",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T05:53:56Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "title_id": 35812,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (6C:1C) [01:54:33:319]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (6C:1C) [01:54:33:319]: Destroying RemoteAPI object.\r\nMSI (s) (6C:FC) [01:54:33:319]: Custom Action Manager thread ending.\r\nMSI (c) (B4:D0) [01:54:33:319]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B4:D0) [01:54:33:319]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/13/2026  1:54:33 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "25.38.109",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Zulu\\zulu-25\\"
+  ],
+  "names": [
+   "Azul Zulu JDK 25.38.109 (25.0.5.0.3), 64-bit"
+  ],
+  "versions": [
+   "25.38.109"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Exit 0\r\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (3C:C8) [02:11:46:582]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (3C:C8) [02:11:46:582]: Destroying RemoteAPI object.\r\nMSI (s) (3C:10) [02:11:46:582]: Custom Action Manager thread ending.\r\nMSI (c) (A4:88) [02:11:46:582]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A4:88) [02:11:46:582]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/13/2026  2:11:46 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Exit 0\r\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-13T02:12:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T06:12:57Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/azul-zulu-25-jdk_windows-629-015359-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/azul-zulu-25-jdk_windows-629-015359-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/azul-zulu-25-jdk_windows-629-015359.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/azul-zulu-25-jdk_windows-629-013510.json",
+ "crosshost_of": "soak/2026-11-12/azul-zulu-25-jdk_windows-635-201736.json"
+}

@@ -1,0 +1,67 @@
+{
+ "slug": "python-3.13-arm64/windows",
+ "host": 629,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T03:09:59",
+ "catalog_version": "3.13.17",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T07:09:53Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "title_id": 35831,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "3.13.17",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "AA482961AA5})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Development Libraries (ARM64)' ({12798565-01DE-4C1E-BC83-A3613B3B3975})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Test Suite (ARM64)' ({81C57BC2-D576-40A7-9732-875582E56AC6})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Executables (ARM64)' ({59F94925-B1E2-4C8E-850D-8DF198DCEA0D})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Core Interpreter (ARM64)' ({87E5D861-1822-40D4-9BC9-B95946613855})\n  Exit code: 0\nRemoving orphaned bundle registration: 'Python 3.13.17 (ARM64)'\nAll Python 3.13 (ARM64) entries removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall": "skipped: no app path or name to open",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "on 3.13.17 Standard Library (ARM64)' ({1C5D84A3-B757-4E49-BE46-0AA482961AA5})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Development Libraries (ARM64)' ({12798565-01DE-4C1E-BC83-A3613B3B3975})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Test Suite (ARM64)' ({81C57BC2-D576-40A7-9732-875582E56AC6})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Executables (ARM64)' ({59F94925-B1E2-4C8E-850D-8DF198DCEA0D})\n  Exit code: 0\nRemoving component: 'Python 3.13.17 Core Interpreter (ARM64)' ({87E5D861-1822-40D4-9BC9-B95946613855})\n  Exit code: 0\nAll Python 3.13 (ARM64) entries removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-13T03:28:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T07:28:54Z",
+  "restarted": "2026-11-01T20:16:36.054979Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/python-3.13-arm64_windows-629-030959-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/python-3.13-arm64_windows-629-030959-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/python-3.13-arm64_windows-629-030959.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/python-3.13-arm64_windows-629-025052.json"
+}
