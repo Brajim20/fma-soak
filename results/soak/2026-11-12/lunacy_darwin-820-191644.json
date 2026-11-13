@@ -1,0 +1,91 @@
+{
+ "slug": "lunacy/darwin",
+ "host": 820,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T19:16:44",
+ "catalog_version": "14.1",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall, second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T23:16:34Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 35495,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "ontent-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "14.1"
+ ],
+ "package_version": "14.1",
+ "context_after_install": {
+  "path": "/Applications/Lunacy.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Lunacy.app/Contents/MacOS/Lunacy",
+  "bundle_id": "com.icons8.Lunacy",
+  "versions": [
+   "14.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/.local/share/Icons8/Lunacy doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "ontent-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Users/<user>/.local/share/Icons8/Lunacy doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 distributed query is denylisted",
+  "200 distributed query is denylisted",
+  "200 distributed query is denylisted",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 distributed query is denylisted",
+  "200 distributed query is denylisted",
+  "200 timeout waiting for results",
+  "200 distributed query is denylisted",
+  "200 distributed query is denylisted",
+  "200 distributed query is denylisted"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T19:27:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-12T23:27:43Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/lunacy_darwin-820-191644.json"
+}

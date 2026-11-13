@@ -1,0 +1,103 @@
+{
+ "slug": "bettermouse/darwin",
+ "host": 820,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T22:10:20",
+ "catalog_version": "1.7",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T02:10:12Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 35620,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.7"
+ ],
+ "package_version": "1.7",
+ "context_after_install": {
+  "path": "/Applications/BetterMouse.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/BetterMouse.app/Contents/MacOS/BetterMouse",
+  "bundle_id": "com.naotanhaocan.BetterMouse",
+  "versions": [
+   "1.7"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/BetterMouse doesn't exist.\n/Users/<user>/Library/Caches/com.naotanhaocan.BetterMouse doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.naotanhaocan.BetterMouse* doesn't exist.\n/Users/<user>/Library/Preferences/com.naotanhaocan.BetterMouse.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.naotanhaocan.BetterMouse.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "7727"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 124,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.naotanhaocan.BetterMouse' was running; will relaunch after installation.\nQuitting application 'com.naotanhaocan.BetterMouse'...\nApplication 'com.naotanhaocan.BetterMouse' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.naotanhaocan.BetterMouse' was running; will relaunch after installation.",
+  "Quitting application 'com.naotanhaocan.BetterMouse'...",
+  "Application 'com.naotanhaocan.BetterMouse' did not quit."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "7727",
+   "path": "/Applications/BetterMouse.app/Contents/MacOS/BetterMouse",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_running_note": "install refused because the app didn't quit (by design); app left running",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/BetterMouse doesn't exist.\n/Users/<user>/Library/Caches/com.naotanhaocan.BetterMouse doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.naotanhaocan.BetterMouse* doesn't exist.\n/Users/<user>/Library/Preferences/com.naotanhaocan.BetterMouse.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.naotanhaocan.BetterMouse.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T22:19:20",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T02:19:12Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/bettermouse_darwin-820-221020.json"
+}

@@ -1,0 +1,114 @@
+{
+ "slug": "adobe-dng-converter/darwin",
+ "host": 820,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T22:19:21",
+ "catalog_version": "19.0",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T02:19:21Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 35627,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 108,
+ "first_install_output_tail": "lly-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is Adobe DNG Converter 19.0\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "19.0 (2794)"
+ ],
+ "package_version": "19.0",
+ "context_after_install": {
+  "path": "/Applications/Adobe DNG Converter.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Adobe DNG Converter.app/Contents/MacOS/Adobe DNG Converter",
+  "bundle_id": "com.adobe.DNGConverter",
+  "versions": [
+   "19.0 (2794)"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/rm -rf\nsudo pkgutil --only-dirs --files \"com.adobe.DNGConverter\" | sed \"s|^|/Applications//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications//Adobe DNG Converter.app\" 2>/dev/null || :\nForgot package 'com.adobe.DNGConverter' on '/'.\n/Users/<user>/Library/Application Support/Adobe/CameraRaw/GPU/Adobe DNG Converter doesn't exist.\n/Users/<user>/Library/Application Support/Adobe/CameraRaw/Logs/DNG Converter Log* doesn't exist.\n/Users/<user>/Library/Saved Application State/com.adobe.DNGConverter.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 78,
+ "second_install_output_tail": ">/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is Adobe DNG Converter 19.0\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "31417"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 108,
+ "open_reinstall_output_tail": "potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\nApplication 'com.adobe.DNGConverter' was running; will relaunch after installation.\nQuitting application 'com.adobe.DNGConverter'...\nApplication 'com.adobe.DNGConverter' quit successfully.\ninstaller: Package name is Adobe DNG Converter 19.0\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.adobe.DNGConverter'...\nApplication 'com.adobe.DNGConverter' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.adobe.DNGConverter' was running; will relaunch after installation.",
+  "Quitting application 'com.adobe.DNGConverter'...",
+  "Application 'com.adobe.DNGConverter' quit successfully.",
+  "Relaunching application 'com.adobe.DNGConverter'...",
+  "Application 'com.adobe.DNGConverter' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "34067",
+   "path": "/Applications/Adobe DNG Converter.app/Contents/MacOS/Adobe DNG Converter",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications//Adobe DNG Converter.app\" 2>/dev/null || :\nForgot package 'com.adobe.DNGConverter' on '/'.\nremoving /Users/<user>/Library/Application Support/Adobe/CameraRaw/GPU/Adobe DNG Converter.\nremoving /Users/<user>/Library/Application Support/Adobe/CameraRaw/Logs/DNG Converter Log Latest v1.txt.\nremoving /Users/<user>/Library/Application Support/Adobe/CameraRaw/Logs/DNG Converter Log Latest v0.txt.\n/Users/<user>/Library/Saved Application State/com.adobe.DNGConverter.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: write tcp 10.27.230.67:36124->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T22:35:24",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/adobe-dng-converter_darwin-820-221921.json"
+}

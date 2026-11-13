@@ -1,0 +1,104 @@
+{
+ "slug": "clickshare/darwin",
+ "host": 820,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T22:49:22",
+ "catalog_version": "4.52.0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T02:49:21Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 35645,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.52.0.11"
+ ],
+ "package_version": "4.52.0",
+ "context_after_install": {
+  "path": "/Applications/ClickShare.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/ClickShare.app/Contents/MacOS/ClickShare",
+  "bundle_id": "com.barco.clickshare.updater",
+  "versions": [
+   "4.52.0.11"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64",
+  "cask_has_arm_build": false,
+  "note": "Intel-only on Apple Silicon, but upstream ships no Apple Silicon build (Rosetta)"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": " exist.\n/Users/<user>/Library/LaunchAgents/com.barco.clickshare.autorun.plist doesn't exist.\n/Users/<user>/.clickshare doesn't exist.\n/Users/<user>/Library/Application Support/ClickShare doesn't exist.\n/Users/<user>/Library/Caches/com.barco.clickshare.updater* doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.barco.clickshare.updater doesn't exist.\n/Users/<user>/Library/LaunchAgents/com.barco.clickshare.agent.plist doesn't exist.\n/Users/<user>/Library/LaunchAgents/com.barco.clickshare.autorun.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.barco.clickshare*.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "73225"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_running_note": "pool runner: the install closed the open app and didn't reopen it; the script didn't try to",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "73600",
+   "76094"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_running_note": "pool runner: the app didn't stay open after the install; not judged",
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "re.autorun.plist doesn't exist.\nremoving /Users/<user>/.clickshare.\n/Users/<user>/Library/Application Support/ClickShare doesn't exist.\nremoving /Users/<user>/Library/Caches/com.barco.clickshare.updater.ShipIt.\nremoving /Users/<user>/Library/Caches/com.barco.clickshare.updater.\nremoving /Users/<user>/Library/HTTPStorages/com.barco.clickshare.updater.\n/Users/<user>/Library/LaunchAgents/com.barco.clickshare.agent.plist doesn't exist.\n/Users/<user>/Library/LaunchAgents/com.barco.clickshare.autorun.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.barco.clickshare.updater.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-12T22:58:11",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T02:58:01Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/clickshare_darwin-820-224922.json"
+}

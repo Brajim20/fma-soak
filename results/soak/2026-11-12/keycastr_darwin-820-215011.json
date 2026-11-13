@@ -1,0 +1,112 @@
+{
+ "slug": "keycastr/darwin",
+ "host": 820,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T21:50:11",
+ "catalog_version": "0.11.1",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T01:50:12Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 35603,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.11.1"
+ ],
+ "package_version": "0.11.1",
+ "context_after_install": {
+  "path": "/Applications/KeyCastr.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/KeyCastr.app/Contents/MacOS/KeyCastr",
+  "bundle_id": "io.github.keycastr",
+  "versions": [
+   "0.11.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/Users/<user>/Library/HTTPStorages/io.github.keycastr doesn't exist.\n/Users/<user>/Library/Preferences/io.github.keycastr.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "76389"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'io.github.keycastr' was running; will relaunch after installation.\nQuitting application 'io.github.keycastr'...\nApplication 'io.github.keycastr' quit successfully.\nRelaunching application 'io.github.keycastr'...\nApplication 'io.github.keycastr' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'io.github.keycastr' was running; will relaunch after installation.",
+  "Quitting application 'io.github.keycastr'...",
+  "Application 'io.github.keycastr' quit successfully.",
+  "Relaunching application 'io.github.keycastr'...",
+  "Application 'io.github.keycastr' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "502 error code: 502\n"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_running_note": "pool runner: the app didn't stay open after the install; not judged",
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T22:01:50",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T02:01:48Z",
+  "restarted": "2026-11-12T23:00:35.924104Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/keycastr_darwin-820-215011.json"
+}
