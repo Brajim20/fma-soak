@@ -1,0 +1,77 @@
+{
+ "slug": "kiro-cli/darwin",
+ "host": 817,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T19:59:37",
+ "catalog_version": "2.37.0",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-12T23:59:37Z",
+  "restarted": "2026-11-12T22:50:38.330406Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 35508,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_iJD06H</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [],
+ "package_version": "2.37.0",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": " service com.amazon.codewhisperer.launcher\n/Users/<user>/.kiro doesn't exist.\n/Users/<user>/.local/bin/kiro-cli doesn't exist.\n/Users/<user>/.local/bin/kiro-cli-chat doesn't exist.\n/Users/<user>/Library/Application Support/kiro-cli doesn't exist.\n/Users/<user>/Library/Caches/com.amazon.codewhisperer doesn't exist.\n/Users/<user>/Library/Caches/dev.kiro.cli doesn't exist.\n/Users/<user>/Library/LaunchAgents/com.amazon.codewhisperer.launcher.plist doesn't exist.\n/Users/<user>/Library/Preferences/dev.kiro.cli.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.amazon.codewhisperer doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "1</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_0xWwg4</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-12T20:26:39",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T00:26:35Z",
+  "restarted": "2026-11-12T22:50:38.330406Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/kiro-cli_darwin-817-195937.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/kiro-cli_darwin-817-193243.json"
+}

@@ -1,0 +1,87 @@
+{
+ "slug": "logitune/darwin",
+ "host": 817,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T20:56:54",
+ "catalog_version": "3.14.72",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T00:56:55Z",
+  "restarted": "2026-11-12T22:50:38.330406Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 35559,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Logi Tune\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.15.96"
+ ],
+ "package_version": "3.14.72",
+ "context_after_install": {
+  "path": "/Applications/Logi Tune.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Logi Tune.app/Contents/MacOS/LogiTune",
+  "bundle_id": "com.logitech.logitune",
+  "versions": [
+   "3.15.96"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": null,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 77,
+ "second_uninstall_output_tail": "00007 <blob>=\"logitune Safe Storage\"\n    0x00000008 <blob>=<NULL>\n    \"acct\"<blob>=\"logitune Key\"\n    \"cdat\"<timedate>=0x32303236313131333030353734335A00  \"20261113005743Z\\000\"\n    \"crtr\"<uint32>=<NULL>\n    \"cusi\"<sint32>=<NULL>\n    \"desc\"<blob>=<NULL>\n    \"gena\"<blob>=<NULL>\n    \"icmt\"<blob>=<NULL>\n    \"invi\"<sint32>=<NULL>\n    \"mdat\"<timedate>=0x32303236313131333030353734335A00  \"20261113005743Z\\000\"\n    \"nega\"<sint32>=<NULL>\n    \"prot\"<blob>=<NULL>\n    \"scrp\"<sint32>=<NULL>\n    \"svce\"<blob>=\"logitune Safe Storage\"\n    \"type\"<uint32>=<NULL>\nForgot package 'com.logitech.pkg.logitune' on '/'.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T21:06:30",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T01:06:30Z",
+  "restarted": "2026-11-12T22:50:38.330406Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/logitune_darwin-817-205654.json"
+}
