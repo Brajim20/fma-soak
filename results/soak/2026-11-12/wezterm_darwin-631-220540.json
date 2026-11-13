@@ -1,0 +1,96 @@
+{
+ "slug": "wezterm/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-12T22:05:40",
+ "catalog_version": "20240203-110809",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory ['0.1.0'] is lower than the installed package 20240203-110809 (#51377 shape: the patch policy can't pass)"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall, second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T02:05:33Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "title_id": 35616,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "tmp/3783085627/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/bash  \n  inflating: /private/tmp/3783085627/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/zsh  \n  inflating: /private/tmp/3783085627/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/shell-completion/fish  \n  inflating: /private/tmp/3783085627/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Resources/wezterm.sh  \n  inflating: /private/tmp/3783085627/WezTerm-macos-20240203-110809-5046fc22/WezTerm.app/Contents/Info.plist  \n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.1.0"
+ ],
+ "package_version": "20240203-110809",
+ "context_after_install": {
+  "path": "/Applications/WezTerm.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/WezTerm.app/Contents/MacOS/wezterm-gui",
+  "bundle_id": "com.github.wez.wezterm",
+  "versions": [
+   "0.1.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "xcode-select: error: No developer tools were found and no install could be requested (possibly because there is no active GUI session). If developer tools are located at a non-default location on disk, use `sudo xcode-select --switch path/to/Xcode.app` to specify the Xcode that you wish to use for command line developer tools. Use `xcode-select --install` to install the standalone command line developer tools, or visit http://adc.apple.com to download Xcode or the standalone command line tools installation package. See `man xcode-select` for more details."
+ },
+ "patched_query_passes": null,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: write tcp 10.27.230.67:36076->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-12T22:38:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T02:38:31Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-12/evidence/wezterm_darwin-631-220540-library.png",
+  "inventory": "results/soak/2026-11-12/evidence/wezterm_darwin-631-220540-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-12/wezterm_darwin-631-220540.json"
+}
