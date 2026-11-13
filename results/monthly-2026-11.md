@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 9531 cycles: pass 3643, findings 2161, flaky 458, environment 134, harness 292, skipped 2843
+**1. Runs** — 9602 cycles: pass 3674, findings 2169, flaky 458, environment 135, harness 292, skipped 2874
 
-**2. Coverage** — darwin 975/963 (101.2%), quarter 4/4 this week 215/230, twice_daily 4/10 on time, daily 9/15 on time, twice_weekly 22/25 on time; windows 479/485 (98.8%), quarter 4/4 this week 104/118, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 975/963 (101.2%), quarter 4/4 this week 215/230, twice_daily 5/10 on time, daily 9/15 on time, twice_weekly 23/25 on time; windows 479/487 (98.4%), quarter 4/4 this week 117/118, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -147,7 +147,8 @@
 | #58320 | closed | Fleet-maintained apps: Fellow (Windows on ARM) can't be uninstalled, and later installs stay pending |
 | #58497 | closed | Fleet-maintained apps: REDCINE-X PRO (macOS) shows version 1.0 and its patch policy always fails (catalog bundle ID is the bundled RED Tether app) |
 | #58530 | closed | Fleet-maintained apps: SuperCollider (Windows) is never detected after install, so its patch policy always passes |
-| #58624 | open | Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1 |
+| #58624 | closed | Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1 |
+| #58659 | open | Fleet-maintained apps: Microsoft Teams (Windows) shows as installed on hosts that only have the Teams Meeting Add-in for Office |
 
 **4. Build changes**
 

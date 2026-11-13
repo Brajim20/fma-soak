@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T10:41:46",
+ "built": "2026-11-13T15:58:23",
  "items": [
   {
    "issue": 56971,
@@ -850,7 +850,7 @@
    ],
    "not_before": "2026-11-03T01:24:22",
    "status": "pending",
-   "record": "soak/2026-11-13/plantronics-hub_windows-629-055750.json",
+   "record": "soak/2026-11-13/plantronics-hub_windows-629-120124.json",
    "since": "2026-11-11T03:13:35"
   },
   {
@@ -1770,7 +1770,7 @@
    ],
    "not_before": "2026-11-12T00:50:41",
    "status": "pending",
-   "record": "soak/2026-11-13/snagit_darwin-636-055923.json",
+   "record": "soak/2026-11-13/snagit_darwin-636-104545.json",
    "since": "2026-11-12T04:00:09"
   },
   {
@@ -2155,7 +2155,7 @@
    ],
    "not_before": "2026-11-09T00:02:02",
    "status": "pending",
-   "record": "soak/2026-11-13/thorium_windows-635-062759.json",
+   "record": "soak/2026-11-13/thorium_windows-635-104414.json",
    "since": "2026-11-09T01:39:30"
   },
   {
@@ -2246,7 +2246,7 @@
    "title": "Fleet-maintained apps: Affinity (macOS) install over the open app quits it and doesn't relaunch it",
    "slug": "affinity/darwin",
    "platform": "darwin",
-   "host": 631,
+   "host": 636,
    "kind": "update_path",
    "board": "closed",
    "seen": "2026-11-12T04:00:09",
@@ -2585,9 +2585,9 @@
     }
    ],
    "not_before": "2026-11-12T00:56:37",
-   "status": "pending",
-   "record": "soak/2026-11-12/cursor_windows-635-142024.json",
-   "since": "2026-11-12T04:00:09"
+   "status": "still broken",
+   "record": "soak/2026-11-13/cursor_windows-629-120822.json",
+   "since": "2026-11-13T15:58:23"
   },
   {
    "issue": 58080,
@@ -2695,9 +2695,9 @@
     }
    ],
    "not_before": "2026-11-11T23:25:08",
-   "status": "pending",
-   "record": null,
-   "since": "2026-11-11T22:31:00"
+   "status": "fixed",
+   "record": "soak/2026-11-13/megasync_windows-629-121342.json",
+   "since": "2026-11-13T15:58:23"
   },
   {
    "issue": 58133,
@@ -2722,7 +2722,7 @@
    ],
    "not_before": "2026-11-12T00:49:35",
    "status": "pending",
-   "record": "soak/2026-11-13/purevpn_darwin-636-055924.json",
+   "record": "soak/2026-11-13/purevpn_darwin-636-104547.json",
    "since": "2026-11-12T04:00:09"
   },
   {
@@ -2763,9 +2763,9 @@
     }
    ],
    "not_before": "2026-11-11T23:25:48",
-   "status": "pending",
-   "record": null,
-   "since": "2026-11-11T22:31:00"
+   "status": "fixed",
+   "record": "soak/2026-11-13/vivaldi_windows-629-122106.json",
+   "since": "2026-11-13T15:58:23"
   },
   {
    "issue": 58160,
@@ -2789,9 +2789,9 @@
     }
    ],
    "not_before": "2026-11-12T00:13:09",
-   "status": "pending",
-   "record": null,
-   "since": "2026-11-12T04:00:09"
+   "status": "fixed",
+   "record": "soak/2026-11-13/clion_windows-629-122819.json",
+   "since": "2026-11-13T15:58:23"
   },
   {
    "issue": 58160,
@@ -2928,7 +2928,7 @@
    "title": "Fleet-maintained apps: JetBrains IDEs (Windows) other than GoLand still hang on reinstall (non-empty install directory)",
    "slug": "clion/windows",
    "platform": "windows",
-   "host": null,
+   "host": 635,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-11T03:13:35",
@@ -3461,6 +3461,27 @@
    "status": "pending",
    "record": null,
    "since": "2026-11-12T18:49:10"
+  },
+  {
+   "issue": 58624,
+   "title": "Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1",
+   "slug": "visual-studio-2022-community/windows",
+   "platform": "windows",
+   "host": 629,
+   "kind": "lifecycle",
+   "board": "closed",
+   "seen": "2026-11-13T15:58:23",
+   "fix_prs": [
+    {
+     "number": 58674,
+     "url": "https://github.com/fleetdm/fleet/pull/58674",
+     "merged": "2026-11-13T18:00:25Z"
+    }
+   ],
+   "not_before": "2026-11-13T15:00:25",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-13T15:58:23"
   }
  ]
 }
