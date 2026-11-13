@@ -9,6 +9,8 @@ truncated installers (#57132, 2026-11-06). Fleet's hourly cleanup deletes a stor
 
 Removes every Fleet-maintained app title in the fleet except:
   - canaries and watcher residents (config.json)
+  - priority apps in the tiers listed in priority.update.keep_tiers: Fleet only caches an older version for a title
+    that stays in the fleet while upstream ships, and the update path needs two
   - title_cleanup.keep_title_ids: titles that were in the fleet before the soak (never the harness's to remove)
   - an app patch_closed.py holds across passes (runner.busy_slugs)
   - an app the harness installed and couldn't uninstall from a host (harness_installed in any state file): the
@@ -34,6 +36,11 @@ def kept_slugs():
         keep.update({s: "canary" for s in xs})
     for xs in R.CFG.get("watcher", {}).get("residents", {}).values():
         keep.update({s: "watcher resident" for s in xs})
+    keep_tiers = set(R.CFG.get("priority", {}).get("update", {}).get("keep_tiers", []))
+    for t in R.CFG.get("priority", {}).get("tiers", []):
+        if t["name"] in keep_tiers:
+            for s in t.get("apps", []):
+                keep.setdefault(s, f"priority {t['name']} (update path)")
     keep.update({s: "held by patch_closed" for s in R.busy_slugs()})
     for f in glob.glob(os.path.join(STATE, "state-*.json")):
         for key in json.load(open(f)).get("harness_installed", {}):

@@ -6,7 +6,8 @@ day's file fills in as the day goes). What it shows:
 - builds tested and loop passes (complete / interrupted / paused)
 - what needs a look: findings that reproduced on retry, grouped by failure shape, duplicates collapsed, each with
   its record and evidence; then flaky results, harness problems and known-environment counts
-- coverage per platform from the ledger, plus deck progress, and the day's cycle tally
+- coverage per platform from the ledger, the week's quarter, each priority tier (on time / overdue), and the day's
+  cycle tally
 - the L0 audit and Fleet-side confirm for the day, if they ran
 - before/after, on a day qa.fleetdm.com's build changed: each app's last result on the old build vs its first
   on the new one
@@ -223,15 +224,17 @@ def ledger_section():
     out = []
     for plat, c in cov.items():
         line = f"- **{plat}**: {c['covered']}/{c['catalog']} apps cycled ({c['percent']}%)"
-        decks = c.get("decks") or ({"": c["deck"]} if c.get("deck") else {})
-        if len(decks) > 1:  # several hosts: each samples its own share of the catalog
-            line += "; " + ", ".join(f"host {h} round {d['round']}: {d['done']}/{d['of']}" for h, d in decks.items())
-        elif decks:
-            d = next(iter(decks.values()))
-            line += f"; deck round {d['round']}: {d['done']}/{d['of']}"
+        q = c.get("quarter")
+        if q:
+            line += f"; quarter {q['index']}/{q['of']} (week of {q['week_start']}): {q['done']}/{q['apps']}"
         out.append(line)
-        if any("per_day" in d for d in decks.values()):
-            out.append("  " + round_pace(decks))
+        if q:
+            out.append("  " + quarter_pace(q))
+        for t in c.get("priority", []):
+            late = ", ".join(f"{s} ({'never' if a is None else f'{a} h'})" for s, a in t["overdue"].items())
+            mark = "✅" if not t["overdue"] else "⚠️"
+            out.append(f"  {mark} priority {t['name']} (every {t['every_hours']} h): {t['on_time']}/{t['apps']} on time"
+                       + (f"; overdue: {late}" if late else ""))
         cp = os.path.join(RES, "sample", f"catalog-{plat}.json")
         if os.path.exists(cp):
             since = (datetime.date.today() - datetime.timedelta(days=7)).isoformat()
@@ -241,22 +244,16 @@ def ledger_section():
     return out
 
 
-def round_pace(decks):
-    """Whether each host's share of the catalog finishes its current round within the target (round_target_days from
-    the day that deck's round started). The platform is on pace only if every share is."""
-    target = json.load(open(os.path.join(WS, "config.json")))["random_sample"].get("round_target_days", 14)
-    parts, late = [], []
-    for h, d in decks.items():
-        if "per_day" not in d:
-            continue
-        due = (datetime.date.fromisoformat(d["started"]) + datetime.timedelta(days=target)).isoformat() \
-            if d.get("started") else None
-        parts.append(f"{h} {d['per_day']}/day → {d.get('eta') or 'never at this speed'}" + (f" (due {due})" if due else ""))
-        if due and (not d.get("eta") or d["eta"] > due):
-            late.append(str(h))
-    if late:
-        return f"⚠️ behind the {target}-day round on {', '.join(late)} — " + ", ".join(parts)
-    return f"✅ on pace for {target}-day rounds — " + ", ".join(parts)
+def quarter_pace(q, today=None):
+    """Whether the week's quarter will finish by Sunday: behind when fewer apps are done than an even share of the
+    days so far (with one day of slack, since passes and hosts come and go)."""
+    today = today or datetime.date.today()
+    day = (today - datetime.date.fromisoformat(q["week_start"])).days + 1
+    expect = q["apps"] * max(day - 1, 0) / 7
+    left = max(q["apps"] - q["done"], 0)
+    if q["done"] + 1e-9 < expect:
+        return f"⚠️ behind: day {day} of 7, {left} left (an even pace would have {int(expect)} done)"
+    return f"✅ on pace: day {day} of 7, {left} left"
 
 
 def digest(date):

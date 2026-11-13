@@ -14,7 +14,7 @@ Every step is recorded; the cycle JSON goes to results/soak/<date>/.
   python3 runner.py <slug> [--host <id>]     one cycle (host defaults to the platform's soak host)
   python3 runner.py --canaries [darwin|windows]
 """
-import argparse, shlex, datetime, json, os, re, socket, subprocess, sys, time, urllib.error, urllib.request
+import argparse, shlex, datetime, glob, json, os, re, socket, subprocess, sys, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WS = os.path.dirname(HERE)
@@ -890,6 +890,72 @@ def cleanup_leftovers(host):
     return out
 
 
+def version_key(v):
+    return [int(p) for p in re.findall(r"\d+", v)]
+
+
+def priority_tier(slug):
+    """The config priority tier this app is in, or None."""
+    return next((t["name"] for t in CFG.get("priority", {}).get("tiers", []) if slug in t.get("apps", [])), None)
+
+
+def update_host(plat, slug):
+    """Where this title's update path runs: the primary, unless the primary is a known environment problem for it
+    (x64-only installers on the Windows ARM VM); a priority app then moves to the first other soak host that can run
+    it, anything else isn't run. None = nowhere."""
+    known = CFG.get("known_environment", {})
+    able = [h for h in CFG["hosts"][plat] if f"{slug}@{h}" not in known]
+    if not able:
+        return None
+    if able[0] == CFG["hosts"][plat][0] or priority_tier(slug):
+        return able[0]
+    return None
+
+
+def update_runs(plat):
+    """(slug, host) -> the newest update-path record on this platform that really ran (not a skip or harness error)."""
+    out = {}
+    for p in glob.glob(os.path.join(WS, "results", "soak", "*", "*.json")):
+        try:
+            r = json.load(open(p))
+        except (ValueError, OSError):
+            continue
+        if r.get("kind") != "update_path" or not str(r.get("slug", "")).endswith("/" + plat):
+            continue
+        if str(r.get("outcome", "")).startswith(("skipped", "error")):
+            continue
+        k = (r["slug"], r.get("host"))
+        if r.get("started", "") > out.get(k, {}).get("started", ""):
+            out[k] = r
+    return out
+
+
+def update_due(slug, newest, last, cur_build, now=None):
+    """Why the update path should run now, or None. `last` is the newest real run on this host (update_runs).
+    A priority app runs when the newest cached version isn't the one its last run upgraded to (a new release), when
+    qa moved to another Fleet build (tiers in priority.update.new_build_tiers), and at least every
+    priority.update.every_days; repeating the same old -> new on the same build tells nothing new. Any other title
+    in the fleet (canaries, residents) runs once a day and on a new build, as before."""
+    now = now or datetime.datetime.now()
+    if not last:
+        return "never run on this host"
+    age = (now - datetime.datetime.fromisoformat(last["started"])).total_seconds() / 3600
+    tier = priority_tier(slug)
+    if tier is None:
+        if last.get("build") != cur_build:
+            return f"new Fleet build {cur_build}"
+        return f"last run {age:.0f} h ago" if age >= 20 else None
+    u = CFG.get("priority", {}).get("update", {})
+    tested = (last.get("cached_versions") or [None])[-1]
+    if tested != newest:
+        return f"new version {newest} (last run upgraded to {tested})"
+    if tier in u.get("new_build_tiers", []) and last.get("build") != cur_build:
+        return f"new Fleet build {cur_build}"
+    if age >= u.get("every_days", 7) * 24:
+        return f"weekly: last run {age / 24:.0f} days ago"
+    return None
+
+
 def update_path(slug, host):
     """Task 3.7: install the previous cached version, then upgrade over it to the newest.
     Needs 2+ cached versions; otherwise recorded as skipped (not passed). Always restores Latest."""
@@ -1160,7 +1226,7 @@ def main():
     ap.add_argument("--host", type=int)
     ap.add_argument("--canaries", nargs="?", const="all")
     ap.add_argument("--update", action="store_true", help="run the update path (3.7) instead of the lifecycle cycle")
-    ap.add_argument("--update-all", choices=["darwin", "windows"], help="update path for every FMA title in the soak fleet with 2+ cached versions")
+    ap.add_argument("--update-all", choices=["darwin", "windows"], help="update path for the FMA titles in the soak fleet with 2+ cached versions that are due (update_due); --host for another soak host's share")
     ap.add_argument("--cleanup", choices=["darwin", "windows"], help="uninstall apps an interrupted cycle left on the host")
     ap.add_argument("--online", choices=["darwin", "windows"], help="exit 0 once the platform's host is online, 3 if it stays offline")
     ap.add_argument("--until", type=datetime.datetime.fromisoformat,
@@ -1183,23 +1249,27 @@ def main():
         st, d = api("GET", f"/software/fleet_maintained_apps?fleet_id={FID}&per_page=2000")
         # only titles that already have 2+ cached versions in the soak fleet; the catalog itself publishes one version
         # per app, so older versions exist only where Fleet cached them as upstream moved on
-        slugs = []
+        cached = {}
         for x in d.get("fleet_maintained_apps", []):
             if x.get("software_title_id") and x["slug"].endswith("/" + a.update_all):
-                if len((title_pkg(x["software_title_id"]).get("fleet_maintained_versions") or [])) >= 2:
-                    slugs.append(x["slug"])
-        slugs.sort()
-        print(f"{len(slugs)} titles with 2+ cached versions: {slugs}")
-        known = CFG.get("known_environment", {})
-        for slug in slugs:
-            if f"{slug}@{CFG['hosts'][a.update_all][0]}" in known:
-                print(f"{slug}: skipped (known environment)"); continue
+                vs = {v["version"] for v in title_pkg(x["software_title_id"]).get("fleet_maintained_versions") or []}
+                if len(vs) >= 2:
+                    cached[x["slug"]] = max(vs, key=version_key)
+        host = a.host or CFG["hosts"][a.update_all][0]
+        mine = sorted(s for s in cached if update_host(a.update_all, s) == host)
+        print(f"{len(cached)} titles with 2+ cached versions; {len(mine)} run on host {host}: {mine}")
+        runs, cur = update_runs(a.update_all), build()
+        for slug in mine:
             if slug in busy_slugs():
                 print(f"{slug}: skipped (held by the patch-when-closed scenario)"); continue
+            why = update_due(slug, cached[slug], runs.get((slug, host)), cur)
+            if not why:
+                print(f"{slug}: not due"); continue
             if late(slug):
                 break
+            print(f"{slug}: update path ({why})")
             try:
-                run(update_path, slug, CFG["hosts"][a.update_all][0])
+                run(update_path, slug, host)
             except Exception as e:
                 print(f"{slug}: ERROR {type(e).__name__}: {e}")
         return

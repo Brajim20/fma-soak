@@ -1,51 +1,56 @@
 """Task 4.2: coverage sampling + ledger for #55961.
 
-Goal: every FMA in the catalog gets a lifecycle cycle, in random order, with no app repeated before all are done.
+Goal: priority apps on a fixed schedule, and the rest of the catalog a quarter per week, so all of it runs in a month.
 
+Order of picks on each host:
 - Reruns: apps listed in config `rerun.apps` go first, once each, until one of their lifecycle cycles started after
   `rerun.since` (e.g. apps whose findings came from a broken environment and that need a clean run).
-- A broken stored installer (runner.store_problem) records the pick as environment and leaves the app in the deck;
-  three in a row stop the pass (store.py alerts).
+- Priority tiers (config `priority.tiers`): each tier's apps get a real lifecycle cycle at least every `every_hours`
+  (on any host). The most overdue go first. Each app's host rotates every period (owner() salted with the period
+  number), so a host-specific failure shows up against another host next time; an offline pick hands it to a backup.
+  Canaries are priority apps too when listed: their canary run counts.
 - New apps: an app that shows up in the instance's catalog (results/sample/catalog-<plat>.json, kept by the report
-  job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary deck app.
+  job) goes to the front of its host's next pass, once; after its first real cycle it's an ordinary app.
 - Catch-up: until every app on the platform is covered, uncovered apps come before any repeat (version changes,
-  blind spots, the deck). Each one goes to exactly one host: its owner, or a backup (a second pick, hashed apart, with
-  the owner left out). An offline owner's apps go to their backups, an offline backup's stay with the owner, and when
-  both are online they split them, so a slow or offline host's share spreads over the others and nothing runs twice.
-  Online is read from Fleet once per pass; pool slots count as online. A host tries each app once per pass.
-- Invalid windows: config `coverage.invalid_windows` ({after, before, why}) are times the environment broke every
-  install (qa's full installer store, #57132). A cycle started inside one that didn't pass doesn't count as coverage.
-
-- The deck: per platform, the catalog in a seeded random order (results/sample/deck-<plat>.json). Picks come off
-  the top, skipping apps already covered this round, so every app comes up exactly once per round. When the
-  deck runs out, round N+1 reshuffles with a new seed. Apps new to the catalog are inserted at a random spot.
+  blind spots, the quarter). Each one goes to exactly one host: its owner, or a backup (a second pick, hashed apart,
+  with the owner left out). An offline owner's apps go to their backups, an offline backup's stay with the owner, and
+  when both are online they split them, so a slow or offline host's share spreads over the others and nothing runs
+  twice. Online is read from Fleet once per pass; pool slots count as online. A host tries each app once per pass.
 - Version changes: ~`changed_share` of picks are apps whose version changed on main in the last 7 days and that
   haven't been cycled since, because a fresh upstream release is where breakage shows up first.
 - Validator blind spots: ~`blind_share` of picks are apps the fleetdm/fleet validator checks least (hashless
   installers, its per-app version-check fallbacks, special-cased casks; listed by the daily audit as `blind_spots`)
   that haven't been cycled yet, oldest-covered first after that, since the soak's exists/patched checks are the only
   real coverage they get.
-- Several hosts on a platform: each app belongs to one host (crc32 of the slug over the hosts that can run it), so
-  hosts never pick the same app. An app recorded as a known environment problem on one host (e.g. x64-only
-  installers on the Windows ARM VM) goes to a host without that problem instead. Canaries and residents stay on the
-  primary (first) host unless the primary can't run them. Each extra host keeps its own deck and day files
-  (deck-<plat>-<host>.json, <date>-<plat>-<host>.json); the primary keeps the original names.
+- The week's quarter (config `quarters`): every non-priority app has a fixed quarter (crc32 of the slug % count),
+  and the week number since `quarters.epoch` (a Monday) picks which quarter runs. Each app in it gets one real cycle
+  that week, on the host catch-up would give it, in a seeded order. Once this host's part of the quarter is done it
+  runs version-changed and blind-spot apps only, then stops picking until the next pass.
+
+- A broken stored installer (runner.store_problem) records the pick as environment; the app stays due. Three in a
+  row stop the pass (store.py alerts).
+- Invalid windows: config `coverage.invalid_windows` ({after, before, why}) are times the environment broke every
+  install (qa's full installer store, #57132). A cycle started inside one that didn't pass doesn't count.
+- Several hosts on a platform: each app belongs to one host (crc32 of the slug over the hosts that can run it, by
+  random_sample.host_weights), so hosts never pick the same app. An app recorded as a known environment problem on
+  one host (e.g. x64-only installers on the Windows ARM VM) goes to a host without that problem instead. Canaries and
+  residents stay on the primary (first) host unless the primary can't run them. Each extra host keeps its own day
+  files (<date>-<plat>-<host>.json); the primary keeps the original names.
 - Pool slots (FMA_SOAK_POOL_<PLATFORM>, pool.py): ephemeral GitHub runners. Each slot owns a share like a host does
-  (host_weights["pool"] per slot) and keeps its deck, day files and ledger entries under the slot number, while the
+  (host_weights["pool"] per slot) and keeps its day files and ledger entries under the slot number, while the
   cycles run on whatever host ID the runner enrolled as this time. Records carry `pool_slot`.
-- Time-boxed, not counted: it keeps picking until `--until` (pass.sh passes the start of the next pass), so the
-  daily count follows real speed. Each pick's choice and result are appended to results/sample/<date>-<plat>.json;
-  the random choices are seeded by date, so a day's sequence can be replayed.
+- Time-boxed, not counted: it keeps picking until `--until` (pass.sh passes the start of the next pass). Each pick's
+  choice and result are appended to results/sample/<date>-<plat>.json; the random choices are seeded by date, so a
+  day's sequence can be replayed.
 
 Canaries and known-environment apps are excluded. Each pick runs the lifecycle cycle (with the retry from 3.8).
 A title the sample added to the soak fleet is removed again when its cycle ended with the app off the host; titles
 that were already in the fleet are never removed.
 
 The ledger (results/ledger.json) is rebuilt from every result record, so it can't drift from the evidence:
-last outcome, catalog version, build and date per app and platform, plus coverage and deck progress. Only the
-report job writes it (`--ledger`), after every sampling job has saved. An app counts as covered once one of its
-lifecycle cycles really ran; each deck also gets its cycles per day over the last 3 days and the date its round
-would finish at that speed.
+last outcome, catalog version, build and date per app and platform, the last real cycle (`last_cycled`), plus
+coverage, the week's quarter and each priority tier's on-time count. Only the report job writes it (`--ledger`),
+after every sampling job has saved. An app counts as covered once one of its lifecycle cycles really ran.
 
   python3 sample.py --platform darwin --until 2026-10-30T18:00   # sample until then
   python3 sample.py --platform darwin --count 5 --dry-run        # show the next picks without running them
@@ -148,45 +153,6 @@ def excluded(plat, host=None):
     return held | {R.app_slug(k) for k in R.CFG.get("known_environment", {}) if k.endswith(f"@{host}")} | R.busy_slugs()
 
 
-def load_deck(plat, catalog, host=None):
-    """The shuffled catalog (this host's share of it) for this round; new catalog apps go in at a random spot,
-    removed ones (or ones now another host's) drop out."""
-    host = host or hosts_for(plat)[0]
-    path = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, host)}.json")
-    if os.path.exists(path):
-        deck = json.load(open(path))
-    else:
-        deck = new_round(plat, catalog, 1, host)
-        # a host or pool slot joining mid-round inherits the round's start, so apps another host already cycled
-        # this round count as done instead of running again
-        first = os.path.join(SAMPLE_DIR, f"deck-{plat}.json")
-        if host != hosts_for(plat)[0] and os.path.exists(first):
-            p = json.load(open(first))
-            deck.update(round=p["round"], started=p["started"])
-    known = set(deck["order"])
-    rng = random.Random(f"{deck['seed']}-{len(known)}")
-    for slug in sorted(set(catalog) - known):
-        deck["order"].insert(rng.randrange(len(deck["order"]) + 1), slug)
-    deck["order"] = [x for x in deck["order"] if x in set(catalog)]
-    return deck
-
-
-def new_round(plat, catalog, n, host=None):
-    host = host or hosts_for(plat)[0]
-    seed = int(datetime.date.today().strftime("%Y%m%d")) * 100 + n * 10 + (1 if plat == "darwin" else 2)
-    if suffix(plat, host):
-        seed = seed * 1000 + host % 1000
-    order = sorted(catalog)
-    random.Random(seed).shuffle(order)
-    return {"platform": plat, "host": host, "round": n, "seed": seed, "started": datetime.date.today().isoformat(),
-            "order": order, "done": []}
-
-
-def save_deck(deck):
-    host = deck.get("host") or hosts_for(deck["platform"])[0]
-    json.dump(deck, open(os.path.join(SAMPLE_DIR, f"deck-{deck['platform']}{suffix(deck['platform'], host)}.json"), "w"), indent=1)
-
-
 def catalog_path(plat):
     return os.path.join(SAMPLE_DIR, f"catalog-{plat}.json")
 
@@ -210,7 +176,7 @@ def track_catalog(plat, cat):
 def new_apps(plat, catalog, ledger):
     """Apps added to the catalog in the last `new_app_days` that haven't had a real cycle on any host yet, oldest
     addition first. Each gets up to `new_app_tries` picks (skips and environment problems use one up), then it waits
-    for its turn in the deck like every other app."""
+    for its quarter like every other app."""
     p = catalog_path(plat)
     if not os.path.exists(p):
         return []
@@ -272,10 +238,88 @@ def catch_up(plat, full, ledger, host, skip, tried):
     return out
 
 
-def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None, full=None, tried=()):
-    """(slug, why) or None. An app new to the catalog goes first, once. A version-changed app is due if it hasn't
-    been cycled since the change window began."""
-    week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).isoformat(timespec="seconds")
+def last_cycled_index(ledger):
+    """slug -> the start of its newest real lifecycle cycle on any host ('' if none)."""
+    out = {}
+    for k, e in ledger.items():
+        s = R.app_slug(k)
+        out[s] = max(out.get(s, ""), e.get("last_cycled") or "")
+    return out
+
+
+def tiers(plat):
+    """[(name, every_hours, slugs)] from config priority.tiers, this platform's apps only, in config order."""
+    return [(t["name"], t["every_hours"], [s for s in t.get("apps", []) if s.endswith("/" + plat)])
+            for t in R.CFG.get("priority", {}).get("tiers", [])]
+
+
+def priority_apps(plat):
+    return {s for _, _, xs in tiers(plat) for s in xs}
+
+
+def tier_host(plat, slug, hours, now):
+    """The host that runs this priority app in the current period (`now`, epoch seconds). The pick rotates with the
+    period so the app doesn't always land on the same host; an offline pick hands it to a backup."""
+    period = int(now // (hours * 3600))
+    first = owner(plat, slug, salt=f"tier{period}:")
+    if first is None or is_up(plat, first):
+        return first
+    second = owner(plat, slug, without={first}, salt=f"tier{period}:backup:")
+    return second if second is not None and is_up(plat, second) else first
+
+
+def hours_since(iso, now):
+    return (now - datetime.datetime.fromisoformat(iso)).total_seconds() / 3600 if iso else None
+
+
+def priority_due(plat, full, ledger, host, skip, tried, now=None):
+    """[(slug, why)]: this host's priority apps whose last real cycle (any host) is at least their tier's every_hours
+    old, less priority.slack_hours so a pass that starts a little early still takes them. Most overdue first."""
+    now = now or datetime.datetime.now()
+    slack = R.CFG.get("priority", {}).get("slack_hours", 1)
+    last, full, out = last_cycled_index(ledger), set(full), []
+    for name, hours, apps in tiers(plat):
+        for s in apps:
+            if s not in full or s in skip or s in tried or tier_host(plat, s, hours, now.timestamp()) != host:
+                continue
+            age = hours_since(last.get(s), now)
+            if age is None or age >= hours - slack:
+                out.append((-(age / hours) if age is not None else -1e9, s, name, age))
+    out.sort()
+    return [(s, f"priority {name}: " + (f"last cycled {age:.0f} h ago" if age is not None else "never cycled"))
+            for _, s, name, age in out]
+
+
+def week_quarter(now=None):
+    """(quarter index, the Monday this week started): weeks since quarters.epoch, mod quarters.count."""
+    q = R.CFG.get("quarters", {})
+    today = (now or datetime.datetime.now()).date()
+    start = today - datetime.timedelta(days=today.weekday())
+    epoch = datetime.date.fromisoformat(q.get("epoch", "2026-11-16"))
+    return ((start - epoch).days // 7) % q.get("count", 4), start.isoformat()
+
+
+def quarter_of(slug):
+    return zlib.crc32(("quarter:" + slug).encode()) % R.CFG.get("quarters", {}).get("count", 4)
+
+
+def quarter_todo(plat, full, ledger, host, skip, tried, now=None):
+    """This week's quarter apps that this host takes (the catch-up split, so an offline host's part moves to its
+    backups) and that had no real cycle on any host since the week began, in an order seeded by week and host."""
+    q, start = week_quarter(now)
+    last, pri = last_cycled_index(ledger), priority_apps(plat)
+    out = [s for s in full if quarter_of(s) == q and s not in pri and s not in skip and s not in tried
+           and last.get(s, "") < start and catch_up_host(plat, s) == host]
+    random.Random(f"quarter-{start}-{host}").shuffle(out)
+    return out
+
+
+def next_pick(plat, catalog, changed, ledger, rng, host, blind=None, full=None, tried=(), now=None):
+    """(slug, why) or None: reruns, overdue priority apps, apps new to the catalog, uncovered apps, then version
+    changes and blind spots by share, then the week's quarter; with the quarter done, version changes and blind
+    spots only."""
+    full = full or catalog
+    week_ago = ((now or datetime.datetime.now()) - datetime.timedelta(days=7)).isoformat(timespec="seconds")
     skip = excluded(plat, host)
     rr = R.CFG.get("rerun", {})
     for s in rr.get("apps", []):
@@ -283,36 +327,36 @@ def next_pick(plat, deck, catalog, changed, ledger, rng, host, blind=None, full=
                    default="")
         if s in set(catalog) and s not in skip and last < rr.get("since", ""):
             return s, "rerun: " + rr.get("why", "listed in config rerun")
+    due = priority_due(plat, full, ledger, host, skip, tried, now)
+    if due:
+        return due[0]
     fresh = [s for s in new_apps(plat, catalog, ledger) if s not in skip]
     if fresh:
         return fresh[0], "new to the catalog"
-    due = catch_up(plat, full or catalog, ledger, host, skip, tried)
+    due = catch_up(plat, full, ledger, host, skip, tried)
     if due:
         return due[0], "catch-up: not covered on any host yet"
-    if rng.random() < R.CFG["random_sample"].get("changed_share", 0.3):
-        due = sorted(s for s in changed if s in set(catalog) and s not in skip and
-                     ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "") < week_ago)
-        if due:
-            return rng.choice(due), "version changed in the last 7 days"
-    if blind and rng.random() < R.CFG["random_sample"].get("blind_share", 0.2):
+    last = lambda s: ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "")
+    def version_changed():
+        due = sorted(s for s in changed if s in set(catalog) and s not in skip and s not in tried and last(s) < week_ago)
+        return (rng.choice(due), "version changed in the last 7 days") if due else None
+    def blind_spot():
         # never-cycled first, then the one whose last cycle is oldest; nothing cycled in the last 7 days
-        last = lambda s: ((ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}).get("date", "")
-        due = [s for s in sorted(blind) if s in set(catalog) and s not in skip and last(s) < week_ago]
-        if due:
-            oldest = min(last(s) for s in due)
-            s = rng.choice([x for x in due if last(x) == oldest])  # seeded, not alphabetical
-            return s, "validator blind spot (" + ", ".join(blind[s]) + ")"
-    for _ in range(2):
-        for slug in deck["order"]:
-            if slug in deck["done"] or slug in skip:
-                continue
-            if max((((ledger.get(f"{slug}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),
-                   default="") >= deck["started"]:
-                deck["done"].append(slug)  # already cycled this round some other way (canary, manual run)
-                continue
-            return slug, f"deck round {deck['round']}"
-        deck.update(new_round(plat, catalog, deck["round"] + 1, host))  # every app done this round: reshuffle
-    return None
+        due = [s for s in sorted(blind or {}) if s in set(catalog) and s not in skip and s not in tried and last(s) < week_ago]
+        if not due:
+            return None
+        oldest = min(last(s) for s in due)
+        s = rng.choice([x for x in due if last(x) == oldest])  # seeded, not alphabetical
+        return s, "validator blind spot (" + ", ".join(blind[s]) + ")"
+    if rng.random() < R.CFG["random_sample"].get("changed_share", 0.3) and (p := version_changed()):
+        return p
+    if blind and rng.random() < R.CFG["random_sample"].get("blind_share", 0.2) and (p := blind_spot()):
+        return p
+    todo = quarter_todo(plat, full, ledger, host, skip, tried, now)
+    if todo:
+        q, start = week_quarter(now)
+        return todo[0], f"quarter {q + 1} (week of {start})"
+    return version_changed() or blind_spot()
 
 
 def entry_now():
@@ -338,7 +382,7 @@ def remove_if_added(slug, host, rec):
 
 
 def run_sample(plat, until, count, dry, host=None, slot=None):
-    """`slot`: a pool slot (a GitHub runner); its share, deck, day file and ledger entries go by the slot number,
+    """`slot`: a pool slot (a GitHub runner); its share, day file and ledger entries go by the slot number,
     the cycles run on `host`, the ID the runner enrolled as this run."""
     os.makedirs(SAMPLE_DIR, exist_ok=True)
     host = host or hosts_for(plat)[0]
@@ -350,7 +394,8 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
     full = instance_catalog(plat)
     catalog = shard(plat, full, me)
     tried = set()
-    deck, changed, blind = load_deck(plat, catalog, me), changed_last_7_days(plat), blind_spots(plat)
+    changed, blind = changed_last_7_days(plat), blind_spots(plat)
+    q, week = week_quarter()
     ledger = build_ledger()["apps"]
     today = datetime.date.today().isoformat()
     day_path = os.path.join(SAMPLE_DIR, f"{today}-{plat}{suffix(plat, me)}.json")
@@ -358,8 +403,8 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         "date": today, "platform": plat, "host": me, "day_seed": f"{today}-{plat}", "picks": []}
     # seeded by the date and how many picks today already has, so a resumed day continues the same sequence
     rng = random.Random(f"{day['day_seed']}-{len(day['picks'])}")
-    print(f"sample {plat} host {host}{f' (pool slot {slot})' if slot is not None else ''} ({len(catalog)} apps are this host's): deck round {deck['round']} (seed {deck['seed']}), {len(deck['done'])}/{len(deck['order'])} "
-          f"done; {len(changed)} version changes in 7 days; {len(blind)} validator blind spots; until {until or '-'}; count {count or '-'}")
+    print(f"sample {plat} host {host}{f' (pool slot {slot})' if slot is not None else ''} ({len(catalog)} apps are this host's): quarter {q + 1} (week of {week}); "
+          f"{len(priority_apps(plat))} priority apps; {len(changed)} version changes in 7 days; {len(blind)} validator blind spots; until {until or '-'}; count {count or '-'}")
     # don't start a cycle the deadline can't hold: most finish in minutes, but p90 is 30-45 min (Windows on ARM, slow
     # installer downloads), and a pass that overruns delays the next one
     stop = until - datetime.timedelta(minutes=R.CFG["loop"].get("cycle_budget_minutes", 30)) if until else None
@@ -371,7 +416,7 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         if n == 0 and slot is not None and not dry and not R.answers_live_query(host):
             print(f"sample {plat}: stopping, pool runner {host} doesn't answer live queries")
             break
-        pick = next_pick(plat, deck, catalog, changed, ledger, rng, me, blind, full, tried)
+        pick = next_pick(plat, catalog, changed, ledger, rng, me, blind, full, tried)
         if not pick:
             break
         slug, why = pick
@@ -379,8 +424,9 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         n += 1
         if dry:
             print(f"   would pick {slug} ({why})")
-            deck["done"].append(slug) if why.startswith("deck") else changed.discard(slug)
-            ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"}, "first_cycled": entry_now()}
+            changed.discard(slug)
+            ledger[f"{slug}@{me}"] = {"last_lifecycle": {"date": entry_now(), "outcome": "dry-run"},
+                                      "first_cycled": entry_now(), "last_cycled": entry_now()}
             continue
         entry = {"slug": slug, "why": why, "started": datetime.datetime.now().isoformat(timespec="seconds")}
         try:
@@ -395,7 +441,7 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         day["picks"].append(entry)
         json.dump(day, open(day_path, "w"), indent=1)
         if str(entry["outcome"]).startswith(R.STORE_BROKEN):
-            # not this app's turn used up: it stays in the deck for when the store is fixed. Three in a row means the
+            # not this app's turn used up: it stays due for when the store is fixed. Three in a row means the
             # store is broken, not one file, and every pick would end the same way
             broken += 1
             if broken >= 3:
@@ -408,10 +454,8 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
         e["lifecycle_runs"] = e.get("lifecycle_runs", 0) + 1
         if counts_as_cycle(entry["outcome"], entry["started"]):
             e["first_cycled"] = e.get("first_cycled") or entry["started"]
+            e["last_cycled"] = entry["started"]
         changed.discard(slug)
-        if slug in deck["order"] and slug not in deck["done"]:
-            deck["done"].append(slug)  # a version-change pick counts for the round too
-        save_deck(deck)
     # no ledger write here: several jobs sample at once and each would push its own partial view; the report job
     # rebuilds it from every record after all of them have saved
 
@@ -425,30 +469,23 @@ def is_covered(e):
     return bool(e.get("first_cycled"))
 
 
-def pace(plat, hosts, apps, days=3):
-    """Real lifecycle cycles per day for each host or pool slot over the last `days` days (or since its first
-    record, for a newer one), and the date its deck's round would finish at that speed."""
-    now = datetime.datetime.now()
-    since = now - datetime.timedelta(days=days)
-    runs = {}
-    for p in glob.glob(os.path.join(R.WS, "results", "soak", "*", "*.json")):
-        if os.path.basename(os.path.dirname(p)) < since.date().isoformat():
-            continue
-        try:
-            r = json.load(open(p))
-        except (ValueError, OSError):
-            continue
-        if not str(r.get("slug", "")).endswith("/" + plat) or r.get("kind") or not r.get("started"):
-            continue
-        t = datetime.datetime.fromisoformat(r["started"])
-        if t >= since:
-            runs.setdefault(r.get("pool_slot") or r["host"], []).append((t, str(r.get("outcome", ""))))
-    out = {}
-    for h in hosts:
-        rs = runs.get(h, [])
-        age = (now - min((t for t, _ in rs), default=now)).total_seconds() / 86400
-        n = sum(1 for _, o in rs if not o.startswith(NOT_A_CYCLE))
-        out[h] = round(n / max(age, 0.5), 1) if rs else 0.0
+def schedule(plat, cat, apps, nope, now=None):
+    """The week's quarter (apps cycled since the week began, of the apps in it) and, per priority tier, the apps
+    cycled within their every_hours plus priority.grace_hours (a pass's length: due apps wait for the next pass on
+    their host) and the ones overdue."""
+    now = now or datetime.datetime.now()
+    last, pri = last_cycled_index(apps), priority_apps(plat)
+    q, start = week_quarter(now)
+    qs = [s for s in cat if quarter_of(s) == q and s not in pri and s not in nope]
+    out = {"quarter": {"index": q + 1, "of": R.CFG.get("quarters", {}).get("count", 4), "week_start": start,
+                       "apps": len(qs), "done": sum(1 for s in qs if last.get(s, "") >= start)}, "priority": []}
+    grace = R.CFG.get("priority", {}).get("grace_hours", 6)
+    for name, hours, xs in tiers(plat):
+        xs = [s for s in xs if not cat or (s in cat and s not in nope)]
+        late = {s: hours_since(last.get(s), now) for s in xs}
+        late = {s: a for s, a in late.items() if a is None or a > hours + grace}
+        out["priority"].append({"name": name, "every_hours": hours, "apps": len(xs), "on_time": len(xs) - len(late),
+                                "overdue": {s: (round(a) if a is not None else None) for s, a in sorted(late.items())}})
     return out
 
 
@@ -466,12 +503,12 @@ def build_ledger(write=False):
         e[f"{kind}_runs"] += 1
         if kind == "lifecycle" and counts_as_cycle(r["outcome"], r.get("started")):
             e["first_cycled"] = min(e.get("first_cycled") or r["started"], r["started"])
+            e["last_cycled"] = max(e.get("last_cycled") or r["started"], r["started"])
         e[f"last_{kind}"] = {"outcome": r["outcome"], "date": r.get("started"), "build": r.get("build"),
                              "catalog_version": r.get("catalog_version"), "record": os.path.relpath(p, R.WS),
                              "findings": [f["msg"] for f in r.get("findings", [])]}
     coverage = {}
     for plat in R.CFG["hosts"]:
-        hosts = all_hosts(plat)
         cat = instance_catalog(plat) if write else None
         total = len(cat) if write else None
         if write:
@@ -483,19 +520,7 @@ def build_ledger(write=False):
         total = total - len(nope) if write else None
         coverage[plat] = {"covered": n, "catalog": total, "percent": round(100 * n / total, 1) if total else None,
                           "not_coverable": nope}
-        speed = pace(plat, hosts, apps) if write else {}
-        for h in hosts:
-            dp = os.path.join(SAMPLE_DIR, f"deck-{plat}{suffix(plat, h)}.json")
-            if os.path.exists(dp):
-                dk = json.load(open(dp))
-                d = {"round": dk["round"], "started": dk.get("started"), "done": len(dk["done"]), "of": len(dk["order"])}
-                if h in speed:
-                    left = max(d["of"] - d["done"], 0)
-                    d["per_day"] = speed[h]
-                    d["eta"] = (datetime.date.today() + datetime.timedelta(days=left / speed[h])).isoformat() \
-                        if speed[h] else (datetime.date.today().isoformat() if not left else None)
-                coverage[plat]["deck"] = d if h == hosts[0] else coverage[plat].get("deck")
-                coverage[plat].setdefault("decks", {})[str(h)] = d
+        coverage[plat].update(schedule(plat, cat or [], apps, set(nope)))
     led = {"built": datetime.datetime.now().isoformat(timespec="seconds"), "coverage": coverage, "apps": apps}
     if write:
         json.dump(led, open(LEDGER, "w"), indent=1)

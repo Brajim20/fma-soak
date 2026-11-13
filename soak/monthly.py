@@ -1,7 +1,7 @@
 """Task 4.8: draft the monthly #55961 status comment -> results/monthly-<YYYY-MM>.md
 
 Draft only: it is never posted automatically. Pulls, for the month:
-- builds the soak ran on, cycles and their results, coverage now (ledger) and deck rounds
+- builds the soak ran on, cycles and their results, coverage now (ledger), the week's quarter and priority tiers
 - escapes caught: issues referenced in triage.json, with their current state from GitHub
 - build changes seen (from the digests' before/after logic)
 - close-out criteria with where each stands
@@ -34,8 +34,8 @@ def gh_state(n):
 def criteria(cov):
     """Proposed close-out criteria for #55961; each line says where it stands from the evidence."""
     def full_round(plat):
-        d = (cov.get(plat) or {}).get("deck") or {}
-        return d.get("round", 1) > 1
+        c = cov.get(plat) or {}
+        return bool(c.get("catalog")) and c.get("covered", 0) >= c["catalog"]
     act = os.path.exists(os.path.join(WS, "ci", "ACTIVE"))
     return [
         ("Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script",
@@ -69,7 +69,9 @@ def monthly(month):
          f"**Environment:** {S.load()['instance'].split('//')[-1]}, fleet {S.load()['soak_fleet_id']} · builds: {', '.join(builds) or '—'}", ""]
     L += ["**1. Runs** — " + f"{len(recs)} cycles: " + ", ".join(f"{k} {cats[k]}" for k in
           ("pass", "findings", "flaky", "environment", "harness", "skipped", "error") if cats[k]), ""]
-    covl = [f"{p} {c['covered']}/{c['catalog']} ({c['percent']}%)" + (f", round {c['deck']['round']}" if c.get("deck") else "")
+    covl = [f"{p} {c['covered']}/{c['catalog']} ({c['percent']}%)"
+            + (f", quarter {c['quarter']['index']}/{c['quarter']['of']} this week {c['quarter']['done']}/{c['quarter']['apps']}" if c.get("quarter") else "")
+            + "".join(f", {t['name']} {t['on_time']}/{t['apps']} on time" for t in c.get("priority", []))
             for p, c in cov.items()]
     L += [f"**2. Coverage** — {'; '.join(covl) or '—'}", ""]
     L += ["**3. Escapes caught or confirmed**", ""]

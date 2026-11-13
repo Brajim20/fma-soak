@@ -3,7 +3,8 @@
 # every pass, so changes here apply from the next pass without restarting the launchd job.
 #   cleanup            uninstall apps an interrupted cycle left on the host (every pass)
 #   canaries (3.5)      when the last canary run on this platform is older than loop.canary_every_hours
-#   update path (3.7)   when the last one is older than loop.update_every_hours
+#   update path (3.7)   when the last one is older than loop.update_every_hours; each title runs only when
+#                      runner.update_due says so (new release, new Fleet build, weekly)
 #   coverage sample (4.2) until the next pass is due, minus a margin so the pass ends on time
 #   watcher (4.3)      residents' upstream transitions, every pass (in CI, its own job every 2 h instead)
 #   patch closed (S6)  Fleet's patch-when-closed policy over several passes, one app a day per platform
@@ -11,8 +12,9 @@
 #   closed-bug recheck reruns apps whose FMA catalog bug was closed (recheck.py), on the host that found it
 #   cross-host repro   reruns the other host's untriaged findings on this host (crosshost.py), both hosts
 #   digest (4.6)        results/digest-<date>.md, rebuilt every pass
-# A second host on a platform (pass.sh <platform> <host>) only takes new apps from the coverage sample: canaries,
-# the update path, scenarios and patch when closed stay on the platform's primary (first) host.
+# A second host on a platform (pass.sh <platform> <host>) takes its share of the coverage sample and the update path
+# of priority apps the primary can't run (runner.update_host); canaries, scenarios and patch when closed stay on the
+# platform's primary (first) host.
 plat=$1 host=$2
 cd "${0:A:h}" || exit 1
 cfg() { python3 -c "import json;print(json.load(open('../config.json'))['loop'].get('$1', $2))"; }
@@ -53,6 +55,7 @@ if [[ -n $host ]]; then
     exit $worst
   fi
   step runner.py --cleanup $plat --host $host
+  if due update-$host $(cfg update_every_hours 12) && fits $(cfg update_budget_minutes 90) "update path"; then step runner.py --update-all $plat --host $host --until "$until"; mkdir -p $stamps && date +%s > $stamps/last-update-$host-$plat; fi
   fits $(cfg recheck_budget_minutes 60) "closed-bug recheck" && step recheck.py run --platform $plat --host $host
   fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat --host $host
   step sample.py --platform $plat --host $host --until "$until"

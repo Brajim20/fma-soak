@@ -28,10 +28,9 @@
   ]
  },
  "random_sample": {
-  "round_target_days": 14,
   "changed_share": 0.3,
   "blind_share": 0.2,
-  "note": "time-boxed: picks until the next pass is due; deck = whole catalog shuffled, no repeats per round",
+  "note": "time-boxed: picks until the next pass is due (priority tiers, then the week's quarter); see sample.py",
   "host_weights": {
    "631": 1,
    "636": 3,
@@ -43,6 +42,146 @@
   "host_weights_note": "new apps a day when sampling (2026-11-01 estimate): primaries ~8 (631) / ~16 (629) after canaries and the update path, sample-only hosts ~50; re-set from real speed after a week; pool = each pool slot (a GitHub macOS runner, 2026-11-04: guessed at 636's speed)",
   "new_app_days": 30,
   "new_app_tries": 3
+ },
+ "priority": {
+  "_doc": "sample.py: priority apps get a real lifecycle cycle at least every every_hours (any host; most overdue first, hosts rotate per period). slack_hours: a pass may take an app that much early; grace_hours: how late counts as on time in the digest. update (runner.update_due): a priority title's update path runs on a new release, a new Fleet build (new_build_tiers) and every every_days; keep_tiers' titles stay in the soak fleet (titles.py) so Fleet caches the older version the update path needs. Only the twice_daily tier is kept: keeping daily too would store ~15 GB more installers on qa's filesystem store, which filled up once (#57132). The lists are maintained by hand.",
+  "slack_hours": 1,
+  "grace_hours": 6,
+  "tiers": [
+   {
+    "name": "twice_daily",
+    "every_hours": 12,
+    "apps": [
+     "google-chrome/darwin",
+     "slack/darwin",
+     "1password/darwin",
+     "claude/darwin",
+     "visual-studio-code/darwin",
+     "zoom/darwin",
+     "firefox/darwin",
+     "microsoft-teams/darwin",
+     "docker-desktop/darwin",
+     "microsoft-word/darwin",
+     "google-chrome/windows",
+     "slack/windows",
+     "1password/windows",
+     "visual-studio-code/windows",
+     "firefox/windows",
+     "7-zip/windows",
+     "claude/windows",
+     "zoom/windows",
+     "adobe-acrobat-reader/windows",
+     "google-drive/windows"
+    ]
+   },
+   {
+    "name": "daily",
+    "every_hours": 24,
+    "apps": [
+     "google-drive/darwin",
+     "microsoft-excel/darwin",
+     "adobe-acrobat-reader/darwin",
+     "tailscale-app/darwin",
+     "figma/darwin",
+     "notion/darwin",
+     "microsoft-powerpoint/darwin",
+     "iterm2/darwin",
+     "fleet-desktop/darwin",
+     "chatgpt/darwin",
+     "github/darwin",
+     "microsoft-outlook/darwin",
+     "okta-verify/darwin",
+     "spotify/darwin",
+     "cursor/darwin",
+     "microsoft-office/windows",
+     "notepad++/windows",
+     "docker/windows",
+     "vlc/windows",
+     "tailscale/windows",
+     "microsoft-teams/windows",
+     "notion/windows",
+     "github-desktop/windows",
+     "okta-verify/windows",
+     "figma/windows",
+     "brave-browser/windows",
+     "cursor/windows",
+     "cloudflare-warp/windows",
+     "spotify/windows",
+     "git/windows"
+    ]
+   },
+   {
+    "name": "twice_weekly",
+    "every_hours": 84,
+    "apps": [
+     "postman/darwin",
+     "brave-browser/darwin",
+     "bitwarden/darwin",
+     "ghostty/darwin",
+     "adobe-creative-cloud/darwin",
+     "obsidian/darwin",
+     "vlc/darwin",
+     "rectangle/darwin",
+     "windows-app/darwin",
+     "microsoft-edge/darwin",
+     "linear/darwin",
+     "cloudflare-warp/darwin",
+     "signal/darwin",
+     "logi-options+/darwin",
+     "whatsapp/darwin",
+     "santa/darwin",
+     "microsoft-onenote/darwin",
+     "sublime-text/darwin",
+     "adobe-acrobat-pro/darwin",
+     "wireshark-app/darwin",
+     "zed/darwin",
+     "onedrive/darwin",
+     "libreoffice/darwin",
+     "intune-company-portal/darwin",
+     "displaylink/darwin",
+     "postman/windows",
+     "bitwarden/windows",
+     "logi-options+/windows",
+     "adobe-acrobat-pro/windows",
+     "libreoffice/windows",
+     "adobe-creative-cloud/windows",
+     "wireshark/windows",
+     "granola/windows",
+     "teamviewer/windows",
+     "onedrive/windows",
+     "yubico-authenticator/windows",
+     "linear/windows",
+     "discord/windows",
+     "putty/windows",
+     "drawio/windows",
+     "openvpn-connect/windows",
+     "cyberduck/windows",
+     "keepassxc/windows",
+     "nodejs/windows",
+     "python-3.14/windows",
+     "obsidian/windows",
+     "winscp/windows",
+     "thunderbird/windows",
+     "obs/windows",
+     "gimp/windows"
+    ]
+   }
+  ],
+  "update": {
+   "keep_tiers": [
+    "twice_daily"
+   ],
+   "new_build_tiers": [
+    "twice_daily",
+    "daily"
+   ],
+   "every_days": 7
+  }
+ },
+ "quarters": {
+  "_doc": "sample.py: every non-priority app has a fixed quarter (crc32 of the slug % count); weeks since epoch (a Monday) pick the quarter, so the whole catalog runs every count weeks.",
+  "count": 4,
+  "epoch": "2026-11-16"
  },
  "audit": {
   "freshness_lag_days": 7,
@@ -78,7 +217,7 @@
   "interval_hours": 6,
   "pause_minutes": 15,
   "canary_every_hours": 12,
-  "update_every_hours": 24,
+  "update_every_hours": 12,
   "end_margin_minutes": 20,
   "canary_budget_minutes": 120,
   "update_budget_minutes": 90,
@@ -179,7 +318,16 @@
   ],
   "allow": {
    "_doc": "except_hosts exceptions: apps that may be replaced there anyway, approved by Brayan 2026-11-08 to complete the catalog. Reinstalled at the catalog version when the cycle ends (runner.restore).",
-   "635": ["7-zip/windows", "python-3.14/windows", "virtualbox/windows", "adobe-acrobat-pro/windows", "microsoft-odbc-driver-18/windows", "vc-redist-x64/windows", "8x8-work/windows", "010-editor/windows"]
+   "635": [
+    "7-zip/windows",
+    "python-3.14/windows",
+    "virtualbox/windows",
+    "adobe-acrobat-pro/windows",
+    "microsoft-odbc-driver-18/windows",
+    "vc-redist-x64/windows",
+    "8x8-work/windows",
+    "010-editor/windows"
+   ]
   },
   "keep": [
    "fleet-desktop/darwin",
@@ -207,19 +355,57 @@
  },
  "title_cleanup": {
   "_doc": "titles.py sweep (report job, after every soak and pool job): removes the soak's FMA titles from the soak fleet so stored installers don't fill the instance's disk (#57132 on qa.fleetdm.com, 2026-11-06). keep_title_ids: titles Brayan added before the soak (fleet 65 activity log, 2026-11-07); canaries, residents, patch_closed apps, apps still on a host and queued titles are kept by rule.",
-  "keep_title_ids": [815, 12457, 12955, 12956, 13109, 13118, 16683, 17203, 17550, 17579, 17719, 18027, 18245, 18520, 19734, 20023, 20130, 20163, 20416, 20665, 22809, 23299]
+  "keep_title_ids": [
+   815,
+   12457,
+   12955,
+   12956,
+   13109,
+   13118,
+   16683,
+   17203,
+   17550,
+   17579,
+   17719,
+   18027,
+   18245,
+   18520,
+   19734,
+   20023,
+   20130,
+   20163,
+   20416,
+   20665,
+   22809,
+   23299
+  ]
  },
  "coverage": {
   "_doc": "sample.py: a lifecycle cycle started inside an invalid window that didn't pass doesn't count as coverage, so the app goes back to catch-up for a clean run. Times are local, like records.",
   "invalid_windows": [
-   {"after": "2026-11-06T15:00", "before": "2026-11-07T11:15", "why": "qa installer store full (#57132): adds 500 'no space left', installs 'image not recognized'"}
+   {
+    "after": "2026-11-06T15:00",
+    "before": "2026-11-07T11:15",
+    "why": "qa installer store full (#57132): adds 500 'no space left', installs 'image not recognized'"
+   }
   ]
  },
  "rerun": {
   "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636). 2026-11-08 22:45: zoom-rooms/darwin (one unexplained 400 on the second uninstall). 2026-11-09: hex-fiend/darwin (stuck pending on 636 in the afternoon install-delivery stall); since moved to 2026-11-09T16:00, so grammarly and zoom-rooms get one more pass too. 2026-11-10: grammarly-desktop, zoom-rooms and hex-fiend reran after 2026-11-09 16:00 (done); fellow/windows queued (uninstall left AppData\\\\Local\\\\Fellow on a congested 629, once). 2026-11-11: fellow/windows reran (635 pass 11-10 19:15; 629 install pending again); the last 8 macOS apps never covered queued so any host runs them, not only 631 (offline). 2026-11-11 later: aws-cli/windows queued once it stopped being a watcher resident (asana/windows replaced it), its first lifecycle cycle.",
   "since": "2026-11-11T00:43",
   "why": "coverage: the last macOS apps no host has cycled yet; catch-up routed them all to 631, which kept going offline (2026-11-10/11)",
-  "apps": ["appcleaner/darwin", "dbeaverultimate/darwin", "lunatask/darwin", "mimestream/darwin", "securesafe/darwin", "tex-live-utility/darwin", "zettlr/darwin", "icon-composer/darwin", "python-3.14/windows", "aws-cli/windows"]
+  "apps": [
+   "appcleaner/darwin",
+   "dbeaverultimate/darwin",
+   "lunatask/darwin",
+   "mimestream/darwin",
+   "securesafe/darwin",
+   "tex-live-utility/darwin",
+   "zettlr/darwin",
+   "icon-composer/darwin",
+   "python-3.14/windows",
+   "aws-cli/windows"
+  ]
  },
  "triage_expire_days": 30
 }
