@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 9705 cycles: pass 3699, findings 2176, flaky 458, environment 137, harness 292, skipped 2943
+**1. Runs** — 9787 cycles: pass 3725, findings 2178, flaky 458, environment 138, harness 292, skipped 2996
 
-**2. Coverage** — darwin 975/963 (101.2%), quarter 4/4 this week 215/230, twice_daily 3/10 on time, daily 12/15 on time, twice_weekly 22/25 on time; windows 481/487 (98.8%), quarter 4/4 this week 117/118, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 975/963 (101.2%), quarter 4/4 this week 215/230, twice_daily 3/10 on time, daily 11/15 on time, twice_weekly 20/25 on time; windows 481/487 (98.8%), quarter 4/4 this week 117/118, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -149,6 +149,9 @@
 | #58530 | closed | Fleet-maintained apps: SuperCollider (Windows) is never detected after install, so its patch policy always passes |
 | #58624 | closed | Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #58659 | open | Fleet-maintained apps: Microsoft Teams (Windows) shows as installed on hosts that only have the Teams Meeting Add-in for Office |
+| #58756 | open | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
+| #58757 | open | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
+| #58758 | open | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
 
 **4. Build changes**
 
