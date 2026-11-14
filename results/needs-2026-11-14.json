@@ -24,7 +24,7 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/notion/windows.json), [notion.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/notion.json), [notion_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/notion_install.ps1), [notion_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/notion_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-09 Remove stranded SysWOW64 copies in per-user Windows FMA uninstall scripts (#58086); 2026-11-07 Align per-user Windows FMA uninstall scripts with Zed's template (#58010); 2026-11-04 Harden per-user Windows FMA install and uninstall scripts (L\u2013Y) (#57372) \u00b7 issues mentioning it: #58084 (open), #12617 (open), #57161 (open), #50077 (open), #42461 (open)"
  },
  {
-  "app": "adobe-acrobat-reader/windows@635",
+  "app": "adobe-acrobat-reader/windows@629",
   "shape": "install",
   "msgs": [
    "first install ended as failed_install",
@@ -33,8 +33,34 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-14/adobe-acrobat-reader_windows-629-144459.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-reader/windows.json), [adobe-acrobat-reader.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-reader.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-10-20 Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321); 2025-11-21 Add Fleet-managed app: Adobe Acrobat Reader for Windows (#36075) \u00b7 issues mentioning it: #57681 (open), #48355 (open), #51577 (closed), #46324 (closed), #46622 (closed)"
+ },
+ {
+  "app": "adobe-acrobat-reader/windows@635",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 629 [record](soak/2026-11-14/adobe-acrobat-reader_windows-629-144459.json)",
   "record": "results/soak/2026-11-14/adobe-acrobat-reader_windows-635-084953.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-reader/windows.json), [adobe-acrobat-reader.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-reader.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-10-20 Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321); 2025-11-21 Add Fleet-managed app: Adobe Acrobat Reader for Windows (#36075) \u00b7 issues mentioning it: #57681 (open), #48355 (open), #51577 (closed), #46324 (closed), #46622 (closed)"
+ },
+ {
+  "app": "cursor/windows@629",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-14/cursor_windows-629-152553.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/cursor/windows.json), [cursor.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/cursor.json), [cursor_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/cursor_install.ps1), [cursor_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/cursor_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-12 Fleet-maintained apps: stop Cursor (Windows) before installing so installs don't fail whil; 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-10-24 Add Cursor FMA for Windows (#34069) (#34712) \u00b7 issues mentioning it: #57022 (open), #57222 (open), #56561 (open), #30260 (open), #56431 (open)"
  },
  {
   "app": "docker/windows@635",
@@ -58,7 +84,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 629 [record](soak/2026-11-14/google-drive_windows-629-145852.json)",
   "record": "results/soak/2026-11-14/google-drive_windows-635-064752.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #22713 (open), #57390 (closed), #58441 (open), #40309 (open)"
  }

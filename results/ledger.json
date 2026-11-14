@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T11:22:07",
+ "built": "2026-11-14T16:25:28",
  "coverage": {
   "darwin": {
    "covered": 975,
@@ -20,25 +20,24 @@
      "apps": 10,
      "on_time": 4,
      "overdue": {
-      "claude/darwin": 150,
-      "docker-desktop/darwin": 150,
-      "firefox/darwin": 150,
-      "slack/darwin": 34,
-      "visual-studio-code/darwin": 29,
-      "zoom/darwin": 148
+      "claude/darwin": 155,
+      "docker-desktop/darwin": 155,
+      "firefox/darwin": 155,
+      "microsoft-word/darwin": 19,
+      "visual-studio-code/darwin": 34,
+      "zoom/darwin": 153
      }
     },
     {
      "name": "daily",
      "every_hours": 24,
      "apps": 15,
-     "on_time": 10,
+     "on_time": 11,
      "overdue": {
-      "adobe-acrobat-reader/darwin": 35,
-      "chatgpt/darwin": 85,
-      "figma/darwin": 96,
-      "fleet-desktop/darwin": 308,
-      "okta-verify/darwin": 35
+      "adobe-acrobat-reader/darwin": 40,
+      "chatgpt/darwin": 90,
+      "figma/darwin": 101,
+      "fleet-desktop/darwin": 313
      }
     },
     {
@@ -47,11 +46,11 @@
      "apps": 25,
      "on_time": 20,
      "overdue": {
-      "ghostty/darwin": 101,
-      "rectangle/darwin": 96,
-      "santa/darwin": 148,
-      "signal/darwin": 96,
-      "windows-app/darwin": 140
+      "ghostty/darwin": 106,
+      "rectangle/darwin": 101,
+      "santa/darwin": 153,
+      "signal/darwin": 101,
+      "windows-app/darwin": 145
      }
     }
    ]
@@ -82,10 +81,8 @@
      "name": "daily",
      "every_hours": 24,
      "apps": 15,
-     "on_time": 14,
-     "overdue": {
-      "git/windows": 34
-     }
+     "on_time": 15,
+     "overdue": {}
     },
     {
      "name": "twice_weekly",
@@ -93,7 +90,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 351
+      "onedrive/windows": 356
      }
     }
    ]
@@ -140,7 +137,7 @@
    }
   },
   "1password/windows@629": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 11,
    "last_update": {
     "outcome": "pass",
@@ -151,13 +148,13 @@
     "findings": []
    },
    "first_cycled": "2026-11-09T02:31:31",
-   "last_cycled": "2026-11-13T17:49:22",
+   "last_cycled": "2026-11-14T15:04:20",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-13T17:49:22",
+    "date": "2026-11-14T15:04:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.12.44",
-    "record": "results/soak/2026-11-13/1password_windows-629-174922.json",
+    "record": "results/soak/2026-11-14/1password_windows-629-150420.json",
     "findings": []
    }
   },
@@ -649,7 +646,7 @@
    }
   },
   "slack/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 15,
    "last_update": {
     "outcome": "pass",
@@ -660,13 +657,13 @@
     "findings": []
    },
    "first_cycled": "2026-10-31T22:30:21",
-   "last_cycled": "2026-10-31T22:30:21",
+   "last_cycled": "2026-11-14T15:16:13",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-10-31T22:30:21",
+    "date": "2026-11-14T15:16:13",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "4.53.276",
-    "record": "results/soak/2026-10-31/slack_windows-629-223021.json",
+    "catalog_version": "4.53.287",
+    "record": "results/soak/2026-11-14/slack_windows-629-151613.json",
     "findings": []
    }
   },
@@ -1617,16 +1614,16 @@
    }
   },
   "adobe-acrobat-reader/windows@629": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-10-31T11:22:14",
-   "last_cycled": "2026-11-13T02:21:25",
+   "last_cycled": "2026-11-14T14:44:59",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-13T02:21:25",
+    "date": "2026-11-14T14:44:59",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.003.22075",
-    "record": "results/soak/2026-11-13/adobe-acrobat-reader_windows-629-022125.json",
+    "record": "results/soak/2026-11-14/adobe-acrobat-reader_windows-629-144459.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -3577,16 +3574,16 @@
    }
   },
   "rubymine/windows@629": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-01T01:31:45",
    "last_cycled": "2026-11-13T22:11:28",
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-14T08:50:35",
+    "date": "2026-11-14T12:40:00",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-14/rubymine_windows-629-085035.json",
+    "record": "results/soak/2026-11-14/rubymine_windows-629-124000.json",
     "findings": []
    }
   },
@@ -4431,16 +4428,16 @@
    }
   },
   "cursor/windows@629": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "first_cycled": "2026-11-02T09:48:36",
-   "last_cycled": "2026-11-13T12:08:22",
+   "last_cycled": "2026-11-14T15:25:53",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-13T12:08:22",
+    "date": "2026-11-14T15:25:53",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.29.15",
-    "record": "results/soak/2026-11-13/cursor_windows-629-120822.json",
+    "record": "results/soak/2026-11-14/cursor_windows-629-152553.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -4864,16 +4861,16 @@
    }
   },
   "google-drive/windows@629": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 14,
    "update_runs": 0,
    "first_cycled": "2026-11-02T09:11:11",
-   "last_cycled": "2026-11-13T17:59:30",
+   "last_cycled": "2026-11-14T14:58:52",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-13T17:59:30",
+    "date": "2026-11-14T14:58:52",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "133.0.2.0",
-    "record": "results/soak/2026-11-13/google-drive_windows-629-175930.json",
+    "record": "results/soak/2026-11-14/google-drive_windows-629-145852.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -5597,16 +5594,16 @@
    }
   },
   "plantronics-hub/windows@629": {
-   "lifecycle_runs": 15,
+   "lifecycle_runs": 16,
    "update_runs": 0,
    "first_cycled": "2026-11-02T07:32:31",
    "last_cycled": "2026-11-12T21:05:09",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-14T07:35:36",
+    "date": "2026-11-14T11:25:27",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.25.54307.37251",
-    "record": "results/soak/2026-11-14/plantronics-hub_windows-629-073536.json",
+    "record": "results/soak/2026-11-14/plantronics-hub_windows-629-112527.json",
     "findings": []
    }
   },
@@ -8587,14 +8584,14 @@
    }
   },
   "chatgpt/darwin@636": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:08",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.1111.21308",
-    "record": "results/soak/2026-11-14/chatgpt_darwin-636-064408.json",
+    "record": "results/soak/2026-11-14/chatgpt_darwin-636-112634.json",
     "findings": []
    }
   },
@@ -10160,16 +10157,16 @@
    }
   },
   "snagit/darwin@636": {
-   "lifecycle_runs": 21,
+   "lifecycle_runs": 22,
    "update_runs": 0,
    "first_cycled": "2026-11-04T16:57:52",
    "last_cycled": "2026-11-11T10:14:42",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:43:56",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2027.0.0",
-    "record": "results/soak/2026-11-14/snagit_darwin-636-064356.json",
+    "record": "results/soak/2026-11-14/snagit_darwin-636-112625.json",
     "findings": []
    }
   },
@@ -10497,16 +10494,16 @@
    }
   },
   "webstorm/darwin@636": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-04T16:15:42",
    "last_cycled": "2026-11-04T16:36:23",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:14",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:40",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-14/webstorm_darwin-636-064414.json",
+    "record": "results/soak/2026-11-14/webstorm_darwin-636-112640.json",
     "findings": []
    }
   },
@@ -11179,16 +11176,16 @@
    }
   },
   "archaeology/darwin@636": {
-   "lifecycle_runs": 13,
+   "lifecycle_runs": 14,
    "update_runs": 0,
    "first_cycled": "2026-11-05T14:10:15",
    "last_cycled": "2026-11-07T16:50:55",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:11",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:38",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.8",
-    "record": "results/soak/2026-11-14/archaeology_darwin-636-064411.json",
+    "record": "results/soak/2026-11-14/archaeology_darwin-636-112638.json",
     "findings": []
    }
   },
@@ -15361,16 +15358,16 @@
    }
   },
   "mozilla-vpn/darwin@624": {
-   "lifecycle_runs": 33,
+   "lifecycle_runs": 34,
    "update_runs": 0,
    "first_cycled": "2026-11-05T07:23:56",
    "last_cycled": "2026-11-06T11:28:58",
    "last_lifecycle": {
     "outcome": "skipped: quarantined on this host (held the host's install queue from 2026-11-06T07:24:33 (stuck.py: installer pid 79699 running 6 h since 2026-11-06T07:25:17: installer -pkg /tmp/2310218177/MozillaVPN.pkg -target /); remove this entry from results/state/quarantine.json to try it again)",
-    "date": "2026-11-14T06:41:49",
+    "date": "2026-11-14T11:24:04",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.40.1",
-    "record": "results/soak/2026-11-14/mozilla-vpn_darwin-624-064149.json",
+    "record": "results/soak/2026-11-14/mozilla-vpn_darwin-624-112404.json",
     "findings": []
    }
   },
@@ -16015,14 +16012,14 @@
    }
   },
   "pastebot/darwin@636": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:12",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:38",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.2",
-    "record": "results/soak/2026-11-14/pastebot_darwin-636-064412.json",
+    "record": "results/soak/2026-11-14/pastebot_darwin-636-112638.json",
     "findings": []
    }
   },
@@ -17213,16 +17210,16 @@
    }
   },
   "sigmaos/darwin@631": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "first_cycled": "2026-11-05T16:52:04",
    "last_cycled": "2026-11-05T17:06:15",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:07",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T13:51:29",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.19.0",
-    "record": "results/soak/2026-11-14/sigmaos_darwin-631-020607.json",
+    "record": "results/soak/2026-11-14/sigmaos_darwin-631-135129.json",
     "findings": []
    }
   },
@@ -18039,16 +18036,16 @@
    }
   },
   "thorium/windows@635": {
-   "lifecycle_runs": 27,
+   "lifecycle_runs": 28,
    "update_runs": 0,
    "first_cycled": "2026-11-05T13:09:01",
    "last_cycled": "2026-11-07T23:05:53",
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T06:41:49",
+    "date": "2026-11-14T11:24:05",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.5.1",
-    "record": "results/soak/2026-11-14/thorium_windows-635-064149.json",
+    "record": "results/soak/2026-11-14/thorium_windows-635-112405.json",
     "findings": []
    }
   },
@@ -18536,16 +18533,16 @@
    "last_cycled": "2026-11-08T16:44:12"
   },
   "vivid-app/darwin@624": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-05T15:29:52",
    "last_cycled": "2026-11-05T15:37:28",
    "last_lifecycle": {
     "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:42:01",
+    "date": "2026-11-14T11:24:18",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.19.2",
-    "record": "results/soak/2026-11-14/vivid-app_darwin-624-064201.json",
+    "record": "results/soak/2026-11-14/vivid-app_darwin-624-112418.json",
     "findings": []
    }
   },
@@ -25966,14 +25963,14 @@
    }
   },
   "rectangle/darwin@636": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:09",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:36",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.0.4",
-    "record": "results/soak/2026-11-14/rectangle_darwin-636-064409.json",
+    "record": "results/soak/2026-11-14/rectangle_darwin-636-112636.json",
     "findings": []
    },
    "first_cycled": "2026-11-08T09:22:12",
@@ -26358,16 +26355,16 @@
    "last_cycled": "2026-11-11T23:29:26"
   },
   "sf-symbols/darwin@636": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 13,
    "update_runs": 0,
    "first_cycled": "2026-11-06T05:35:02",
    "last_cycled": "2026-11-08T11:51:45",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:13",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:39",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "27.2",
-    "record": "results/soak/2026-11-14/sf-symbols_darwin-636-064413.json",
+    "record": "results/soak/2026-11-14/sf-symbols_darwin-636-112639.json",
     "findings": []
    }
   },
@@ -27331,16 +27328,16 @@
    }
   },
   "syncovery/darwin@631": {
-   "lifecycle_runs": 23,
+   "lifecycle_runs": 24,
    "update_runs": 0,
    "first_cycled": "2026-11-06T10:39:27",
    "last_cycled": "2026-11-13T06:28:16",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:04",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T12:20:02",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "12.9.7",
-    "record": "results/soak/2026-11-14/syncovery_darwin-631-020604.json",
+    "record": "results/soak/2026-11-14/syncovery_darwin-631-122002.json",
     "findings": []
    }
   },
@@ -27745,16 +27742,16 @@
    }
   },
   "twine-app/darwin@631": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "first_cycled": "2026-11-06T14:02:10",
    "last_cycled": "2026-11-06T14:30:14",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:06",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T13:20:54",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.12.1",
-    "record": "results/soak/2026-11-14/twine-app_darwin-631-020606.json",
+    "record": "results/soak/2026-11-14/twine-app_darwin-631-132054.json",
     "findings": []
    }
   },
@@ -29840,14 +29837,14 @@
    "last_cycled": "2026-11-11T17:37:25"
   },
   "onedrive/windows@635": {
-   "lifecycle_runs": 11,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T06:42:14",
+    "date": "2026-11-14T11:24:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.183.0920.0005",
-    "record": "results/soak/2026-11-14/onedrive_windows-635-064214.json",
+    "record": "results/soak/2026-11-14/onedrive_windows-635-112420.json",
     "findings": []
    }
   },
@@ -31655,14 +31652,14 @@
    }
   },
   "keka/darwin@636": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:10",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:37",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.6.8",
-    "record": "results/soak/2026-11-14/keka_darwin-636-064410.json",
+    "record": "results/soak/2026-11-14/keka_darwin-636-112637.json",
     "findings": []
    },
    "first_cycled": "2026-11-08T21:39:47",
@@ -32368,16 +32365,16 @@
    }
   },
   "purevpn/darwin@636": {
-   "lifecycle_runs": 14,
+   "lifecycle_runs": 15,
    "update_runs": 0,
    "first_cycled": "2026-11-08T20:37:21",
    "last_cycled": "2026-11-11T17:46:57",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:43:57",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.47.0",
-    "record": "results/soak/2026-11-14/purevpn_darwin-636-064357.json",
+    "record": "results/soak/2026-11-14/purevpn_darwin-636-112625.json",
     "findings": []
    }
   },
@@ -35830,14 +35827,14 @@
    }
   },
   "blender-arm64/windows@635": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T09:16:26",
+    "date": "2026-11-14T11:24:58",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.3.0",
-    "record": "results/soak/2026-11-14/blender-arm64_windows-635-091626.json",
+    "record": "results/soak/2026-11-14/blender-arm64_windows-635-112458.json",
     "findings": []
    }
   },
@@ -35888,14 +35885,14 @@
    }
   },
   "cursor-arm64/windows@635": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T09:27:51",
+    "date": "2026-11-14T11:25:09",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.29.15",
-    "record": "results/soak/2026-11-14/cursor-arm64_windows-635-092751.json",
+    "record": "results/soak/2026-11-14/cursor-arm64_windows-635-112509.json",
     "findings": []
    }
   },
@@ -36047,26 +36044,26 @@
    }
   },
   "ferdium/darwin@631": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:05",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T12:50:29",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.3",
-    "record": "results/soak/2026-11-14/ferdium_darwin-631-020605.json",
+    "record": "results/soak/2026-11-14/ferdium_darwin-631-125029.json",
     "findings": []
    }
   },
   "firefox-arm64/windows@635": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T09:16:15",
+    "date": "2026-11-14T11:25:20",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "160.0",
-    "record": "results/soak/2026-11-14/firefox-arm64_windows-635-091615.json",
+    "record": "results/soak/2026-11-14/firefox-arm64_windows-635-112520.json",
     "findings": []
    }
   },
@@ -36139,14 +36136,14 @@
    }
   },
   "github-desktop-arm64/windows@635": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T09:15:43",
+    "date": "2026-11-14T11:24:38",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.6.11",
-    "record": "results/soak/2026-11-14/github-desktop-arm64_windows-635-091543.json",
+    "record": "results/soak/2026-11-14/github-desktop-arm64_windows-635-112438.json",
     "findings": []
    }
   },
@@ -36528,14 +36525,14 @@
    }
   },
   "vlc-arm64/windows@635": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: app already on host and not installed by the harness",
-    "date": "2026-11-14T09:16:04",
+    "date": "2026-11-14T11:24:27",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.0.24",
-    "record": "results/soak/2026-11-14/vlc-arm64_windows-635-091604.json",
+    "record": "results/soak/2026-11-14/vlc-arm64_windows-635-112427.json",
     "findings": []
    }
   },
@@ -36933,14 +36930,14 @@
    }
   },
   "ghostty/darwin@624": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:42:00",
+    "date": "2026-11-14T11:24:17",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.4.0",
-    "record": "results/soak/2026-11-14/ghostty_darwin-624-064200.json",
+    "record": "results/soak/2026-11-14/ghostty_darwin-624-112417.json",
     "findings": []
    }
   },
@@ -37151,14 +37148,14 @@
    }
   },
   "microsoft-word/darwin@636": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.74 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-13T16:03:20",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:36",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "16.115",
-    "record": "results/soak/2026-11-13/microsoft-word_darwin-636-160320.json",
+    "record": "results/soak/2026-11-14/microsoft-word_darwin-636-112636.json",
     "findings": []
    }
   },
@@ -37408,14 +37405,14 @@
    }
   },
   "visual-studio-code/darwin@624": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:41:59",
+    "date": "2026-11-14T11:24:16",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.146.0",
-    "record": "results/soak/2026-11-14/visual-studio-code_darwin-624-064159.json",
+    "record": "results/soak/2026-11-14/visual-studio-code_darwin-624-112416.json",
     "findings": []
    }
   },
@@ -37572,14 +37569,14 @@
    }
   },
   "adobe-acrobat-reader/darwin@636": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (4.62 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T06:44:09",
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:35",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.001.21662",
-    "record": "results/soak/2026-11-14/adobe-acrobat-reader_darwin-636-064409.json",
+    "record": "results/soak/2026-11-14/adobe-acrobat-reader_darwin-636-112635.json",
     "findings": []
    }
   },
@@ -37607,6 +37604,18 @@
     "findings": []
    }
   },
+  "bunch/darwin@624": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:24:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.4.19",
+    "record": "results/soak/2026-11-14/bunch_darwin-624-112412.json",
+    "findings": []
+   }
+  },
   "cursor/darwin@90005": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -37618,6 +37627,32 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.30.8",
     "record": "results/soak/2026-11-14/cursor_darwin-844-013424.json",
+    "findings": []
+   }
+  },
+  "etrecheckpro/darwin@624": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:24:11",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.9",
+    "record": "results/soak/2026-11-14/etrecheckpro_darwin-624-112411.json",
+    "findings": []
+   }
+  },
+  "git/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-14T15:08:38",
+   "last_cycled": "2026-11-14T15:08:38",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-14T15:08:38",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.56.0.4",
+    "record": "results/soak/2026-11-14/git_windows-629-150838.json",
     "findings": []
    }
   },
@@ -37668,6 +37703,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "18.6.6",
     "record": "results/soak/2026-11-14/keeper-password-manager_darwin-636-012211.json",
+    "findings": []
+   }
+  },
+  "libreoffice/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-14T15:31:27",
+   "last_cycled": "2026-11-14T15:31:27",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-14T15:31:27",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.8.3.1",
+    "record": "results/soak/2026-11-14/libreoffice_windows-629-153127.json",
     "findings": []
    }
   },
@@ -37722,26 +37771,28 @@
    }
   },
   "okta-verify/darwin@631": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:18",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T15:54:32",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.73.0",
-    "record": "results/soak/2026-11-14/okta-verify_darwin-631-020618.json",
+    "record": "results/soak/2026-11-14/okta-verify_darwin-631-155432.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-14T15:22:38",
+   "last_cycled": "2026-11-14T15:22:38"
   },
   "prism/darwin@631": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:07",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T14:21:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "11.1.0",
-    "record": "results/soak/2026-11-14/prism_darwin-631-020607.json",
+    "record": "results/soak/2026-11-14/prism_darwin-631-142146.json",
     "findings": []
    }
   },
@@ -37760,52 +37811,128 @@
    }
   },
   "pycharm/windows@629": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 6,
    "update_runs": 0,
    "first_cycled": "2026-11-14T04:23:47",
-   "last_cycled": "2026-11-14T07:36:37",
+   "last_cycled": "2026-11-14T11:26:28",
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-14T08:20:20",
+    "date": "2026-11-14T12:09:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2024.3.6.1",
-    "record": "results/soak/2026-11-14/pycharm_windows-629-082020.json",
+    "record": "results/soak/2026-11-14/pycharm_windows-629-120946.json",
     "findings": []
    }
   },
   "rustrover/windows@629": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-14T09:21:12",
+    "date": "2026-11-14T13:10:29",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-14/rustrover_windows-629-092112.json",
+    "record": "results/soak/2026-11-14/rustrover_windows-629-131029.json",
+    "findings": []
+   }
+  },
+  "scrivener/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:29",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.5.2",
+    "record": "results/soak/2026-11-14/scrivener_darwin-636-112629.json",
+    "findings": []
+   }
+  },
+  "sidenotes/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.6.6",
+    "record": "results/soak/2026-11-14/sidenotes_darwin-636-112632.json",
+    "findings": []
+   }
+  },
+  "slack/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-14T11:28:22",
+   "last_cycled": "2026-11-14T11:28:22",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-14T11:28:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.53.287",
+    "record": "results/soak/2026-11-14/slack_darwin-857-112822.json",
+    "findings": []
+   }
+  },
+  "snowflake-snowsql/darwin@636": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.61 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:26:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.5.4",
+    "record": "results/soak/2026-11-14/snowflake-snowsql_darwin-636-112630.json",
+    "findings": []
+   }
+  },
+  "vlc/darwin@624": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host low on disk (4.41 GB free of 62.83, below disk.min_gb 5)",
+    "date": "2026-11-14T11:24:13",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.0.24",
+    "record": "results/soak/2026-11-14/vlc_darwin-624-112413.json",
+    "findings": []
+   }
+  },
+  "vlc/windows@629": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-14T15:12:52",
+   "last_cycled": "2026-11-14T15:12:52",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-14T15:12:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.0.24",
+    "record": "results/soak/2026-11-14/vlc_windows-629-151252.json",
     "findings": []
    }
   },
   "webstorm/windows@629": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-14T09:51:47",
+    "date": "2026-11-14T13:41:05",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-14/webstorm_windows-629-095147.json",
+    "record": "results/soak/2026-11-14/webstorm_windows-629-134105.json",
     "findings": []
    }
   },
   "windows-app/darwin@631": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (2.12 GB free of 62.83, below disk.min_gb 5)",
-    "date": "2026-11-14T02:06:18",
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-14T14:52:13",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "11.4.4",
-    "record": "results/soak/2026-11-14/windows-app_darwin-631-020618.json",
+    "catalog_version": "11.4.5",
+    "record": "results/soak/2026-11-14/windows-app_darwin-631-145213.json",
     "findings": []
    }
   }
