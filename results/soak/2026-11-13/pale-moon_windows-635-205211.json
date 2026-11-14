@@ -1,0 +1,105 @@
+{
+ "slug": "pale-moon/windows",
+ "host": 635,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-13T20:52:11",
+ "catalog_version": "35.0.3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-14T00:52:09Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "title_id": 36412,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nStarting Pale Moon install with: /S\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "35.0.3"
+ ],
+ "package_version": "35.0.3",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Pale Moon"
+  ],
+  "names": [
+   "Pale Moon 35.0.3 (x64 en-US)"
+  ],
+  "versions": [
+   "35.0.3"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Selected entry DisplayName: Pale Moon 35.0.3 (x64 en-US)\nUninstall command: C:\\Program Files\\Pale Moon\\uninstall\\helper.exe\nUninstall args: /S _?=C:\\Program Files\\Pale Moon\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\nStarting Pale Moon install with: /S\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2824"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nStarting Pale Moon install with: /S\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "2824",
+   "path": "C:\\Program Files\\Pale Moon\\tobedeleted\\nsu46A9.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "open_reinstall_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Pale Moon\\tobedeleted\\nsu46A9.tmp, pid 2824); expected on Windows",
+ "open_reinstall_after_old_close": "0",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "4844"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Selected entry DisplayName: Pale Moon 35.0.3 (x64 en-US)\nUninstall command: C:\\Program Files\\Pale Moon\\uninstall\\helper.exe\nUninstall args: /S _?=C:\\Program Files\\Pale Moon\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-13T21:03:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-14T01:03:15Z",
+  "restarted": "2026-11-05T02:54:41.870199Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/pale-moon_windows-635-205211.json",
+ "crosshost_of": "soak/2026-11-13/pale-moon_windows-629-162414.json"
+}
