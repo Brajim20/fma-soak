@@ -1,0 +1,103 @@
+{
+ "slug": "claude/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-13T21:40:26",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "upgrade over 5.11492.0 ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "app still on host after cleanup uninstall"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-14T01:40:25Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "title_id": 19734,
+ "cached_versions": [
+  "5.11492.0",
+  "5.11492.2"
+ ],
+ "active_before": "5.11492.2",
+ "pin_older_status": 200,
+ "active_after_pin": "5.11492.0",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "/private/tmp/2856983505/Claude.app/Contents/Frameworks/Squirrel.framework/Versions/Current -> A\n  /private/tmp/2856983505/Claude.app/Contents/Frameworks/Squirrel.framework/Squirrel -> Versions/Current/Squirrel\n  /private/tmp/2856983505/Claude.app/Contents/Frameworks/Mantle.framework/Mantle -> Versions/Current/Mantle\n  /private/tmp/2856983505/Claude.app/Contents/Frameworks/Mantle.framework/Resources -> Versions/Current/Resources\n  /private/tmp/2856983505/Claude.app/Contents/Frameworks/Mantle.framework/Versions/Current -> A\nAssigned ownership of Claude.app to '<user>' so Claude can auto-update.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Claude.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Claude.app/Contents/MacOS/Claude",
+  "bundle_id": "com.anthropic.claudefordesktop",
+  "versions": [
+   "5.11492.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "5.11492.2",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "24613"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "failed_install",
+ "upgrade_install_seconds": 521,
+ "upgrade_install_output_tail": "Contents/Frameworks/Squirrel.framework/Squirrel -> Versions/Current/Squirrel\n  /private/tmp/902233808/Claude.app/Contents/Frameworks/Mantle.framework/Mantle -> Versions/Current/Mantle\n  /private/tmp/902233808/Claude.app/Contents/Frameworks/Mantle.framework/Resources -> Versions/Current/Resources\n  /private/tmp/902233808/Claude.app/Contents/Frameworks/Mantle.framework/Versions/Current -> A\nApplication 'com.anthropic.claudefordesktop' was running; will relaunch after installation.\nQuitting application 'com.anthropic.claudefordesktop'...\nApplication 'com.anthropic.claudefordesktop' did not quit.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.anthropic.claudefordesktop' was running; will relaunch after installation.",
+  "Quitting application 'com.anthropic.claudefordesktop'...",
+  "Application 'com.anthropic.claudefordesktop' did not quit."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "24613",
+   "path": "/Applications/Claude.app/Contents/MacOS/Claude",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_running_note": "install refused because the app didn't quit (by design); app left running",
+ "upgrade_patched_query_passes": false,
+ "context_upgraded": {
+  "path": "/Applications/Claude.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Claude.app/Contents/MacOS/Claude",
+  "bundle_id": "com.anthropic.claudefordesktop",
+  "versions": [
+   "5.11492.0"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "failed_uninstall",
+ "cleanup_uninstall_seconds": 153,
+ "cleanup_uninstall_output_tail": "Quitting application 'com.anthropic.claudefordesktop'...\nApplication 'com.anthropic.claudefordesktop' did not quit.\n\nscript execution error: exit status 1",
+ "cleanup_uninstall_exit_code": 1,
+ "outcome": "findings",
+ "finished": "2026-11-13T21:54:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-14T01:54:55Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/claude_darwin-631-214026-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/claude_darwin-631-214026-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/claude_darwin-631-214026.json"
+}
