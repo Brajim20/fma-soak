@@ -1,0 +1,61 @@
+{
+ "slug": "affinity/darwin",
+ "host": 624,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-13T16:13:30",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 3.3.1 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "install of 3.3.1 ended as failed_install; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-13T20:13:18Z",
+  "restarted": "2026-11-13T15:51:17.354074Z"
+ },
+ "title_id": 20416,
+ "cached_versions": [
+  "3.3.1",
+  "3.3.3"
+ ],
+ "active_before": "3.3.3",
+ "pin_older_status": 200,
+ "active_after_pin": "3.3.1",
+ "old_install_request": 202,
+ "old_install_status": "failed_install",
+ "old_install_seconds": 483,
+ "old_install_output_tail": "ile failed: No space left on device\ncp: /Applications/Affinity.app/Contents/Frameworks/liblibraster.dylib: fcopyfile failed: No space left on device\ncp: /Applications/Affinity.app/Contents/Frameworks/liblibnetwork.dylib: fcopyfile failed: No space left on device\ncp: /Applications/Affinity.app/Contents/Frameworks/liblibstemmer.dylib: fcopyfile failed: No space left on device\ncp: /Applications/Affinity.app/Contents/Frameworks/liblibgif.dylib: fcopyfile failed: No space left on device\ncp: /Applications/Affinity.app/Contents/Frameworks/liblibkernel.dylib: fcopyfile failed: No space left on device\n",
+ "old_install_error_markers": [
+  "No space left"
+ ],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "3.3.3",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "cleanup_uninstall_output_tail": "haredfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.canva.affinity.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.canva.affinity doesn't exist.\n/Users/<user>/Library/Containers/com.canva.affinity.* doesn't exist.\n/Users/<user>/Library/Group Containers/5HD2ARTBFS.com.canva.affinity doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity.* doesn't exist.\n/Users/<user>/Library/Preferences/com.canva.affinity.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.canva.affinity doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-13T16:24:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-13T20:24:21Z",
+  "restarted": "2026-11-13T15:51:17.354074Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-13/evidence/affinity_darwin-624-161330-library.png",
+  "inventory": "results/soak/2026-11-13/evidence/affinity_darwin-624-161330-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/affinity_darwin-624-161330.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-13/affinity_darwin-624-160104.json",
+ "crosshost_of": "soak/2026-11-13/affinity_darwin-631-083250.json"
+}
