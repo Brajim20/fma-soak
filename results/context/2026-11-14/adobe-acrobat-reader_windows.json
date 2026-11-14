@@ -1,0 +1,53 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-reader/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-reader.json"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go"
+ ],
+ "commits": [
+  {
+   "sha": "dc329a7be1",
+   "date": "2026-11-10",
+   "title": "Move Windows FMA open-query overrides into the winget input manifests (#57936)"
+  },
+  {
+   "sha": "77282484c2",
+   "date": "2026-10-20",
+   "title": "Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321)"
+  },
+  {
+   "sha": "0043c3df14",
+   "date": "2025-11-21",
+   "title": "Add Fleet-managed app: Adobe Acrobat Reader for Windows (#36075)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 57681,
+   "state": "open",
+   "title": "FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate \"DC\" title, not"
+  },
+  {
+   "number": 48355,
+   "state": "open",
+   "title": "Account for .pkg FMAs that can't reinstall older versions without uninstalling first"
+  },
+  {
+   "number": 51577,
+   "state": "closed",
+   "title": "FMA auto update cron job doesn't update install scripts for FMAs"
+  },
+  {
+   "number": 46324,
+   "state": "closed",
+   "title": "FMA: Adobe Acrobat Reader does not install but reports as installed"
+  },
+  {
+   "number": 46622,
+   "state": "closed",
+   "title": "Error install on officially serviced app"
+  }
+ ]
+}
