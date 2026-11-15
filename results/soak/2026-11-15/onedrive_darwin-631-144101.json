@@ -1,0 +1,94 @@
+{
+ "slug": "onedrive/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-15T14:41:01",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T18:40:55Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "title_id": 23411,
+ "cached_versions": [
+  "26.189.0928",
+  "26.198.1011"
+ ],
+ "active_before": "26.198.1011",
+ "pin_older_status": 200,
+ "active_after_pin": "26.189.0928",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneDrive\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/OneDrive.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+  "bundle_id": "com.microsoft.OneDrive",
+  "versions": [
+   "26.189.0928"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "26.198.1011",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "7429"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 46,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nApplication 'com.microsoft.OneDrive' was running; will relaunch after installation.\nQuitting application 'com.microsoft.OneDrive'...\nApplication 'com.microsoft.OneDrive' quit successfully.\ninstaller: Package name is Microsoft OneDrive\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.microsoft.OneDrive'...\nApplication 'com.microsoft.OneDrive' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.microsoft.OneDrive' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.OneDrive'...",
+  "Application 'com.microsoft.OneDrive' quit successfully.",
+  "Relaunching application 'com.microsoft.OneDrive'...",
+  "Application 'com.microsoft.OneDrive' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "7728",
+   "path": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/OneDrive.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+  "bundle_id": "com.microsoft.OneDrive",
+  "versions": [
+   "26.198.1011"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "ges/com.microsoft.OneDriveStandaloneUpdater doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.microsoft.OneDriveStandaloneUpdater.binarycookies doesn't exist.\nremoving /Users/<user>/Library/Logs/OneDrive.\n/Users/<user>/Library/Preferences/*.OneDriveStandaloneSuite.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.microsoft.OneDrive.plist.\n/Users/<user>/Library/Preferences/com.microsoft.OneDriveStandaloneUpdater.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.microsoft.OneDriveUpdater.plist.\nremoving /Users/<user>/Library/WebKit/com.microsoft.OneDrive.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-15T14:48:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-15T18:47:55Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/onedrive_darwin-631-144101.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/onedrive_darwin-631-143400.json"
+}

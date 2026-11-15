@@ -1,0 +1,90 @@
+{
+ "slug": "logi-options+/darwin",
+ "host": 631,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T16:21:42",
+ "catalog_version": "2.9.1013853",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install, first_present_after_uninstall, second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T20:21:35Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "title_id": 37773,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "\";\n\t\"OnDemand\" = false;\n\t\"LastExitStatus\" = 0;\n\t\"PID\" = 43259;\n\t\"Program\" = \"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t\"ProgramArguments\" = (\n\t\t\"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t);\n};\nBoot-out failed: 5: Input/output error\nBootstrap failed: 5: Input/output error\nERROR  : dpShutdown : No background queue to reset.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "inventory_versions": [],
+ "package_version": "2.9.1013853",
+ "context_after_install": null,
+ "patched_query_passes": null,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "r>/Library/HTTPStorages/LogiPluginServiceNative doesn't exist.\n/Users/<user>/Library/Logs/xlog_logitech doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.cp-dev-mgr.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.lps.settings.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.logi.optionsplus.driverhost.plist.\n/Users/<user>/Library/Preferences/com.logi.optionsplus.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.pluginservice.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.logi.optionsplus.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "\";\n\t\"OnDemand\" = false;\n\t\"LastExitStatus\" = 0;\n\t\"PID\" = 43843;\n\t\"Program\" = \"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t\"ProgramArguments\" = (\n\t\t\"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t);\n};\nBoot-out failed: 5: Input/output error\nBootstrap failed: 5: Input/output error\nERROR  : dpShutdown : No background queue to reset.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "brary/HTTPStorages/LogiPluginServiceNative doesn't exist.\n/Users/<user>/Library/Logs/xlog_logitech doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.cp-dev-mgr.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.lps.settings.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.optionsplus.driverhost.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.optionsplus.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.pluginservice.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.logi.optionsplus.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-15T16:59:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-15T20:58:05Z",
+  "restarted": "2026-11-11T16:02:07.287668Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-15/evidence/logi-options+_darwin-631-162142-library.png",
+  "inventory": "results/soak/2026-11-15/evidence/logi-options+_darwin-631-162142-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/logi-options+_darwin-631-162142.json"
+}
