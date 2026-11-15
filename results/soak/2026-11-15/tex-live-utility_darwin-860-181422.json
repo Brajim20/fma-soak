@@ -1,0 +1,112 @@
+{
+ "slug": "tex-live-utility/darwin",
+ "host": 860,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T18:14:22",
+ "catalog_version": "1.58",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T22:14:17Z",
+  "restarted": "2026-11-14T23:19:01.802987Z"
+ },
+ "title_id": 37927,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 15,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.58"
+ ],
+ "package_version": "1.58",
+ "context_after_install": {
+  "path": "/Applications/TeX Live Utility.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/TeX Live Utility.app/Contents/MacOS/TeX Live Utility",
+  "bundle_id": "com.googlecode.mactlmgr.tlu",
+  "versions": [
+   "1.58"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "lication Support/TeX Live Utility doesn't exist.\n/Users/<user>/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/TeX Live Utility Help* doesn't exist.\n/Users/<user>/Library/Caches/com.googlecode.mactlmgr.tlu doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.googlecode.mactlmgr.tlu doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.googlecode.mactlmgr.tlu.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/com.googlecode.mactlmgr.tlu.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.googlecode.mactlmgr.tlu.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "44358"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 122,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nApplication 'com.googlecode.mactlmgr.tlu' was running; will relaunch after installation.\nQuitting application 'com.googlecode.mactlmgr.tlu'...\nApplication 'com.googlecode.mactlmgr.tlu' did not quit.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.googlecode.mactlmgr.tlu' was running; will relaunch after installation.",
+  "Quitting application 'com.googlecode.mactlmgr.tlu'...",
+  "Application 'com.googlecode.mactlmgr.tlu' did not quit."
+ ],
+ "open_reinstall_processes_after": null,
+ "open_reinstall_running_note": "host didn't answer the process query after the install",
+ "open_reinstall_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "502 error code: 502\n"
+ },
+ "open_reinstall_after_starts": false,
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-15T18:23:11",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "error": "no UI session for evidence: RuntimeError: UI login failed: 502 error code: 502\n"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/tex-live-utility_darwin-860-181422.json"
+}
