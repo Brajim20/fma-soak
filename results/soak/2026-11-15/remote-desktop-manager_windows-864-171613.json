@@ -1,0 +1,67 @@
+{
+ "slug": "remote-desktop-manager/windows",
+ "host": 864,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T17:16:13",
+ "catalog_version": "2026.3.18.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T21:16:05Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "title_id": 37774,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 106,
+ "first_install_output_tail": "s\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (BC:10) [21:17:58:206]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (BC:10) [21:17:58:206]: Destroying RemoteAPI object.\r\nMSI (s) (BC:74) [21:17:58:206]: Custom Action Manager thread ending.\r\nMSI (c) (9C:08) [21:17:58:209]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (9C:08) [21:17:58:209]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/15/2026  21:17:58 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 63,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 106,
+ "second_install_output_tail": "s\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (BC:34) [21:21:03:197]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (BC:34) [21:21:03:197]: Destroying RemoteAPI object.\r\nMSI (s) (BC:A8) [21:21:03:197]: Custom Action Manager thread ending.\r\nMSI (c) (F4:F8) [21:21:03:199]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (F4:F8) [21:21:03:199]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/15/2026  21:21:03 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-15T17:21:55",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-15T21:21:47Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-15/evidence/remote-desktop-manager_windows-864-171613-library.png",
+  "inventory": "results/soak/2026-11-15/evidence/remote-desktop-manager_windows-864-171613-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/remote-desktop-manager_windows-864-171613.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/remote-desktop-manager_windows-864-171529.json",
+ "crosshost_of": "soak/2026-11-11/remote-desktop-manager_windows-629-233743.json"
+}
