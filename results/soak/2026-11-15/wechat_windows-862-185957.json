@@ -1,0 +1,101 @@
+{
+ "slug": "wechat/windows",
+ "host": 862,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T18:59:57",
+ "catalog_version": "3.9.12.57",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T22:59:51Z",
+  "restarted": "2026-11-14T17:39:42.255677Z"
+ },
+ "title_id": 38051,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.9.12.57"
+ ],
+ "package_version": "3.9.12.57",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Tencent\\WeChat"
+  ],
+  "names": [
+   "WeChat"
+  ],
+  "versions": [
+   "3.9.12.57"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstaller: C:\\Program Files\\Tencent\\WeChat\\Uninstall.exe\nInstall dir: C:\\Program Files\\Tencent\\WeChat\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "840"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "840",
+   "path": "C:\\Program Files\\Tencent\\WeChat\\WeChat.exe.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "open_reinstall_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Tencent\\WeChat\\WeChat.exe.tmp, pid 840); expected on Windows",
+ "open_reinstall_after_old_close": "0",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "7884"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Uninstaller: C:\\Program Files\\Tencent\\WeChat\\Uninstall.exe\nInstall dir: C:\\Program Files\\Tencent\\WeChat\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-15T19:09:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-15T23:09:27Z",
+  "restarted": "2026-11-14T17:39:42.255677Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/wechat_windows-862-185957.json"
+}
