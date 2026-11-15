@@ -6,6 +6,10 @@ local run's instance), then environment variables (CI: repository variables). La
   FMA_SOAK_HOST_DARWIN   macOS soak host IDs, comma-separated; the first is the primary (canaries, update path,
                          scenarios, patch when closed), the others only take new apps from the coverage sample
   FMA_SOAK_HOST_WINDOWS  the same for Windows
+  FMA_SOAK_STANDBY_DARWIN / FMA_SOAK_STANDBY_WINDOWS
+                         optional: enrolled hosts kept out of the schedule, comma-separated. No pass runs on them;
+                         a manual run or crosshost.py --host can target one (extra capacity, repros), and their
+                         findings still get the cross-host rerun on the scheduled hosts
   FMA_SOAK_POOL_DARWIN   optional: pool slots, comma-separated numbers (e.g. 90001,90002). Each slot is one GitHub
                          macOS runner that enrolls itself, samples its share of new apps and deletes its host when its
                          job ends (pool.py). Slots are named, not host IDs: the runner's host ID changes every run.
@@ -29,6 +33,8 @@ def load():
     for plat in ("darwin", "windows"):
         if env.get(f"FMA_SOAK_HOST_{plat.upper()}"):
             cfg.setdefault("hosts", {})[plat] = [int(x) for x in env[f"FMA_SOAK_HOST_{plat.upper()}"].split(",") if x.strip()]
+        if env.get(f"FMA_SOAK_STANDBY_{plat.upper()}"):
+            cfg.setdefault("standby", {})[plat] = [int(x) for x in env[f"FMA_SOAK_STANDBY_{plat.upper()}"].split(",") if x.strip()]
         if env.get(f"FMA_SOAK_POOL_{plat.upper()}"):
             cfg.setdefault("pool", {})[plat] = [int(x) for x in env[f"FMA_SOAK_POOL_{plat.upper()}"].split(",") if x.strip()]
     missing = [k for k in ("instance", "soak_fleet_id", "hosts") if not cfg.get(k)]

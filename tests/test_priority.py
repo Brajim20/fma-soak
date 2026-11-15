@@ -105,6 +105,64 @@ class Priority(Base):
         self.assertEqual(t["twice_weekly"]["overdue"], {"app4/darwin": None})
 
 
+class Alternate(Base):
+    """priority.alternate: a listed tier takes the host groups (OS builds) in turn, one group per period."""
+    hosts = [858, 865, 860]
+    up = (858, 865, 860)
+
+    def setUp(self):
+        super().setUp()
+        alt = {"tiers": ["twice_daily"], "darwin": [[858], [865, 860]]}
+        p = mock.patch.dict(runner.CFG["priority"], {**PRIORITY, "alternate": alt})
+        p.start()
+        self.addCleanup(p.stop)
+
+    def at(self, slug, k, hours=12):
+        return sample.tier_host("darwin", slug, hours, NOW.timestamp() + k * hours * 3600)
+
+    def group(self, h):
+        return 0 if h == 858 else 1
+
+    def test_twice_daily_apps_alternate_between_os_builds(self):
+        for slug in ("app0/darwin", "app1/darwin"):
+            groups = [self.group(self.at(slug, k)) for k in range(8)]
+            self.assertTrue(all(a != b for a, b in zip(groups, groups[1:])), (slug, groups))
+
+    def test_other_tiers_keep_the_weighted_rotation(self):
+        seen = {self.at("app2/darwin", k, 24) for k in range(30)}
+        self.assertEqual(seen, {858, 865, 860})
+
+    def test_a_group_that_cant_run_the_app_passes_the_period_on(self):
+        with mock.patch.object(sample, "known_env_hosts", lambda s: {865, 860} if s == "app0/darwin" else set()):
+            self.assertEqual({self.at("app0/darwin", k) for k in range(6)}, {858})
+
+    def test_an_offline_group_passes_the_period_on(self):
+        self.up = (858,)
+        self.assertEqual({self.at("app0/darwin", k) for k in range(6)}, {858})
+
+
+class Standby(unittest.TestCase):
+    def test_settings_read_standby_hosts(self):
+        import settings
+        env = {"FLEET_URL": "https://x", "FMA_SOAK_FLEET_ID": "1", "FMA_SOAK_HOST_DARWIN": "858,865",
+               "FMA_SOAK_STANDBY_DARWIN": "631, 636,624"}
+        with mock.patch.dict(os.environ, env):
+            cfg = settings.load()
+        self.assertEqual(cfg["hosts"]["darwin"], [858, 865])
+        self.assertEqual(cfg["standby"]["darwin"], [631, 636, 624])
+
+    def test_standby_hosts_are_not_scheduled(self):
+        with mock.patch.dict(runner.CFG, {"hosts": {"darwin": [858]}, "standby": {"darwin": [631]}, "pool": {}}):
+            self.assertEqual(sample.all_hosts("darwin"), [858])
+            self.assertEqual(sample.standby_for("darwin"), [631])
+
+    def test_a_standby_host_replaces_preexisting_copies_like_a_soak_host(self):
+        rp = {"enabled": True, "except_hosts": [], "allow": {}, "keep": []}
+        with mock.patch.dict(runner.CFG, {"hosts": {"darwin": [858]}, "standby": {"darwin": [631]}, "replace_preexisting": rp}):
+            self.assertTrue(runner.replaces_preexisting("x/darwin", 631))
+            self.assertFalse(runner.replaces_preexisting("x/darwin", 50))
+
+
 class Quarter(Base):
     def test_weeks_cycle_through_the_quarters(self):
         weeks = [sample.week_quarter(datetime.datetime(2026, 11, 16) + datetime.timedelta(days=7 * k)) for k in range(5)]

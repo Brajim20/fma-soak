@@ -127,6 +127,11 @@ def owner(plat, slug, without=(), salt=""):
     return able[-1]
 
 
+def standby_for(plat):
+    """Enrolled hosts kept out of the schedule (settings.py FMA_SOAK_STANDBY_*): nothing is assigned to them."""
+    return R.CFG.get("standby", {}).get(plat, [])
+
+
 def pool_for(plat):
     return R.CFG.get("pool", {}).get(plat, [])
 
@@ -259,8 +264,23 @@ def priority_apps(plat):
 
 def tier_host(plat, slug, hours, now):
     """The host that runs this priority app in the current period (`now`, epoch seconds). The pick rotates with the
-    period so the app doesn't always land on the same host; an offline pick hands it to a backup."""
+    period so the app doesn't always land on the same host; an offline pick hands it to a backup. A tier listed in
+    priority.alternate.tiers instead takes the platform's host groups (priority.alternate.<plat>, e.g. macOS 26 vs
+    macOS 15, x64 vs ARM) in turn, one group a period, so each app runs on every OS build; a group with no host that
+    is up and can run the app passes the period to the usual pick."""
     period = int(now // (hours * 3600))
+    alt = R.CFG.get("priority", {}).get("alternate", {})
+    groups = [g for g in alt.get(plat, []) if g]
+    if groups and any(slug in t.get("apps", []) for t in R.CFG.get("priority", {}).get("tiers", [])
+                      if t["name"] in alt.get("tiers", [])):
+        group = set(groups[period % len(groups)])
+        others = {h for h in all_hosts(plat) if h not in group}
+        able = [h for h in hosts_for(plat) if h in group and h not in known_env_hosts(slug) and is_up(plat, h)]
+        if able:
+            return owner(plat, slug, without=others | (group - set(able)), salt=f"tier{period}:")
+        down = {h for h in all_hosts(plat) if not is_up(plat, h)}
+        if set(all_hosts(plat)) - down:
+            return owner(plat, slug, without=down, salt=f"tier{period}:") or owner(plat, slug, salt=f"tier{period}:")
     first = owner(plat, slug, salt=f"tier{period}:")
     if first is None or is_up(plat, first):
         return first

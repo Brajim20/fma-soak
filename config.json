@@ -37,9 +37,17 @@
    "624": 3,
    "629": 1,
    "635": 3,
-   "pool": 3
+   "pool": 3,
+   "858": 1,
+   "865": 3,
+   "860": 3,
+   "861": 1,
+   "859": 3,
+   "862": 3,
+   "863": 3,
+   "864": 3
   },
-  "host_weights_note": "new apps a day when sampling (2026-11-01 estimate): primaries ~8 (631) / ~16 (629) after canaries and the update path, sample-only hosts ~50; re-set from real speed after a week; pool = each pool slot (a GitHub macOS runner, 2026-11-04: guessed at 636's speed)",
+  "host_weights_note": "new apps a day when sampling (2026-11-01 estimate): primaries ~8 (631) / ~16 (629) after canaries and the update path, sample-only hosts ~50; re-set from real speed after a week; pool = each pool slot (a GitHub macOS runner, 2026-11-04: guessed at 636's speed); 2026-11-15: 858 (macOS) and 861 (Windows) became the primaries, 631/636/624/629/635 went to standby (FMA_SOAK_STANDBY_*); their weights stay for when one is scheduled again",
   "new_app_days": 30,
   "new_app_tries": 3
  },
@@ -176,11 +184,37 @@
     "daily"
    ],
    "every_days": 7
+  },
+  "alternate": {
+   "_doc": "sample.tier_host: the listed tiers take each platform's host groups in turn, one group per period, so every app runs on each OS build; host IDs as in FMA_SOAK_HOST_*.",
+   "tiers": [
+    "twice_daily"
+   ],
+   "darwin": [
+    [
+     858
+    ],
+    [
+     865,
+     860
+    ]
+   ],
+   "windows": [
+    [
+     861,
+     859,
+     862
+    ],
+    [
+     863,
+     864
+    ]
+   ]
   }
  },
  "quarters": {
-  "_doc": "sample.py: every non-priority app has a fixed quarter (crc32 of the slug % count); weeks since epoch (a Monday) pick the quarter, so the whole catalog runs every count weeks.",
-  "count": 4,
+  "_doc": "sample.py: every non-priority app has a fixed quarter (crc32 of the slug % count); weeks since epoch (a Monday) pick the quarter, so the whole catalog runs every count weeks (2: twice a month, from 2026-11-15 when the soak went to 3 macOS and 5 Windows hosts).",
+  "count": 2,
   "epoch": "2026-11-16"
  },
  "audit": {
@@ -189,19 +223,48 @@
  },
  "known_environment": {
   "010-editor/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "010-editor/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "010-editor/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "microsoft-edge/windows@629": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
   "microsoft-edge/windows@635": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@859": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@861": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@862": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@863": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
+  "microsoft-edge/windows@864": "Edge ships with Windows 11 and its catalog uninstall only removes MSI installs (upgrade code), so it can't be removed; the host's Edge (157) is also newer than the catalog's (156). Not coverable on this host (Brayan, 2026-11-08).",
   "7-zip/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "7-zip/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "7-zip/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "python-3.14/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "python-3.14/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "python-3.14/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "virtualbox/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "virtualbox/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "virtualbox/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "adobe-acrobat-pro/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "adobe-acrobat-pro/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "adobe-acrobat-pro/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "microsoft-odbc-driver-18/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "microsoft-odbc-driver-18/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "microsoft-odbc-driver-18/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "vc-redist-x64/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "vc-redist-x64/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "vc-redist-x64/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "8x8-work/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "8x8-work/windows@863": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
+  "8x8-work/windows@864": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
   "google-chrome/windows@629": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
+  "google-chrome/windows@863": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
+  "google-chrome/windows@864": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
   "docker/windows@629": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
+  "docker/windows@863": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
+  "docker/windows@864": "Windows on ARM VM has no nested virtualization; Docker Desktop can't register.",
   "protopie/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
+  "protopie/windows@863": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
+  "protopie/windows@864": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
   "vscodium/windows@629": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
+  "vscodium/windows@863": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
+  "vscodium/windows@864": "Windows on ARM: the x64-only Inno installer refuses to run ('This program does not support the version of Windows your computer is running', EAbort, exit 1); logged-install probe on 629 2026-10-31.",
   "icon-composer/darwin@90001": "Icon Composer: GitHub's macOS runner image already has it, so every pool cycle skips it (the harness never touches a copy it didn't install; 14 skips on slot 90005 by 2026-11-10). Long-standing hosts only.",
   "icon-composer/darwin@90002": "Icon Composer: GitHub's macOS runner image already has it, so every pool cycle skips it (the harness never touches a copy it didn't install; 14 skips on slot 90005 by 2026-11-10). Long-standing hosts only.",
   "icon-composer/darwin@90003": "Icon Composer: GitHub's macOS runner image already has it, so every pool cycle skips it (the harness never touches a copy it didn't install; 14 skips on slot 90005 by 2026-11-10). Long-standing hosts only.",

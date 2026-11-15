@@ -33,7 +33,7 @@ case "$1" in
     touch "$SUMS"
     sums | grep -vxFf "$SUMS" | sed 's/^[0-9a-f]*  //' > "$OUT/changed" || true   # new or changed since restore
     echo "$(wc -l < "$OUT/changed" | tr -d ' ') changed files"
-    for i in 1 2 3 4 5; do
+    for i in 1 2 3 4 5 6 7 8 9 10; do   # up to 10 soak jobs plus the pool save at about the same time
       rm -rf "$OUT/w"; git worktree prune
       if git fetch -q origin "$BR" 2>/dev/null; then git worktree add -q --detach "$OUT/w" FETCH_HEAD
       else git worktree add -q --detach "$OUT/w" && git -C "$OUT/w" checkout -q --orphan tmp && git -C "$OUT/w" rm -rqf . ; fi

@@ -447,7 +447,8 @@ def replaces_preexisting(slug, host):
     the soak's own hosts and pool runners: a one-off cycle on a shared host (Mac 50 on main) never removes apps. On an
     except_hosts host only the apps its `allow` list names, and those are reinstalled afterwards (restores_preexisting)."""
     c = CFG.get("replace_preexisting", {})
-    soak_host = host in {h for hs in CFG["hosts"].values() for h in hs} or bool(os.environ.get("FMA_SOAK_POOL_SLOT"))
+    soak_host = host in {h for hs in (*CFG["hosts"].values(), *CFG.get("standby", {}).values()) for h in hs} \
+        or bool(os.environ.get("FMA_SOAK_POOL_SLOT"))
     allowed = host not in c.get("except_hosts", []) or slug in c.get("allow", {}).get(str(host), [])
     return bool(c.get("enabled")) and soak_host and allowed and slug not in c.get("keep", [])
 
