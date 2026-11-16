@@ -1,0 +1,72 @@
+{
+ "slug": "microsoft-odbc-driver-17/windows",
+ "host": 863,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T02:49:47",
+ "catalog_version": "17.11.1.1",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T06:49:38Z",
+  "restarted": "2026-11-14T16:46:01.986912Z"
+ },
+ "title_id": 38605,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 91,
+ "first_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (B0:18) [06:51:28:179]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (B0:18) [06:51:28:179]: Destroying RemoteAPI object.\r\nMSI (s) (B0:E8) [06:51:28:179]: Custom Action Manager thread ending.\r\nMSI (c) (40:D4) [06:51:28:179]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (40:D4) [06:51:28:179]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/16/2026  6:51:28 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 76,
+ "second_install_output_tail": "ws\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (B0:10) [06:53:34:403]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (B0:10) [06:53:34:403]: Destroying RemoteAPI object.\r\nMSI (s) (B0:28) [06:53:34:403]: Custom Action Manager thread ending.\r\nMSI (c) (30:30) [06:53:34:403]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (30:30) [06:53:34:403]: MainEngineThread is returning 1603\r\n=== Verbose logging stopped: 11/16/2026  6:53:34 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-16T02:55:00",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/microsoft-odbc-driver-17_windows-863-024947-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/microsoft-odbc-driver-17_windows-863-024947-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/microsoft-odbc-driver-17_windows-863-024947.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/microsoft-odbc-driver-17_windows-863-024503.json"
+}
