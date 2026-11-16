@@ -1,0 +1,79 @@
+{
+ "slug": "db-browser-for-sqlite/windows",
+ "host": 859,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T02:21:32",
+ "catalog_version": "3.13.1",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says installed but the app isn't on the host"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says installed but the app isn't on the host"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T06:21:23Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 38417,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "5:938]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (8C:94) [06:22:05:938]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (8C:94) [06:22:05:940]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:E0) [06:22:05:942]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (74:E0) [06:22:05:942]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  6:22:05 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_needed_grace": false,
+ "first_present_after_install": false,
+ "inventory_versions": [
+  "3.13.1"
+ ],
+ "package_version": "3.13.1",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "4:269]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (B4:DC) [06:27:44:269]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (B4:DC) [06:27:44:271]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:E0) [06:27:44:273]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:E0) [06:27:44:275]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  6:27:44 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_needed_grace": false,
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 82,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-16T02:33:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T06:33:08Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/db-browser-for-sqlite_windows-859-022132-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/db-browser-for-sqlite_windows-859-022132-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/db-browser-for-sqlite_windows-859-022132.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/db-browser-for-sqlite_windows-859-021156.json",
+ "crosshost_of": "soak/2026-11-16/db-browser-for-sqlite_windows-862-011701.json"
+}

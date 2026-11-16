@@ -1,0 +1,81 @@
+{
+ "slug": "webex/windows",
+ "host": 859,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T03:28:09",
+ "catalog_version": "46.11.0.36194",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T07:28:08Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 38731,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:BC) [07:29:10:350]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:BC) [07:29:10:356]: Destroying RemoteAPI object.\r\nMSI (s) (50:DC) [07:29:10:356]: Custom Action Manager thread ending.\r\nMSI (c) (EC:CC) [07:29:10:360]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (EC:CC) [07:29:10:360]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  7:29:10 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "46.11.0.36194"
+ ],
+ "package_version": "46.11.0.36194",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\"
+  ],
+  "names": [
+   "Webex"
+  ],
+  "versions": [
+   "46.11.0.36194"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:BC) [07:32:03:171]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:BC) [07:32:03:175]: Destroying RemoteAPI object.\r\nMSI (s) (50:54) [07:32:03:175]: Custom Action Manager thread ending.\r\nMSI (c) (38:94) [07:32:03:177]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (38:94) [07:32:03:179]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  7:32:03 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-16T03:33:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T07:33:36Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/webex_windows-859-032809-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/webex_windows-859-032809-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/webex_windows-859-032809.json"
+}

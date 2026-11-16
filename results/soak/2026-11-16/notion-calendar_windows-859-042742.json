@@ -1,0 +1,122 @@
+{
+ "slug": "notion-calendar/windows",
+ "host": 859,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T04:27:42",
+ "catalog_version": "1.133.0",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  },
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T08:27:37Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 38808,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Notion Calendar for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "1.133.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Notion Calendar 1.133.0"
+  ],
+  "versions": [
+   "1.133.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 61,
+ "first_uninstall_output_tail": "0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1583507874-718133821-835641035-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\6a2b5ac5-fa29-5b18-8c83-673211e963c6)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Uninstall Notion Calendar.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\"\nNotion Calendar removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Notion Calendar for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "3848",
+   "6604",
+   "6864",
+   "9988"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "9988",
+   "path": "C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Notion Calendar.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "6604",
+   "path": "C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Notion Calendar.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "6864",
+   "path": "C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Notion Calendar.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "3848",
+   "path": "C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Notion Calendar.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-16T05:19:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T09:18:52Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/notion-calendar_windows-859-042742-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/notion-calendar_windows-859-042742-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/notion-calendar_windows-859-042742.json"
+}
