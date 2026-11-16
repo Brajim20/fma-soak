@@ -673,7 +673,7 @@
     },
     {
       "app": "010-editor/darwin@631",
-      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 → 17.0).",
+      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 \u2192 17.0).",
       "before": "2026-10-31T15:00:00",
       "added": "2026-10-31"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "app": "snagit/darwin",
-      "verdict": "filed #57748: after Snagit is opened, 'application id … is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
+      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
       "added": "2026-11-05"
     },
     {
@@ -1138,7 +1138,7 @@
     },
     {
       "app": "burp-suite/darwin",
-      "verdict": "filed #57806: unique_identifier com.install4j.9806-… is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
+      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
       "added": "2026-11-05"
     },
     {
@@ -3915,6 +3915,16 @@
       "app": "notion-calendar/windows",
       "shape": "S6",
       "verdict": "filed #58942: install over the open app times out at the script's 900 s cap (failed_install), retried once, ~30 min queue block",
+      "added": "2026-11-16"
+    },
+    {
+      "app": "burp-suite-community/windows",
+      "verdict": "filed #58946 (winget package replaced by PortSwigger.BurpSuite; stuck at 2026.3.3)",
+      "added": "2026-11-16"
+    },
+    {
+      "app": "burp-suite-professional/windows",
+      "verdict": "filed #58946 (winget package replaced by PortSwigger.BurpSuite; stuck at 2026.3.3)",
       "added": "2026-11-16"
     }
   ]
