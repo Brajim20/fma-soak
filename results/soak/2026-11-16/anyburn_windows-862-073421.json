@@ -1,0 +1,85 @@
+{
+ "slug": "anyburn/windows",
+ "host": 862,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T07:34:21",
+ "catalog_version": "6.9",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T11:34:16Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 38980,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "6.9"
+ ],
+ "package_version": "6.9",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\AnyBurn"
+  ],
+  "names": [
+   "AnyBurn"
+  ],
+  "versions": [
+   "6.9"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\AnyBurn\\uninstall.exe\nUninstall args: /S _?=C:\\Program Files\\AnyBurn\nUninstall exit code: 0\n'AnyBurn' is no longer present.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "Uninstall entry for 'AnyBurn' not found; nothing to do.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T07:41:08",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/anyburn_windows-862-073421-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/anyburn_windows-862-073421-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/anyburn_windows-862-073421.json"
+}
