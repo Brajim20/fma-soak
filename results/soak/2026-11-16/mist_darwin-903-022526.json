@@ -1,0 +1,82 @@
+{
+ "slug": "mist/darwin",
+ "host": 903,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T02:25:26",
+ "catalog_version": "0.40",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T06:25:17Z",
+  "restarted": "2026-11-16T06:06:03.102997Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 20309,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Mist.0.40\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "0.40"
+ ],
+ "package_version": "0.40",
+ "context_after_install": {
+  "path": "/Applications/Mist.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Mist.app/Contents/MacOS/Mist",
+  "bundle_id": "com.ninxsoft.mist",
+  "versions": [
+   "0.40"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": null,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": false,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": false,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 reading from redis: write tcp 10.27.230.55:39140->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T02:32:37",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/mist_darwin-903-022526.json"
+}
