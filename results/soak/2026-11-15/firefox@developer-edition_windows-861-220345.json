@@ -1,0 +1,175 @@
+{
+ "slug": "firefox@developer-edition/windows",
+ "host": 861,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T22:03:45",
+ "catalog_version": "160.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as not_run (no new install result; status was installed)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T02:03:45Z",
+  "restarted": "2026-11-16T00:42:13.187126Z"
+ },
+ "title_id": 23409,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "not_run (no new install result; status was installed)",
+ "first_install_seconds": 211,
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Firefox Developer Edition\\uninstall\\helper.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "8",
+   "1680",
+   "3060",
+   "4168",
+   "5264",
+   "6020",
+   "6688",
+   "8280",
+   "9124",
+   "9392",
+   "9572"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "8280",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "5264",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "4168",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "9124",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "8",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "9392",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "6688",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "9572",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "6020",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "3060",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "1680",
+   "path": "C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "open_reinstall_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Firefox Developer Edition\\tobedeleted\\nstB40F.tmp, pid 8280); expected on Windows",
+ "open_reinstall_after_old_close": "0",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "792",
+   "2196",
+   "2716",
+   "3004",
+   "4876",
+   "5292",
+   "5300",
+   "6188",
+   "7792",
+   "10088",
+   "10096"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Firefox Developer Edition\\uninstall\\helper.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-15T22:16:42",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T02:16:33Z",
+  "restarted": "2026-11-16T00:42:13.187126Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-15/evidence/firefox@developer-edition_windows-861-220345-library.png",
+  "inventory": "results/soak/2026-11-15/evidence/firefox@developer-edition_windows-861-220345-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/firefox@developer-edition_windows-861-220345.json"
+}

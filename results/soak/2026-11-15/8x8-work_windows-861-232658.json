@@ -1,0 +1,62 @@
+{
+ "slug": "8x8-work/windows",
+ "host": 861,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-15T23:26:58",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "setting Latest left None active, expected 8.38.5"
+  },
+  {
+   "shape": "install",
+   "msg": "upgrade over 8.38.4 ended as None"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T03:26:53Z",
+  "restarted": "2026-11-16T03:24:38.889638Z"
+ },
+ "title_id": 20023,
+ "cached_versions": [
+  "8.38.4",
+  "8.38.5"
+ ],
+ "active_before": "8.38.5",
+ "pin_older_status": 200,
+ "active_after_pin": "8.38.4",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (4C:94) [03:27:50:574]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (4C:94) [03:27:50:576]: Destroying RemoteAPI object.\r\nMSI (s) (4C:0C) [03:27:50:576]: Custom Action Manager thread ending.\r\nMSI (c) (9C:20) [03:27:50:578]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (9C:20) [03:27:50:580]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  3:27:50 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": null,
+ "pin_latest_status": 502,
+ "active_after_unpin": null,
+ "app_during_upgrade": "off",
+ "upgrade_install_request": 502,
+ "upgrade_install_error": "error code: 502\n",
+ "upgrade_patched_query_passes": null,
+ "context_upgraded": null,
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 36,
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": null,
+ "outcome": "findings",
+ "finished": "2026-11-15T23:33:41",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T03:33:33Z",
+  "restarted": "2026-11-16T03:24:38.889638Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-15/evidence/8x8-work_windows-861-232658-library.png",
+  "inventory": "results/soak/2026-11-15/evidence/8x8-work_windows-861-232658-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/8x8-work_windows-861-232658.json"
+}
