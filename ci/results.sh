@@ -32,12 +32,16 @@ case "$1" in
     OUT=$(mktemp -d)
     touch "$SUMS"
     sums | grep -vxFf "$SUMS" | sed 's/^[0-9a-f]*  //' > "$OUT/changed" || true   # new or changed since restore
-    echo "$(wc -l < "$OUT/changed" | tr -d ' ') changed files"
+    # restored files this job deleted (pool.py drops a gone host's state). Copying only changed files never removed
+    # them, so dead pool hosts' leftovers sat in held.py's daily list for 10 days (2026-11-16)
+    sed 's/^[0-9a-f]*  //' "$SUMS" | while IFS= read -r f; do [[ -e $f ]] || echo "$f"; done > "$OUT/deleted"
+    echo "$(wc -l < "$OUT/changed" | tr -d ' ') changed files, $(wc -l < "$OUT/deleted" | tr -d ' ') deleted"
     for i in 1 2 3 4 5 6 7 8 9 10; do   # up to 10 soak jobs plus the pool save at about the same time
       rm -rf "$OUT/w"; git worktree prune
       if git fetch -q origin "$BR" 2>/dev/null; then git worktree add -q --detach "$OUT/w" FETCH_HEAD
       else git worktree add -q --detach "$OUT/w" && git -C "$OUT/w" checkout -q --orphan tmp && git -C "$OUT/w" rm -rqf . ; fi
       rsync -a --ignore-times --files-from="$OUT/changed" ./ "$OUT/w/"   # same size + mtime would be skipped
+      while IFS= read -r f; do rm -f "$OUT/w/$f"; done < "$OUT/deleted"
       git -C "$OUT/w" add -A results
       git -C "$OUT/w" diff --cached --quiet && { echo "no changes"; exit 0; }
       git -C "$OUT/w" commit -qm "$2"

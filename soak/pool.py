@@ -10,6 +10,7 @@ the configured soak hosts.
   python3 pool.py wait --hostname fma-pool-90001-123-1     # print the host ID once it has enrolled
   python3 pool.py finish --host 650 --hostname fma-pool-90001-123-1
   python3 pool.py sweep                                     # delete pool hosts a killed job left behind
+  python3 pool.py prune                                     # drop state files of hosts gone from Fleet
 """
 import argparse, datetime, os, re, sys, time
 
@@ -97,12 +98,38 @@ def sweep(hours=7):
         seen = datetime.datetime.fromisoformat(h["seen_time"].replace("Z", "+00:00"))
         if seen < cutoff:
             drop_titles(h["id"])
-            delete(h)
+            if delete(h):
+                try:
+                    os.remove(R.state_path(h["id"]))
+                except OSError:
+                    pass
+
+
+def prune():
+    """State files of hosts gone from Fleet: a pool runner whose state reached the results branch, which until
+    2026-11-16 never dropped a deleted file, so held.py listed its leftovers every day (8 on hosts 654-801). Only
+    the file goes: its leftovers were what kept their titles, and titles.py sweep (the next report step) removes
+    them under its own keep rules (priority tiers, canaries, queued). Configured and standby hosts are never
+    touched, and only a 404 counts as gone (an error from the instance keeps the file)."""
+    import sample as S
+    keep = static_hosts() | {h for p in ("darwin", "windows") for h in S.standby_for(p)}
+    d = os.path.dirname(R.state_path(0))
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        m = re.match(r"state-(\d+)\.json$", f)
+        if not m or int(m.group(1)) in keep:
+            continue
+        host = int(m.group(1))
+        st, _ = R.api("GET", f"/hosts/{host}")
+        if st != 404:
+            continue
+        left = sorted(R.load_state(host).get("harness_installed", {}))
+        print(f"host {host}: gone from Fleet, dropping its state (leftovers: {', '.join(left) or 'none'})")
+        os.remove(R.state_path(host))
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["wait", "finish", "sweep"])
+    ap.add_argument("cmd", choices=["wait", "finish", "sweep", "prune"])
     ap.add_argument("--host", type=int)
     ap.add_argument("--hostname")
     a = ap.parse_args()
@@ -110,6 +137,8 @@ def main():
         wait(a.hostname)
     elif a.cmd == "finish":
         finish(a.host, a.hostname)
+    elif a.cmd == "prune":
+        prune()
     else:
         sweep()
 

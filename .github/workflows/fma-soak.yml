@@ -281,6 +281,10 @@ jobs:
       - uses: ./harness/.github/actions/setup
         with: { browser: "false" }
       - run: ./harness/ci/results.sh restore
+      - name: Drop the state of hosts gone from Fleet (deleted pool runners), so held.py stops listing them
+        working-directory: harness/soak
+        continue-on-error: true
+        run: python3 -u pool.py prune
       - name: Remove the run's titles from the soak fleet (stored installers fill the instance's disk, #57132)
         working-directory: harness/soak
         continue-on-error: true   # a failed sweep must not block the digest or the next run
