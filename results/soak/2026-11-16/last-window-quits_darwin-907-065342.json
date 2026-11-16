@@ -1,0 +1,101 @@
+{
+ "slug": "last-window-quits/darwin",
+ "host": 907,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T06:53:42",
+ "catalog_version": "1.1.6",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 1.1.6: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install, first_present_after_uninstall, second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "pool_slot": 90002,
+ "title_id": 38947,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "inventory_versions": [
+  "1.1.6"
+ ],
+ "package_version": "1.1.6",
+ "context_after_install": {
+  "path": "/Applications/Last Window Quits.app",
+  "bundle": null,
+  "executable": null,
+  "exe": "/Applications/Last Window Quits.app/Contents/MacOS/Last Window Quits",
+  "bundle_id": "io.lawand.last-window-quits",
+  "versions": [
+   "1.1.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 118,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Support/io.lawand.last-window-quits doesn't exist.\n/Users/<user>/Library/HTTPStorages/io.lawand.last-window-quits doesn't exist.\n/Users/<user>/Library/LaunchAgents/io.lawand.last-window-quits.plist doesn't exist.\n/Users/<user>/Library/Preferences/io.lawand.last-window-quits.plist doesn't exist.\n/Users/<user>/LWQ Debug Logs doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Support/io.lawand.last-window-quits doesn't exist.\n/Users/<user>/Library/HTTPStorages/io.lawand.last-window-quits doesn't exist.\n/Users/<user>/Library/LaunchAgents/io.lawand.last-window-quits.plist doesn't exist.\n/Users/<user>/Library/Preferences/io.lawand.last-window-quits.plist doesn't exist.\n/Users/<user>/LWQ Debug Logs doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 reading from redis: ERR max number of clients reached",
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings (different on retry)",
+ "finished": "2026-11-16T07:10:40",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T11:10:31Z",
+  "restarted": "2026-11-16T10:40:48.40413Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/last-window-quits_darwin-907-065342.json",
+ "retry_of": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/last-window-quits_darwin-907-064534.json"
+}
