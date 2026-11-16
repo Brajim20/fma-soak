@@ -1,0 +1,83 @@
+{
+ "slug": "eclipse-temurin-jre-17/windows",
+ "host": 862,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T03:59:06",
+ "catalog_version": "17.0.21.9",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_uninstall, second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T07:58:57Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 38763,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (1C:A8) [07:59:47:848]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (1C:A8) [07:59:47:849]: Destroying RemoteAPI object.\r\nMSI (s) (1C:54) [07:59:47:849]: Custom Action Manager thread ending.\r\nMSI (c) (50:78) [07:59:47:851]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (50:78) [07:59:47:851]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  7:59:47 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "17.0.21.9"
+ ],
+ "package_version": "17.0.21.9",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Eclipse Adoptium\\jre-17.0.21.9-hotspot\\"
+  ],
+  "names": [
+   "Eclipse Temurin JRE with Hotspot 17.0.21+9 (x64)"
+  ],
+  "versions": [
+   "17.0.21.9"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": null,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T04:04:42",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/eclipse-temurin-jre-17_windows-862-035906-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/eclipse-temurin-jre-17_windows-862-035906-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/eclipse-temurin-jre-17_windows-862-035906.json"
+}
