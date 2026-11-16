@@ -1,0 +1,98 @@
+{
+ "slug": "transmit/darwin",
+ "host": 865,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T01:44:25",
+ "catalog_version": "5.11.7",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T05:44:15Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "title_id": 38469,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 366,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.11.7"
+ ],
+ "package_version": "5.11.7",
+ "context_after_install": {
+  "path": "/Applications/Transmit.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Transmit.app/Contents/MacOS/Transmit",
+  "bundle_id": "com.panic.Transmit",
+  "versions": [
+   "5.11.7"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "nsmit doesn't exist.\n/Users/<user>/Library/Application Support/Transmit doesn't exist.\n/Users/<user>/Library/Caches/com.panic.Transmit doesn't exist.\n/Users/<user>/Library/Caches/com.plausiblelabs.crashreporter.data/com.panic.Transmit doesn't exist.\n/Users/<user>/Library/Caches/Transmit doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.panic.Transmit doesn't exist.\n/Users/<user>/Library/Preferences/com.panic.Transmit.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.panic.Transmit.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.panic.Transmit doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "38017"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.panic.Transmit' was running; will relaunch after installation.\nQuitting application 'com.panic.Transmit'...\nApplication 'com.panic.Transmit' quit successfully.\nRelaunching application 'com.panic.Transmit'...\nApplication 'com.panic.Transmit' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.panic.Transmit' was running; will relaunch after installation.",
+  "Quitting application 'com.panic.Transmit'...",
+  "Application 'com.panic.Transmit' quit successfully.",
+  "Relaunching application 'com.panic.Transmit'...",
+  "Application 'com.panic.Transmit' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "38053",
+   "path": "/Applications/Transmit.app/Contents/MacOS/Transmit",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-16T01:56:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T05:55:55Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/transmit_darwin-865-014425.json"
+}
