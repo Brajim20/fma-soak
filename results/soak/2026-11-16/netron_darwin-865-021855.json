@@ -1,0 +1,99 @@
+{
+ "slug": "netron/darwin",
+ "host": 865,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T02:18:55",
+ "catalog_version": "9.3.6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T06:18:55Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "title_id": 38307,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "9.3.6"
+ ],
+ "package_version": "9.3.6",
+ "context_after_install": {
+  "path": "/Applications/Netron.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Netron.app/Contents/MacOS/Netron",
+  "bundle_id": "com.lutzroeder.netron",
+  "versions": [
+   "9.3.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 15,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "45933"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.lutzroeder.netron' was running; will relaunch after installation.\nQuitting application 'com.lutzroeder.netron'...\nApplication 'com.lutzroeder.netron' quit successfully.\nRelaunching application 'com.lutzroeder.netron'...\nApplication 'com.lutzroeder.netron' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.lutzroeder.netron' was running; will relaunch after installation.",
+  "Quitting application 'com.lutzroeder.netron'...",
+  "Application 'com.lutzroeder.netron' quit successfully.",
+  "Relaunching application 'com.lutzroeder.netron'...",
+  "Application 'com.lutzroeder.netron' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "45972",
+   "path": "/Applications/Netron.app/Contents/MacOS/Netron",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 15,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.lutzroeder.netron.sfl3.\nremoving /Users/<user>/Library/Application Support/Netron.\nremoving /Users/<user>/Library/Preferences/com.lutzroeder.netron.plist.\n/Users/<user>/Library/Saved Application State/com.lutzroeder.netron.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-16T02:24:58",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T06:24:53Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/netron_darwin-865-021855.json",
+ "crosshost_of": "soak/2026-11-16/netron_darwin-860-000347.json"
+}
