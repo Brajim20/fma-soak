@@ -16,6 +16,9 @@ Checks (tracker task -> escapes):
   1.6 version shape     #50968
   1.7 windows scope     #50857 #51138
   1.8 collisions        #51299 #57051   (macOS bundle IDs here; Windows names in names.py)
+  1.11 successor pkg    #58816 #51801   (--network; winget_health.py)
+  1.12 dormant source   #58817          (--network)
+  1.13 publisher drift  #58817          (--network)
 """
 import argparse, datetime, hashlib, json, os, re, subprocess, sys, urllib.request, urllib.error
 from collections import defaultdict
@@ -25,6 +28,7 @@ from functools import cmp_to_key
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 import settings
+import winget_health as WH
 CFG = json.load(open(os.path.join(HERE, "..", "config.json")))  # catalog-only: no instance settings needed
 REPO = settings.catalog_repo({**CFG, **(json.load(open(os.path.join(HERE, "..", "config.local.json"))) if os.path.exists(os.path.join(HERE, "..", "config.local.json")) else {})})  # the fleet checkout (CI: sparse clone)
 OUT_DIR = "ee/maintained-apps/outputs"
@@ -318,17 +322,18 @@ def brew_latest(token):
         return f"ERR {type(e).__name__}"
 
 
+WINGET = WH.Winget(os.path.join(HERE, "..", "results", "winget-added.json"))  # shared with winget_health
+
+
 def winget_latest(pkg_id):
     """Highest version folder under manifests/<l>/<Publisher>/<Name...> in microsoft/winget-pkgs."""
-    parts = pkg_id.split(".")
-    path = f"manifests/{parts[0][0].lower()}/" + "/".join(parts)
-    r = subprocess.run(["gh", "api", f"repos/microsoft/winget-pkgs/contents/{path}", "--jq", '.[] | select(.type=="dir") | .name'],
-                       capture_output=True, text=True)
-    if r.returncode != 0:
-        return f"ERR {r.stderr.strip()[:60]}"
+    path = WH.pkg_path(pkg_id)
+    ds = WINGET.dirs(path)
+    if ds is None:
+        return "ERR not found"
     # Folders are either versions (holding *.yaml) or child packages (Adobe/Acrobat/Pro/2020, Google/Chrome/Dev).
     # Try candidates newest-first and accept the first that holds manifests.
-    cands = sorted((d for d in r.stdout.split() if re.match(r"^\d", d)), key=cmp_to_key(vcmp), reverse=True)
+    cands = sorted((d for d in ds if re.match(r"^\d", d)), key=cmp_to_key(vcmp), reverse=True)
     for d in cands[:4]:
         q = subprocess.run(["gh", "api", f"repos/microsoft/winget-pkgs/contents/{path}/{d}", "--jq", '[.[] | select(.name|endswith(".yaml"))] | length'],
                            capture_output=True, text=True)
@@ -462,6 +467,9 @@ def write_report(rep):
                             ("behind_upstream", "1.3 Behind upstream", "#52746 #55546"),
                             ("frozen_inputs", "1.3 Frozen inputs (ingest skips them silently)", "#55546"),
                             ("platform_divergence", "1.3 Windows behind macOS, winget has nothing newer", "#52746"),
+                            ("successor_package", "1.11 Winget package superseded by its parent package", "#58816 #51801"),
+                            ("dormant_source", "1.12 Winget package dormant while macOS moved", "#58817"),
+                            ("publisher_drift", "1.13 Winget publisher differs from the query's", "#58817"),
                             ("url_dead", "1.4 Installer host no longer exists", "#55360"),
                             ("url_html_confirm_via_fleet", "1.4 URL returns 404 or a web page to curl (confirm by adding via Fleet)", "#55360"),
                             ("url_unreachable", "1.4 Installer URL unreachable after retry", "#55360"),
@@ -526,6 +534,11 @@ def main():
     if a.network:
         c["behind_upstream"], c["platform_divergence"], rep["freshness_errors"] = check_freshness(
             a.ref, apps, manifests, inputs, CFG["audit"]["freshness_lag_days"])
+        c["successor_package"], c["dormant_source"], c["publisher_drift"], rep["winget_health_errors"], rep["winget_quiet"] = WH.check(
+            apps, manifests, inputs, WINGET, lambda s: last_changed(a.ref, s),
+            dormant_days=CFG["audit"].get("dormant_days", 180), dormant_days_alone=CFG["audit"].get("dormant_days_alone", 365),
+            ignore=CFG["audit"].get("winget_ignore"))
+        WINGET.save()
         urls = check_urls(manifests)
         for k in ("url_dead", "url_html_confirm_via_fleet", "url_unreachable", "url_blocked_needs_manual_check"):
             c[k] = [x for x in urls if x["kind"] == k]

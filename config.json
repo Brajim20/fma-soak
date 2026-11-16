@@ -219,7 +219,18 @@
  },
  "audit": {
   "freshness_lag_days": 7,
-  "full_hash_rotation_days": 7
+  "full_hash_rotation_days": 7,
+  "dormant_days": 180,
+  "dormant_days_alone": 365,
+  "winget_ignore": {
+   "_doc": "audit 1.11-1.13 (winget_health.py) hits reviewed as false alarms, per check: slug -> why. Reviewed 2026-11-16 on the first full sweep.",
+   "dormant_source": {
+    "gotomeeting/windows": "version schemes differ: macOS FMA carries the build number (19950) only",
+    "jami/windows": "version schemes differ between the Windows (1.0.x.y) and macOS (2.x) builds",
+    "scrivener/windows": "Scrivener for Windows is versioned separately from macOS (3.1.x is current on Windows)",
+    "steam/windows": "winget installs a self-updating bootstrapper; its version doesn't follow the client"
+   }
+  }
  },
  "known_environment": {
   "010-editor/windows@629": "Windows on ARM: x64-only installer; this app's test runs on 635, where replacing the existing copy is approved (replace_preexisting.allow, 2026-11-08).",
