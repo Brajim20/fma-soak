@@ -1,0 +1,77 @@
+{
+ "slug": "onedrive/darwin",
+ "host": 858,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-16T07:58:49",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T11:58:44Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "title_id": 23411,
+ "cached_versions": [
+  "26.189.0928",
+  "26.198.1011"
+ ],
+ "active_before": "26.198.1011",
+ "pin_older_status": 200,
+ "active_after_pin": "26.189.0928",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 16,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneDrive\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/OneDrive.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+  "bundle_id": "com.microsoft.OneDrive",
+  "versions": [
+   "26.189.0928"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "26.198.1011",
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 47,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft OneDrive\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/OneDrive.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
+  "bundle_id": "com.microsoft.OneDrive",
+  "versions": [
+   "26.198.1011"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": null,
+  "pids": [],
+  "note": "502 error code: 502\n"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "upgrade_after_close": "502 error code: 502",
+ "cleanup_uninstall_request": 502,
+ "cleanup_uninstall_error": "error code: 502\n",
+ "outcome": "pass",
+ "finished": "2026-11-16T08:03:09",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/onedrive_darwin-858-075849.json"
+}

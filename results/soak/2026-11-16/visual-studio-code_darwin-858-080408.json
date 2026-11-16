@@ -1,0 +1,61 @@
+{
+ "slug": "visual-studio-code/darwin",
+ "host": 858,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-16T08:04:08",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinning 1.145.3 left None active"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 1.145.3 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "S4",
+   "msg": "setting Latest left None active, expected 1.146.0"
+  },
+  {
+   "shape": "install",
+   "msg": "install of 1.145.3 ended as None; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T12:04:04Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "title_id": 12955,
+ "cached_versions": [
+  "1.145.3",
+  "1.146.0"
+ ],
+ "active_before": "1.146.0",
+ "pin_older_status": 502,
+ "active_after_pin": null,
+ "old_install_request": 502,
+ "old_install_error": "error code: 502\n",
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": null,
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "cleanup_uninstall_output_tail": "uments/com.microsoft.vscode.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.microsoft.VSCode doesn't exist.\n/Users/<user>/Library/Caches/com.microsoft.VSCode.ShipIt doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.microsoft.VSCode doesn't exist.\n/Users/<user>/Library/Preferences/ByHost/com.microsoft.VSCode.ShipIt.*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.VSCode.helper.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.VSCode.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.VSCode.savedState doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-16T08:06:43",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T12:06:34Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "evidence": {
+  "library": "unavailable: ended on /login: token rejected, expired or API-only",
+  "inventory": "results/soak/2026-11-16/evidence/visual-studio-code_darwin-858-080408-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/visual-studio-code_darwin-858-080408.json"
+}

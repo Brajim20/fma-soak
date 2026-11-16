@@ -1,0 +1,58 @@
+{
+ "slug": "zoom/darwin",
+ "host": 858,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-16T08:22:22",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinning 7.2.2.88465 left None active"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 7.2.2.88465 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "install",
+   "msg": "install of 7.2.2.88465 ended as None; upgrade not tested"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T12:22:14Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "title_id": 12457,
+ "cached_versions": [
+  "7.2.2.88465",
+  "7.2.5.90525"
+ ],
+ "active_before": "7.2.5.90525",
+ "pin_older_status": 200,
+ "active_after_pin": null,
+ "old_install_request": 502,
+ "old_install_error": "error code: 502\n",
+ "old_patched_query_passes": true,
+ "context_old": null,
+ "pin_latest_status": 200,
+ "active_after_unpin": "7.2.5.90525",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "cleanup_uninstall_output_tail": "esn't exist.\n/Users/<user>/Library/Preferences/us.zoom.xos.Hotkey.plist doesn't exist.\n/Users/<user>/Library/Preferences/us.zoom.xos.plist doesn't exist.\n/Users/<user>/Library/Preferences/us.zoom.ZoomAutoUpdater.plist doesn't exist.\n/Users/<user>/Library/Preferences/ZoomChat.plist doesn't exist.\n/Users/<user>/Library/Safari/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/SafariTechnologyPreview/PerSiteZoomPreferences.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/us.zoom.xos.savedState doesn't exist.\n/Users/<user>/Library/WebKit/us.zoom.xos doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-16T08:28:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T12:28:29Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/zoom_darwin-858-082222-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/zoom_darwin-858-082222-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/zoom_darwin-858-082222.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/zoom_darwin-858-081731.json"
+}
