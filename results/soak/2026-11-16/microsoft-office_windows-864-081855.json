@@ -1,0 +1,105 @@
+{
+ "slug": "microsoft-office/windows",
+ "host": 864,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T08:18:55",
+ "catalog_version": "16.0.20228.20124",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after first_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T12:18:54Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "title_id": 39047,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 198,
+ "first_install_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\2603179561\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20527.20196)\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": null,
+ "inventory_versions": [
+  "16.0.20527.20196"
+ ],
+ "package_version": "16.0.20228.20124",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Microsoft Office"
+  ],
+  "names": [
+   "Microsoft 365 Apps for enterprise - en-us"
+  ],
+  "versions": [
+   "16.0.20527.20196"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 77,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": null,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 276,
+ "second_install_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\806063777\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20527.20196)\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "10716"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 168,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\3048280171\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20527.20196)\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "10716",
+   "path": "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\OfficeClickToRun.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "1",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 77,
+ "second_uninstall_output_tail": "Found: Microsoft 365 Apps for enterprise - en-us (16.0.20527.20196)\nOriginal UninstallString: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0\nRunning: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0 DisplayLevel=False\nOfficeClickToRun.exe exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 reading from redis: ERR max number of clients reached",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T08:39:09",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T12:39:06Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/microsoft-office_windows-864-081855-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/microsoft-office_windows-864-081855-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/microsoft-office_windows-864-081855.json"
+}
