@@ -40,7 +40,7 @@ def candidates(plat, host):
         app = f"{r['slug']}@{r['host']}"
         real = [f for f in r["findings"] if f["shape"] != "harness"
                 and not D.triage_match(app, f, r) and not D.triage_match(r["slug"], f, r)]
-        if not real or last_here.get(k, "") > r["started"] or r["slug"] in skip:
+        if not real or last_here.get(k, "") > r["started"] or r["slug"] in skip or not S.fits(plat, r["slug"], host):
             continue
         seen.add(k)
         out.append(r)

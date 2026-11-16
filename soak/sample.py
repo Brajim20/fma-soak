@@ -106,7 +106,45 @@ def hosts_for(plat):
 
 
 def known_env_hosts(slug):
-    return {int(k.rsplit("@", 1)[1]) for k in R.CFG.get("known_environment", {}) if R.app_slug(k) == slug and k != slug}
+    return ({int(k.rsplit("@", 1)[1]) for k in R.CFG.get("known_environment", {}) if R.app_slug(k) == slug and k != slug}
+            | wrong_arch(slug))
+
+
+def arm_hosts(plat):
+    """Hosts listed under config arch.<plat>.arm64 (Windows on ARM)."""
+    return set(R.CFG.get("arch", {}).get(plat, {}).get("arm64", []))
+
+
+def is_arm_build(slug):
+    return slug.split("/")[0].endswith("-arm64")
+
+
+def wrong_arch(slug):
+    """Hosts that can't run this build: an -arm64 build only runs on the platform's ARM hosts."""
+    plat = slug.rsplit("/", 1)[-1]
+    arm = arm_hosts(plat)
+    if not arm or not is_arm_build(slug):
+        return set()
+    return {h for h in all_hosts(plat) + standby_for(plat) if h not in arm}
+
+
+def alternated(slug):
+    alt = R.CFG.get("priority", {}).get("alternate", {})
+    return any(slug in t.get("apps", []) for t in R.CFG.get("priority", {}).get("tiers", []) if t["name"] in alt.get("tiers", []))
+
+
+def fits(plat, slug, host):
+    """Whether this host should take this app: -arm64 builds only on ARM hosts, and other apps off the ARM hosts
+    (they go to the x64 hosts), except the alternate tiers, which run on every OS build on purpose."""
+    arm = arm_hosts(plat)
+    if not arm:
+        return True
+    if is_arm_build(slug):
+        return host in arm
+    if host not in arm or alternated(slug):
+        return True
+    # an app no x64 host can run (known_environment there) may still run on ARM
+    return not [h for h in all_hosts(plat) if h not in arm and h not in known_env_hosts(slug)]
 
 
 def owner(plat, slug, without=(), salt=""):
@@ -116,6 +154,8 @@ def owner(plat, slug, without=(), salt=""):
     able = [h for h in all_hosts(plat) if h not in known_env_hosts(slug) and h not in without]
     if not able:
         return None
+    # other apps go to the x64 hosts; ARM hosts take one only when nothing else can (or the caller left only them)
+    able = [h for h in able if is_arm_build(slug) or h not in arm_hosts(plat)] or able
     w = R.CFG["random_sample"].get("host_weights", {})
     pool = set(pool_for(plat))
     weights = [max(float(w.get(str(h), w.get("pool", 1) if h in pool else 1)), 0) for h in able]
@@ -271,8 +311,7 @@ def tier_host(plat, slug, hours, now):
     period = int(now // (hours * 3600))
     alt = R.CFG.get("priority", {}).get("alternate", {})
     groups = [g for g in alt.get(plat, []) if g]
-    if groups and any(slug in t.get("apps", []) for t in R.CFG.get("priority", {}).get("tiers", [])
-                      if t["name"] in alt.get("tiers", [])):
+    if groups and alternated(slug):
         group = set(groups[period % len(groups)])
         others = {h for h in all_hosts(plat) if h not in group}
         able = [h for h in hosts_for(plat) if h in group and h not in known_env_hosts(slug) and is_up(plat, h)]
@@ -340,7 +379,7 @@ def next_pick(plat, catalog, changed, ledger, rng, host, blind=None, full=None, 
     spots only."""
     full = full or catalog
     week_ago = ((now or datetime.datetime.now()) - datetime.timedelta(days=7)).isoformat(timespec="seconds")
-    skip = excluded(plat, host)
+    skip = excluded(plat, host) | {s for s in full if not fits(plat, s, host)}
     rr = R.CFG.get("rerun", {})
     for s in rr.get("apps", []):
         last = max((((ledger.get(f"{s}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),

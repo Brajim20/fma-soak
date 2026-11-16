@@ -163,6 +163,50 @@ class Standby(unittest.TestCase):
             self.assertFalse(runner.replaces_preexisting("x/darwin", 50))
 
 
+class Arch(unittest.TestCase):
+    """config arch: -arm64 builds only on the ARM hosts, other Windows apps on the x64 hosts."""
+    X64, ARM = [861, 859, 862], [863, 864]
+    APPS = [f"w{i}/windows" for i in range(30)] + [f"w{i}-arm64/windows" for i in range(10)]
+
+    def setUp(self):
+        prio = {**PRIORITY, "tiers": [{"name": "twice_daily", "every_hours": 12, "apps": ["w0/windows"]}],
+                "alternate": {"tiers": ["twice_daily"], "windows": [self.X64, self.ARM]}}
+        cfg = {"hosts": {"windows": self.X64 + self.ARM}, "standby": {"windows": [629, 635]}, "pool": {},
+               "arch": {"windows": {"arm64": self.ARM + [629]}}, "known_environment": {}, "priority": prio,
+               "random_sample": {"host_weights": {}}}
+        for p in (mock.patch.dict(runner.CFG, cfg), mock.patch.object(sample, "is_up", lambda plat, h: True)):
+            p.start()
+            self.addCleanup(p.stop)
+
+    def test_arm64_builds_are_owned_by_arm_hosts_only(self):
+        for s in self.APPS:
+            h = sample.owner("windows", s)
+            self.assertIn(h, self.ARM if s.split("/")[0].endswith("-arm64") else self.X64, s)
+            self.assertIn(sample.catch_up_host("windows", s), self.ARM if "-arm64/" in s else self.X64, s)
+
+    def test_fits_keeps_each_build_on_its_cpu(self):
+        self.assertFalse(sample.fits("windows", "w1-arm64/windows", 862))
+        self.assertFalse(sample.fits("windows", "w1-arm64/windows", 635))  # standby x64, for crosshost reruns
+        self.assertTrue(sample.fits("windows", "w1-arm64/windows", 629))
+        self.assertFalse(sample.fits("windows", "w1/windows", 863))
+        self.assertTrue(sample.fits("windows", "w1/windows", 859))
+
+    def test_the_alternate_tier_still_runs_on_arm(self):
+        self.assertTrue(sample.fits("windows", "w0/windows", 864))
+        seen = {sample.tier_host("windows", "w0/windows", 12, NOW.timestamp() + k * 12 * 3600) for k in range(8)}
+        self.assertTrue(seen & set(self.ARM) and seen & set(self.X64), seen)
+
+    def test_an_app_no_x64_host_can_run_falls_back_to_arm(self):
+        runner.CFG["known_environment"] = {f"w5/windows@{h}": "x" for h in self.X64}
+        self.assertIn(sample.owner("windows", "w5/windows"), self.ARM)
+        self.assertTrue(sample.fits("windows", "w5/windows", 863))
+
+    def test_no_arch_config_changes_nothing(self):
+        runner.CFG["arch"] = {}
+        self.assertTrue(sample.fits("windows", "w1-arm64/windows", 862))
+        self.assertEqual(sample.wrong_arch("w1-arm64/windows"), set())
+
+
 class Quarter(Base):
     def test_weeks_cycle_through_the_quarters(self):
         weeks = [sample.week_quarter(datetime.datetime(2026, 11, 16) + datetime.timedelta(days=7 * k)) for k in range(5)]
