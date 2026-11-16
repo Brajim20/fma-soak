@@ -1,0 +1,76 @@
+{
+ "slug": "git-extensions/windows",
+ "host": 859,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T07:59:56",
+ "catalog_version": "7.2.1.7",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 7.2.1.7: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T11:59:54Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 39002,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F4:B4) [12:00:36:439]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (F4:B4) [12:00:36:439]: Destroying RemoteAPI object.\r\nMSI (s) (F4:38) [12:00:36:439]: Custom Action Manager thread ending.\r\nMSI (c) (5C:10) [12:00:36:443]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (5C:10) [12:00:36:443]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/16/2026  12:00:36 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.1.7"
+ ],
+ "package_version": "7.2.1.7",
+ "context_after_install": null,
+ "patched_query_passes": false,
+ "first_uninstall_request": 502,
+ "first_uninstall_error": "error code: 502\n",
+ "first_present_after_uninstall": false,
+ "second_install_request": 502,
+ "second_install_error": "error code: 502\n",
+ "second_present_after_install": null,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 67,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T08:07:06",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-16T12:07:04Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/git-extensions_windows-859-075956-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/git-extensions_windows-859-075956-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/git-extensions_windows-859-075956.json"
+}
