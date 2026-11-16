@@ -1,0 +1,123 @@
+{
+ "slug": "zoom-rooms/windows",
+ "host": 864,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T01:05:18",
+ "catalog_version": "7.2.5",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T05:05:12Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "title_id": 38419,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\WINDOWS\\SystemTemp\\183440327\\zoomrooms-7.2.5.8613-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.5",
+  "7.2.5.8613"
+ ],
+ "package_version": "7.2.5",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\ZoomRooms\\bin"
+  ],
+  "names": [
+   "Zoom Rooms"
+  ],
+  "versions": [
+   "7.2.5.8613"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\WINDOWS\\SystemTemp\\186297807\\zoomrooms-7.2.5.8613-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "7864",
+   "7972",
+   "8164",
+   "9472",
+   "11052"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 16,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall command: msiexec.exe /i \"C:\\WINDOWS\\SystemTemp\\4024426622\\zoomrooms-7.2.5.8613-x64.msi\" /passive /norestart ACCEPTGDPR=true SILENT=true AUTOSTART=false ZLAUNCHAPP=0\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "9472",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "7972",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "7864",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "11052",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "8164",
+   "path": "C:\\Program Files\\ZoomRooms\\bin\\ZoomRooms.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": null,
+ "open_reinstall_after_running_note": "host didn't answer the process query after opening; not judged",
+ "open_reinstall_after_close": "502 error code: 502",
+ "open_reinstall": "done",
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T01:13:14",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "unavailable: ended on /login: token rejected, expired or API-only",
+  "inventory": "unavailable: ended on /login: token rejected, expired or API-only"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/zoom-rooms_windows-864-010518.json"
+}
