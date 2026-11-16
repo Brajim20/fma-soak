@@ -1,0 +1,50 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/reaper/windows.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/reaper.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reaper_install.ps1",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/reaper_uninstall.ps1"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "6245d42b27",
+   "date": "2026-11-01",
+   "title": "Fix REAPER (Windows) Fleet-maintained app never being detected (#57115)"
+  },
+  {
+   "sha": "1f2623817f",
+   "date": "2026-06-07",
+   "title": "Add several Windows FMAs (#47037)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 57113,
+   "state": "closed",
+   "title": "Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always pass"
+  },
+  {
+   "number": 49749,
+   "state": "open",
+   "title": "Apple `nano_enrollments` / `nano_devices` rows are never reaped: orphaned enrollments from"
+  },
+  {
+   "number": 53204,
+   "state": "open",
+   "title": "The upcoming-activities maintenance job discards the count it computes"
+  },
+  {
+   "number": 53205,
+   "state": "open",
+   "title": "User-initiated installs don't check for a pending install of the same software"
+  },
+  {
+   "number": 53203,
+   "state": "open",
+   "title": "Nothing reclaims pending activities for hosts that stopped checking in"
+  }
+ ]
+}

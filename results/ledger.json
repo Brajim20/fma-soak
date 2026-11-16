@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T06:31:15",
+ "built": "2026-11-16T12:16:29",
  "coverage": {
   "darwin": {
    "covered": 976,
@@ -11,15 +11,17 @@
     "of": 2,
     "week_start": "2026-11-16",
     "apps": 452,
-    "done": 83
+    "done": 150
    },
    "priority": [
     {
      "name": "twice_daily",
      "every_hours": 12,
      "apps": 10,
-     "on_time": 10,
-     "overdue": {}
+     "on_time": 9,
+     "overdue": {
+      "visual-studio-code/darwin": 18
+     }
     },
     {
      "name": "daily",
@@ -49,7 +51,7 @@
     "of": 2,
     "week_start": "2026-11-16",
     "apps": 209,
-    "done": 71
+    "done": 97
    },
    "priority": [
     {
@@ -72,7 +74,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 394
+      "onedrive/windows": 400
      }
     }
    ]
@@ -11316,16 +11318,16 @@
    }
   },
   "avast-secure-browser/darwin@90004": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-05T17:19:53",
-   "last_cycled": "2026-11-12T12:05:09",
+   "last_cycled": "2026-11-16T07:53:11",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-12T12:05:09",
+    "date": "2026-11-16T07:53:11",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "150.0.7646.188",
-    "record": "results/soak/2026-11-12/avast-secure-browser_darwin-811-120509.json",
+    "record": "results/soak/2026-11-16/avast-secure-browser_darwin-906-075311.json",
     "findings": []
    }
   },
@@ -11887,17 +11889,19 @@
    }
   },
   "carbon-copy-cloner/darwin@90004": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "first_cycled": "2026-11-05T16:59:36",
-   "last_cycled": "2026-11-12T04:39:42",
+   "last_cycled": "2026-11-16T08:59:29",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-12T04:39:42",
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T08:59:29",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.2.2",
-    "record": "results/soak/2026-11-12/carbon-copy-cloner_darwin-803-043942.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/carbon-copy-cloner_darwin-906-085929.json",
+    "findings": [
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
    }
   },
   "cavalry/darwin@624": {
@@ -12805,16 +12809,16 @@
    }
   },
   "drawio/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-05T07:51:35",
-   "last_cycled": "2026-11-05T07:51:35",
+   "last_cycled": "2026-11-16T09:18:56",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-05T07:51:35",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:18:56",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "32.6.10",
-    "record": "results/soak/2026-11-05/drawio_darwin-643-075135.json",
+    "record": "results/soak/2026-11-16/drawio_darwin-909-091856.json",
     "findings": []
    }
   },
@@ -13145,16 +13149,16 @@
    }
   },
   "etrecheckpro/darwin@90002": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "first_cycled": "2026-11-05T14:55:57",
-   "last_cycled": "2026-11-12T21:53:06",
+   "last_cycled": "2026-11-16T08:12:28",
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:08:51",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:12:28",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "6.9",
-    "record": "results/soak/2026-11-16/etrecheckpro_darwin-901-040851.json",
+    "record": "results/soak/2026-11-16/etrecheckpro_darwin-907-081228.json",
     "findings": []
    }
   },
@@ -13322,16 +13326,16 @@
    }
   },
   "firefox@developer-edition/darwin@90005": {
-   "lifecycle_runs": 18,
+   "lifecycle_runs": 19,
    "update_runs": 0,
    "first_cycled": "2026-11-05T18:52:34",
-   "last_cycled": "2026-11-11T12:52:35",
+   "last_cycled": "2026-11-16T08:56:24",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-11T12:52:35",
+    "date": "2026-11-16T08:56:24",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "161.0b1",
-    "record": "results/soak/2026-11-11/firefox@developer-edition_darwin-790-125235.json",
+    "catalog_version": "161.0b3",
+    "record": "results/soak/2026-11-16/firefox@developer-edition_darwin-908-085624.json",
     "findings": []
    }
   },
@@ -13604,16 +13608,16 @@
    }
   },
   "go2shell/darwin@90001": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-05T13:39:21",
-   "last_cycled": "2026-11-12T11:25:37",
+   "last_cycled": "2026-11-16T07:42:23",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-12T11:25:37",
+    "date": "2026-11-16T07:42:23",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.5",
-    "record": "results/soak/2026-11-12/go2shell_darwin-809-112537.json",
+    "record": "results/soak/2026-11-16/go2shell_darwin-909-074223.json",
     "findings": []
    }
   },
@@ -13662,16 +13666,16 @@
    }
   },
   "godspeed/darwin@90001": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-05T22:00:45",
-   "last_cycled": "2026-11-12T02:16:29",
+   "last_cycled": "2026-11-16T08:07:10",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-12T02:16:29",
+    "date": "2026-11-16T08:07:10",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.9.22",
-    "record": "results/soak/2026-11-12/godspeed_darwin-799-021629.json",
+    "record": "results/soak/2026-11-16/godspeed_darwin-909-080710.json",
     "findings": []
    }
   },
@@ -14590,16 +14594,16 @@
    }
   },
   "logitune/darwin@90002": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "first_cycled": "2026-11-05T23:45:50",
-   "last_cycled": "2026-11-12T21:06:30",
+   "last_cycled": "2026-11-16T07:23:19",
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:08:11",
+    "outcome": "pass",
+    "date": "2026-11-16T07:23:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.14.72",
-    "record": "results/soak/2026-11-16/logitune_darwin-901-040811.json",
+    "record": "results/soak/2026-11-16/logitune_darwin-907-072319.json",
     "findings": []
    }
   },
@@ -14890,16 +14894,16 @@
    }
   },
   "malwarebytes/darwin@90002": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 6,
    "update_runs": 0,
    "first_cycled": "2026-11-05T20:25:49",
-   "last_cycled": "2026-11-07T12:50:25",
+   "last_cycled": "2026-11-16T07:10:51",
    "last_lifecycle": {
-    "outcome": "skipped: host low on disk (0 GB free, below disk.min_gb 5)",
-    "date": "2026-11-09T07:05:03",
+    "outcome": "pass",
+    "date": "2026-11-16T07:10:51",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "5.28.4.4244",
-    "record": "results/soak/2026-11-09/malwarebytes_darwin-735-070503.json",
+    "catalog_version": "5.29.2",
+    "record": "results/soak/2026-11-16/malwarebytes_darwin-907-071051.json",
     "findings": []
    }
   },
@@ -17462,16 +17466,16 @@
    }
   },
   "splashtop-business/darwin@90001": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "first_cycled": "2026-11-05T17:27:45",
-   "last_cycled": "2026-11-12T09:28:34",
+   "last_cycled": "2026-11-16T07:23:19",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-12T09:28:34",
+    "date": "2026-11-16T07:23:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.8.6.0",
-    "record": "results/soak/2026-11-12/splashtop-business_darwin-809-092834.json",
+    "record": "results/soak/2026-11-16/splashtop-business_darwin-909-072319.json",
     "findings": []
    }
   },
@@ -17548,17 +17552,19 @@
    }
   },
   "sqlpro-studio/darwin@90001": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "first_cycled": "2026-11-05T13:05:20",
-   "last_cycled": "2026-11-11T17:08:21",
+   "last_cycled": "2026-11-16T06:45:34",
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:08:48",
+    "outcome": "findings",
+    "date": "2026-11-16T06:45:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.301",
-    "record": "results/soak/2026-11-16/sqlpro-studio_darwin-904-040848.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/sqlpro-studio_darwin-909-064534.json",
+    "findings": [
+     "presence unknown after first_present_after_uninstall, second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
    }
   },
   "staruml/darwin@90002": {
@@ -17914,17 +17920,19 @@
    }
   },
   "telegram/darwin@90005": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-05T23:09:17",
-   "last_cycled": "2026-11-11T10:46:21",
+   "last_cycled": "2026-11-16T06:44:42",
    "last_lifecycle": {
-    "outcome": "skipped: host didn't answer the presence query",
-    "date": "2026-11-16T03:39:29",
+    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+    "date": "2026-11-16T06:56:15",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "13.2.0",
-    "record": "results/soak/2026-11-16/telegram_darwin-905-033929.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/telegram_darwin-908-065615.json",
+    "findings": [
+     "telegram/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "termius/darwin@90002": {
@@ -18307,17 +18315,19 @@
    }
   },
   "typeface/darwin@90004": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "first_cycled": "2026-11-05T17:38:20",
-   "last_cycled": "2026-11-11T00:10:51",
+   "last_cycled": "2026-11-16T08:36:25",
    "last_lifecycle": {
-    "outcome": "flaky: findings on the first run, clean on the retry",
-    "date": "2026-11-11T00:10:51",
+    "outcome": "findings",
+    "date": "2026-11-16T08:36:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.5.4",
-    "record": "results/soak/2026-11-11/typeface_darwin-772-001051.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/typeface_darwin-906-083625.json",
+    "findings": [
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
    }
   },
   "unclutter/darwin@624": {
@@ -18761,17 +18771,19 @@
    }
   },
   "wireshark-app/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-05T08:23:41",
-   "last_cycled": "2026-11-05T08:23:41",
+   "last_cycled": "2026-11-16T07:51:25",
    "last_lifecycle": {
-    "outcome": "flaky: findings on the first run, clean on the retry",
-    "date": "2026-11-05T08:23:41",
+    "outcome": "findings",
+    "date": "2026-11-16T07:51:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.6.9",
-    "record": "results/soak/2026-11-05/wireshark-app_darwin-643-082341.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/wireshark-app_darwin-909-075125.json",
+    "findings": [
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
    }
   },
   "wispr-flow/darwin@631": {
@@ -21570,16 +21582,16 @@
    }
   },
   "diffusionbee/darwin@90001": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-06T09:50:03",
-   "last_cycled": "2026-11-12T14:10:24",
+   "last_cycled": "2026-11-16T08:57:01",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-12T14:10:24",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:57:01",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.5.3",
-    "record": "results/soak/2026-11-12/diffusionbee_darwin-816-141024.json",
+    "record": "results/soak/2026-11-16/diffusionbee_darwin-909-085701.json",
     "findings": []
    }
   },
@@ -22264,16 +22276,16 @@
    "last_cycled": "2026-11-12T01:24:54"
   },
   "folx/darwin@90005": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-06T02:01:07",
-   "last_cycled": "2026-11-11T19:38:14",
+   "last_cycled": "2026-11-16T09:20:50",
    "last_lifecycle": {
-    "outcome": "skipped: host didn't answer the presence query",
-    "date": "2026-11-12T16:35:11",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:20:50",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.34",
-    "record": "results/soak/2026-11-12/folx_darwin-812-163511.json",
+    "record": "results/soak/2026-11-16/folx_darwin-908-092050.json",
     "findings": []
    }
   },
@@ -25370,17 +25382,19 @@
    "last_cycled": "2026-11-12T10:04:12"
   },
   "plex/darwin@90001": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 9,
    "update_runs": 0,
    "first_cycled": "2026-11-06T05:02:30",
-   "last_cycled": "2026-11-12T22:10:05",
+   "last_cycled": "2026-11-16T09:39:24",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-12T22:10:05",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T09:39:24",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.115.0",
-    "record": "results/soak/2026-11-12/plex_darwin-819-221005.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/plex_darwin-909-093924.json",
+    "findings": [
+     "plex/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "plistedit-pro/darwin@624": {
@@ -28187,17 +28201,15 @@
    }
   },
   "warp/darwin@90005": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
-    "date": "2026-11-12T16:03:57",
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:57:27",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "0.2026.11.04.08.17.01",
-    "record": "results/soak/2026-11-12/warp_darwin-812-160357.json",
-    "findings": [
-     "warp/darwin not in the FMA catalog on this instance"
-    ]
+    "catalog_version": "0.2026.11.11.08.17.01",
+    "record": "results/soak/2026-11-16/warp_darwin-908-095727.json",
+    "findings": []
    },
    "first_cycled": "2026-11-07T23:06:30",
    "last_cycled": "2026-11-12T15:57:10"
@@ -29667,16 +29679,16 @@
    }
   },
   "lycheeslicer/darwin@90002": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-07T06:33:50",
-   "last_cycled": "2026-11-12T21:27:08",
+   "last_cycled": "2026-11-16T07:45:38",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-12T21:27:08",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T07:45:38",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "7.6.7",
-    "record": "results/soak/2026-11-12/lycheeslicer_darwin-817-212708.json",
+    "record": "results/soak/2026-11-16/lycheeslicer_darwin-907-074538.json",
     "findings": []
    }
   },
@@ -31005,16 +31017,16 @@
    }
   },
   "dbgate/darwin@90005": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-08T16:46:17",
-   "last_cycled": "2026-11-08T16:46:17",
+   "last_cycled": "2026-11-16T07:21:13",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-08T16:46:17",
+    "date": "2026-11-16T07:21:13",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.3.4",
-    "record": "results/soak/2026-11-08/dbgate_darwin-724-164617.json",
+    "catalog_version": "7.3.6",
+    "record": "results/soak/2026-11-16/dbgate_darwin-908-072113.json",
     "findings": []
    }
   },
@@ -31725,17 +31737,19 @@
    "last_cycled": "2026-11-12T09:29:32"
   },
   "krita/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-08T18:12:52",
-   "last_cycled": "2026-11-08T18:12:52",
+   "last_cycled": "2026-11-16T09:28:58",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-08T18:12:52",
+    "outcome": "findings",
+    "date": "2026-11-16T09:28:58",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.3.4",
-    "record": "results/soak/2026-11-08/krita_darwin-721-181252.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/krita_darwin-909-092858.json",
+    "findings": [
+     "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
    }
   },
   "launchbar/darwin@90002": {
@@ -31981,16 +31995,16 @@
    }
   },
   "museeks/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-08T17:01:13",
    "last_cycled": "2026-11-08T17:01:13",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-08T17:01:13",
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:00:55",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "0.23.4",
-    "record": "results/soak/2026-11-08/museeks_darwin-721-170113.json",
+    "record": "results/soak/2026-11-16/museeks_darwin-909-100055.json",
     "findings": []
    }
   },
@@ -32503,16 +32517,16 @@
    }
   },
   "session/darwin@90004": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-08T19:04:31",
-   "last_cycled": "2026-11-08T19:04:31",
+   "last_cycled": "2026-11-16T08:27:25",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-08T19:04:31",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:27:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.18.3",
-    "record": "results/soak/2026-11-08/session_darwin-720-190431.json",
+    "catalog_version": "1.18.4",
+    "record": "results/soak/2026-11-16/session_darwin-906-082725.json",
     "findings": []
    }
   },
@@ -38179,17 +38193,19 @@
    }
   },
   "1password/darwin@865": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-15T18:35:06",
-   "last_cycled": "2026-11-15T18:35:06",
+   "last_cycled": "2026-11-16T08:06:10",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-15T18:35:06",
+    "outcome": "findings",
+    "date": "2026-11-16T08:06:10",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.12.44",
-    "record": "results/soak/2026-11-15/1password_darwin-865-183506.json",
-    "findings": []
+    "record": "results/soak/2026-11-16/1password_darwin-865-080610.json",
+    "findings": [
+     "1password/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "1password/windows@861": {
@@ -38532,14 +38548,14 @@
    }
   },
   "blender-arm64/windows@862": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
-    "date": "2026-11-16T02:45:20",
+    "date": "2026-11-16T07:32:52",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.3.0",
-    "record": "results/soak/2026-11-16/blender-arm64_windows-862-024520.json",
+    "record": "results/soak/2026-11-16/blender-arm64_windows-862-073252.json",
     "findings": []
    }
   },
@@ -38838,14 +38854,14 @@
    }
   },
   "cursor-arm64/windows@862": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
-    "date": "2026-11-16T02:44:41",
+    "date": "2026-11-16T07:32:12",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.29.15",
-    "record": "results/soak/2026-11-16/cursor-arm64_windows-862-024441.json",
+    "record": "results/soak/2026-11-16/cursor-arm64_windows-862-073212.json",
     "findings": []
    }
   },
@@ -38933,16 +38949,16 @@
    }
   },
   "devin-desktop/darwin@865": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-15T21:14:33",
-   "last_cycled": "2026-11-15T21:14:33",
+   "last_cycled": "2026-11-16T07:16:54",
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:11:36",
+    "outcome": "pass",
+    "date": "2026-11-16T07:16:54",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.12.59",
-    "record": "results/soak/2026-11-16/devin-desktop_darwin-865-041136.json",
+    "record": "results/soak/2026-11-16/devin-desktop_darwin-865-071654.json",
     "findings": []
    }
   },
@@ -38992,7 +39008,7 @@
   },
   "docker-desktop/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T22:35:26",
    "last_cycled": "2026-11-15T22:35:26",
    "last_lifecycle": {
@@ -39001,6 +39017,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.99.0",
     "record": "results/soak/2026-11-15/docker-desktop_darwin-858-223526.json",
+    "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:24:57",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/docker-desktop_darwin-858-072457.json",
     "findings": []
    }
   },
@@ -39196,20 +39220,21 @@
    }
   },
   "evernote/windows@863": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-15T22:41:26)",
-    "date": "2026-11-15T22:11:55",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:43:33",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "11.42.3",
-    "record": "results/soak/2026-11-15/evernote_windows-863-221155.json",
+    "record": "results/soak/2026-11-16/evernote_windows-863-084333.json",
     "findings": [
-     "first uninstall: app still on host (status failed_uninstall)",
-     "reinstall over the open app: the install over the open app ended as pending_install",
-     "second uninstall: app still on host (status None)"
+     "first install ended as failed_install",
+     "second install ended as failed_install"
     ]
-   }
+   },
+   "first_cycled": "2026-11-16T08:37:38",
+   "last_cycled": "2026-11-16T08:43:33"
   },
   "evernote/windows@864": {
    "lifecycle_runs": 1,
@@ -39254,7 +39279,7 @@
   },
   "figma/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T23:10:10",
    "last_cycled": "2026-11-15T23:10:10",
    "last_lifecycle": {
@@ -39263,6 +39288,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "126.11.9",
     "record": "results/soak/2026-11-15/figma_darwin-858-231010.json",
+    "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:31:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/figma_darwin-858-073140.json",
     "findings": []
    }
   },
@@ -39289,14 +39322,14 @@
    }
   },
   "firefox-arm64/windows@862": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-16T02:43:48",
+    "date": "2026-11-16T07:31:41",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "160.0",
-    "record": "results/soak/2026-11-16/firefox-arm64_windows-862-024348.json",
+    "record": "results/soak/2026-11-16/firefox-arm64_windows-862-073141.json",
     "findings": []
    }
   },
@@ -39360,7 +39393,7 @@
   },
   "firefox/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T22:22:19",
    "last_cycled": "2026-11-15T22:22:19",
    "last_lifecycle": {
@@ -39369,6 +39402,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "160.0",
     "record": "results/soak/2026-11-15/firefox_darwin-858-222219.json",
+    "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:36:18",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/firefox_darwin-858-073618.json",
     "findings": []
    }
   },
@@ -39396,7 +39437,7 @@
   },
   "fleet-desktop/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 2,
    "first_cycled": "2026-11-15T22:09:44",
    "last_cycled": "2026-11-15T22:09:44",
    "last_lifecycle": {
@@ -39406,6 +39447,17 @@
     "catalog_version": "1.6.0",
     "record": "results/soak/2026-11-15/fleet-desktop_darwin-858-220944.json",
     "findings": []
+   },
+   "last_update": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:49:35",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/fleet-desktop_darwin-858-074935.json",
+    "findings": [
+     "patched query passes with 1.5.1 installed: the patch policy can't see this host is outdated",
+     "install of 1.5.1 ended as failed_install; upgrade not tested"
+    ]
    }
   },
   "front/darwin@624": {
@@ -39476,7 +39528,7 @@
   },
   "google-chrome/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T22:15:55",
    "last_cycled": "2026-11-15T22:15:55",
    "last_lifecycle": {
@@ -39485,6 +39537,14 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "157.0.8103.79",
     "record": "results/soak/2026-11-15/google-chrome_darwin-858-221555.json",
+    "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:54:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/google-chrome_darwin-858-075410.json",
     "findings": []
    }
   },
@@ -39571,19 +39631,19 @@
    }
   },
   "google-drive/windows@864": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-15T18:15:33",
-   "last_cycled": "2026-11-15T18:15:33",
+   "last_cycled": "2026-11-16T10:05:25",
    "last_lifecycle": {
-    "outcome": "findings",
-    "date": "2026-11-15T18:15:33",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T10:05:25",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "133.0.2.0",
-    "record": "results/soak/2026-11-15/google-drive_windows-864-181533.json",
+    "record": "results/soak/2026-11-16/google-drive_windows-864-100525.json",
     "findings": [
-     "second install ended as failed_install",
-     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+     "first install ended as failed_install",
+     "second install ended as failed_install"
     ]
    }
   },
@@ -39734,16 +39794,16 @@
    }
   },
   "icon-composer/darwin@860": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-15T18:25:35",
    "last_cycled": "2026-11-15T18:25:42",
    "last_lifecycle": {
-    "outcome": "flaky: findings on the first run, clean on the retry",
-    "date": "2026-11-15T18:25:42",
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:57:33",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.2",
-    "record": "results/soak/2026-11-15/icon-composer_darwin-860-182542.json",
+    "record": "results/soak/2026-11-16/icon-composer_darwin-860-095733.json",
     "findings": []
    }
   },
@@ -40390,7 +40450,7 @@
   },
   "onedrive/darwin@858": {
    "lifecycle_runs": 2,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T22:48:15",
    "last_cycled": "2026-11-15T22:57:32",
    "last_lifecycle": {
@@ -40400,17 +40460,25 @@
     "catalog_version": "26.198.1011",
     "record": "results/soak/2026-11-15/onedrive_darwin-858-225732.json",
     "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:58:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/onedrive_darwin-858-075849.json",
+    "findings": []
    }
   },
   "onedrive/windows@862": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-16T02:42:58",
+    "date": "2026-11-16T07:30:51",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.183.0920.0005",
-    "record": "results/soak/2026-11-16/onedrive_windows-862-024258.json",
+    "record": "results/soak/2026-11-16/onedrive_windows-862-073051.json",
     "findings": []
    }
   },
@@ -40465,14 +40533,14 @@
    }
   },
   "pycharm/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T02:30:09)",
-    "date": "2026-11-16T02:12:51",
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T06:50:29)",
+    "date": "2026-11-16T06:37:47",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2024.3.6.1",
-    "record": "results/soak/2026-11-16/pycharm_windows-861-021251.json",
+    "record": "results/soak/2026-11-16/pycharm_windows-861-063747.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as pending_install",
      "second uninstall: app still on host (status None)"
@@ -40685,26 +40753,26 @@
    }
   },
   "rubymine/windows@861": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-15T18:13:03",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-15/rubymine_windows-861-181303.json",
-    "findings": []
-   }
-  },
-  "rustrover/windows@861": {
    "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-16T02:59:12",
+    "date": "2026-11-16T07:21:34",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-16/rustrover_windows-861-025912.json",
+    "record": "results/soak/2026-11-16/rubymine_windows-861-072134.json",
+    "findings": []
+   }
+  },
+  "rustrover/windows@861": {
+   "lifecycle_runs": 3,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-16T07:51:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.3",
+    "record": "results/soak/2026-11-16/rustrover_windows-861-075159.json",
     "findings": []
    }
   },
@@ -40802,7 +40870,7 @@
   },
   "signal/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-15T23:16:22",
    "last_cycled": "2026-11-15T23:16:22",
    "last_lifecycle": {
@@ -40812,6 +40880,16 @@
     "catalog_version": "8.35.0",
     "record": "results/soak/2026-11-15/signal_darwin-858-231622.json",
     "findings": []
+   },
+   "last_update": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:03:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/signal_darwin-858-080310.json",
+    "findings": [
+     "signal/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "signal/windows@861": {
@@ -40861,7 +40939,7 @@
    }
   },
   "slack/darwin@865": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 1,
    "last_update": {
     "outcome": "pass",
@@ -40872,13 +40950,13 @@
     "findings": []
    },
    "first_cycled": "2026-11-15T18:41:28",
-   "last_cycled": "2026-11-15T18:41:28",
+   "last_cycled": "2026-11-16T08:06:22",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-15T18:41:28",
+    "date": "2026-11-16T08:06:22",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.53.287",
-    "record": "results/soak/2026-11-15/slack_darwin-865-184128.json",
+    "record": "results/soak/2026-11-16/slack_darwin-865-080622.json",
     "findings": []
    }
   },
@@ -41234,6 +41312,18 @@
     "findings": []
    }
   },
+  "visual-studio-code/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 3,
+   "last_update": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:06:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/visual-studio-code_darwin-858-080650.json",
+    "findings": []
+   }
+  },
   "visual-studio-code/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -41263,14 +41353,14 @@
    }
   },
   "vlc-arm64/windows@859": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
-    "date": "2026-11-16T02:57:23",
+    "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
+    "date": "2026-11-16T07:48:16",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.0.24",
-    "record": "results/soak/2026-11-16/vlc-arm64_windows-859-025723.json",
+    "record": "results/soak/2026-11-16/vlc-arm64_windows-859-074816.json",
     "findings": []
    }
   },
@@ -41430,16 +41520,18 @@
    }
   },
   "zen/darwin@865": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-15T19:10:21",
+    "outcome": "pass",
+    "date": "2026-11-16T06:36:22",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.24.2b",
-    "record": "results/soak/2026-11-15/zen_darwin-865-191021.json",
+    "record": "results/soak/2026-11-16/zen_darwin-865-063622.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-16T06:36:22",
+   "last_cycled": "2026-11-16T06:36:22"
   },
   "zettlr/darwin@860": {
    "lifecycle_runs": 1,
@@ -41493,6 +41585,30 @@
     "findings": []
    }
   },
+  "010-editor/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 2,
+   "last_update": {
+    "outcome": "skipped: app already on host",
+    "date": "2026-11-16T06:43:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/010-editor_darwin-858-064356.json",
+    "findings": []
+   }
+  },
+  "1password/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T06:44:05",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/1password_darwin-858-064405.json",
+    "findings": []
+   }
+  },
   "1password/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -41507,6 +41623,52 @@
     "findings": []
    }
   },
+  "8x8-work/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 2,
+   "last_update": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T07:08:34)",
+    "date": "2026-11-16T07:03:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/8x8-work_darwin-858-070323.json",
+    "findings": [
+     "pinning 8.38.4 left None active"
+    ]
+   }
+  },
+  "acorn/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:25:39",
+   "last_cycled": "2026-11-16T08:26:30",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T08:26:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.7.3",
+    "record": "results/soak/2026-11-16/acorn_darwin-860-082630.json",
+    "findings": [
+     "first install ended as not_run (no new install result; status was installed)"
+    ]
+   }
+  },
+  "adguard/darwin@90002": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:49:32",
+   "last_cycled": "2026-11-16T08:49:32",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:49:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.20.3",
+    "record": "results/soak/2026-11-16/adguard_darwin-907-084932.json",
+    "findings": [
+     "second install: Fleet says installed but the app isn't on the host"
+    ]
+   }
+  },
   "adlock/darwin@90001": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -41518,6 +41680,56 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.2.0.9",
     "record": "results/soak/2026-11-16/adlock_darwin-904-021453.json",
+    "findings": []
+   }
+  },
+  "advanced-installer/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:55:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "24.2.1",
+    "record": "results/soak/2026-11-16/advanced-installer_windows-862-095521.json",
+    "findings": []
+   }
+  },
+  "affinity/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:14:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/affinity_darwin-858-071436.json",
+    "findings": []
+   }
+  },
+  "affinity/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:42:57",
+   "last_cycled": "2026-11-16T08:42:57",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:42:57",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.3.3.5004",
+    "record": "results/soak/2026-11-16/affinity_windows-862-084257.json",
+    "findings": []
+   }
+  },
+  "airserver/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T08:47:01",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.3.3",
+    "record": "results/soak/2026-11-16/airserver_darwin-906-084701.json",
     "findings": []
    }
   },
@@ -41535,6 +41747,22 @@
     "findings": []
    }
   },
+  "amazon-workspaces/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:32:31",
+   "last_cycled": "2026-11-16T09:41:10",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T09:41:10",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.36.0.3628",
+    "record": "results/soak/2026-11-16/amazon-workspaces_windows-859-094110.json",
+    "findings": [
+     "amazon-workspaces/windows not in the FMA catalog on this instance"
+    ]
+   }
+  },
   "antigravity-ide/windows@859": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -41546,6 +41774,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.7.0",
     "record": "results/soak/2026-11-16/antigravity-ide_windows-859-011739.json",
+    "findings": []
+   }
+  },
+  "anyburn/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:34:21",
+   "last_cycled": "2026-11-16T07:42:48",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T07:42:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.9",
+    "record": "results/soak/2026-11-16/anyburn_windows-862-074248.json",
     "findings": []
    }
   },
@@ -41577,6 +41819,32 @@
     "findings": []
    }
   },
+  "audiveris/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:13:20",
+   "last_cycled": "2026-11-16T09:13:20",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:13:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.11.0",
+    "record": "results/soak/2026-11-16/audiveris_windows-863-091320.json",
+    "findings": []
+   }
+  },
+  "avs-image-converter/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:05:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.0.3.6",
+    "record": "results/soak/2026-11-16/avs-image-converter_windows-863-100550.json",
+    "findings": []
+   }
+  },
   "aws-sam-cli/windows@859": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -41589,6 +41857,52 @@
     "catalog_version": "1.172.1",
     "record": "results/soak/2026-11-16/aws-sam-cli_windows-859-041529.json",
     "findings": []
+   }
+  },
+  "aws-vpn-client/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:18:25",
+   "last_cycled": "2026-11-16T09:18:25",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:18:25",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.2.1",
+    "record": "results/soak/2026-11-16/aws-vpn-client_windows-863-091825.json",
+    "findings": []
+   }
+  },
+  "azul-zulu-25-jdk/windows@863": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:27:57",
+   "last_cycled": "2026-11-16T09:46:48",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T09:46:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "25.38.109",
+    "record": "results/soak/2026-11-16/azul-zulu-25-jdk_windows-863-094648.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
+  "background-music/darwin@90004": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:08:11",
+   "last_cycled": "2026-11-16T07:08:12",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T07:08:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.5.0",
+    "record": "results/soak/2026-11-16/background-music_darwin-906-070812.json",
+    "findings": [
+     "add failed 502: error code: 502\n"
+    ]
    }
   },
   "balenaetcher/windows@864": {
@@ -41648,6 +41962,20 @@
      "first uninstall: app still on host (status failed_uninstall)",
      "second uninstall: app still on host (status failed_uninstall)"
     ]
+   }
+  },
+  "bartender/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:51:56",
+   "last_cycled": "2026-11-16T07:51:56",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:51:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.0",
+    "record": "results/soak/2026-11-16/bartender_darwin-865-075156.json",
+    "findings": []
    }
   },
   "biscuit/windows@862": {
@@ -41720,15 +42048,55 @@
     "findings": []
    }
   },
+  "canva/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:12:40",
+   "last_cycled": "2026-11-16T09:13:35",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:13:35",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.129.0",
+    "record": "results/soak/2026-11-16/canva_windows-859-091335.json",
+    "findings": []
+   }
+  },
+  "charles/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:55:55",
+   "last_cycled": "2026-11-16T08:55:55",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:55:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.2.3",
+    "record": "results/soak/2026-11-16/charles_darwin-860-085555.json",
+    "findings": []
+   }
+  },
   "charmstone/darwin@90005": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T06:59:43",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.45",
+    "record": "results/soak/2026-11-16/charmstone_darwin-908-065943.json",
+    "findings": []
+   }
+  },
+  "chatbox/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:09:08",
+    "date": "2026-11-16T10:10:24",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.45",
-    "record": "results/soak/2026-11-16/charmstone_darwin-905-040908.json",
+    "catalog_version": "1.24.4",
+    "record": "results/soak/2026-11-16/chatbox_windows-864-101024.json",
     "findings": []
    }
   },
@@ -41794,6 +42162,22 @@
     "findings": []
    }
   },
+  "clipboardfusion/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:03:09",
+   "last_cycled": "2026-11-16T09:10:52",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T09:10:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.3.0.0",
+    "record": "results/soak/2026-11-16/clipboardfusion_windows-862-091052.json",
+    "findings": [
+     "first install ended as None"
+    ]
+   }
+  },
   "clockify/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -41805,6 +42189,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.4.4",
     "record": "results/soak/2026-11-16/clockify_windows-862-035336.json",
+    "findings": []
+   }
+  },
+  "cloudflare-warp/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:41:48",
+   "last_cycled": "2026-11-16T07:41:48",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:41:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.8.2115.0",
+    "record": "results/soak/2026-11-16/cloudflare-warp_windows-859-074148.json",
     "findings": []
    }
   },
@@ -41821,14 +42219,64 @@
    }
   },
   "codex-app/darwin@90005": {
+   "lifecycle_runs": 3,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T07:05:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.623.141536",
+    "record": "results/soak/2026-11-16/codex-app_darwin-908-070534.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T07:05:33",
+   "last_cycled": "2026-11-16T07:05:34"
+  },
+  "codexbar/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:20:24",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/codexbar_darwin-858-072024.json",
+    "findings": []
+   }
+  },
+  "cog-app/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:10:22",
+    "date": "2026-11-16T10:01:28",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "26.623.141536",
-    "record": "results/soak/2026-11-16/codex-app_darwin-905-041022.json",
+    "catalog_version": "3884",
+    "record": "results/soak/2026-11-16/cog-app_darwin-865-100128.json",
+    "findings": []
+   }
+  },
+  "colour-contrast-analyser/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:00:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.5.5",
+    "record": "results/soak/2026-11-16/colour-contrast-analyser_darwin-865-100049.json",
+    "findings": []
+   }
+  },
+  "command-tab-plus/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:02:01",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.9.14",
+    "record": "results/soak/2026-11-16/command-tab-plus_darwin-865-100201.json",
     "findings": []
    }
   },
@@ -41896,6 +42344,50 @@
     "findings": []
    }
   },
+  "cpu-z/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:52:23",
+   "last_cycled": "2026-11-16T08:52:23",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:52:23",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.02",
+    "record": "results/soak/2026-11-16/cpu-z_windows-863-085223.json",
+    "findings": []
+   }
+  },
+  "creative-force-kelvin/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:07:16",
+   "last_cycled": "2026-11-16T08:07:16",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:07:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.14.0",
+    "record": "results/soak/2026-11-16/creative-force-kelvin_windows-859-080716.json",
+    "findings": []
+   }
+  },
+  "crestron-airmedia/windows@863": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:57:08",
+   "last_cycled": "2026-11-16T08:57:20",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:57:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.11.1.164",
+    "record": "results/soak/2026-11-16/crestron-airmedia_windows-863-085720.json",
+    "findings": [
+     "add failed 422: Validation Failed"
+    ]
+   }
+  },
   "cribl-edge/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -41921,6 +42413,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.0.3",
     "record": "results/soak/2026-11-16/crystaldiskmark_windows-864-014440.json",
+    "findings": []
+   }
+  },
+  "cursor-arm64/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
+    "date": "2026-11-16T07:47:27",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.29.15",
+    "record": "results/soak/2026-11-16/cursor-arm64_windows-859-074727.json",
     "findings": []
    }
   },
@@ -42075,16 +42579,18 @@
    }
   },
   "dbeaver-community/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:07:33",
+    "outcome": "pass",
+    "date": "2026-11-16T08:16:51",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.2.5",
-    "record": "results/soak/2026-11-16/dbeaver-community_darwin-904-040733.json",
+    "record": "results/soak/2026-11-16/dbeaver-community_darwin-909-081651.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-16T08:16:51",
+   "last_cycled": "2026-11-16T08:16:51"
   },
   "dbgate/darwin@860": {
    "lifecycle_runs": 1,
@@ -42113,6 +42619,36 @@
      "second install ended as None",
      "presence unknown after first_present_after_uninstall, second_present_after_uninstall (host didn't answer the live query)"
     ]
+   }
+  },
+  "dcv-viewer/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:13:51",
+   "last_cycled": "2026-11-16T08:13:51",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:13:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.0.14555",
+    "record": "results/soak/2026-11-16/dcv-viewer_darwin-906-081351.json",
+    "findings": [
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "deepl/darwin@90005": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:31:50",
+   "last_cycled": "2026-11-16T07:31:50",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:31:50",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.11.13023090762",
+    "record": "results/soak/2026-11-16/deepl_darwin-908-073150.json",
+    "findings": []
    }
   },
   "delinea-connection-manager/windows@863": {
@@ -42146,6 +42682,20 @@
     ]
    }
   },
+  "dell-display-and-peripheral-manager/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:57:33",
+   "last_cycled": "2026-11-16T08:57:33",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:57:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.2.2.8",
+    "record": "results/soak/2026-11-16/dell-display-and-peripheral-manager_windows-863-085733.json",
+    "findings": []
+   }
+  },
   "descript/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -42161,16 +42711,18 @@
    }
   },
   "deskpad/darwin@90001": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:08:08",
+    "outcome": "pass",
+    "date": "2026-11-16T08:33:09",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.3.2",
-    "record": "results/soak/2026-11-16/deskpad_darwin-904-040808.json",
+    "record": "results/soak/2026-11-16/deskpad_darwin-909-083309.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-16T08:33:09",
+   "last_cycled": "2026-11-16T08:33:09"
   },
   "devolutions-launcher/windows@862": {
    "lifecycle_runs": 1,
@@ -42183,6 +42735,32 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.3.18.0",
     "record": "results/soak/2026-11-16/devolutions-launcher_windows-862-013439.json",
+    "findings": []
+   }
+  },
+  "devolutions-workspace/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:53:25",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.3.4.0",
+    "record": "results/soak/2026-11-16/devolutions-workspace_windows-859-095325.json",
+    "findings": []
+   }
+  },
+  "devonthink/darwin@90005": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:46:31",
+   "last_cycled": "2026-11-16T07:46:31",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:46:31",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.4.2",
+    "record": "results/soak/2026-11-16/devonthink_darwin-908-074631.json",
     "findings": []
    }
   },
@@ -42201,14 +42779,70 @@
    }
   },
   "devutils/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:32:32",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.17.0",
+    "record": "results/soak/2026-11-16/devutils_darwin-860-083232.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T08:32:32",
+   "last_cycled": "2026-11-16T08:32:32"
+  },
+  "dfu-blaster-pro/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:38:36",
+   "last_cycled": "2026-11-16T08:38:36",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:38:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.1",
+    "record": "results/soak/2026-11-16/dfu-blaster-pro_darwin-860-083836.json",
+    "findings": []
+   }
+  },
+  "dictionaries/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:48:41",
+   "last_cycled": "2026-11-16T08:48:41",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:48:41",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.0",
+    "record": "results/soak/2026-11-16/dictionaries_darwin-860-084841.json",
+    "findings": []
+   }
+  },
+  "digiseal-reader/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:15:57",
+    "date": "2026-11-16T09:53:58",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "1.17.0",
-    "record": "results/soak/2026-11-16/devutils_darwin-860-041557.json",
+    "catalog_version": "8.0.0.7",
+    "record": "results/soak/2026-11-16/digiseal-reader_windows-859-095358.json",
+    "findings": []
+   }
+  },
+  "discord/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:55:36",
+   "last_cycled": "2026-11-16T08:55:36",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:55:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.0.9268",
+    "record": "results/soak/2026-11-16/discord_windows-862-085536.json",
     "findings": []
    }
   },
@@ -42226,42 +42860,84 @@
     "findings": []
    }
   },
+  "dockview/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T09:07:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.6.4",
+    "record": "results/soak/2026-11-16/dockview_darwin-860-090720.json",
+    "findings": []
+   }
+  },
   "dot/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:24:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.4.3",
+    "record": "results/soak/2026-11-16/dot_darwin-865-072406.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T07:24:06",
+   "last_cycled": "2026-11-16T07:24:06"
+  },
+  "dottrace/windows@863": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:12:13",
+    "date": "2026-11-16T10:06:26",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.4.3",
-    "record": "results/soak/2026-11-16/dot_darwin-865-041213.json",
+    "catalog_version": "2026.3",
+    "record": "results/soak/2026-11-16/dottrace_windows-863-100626.json",
     "findings": []
    }
   },
   "dottrace/windows@864": {
-   "lifecycle_runs": 1,
-   "update_runs": 0,
-   "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
-    "date": "2026-11-16T03:34:37",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.3",
-    "record": "results/soak/2026-11-16/dottrace_windows-864-033437.json",
-    "findings": [
-     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
-    ]
-   }
-  },
-  "doughnut/darwin@865": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:12:45",
+    "date": "2026-11-16T10:10:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.3",
+    "record": "results/soak/2026-11-16/dottrace_windows-864-101021.json",
+    "findings": []
+   }
+  },
+  "doughnut/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:40:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.0.1",
-    "record": "results/soak/2026-11-16/doughnut_darwin-865-041245.json",
+    "record": "results/soak/2026-11-16/doughnut_darwin-865-074046.json",
     "findings": []
+   },
+   "first_cycled": "2026-11-16T07:40:46",
+   "last_cycled": "2026-11-16T07:40:46"
+  },
+  "downie/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:28:56",
+   "last_cycled": "2026-11-16T09:40:41",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T09:40:41",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.13.3",
+    "record": "results/soak/2026-11-16/downie_darwin-860-094041.json",
+    "findings": [
+     "downie/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "draftable-desktop/windows@864": {
@@ -42278,6 +42954,23 @@
     "findings": []
    }
   },
+  "droplr/darwin@90005": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:56:46",
+   "last_cycled": "2026-11-16T07:56:46",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T07:56:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.9.19",
+    "record": "results/soak/2026-11-16/droplr_darwin-908-075646.json",
+    "findings": [
+     "second install ended as None",
+     "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
   "druva-insync/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -42289,6 +42982,34 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.1.6",
     "record": "results/soak/2026-11-16/druva-insync_windows-862-015419.json",
+    "findings": []
+   }
+  },
+  "eclipse-ide/darwin@90005": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:04:58",
+   "last_cycled": "2026-11-16T08:04:59",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:04:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.41",
+    "record": "results/soak/2026-11-16/eclipse-ide_darwin-908-080459.json",
+    "findings": []
+   }
+  },
+  "eclipse-temurin-jdk-11/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:33:42",
+   "last_cycled": "2026-11-16T09:41:51",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:41:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "11.0.33.10",
+    "record": "results/soak/2026-11-16/eclipse-temurin-jdk-11_windows-862-094151.json",
     "findings": []
    }
   },
@@ -42392,15 +43113,31 @@
    }
   },
   "epic-games/windows@862": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves 204541952 bytes of the vendor's 264237056 and the SHA-256 doesn't match the title's",
-    "date": "2026-11-16T04:07:02",
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:01",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.3.210.0",
-    "record": "results/soak/2026-11-16/epic-games_windows-862-040702.json",
+    "record": "results/soak/2026-11-16/epic-games_windows-862-095601.json",
     "findings": []
+   }
+  },
+  "equinox/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:42:13",
+   "last_cycled": "2026-11-16T07:42:13",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T07:42:13",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.0",
+    "record": "results/soak/2026-11-16/equinox_darwin-909-074213.json",
+    "findings": [
+     "equinox/darwin not in the FMA catalog on this instance"
+    ]
    }
   },
   "evernote/darwin@860": {
@@ -42417,6 +43154,20 @@
     "findings": []
    }
   },
+  "extradock/darwin@90005": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:17:59",
+   "last_cycled": "2026-11-16T08:28:06",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:28:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.4.13",
+    "record": "results/soak/2026-11-16/extradock_darwin-908-082806.json",
+    "findings": []
+   }
+  },
   "fastmail/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -42428,6 +43179,64 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.9.0",
     "record": "results/soak/2026-11-16/fastmail_darwin-860-004528.json",
+    "findings": []
+   }
+  },
+  "fathom/darwin@90005": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:38:31",
+   "last_cycled": "2026-11-16T08:49:12",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T08:49:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.13.0",
+    "record": "results/soak/2026-11-16/fathom_darwin-908-084912.json",
+    "findings": [
+     "first install ended as None"
+    ]
+   }
+  },
+  "fellow/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "5.7.29",
+    "record": "results/soak/2026-11-16/fellow_windows-862-095636.json",
+    "findings": []
+   }
+  },
+  "ferdium/darwin@90002": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:21:30",
+   "last_cycled": "2026-11-16T08:34:06",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T08:34:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.3",
+    "record": "results/soak/2026-11-16/ferdium_darwin-907-083406.json",
+    "findings": [
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "file-juicer/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:46:26",
+   "last_cycled": "2026-11-16T07:46:26",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:46:26",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.115",
+    "record": "results/soak/2026-11-16/file-juicer_darwin-865-074626.json",
     "findings": []
    }
   },
@@ -42447,15 +43256,39 @@
     ]
    }
   },
-  "freecad/windows@864": {
+  "flux-app/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:09:51",
+    "date": "2026-11-16T09:58:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "42.2",
+    "record": "results/soak/2026-11-16/flux-app_darwin-860-095806.json",
+    "findings": []
+   }
+  },
+  "framer/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.45.0",
+    "record": "results/soak/2026-11-16/framer_darwin-860-095656.json",
+    "findings": []
+   }
+  },
+  "freecad/windows@864": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:11:04",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.1.4",
-    "record": "results/soak/2026-11-16/freecad_windows-864-040951.json",
+    "record": "results/soak/2026-11-16/freecad_windows-864-101104.json",
     "findings": []
    }
   },
@@ -42471,6 +43304,24 @@
     "catalog_version": "6.0.936",
     "record": "results/soak/2026-11-16/geogebra-classic_windows-861-014914.json",
     "findings": []
+   }
+  },
+  "git-extensions/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:59:56",
+   "last_cycled": "2026-11-16T07:59:56",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T07:59:56",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.1.7",
+    "record": "results/soak/2026-11-16/git-extensions_windows-859-075956.json",
+    "findings": [
+     "patched query fails right after installing 7.2.1.7: the patch policy would flag an up-to-date host",
+     "second install ended as None",
+     "presence unknown after second_present_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "git-extensions/windows@864": {
@@ -42591,6 +43442,18 @@
     "findings": []
    }
   },
+  "google-earth-pro/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves 86458368 bytes of the vendor's 100802200 and the SHA-256 doesn't match the title's",
+    "date": "2026-11-16T09:52:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.3.7.1327",
+    "record": "results/soak/2026-11-16/google-earth-pro_windows-859-095249.json",
+    "findings": []
+   }
+  },
   "gpg-suite/darwin@90004": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -42616,6 +43479,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "5.1.1",
     "record": "results/soak/2026-11-16/gpg4win_windows-864-001401.json",
+    "findings": []
+   }
+  },
+  "gpodder/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:07:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.11.5",
+    "record": "results/soak/2026-11-16/gpodder_windows-863-100700.json",
     "findings": []
    }
   },
@@ -42705,6 +43580,23 @@
     "findings": []
    }
   },
+  "hides/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:59:12",
+   "last_cycled": "2026-11-16T07:59:12",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T07:59:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.4.1",
+    "record": "results/soak/2026-11-16/hides_darwin-865-075912.json",
+    "findings": [
+     "second install ended as None",
+     "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
   "hot/darwin@90003": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -42734,16 +43626,18 @@
    }
   },
   "hp-prime-virtual-calculator/windows@863": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:07:33",
+    "outcome": "pass",
+    "date": "2026-11-16T08:27:03",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.4.2",
-    "record": "results/soak/2026-11-16/hp-prime-virtual-calculator_windows-863-040733.json",
+    "record": "results/soak/2026-11-16/hp-prime-virtual-calculator_windows-863-082703.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-16T08:27:03",
+   "last_cycled": "2026-11-16T08:27:03"
   },
   "hyper/darwin@90004": {
    "lifecycle_runs": 1,
@@ -42761,6 +43655,20 @@
     ]
    }
   },
+  "ibm-semeru-jdk-21/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:47:47",
+   "last_cycled": "2026-11-16T09:47:47",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:47:47",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "21.0.13.0",
+    "record": "results/soak/2026-11-16/ibm-semeru-jdk-21_windows-859-094747.json",
+    "findings": []
+   }
+  },
   "ibm-semeru-jre-11/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -42776,16 +43684,18 @@
    }
   },
   "ibm-semeru-jre-17/windows@863": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:08:12",
+    "outcome": "pass",
+    "date": "2026-11-16T08:33:51",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "17.0.21.0",
-    "record": "results/soak/2026-11-16/ibm-semeru-jre-17_windows-863-040812.json",
+    "record": "results/soak/2026-11-16/ibm-semeru-jre-17_windows-863-083351.json",
     "findings": []
-   }
+   },
+   "first_cycled": "2026-11-16T08:33:51",
+   "last_cycled": "2026-11-16T08:33:51"
   },
   "imazing/windows@861": {
    "lifecycle_runs": 1,
@@ -42798,6 +43708,48 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.6.5.0",
     "record": "results/soak/2026-11-16/imazing_windows-861-054841.json",
+    "findings": []
+   }
+  },
+  "jami/darwin@858": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:22:59",
+   "last_cycled": "2026-11-16T09:22:59",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:22:59",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.43",
+    "record": "results/soak/2026-11-16/jami_darwin-858-092259.json",
+    "findings": []
+   }
+  },
+  "jami/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:09:33",
+   "last_cycled": "2026-11-16T08:09:33",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:09:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.43",
+    "record": "results/soak/2026-11-16/jami_darwin-860-080933.json",
+    "findings": []
+   }
+  },
+  "jami/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:10:06",
+   "last_cycled": "2026-11-16T07:10:06",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:10:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.43",
+    "record": "results/soak/2026-11-16/jami_darwin-865-071006.json",
     "findings": []
    }
   },
@@ -42826,6 +43778,73 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.61.1",
     "record": "results/soak/2026-11-16/keepass_windows-861-054121.json",
+    "findings": []
+   }
+  },
+  "kicad/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:30:55",
+   "last_cycled": "2026-11-16T09:30:55",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T09:30:55",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.8",
+    "record": "results/soak/2026-11-16/kicad_darwin-865-093055.json",
+    "findings": [
+     "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "kiro-cli/darwin@858": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:34:58",
+   "last_cycled": "2026-11-16T08:59:08",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:59:08",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.37.0",
+    "record": "results/soak/2026-11-16/kiro-cli_darwin-858-085908.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host"
+    ]
+   }
+  },
+  "kiro-cli/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:48:42",
+   "last_cycled": "2026-11-16T07:43:18",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:43:18",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.37.0",
+    "record": "results/soak/2026-11-16/kiro-cli_darwin-860-074318.json",
+    "findings": [
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host",
+     "presence unknown after first_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "kiro-cli/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:42:47",
+   "last_cycled": "2026-11-16T06:42:47",
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T07:07:03",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.37.0",
+    "record": "results/soak/2026-11-16/kiro-cli_darwin-865-070703.json",
     "findings": []
    }
   },
@@ -42858,16 +43877,21 @@
    }
   },
   "last-window-quits/darwin@90002": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:07:36",
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T06:53:42",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.1.6",
-    "record": "results/soak/2026-11-16/last-window-quits_darwin-901-040736.json",
-    "findings": []
-   }
+    "record": "results/soak/2026-11-16/last-window-quits_darwin-907-065342.json",
+    "findings": [
+     "patched query fails right after installing 1.1.6: the patch policy would flag an up-to-date host",
+     "presence unknown after first_present_after_install, first_present_after_uninstall, second_present_after_install (host didn't answer the live query)"
+    ]
+   },
+   "first_cycled": "2026-11-16T06:45:34",
+   "last_cycled": "2026-11-16T06:53:42"
   },
   "lastpass/darwin@858": {
    "lifecycle_runs": 1,
@@ -42965,6 +43989,20 @@
     "findings": []
    }
   },
+  "mellel/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:40:04",
+   "last_cycled": "2026-11-16T09:50:08",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:50:08",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.8.1",
+    "record": "results/soak/2026-11-16/mellel_darwin-865-095008.json",
+    "findings": []
+   }
+  },
   "melodics/darwin@860": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -43007,6 +44045,36 @@
     "findings": []
    }
   },
+  "microsoft-dotnet-runtime-10/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:38:08",
+   "last_cycled": "2026-11-16T06:38:08",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T06:38:08",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.15",
+    "record": "results/soak/2026-11-16/microsoft-dotnet-runtime-10_windows-859-063808.json",
+    "findings": [
+     "inventory never reported the app after install + refetch",
+     "second install ended as None",
+     "presence unknown after first_present_after_uninstall, second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "microsoft-dotnet-runtime-10/windows@861": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
+    "date": "2026-11-16T08:57:09",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.15",
+    "record": "results/soak/2026-11-16/microsoft-dotnet-runtime-10_windows-861-085709.json",
+    "findings": []
+   }
+  },
   "microsoft-dotnet-runtime-10/windows@862": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -43021,6 +44089,70 @@
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
+   }
+  },
+  "microsoft-dotnet-runtime-10/windows@863": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:38:37",
+   "last_cycled": "2026-11-16T07:03:12",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:03:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.15",
+    "record": "results/soak/2026-11-16/microsoft-dotnet-runtime-10_windows-863-070312.json",
+    "findings": [
+     "inventory never reported the app after install + refetch",
+     "presence unknown after first_present_after_install (host didn't answer the live query)"
+    ]
+   }
+  },
+  "microsoft-dotnet-runtime-10/windows@864": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:43:15",
+   "last_cycled": "2026-11-16T07:08:51",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:08:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.15",
+    "record": "results/soak/2026-11-16/microsoft-dotnet-runtime-10_windows-864-070851.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
+  "microsoft-dotnet-sdk-10/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:16:20",
+   "last_cycled": "2026-11-16T08:16:20",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:16:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.0.404",
+    "record": "results/soak/2026-11-16/microsoft-dotnet-sdk-10_windows-859-081620.json",
+    "findings": [
+     "inventory never reported the app after install + refetch",
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "microsoft-excel/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:21:20",
+   "last_cycled": "2026-11-16T09:21:20",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:21:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "16.115",
+    "record": "results/soak/2026-11-16/microsoft-excel_darwin-865-092120.json",
+    "findings": []
    }
   },
   "microsoft-odbc-driver-17/windows@863": {
@@ -43053,6 +44185,20 @@
     "findings": []
    }
   },
+  "microsoft-office/windows@864": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:18:55",
+   "last_cycled": "2026-11-16T08:39:21",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:39:21",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "16.0.20228.20124",
+    "record": "results/soak/2026-11-16/microsoft-office_windows-864-083921.json",
+    "findings": []
+   }
+  },
   "microsoft-ole-db-driver-18/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43082,6 +44228,22 @@
      "patched query fails right after installing 26288.2004.5269.3420: the patch policy would flag an up-to-date host",
      "second install ended as None",
      "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "microsoft-word/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:16:45",
+   "last_cycled": "2026-11-16T08:16:45",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:16:45",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "16.115",
+    "record": "results/soak/2026-11-16/microsoft-word_darwin-860-081645.json",
+    "findings": [
+     "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
     ]
    }
   },
@@ -43130,6 +44292,20 @@
     "findings": []
    }
   },
+  "mongodb-compass/darwin@90004": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:32:25",
+   "last_cycled": "2026-11-16T09:43:08",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:43:08",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.53.2",
+    "record": "results/soak/2026-11-16/mongodb-compass_darwin-906-094308.json",
+    "findings": []
+   }
+  },
   "morgen/windows@863": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43156,6 +44332,65 @@
     "catalog_version": "2026.5",
     "record": "results/soak/2026-11-16/mullvad-vpn_darwin-902-050421.json",
     "findings": []
+   }
+  },
+  "multitouch/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:51:07",
+   "last_cycled": "2026-11-16T09:51:07",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:51:07",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.0.7",
+    "record": "results/soak/2026-11-16/multitouch_darwin-906-095107.json",
+    "findings": []
+   }
+  },
+  "nagstamon/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:47:14",
+   "last_cycled": "2026-11-16T08:54:52",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:54:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.18.2",
+    "record": "results/soak/2026-11-16/nagstamon_windows-859-085452.json",
+    "findings": []
+   }
+  },
+  "neofinder/darwin@90004": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:12:15",
+   "last_cycled": "2026-11-16T09:22:28",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:22:28",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.3.1",
+    "record": "results/soak/2026-11-16/neofinder_darwin-906-092228.json",
+    "findings": []
+   }
+  },
+  "netiquette/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:45:31",
+   "last_cycled": "2026-11-16T06:45:31",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T06:45:31",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.3.0",
+    "record": "results/soak/2026-11-16/netiquette_darwin-906-064531.json",
+    "findings": [
+     "second install ended as None",
+     "presence unknown after second_present_after_install (host didn't answer the live query)"
+    ]
    }
   },
   "netron/darwin@858": {
@@ -43256,14 +44491,14 @@
    }
   },
   "notesnook/windows@861": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the host's queue was still busy after 30 min; nothing queued",
-    "date": "2026-11-16T04:00:15",
+    "date": "2026-11-16T08:26:46",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.4.13",
-    "record": "results/soak/2026-11-16/notesnook_windows-861-040015.json",
+    "record": "results/soak/2026-11-16/notesnook_windows-861-082646.json",
     "findings": []
    }
   },
@@ -43296,6 +44531,83 @@
      "inventory never reported the app after install + refetch",
      "reinstall over the open app: the install over the open app ended as pending_install",
      "second uninstall: app still on host (status None)"
+    ]
+   }
+  },
+  "notion-calendar/windows@861": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:27:18",
+   "last_cycled": "2026-11-16T10:40:40",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T10:40:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.133.0",
+    "record": "results/soak/2026-11-16/notion-calendar_windows-861-104040.json",
+    "findings": [
+     "inventory never reported the app after install + refetch",
+     "reinstall over the open app: the install over the open app ended as pending_install",
+     "second uninstall: app still on host (status None)"
+    ]
+   }
+  },
+  "notion-calendar/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:37:10",
+   "last_cycled": "2026-11-16T06:37:10",
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T07:00:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.133.0",
+    "record": "results/soak/2026-11-16/notion-calendar_windows-862-070022.json",
+    "findings": []
+   }
+  },
+  "notion-calendar/windows@863": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:27:29",
+   "last_cycled": "2026-11-16T07:27:29",
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T08:22:19",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.133.0",
+    "record": "results/soak/2026-11-16/notion-calendar_windows-863-082219.json",
+    "findings": []
+   }
+  },
+  "notion-calendar/windows@864": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T08:03:32)",
+    "date": "2026-11-16T07:29:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.133.0",
+    "record": "results/soak/2026-11-16/notion-calendar_windows-864-072920.json",
+    "findings": [
+     "inventory never reported the app after install + refetch",
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
+   }
+  },
+  "notion/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:53:09",
+   "last_cycled": "2026-11-16T08:08:00",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:08:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.43.2",
+    "record": "results/soak/2026-11-16/notion_windows-862-080800.json",
+    "findings": [
+     "before it was installed, Fleet lists it as installed ['1.133.0']: another app's inventory matches this title (#51299 shape)"
     ]
    }
   },
@@ -43385,6 +44697,46 @@
     "findings": []
    }
   },
+  "okta-verify/windows@863": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:22:41",
+   "last_cycled": "2026-11-16T09:22:41",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:22:41",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.3.0",
+    "record": "results/soak/2026-11-16/okta-verify_windows-863-092241.json",
+    "findings": []
+   }
+  },
+  "openinterminal/darwin@90005": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.3.9",
+    "record": "results/soak/2026-11-16/openinterminal_darwin-908-095620.json",
+    "findings": []
+   }
+  },
+  "openrefine/darwin@90005": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:31:54",
+   "last_cycled": "2026-11-16T09:42:33",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:42:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.10.1",
+    "record": "results/soak/2026-11-16/openrefine_darwin-908-094233.json",
+    "findings": []
+   }
+  },
   "openrefine/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43414,14 +44766,28 @@
    }
   },
   "origami-studio/darwin@858": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:49:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "232.0",
+    "record": "results/soak/2026-11-16/origami-studio_darwin-858-094949.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T09:49:49",
+   "last_cycled": "2026-11-16T09:49:49"
+  },
+  "pale-moon/darwin@90001": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:16:20",
+    "date": "2026-11-16T10:00:19",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "232.0",
-    "record": "results/soak/2026-11-16/origami-studio_darwin-858-041620.json",
+    "catalog_version": "35.0.3",
+    "record": "results/soak/2026-11-16/pale-moon_darwin-909-100019.json",
     "findings": []
    }
   },
@@ -43442,6 +44808,34 @@
     ]
    }
   },
+  "pcoipclient/darwin@858": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:16",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "26.05.6",
+    "record": "results/soak/2026-11-16/pcoipclient_darwin-858-095616.json",
+    "findings": []
+   }
+  },
+  "pdf-expert/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:58:00",
+   "last_cycled": "2026-11-16T06:58:00",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T06:58:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.13.5",
+    "record": "results/soak/2026-11-16/pdf-expert_darwin-906-065800.json",
+    "findings": [
+     "add failed 502: error code: 502\n"
+    ]
+   }
+  },
   "phoenix-slides/darwin@90004": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43453,6 +44847,34 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "1.6.2",
     "record": "results/soak/2026-11-16/phoenix-slides_darwin-902-053551.json",
+    "findings": []
+   }
+  },
+  "pibar/darwin@90001": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:40:38",
+   "last_cycled": "2026-11-16T09:50:53",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:50:53",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.2.1",
+    "record": "results/soak/2026-11-16/pibar_darwin-909-095053.json",
+    "findings": []
+   }
+  },
+  "pika/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:55:36",
+   "last_cycled": "2026-11-16T08:55:36",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:55:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.0.2",
+    "record": "results/soak/2026-11-16/pika_darwin-865-085536.json",
     "findings": []
    }
   },
@@ -43542,6 +44964,20 @@
     "findings": []
    }
   },
+  "powertoys/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:15:49",
+   "last_cycled": "2026-11-16T09:15:49",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:15:49",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.102.3101",
+    "record": "results/soak/2026-11-16/powertoys_windows-862-091549.json",
+    "findings": []
+   }
+  },
   "preform/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43556,6 +44992,21 @@
     "findings": []
    }
   },
+  "prisma-browser/windows@864": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T09:39:44)",
+    "date": "2026-11-16T09:29:29",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "157.19.6.79",
+    "record": "results/soak/2026-11-16/prisma-browser_windows-864-092929.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
+   }
+  },
   "privileges/darwin@90004": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43567,6 +45018,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2.6.0",
     "record": "results/soak/2026-11-16/privileges_darwin-902-055554.json",
+    "findings": []
+   }
+  },
+  "protonvpn/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:01:51",
+   "last_cycled": "2026-11-16T09:01:51",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:01:51",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.5.2",
+    "record": "results/soak/2026-11-16/protonvpn_darwin-865-090151.json",
     "findings": []
    }
   },
@@ -43593,6 +45058,18 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "9.47.0",
     "record": "results/soak/2026-11-16/purevpn_darwin-860-003315.json",
+    "findings": []
+   }
+  },
+  "putty-arm64/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
+    "date": "2026-11-16T08:15:42",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.85.0.0",
+    "record": "results/soak/2026-11-16/putty-arm64_windows-859-081542.json",
     "findings": []
    }
   },
@@ -43654,6 +45131,18 @@
     "findings": []
    }
   },
+  "rapidweaver/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:00:53",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "9.6.8",
+    "record": "results/soak/2026-11-16/rapidweaver_darwin-906-100053.json",
+    "findings": []
+   }
+  },
   "raspberry-pi-imager/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43682,6 +45171,37 @@
     "findings": []
    }
   },
+  "readest/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:25:07",
+   "last_cycled": "2026-11-16T07:32:46",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T07:32:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.12.20",
+    "record": "results/soak/2026-11-16/readest_windows-859-073246.json",
+    "findings": [
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)",
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "readest/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:23:43",
+   "last_cycled": "2026-11-16T07:23:43",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:23:43",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "0.12.20",
+    "record": "results/soak/2026-11-16/readest_windows-862-072343.json",
+    "findings": []
+   }
+  },
   "readest/windows@863": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -43698,6 +45218,22 @@
     ]
    }
   },
+  "reaper/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:49:08",
+   "last_cycled": "2026-11-16T07:59:40",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T07:59:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.86",
+    "record": "results/soak/2026-11-16/reaper_windows-859-075940.json",
+    "findings": [
+     "add failed 408: read tcp 10.27.230.98:51470->174.129.249.41:443: read: connection reset by peer"
+    ]
+   }
+  },
   "reqable/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43709,6 +45245,46 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "3.3.12",
     "record": "results/soak/2026-11-16/reqable_windows-859-004730.json",
+    "findings": []
+   }
+  },
+  "rightfont/darwin@90001": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline when the cycle ended)",
+    "date": "2026-11-16T07:32:24",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.2.1",
+    "record": "results/soak/2026-11-16/rightfont_darwin-909-073224.json",
+    "findings": [
+     "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "rocket-chat/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:12:34",
+   "last_cycled": "2026-11-16T08:12:34",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:12:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.19.3",
+    "record": "results/soak/2026-11-16/rocket-chat_darwin-865-081234.json",
+    "findings": []
+   }
+  },
+  "runjs/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T10:01:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.1.0",
+    "record": "results/soak/2026-11-16/runjs_darwin-906-100130.json",
     "findings": []
    }
   },
@@ -43750,16 +45326,70 @@
     "findings": []
    }
   },
+  "scrivener/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:42:30",
+   "last_cycled": "2026-11-16T09:42:30",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:42:30",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.1.6.0",
+    "record": "results/soak/2026-11-16/scrivener_windows-859-094230.json",
+    "findings": []
+   }
+  },
   "securesafe/darwin@858": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:53",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.25.0",
+    "record": "results/soak/2026-11-16/securesafe_darwin-858-095653.json",
+    "findings": []
+   }
+  },
+  "sequel-ace/darwin@90004": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:16:59",
+    "date": "2026-11-16T10:02:10",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2.25.0",
-    "record": "results/soak/2026-11-16/securesafe_darwin-858-041659.json",
+    "catalog_version": "6.1.0",
+    "record": "results/soak/2026-11-16/sequel-ace_darwin-906-100210.json",
     "findings": []
+   }
+  },
+  "sf-symbols/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "skipped: host didn't answer the presence query",
+    "date": "2026-11-16T07:36:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "27.2",
+    "record": "results/soak/2026-11-16/sf-symbols_darwin-865-073622.json",
+    "findings": []
+   }
+  },
+  "slack-arm64/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:33:52",
+   "last_cycled": "2026-11-16T07:34:07",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:34:07",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.53.287",
+    "record": "results/soak/2026-11-16/slack-arm64_windows-862-073407.json",
+    "findings": [
+     "add failed 409: Conflict"
+    ]
    }
   },
   "slack/windows@862": {
@@ -43804,6 +45434,32 @@
     "findings": []
    }
   },
+  "snagit/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "skipped: one version",
+    "date": "2026-11-16T08:04:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/snagit_darwin-858-080406.json",
+    "findings": []
+   }
+  },
+  "sonobus/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:49:37",
+   "last_cycled": "2026-11-16T09:49:37",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:49:37",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.7.2",
+    "record": "results/soak/2026-11-16/sonobus_darwin-860-094937.json",
+    "findings": []
+   }
+  },
   "sonos/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43832,17 +45488,75 @@
     "findings": []
    }
   },
-  "sqlpro-for-sqlite/darwin@90001": {
+  "spamsieve/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:18:38",
+   "last_cycled": "2026-11-16T08:18:38",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T08:18:38",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.3.2",
+    "record": "results/soak/2026-11-16/spamsieve_darwin-865-081838.json",
+    "findings": [
+     "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+    ]
+   }
+  },
+  "spotify/darwin@90001": {
    "lifecycle_runs": 1,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:09:23",
+    "date": "2026-11-16T10:01:30",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "2026.301",
-    "record": "results/soak/2026-11-16/sqlpro-for-sqlite_darwin-904-040923.json",
+    "catalog_version": "1.3.8.620",
+    "record": "results/soak/2026-11-16/spotify_darwin-909-100130.json",
     "findings": []
    }
+  },
+  "spotify/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:21:23",
+   "last_cycled": "2026-11-16T08:34:06",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T08:34:06",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.3.9.2055.g806b5b278de8",
+    "record": "results/soak/2026-11-16/spotify_windows-862-083406.json",
+    "findings": []
+   }
+  },
+  "sqlpro-for-mysql/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:41:33",
+   "last_cycled": "2026-11-16T09:41:33",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:41:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.301",
+    "record": "results/soak/2026-11-16/sqlpro-for-mysql_darwin-860-094133.json",
+    "findings": []
+   }
+  },
+  "sqlpro-for-sqlite/darwin@90001": {
+   "lifecycle_runs": 3,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T07:13:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.301",
+    "record": "results/soak/2026-11-16/sqlpro-for-sqlite_darwin-909-071322.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T07:03:11",
+   "last_cycled": "2026-11-16T07:13:22"
   },
   "squash/darwin@90001": {
    "lifecycle_runs": 1,
@@ -43970,6 +45684,49 @@
     "findings": []
    }
   },
+  "tableplus/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:01:28",
+   "last_cycled": "2026-11-16T09:01:28",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:01:28",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "27.3.2",
+    "record": "results/soak/2026-11-16/tableplus_darwin-860-090128.json",
+    "findings": []
+   }
+  },
+  "tableplus/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:48:44",
+   "last_cycled": "2026-11-16T07:48:44",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:48:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "27.3.0",
+    "record": "results/soak/2026-11-16/tableplus_windows-862-074844.json",
+    "findings": []
+   }
+  },
+  "tailscale/windows@864": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-16T09:08:31)",
+    "date": "2026-11-16T08:58:26",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.104.7",
+    "record": "results/soak/2026-11-16/tailscale_windows-864-085826.json",
+    "findings": [
+     "first install ended as pending_install",
+     "second install ended as None"
+    ]
+   }
+  },
   "teamviewer-host/windows@862": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -43995,6 +45752,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "15.83.5",
     "record": "results/soak/2026-11-16/teamviewer_windows-862-030151.json",
+    "findings": []
+   }
+  },
+  "termius/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:23:36",
+   "last_cycled": "2026-11-16T09:23:36",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:23:36",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "10.4.1",
+    "record": "results/soak/2026-11-16/termius_windows-862-092336.json",
     "findings": []
    }
   },
@@ -44058,6 +45829,64 @@
     "findings": []
    }
   },
+  "timing/darwin@858": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:44:00",
+   "last_cycled": "2026-11-16T09:44:00",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:44:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2026.6.1",
+    "record": "results/soak/2026-11-16/timing_darwin-858-094400.json",
+    "findings": []
+   }
+  },
+  "topaz-gigapixel-ai/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:34:33",
+   "last_cycled": "2026-11-16T08:40:46",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T08:40:46",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "8.4.4",
+    "record": "results/soak/2026-11-16/topaz-gigapixel-ai_darwin-865-084046.json",
+    "findings": [
+     "second install ended as not_run (no new install result; status was installed)"
+    ]
+   }
+  },
+  "tor-browser/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:27:20",
+   "last_cycled": "2026-11-16T08:27:20",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:27:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "16.0.1",
+    "record": "results/soak/2026-11-16/tor-browser_darwin-865-082720.json",
+    "findings": []
+   }
+  },
+  "tower/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:12:33",
+   "last_cycled": "2026-11-16T09:12:33",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:12:33",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "18.0",
+    "record": "results/soak/2026-11-16/tower_darwin-865-091233.json",
+    "findings": []
+   }
+  },
   "tower/windows@859": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -44072,6 +45901,58 @@
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
+    ]
+   }
+  },
+  "tower/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:05:46",
+   "last_cycled": "2026-11-16T07:16:12",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-16T07:16:12",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "15.0.590",
+    "record": "results/soak/2026-11-16/tower_windows-862-071612.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "tower/windows@864": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:08:01",
+   "last_cycled": "2026-11-16T08:14:22",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:14:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "15.0.590",
+    "record": "results/soak/2026-11-16/tower_windows-864-081422.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "transmission/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:03:00",
+   "last_cycled": "2026-11-16T09:03:00",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T09:03:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "4.1.3",
+    "record": "results/soak/2026-11-16/transmission_windows-859-090300.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install",
+     "presence unknown after second_present_after_uninstall (host didn't answer the live query)"
     ]
    }
   },
@@ -44100,6 +45981,37 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "26.10.3",
     "record": "results/soak/2026-11-16/trezor-suite_darwin-858-002046.json",
+    "findings": []
+   }
+  },
+  "twingate/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:22:11",
+   "last_cycled": "2026-11-16T09:27:35",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T09:27:35",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "20.26.280.8833",
+    "record": "results/soak/2026-11-16/twingate_windows-859-092735.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "ukelele/darwin@90004": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:29:00",
+   "last_cycled": "2026-11-16T07:40:48",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T07:40:48",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.7.1",
+    "record": "results/soak/2026-11-16/ukelele_darwin-906-074048.json",
     "findings": []
    }
   },
@@ -44159,6 +46071,39 @@
     "findings": []
    }
   },
+  "virtualbox/windows@859": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:05:02",
+   "last_cycled": "2026-11-16T07:13:29",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T07:13:29",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.22",
+    "record": "results/soak/2026-11-16/virtualbox_windows-859-071329.json",
+    "findings": [
+     "first install ended as failed_install",
+     "second install ended as failed_install"
+    ]
+   }
+  },
+  "virtualbox/windows@861": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T11:33:00",
+   "last_cycled": "2026-11-16T11:33:00",
+   "last_lifecycle": {
+    "outcome": "findings",
+    "date": "2026-11-16T11:33:00",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "7.2.22",
+    "record": "results/soak/2026-11-16/virtualbox_windows-861-113300.json",
+    "findings": [
+     "inventory never reported the app after install + refetch"
+    ]
+   }
+  },
   "virtualbox/windows@862": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -44202,14 +46147,44 @@
    }
   },
   "vivaldi/windows@862": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:16:59",
+    "outcome": "pass",
+    "date": "2026-11-16T09:46:54",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "8.3.4191.44",
-    "record": "results/soak/2026-11-16/vivaldi_windows-862-041659.json",
+    "record": "results/soak/2026-11-16/vivaldi_windows-862-094654.json",
+    "findings": []
+   },
+   "first_cycled": "2026-11-16T09:46:54",
+   "last_cycled": "2026-11-16T09:46:54"
+  },
+  "vlc/darwin@858": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:30:04",
+   "last_cycled": "2026-11-16T09:30:04",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T09:30:04",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.0.24",
+    "record": "results/soak/2026-11-16/vlc_darwin-858-093004.json",
+    "findings": []
+   }
+  },
+  "wacom-tablet/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T09:11:35",
+   "last_cycled": "2026-11-16T09:21:54",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T09:21:54",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "6.4.15-2",
+    "record": "results/soak/2026-11-16/wacom-tablet_darwin-860-092154.json",
     "findings": []
    }
   },
@@ -44347,6 +46322,44 @@
     ]
    }
   },
+  "whatsapp/darwin@858": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:12:44",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/whatsapp_darwin-858-081244.json",
+    "findings": []
+   }
+  },
+  "whisky/darwin@90005": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
+    "date": "2026-11-16T09:56:54",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "2.3.5",
+    "record": "results/soak/2026-11-16/whisky_darwin-908-095654.json",
+    "findings": []
+   }
+  },
+  "windowkeys/darwin@90004": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T07:19:34",
+   "last_cycled": "2026-11-16T07:19:34",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T07:19:34",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "3.0.1",
+    "record": "results/soak/2026-11-16/windowkeys_darwin-906-071934.json",
+    "findings": []
+   }
+  },
   "windows-app/darwin@860": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -44417,6 +46430,20 @@
     "findings": []
    }
   },
+  "xnapper/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:50:17",
+   "last_cycled": "2026-11-16T08:50:17",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:50:17",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.18.1",
+    "record": "results/soak/2026-11-16/xnapper_darwin-865-085017.json",
+    "findings": []
+   }
+  },
   "yaak/windows@864": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -44428,6 +46455,20 @@
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "2026.9.1",
     "record": "results/soak/2026-11-16/yaak_windows-864-032540.json",
+    "findings": []
+   }
+  },
+  "yarn/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:11:40",
+   "last_cycled": "2026-11-16T08:11:40",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:11:40",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.22.22",
+    "record": "results/soak/2026-11-16/yarn_windows-859-081140.json",
     "findings": []
    }
   },
@@ -44447,6 +46488,34 @@
     ]
    }
   },
+  "zen/darwin@858": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T08:28:52",
+   "last_cycled": "2026-11-16T08:28:52",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-16T08:28:52",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.24.2b",
+    "record": "results/soak/2026-11-16/zen_darwin-858-082852.json",
+    "findings": []
+   }
+  },
+  "zen/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-16T06:37:21",
+   "last_cycled": "2026-11-16T06:43:20",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-16T06:43:20",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": "1.24.2b",
+    "record": "results/soak/2026-11-16/zen_darwin-860-064320.json",
+    "findings": []
+   }
+  },
   "zen/darwin@90003": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -44462,14 +46531,14 @@
    }
   },
   "zettlr/darwin@858": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "environment: installer store: the instance serves this title's installer as 0 bytes",
-    "date": "2026-11-16T04:15:46",
+    "date": "2026-11-16T09:55:40",
     "build": "4.94.0-rc.2610272345 (937e87458c)",
     "catalog_version": "4.10.0",
-    "record": "results/soak/2026-11-16/zettlr_darwin-858-041546.json",
+    "record": "results/soak/2026-11-16/zettlr_darwin-858-095540.json",
     "findings": []
    }
   },
@@ -44533,7 +46602,7 @@
   },
   "zoom/darwin@858": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 2,
    "first_cycled": "2026-11-16T00:00:25",
    "last_cycled": "2026-11-16T00:00:25",
    "last_lifecycle": {
@@ -44543,6 +46612,18 @@
     "catalog_version": "7.2.5.90525",
     "record": "results/soak/2026-11-16/zoom_darwin-858-000025.json",
     "findings": []
+   },
+   "last_update": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-16T08:22:22",
+    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-16/zoom_darwin-858-082222.json",
+    "findings": [
+     "pinning 7.2.2.88465 left None active",
+     "patched query passes with 7.2.2.88465 installed: the patch policy can't see this host is outdated",
+     "install of 7.2.2.88465 ended as None; upgrade not tested"
+    ]
    }
   },
   "zulip/windows@864": {
