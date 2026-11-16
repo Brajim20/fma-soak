@@ -1,0 +1,132 @@
+{
+ "slug": "evernote/windows",
+ "host": 859,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-15T19:08:33",
+ "catalog_version": "11.42.3",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as pending_install"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-15T23:08:33Z",
+  "restarted": "2026-11-14T17:39:39.622916Z"
+ },
+ "title_id": 38061,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0 (attempt 1 of 3)\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "11.42.3"
+ ],
+ "package_version": "11.42.3",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files (x86)\\Evernote"
+  ],
+  "names": [
+   "Evernote 11.42.3 (All Users)"
+  ],
+  "versions": [
+   "11.42.3"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files (x86)\\Evernote\\Uninstall Evernote.exe\nUninstall args: /AllUsers /S /allusers /S\nUninstall exit code: 0\n'Evernote' was removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0 (attempt 1 of 3)\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "492",
+   "4284",
+   "4800",
+   "6260",
+   "10352",
+   "10780"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "pending_install",
+ "open_reinstall_seconds": null,
+ "open_reinstall_cancelled_after_timeout": [],
+ "open_reinstall_output_tail": "",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "10352",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "4800",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "6260",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "10780",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "492",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "4284",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "no result in time",
+ "open_reinstall": "done",
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-15T19:48:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-15T23:48:21Z",
+  "restarted": "2026-11-14T17:39:39.622916Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-15/evidence/evernote_windows-859-190833-library.png",
+  "inventory": "results/soak/2026-11-15/evidence/evernote_windows-859-190833-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-15/evernote_windows-859-190833.json"
+}
