@@ -3869,6 +3869,42 @@
       "verdict": "filed #58659: Teams title lists the Teams Meeting Add-in for Office by name-prefix match",
       "added": "2026-11-13",
       "msg_contains": "before it was installed"
+    },
+    {
+      "app": "docker-desktop/darwin@631",
+      "verdict": "environment: 631 degraded after its 2026-11-09 restart (upgrade first failed 'hdiutil: attach failed - Operation timed out', then the open-app uninstall 'did not quit'). On 858 2026-11-16 the update path passed and a probe uninstalled the open app (7 processes): script quit com.electron.dockerdesktop, exit 0, app gone. Bug draft (it quoted the older com.docker.docker quit) rejected",
+      "added": "2026-11-16",
+      "before": "2026-11-15T18:25"
+    },
+    {
+      "app": "claude/darwin@631",
+      "verdict": "environment: 631 degraded (same window as docker-desktop's hdiutil timeout); update path passed on 858 2026-11-16",
+      "added": "2026-11-16",
+      "before": "2026-11-15T18:25"
+    },
+    {
+      "app": "google-chrome/darwin@631",
+      "verdict": "environment: host queue wedge on 631 (pending_install forever, then 400s for every later request, also hit postman/syncovery); lifecycle incl. reinstall over the open app passed on 858 2026-11-16",
+      "added": "2026-11-16",
+      "before": "2026-11-15T18:25"
+    },
+    {
+      "app": "google-chrome/darwin@636",
+      "verdict": "environment: same queue wedge as google-chrome/darwin@631 (636 sick that night); passed on 858 2026-11-16",
+      "added": "2026-11-16",
+      "before": "2026-11-06T00:00"
+    },
+    {
+      "app": "onedrive/darwin@631",
+      "verdict": "environment: same 631 queue wedge as google-chrome/darwin@631 (first install pending the whole run, then 400s); not rerun (OneDrive preinstalled on 858 outside the harness)",
+      "added": "2026-11-16",
+      "before": "2026-11-15T18:25"
+    },
+    {
+      "app": "threema/darwin",
+      "shape": "add",
+      "verdict": "#56891 class: 225 MB DMG (sha no_check) downloaded inside the add request outlasts Cloudflare: 524 at 130 s and no title 14 min later (manual add 2026-11-16), same on 815 and 636; unlike qgis@ltr no late title",
+      "added": "2026-11-16"
     }
   ]
 }
