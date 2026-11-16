@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T21:43:52",
+ "built": "2026-11-16T02:07:58",
  "items": [
   {
    "issue": 56971,
@@ -234,7 +234,7 @@
    "title": "Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host",
    "slug": "sublime-text/windows",
    "platform": "windows",
-   "host": 863,
+   "host": 861,
    "kind": "update_path",
    "board": "closed",
    "seen": "2026-11-06T11:10:51",
@@ -743,7 +743,7 @@
    "title": "Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes",
    "slug": "evernote/windows",
    "platform": "windows",
-   "host": 859,
+   "host": 862,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-06T01:38:27",
@@ -2215,7 +2215,7 @@
    "title": "Fleet-maintained apps: WezTerm (macOS) can't be updated while it's open (\"did not quit\")",
    "slug": "wezterm/darwin",
    "platform": "darwin",
-   "host": 793,
+   "host": 865,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-09T01:39:30",
@@ -2469,7 +2469,7 @@
    "title": "Fleet-maintained apps: NordVPN (Windows) is never detected, so its patch policy always passes",
    "slug": "nordvpn/windows",
    "platform": "windows",
-   "host": 635,
+   "host": 864,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-12T04:00:09",
@@ -2657,7 +2657,7 @@
    "title": "Fleet-maintained apps: i1Profiler (macOS) can't be updated or uninstalled while it's open (\"did not quit\")",
    "slug": "i1profiler/darwin",
    "platform": "darwin",
-   "host": 797,
+   "host": 865,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-12T04:00:09",
@@ -3425,7 +3425,7 @@
    "title": "Fleet-maintained apps: REDCINE-X PRO (macOS) shows version 1.0 and its patch policy always fails (catalog bundle ID is the bundled RED Tether app)",
    "slug": "redcine-x-pro/darwin",
    "platform": "darwin",
-   "host": 789,
+   "host": 860,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-12T08:45:29",
@@ -3482,6 +3482,69 @@
    "status": "pending",
    "record": null,
    "since": "2026-11-13T15:58:23"
+  },
+  {
+   "issue": 58756,
+   "title": "Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes",
+   "slug": "garmin-basecamp/windows",
+   "platform": "windows",
+   "host": 629,
+   "kind": "lifecycle",
+   "board": "closed",
+   "seen": "2026-11-16T02:07:58",
+   "fix_prs": [
+    {
+     "number": 58802,
+     "url": "https://github.com/fleetdm/fleet/pull/58802",
+     "merged": "2026-11-16T03:04:09Z"
+    }
+   ],
+   "not_before": "2026-11-16T00:04:09",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-16T02:07:58"
+  },
+  {
+   "issue": 58757,
+   "title": "Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes",
+   "slug": "comet/windows",
+   "platform": "windows",
+   "host": 629,
+   "kind": "lifecycle",
+   "board": "closed",
+   "seen": "2026-11-16T02:07:58",
+   "fix_prs": [
+    {
+     "number": 58803,
+     "url": "https://github.com/fleetdm/fleet/pull/58803",
+     "merged": "2026-11-16T03:09:47Z"
+    }
+   ],
+   "not_before": "2026-11-16T00:09:47",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-16T02:07:58"
+  },
+  {
+   "issue": 58758,
+   "title": "Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed",
+   "slug": "adobe-creative-cloud/windows",
+   "platform": "windows",
+   "host": 629,
+   "kind": "lifecycle",
+   "board": "closed",
+   "seen": "2026-11-16T02:07:58",
+   "fix_prs": [
+    {
+     "number": 58806,
+     "url": "https://github.com/fleetdm/fleet/pull/58806",
+     "merged": "2026-11-16T03:44:48Z"
+    }
+   ],
+   "not_before": "2026-11-16T00:44:48",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-16T02:07:58"
   }
  ]
 }

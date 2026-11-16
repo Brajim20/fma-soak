@@ -1,0 +1,198 @@
+[
+ {
+  "app": "google-chrome/windows@861",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/google-chrome_windows-861-002458.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/windows.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-chrome.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2025-12-17 Add `no_check` to Google Chrome FMA for Windows (#37380); 2025-12-01 Convert Google Chrome for Windows to `msi` installer (#36456) \u00b7 issues mentioning it: #58305 (open), #56948 (open), #53291 (open), #14827 (open), #47443 (open)"
+ },
+ {
+  "app": "microsoft-dotnet-sdk-9/windows@859",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/microsoft-dotnet-sdk-9_windows-859-000312.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/microsoft-dotnet-sdk-9/windows.json), [microsoft-dotnet-sdk-9.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/microsoft-dotnet-sdk-9.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-27 Add Microsoft .NET SDK 8, 9, and 10 as Windows FMAs (#56633) \u00b7 issues mentioning it: #56210 (closed)"
+ },
+ {
+  "app": "sublime-text/windows@861",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/sublime-text_windows-861-005157.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sublime-text/windows.json), [sublime-text.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sublime-text.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-02 Check Sublime Text (Windows) version from sublime_text.exe (#57186); 2025-12-01 Add Sublime Text as a Windows FMA (#36448) \u00b7 issues mentioning it: #57187 (open), #57118 (closed), #57810 (closed), #57225 (closed), #44038 (closed)"
+ },
+ {
+  "app": "wezterm/darwin@865",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['0.1.0'] after installing 20240203-110809; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/wezterm_darwin-865-003419.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wezterm/darwin.json), [wezterm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wezterm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-26 Add WezTerm as a macOS FMA (#53892) \u00b7 issues mentioning it: #57924 (closed), #53825 (closed), #58221 (closed), #58080 (closed)"
+ },
+ {
+  "app": "db-browser-for-sqlite/windows@862",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/db-browser-for-sqlite_windows-862-011701.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/db-browser-for-sqlite/windows.json), [db-browser-for-sqlite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/db-browser-for-sqlite.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Add several Windows FMAs (#46415) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "zoom-rooms/windows@864",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/zoom-rooms_windows-864-010518.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom-rooms/windows.json), [zoom-rooms.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/zoom-rooms.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-29 Windows FMA - Zoom Rooms (#46410) \u00b7 issues mentioning it: #36203 (open), #51564 (open), #27387 (open), #48032 (closed), #45955 (closed)"
+ },
+ {
+  "app": "google-chrome/windows@861",
+  "shape": "S4",
+  "msgs": [
+   "pinned 156.0.8078.80, but the host has ['157.0.8103.79'] after installing it (#56873 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/google-chrome_windows-861-002458.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/windows.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-chrome.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2025-12-17 Add `no_check` to Google Chrome FMA for Windows (#37380); 2025-12-01 Convert Google Chrome for Windows to `msi` installer (#36456) \u00b7 issues mentioning it: #58305 (open), #56948 (open), #53291 (open), #14827 (open), #47443 (open)"
+ },
+ {
+  "app": "grammarly-desktop/darwin@858",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/grammarly-desktop_darwin-858-001426.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/grammarly-desktop/darwin.json), [grammarly-desktop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/grammarly-desktop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2025-11-20 Add Grammarly Desktop as a macOS FMA (#35743) \u00b7 issues mentioning it: #51796 (closed), #51820 (closed), #47286 (closed)"
+ },
+ {
+  "app": "netron/darwin@860",
+  "shape": "S6",
+  "msgs": [
+   "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/netron_darwin-860-000347.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/netron/darwin.json), [netron.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/netron.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-13 Add macOS Fleet-maintained apps (N) (#47537) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "google-chrome-arm64/windows@864",
+  "shape": "add",
+  "msgs": [
+   "add failed 409: Conflict"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/google-chrome-arm64_windows-864-002110.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome-arm64/windows.json), [google-chrome-arm64.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-chrome-arm64.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-12 Add ARM64 Windows Fleet-maintained apps for 23 popular apps (#56802) \u00b7 issues mentioning it: #48490 (closed), #36740 (closed), #43106 (closed), #35281 (closed), #27876 (closed)"
+ },
+ {
+  "app": "dbvisualizer/windows@862",
+  "shape": "install",
+  "msgs": [
+   "second install ended as None"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/dbvisualizer_windows-862-000521.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dbvisualizer/windows.json), [dbvisualizer.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dbvisualizer.json), [dbvisualizer_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dbvisualizer_install.ps1), [dbvisualizer_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/dbvisualizer_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-10 Update Fleet-maintained apps (#55319); 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "dell-command-update/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/dell-command-update_windows-862-001758.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dell-command-update/windows.json), [dell-command-update.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dell-command-update.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #51145 (open), #47550 (open), #50077 (open), #37326 (closed)"
+ },
+ {
+  "app": "firefox@nightly/windows@861",
+  "shape": "install",
+  "msgs": [
+   "upgrade over 162.2611.1021.0 ended as None"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/firefox@nightly_windows-861-001356.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@nightly/windows.json), [firefox@nightly.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/firefox@nightly.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-07-17 Add Firefox Nightly and Firefox Developer Edition Fleet-maintained apps (#49501) \u00b7 issues mentioning it: #53050 (open), #49522 (open), #51127 (open), #51138 (closed), #49149 (closed)"
+ },
+ {
+  "app": "nordvpn/windows@864",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/nordvpn_windows-864-000523.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nordvpn/windows.json), [nordvpn.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nordvpn.json), [nordvpn_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nordvpn_install.ps1), [nordvpn_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nordvpn_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-09 Update Fleet-maintained apps (#58164); 2026-05-28 Add several Windows FMAs (#46313) \u00b7 issues mentioning it: #58051 (closed), #58757 (closed)"
+ },
+ {
+  "app": "windows-app/darwin@858",
+  "shape": "install",
+  "msgs": [
+   "first install ended as None"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/windows-app_darwin-858-004403.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/windows-app/darwin.json), [windows-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/windows-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-14 Add Windows App as macOS FMA (#35398) \u00b7 issues mentioning it: #54263 (open), #56938 (open), #37558 (open), #48755 (open), #56431 (open)"
+ },
+ {
+  "app": "bandiview/windows@864",
+  "shape": "uninstall",
+  "msgs": [
+   "first uninstall: app still on host (status failed_uninstall)",
+   "second uninstall: app still on host (status failed_uninstall)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-16/bandiview_windows-864-005111.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/bandiview/windows.json), [bandiview.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/bandiview.json), [bandiview_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/bandiview_install.ps1), [bandiview_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/bandiview_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-07-08 Add Windows FMAs (letter B): 5 apps (#48950) \u00b7 issues mentioning it: none"
+ }
+]

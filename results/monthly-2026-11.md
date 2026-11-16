@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 10324 cycles: pass 3904, findings 2225, flaky 471, environment 168, harness 293, skipped 3263
+**1. Runs** — 10490 cycles: pass 4008, findings 2252, flaky 483, environment 175, harness 296, skipped 3276
 
-**2. Coverage** — darwin 975/963 (101.2%), quarter 2/2 this week 436/462, twice_daily 5/10 on time, daily 13/15 on time, twice_weekly 22/25 on time; windows 483/487 (99.2%), quarter 2/2 this week 209/228, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 976/964 (101.2%), quarter 1/2 this week 28/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 483/487 (99.2%), quarter 1/2 this week 29/209, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -149,9 +149,9 @@
 | #58530 | closed | Fleet-maintained apps: SuperCollider (Windows) is never detected after install, so its patch policy always passes |
 | #58624 | closed | Fleet-maintained apps: Visual Studio Community 2022 (Windows) reinstall over an existing install fails with exit code 1 |
 | #58659 | open | Fleet-maintained apps: Microsoft Teams (Windows) shows as installed on hosts that only have the Teams Meeting Add-in for Office |
-| #58756 | open | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
-| #58757 | open | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
-| #58758 | open | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
+| #58756 | closed | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
+| #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
+| #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
 
 **4. Build changes**
 
