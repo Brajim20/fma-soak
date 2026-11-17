@@ -3926,6 +3926,28 @@
       "app": "burp-suite-professional/windows",
       "verdict": "filed #58946 (winget package replaced by PortSwigger.BurpSuite; stuck at 2026.3.3)",
       "added": "2026-11-16"
+    },
+    {
+      "app": "db-browser-for-sqlite/windows",
+      "verdict": "filed #59021: host programs.name is 'DB Browser for SQLite' (no version suffix); fuzzy_match_name true makes exists LIKE 'DB Browser for SQLite %' never match, patched NOT EXISTS passes vacuously (635 probe 2026-11-17, 0/15 over 10 min)",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "virtualbox/windows",
+      "verdict": "dup of #57139 (commented 2026-11-17): host reports upgrade_code {C4BAD770-BFE8-4D2C-A592-693028A7215B}, manifest none (exe-wrapped MSI); inventory lands on separate 'Oracle VirtualBox 7.2.18' title",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "mellel/darwin@865",
+      "shape": "install",
+      "verdict": "environment: Fleet logged first install installed (c1e7d109, 13:41:22Z, ~68 s); harness not_run because host software last_install was still empty when checked. One-off, no user impact",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "slack/darwin",
+      "verdict": "environment: 636 sick host 2026-11-01, 810/825 qa gateway 502 bursts; 631 user:staff 0755 after upgrade+relaunch is normal app ownership, Slack worked (not #55093)",
+      "added": "2026-11-17",
+      "before": "2026-11-14"
     }
   ]
 }
