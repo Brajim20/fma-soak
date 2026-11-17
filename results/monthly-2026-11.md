@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 10913 cycles: pass 4150, findings 2361, flaky 523, environment 251, harness 318, skipped 3310
+**1. Runs** — 11112 cycles: pass 4276, findings 2396, flaky 541, environment 256, harness 323, skipped 3320
 
-**2. Coverage** — darwin 976/964 (101.2%), quarter 1/2 this week 150/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 483/487 (99.2%), quarter 1/2 this week 97/209, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 976/965 (101.1%), quarter 1/2 this week 201/452, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 118/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -152,6 +152,7 @@
 | #58756 | closed | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
 | #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
 | #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
+| #58861 | open | Fleet-maintained apps: Webex Recorder and Player (Windows) installs land on a second title with the same name |
 
 **4. Build changes**
 
@@ -164,7 +165,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
+2. The whole catalog cycled at least once per platform — darwin: done, windows: done
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests
