@@ -1,0 +1,83 @@
+{
+ "slug": "microsoft-teams/darwin",
+ "host": 860,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T18:32:46",
+ "catalog_version": "26289.204.5281.6363",
+ "findings": [
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install, second_present_after_uninstall (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T22:32:46Z",
+  "restarted": "2026-11-14T23:19:01.802987Z"
+ },
+ "title_id": 13120,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Teams\ninstaller: choices changes file '/tmp/choice_xml_z2C' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26289.204.5281.6363"
+ ],
+ "package_version": "26289.204.5281.6363",
+ "context_after_install": {
+  "path": "/Applications/Microsoft Teams.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Microsoft Teams.app/Contents/MacOS/MSTeams",
+  "bundle_id": "com.microsoft.teams2",
+  "versions": [
+   "26289.204.5281.6363"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Teams\ninstaller: choices changes file '/tmp/choice_xml_N7r' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": null,
+ "presence_query_errors": [
+  "200 reading from redis: write tcp 10.27.230.98:51004->10.215.33.193:6379: write: connection reset by peer",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings",
+ "finished": "2026-11-16T18:39:37",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "error": "no UI session for evidence: RuntimeError: UI login failed: 502 error code: 502\n"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/microsoft-teams_darwin-860-183246.json"
+}
