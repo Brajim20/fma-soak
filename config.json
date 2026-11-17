@@ -288,12 +288,18 @@
   "prisma-browser/darwin@636": "Prisma Access Browser pkg (466 MB): installer hung before writing anything on the 4 GB UTM soak VMs (631 15+ h, 636 15+ h, 2026-10-31/11-01) and its orphaned installer blocked every later install (#57148); installs in 2.5 min on a real Mac (main host 50, macOS 27, 2026-11-01)"
  },
  "arch": {
-  "_doc": "Hosts by CPU. A Windows app whose slug ends in -arm64 runs only on the arm64 hosts; other Windows apps stay off them (they go to the x64 hosts), except the tiers in priority.alternate, which cover every OS build on purpose. Standby hosts are listed so their crosshost reruns follow the same rule.",
+  "_doc": "Hosts by CPU. Routing (sample.py): a Windows app whose slug ends in -arm64 (name ends in \"(ARM64)\", ~25 apps) runs only on the arm64 hosts; other Windows apps go to the x64 hosts, except the tiers in priority.alternate, which cover every OS build on purpose. Triage (digest.arch_policy): an x64 app's failure on an arm64 host is never filed (Prism emulation is best-effort: some install but won't launch, like firefox@nightly, some installers refuse ARM); crosshost.py reruns it on an x64 host and only a failure there is a bug. An -arm64 app's failure on an x64 host is never filed; only a failure on an arm64 host is. Hosts on neither list get normal triage. Standby hosts are listed so their crosshost reruns follow the same rules. Policy set 2026-11-17.",
   "windows": {
    "arm64": [
     863,
     864,
     629
+   ],
+   "x64": [
+    861,
+    859,
+    862,
+    635
    ]
   }
  },
@@ -427,9 +433,6 @@
    "remote-desktop-manager/windows",
    "recents/darwin"
   ]
- },
- "triage_rules": {
-  "windows_arm_host": 629
  },
  "recheck": {
   "settle_minutes": 60,

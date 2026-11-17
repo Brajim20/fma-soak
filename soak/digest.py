@@ -31,7 +31,31 @@ TRIAGE = json.load(open(os.path.join(WS, "triage.json")))["entries"] if os.path.
 # {issue: {"closedAt", "stateReason"}} for the soak's closed bugs, written by `recheck.py refresh`
 ISSUES = os.path.join(RES, "state", "issues.json")
 CLOSED = {int(k): v for k, v in json.load(open(ISSUES)).items()} if os.path.exists(ISSUES) else {}
-EXPIRE_DAYS = json.load(open(os.path.join(WS, "config.json"))).get("triage_expire_days", 30)
+_CFG = json.load(open(os.path.join(WS, "config.json")))
+EXPIRE_DAYS = _CFG.get("triage_expire_days", 30)
+ARCH = {k: set(v) for k, v in _CFG.get("arch", {}).get("windows", {}).items() if not k.startswith("_")}
+
+
+def arch_policy(r):
+    """Standing policy (config arch._doc), no triage.json entry needed and it never expires:
+      - an x64 FMA failing on a Windows on ARM host isn't filed. x64 apps usually run under Prism emulation, but some
+        install and then won't launch (firefox@nightly) and some installers refuse ARM outright. It's a bug only
+        when it also fails on an x64 host, and that record is triaged normally.
+      - an ARM64-only FMA (slug ends in -arm64, name ends in "(ARM64)") never runs on x64, so a failure on an x64
+        host isn't a bug. It's a bug only when it fails on an ARM host.
+    Hosts in neither config list (pool runners) get normal triage."""
+    s, h = r.get("slug", ""), r.get("host")
+    if not s.endswith("/windows"):
+        return None
+    arm_build = s.split("/")[0].endswith("-arm64")
+    if not arm_build and h in ARCH.get("arm64", ()):
+        return {"app": f"{s}@{h}", "policy": "arch",
+                "verdict": "arch policy: x64 FMA on a Windows on ARM host (emulation or the installer's own arch "
+                           "check); not filed unless it also fails on an x64 host"}
+    if arm_build and h in ARCH.get("x64", ()):
+        return {"app": f"{s}@{h}", "policy": "arch",
+                "verdict": "arch policy: ARM64-only FMA on an x64 host, where it's never supported; not filed"}
+    return None
 
 
 def filed_issues(t):
@@ -57,9 +81,14 @@ def expired(t, r):
     return r["started"] >= (datetime.date.fromisoformat(t["added"]) + datetime.timedelta(days=EXPIRE_DAYS)).isoformat()
 
 
-def triage_match(app, f, r, live=True):
+def triage_match(app, f, r, live=True, policy=True):
     """The triage.json entry covering finding f of record r, if any. live=False keeps expired entries (recheck.py
-    needs the filed entry to recognise the old finding coming back)."""
+    needs the filed entry to recognise the old finding coming back). policy=False skips arch_policy (crosshost.py
+    still reruns an x64 app's ARM-only failure on an x64 host, the check that decides whether it's a bug)."""
+    if policy and f.get("shape") != "harness":
+        a = arch_policy(r)
+        if a:
+            return a
     for t in TRIAGE:
         if live and expired(t, r):
             continue

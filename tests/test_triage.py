@@ -59,3 +59,56 @@ class Expired(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ArchPolicy(unittest.TestCase):
+    """digest.arch_policy: x64 apps failing on Windows on ARM and ARM64-only apps failing on x64 are never filed."""
+    F = {"shape": "install", "msg": "install failed"}
+
+    def setUp(self):
+        self.arch = dict(D.ARCH)
+        self.triage = list(D.TRIAGE)
+        D.ARCH.clear(); D.ARCH.update({"arm64": {863, 864, 629}, "x64": {861, 859, 862, 635}})
+        D.TRIAGE.clear()
+
+    def tearDown(self):
+        D.ARCH.clear(); D.ARCH.update(self.arch)
+        D.TRIAGE.clear(); D.TRIAGE.extend(self.triage)
+
+    def rec(self, slug, host):
+        return {"slug": slug, "host": host, "started": "2026-11-17T01:00:00"}
+
+    def match(self, slug, host, **kw):
+        r = self.rec(slug, host)
+        return D.triage_match(f"{slug}@{host}", self.F, r, **kw)
+
+    def test_x64_app_on_arm_host_is_excused(self):
+        t = self.match("firefox@nightly/windows", 863)
+        self.assertEqual(t["policy"], "arch")
+        self.assertIn("x64 FMA on a Windows on ARM host", t["verdict"])
+
+    def test_x64_app_on_x64_host_is_triaged(self):
+        self.assertIsNone(self.match("firefox@nightly/windows", 861))
+
+    def test_arm64_app_on_arm_host_is_triaged(self):
+        self.assertIsNone(self.match("python-3.13-arm64/windows", 864))
+        self.assertIsNone(self.match("firefox@nightly-arm64/windows", 629))
+
+    def test_arm64_app_on_x64_host_is_excused(self):
+        self.assertEqual(self.match("zoom-arm64/windows", 862)["policy"], "arch")
+
+    def test_arm_in_name_but_not_suffix_is_x64(self):
+        self.assertIsNone(self.match("garmin-basecamp/windows", 861))
+        self.assertEqual(self.match("garmin-basecamp/windows", 864)["policy"], "arch")
+
+    def test_unlisted_host_and_macos_untouched(self):
+        self.assertIsNone(self.match("firefox/windows", 9001))  # pool runner
+        self.assertIsNone(self.match("zoom-arm64/windows", 9001))
+        self.assertIsNone(self.match("firefox/darwin", 863))
+
+    def test_crosshost_skips_policy(self):
+        self.assertIsNone(self.match("firefox@nightly/windows", 863, policy=False))
+
+    def test_harness_findings_not_relabelled(self):
+        r = self.rec("firefox/windows", 863)
+        self.assertIsNone(D.triage_match("firefox/windows@863", {"shape": "harness", "msg": "x"}, r))

@@ -28,13 +28,22 @@ of one protects it. When the evidence doesn't settle it, say `needs-you` and nam
 
 | Host | What | Notes |
 |---|---|---|
-| 631 | macOS 26 UTM VM, Apple silicon, 4 GB | primary: canaries, update path |
-| 636 | macOS 26 UTM VM, Apple silicon, 4 GB | sample only |
-| 629 | Windows 11 on ARM (Parallels) | primary; x64 apps run under emulation, x64-only installers can refuse ARM |
-| 635 | Windows 11 x64 mini PC (NUCBOX_G10) | sample only |
+| 858, 865, 860 | macOS VMs, Apple silicon | primary |
+| 861, 859, 862 | Windows 11 x64 VMs | primary |
+| 863, 864 | Windows 11 on ARM VMs | primary for the -arm64 apps |
+| 631, 636, 624 | macOS VMs | standby (crosshost reruns) |
+| 635 (x64), 629 (ARM) | Windows 11 | standby (crosshost reruns) |
 
-Both hosts reproduce = strong evidence (it ticks the template's "reproduced in multiple" box). Only one host = look at
-what differs before calling it a bug (ARM vs x64, what else was installed, a hung install ahead in the queue).
+Two hosts reproduce = strong evidence (it ticks the template's "reproduced in multiple" box). Only one host = look at
+what differs before calling it a bug (what else was installed, a hung install ahead in the queue).
+
+**Windows architecture policy** (already applied before you see an item, `digest.arch_policy`):
+- About 25 FMAs are ARM-only: slug ends in `-arm64`, name ends in "(ARM64)". They never run on x64, so they're only
+  a bug when they fail on an ARM host (863, 864, 629).
+- Every other Windows FMA is x64. On an ARM host it usually runs under Prism emulation, but some install and won't
+  launch (firefox@nightly) and some installers refuse ARM. A failure on an ARM host is never filed; only a failure on
+  an x64 host (861, 859, 862, 635) is a bug. If an x64 app's item shows an ARM host failing, judge it on its x64
+  records alone, and never cite the ARM failure as a second reproduction.
 
 ## For each item
 
@@ -74,7 +83,7 @@ what differs before calling it a bug (ARM vs x64, what else was installed, a hun
        before the install. Read the record's `*_open` / `*_starts` fields. Causes can be the new build crashing, a
        first-run or update dialog that exits, the harness's open method, or a broken install. Without more evidence
        this is `needs-you`, not `bug` and not `not-a-bug`.
-4. **Rule out the environment and the harness.** x64-only installer on 629, installer needs a reboot or a signed-in
+4. **Rule out the environment and the harness.** Architecture (policy above), installer needs a reboot or a signed-in
    user, network/CDN failure (502, download timeout), a host restart mid-cycle, the harness's own checks being too
    strict (S6 "doesn't stay open after the install" is often the app's own behavior: does the app normally relaunch?).
 5. **Inspect the installer only when it settles the question.** These are the only forms the sandbox allows, with

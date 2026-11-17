@@ -43,23 +43,8 @@ def rule_open_exit5(slug, by_host, reruns):
                              "verdict": "#57149 class: install over the open app exits 5, the script doesn't close it first"}}
 
 
-def rule_arm_only(slug, by_host, reruns):
-    """Findings only on the Windows on ARM host, and the x64 host's rerun of the same cycle was clean."""
-    arm = R_CFG.get("triage_rules", {}).get("windows_arm_host")
-    if not slug.endswith("/windows") or set(by_host) != {arm}:
-        return None
-    clean = [r for r in reruns if r["host"] != arm and D.category(r) == "pass"]
-    if not clean:
-        return None
-    return {"decision": "environment",
-            "summary": f"fails only on Windows on ARM ({arm}); the same cycle passed on x64 ({clean[-1]['host']})",
-            "hosts": [arm], "intended": "ARM support for x64 FMAs is #42082 / #53050",
-            "triage_entry": {"added": datetime.date.today().isoformat(), "app": f"{slug}@{arm}",
-                             "verdict": f"environment: Windows on ARM only; passed on x64 host {clean[-1]['host']} "
-                                        f"({D.rel(clean[-1]['_path'])})"}}
-
-
-RULES = [rule_open_exit5, rule_arm_only]
+# Windows arch (x64 app on ARM, ARM64 app on x64) is settled before the queue: digest.arch_policy.
+RULES = [rule_open_exit5]
 R_CFG = json.load(open(os.path.join(D.WS, "config.json")))
 
 
