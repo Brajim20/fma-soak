@@ -364,9 +364,10 @@ def install(host, tid, rec, label):
         out = res.get("output") or ""
         rec[f"{label}_output_tail"] = scrub(out)[-600:]
         rec[f"{label}_error_markers"] = sorted({m.group(0)[:80] for m in ERROR_MARKERS.finditer(out)})
-        # quit/relaunch lines from the install script come early, before the tail (S6, running.py)
+        # quit/relaunch lines from the install script come early, before the tail (S6, running.py), including
+        # force_quit_application's (#59031: "Stopping application", "stopped", "didn't stop; forcing it to quit")
         rec[f"{label}_app_lines"] = [scrub(l.strip())[:160] for l in out.splitlines()
-                                     if re.search(r"was running|quit|relaunch", l, re.I)][:6]
+                                     if re.search(r"was running|quit|relaunch|stop|whether application", l, re.I)][:10]
     return s
 
 

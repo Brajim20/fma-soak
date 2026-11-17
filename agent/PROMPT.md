@@ -83,6 +83,19 @@ what differs before calling it a bug (what else was installed, a hung install ah
        before the install. Read the record's `*_open` / `*_starts` fields. Causes can be the new build crashing, a
        first-run or update dialog that exits, the harness's open method, or a broken install. Without more evidence
        this is `needs-you`, not `bug` and not `not-a-bug`.
+     - "didn't quit and the #59031 force-quit didn't stop it either": the polite AppleScript quit timed out, then
+       `force_quit_application` (SIGTERM, then SIGKILL, to the console user's processes in the bundle) failed or
+       found no process. That is a bug in the #59031 fallback or in how it finds the app's processes (a bundle ID
+       mismatch, a process outside the .app, a root-owned process); quote the force-quit lines from
+       `*_app_lines`.
+   - **"did not quit" (macOS) since PR #59031** (merged 2026-11-17): an app that ignores the polite quit is now
+     stopped with SIGTERM/SIGKILL instead of failing the install. A record whose output has "did not quit" but no
+     "Stopping application" / "Found no process to stop" line ran a script from before #59031 (the nightly catalog
+     update hadn't reached that app yet, or the app has its own quit variant: Docker Desktop, KiCad, or the
+     SIGTERM-only scripts of 1Password, Tailscale, WezTerm, Mozilla VPN, PureVPN). Don't draft a bug for an old
+     script's "did not quit": it's `already-filed`, fixed by #59031. Only a "did not quit" from a script that ran
+     the force-quit step is new. Records note `*_quit` = `refused` (old script), `forced` (fallback worked) or
+     `force_failed`.
 4. **Rule out the environment and the harness.** Architecture (policy above), installer needs a reboot or a signed-in
    user, network/CDN failure (502, download timeout), a host restart mid-cycle, the harness's own checks being too
    strict (S6 "doesn't stay open after the install" is often the app's own behavior: does the app normally relaunch?).

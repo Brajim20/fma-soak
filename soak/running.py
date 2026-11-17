@@ -5,8 +5,11 @@ kept running from deleted files while Fleet said installed), #56809 (quit and ne
 #49491 (opened by an update when it hadn't been open), #30239 #32227 #32634 (unusable after an update).
 
 What the install scripts are meant to do, from ee/maintained-apps/ingesters/homebrew/scripts.go
-(quit_and_track_application / relaunch_application): if the app is running, quit it; if it won't quit, stop
-(`|| exit 1`) and leave it alone; after installing, reopen it only if it was running. Windows has no shared
+(quit_and_track_application / relaunch_application): if the app is running, quit it; if it won't quit, stop it
+with SIGTERM, then SIGKILL (force_quit_application, PR #59031, merged 2026-11-17), and only if it's still running
+stop (`|| exit 1`) and leave it alone; after installing, reopen it only if it was running. Scripts built before
+#59031 have no force-quit step: there "did not quit" is the guard working and stays a note; once the force-quit
+step has run, an install that still stops on "did not quit" is a finding (see quit_outcome). Windows has no shared
 quit/relaunch step (per-app scripts stop processes; browsers update in place), so on Windows only the outcome is
 checked: the install over the open app succeeds, the app isn't opened by an update, and it still starts after.
 
@@ -227,6 +230,31 @@ def current(p):
     return bool(p["path"]) and p["on_disk"] != "0" and ".bkp/" not in p["path"] and not p.get("moved")
 
 
+FORCE_TRIED = re.compile(r"^Stopping application '|^Found no process to stop for application|"
+                         r"^Couldn't check whether application")
+
+
+def quit_outcome(lines):
+    """What the script's quit step said, from its output lines: None (the app quit, or the script has no quit step),
+    "refused" (a script without #59031's force-quit step gave up: by design), "forced" (polite quit timed out and
+    force_quit_application stopped the app) or "force_failed" (it ran and couldn't stop it)."""
+    if not any("did not quit" in l for l in lines):
+        return None
+    if not any(FORCE_TRIED.search(l) for l in lines):
+        return "refused"
+    if any(re.search(r"^Application '.*' stopped\.$", l) for l in lines):
+        return "forced"
+    return "force_failed"
+
+
+def quit_reason(lines):
+    """The last AppleScript error the polite quit got (#59031 prints it), e.g. "execution error: ... (-1712)"."""
+    for l in lines:
+        if l.startswith("Last quit error:"):
+            return l.split(":", 1)[1].strip()
+    return None
+
+
 def judge_open(rec, find, t, key, label, before, after, status, lines):
     """The app was open when the install ran. `before`: its pids then; `after`: processes() after the install.
     `key` prefixes what goes in the record, `label` starts each finding."""
@@ -234,6 +262,11 @@ def judge_open(rec, find, t, key, label, before, after, status, lines):
         rec[f"{key}_running_note"] = "host didn't answer the process query after the install"
         return
     said = " ".join(lines)
+    how = quit_outcome(lines)
+    if how:
+        rec[f"{key}_quit"] = how
+        if quit_reason(lines):
+            rec[f"{key}_quit_error"] = quit_reason(lines)
     stale = [p for p in after if not current(p)]
     kept = [p for p in after if p["pid"] in before and p not in stale]
     fresh = [p for p in after if p["pid"] not in before and p not in stale]
@@ -249,6 +282,9 @@ def judge_open(rec, find, t, key, label, before, after, status, lines):
         find("S6", f"{label}: Fleet says {status}, but the app is still running from files the install deleted "
                    f"({stale[0]['path'] or 'its executable is gone'}, pid {stale[0]['pid']}) (#54170 shape)")
     if status == "installed":
+        if how == "forced":
+            rec[f"{key}_running_note"] = ("the app ignored the polite quit and the script stopped it (#59031 "
+                                          f"force-quit; last quit error: {quit_reason(lines) or 'none'})")
         if kept:
             find("S6", f"{label}: the app was replaced while running and never quit (pid {kept[0]['pid']} survived) "
                        f"(#55338 shape)")
@@ -258,9 +294,14 @@ def judge_open(rec, find, t, key, label, before, after, status, lines):
                 rec[f"{key}_running_note"] = f"pool runner: the install closed the open app and didn't reopen it; {tried}"
             else:
                 find("S6", f"{label}: the install closed the open app and didn't reopen it; {tried} (#56809 shape)")
-    elif "did not quit" in said:
-        # the guard working as designed: the app wouldn't quit, so the script left it alone
-        rec[f"{key}_running_note"] = "install refused because the app didn't quit (by design); app left running"
+    elif how == "force_failed":
+        why = next((l for l in reversed(lines) if FORCE_TRIED.search(l) or "did not stop" in l), "")
+        find("S6", f"{label}: the app didn't quit and the #59031 force-quit didn't stop it either, so the install "
+                   f"ended as {status} ({why or 'no force-quit outcome in the output'})")
+    elif how == "refused":
+        # a script from before #59031: the guard working as designed, the app wouldn't quit so it was left alone
+        rec[f"{key}_running_note"] = ("install refused because the app didn't quit (script has no #59031 force-quit "
+                                      "step yet); app left running")
     else:
         find("S6", f"{label}: the install over the open app ended as {status}")
 
