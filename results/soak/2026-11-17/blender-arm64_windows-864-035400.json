@@ -1,0 +1,74 @@
+{
+ "slug": "blender-arm64/windows",
+ "host": 864,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-17T03:54:00",
+ "catalog_version": "5.3.0",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "harness",
+   "msg": "presence unknown after second_present_after_install (host didn't answer the live query)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-17T07:53:51Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "title_id": 39812,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "07:55:54:425]: Failed to grab execution mutex. System error 258.\r\nMSI (c) (88:84) [07:55:54:444]: Cloaking enabled.\r\nMSI (c) (88:84) [07:55:54:444]: Attempting to enable all disabled privileges before calling Install on Server\r\nMSI (c) (88:84) [07:55:54:450]: Incrementing counter to disable shutdown. Counter after increment: 0\r\nMSI (c) (88:84) [07:55:54:454]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (88:84) [07:55:54:454]: MainEngineThread is returning 1618\r\n=== Verbose logging stopped: 11/17/2026  7:55:54 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 91,
+ "second_install_output_tail": "07:58:16:574]: Failed to grab execution mutex. System error 258.\r\nMSI (c) (0C:6C) [07:58:16:592]: Cloaking enabled.\r\nMSI (c) (0C:6C) [07:58:16:592]: Attempting to enable all disabled privileges before calling Install on Server\r\nMSI (c) (0C:6C) [07:58:16:598]: Incrementing counter to disable shutdown. Counter after increment: 0\r\nMSI (c) (0C:6C) [07:58:16:600]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (0C:6C) [07:58:16:600]: MainEngineThread is returning 1618\r\n=== Verbose logging stopped: 11/17/2026  7:58:16 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": null,
+ "second_uninstall_request": 502,
+ "second_uninstall_error": "error code: 502\n",
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n",
+  "502 error code: 502\n"
+ ],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-17T04:00:24",
+ "host_at_end": {
+  "status": null,
+  "seen": null,
+  "restarted": null
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/blender-arm64_windows-864-035400-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/blender-arm64_windows-864-035400-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/blender-arm64_windows-864-035400.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/blender-arm64_windows-864-034908.json",
+ "crosshost_of": "soak/2026-11-16/blender-arm64_windows-863-201653.json"
+}
