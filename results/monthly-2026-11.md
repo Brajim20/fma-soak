@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 11112 cycles: pass 4276, findings 2396, flaky 541, environment 256, harness 323, skipped 3320
+**1. Runs** — 11302 cycles: pass 4347, findings 2443, flaky 558, environment 288, harness 335, skipped 3331
 
-**2. Coverage** — darwin 976/965 (101.1%), quarter 1/2 this week 201/452, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 118/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 289/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 119/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -153,6 +153,8 @@
 | #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
 | #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
 | #58861 | open | Fleet-maintained apps: Webex Recorder and Player (Windows) installs land on a second title with the same name |
+| #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
+| #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
 
 **4. Build changes**
 
