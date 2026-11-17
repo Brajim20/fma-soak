@@ -3954,6 +3954,27 @@
       "verdict": "environment: one-off 'opened then not running' on 624 2026-11-12; rerun on 858 2026-11-17 passes (quit, relaunch, new pid 32003 running after open-app reinstall)",
       "added": "2026-11-17",
       "before": "2026-11-13"
+    },
+    {
+      "app": "druva-insync/darwin",
+      "verdict": "filed #59093: catalog com.druva.inSyncClient is the nested Contents/Resources/inSync.app (excluded from inventory); app is com.druva.inSync (624 probe 2026-11-17)",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "whispering/darwin",
+      "shape": "S6",
+      "verdict": "filed #59094: relaunch_application logs 'relaunched successfully' but no process for 3 min after (668, 865, 624 repro 2026-11-17)",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "audacity/darwin",
+      "verdict": "filed #59095: installer title select falls back to same-name title with a different bundle ID (old org.audacityteam.audacity title 17582); inventory audacity4 lands on a second title",
+      "added": "2026-11-17"
+    },
+    {
+      "app": "blender-arm64/windows",
+      "verdict": "commented on #58861: host upgrade_code '' vs FMA title {F26FE7C6-...}; inventory lands on old 'Blender' title 18242 (863 probe 2026-11-17). 864 MSI 1618 = environment",
+      "added": "2026-11-17"
     }
   ]
 }
