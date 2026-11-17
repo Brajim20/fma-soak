@@ -1,0 +1,80 @@
+{
+ "slug": "postman/windows",
+ "host": 861,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-16T20:24:20",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "setting Latest left 12.36.4 active, expected 12.37.0"
+  },
+  {
+   "shape": "S1",
+   "msg": "upgraded to 12.37.0, but the host still has ['12.36.4']"
+  },
+  {
+   "shape": "S1",
+   "msg": "after upgrading to 12.37.0 the patched query still fails"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-17T00:24:20Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "title_id": 23458,
+ "cached_versions": [
+  "12.36.4",
+  "12.37.0"
+ ],
+ "active_before": "12.37.0",
+ "pin_older_status": 200,
+ "active_after_pin": "12.36.4",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 184,
+ "old_install_output_tail": "",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": null,
+ "pin_latest_status": 502,
+ "active_after_unpin": "12.36.4",
+ "app_during_upgrade": "off",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 62,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nInstalling Postman for <host>\\<user>\nInstall exit code: 0\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_patched_query_passes": false,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\Postman"
+  ],
+  "names": [
+   "Postman x64 12.36.4"
+  ],
+  "versions": [
+   "12.36.4"
+  ]
+ },
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 46,
+ "cleanup_uninstall_output_tail": "Removing Postman (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-931869457-683489797-4032596054-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Postman)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Postman\\Update.exe --uninstall -s\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nPostman removed.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-16T20:32:34",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-17T00:32:33Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/postman_windows-861-202420-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/postman_windows-861-202420-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/postman_windows-861-202420.json"
+}

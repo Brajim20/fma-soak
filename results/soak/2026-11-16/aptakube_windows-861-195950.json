@@ -1,0 +1,88 @@
+{
+ "slug": "aptakube/windows",
+ "host": 861,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "kind": "update_path",
+ "started": "2026-11-16T19:59:50",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-16T23:59:51Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "title_id": 23463,
+ "cached_versions": [
+  "1.22.2",
+  "1.22.3"
+ ],
+ "active_before": "1.22.3",
+ "pin_older_status": 200,
+ "active_after_pin": "1.22.2",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "0:639]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (A8:84) [00:00:30:639]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A8:84) [00:00:30:641]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (60:E0) [00:00:30:643]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (60:E0) [00:00:30:643]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/17/2026  0:00:30 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   "C:\\Program Files\\Aptakube\\"
+  ],
+  "names": [
+   "Aptakube"
+  ],
+  "versions": [
+   "1.22.2"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "1.22.3",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "upgrade_before_close": "0",
+ "app_during_upgrade": "open failed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "10]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\{CE6CFAF5-DC85-43B4-A148-69475A7D8544}\\ProductIcon'\r\nMSI (s) (A8:84) [00:02:05:011]: Post-install cleanup: removing installer folder 'C:\\WINDOWS\\Installer\\{CE6CFAF5-DC85-43B4-A148-69475A7D8544}\\' (if empty)\r\nMSI (s) (A8:84) [00:02:05:011]: Note: 1: 2318 2:  \r\nMSI (c) (24:74) [00:02:05:013]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (24:74) [00:02:05:013]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/17/2026  0:02:05 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Program Files\\Aptakube\\"
+  ],
+  "names": [
+   "Aptakube"
+  ],
+  "versions": [
+   "1.22.3"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "upgrade_after_close": "0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "flaky: findings on the first run, clean on the retry",
+ "finished": "2026-11-16T20:04:59",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-17T00:05:00Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/aptakube_windows-861-195950.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/aptakube_windows-861-194905.json"
+}
