@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c)
 
-**1. Runs** — 11509 cycles: pass 4464, findings 2485, flaky 574, environment 302, harness 347, skipped 3337
+**1. Runs** — 11634 cycles: pass 4544, findings 2502, flaky 591, environment 303, harness 354, skipped 3340
 
-**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 382/452, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 139/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 23/25 on time
+**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 417/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 157/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -22,7 +22,7 @@
 | #51940 | merged | Fix per-user install context for 32 Windows Fleet-maintained apps |
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
-| #55360 | open | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
+| #55360 | closed | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56532 | closed | Sourcetree Fleet-maintained app installs with root-only permissions, so users can't open it |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
