@@ -1,0 +1,140 @@
+{
+ "slug": "affinity/darwin",
+ "host": 858,
+ "kind": "patch_when_closed",
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-16T23:28:59",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "the app was closed 3 h ago and the patch to 3.3.3 never installed (last attempt: installed, policy fail)"
+  }
+ ],
+ "outcome": "findings",
+ "scenario": {
+  "slug": "affinity/darwin",
+  "host": 858,
+  "title_id": 20416,
+  "older": "3.3.1",
+  "newest": "3.3.3",
+  "phase": "closed",
+  "started": "2026-11-17T03:28:59+00:00",
+  "started_local": "2026-11-16T23:28:59",
+  "findings": [
+   {
+    "shape": "S4",
+    "msg": "the app was closed 3 h ago and the patch to 3.3.3 never installed (last attempt: installed, policy fail)"
+   }
+  ],
+  "observations": [
+   {
+    "at": "2026-11-17T03:52:34+00:00",
+    "last_install": {
+     "uuid": null,
+     "status": null,
+     "skipped_install": false,
+     "installed_versions": []
+    },
+    "versions": [],
+    "app_running": false,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-17T07:44:48+00:00",
+    "last_install": {
+     "uuid": "2140469e-1f8d-49d5-be0c-446b0e5563d8",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "3.3.1"
+     ]
+    },
+    "versions": [
+     "3.3.1"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-17T12:17:40+00:00",
+    "last_install": {
+     "uuid": "2140469e-1f8d-49d5-be0c-446b0e5563d8",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "3.3.1"
+     ]
+    },
+    "versions": [
+     "3.3.1"
+    ],
+    "policy": "fail",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 46,
+  "old_install_output_tail": "Installing software...\nSuccess\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/Affinity.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+   "bundle_id": "com.canva.affinity",
+   "versions": [
+    "3.3.1"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "46472"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/Affinity.app",
+   "exe": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+   "bundle_id": "com.canva.affinity",
+   "pids": [
+    "46472"
+   ]
+  },
+  "pids": [
+   "46472"
+  ],
+  "before_uuid": "2140469e-1f8d-49d5-be0c-446b0e5563d8",
+  "patch_on": 200,
+  "policy": {
+   "id": 1252,
+   "name": "macOS - Affinity up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "install_title": 20416
+  },
+  "opened_at": "2026-11-17T03:30:24+00:00",
+  "close_close": "",
+  "closed_at": "2026-11-17T07:45:36+00:00",
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 31,
+  "end_uninstall_output_tail": " Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.canva.affinity.sfl* doesn't exist.\nremoving /Users/<user>/Library/Caches/com.canva.affinity.\n/Users/<user>/Library/Containers/com.canva.affinity.* doesn't exist.\nremoving /Users/<user>/Library/Group Containers/5HD2ARTBFS.com.canva.affinity.\nremoving /Users/<user>/Library/HTTPStorages/com.canva.affinity.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity.* doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.canva.affinity.plist.\n/Users/<user>/Library/WebKit/com.canva.affinity doesn't exist.\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-17T12:18:39+00:00"
+ },
+ "finished": "2026-11-17T08:18:39",
+ "evidence": {
+  "library": "results/soak/2026-11-16/evidence/affinity_darwin-858-232859-library.png",
+  "inventory": "results/soak/2026-11-16/evidence/affinity_darwin-858-232859-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-16/affinity_darwin-858-232859.json"
+}
