@@ -1,0 +1,82 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 864,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-17T13:22:14",
+ "catalog_version": "157.0.8103.79",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "first install ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "first uninstall: app still on host (status failed_uninstall)"
+  },
+  {
+   "shape": "S3",
+   "msg": "second install: Fleet says failed but the app is on the host"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "second uninstall: app still on host (status failed_uninstall)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-17T17:22:11Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "title_id": 20665,
+ "title_added_by_harness": false,
+ "present_before": true,
+ "first_install_request": 202,
+ "first_install_status": "failed_install",
+ "first_install_seconds": 123,
+ "first_install_output_tail": "7:24:12:214]: Failed to grab execution mutex. System error 258.\r\nMSI (c) (54:34) [17:24:12:234]: Cloaking enabled.\r\nMSI (c) (54:34) [17:24:12:234]: Attempting to enable all disabled privileges before calling Install on Server\r\nMSI (c) (54:34) [17:24:12:238]: Incrementing counter to disable shutdown. Counter after increment: 0\r\nMSI (c) (54:34) [17:24:12:240]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (54:34) [17:24:12:240]: MainEngineThread is returning 1618\r\n=== Verbose logging stopped: 11/17/2026  17:24:12 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": "failed_uninstall",
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Uninstall for {B3DB5E18-7FDA-3432-9931-2E60D41BD242} exited 1618\r\n\nscript execution error: exit status 1618",
+ "first_uninstall_exit_code": 1618,
+ "first_present_after_uninstall": true,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "7:26:31:792]: Failed to grab execution mutex. System error 258.\r\nMSI (c) (C4:4C) [17:26:31:814]: Cloaking enabled.\r\nMSI (c) (C4:4C) [17:26:31:814]: Attempting to enable all disabled privileges before calling Install on Server\r\nMSI (c) (C4:4C) [17:26:31:822]: Incrementing counter to disable shutdown. Counter after increment: 0\r\nMSI (c) (C4:4C) [17:26:31:823]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C4:4C) [17:26:31:825]: MainEngineThread is returning 1618\r\n=== Verbose logging stopped: 11/17/2026  17:26:31 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Uninstall for {B3DB5E18-7FDA-3432-9931-2E60D41BD242} exited 1618\r\n\nscript execution error: exit status 1618",
+ "second_uninstall_exit_code": 1618,
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "environment (known)",
+ "known_environment": "Windows on ARM: Google's x64 Chrome enterprise MSI installs only Google Updater + an MSI entry, never Chrome itself (reproduced outside Fleet by hand, 2026-10-29); uninstall always fails and leaves an orphaned registration. Run soak/cleanup-chrome-orphan.ps1 on 629 after each cycle.",
+ "finished": "2026-11-17T13:27:12",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-17T17:27:05Z",
+  "restarted": "2026-11-14T16:46:09.153671Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/google-chrome_windows-864-132214-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/google-chrome_windows-864-132214-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/google-chrome_windows-864-132214.json",
+ "crosshost_of": "soak/2026-11-17/google-chrome_windows-861-082646.json"
+}
