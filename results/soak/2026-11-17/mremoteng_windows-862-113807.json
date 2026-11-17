@@ -1,0 +1,76 @@
+{
+ "slug": "mremoteng/windows",
+ "host": 862,
+ "build": "4.94.0-rc.2610272345 (937e87458c)",
+ "started": "2026-11-17T11:38:07",
+ "catalog_version": "1.76.20.24615",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "first uninstall: app still on host (status None)"
+  },
+  {
+   "shape": "install",
+   "msg": "second install ended as None"
+  },
+  {
+   "shape": "S3",
+   "msg": "second uninstall: app still on host (status None)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-17T15:38:05Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 40125,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 78,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (D0:64) [15:39:21:786]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (D0:64) [15:39:21:788]: Destroying RemoteAPI object.\r\nMSI (s) (D0:64) [15:39:21:788]: Custom Action Manager thread ending.\r\nMSI (c) (B0:B0) [15:39:21:790]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:B0) [15:39:21:792]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/17/2026  15:39:21 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.76.20.24615"
+ ],
+ "package_version": "1.76.20.24615",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files (x86)\\mRemoteNG\\"
+  ],
+  "names": [
+   "mRemoteNG"
+  ],
+  "versions": [
+   "1.76.20.24615"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": null,
+ "first_present_after_uninstall": true,
+ "second_install_request": 400,
+ "second_install_error": "Bad request",
+ "second_present_after_install": true,
+ "second_uninstall_request": 400,
+ "second_uninstall_error": "Bad request",
+ "second_present_after_uninstall": true,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-17T12:11:25",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-17T16:11:23Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/mremoteng_windows-862-113807-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/mremoteng_windows-862-113807-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/mremoteng_windows-862-113807.json"
+}
