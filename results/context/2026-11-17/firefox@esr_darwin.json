@@ -1,0 +1,49 @@
+{
+ "files": [
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/firefox@esr/darwin.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/firefox@esr.json",
+  "https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go"
+ ],
+ "code": [
+  "https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go"
+ ],
+ "commits": [
+  {
+   "sha": "9121a0929f",
+   "date": "2026-10-09",
+   "title": "Fix Firefox macOS FMA permissions with custom install scripts (#55203)"
+  },
+  {
+   "sha": "518a2982f0",
+   "date": "2026-03-19",
+   "title": "Add Firefox ESR as macOS & Windows FMAs (#40089)"
+  }
+ ],
+ "issues": [
+  {
+   "number": 56168,
+   "state": "open",
+   "title": "macOS Firefox is ingested as \"Firefox.app\" on hosts with fleetd tables, which creates dupl"
+  },
+  {
+   "number": 57161,
+   "state": "open",
+   "title": "Windows FMA software titles include a stale hard-coded version (e.g. \"Postman x64 11.75.4\""
+  },
+  {
+   "number": 50077,
+   "state": "open",
+   "title": "Windows software with version in name still matches wrong title for apps needing a custom "
+  },
+  {
+   "number": 25407,
+   "state": "open",
+   "title": "Multiple packages for a single software title in the same fleet"
+  },
+  {
+   "number": 55683,
+   "state": "closed",
+   "title": "Article: Firefox Enterprise and the managed browser checklist for IT"
+  }
+ ]
+}
