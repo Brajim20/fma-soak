@@ -1,0 +1,196 @@
+{
+ "run_at": "2026-11-18T13:38:26",
+ "build": "main (e6871c46f1)",
+ "results": [
+  {
+   "test": "test_newest_version_active",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_script_only_refresh",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_admin_script_edit_kept",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_no_redownload_hashless",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "installer_GETs_over_2_passes": 0
+  },
+  {
+   "test": "test_hash_mismatch_error",
+   "passed": false,
+   "verdict": "KNOWN #55360",
+   "seconds": 1,
+   "status": 500,
+   "message": "mismatch in maintained app SHA256 hash mismatch in maintained app SHA256 hash",
+   "problems": [
+    "status 500, expected a 4xx"
+   ]
+  },
+  {
+   "test": "test_download_failure_error",
+   "passed": false,
+   "verdict": "KNOWN #56891",
+   "seconds": 1,
+   "status": 408,
+   "message": "dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host dial tcp: lookup qa-dead-host.invalid on 127.0.0.53:53: no such host",
+   "problems": [
+    "raw network/Go error in the message"
+   ]
+  },
+  {
+   "test": "test_patch_policy_follows_promotion",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_pin_holds_on_new_release",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_pin_moves_patch_policy",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "latest_has_2.0.0": true,
+   "pinned_has_1.0.0": true,
+   "pinned_still_has_2.0.0": false,
+   "back_has_2.0.0": true
+  },
+  {
+   "test": "test_pinned_script_refresh",
+   "passed": false,
+   "verdict": "KNOWN #53009",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_unsatisfiable_caret_rejected",
+   "passed": false,
+   "verdict": "KNOWN #53008",
+   "seconds": 3,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_pin_uncached_version_rejected",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 4,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_gitops_adds_fma",
+   "passed": false,
+   "verdict": "FAIL",
+   "seconds": 2,
+   "error": "KeyError: 'software_package'"
+  },
+  {
+   "test": "test_gitops_reapply_no_redownload",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "installer_GETs_on_rerun": 0,
+   "deleted_lines": []
+  },
+  {
+   "test": "test_gitops_dry_run_no_download",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 0,
+   "installer_GETs": 0,
+   "fleet_created": null,
+   "last": "[!] gitops dry run succeeded"
+  },
+  {
+   "test": "test_gitops_duplicate_fma_rejected",
+   "passed": false,
+   "verdict": "KNOWN #56507",
+   "seconds": 2,
+   "rc": 0,
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_caret_unsatisfiable_rejected",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 1,
+   "rc": 1,
+   "server_alive": true,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_version_error_names_versions",
+   "passed": false,
+   "verdict": "KNOWN #56508",
+   "seconds": 0,
+   "rc": 1,
+   "last": "Error: applying software installers for fleet \"qa-g-caret\": specified major version is not available. Available versions are listed in the Fleet UI under Actions > Edit software."
+  },
+  {
+   "test": "test_gitops_patch_and_install_policy_same_slug",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    0
+   ],
+   "policies": [
+    "qa-g-pol installed",
+    "qa-g-pol patch"
+   ],
+   "last": "[!] gitops succeeded"
+  },
+  {
+   "test": "test_gitops_swap_same_bundle_id",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 3,
+   "rc": [
+    0,
+    1
+   ],
+   "leaky_error": false,
+   "last": "Error: applying software installers for fleet \"qa-g-swap\": batch set software installers: different fleet-maintained app already exists on the title: Couldn't add software. Only one of QA G Swap A or "
+  },
+  {
+   "test": "test_generate_gitops_roundtrip",
+   "passed": true,
+   "verdict": "PASS",
+   "seconds": 4,
+   "generate_rc": 0,
+   "generate_err": "",
+   "fleet_file": "fleets/qa-g-exp.yml",
+   "slug_in_export": true,
+   "reapply_rc": 0,
+   "reapply_last": "[!] gitops succeeded",
+   "title_same": true,
+   "secrets_lines_dropped_for_47820": 2
+  }
+ ]
+}
