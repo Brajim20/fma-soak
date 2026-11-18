@@ -3,26 +3,35 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 464,
+ "current_runs": 494,
  "regressions": [
   {
-   "app": "firefox/darwin@858",
-   "kind": "update_path",
-   "baseline": "pass",
+   "app": "chatgpt/darwin@860",
+   "kind": "lifecycle",
+   "baseline": "findings",
    "current": "findings",
-   "baseline_record": "soak/2026-11-16/firefox_darwin-858-073618.json",
-   "current_record": "soak/2026-11-17/firefox_darwin-858-203556.json",
+   "baseline_record": "soak/2026-11-17/chatgpt_darwin-860-021400.json",
+   "current_record": "soak/2026-11-18/chatgpt_darwin-860-132158.json",
    "findings": [
-    "S2: upgrade to 160.0: executable owner 501:20, expected 0:80 (Firefox's updater needs root:<user> + group-writable (#55093))",
-    "S2: upgrade to 160.0: executable mode 0755, needs at least 0775 (Firefox's updater needs root:<user> + group-writable (#55093))",
-    "S2: executable ownership/mode changed by the upgrade: 0:80 0775 -> 501:20 0755 (#55093 shape)"
+    "S1: inventory never reported the app after install + refetch",
+    "S3: first uninstall: app still on host (status None)"
    ],
    "triaged": [],
-   "why": "passed on the baseline",
+   "why": "new failure shape S1, S3",
    "reproduced": true
   }
  ],
  "fixed": [
+  {
+   "app": "druva-insync/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-17/druva-insync_darwin-858-001454.json",
+   "current_record": "soak/2026-11-18/druva-insync_darwin-858-131625.json",
+   "findings": [],
+   "triaged": []
+  },
   {
    "app": "figma/darwin@858",
    "kind": "lifecycle",
@@ -84,6 +93,6 @@
    "triaged": []
   }
  ],
- "compared": 112,
+ "compared": 119,
  "canaries_not_yet_on_current": []
 }
