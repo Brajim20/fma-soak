@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 12071 cycles: pass 4848, findings 2592, flaky 602, environment 306, harness 356, skipped 3367
+**1. Runs** — 12139 cycles: pass 4891, findings 2606, flaky 604, environment 307, harness 356, skipped 3375
 
-**2. Coverage** — darwin 977/964 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 212/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 212/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -157,7 +157,7 @@
 | #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
 | #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
 | #59021 | closed | Fleet-maintained apps: DB Browser for SQLite (Windows) is never detected, so its patch policy always passes |
-| #59093 | open | Fleet-maintained apps: Druva inSync (macOS) never shows an installed version (catalog bundle ID is the nested client app) |
+| #59093 | closed | Fleet-maintained apps: Druva inSync (macOS) never shows an installed version (catalog bundle ID is the nested client app) |
 | #59094 | closed | Fleet-maintained apps: Whispering (macOS) isn't relaunched after an install over the open app, though the log says it was |
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 

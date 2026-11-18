@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 396 · compared on both builds: 104
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 464 · compared on both builds: 112
 
 **1 regression suspect** (passed on the baseline, or a new failure shape, and failing now). Bugs the baseline already had aren't listed: customers have those already.
 
