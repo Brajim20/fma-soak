@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T22:44:03",
+ "built": "2026-11-18T03:19:06",
  "items": [
   {
    "issue": 56971,
@@ -234,7 +234,7 @@
    "title": "Fleet-maintained apps: Sublime Text (Windows) registers no version, so its patch policy fails on every host",
    "slug": "sublime-text/windows",
    "platform": "windows",
-   "host": 861,
+   "host": 862,
    "kind": "update_path",
    "board": "closed",
    "seen": "2026-11-06T11:10:51",
@@ -1431,7 +1431,7 @@
    "title": "Fleet-maintained apps: SQL Server Management Studio (Windows) is never seen as running, so \"patch when closed\" can't hold the install back",
    "slug": "sql-server-management-studio/windows",
    "platform": "windows",
-   "host": 635,
+   "host": 861,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-10T17:03:34",
@@ -1539,7 +1539,7 @@
    "title": "Fleet-maintained apps: Twingate (Windows) is never detected, so its patch policy always passes",
    "slug": "twingate/windows",
    "platform": "windows",
-   "host": 859,
+   "host": 861,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-06T06:29:52",
@@ -2260,12 +2260,17 @@
      "number": 58404,
      "url": "https://github.com/fleetdm/fleet/pull/58404",
      "merged": "2026-11-12T02:37:55Z"
+    },
+    {
+     "number": 59115,
+     "url": "https://github.com/fleetdm/fleet/pull/59115",
+     "merged": "2026-11-18T04:23:04Z"
     }
    ],
-   "not_before": "2026-11-11T23:37:55",
-   "status": "still broken",
-   "record": "soak/2026-11-13/affinity_darwin-631-083250.json",
-   "since": "2026-11-13T10:41:46"
+   "not_before": "2026-11-18T01:23:04",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-18T03:19:06"
   },
   {
    "issue": 58021,
@@ -2688,7 +2693,7 @@
    "title": "Fleet-maintained apps: MEGAsync (Windows) install always fails with exit code 2",
    "slug": "megasync/windows",
    "platform": "windows",
-   "host": 635,
+   "host": 859,
    "kind": "lifecycle",
    "board": "closed",
    "seen": "2026-11-11T22:31:00",
@@ -3590,8 +3595,34 @@
    ],
    "not_before": "2026-11-17T15:15:45",
    "status": "pending",
-   "record": "soak/2026-11-17/db-browser-for-sqlite_windows-864-181237.json",
+   "record": "soak/2026-11-17/db-browser-for-sqlite_windows-864-225325.json",
    "since": "2026-11-17T18:03:54"
+  },
+  {
+   "issue": 59094,
+   "title": "Fleet-maintained apps: Whispering (macOS) isn't relaunched after an install over the open app, though the log says it was",
+   "slug": "whispering/darwin",
+   "platform": "darwin",
+   "host": 865,
+   "kind": "lifecycle",
+   "board": "closed",
+   "seen": "2026-11-18T03:19:06",
+   "fix_prs": [
+    {
+     "number": 59115,
+     "url": "https://github.com/fleetdm/fleet/pull/59115",
+     "merged": "2026-11-18T04:23:04Z"
+    },
+    {
+     "number": 59122,
+     "url": "https://github.com/fleetdm/fleet/pull/59122",
+     "merged": "2026-11-18T05:11:07Z"
+    }
+   ],
+   "not_before": "2026-11-18T02:11:07",
+   "status": "pending",
+   "record": null,
+   "since": "2026-11-18T03:19:06"
   }
  ]
 }
