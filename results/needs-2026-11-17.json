@@ -646,6 +646,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/vnc-viewer/windows.json), [vnc-viewer.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/vnc-viewer.json), [vnc-viewer_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/vnc-viewer_install.ps1), [vnc-viewer_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/vnc-viewer_uninstall.ps1) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-10-30 RealVNC Connect Viewer (Windows): move to winget ID RealVNC.VNCConnect.Viewer (#57020); 2026-10-26 RealVNC Connect Viewer (Windows): follow winget's switch to a bare MSI (#56489) \u00b7 issues mentioning it: #37326 (closed), #35942 (closed), #30802 (closed), #32111 (closed), #30739 (closed)"
  },
  {
+  "app": "1password/darwin@858",
+  "shape": "S4",
+  "msgs": [
+   "the app was closed 3 h ago and the patch to 8.12.46 never installed (last attempt: installed, policy fail)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-17/1password_darwin-858-224724.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/1password/darwin.json), [1password.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/1password.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps_auto_update.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps_auto_update.go), [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go) \u00b7 last changes: 2026-10-23 macOS FMA uninstalls: stop when the app won't quit, and work when no one is logged in (#56; 2026-06-01 Revert \"Support default pkg install script when cask lacks pkg artifact and URL override i; 2026-06-01 Support default pkg install script when cask lacks pkg artifact and URL override is used ( \u00b7 issues mentioning it: #58846 (open), #56873 (open), #27305 (open), #40092 (open), #50915 (open)"
+ },
+ {
   "app": "google-chrome/windows@861",
   "shape": "S4",
   "msgs": [
@@ -668,6 +680,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-17/google-chrome_windows-862-225913.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/windows.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-chrome.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2025-12-17 Add `no_check` to Google Chrome FMA for Windows (#37380); 2025-12-01 Convert Google Chrome for Windows to `msi` installer (#36456) \u00b7 issues mentioning it: #58305 (open), #56948 (open), #53291 (open), #14827 (open), #58860 (open)"
+ },
+ {
+  "app": "visual-studio-code/windows@861",
+  "shape": "S4",
+  "msgs": [
+   "the app was closed 3 h ago and the patch to 1.142.0 never installed (last attempt: installed, policy fail)"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-17/visual-studio-code_windows-861-224648.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-studio-code/windows.json), [visual-studio-code.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/visual-studio-code.json) \u00b7 code at this build: [maintained_apps_auto_update.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps_auto_update.go), [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-10-15 Update Fleet-maintained apps (#55644); 2025-05-02 software categories: backend (#28479) \u00b7 issues mentioning it: #59108 (open), #37058 (open), #49693 (open), #55997 (open), #58295 (open)"
  },
  {
   "app": "chatgpt/darwin@865",
@@ -1171,7 +1195,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": "not on 858 (pass) [record](soak/2026-11-18/mozilla-vpn_darwin-858-034417.json)",
+  "other_host": "not on 865 (pass) [record](soak/2026-11-18/mozilla-vpn_darwin-865-062833.json)",
   "record": "results/soak/2026-11-17/mozilla-vpn_darwin-918-064622.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/mozilla-vpn/darwin.json), [mozilla-vpn.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/mozilla-vpn.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-06 Fleet-maintained apps: stop Mozilla VPN (macOS) with SIGTERM so it can be updated and unin; 2026-07-14 Add Mozilla VPN as a macOS and Windows FMA (#49284) \u00b7 issues mentioning it: #57807 (closed), #57808 (closed), #57924 (closed), #58089 (closed), #58133 (closed)"
  },
@@ -1243,7 +1267,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": "reproduced on 860 [record](soak/2026-11-18/rider_darwin-860-035513.json)",
+  "other_host": "reproduced on 865 [record](soak/2026-11-18/rider_darwin-865-064751.json)",
   "record": "results/soak/2026-11-17/rider_darwin-918-061019.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/rider/darwin.json), [rider.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/rider.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/937e87458c/ee/server/service/maintained_apps.go) \u00b7 last changes: 2025-11-25 macOS FMA: Rider (#36234) \u00b7 issues mentioning it: #58173 (closed), #56431 (closed), #27914 (closed)"
  },
@@ -1562,7 +1586,7 @@
   ],
   "retried": "not retried",
   "runs": 2,
-  "other_host": null,
+  "other_host": "not on 860 (pass) [record](soak/2026-11-18/framer_darwin-860-063439.json)",
   "record": "results/soak/2026-11-17/framer_darwin-920-054614.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/framer/darwin.json), [framer.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/framer.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (F) (#47403) \u00b7 issues mentioning it: none"
  },
@@ -1574,7 +1598,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": "not on 864 (environment) [record](soak/2026-11-17/google-chrome_windows-864-132214.json)",
+  "other_host": "not on 859 (pass) [record](soak/2026-11-18/google-chrome_windows-859-071551.json)",
   "record": "results/soak/2026-11-17/google-chrome_windows-861-082646.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-chrome/windows.json), [google-chrome.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-chrome.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/937e87458c/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2025-12-17 Add `no_check` to Google Chrome FMA for Windows (#37380); 2025-12-01 Convert Google Chrome for Windows to `msi` installer (#36456) \u00b7 issues mentioning it: #58305 (open), #56948 (open), #53291 (open), #14827 (open), #58860 (open)"
  },
@@ -1662,7 +1686,7 @@
   ],
   "retried": "not retried",
   "runs": 2,
-  "other_host": null,
+  "other_host": "not on 858 (pass) [record](soak/2026-11-18/loom_darwin-858-065246.json)",
   "record": "results/soak/2026-11-17/loom_darwin-919-054808.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/loom/darwin.json), [loom.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/loom.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/937e87458c/server/datastore/mysql/software.go) \u00b7 last changes: 2025-11-17 Add Loom as a macOS Fleet-maintained app (#35573) \u00b7 issues mentioning it: #54842 (open), #51235 (open), #2765 (open), #2774 (open), #28529 (open)"
  },
@@ -1760,7 +1784,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 859 [record](soak/2026-11-18/resharper_windows-859-071047.json)",
   "record": "results/soak/2026-11-17/resharper_windows-862-233556.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/resharper/windows.json), [resharper.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/resharper.json), [resharper_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/resharper_install.ps1), [resharper_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/resharper_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-08-07 Add JetBrains ReSharper as a Windows Fleet-maintained app (#50659) \u00b7 issues mentioning it: #56431 (closed), #50567 (closed)"
  },
