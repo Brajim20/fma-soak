@@ -1,0 +1,108 @@
+{
+ "slug": "kiro/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-17T20:54:24",
+ "catalog_version": "1.4.215",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T00:54:24Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 40481,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 92,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Kiro for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.4.215"
+ ],
+ "package_version": "1.4.215",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\Programs\\Kiro\\"
+  ],
+  "names": [
+   "Kiro (User)"
+  ],
+  "versions": [
+   "1.4.215"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 47,
+ "first_uninstall_output_tail": "Removing 'Kiro (User)' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{A2CA08B5-C756-463E-B13D-F051F4F11F0B}_is1)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Kiro\\unins000.exe /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART\n  Uninstall exit code: 0\nKiro removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Kiro for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "4200",
+   "11472",
+   "11972",
+   "11996"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 78,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Kiro for <host>\\<user>\nStopping Kiro (PID 1524) before installing.\nStopping Kiro (PID 3612) before installing.\nStopping Kiro (PID 4200) before installing.\nStopping Kiro (PID 7708) before installing.\nStopping Kiro (PID 9260) before installing.\nStopping Kiro (PID 11472) before installing.\nStopping Kiro (PID 11972) before installing.\nStopping Kiro (PID 11996) before installing.\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Stopping Kiro (PID 1524) before installing.",
+  "Stopping Kiro (PID 3612) before installing.",
+  "Stopping Kiro (PID 4200) before installing.",
+  "Stopping Kiro (PID 7708) before installing.",
+  "Stopping Kiro (PID 9260) before installing.",
+  "Stopping Kiro (PID 11472) before installing.",
+  "Stopping Kiro (PID 11972) before installing.",
+  "Stopping Kiro (PID 11996) before installing."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "3852",
+   "7448",
+   "8988",
+   "10416",
+   "12024"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing 'Kiro (User)' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{A2CA08B5-C756-463E-B13D-F051F4F11F0B}_is1)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\Kiro\\unins000.exe /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART\n  Uninstall exit code: 0\nKiro removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-17T21:04:45",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T01:04:46Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/kiro_windows-862-205424.json"
+}
