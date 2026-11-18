@@ -1,0 +1,101 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "started": "2026-11-17T20:30:05",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinned 156.0.8078.80, but the host has ['157.0.8103.79'] after installing it (#56873 shape)"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T00:29:56Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "title_id": 20665,
+ "cached_versions": [
+  "156.0.8078.80",
+  "157.0.8103.79"
+ ],
+ "active_before": "157.0.8103.79",
+ "pin_older_status": 200,
+ "active_after_pin": "156.0.8078.80",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 47,
+ "old_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (24:C4) [00:30:52:898]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (24:C4) [00:30:52:900]: Destroying RemoteAPI object.\r\nMSI (s) (24:8C) [00:30:52:900]: Custom Action Manager thread ending.\r\nMSI (c) (7C:34) [00:30:52:904]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (7C:34) [00:30:52:910]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  0:30:52 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  0:30:52 ===",
+  "=== Verbose logging stopped: 11/18/2026  0:30:52 ==="
+ ],
+ "old_patched_query_passes": true,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "157.0.8103.79",
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 46,
+ "upgrade_install_output_tail": "3:703]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (24:C4) [00:32:33:705]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (24:C4) [00:32:33:705]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (84:94) [00:32:33:707]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (84:94) [00:32:33:709]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  0:32:33 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  0:32:33 ===",
+  "=== Verbose logging stopped: 11/18/2026  0:32:33 ==="
+ ],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 46,
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-17T20:34:39",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T00:34:30Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/google-chrome_windows-861-203005-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/google-chrome_windows-861-203005-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/google-chrome_windows-861-203005.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/google-chrome_windows-861-202511.json"
+}
