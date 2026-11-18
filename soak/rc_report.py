@@ -36,6 +36,26 @@ def label(build_by_rev, r):
     return f"{build_by_rev[r]}" if r in build_by_rev else r
 
 
+UNTESTED = {"add", "harness"}  # finding shapes that mean the app itself never got exercised
+
+
+def tested(r):
+    """A run that exercised the app: a pass or a real finding. A run that only failed to add the app (a CDN 502, a
+    hash race), errored, or was skipped says nothing about how the app behaved on that build."""
+    c = D.category(r)
+    return c == "pass" or (c in BAD and not all(f["shape"] in UNTESTED for f in r.get("findings", [])))
+
+
+def baseline_of(runs):
+    """(category of the newest tested run, every finding shape across the tested runs), or None when no run on the
+    baseline tested the app. All shapes count: a failure the baseline showed in any run isn't new on the current
+    build just because the baseline's last run was an add failure (chatgpt/darwin@860, 2026-11-18)."""
+    t = [r for r in runs if tested(r)]
+    if not t:
+        return None
+    return D.category(t[-1]), {f["shape"] for r in t for f in r.get("findings", [])}
+
+
 def report():
     recs = [r for r in D.all_records() if rev(r.get("build"))]
     order, count, name = [], {}, {}
@@ -53,17 +73,20 @@ def report():
            "current_runs": count[cur], "regressions": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
     if not base:
         return rep
-    last = {base: {}, cur: {}}
+    last, base_runs = {cur: {}}, {}
     for r in recs:
         v = rev(r["build"])
-        if v in last:
-            last[v][(r["slug"], r["host"], r.get("kind", "lifecycle"))] = r
-    both = sorted(set(last[base]) & set(last[cur]))
+        k = (r["slug"], r["host"], r.get("kind", "lifecycle"))
+        if v == cur:
+            last[cur][k] = r
+        elif v == base:
+            base_runs.setdefault(k, []).append(r)
+    last[base] = {k: rs[-1] for k, rs in base_runs.items()}
+    both = sorted(k for k in set(base_runs) & set(last[cur]) if baseline_of(base_runs[k]))
     rep["compared"] = len(both)
     for k in both:
-        a, b = last[base][k], last[cur][k]
-        ca, cb = D.category(a), D.category(b)
-        shapes_a = {f["shape"] for f in a.get("findings", [])}
+        a, b = [r for r in base_runs[k] if tested(r)][-1], last[cur][k]
+        (ca, shapes_a), cb = baseline_of(base_runs[k]), D.category(b)
         new_shapes = sorted({f["shape"] for f in b.get("findings", [])} - shapes_a - {"harness"})
         row = {"app": f"{k[0]}@{k[1]}", "kind": k[2], "baseline": ca, "current": cb,
                "baseline_record": D.rel(a["_path"]), "current_record": D.rel(b["_path"]),
