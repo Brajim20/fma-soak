@@ -1,0 +1,89 @@
+{
+ "slug": "webex/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-18T16:39:39",
+ "catalog_version": "46.11.0.36194",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T20:39:28Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 41544,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:70) [20:40:49:122]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (E0:70) [20:40:49:127]: Destroying RemoteAPI object.\r\nMSI (s) (E0:38) [20:40:49:127]: Custom Action Manager thread ending.\r\nMSI (c) (D0:10) [20:40:49:129]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D0:10) [20:40:49:129]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  20:40:49 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  20:40:47 ===",
+  "=== Verbose logging stopped: 11/18/2026  20:40:49 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "46.11.0.36194"
+ ],
+ "package_version": "46.11.0.36194",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\"
+  ],
+  "names": [
+   "Webex"
+  ],
+  "versions": [
+   "46.11.0.36194"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 47,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 62,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E0:A0) [20:43:51:884]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (E0:A0) [20:43:51:884]: Destroying RemoteAPI object.\r\nMSI (s) (E0:5C) [20:43:51:884]: Custom Action Manager thread ending.\r\nMSI (c) (50:28) [20:43:51:888]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (50:28) [20:43:51:890]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  20:43:51 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  20:43:49 ===",
+  "=== Verbose logging stopped: 11/18/2026  20:43:51 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-18T16:45:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T20:45:12Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-18/evidence/webex_windows-862-163939-library.png",
+  "inventory": "results/soak/2026-11-18/evidence/webex_windows-862-163939-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-18/webex_windows-862-163939.json"
+}
