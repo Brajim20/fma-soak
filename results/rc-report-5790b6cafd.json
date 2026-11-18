@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 494,
+ "current_runs": 526,
  "regressions": [
   {
    "app": "chatgpt/darwin@860",
@@ -18,6 +18,20 @@
    ],
    "triaged": [],
    "why": "new failure shape S1, S3",
+   "reproduced": true
+  },
+  {
+   "app": "spotify/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/spotify_windows-862-074032.json",
+   "current_record": "soak/2026-11-18/spotify_windows-862-162354.json",
+   "findings": [
+    "add: add failed 500: mismatch in maintained app SHA256 hash"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
    "reproduced": true
   }
  ],
@@ -93,6 +107,6 @@
    "triaged": []
   }
  ],
- "compared": 119,
+ "compared": 121,
  "canaries_not_yet_on_current": []
 }

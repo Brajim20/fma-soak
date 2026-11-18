@@ -84,6 +84,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/chatgpt/darwin.json), [chatgpt.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/chatgpt.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-18 Fleet-maintained apps: quit and relaunch the current ChatGPT app on macOS install (#59118); 2026-07-13 Update Fleet-maintained apps (#49196); 2025-11-18 Adding ChatGPT as macOS Fleet-maintained app (#34997) \u00b7 issues mentioning it: #57025 (open), #56935 (open), #56937 (open), #57515 (closed), #19255 (open)"
  },
  {
+  "app": "dell-command-update/windows@859",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/dell-command-update_windows-859-152445.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dell-command-update/windows.json), [dell-command-update.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/dell-command-update.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #51145 (open), #47550 (open), #50077 (open), #37326 (closed)"
+ },
+ {
   "app": "elmedia-player/darwin@860",
   "shape": "S1",
   "msgs": [
@@ -204,6 +216,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wechat/darwin.json), [wechat.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/wechat.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (W) (#47182) \u00b7 issues mentioning it: #56270 (open), #57338 (closed), #57919 (closed), #26515 (closed)"
  },
  {
+  "app": "webex/windows@861",
+  "shape": "S2",
+  "msgs": [
+   "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\), not the signed-in user's (#50857)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/webex_windows-861-145623.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/webex/windows.json), [webex.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/webex.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Webex (Windows) Fleet-maintained app never being detected (#57357); 2025-12-01 Add Cisco Webex as Windows FMA (#36463) \u00b7 issues mentioning it: #58861 (open), #57321 (closed), #22797 (open), #21096 (open), #57548 (closed)"
+ },
+ {
   "app": "azul-zulu-25-jre/windows@862",
   "shape": "S3",
   "msgs": [
@@ -249,6 +273,18 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-18/evernote_windows-861-121314.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756) \u00b7 issues mentioning it: #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed), #57500 (closed)"
+ },
+ {
+  "app": "evernote/windows@862",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says failed but the app is on the host"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/evernote_windows-862-152811.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756) \u00b7 issues mentioning it: #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed), #57500 (closed)"
  },
  {
@@ -299,6 +335,18 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-18/nosql-workbench_windows-859-100707.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-06 Fleet-maintained apps: fix NoSQL Workbench (Windows) never being detected (#57860); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57500 (closed), #57558 (closed)"
+ },
+ {
+  "app": "nosql-workbench/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says failed but the app is on the host"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/nosql-workbench_windows-861-154147.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-06 Fleet-maintained apps: fix NoSQL Workbench (Windows) never being detected (#57860); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57500 (closed), #57558 (closed)"
  },
  {
@@ -485,6 +533,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/megasync/windows.json), [megasync.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/megasync.json), [megasync_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/megasync_install.ps1), [megasync_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/megasync_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-12 Fleet-maintained apps: fix MEGAsync (Windows) installs that fail with exit code 2 (#58415); 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #58132 (closed), #57008 (closed), #57153 (closed), #57919 (closed), #57338 (closed)"
  },
  {
+  "app": "spotify/windows@862",
+  "shape": "add",
+  "msgs": [
+   "add failed 500: mismatch in maintained app SHA256 hash"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/spotify_windows-862-162354.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/spotify/windows.json), [spotify.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/spotify.json), [spotify_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/spotify_install.ps1), [spotify_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/spotify_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-11 Install Spotify (Windows) for the signed-in user instead of into the SYSTEM profile (#5836; 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2025-12-23 Add Spotify as a Windows FMA (#37630) \u00b7 issues mentioning it: #58134 (closed), #48248 (open), #51875 (closed), #43863 (closed), #49054 (closed)"
+ },
+ {
   "app": "twobird/darwin@858",
   "shape": "add",
   "msgs": [
@@ -611,6 +671,19 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756) \u00b7 issues mentioning it: #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed), #57500 (closed)"
  },
  {
+  "app": "evernote/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/evernote_windows-862-152811.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756) \u00b7 issues mentioning it: #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed), #57500 (closed)"
+ },
+ {
   "app": "google-drive/windows@862",
   "shape": "install",
   "msgs": [
@@ -631,7 +704,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": "not on 858 (pass) [record](soak/2026-11-18/marked-app_darwin-858-143638.json)",
+  "other_host": "not on 860 (pass) [record](soak/2026-11-18/marked-app_darwin-860-144724.json)",
   "record": "results/soak/2026-11-18/marked-app_darwin-946-090443.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/marked-app/darwin.json), [marked-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/marked-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: #56938 (open), #57776 (open), #57929 (open), #56935 (open), #51599 (open)"
  },
@@ -646,6 +719,19 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-18/nosql-workbench_windows-859-100707.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-06 Fleet-maintained apps: fix NoSQL Workbench (Windows) never being detected (#57860); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57500 (closed), #57558 (closed)"
+ },
+ {
+  "app": "nosql-workbench/windows@861",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-18/nosql-workbench_windows-861-154147.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nosql-workbench/windows.json), [nosql-workbench.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nosql-workbench.json), [nosql-workbench_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_install.ps1), [nosql-workbench_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/nosql-workbench_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-06 Fleet-maintained apps: fix NoSQL Workbench (Windows) never being detected (#57860); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #57500 (closed), #57558 (closed)"
  },
  {
