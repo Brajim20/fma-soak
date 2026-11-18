@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 11972 cycles: pass 4791, findings 2560, flaky 599, environment 305, harness 356, skipped 3361
+**1. Runs** — 12028 cycles: pass 4828, findings 2574, flaky 601, environment 305, harness 356, skipped 3364
 
 **2. Coverage** — darwin 977/964 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 212/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 

@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 297 · compared on both builds: 95
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 353 · compared on both builds: 101
 
 **1 regression suspect** (passed on the baseline, or a new failure shape, and failing now). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -10,4 +10,4 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 
 Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
 
-Fixed on this build (5): figma/darwin@858 (lifecycle), google-chrome/windows@861 (lifecycle), microsoft-defender/darwin@858 (lifecycle), rubymine/windows@861 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (6): figma/darwin@858 (lifecycle), google-chrome/windows@861 (lifecycle), microsoft-defender/darwin@858 (lifecycle), rubymine/windows@861 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
