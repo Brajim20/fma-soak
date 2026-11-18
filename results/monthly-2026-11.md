@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 11739 cycles: pass 4616, findings 2522, flaky 595, environment 305, harness 356, skipped 3345
+**1. Runs** — 11872 cycles: pass 4717, findings 2544, flaky 598, environment 305, harness 356, skipped 3352
 
-**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 439/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 490/490 (100.0%), quarter 1/2 this week 181/212, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 977/965 (101.2%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 191/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -163,7 +163,7 @@
 ### 4.94.0-rc.2610272345 (937e87458c) → 4.94.0-rc.2610282316 (7dcab65fcd)
 3 app runs seen on both builds; 0 changed.
 ### 4.94.0-rc.2610282316 (7dcab65fcd) → 4.95.0-rc.2611162253 (5790b6cafd)
-0 app runs seen on both builds; 0 changed.
+2 app runs seen on both builds; 0 changed.
 
 **5. Plan changes**
 
