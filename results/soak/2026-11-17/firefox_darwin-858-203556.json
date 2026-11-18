@@ -1,0 +1,176 @@
+{
+ "slug": "firefox/darwin",
+ "host": 858,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "started": "2026-11-17T20:35:56",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "upgrade to 160.0: executable owner 501:20, expected 0:80 (Firefox's updater needs root:<user> + group-writable (#55093))"
+  },
+  {
+   "shape": "S2",
+   "msg": "upgrade to 160.0: executable mode 0755, needs at least 0775 (Firefox's updater needs root:<user> + group-writable (#55093))"
+  },
+  {
+   "shape": "S2",
+   "msg": "executable ownership/mode changed by the upgrade: 0:80 0775 -> 501:20 0755 (#55093 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T00:35:48Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "title_id": 13135,
+ "cached_versions": [
+  "159.0.1",
+  "160.0"
+ ],
+ "active_before": "160.0",
+ "pin_older_status": 200,
+ "active_after_pin": "159.0.1",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": ">\n\t\t\t<string>/dev/disk8s3</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_Vbsibh</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFSX</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Firefox.app",
+  "bundle": "0:80 0775",
+  "executable": "0:80 0775",
+  "exe": "/Applications/Firefox.app/Contents/MacOS/firefox",
+  "bundle_id": "org.mozilla.firefox",
+  "versions": [
+   "159.0.1"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "160.0",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "66668",
+   "66673",
+   "66674",
+   "66675",
+   "66676",
+   "66677",
+   "66678",
+   "66680"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 46,
+ "upgrade_install_output_tail": "dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk8</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk8\" ejected.\nApplication 'org.mozilla.firefox' was running; will relaunch after installation.\nQuitting application 'org.mozilla.firefox'...\nApplication 'org.mozilla.firefox' quit successfully.\nRelaunching application 'org.mozilla.firefox'...\nApplication 'org.mozilla.firefox' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'org.mozilla.firefox' was running; will relaunch after installation.",
+  "Quitting application 'org.mozilla.firefox'...",
+  "Application 'org.mozilla.firefox' quit successfully.",
+  "Relaunching application 'org.mozilla.firefox'...",
+  "Application 'org.mozilla.firefox' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "66747",
+   "path": "/Applications/Firefox.app/Contents/MacOS/firefox",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66749",
+   "path": "/Applications/Firefox.app/Contents/MacOS/crashhelper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66750",
+   "path": "/Applications/Firefox.app/Contents/MacOS/gpu-helper.app/Contents/MacOS/Firefox GPU Helper",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66751",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66752",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66753",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66754",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66755",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66757",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66758",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66759",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66760",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  },
+  {
+   "pid": "66762",
+   "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Firefox.app",
+  "bundle": "0:80 0775",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Firefox.app/Contents/MacOS/firefox",
+  "bundle_id": "org.mozilla.firefox",
+  "versions": [
+   "160.0"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-17T20:41:19",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T00:41:10Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/firefox_darwin-858-203556-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/firefox_darwin-858-203556-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/firefox_darwin-858-203556.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/firefox_darwin-858-203045.json"
+}
