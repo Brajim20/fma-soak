@@ -46,6 +46,26 @@ def tested(r):
     return c == "pass" or (c in BAD and not all(f["shape"] in UNTESTED for f in r.get("findings", [])))
 
 
+UPSTREAM = re.compile(r"SHA256 hash|hash mismatch", re.I)
+
+
+def cause(a, b):
+    """Why a run that regressed changed, when it isn't the Fleet build: "catalog: ..." or None (the build is the
+    suspect). Fleet failing an add on a hash mismatch means the vendor's bytes no longer match the manifest
+    (spotify/windows, 2026-11-18: an unversioned URL serving the next release). A catalog version or fingerprint
+    (runner.catalog_id: installer hash, scripts, queries) that differs between the two runs means the app's
+    manifest changed under it, so the build can't be blamed without a rerun on the same catalog."""
+    if any(f["shape"] == "add" and UPSTREAM.search(f["msg"]) for f in b.get("findings", [])):
+        return "catalog: the vendor's installer no longer matches the manifest's hash"
+    va, vb = a.get("catalog_version"), b.get("catalog_version")
+    if va and vb and va != vb:
+        return f"catalog: {va} -> {vb}"
+    ia, ib = a.get("catalog_id"), b.get("catalog_id")
+    if ia and ib and ia != ib:
+        return "catalog: same version, manifest changed (scripts, hash or queries)"
+    return None
+
+
 def baseline_of(runs):
     """(category of the newest tested run, every finding shape across the tested runs), or None when no run on the
     baseline tested the app. All shapes count: a failure the baseline showed in any run isn't new on the current
@@ -70,7 +90,7 @@ def report():
     cur = order[-1]
     base = next((v for v in reversed(order[:-1]) if count[v] >= MIN_BASELINE_RUNS), None)
     rep = {"current": name[cur], "current_rev": cur, "baseline": name.get(base), "baseline_rev": base,
-           "current_runs": count[cur], "regressions": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
+           "current_runs": count[cur], "regressions": [], "catalog": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
     if not base:
         return rep
     last, base_runs = {cur: {}}, {}
@@ -96,7 +116,8 @@ def report():
         if cb in BAD and (ca == "pass" or (ca in BAD and new_shapes)):
             row["why"] = "passed on the baseline" if ca == "pass" else f"new failure shape {', '.join(new_shapes)}"
             row["reproduced"] = "reproduced on retry" in str(b["outcome"])
-            rep["regressions"].append(row)
+            row["cause"] = cause(a, b)
+            rep["catalog" if row["cause"] else "regressions"].append(row)
         elif ca in BAD and cb == "pass":
             rep["fixed"].append(row)
     canaries = {s for xs in json.load(open(os.path.join(D.WS, "config.json")))["canaries"].values() for s in xs} \
@@ -118,7 +139,7 @@ def write(rep):
         L.append("No baseline yet: this is the only build with enough runs.")
     else:
         L.append(f"**{'No regression suspects' if not n else f'{n} regression suspect' + ('s' if n > 1 else '')}**"
-                 " (passed on the baseline, or a new failure shape, and failing now). Bugs the baseline already had "
+                 " in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had "
                  "aren't listed: customers have those already.")
         if rep["canaries_not_yet_on_current"]:
             L.append(f"\nCanaries not yet run on this build: {', '.join(rep['canaries_not_yet_on_current'])} "
@@ -130,6 +151,14 @@ def write(rep):
                          f"{'<br>'.join(r['findings'])[:400]} | {'; '.join(r['triaged'])[:200] or '**new**'} |")
             L += ["", "Next: check each against the baseline's code (is the failing step in Fleet's code or the app's "
                   "manifest?). Catalog causes aren't release blockers: the catalog ships on its own."]
+        if rep["catalog"]:
+            L += ["", f"**Catalog changes ({len(rep['catalog'])})**: failing now, but the app's manifest or the "
+                  "vendor's installer changed between the two runs, so the build isn't the suspect. Not release "
+                  "blockers (the catalog ships on its own); they still go through triage.", "",
+                  "| App | Path | What changed | Findings now | Triaged as |", "|---|---|---|---|---|"]
+            for r in rep["catalog"]:
+                L.append(f"| {r['app']} | {r['kind']} | {r['cause'][9:]} | {'<br>'.join(r['findings'])[:300]} | "
+                         f"{'; '.join(r['triaged'])[:200] or '**new**'} |")
         if rep["fixed"]:
             L += ["", f"Fixed on this build ({len(rep['fixed'])}): " + ", ".join(f"{r['app']} ({r['kind']})" for r in rep["fixed"])]
     open(base + ".md", "w").write("\n".join(L) + "\n")

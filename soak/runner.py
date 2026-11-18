@@ -103,6 +103,14 @@ def catalog_manifest(slug):
     return json.loads(out)
 
 
+def catalog_id(v):
+    """Short fingerprint of what the catalog ships for one version: installer hash, scripts, queries. rc_report.py
+    uses it to tell a catalog change (ships on its own, not a release blocker) from a Fleet build change."""
+    import hashlib
+    keep = {k: v.get(k) for k in ("version", "sha256", "install_script_ref", "uninstall_script_ref", "queries")}
+    return hashlib.sha256(json.dumps(keep, sort_keys=True).encode()).hexdigest()[:12]
+
+
 def build():
     with urllib.request.urlopen(urllib.request.Request(CFG["instance"].rstrip("/") + "/version", headers={"User-Agent": "fleet-qa"}), timeout=30) as r:
         v = json.load(r)
@@ -542,7 +550,8 @@ def cycle(slug, host):
     v = man["versions"][0]
     exists_q = v["queries"]["exists"]
     rec = {"slug": slug, "host": host, "build": build(), "started": datetime.datetime.now().isoformat(timespec="seconds"),
-           "catalog_version": v["version"], "findings": [], "host_at_start": start_watch(host)}
+           "catalog_version": v["version"], "catalog_id": catalog_id(v), "findings": [],
+           "host_at_start": start_watch(host)}
     if os.environ.get("FMA_SOAK_POOL_SLOT"):  # on every record, the first run of a retry pair too
         rec["pool_slot"] = int(os.environ["FMA_SOAK_POOL_SLOT"])
     def find(shape, msg):
@@ -963,7 +972,7 @@ def update_path(slug, host):
     Needs 2+ cached versions; otherwise recorded as skipped (not passed). Always restores Latest."""
     state = load_state(host)
     v = catalog_manifest(slug)["versions"][0]
-    rec = {"slug": slug, "host": host, "build": build(), "kind": "update_path",
+    rec = {"slug": slug, "host": host, "build": build(), "kind": "update_path", "catalog_id": catalog_id(v),
            "started": datetime.datetime.now().isoformat(timespec="seconds"), "findings": [], "host_at_start": start_watch(host)}
     if os.environ.get("FMA_SOAK_POOL_SLOT"):
         rec["pool_slot"] = int(os.environ["FMA_SOAK_POOL_SLOT"])

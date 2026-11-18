@@ -34,5 +34,32 @@ class Baseline(unittest.TestCase):
         self.assertIsNone(RC.baseline_of([run("findings", "add"), run("error: boom")]))
 
 
+
+class Cause(unittest.TestCase):
+    def rec(self, version="1.0", cid="aaa", *findings):
+        return {"catalog_version": version, "catalog_id": cid,
+                "findings": [{"shape": s, "msg": m} for s, m in findings]}
+
+    def test_hash_mismatch_add_is_catalog(self):
+        b = self.rec("1.3.9", "x", ("add", "add failed 500: mismatch in maintained app SHA256 hash"))
+        self.assertIn("hash", RC.cause(self.rec("1.3.9", "x"), b))
+
+    def test_other_add_failure_on_same_catalog_is_the_build(self):
+        self.assertIsNone(RC.cause(self.rec(), self.rec("1.0", "aaa", ("add", "add failed 500: boom"))))
+
+    def test_version_change_is_catalog(self):
+        self.assertEqual(RC.cause(self.rec("26.1111.21308"), self.rec("26.1111.71025")), "catalog: 26.1111.21308 -> 26.1111.71025")
+
+    def test_script_change_same_version_is_catalog(self):
+        self.assertIn("manifest changed", RC.cause(self.rec("1.0", "aaa"), self.rec("1.0", "bbb")))
+
+    def test_same_catalog_is_the_build(self):
+        self.assertIsNone(RC.cause(self.rec(), self.rec("1.0", "aaa", ("S1", "x"))))
+
+    def test_old_records_without_fingerprint_fall_back_to_version(self):
+        a, b = self.rec("1.0", None), self.rec("1.0", "bbb")
+        self.assertIsNone(RC.cause(a, b))
+
+
 if __name__ == "__main__":
     unittest.main()
