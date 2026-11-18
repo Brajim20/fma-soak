@@ -1,0 +1,101 @@
+{
+ "slug": "affinity/darwin",
+ "host": 858,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-18T03:23:50",
+ "catalog_version": "3.3.3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T07:23:50Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "title_id": 20416,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.3.3"
+ ],
+ "package_version": "3.3.3",
+ "context_after_install": {
+  "path": "/Applications/Affinity.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+  "bundle_id": "com.canva.affinity",
+  "versions": [
+   "3.3.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "haredfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.canva.affinity.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.canva.affinity doesn't exist.\n/Users/<user>/Library/Containers/com.canva.affinity.* doesn't exist.\n/Users/<user>/Library/Group Containers/5HD2ARTBFS.com.canva.affinity doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity.* doesn't exist.\n/Users/<user>/Library/Preferences/com.canva.affinity.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.canva.affinity doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 50,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "35676"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 76,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.canva.affinity' was running; will relaunch after installation.\nQuitting application 'com.canva.affinity'...\nApplication 'com.canva.affinity' quit successfully.\nRelaunching application 'com.canva.affinity'...\nApplication 'com.canva.affinity' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.canva.affinity' was running; will relaunch after installation.",
+  "Quitting application 'com.canva.affinity'...",
+  "Application 'com.canva.affinity' quit successfully.",
+  "Relaunching application 'com.canva.affinity'...",
+  "Application 'com.canva.affinity' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "35729",
+   "path": "/Applications/Affinity.app/Contents/MacOS/Affinity Affinity Store",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "ort/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.canva.affinity.sfl* doesn't exist.\nremoving /Users/<user>/Library/Caches/com.canva.affinity.\n/Users/<user>/Library/Containers/com.canva.affinity.* doesn't exist.\nremoving /Users/<user>/Library/Group Containers/5HD2ARTBFS.com.canva.affinity.\nremoving /Users/<user>/Library/HTTPStorages/com.canva.affinity.\n/Users/<user>/Library/HTTPStorages/com.canva.affinity.* doesn't exist.\n/Users/<user>/Library/Preferences/com.canva.affinity.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.canva.affinity doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-18T03:31:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T07:30:56Z",
+  "restarted": "2026-11-14T23:20:47.391017Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-18/affinity_darwin-858-032350.json",
+ "recheck_of": 57957
+}
