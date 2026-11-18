@@ -1,0 +1,102 @@
+{
+ "slug": "google-chrome/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "started": "2026-11-17T22:50:26",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "pinned 156.0.8078.80, but the host has ['157.0.8103.79'] after installing it (#56873 shape)"
+  },
+  {
+   "shape": "S1",
+   "msg": "patched query passes with 156.0.8078.80 installed: the patch policy can't see this host is outdated"
+  },
+  {
+   "shape": "uninstall",
+   "msg": "app still on host after cleanup uninstall"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T02:50:24Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 20665,
+ "cached_versions": [
+  "156.0.8078.80",
+  "157.0.8103.79"
+ ],
+ "active_before": "157.0.8103.79",
+ "pin_older_status": 200,
+ "active_after_pin": "156.0.8078.80",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 61,
+ "old_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F4:B4) [02:51:26:922]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (F4:B4) [02:51:26:924]: Destroying RemoteAPI object.\r\nMSI (s) (F4:D8) [02:51:26:924]: Custom Action Manager thread ending.\r\nMSI (c) (A8:6C) [02:51:26:932]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (A8:6C) [02:51:26:932]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  2:51:26 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  2:51:26 ===",
+  "=== Verbose logging stopped: 11/18/2026  2:51:26 ==="
+ ],
+ "old_patched_query_passes": true,
+ "context_old": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "157.0.8103.79",
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "2:459]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (F4:B4) [02:53:02:459]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F4:B4) [02:53:02:459]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B4:6C) [02:53:02:461]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B4:6C) [02:53:02:463]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/18/2026  2:53:02 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "=== Logging stopped: 11/18/2026  2:53:02 ===",
+  "=== Verbose logging stopped: 11/18/2026  2:53:02 ==="
+ ],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Google Chrome"
+  ],
+  "versions": [
+   "157.0.8103.79"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_running_note": "couldn't open the app; not judged",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": "not_run (no new uninstall result; status was installed)",
+ "cleanup_uninstall_seconds": 15,
+ "outcome": "findings",
+ "finished": "2026-11-17T22:54:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T02:54:28Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-17/evidence/google-chrome_windows-859-225026-library.png",
+  "inventory": "results/soak/2026-11-17/evidence/google-chrome_windows-859-225026-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-17/google-chrome_windows-859-225026.json"
+}
