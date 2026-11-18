@@ -1,0 +1,116 @@
+{
+ "slug": "adobe-acrobat-pro/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-18T13:49:52",
+ "catalog_version": "26.002.22031",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-18T17:49:52Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "title_id": 17585,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 93,
+ "first_install_output_tail": "ey>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk3</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk3\" ejected.\ninstaller: Package name is Adobe Acrobat\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.003.22110"
+ ],
+ "package_version": "26.002.22031",
+ "context_after_install": {
+  "path": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Helpers/Adobe Acrobat Helper.app",
+  "bundle": "0:0 0775",
+  "executable": "0:0 0775",
+  "exe": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Helpers/Adobe Acrobat Helper.app/Contents/MacOS/AdobeAcrobat",
+  "bundle_id": "com.adobe.Acrobat.Pro",
+  "versions": [
+   "26.003.22110"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": " Support/Adobe/Acrobat.\n/Users/<user>/Library/Caches/Acrobat doesn't exist.\n/Users/<user>/Library/Caches/com.adobe.Acrobat.Pro doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.adobe.Acrobat.Pro doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.adobe.Acrobat.Pro.binarycookies doesn't exist.\n/Users/<user>/Library/Preferences/Adobe/Acrobat doesn't exist.\n/Users/<user>/Library/Preferences/com.adobe.Acrobat.Pro.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.adobe.Acrobat.Pro.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.adobe.Acrobat.Pro doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 139,
+ "second_install_output_tail": "ey>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk3</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk3\" ejected.\ninstaller: Package name is Adobe Acrobat\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "69906"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 170,
+ "open_reinstall_output_tail": "Application 'com.adobe.Acrobat.Pro' was running; will relaunch after installation.\nQuitting application 'com.adobe.Acrobat.Pro'...\nApplication 'com.adobe.Acrobat.Pro' did not quit.\nLast quit error: 52:56: execution error: Adobe Acrobat Helper got an error: User canceled. (-128)\nStopping application 'com.adobe.Acrobat.Pro'...\nApplication 'com.adobe.Acrobat.Pro' stopped.\ninstaller: Package name is Adobe Acrobat\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.adobe.Acrobat.Pro'...\nApplication 'com.adobe.Acrobat.Pro' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.adobe.Acrobat.Pro' was running; will relaunch after installation.",
+  "Quitting application 'com.adobe.Acrobat.Pro'...",
+  "Application 'com.adobe.Acrobat.Pro' did not quit.",
+  "Last quit error: 52:56: execution error: Adobe Acrobat Helper got an error: User canceled. (-128)",
+  "Stopping application 'com.adobe.Acrobat.Pro'...",
+  "Application 'com.adobe.Acrobat.Pro' stopped.",
+  "Relaunching application 'com.adobe.Acrobat.Pro'...",
+  "Application 'com.adobe.Acrobat.Pro' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Adobe Acrobat Helper got an error: User canceled. (-128)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Adobe Acrobat Helper got an error: User canceled. (-128))",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "71229"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 47,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-18T14:01:46",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-18T18:01:36Z",
+  "restarted": "2026-11-14T23:20:05.053169Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-18/evidence/adobe-acrobat-pro_darwin-865-134952-library.png",
+  "inventory": "results/soak/2026-11-18/evidence/adobe-acrobat-pro_darwin-865-134952-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-18/adobe-acrobat-pro_darwin-865-134952.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-18/adobe-acrobat-pro_darwin-865-133927.json",
+ "crosshost_of": "soak/2026-11-18/adobe-acrobat-pro_darwin-947-090601.json"
+}
