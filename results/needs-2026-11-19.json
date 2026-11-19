@@ -36,6 +36,30 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-acrobat-pro/windows.json), [adobe-acrobat-pro.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-acrobat-pro.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-10-20 Fix Adobe Acrobat Pro and Reader (Windows) FMA queries and uninstall scripts (#54321); 2026-10-16 Lift stale freezes: Adobe Acrobat Pro and NordPass (Windows) (#55763) \u00b7 issues mentioning it: #48250 (closed), #43441 (closed), #50377 (closed), #43287 (closed), #21567 (closed)"
  },
  {
+  "app": "affinity/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/affinity_darwin-858-134309.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/affinity/darwin.json), [affinity.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/affinity.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-12 Fleet-maintained apps: relaunch Affinity (macOS) by path after an install (#58404); 2026-06-07 FMA - Affinity (#47009) \u00b7 issues mentioning it: #59193 (open), #57957 (closed), #59149 (closed), #49522 (open), #59094 (closed)"
+ },
+ {
+  "app": "clop/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/clop_darwin-858-150818.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/clop/darwin.json), [clop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/clop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-09 Add macOS Fleet-maintained apps (C) (#47208) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "macvim-app/darwin@860",
   "shape": "S1",
   "msgs": [
@@ -94,6 +118,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-19/python-3.14_windows-862-111127.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/python-3.14/windows.json), [python-3.14.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/python-3.14.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-08 Add Python 3.13 & 3.14 as Windows FMAs and normalize versions (#46873) \u00b7 issues mentioning it: #48055 (closed)"
+ },
+ {
+  "app": "reqable/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/reqable_darwin-858-142630.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/reqable/darwin.json), [reqable.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/reqable.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (R) (#47370) \u00b7 issues mentioning it: #49300 (closed)"
  },
  {
   "app": "sonos/darwin@860",
@@ -157,6 +193,30 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sublime-text/windows.json), [sublime-text.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sublime-text.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-02 Check Sublime Text (Windows) version from sublime_text.exe (#57186); 2025-12-01 Add Sublime Text as a Windows FMA (#36448) \u00b7 issues mentioning it: #57187 (open), #57118 (closed), #57810 (closed), #57225 (closed), #44038 (closed)"
  },
  {
+  "app": "tableau-prep/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/tableau-prep_darwin-858-164035.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/tableau-prep/darwin.json), [tableau-prep.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/tableau-prep.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-19 Unfreeze 16 Fleet-maintained apps that pass validation (#59297); 2026-10-31 Fix Tableau Desktop and Prep macOS FMA bundle identifiers (#57056); 2026-10-31 Updating all macOS Fleet-maintained app scripts (#57031) \u00b7 issues mentioning it: #58319 (closed)"
+ },
+ {
+  "app": "visual-paradigm/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/visual-paradigm_darwin-858-155234.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/visual-paradigm/darwin.json), [visual-paradigm.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/visual-paradigm.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-10 Update Fleet-maintained apps (#55319); 2026-10-09 Fix FMA installer downloads for Avast Secure Browser, DbVisualizer, and Visual Paradigm (#; 2026-07-31 Regenerate macOS FMA install scripts (#50264) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "devtoys/windows@861",
   "shape": "S2",
   "msgs": [
@@ -181,6 +241,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/devtoys/windows.json), [devtoys.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/devtoys.json), [devtoys_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/devtoys_install.ps1), [devtoys_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/devtoys_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-05 Fix Windows DevToys and gPodder detection (#57687); 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #57673 (closed), #48248 (open), #51875 (closed)"
  },
  {
+  "app": "figma/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "before it was installed, Fleet lists it as installed ['126.11.9']: another app's inventory matches this title (#51299 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/figma_windows-861-141731.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59111 (open), #58627 (open), #59112 (open), #58048 (open), #58156 (open)"
+ },
+ {
   "app": "galaxy-modeler/windows@859",
   "shape": "S3",
   "msgs": [
@@ -190,6 +262,18 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-19/galaxy-modeler_windows-859-064552.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/galaxy-modeler/windows.json), [galaxy-modeler.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/galaxy-modeler.json), [galaxy-modeler_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_install.ps1), [galaxy-modeler_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Galaxy Modeler (Windows) Fleet-maintained app never being detected (#57350); 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: #58442 (open), #57136 (closed), #58198 (closed), #58756 (closed), #57548 (closed)"
+ },
+ {
+  "app": "galaxy-modeler/windows@862",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says failed but the app is on the host"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/galaxy-modeler_windows-862-141452.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/galaxy-modeler/windows.json), [galaxy-modeler.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/galaxy-modeler.json), [galaxy-modeler_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_install.ps1), [galaxy-modeler_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Galaxy Modeler (Windows) Fleet-maintained app never being detected (#57350); 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: #58442 (open), #57136 (closed), #58198 (closed), #58756 (closed), #57548 (closed)"
  },
  {
@@ -362,6 +446,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/jamovi/darwin.json), [jamovi.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/jamovi.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-10 Add macOS Fleet-maintained apps (J) (#47322) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "jamovi/darwin@865",
+  "shape": "add",
+  "msgs": [
+   "add failed 500: mismatch in maintained app SHA256 hash"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/jamovi_darwin-865-132951.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/jamovi/darwin.json), [jamovi.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/jamovi.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-10 Add macOS Fleet-maintained apps (J) (#47322) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "reqable/darwin@987",
   "shape": "add",
   "msgs": [
@@ -369,7 +465,7 @@
   ],
   "retried": "not retried",
   "runs": 1,
-  "other_host": "not on 860 (flaky) [record](soak/2026-11-19/reqable_darwin-860-103538.json)",
+  "other_host": "reproduced on 858 [record](soak/2026-11-19/reqable_darwin-858-142630.json)",
   "record": "results/soak/2026-11-19/reqable_darwin-987-062946.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/reqable/darwin.json), [reqable.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/reqable.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (R) (#47370) \u00b7 issues mentioning it: #49300 (closed)"
  },
@@ -410,7 +506,7 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/wireshark/windows.json), [wireshark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/wireshark.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-02 Fix exists queries for 4 Windows Fleet-maintained apps (#57179); 2025-12-09 Add Wireshark as a Windows FMA (#36953) \u00b7 issues mentioning it: #12230 (closed)"
  },
  {
-  "app": "docker/windows@862",
+  "app": "docker/windows@859",
   "shape": "install",
   "msgs": [
    "first install ended as failed_install",
@@ -419,6 +515,32 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-19/docker_windows-859-134948.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-11-21 Add Docker Desktop for Windows to Fleet-maintained apps (#36123) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #50503 (open), #42691 (open), #6014 (open)"
+ },
+ {
+  "app": "docker/windows@861",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/docker_windows-861-153142.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-11-21 Add Docker Desktop for Windows to Fleet-maintained apps (#36123) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #50503 (open), #42691 (open), #6014 (open)"
+ },
+ {
+  "app": "docker/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 861 [record](soak/2026-11-19/docker_windows-861-153142.json)",
   "record": "results/soak/2026-11-19/docker_windows-862-122636.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-11-21 Add Docker Desktop for Windows to Fleet-maintained apps (#36123) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #50503 (open), #42691 (open), #6014 (open)"
  },
@@ -434,6 +556,58 @@
   "other_host": null,
   "record": "results/soak/2026-11-19/galaxy-modeler_windows-859-064552.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/galaxy-modeler/windows.json), [galaxy-modeler.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/galaxy-modeler.json), [galaxy-modeler_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_install.ps1), [galaxy-modeler_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Galaxy Modeler (Windows) Fleet-maintained app never being detected (#57350); 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: #58442 (open), #57136 (closed), #58198 (closed), #58756 (closed), #57548 (closed)"
+ },
+ {
+  "app": "galaxy-modeler/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/galaxy-modeler_windows-862-141452.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/galaxy-modeler/windows.json), [galaxy-modeler.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/galaxy-modeler.json), [galaxy-modeler_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_install.ps1), [galaxy-modeler_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/galaxy-modeler_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Galaxy Modeler (Windows) Fleet-maintained app never being detected (#57350); 2026-07-15 Add Windows FMAs (letter G): 13 apps (#49281) \u00b7 issues mentioning it: #58442 (open), #57136 (closed), #58198 (closed), #58756 (closed), #57548 (closed)"
+ },
+ {
+  "app": "google-drive/windows@859",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/google-drive_windows-859-143057.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #58441 (open), #57390 (closed), #40309 (open), #22797 (open)"
+ },
+ {
+  "app": "google-drive/windows@861",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/google-drive_windows-861-161233.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #58441 (open), #57390 (closed), #40309 (open), #22797 (open)"
+ },
+ {
+  "app": "google-drive/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/google-drive_windows-862-132915.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/google-drive/windows.json), [google-drive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/google-drive.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2025-11-19 Add FMA: Google Drive (#35915) \u00b7 issues mentioning it: #53597 (open), #58441 (open), #57390 (closed), #40309 (open), #22797 (open)"
  },
  {
   "app": "macvim-app/darwin@865",
