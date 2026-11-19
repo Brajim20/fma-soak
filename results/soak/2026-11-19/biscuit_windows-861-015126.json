@@ -1,0 +1,100 @@
+{
+ "slug": "biscuit/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-19T01:51:26",
+ "catalog_version": "2.2.11",
+ "catalog_id": "a41df2a20276",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-19T05:51:22Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "title_id": 42263,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Biscuit for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.2.11"
+ ],
+ "package_version": "2.2.11",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Biscuit 2.2.11"
+  ],
+  "versions": [
+   "2.2.11"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Removing 'Biscuit 2.2.11' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-931869457-683489797-4032596054-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\68f1a030-583e-57f7-937a-73e10ffaa50c)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit\\Uninstall Biscuit.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit\"\nBiscuit removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Biscuit for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "5548",
+   "9588",
+   "9828",
+   "10364"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Biscuit for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "2424",
+   "10228",
+   "13236",
+   "14284"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Removing 'Biscuit 2.2.11' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-931869457-683489797-4032596054-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\68f1a030-583e-57f7-937a-73e10ffaa50c)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit\\Uninstall Biscuit.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\biscuit\"\nBiscuit removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-19T02:00:18",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-19T06:00:10Z",
+  "restarted": "2026-11-16T10:13:00.550274Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-19/biscuit_windows-861-015126.json",
+ "crosshost_of": "soak/2026-11-12/biscuit_windows-635-104556.json"
+}
