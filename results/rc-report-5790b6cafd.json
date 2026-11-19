@@ -3,8 +3,23 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 716,
+ "current_runs": 779,
  "regressions": [
+  {
+   "app": "8x8-work/darwin@858",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/8x8-work_darwin-858-131810.json",
+   "current_record": "soak/2026-11-19/8x8-work_darwin-858-044203.json",
+   "findings": [
+    "uninstall: app still on host after cleanup uninstall"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
   {
    "app": "wezterm/darwin@865",
    "kind": "lifecycle",
@@ -111,6 +126,6 @@
    "triaged": []
   }
  ],
- "compared": 110,
+ "compared": 111,
  "canaries_not_yet_on_current": []
 }
