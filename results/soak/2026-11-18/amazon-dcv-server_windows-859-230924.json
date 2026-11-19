@@ -1,0 +1,84 @@
+{
+ "slug": "amazon-dcv-server/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-18T23:09:24",
+ "catalog_version": "26.0.25174.0",
+ "catalog_id": "7cb6fae21f6d",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-19T03:09:24Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "title_id": 42102,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F4:1C) [03:10:23:057]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (F4:1C) [03:10:23:061]: Destroying RemoteAPI object.\r\nMSI (s) (F4:F0) [03:10:23:061]: Custom Action Manager thread ending.\r\nMSI (c) (BC:F4) [03:10:23:065]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (BC:F4) [03:10:23:070]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/19/2026  3:10:23 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "MSI (s) (F4:14) [03:10:20:739]: Executing op: CustomActionSchedule(Action=RollbackStartDcvServerCommand,ActionType=1345,Source=BinaryData,Target=CAQuietExec,Cus",
+  "=== Logging stopped: 11/19/2026  3:10:20 ===",
+  "=== Verbose logging stopped: 11/19/2026  3:10:23 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.0.25174.0"
+ ],
+ "package_version": "26.0.25174.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Amazon DCV Server"
+  ],
+  "versions": [
+   "26.0.25174.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 62,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F4:1C) [03:13:28:671]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (F4:1C) [03:13:28:673]: Destroying RemoteAPI object.\r\nMSI (s) (F4:18) [03:13:28:673]: Custom Action Manager thread ending.\r\nMSI (c) (EC:98) [03:13:28:675]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (EC:98) [03:13:28:679]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/19/2026  3:13:28 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "MSI (s) (F4:D0) [03:13:26:337]: Executing op: CustomActionSchedule(Action=RollbackStartDcvServerCommand,ActionType=1345,Source=BinaryData,Target=CAQuietExec,Cus",
+  "=== Logging stopped: 11/19/2026  3:13:26 ===",
+  "=== Verbose logging stopped: 11/19/2026  3:13:28 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-18T23:15:23",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-19T03:15:20Z",
+  "restarted": "2026-11-16T03:25:42.021446Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-18/amazon-dcv-server_windows-859-230924.json",
+ "crosshost_of": "soak/2026-11-12/amazon-dcv-server_windows-629-000643.json"
+}
