@@ -1,8 +1,14 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 638 · compared on both builds: 103
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 663 · compared on both builds: 109
 
-**No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+**1 regression suspect** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+
+| App | Path | Why | Retry | Findings now | Triaged as |
+|---|---|---|---|---|---|
+| wezterm/darwin@865 | lifecycle | new failure shape S3, install | reproduced | S3: first uninstall: app still on host (status None)<br>install: second install ended as None<br>S3: second uninstall: app still on host (status None) | **new** |
+
+Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
 
 **Catalog changes (2)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 

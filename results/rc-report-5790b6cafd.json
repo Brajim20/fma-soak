@@ -3,8 +3,26 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 638,
- "regressions": [],
+ "current_runs": 663,
+ "regressions": [
+  {
+   "app": "wezterm/darwin@865",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/wezterm_darwin-865-003419.json",
+   "current_record": "soak/2026-11-18/wezterm_darwin-865-220322.json",
+   "findings": [
+    "S3: first uninstall: app still on host (status None)",
+    "install: second install ended as None",
+    "S3: second uninstall: app still on host (status None)"
+   ],
+   "triaged": [],
+   "why": "new failure shape S3, install",
+   "reproduced": true,
+   "cause": null
+  }
+ ],
  "catalog": [
   {
    "app": "chatgpt/darwin@860",
@@ -93,6 +111,6 @@
    "triaged": []
   }
  ],
- "compared": 103,
+ "compared": 109,
  "canaries_not_yet_on_current": []
 }
