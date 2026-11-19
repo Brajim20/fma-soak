@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 12338 cycles: pass 5025, findings 2637, flaky 615, environment 307, harness 356, skipped 3398
+**1. Runs** — 12391 cycles: pass 5065, findings 2641, flaky 618, environment 308, harness 356, skipped 3403
 
-**2. Coverage** — darwin 978/965 (101.3%), quarter 1/2 this week 452/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 212/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 978/966 (101.2%), quarter 1/2 this week 452/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 492/492 (100.0%), quarter 1/2 this week 213/214, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -161,7 +161,7 @@
 | #59093 | closed | Fleet-maintained apps: Druva inSync (macOS) never shows an installed version (catalog bundle ID is the nested client app) |
 | #59094 | closed | Fleet-maintained apps: Whispering (macOS) isn't relaunched after an install over the open app, though the log says it was |
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
-| #59149 | open | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
+| #59149 | closed | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
 | #59164 | merged | Update Fleet-maintained apps |
 
 **4. Build changes**
