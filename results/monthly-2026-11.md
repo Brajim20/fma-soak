@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 12273 cycles: pass 4986, findings 2623, flaky 613, environment 307, harness 356, skipped 3388
+**1. Runs** — 12313 cycles: pass 5016, findings 2627, flaky 613, environment 307, harness 356, skipped 3394
 
 **2. Coverage** — darwin 978/965 (101.3%), quarter 1/2 this week 452/452, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 491/491 (100.0%), quarter 1/2 this week 212/213, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
@@ -23,6 +23,7 @@
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
 | #55093 | closed | Firefox installed or updated by Fleet on macOS has root:admin rwxr-xr-x permissions, triggering a looping helper tool prompt |
+| #55246 | merged | Match both ChatGPT bundle identifiers in macOS FMA queries |
 | #55360 | closed | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
 | #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56532 | closed | Sourcetree Fleet-maintained app installs with root-only permissions, so users can't open it |
@@ -161,6 +162,7 @@
 | #59094 | closed | Fleet-maintained apps: Whispering (macOS) isn't relaunched after an install over the open app, though the log says it was |
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 | #59149 | open | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
+| #59164 | merged | Update Fleet-maintained apps |
 
 **4. Build changes**
 

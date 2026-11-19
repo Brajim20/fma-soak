@@ -3,22 +3,25 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 598,
- "regressions": [
+ "current_runs": 638,
+ "regressions": [],
+ "catalog": [
   {
    "app": "chatgpt/darwin@860",
    "kind": "lifecycle",
    "baseline": "findings",
    "current": "findings",
-   "baseline_record": "soak/2026-11-17/chatgpt_darwin-860-021400.json",
+   "baseline_record": "soak/2026-11-15/chatgpt_darwin-860-230727.json",
    "current_record": "soak/2026-11-18/chatgpt_darwin-860-132158.json",
    "findings": [
-    "S1: inventory never reported the app after install + refetch",
     "S3: first uninstall: app still on host (status None)"
    ],
-   "triaged": [],
-   "why": "new failure shape S1, S3",
-   "reproduced": true
+   "triaged": [
+    "already filed #57025: ChatGPT reports com.openai.codex while the FMA's unique_identifier stays com.openai.chat (decided in #55246), so inventory lands on a separate 'Codex' title; same on 4.94 and 4.95"
+   ],
+   "why": "new failure shape S3",
+   "reproduced": true,
+   "cause": "catalog: 26.1111.21308 -> 26.1111.71025"
   },
   {
    "app": "spotify/windows@862",
@@ -30,9 +33,12 @@
    "findings": [
     "add: add failed 500: mismatch in maintained app SHA256 hash"
    ],
-   "triaged": [],
+   "triaged": [
+    "catalog race, fixed: SpotifyFullSetupX64.exe (unversioned URL) served 1.3.10 while the catalog still had 1.3.9's hash; catalog moved to 1.3.10 in #59164 (2026-11-18 20:33Z). The 500 instead of a 4xx is #55360. Not a 4.95 regression"
+   ],
    "why": "passed on the baseline",
-   "reproduced": true
+   "reproduced": true,
+   "cause": "catalog: the vendor's installer no longer matches the manifest's hash"
   }
  ],
  "fixed": [
@@ -47,32 +53,12 @@
    "triaged": []
   },
   {
-   "app": "figma/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/figma_darwin-858-085534.json",
-   "current_record": "soak/2026-11-18/figma_darwin-858-095009.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
    "app": "google-chrome/windows@861",
    "kind": "lifecycle",
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/google-chrome_windows-861-082646.json",
    "current_record": "soak/2026-11-18/google-chrome_windows-861-090209.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "microsoft-defender/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/microsoft-defender_darwin-858-092552.json",
-   "current_record": "soak/2026-11-18/microsoft-defender_darwin-858-101344.json",
    "findings": [],
    "triaged": []
   },
@@ -107,6 +93,6 @@
    "triaged": []
   }
  ],
- "compared": 127,
+ "compared": 103,
  "canaries_not_yet_on_current": []
 }
