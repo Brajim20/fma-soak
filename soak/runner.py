@@ -64,8 +64,19 @@ def api(method, path, body=None, timeout=120, tries=5):
         except urllib.error.HTTPError as e:
             raw = e.read()
             try:
-                return e.code, json.loads(raw)
+                d = json.loads(raw)
             except Exception:
+                d = None
+            if isinstance(d, dict):
+                # Fleet's message is generic ("Bad request"); the reason is in errors[]. Keep both, so a 400 says
+                # which check refused it (pending request, title not available, wrong platform).
+                why = "; ".join(str(x.get("reason")) for x in d.get("errors") or [] if isinstance(x, dict) and x.get("reason"))
+                if why and why not in str(d.get("message") or ""):
+                    d["message"] = f"{d.get('message') or e.code}: {why}"
+                return e.code, d
+            if d is not None:
+                return e.code, {"message": str(d)[:300]}
+            else:
                 return e.code, {"message": raw[:300].decode(errors="replace")}
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             err = f"{type(e).__name__}: {e}"
