@@ -1,0 +1,138 @@
+{
+ "slug": "visual-studio-code/darwin",
+ "host": 858,
+ "kind": "patch_when_closed",
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-19T21:34:06",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "the app was closed 3 h ago and the patch to 1.147.0 never installed (last attempt: installed, policy fail)"
+  }
+ ],
+ "outcome": "findings",
+ "scenario": {
+  "slug": "visual-studio-code/darwin",
+  "host": 858,
+  "title_id": 12955,
+  "older": "1.146.0",
+  "newest": "1.147.0",
+  "phase": "closed",
+  "started": "2026-11-20T01:34:06+00:00",
+  "started_local": "2026-11-19T21:34:06",
+  "findings": [
+   {
+    "shape": "S4",
+    "msg": "the app was closed 3 h ago and the patch to 1.147.0 never installed (last attempt: installed, policy fail)"
+   }
+  ],
+  "observations": [
+   {
+    "at": "2026-11-20T01:56:03+00:00",
+    "last_install": {
+     "uuid": "f5380999-3f99-4707-8fe0-9ad0613fb4f2",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": []
+    },
+    "versions": [
+     "1.146.0"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-20T06:05:15+00:00",
+    "last_install": {
+     "uuid": "f5380999-3f99-4707-8fe0-9ad0613fb4f2",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": []
+    },
+    "versions": [
+     "1.146.0"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-20T09:54:01+00:00",
+    "last_install": {
+     "uuid": "f5380999-3f99-4707-8fe0-9ad0613fb4f2",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": []
+    },
+    "versions": [
+     "1.146.0"
+    ],
+    "policy": "fail",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 47,
+  "old_install_output_tail": "Installing software...\nSuccess\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/Visual Studio Code.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/Visual Studio Code.app/Contents/MacOS/Code",
+   "bundle_id": "com.microsoft.VSCode",
+   "versions": [
+    "1.146.0"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "16829"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/Visual Studio Code.app",
+   "exe": "/Applications/Visual Studio Code.app/Contents/MacOS/Code",
+   "bundle_id": "com.microsoft.VSCode",
+   "pids": [
+    "16829"
+   ]
+  },
+  "pids": [
+   "16829"
+  ],
+  "before_uuid": "f5380999-3f99-4707-8fe0-9ad0613fb4f2",
+  "patch_on": 200,
+  "policy": {
+   "id": 1256,
+   "name": "macOS - Microsoft Visual Studio Code up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "install_title": 12955
+  },
+  "opened_at": "2026-11-20T01:35:30+00:00",
+  "close_close": "",
+  "closed_at": "2026-11-20T06:05:30+00:00",
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 16,
+  "end_uninstall_output_tail": "haredFileList.ApplicationRecentDocuments/com.microsoft.vscode.sfl4.\nremoving /Users/<user>/Library/Caches/com.microsoft.VSCode.\nremoving /Users/<user>/Library/Caches/com.microsoft.VSCode.ShipIt.\nremoving /Users/<user>/Library/HTTPStorages/com.microsoft.VSCode.\n/Users/<user>/Library/Preferences/ByHost/com.microsoft.VSCode.ShipIt.*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.VSCode.helper.plist doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.microsoft.VSCode.plist.\n/Users/<user>/Library/Saved Application State/com.microsoft.VSCode.savedState doesn't exist.\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-20T09:55:20+00:00"
+ },
+ "finished": "2026-11-20T05:55:20",
+ "evidence": {
+  "library": "results/soak/2026-11-19/evidence/visual-studio-code_darwin-858-213406-library.png",
+  "inventory": "results/soak/2026-11-19/evidence/visual-studio-code_darwin-858-213406-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-19/visual-studio-code_darwin-858-213406.json"
+}
