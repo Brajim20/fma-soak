@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T18:41:32",
+ "built": "2026-11-20T19:11:30",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -72,7 +72,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 502
+      "onedrive/windows": 503
      }
     }
    ]
@@ -40134,14 +40134,14 @@
    }
   },
   "microsoft-dotnet-runtime-8/windows@862": {
-   "lifecycle_runs": 28,
+   "lifecycle_runs": 29,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
-    "date": "2026-11-20T17:55:18",
+    "date": "2026-11-20T18:58:26",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "8.0.34",
-    "record": "results/soak/2026-11-20/microsoft-dotnet-runtime-8_windows-862-175518.json",
+    "record": "results/soak/2026-11-20/microsoft-dotnet-runtime-8_windows-862-185826.json",
     "findings": []
    }
   },
@@ -43085,16 +43085,16 @@
    }
   },
   "db-browser-for-sqlite/windows@864": {
-   "lifecycle_runs": 29,
+   "lifecycle_runs": 30,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:19:52",
    "last_cycled": "2026-11-16T02:28:21",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-20T17:51:56",
+    "date": "2026-11-20T18:50:35",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.13.1",
-    "record": "results/soak/2026-11-20/db-browser-for-sqlite_windows-864-175156.json",
+    "record": "results/soak/2026-11-20/db-browser-for-sqlite_windows-864-185035.json",
     "findings": []
    }
   },
@@ -46099,14 +46099,14 @@
    }
   },
   "onedrive/windows@859": {
-   "lifecycle_runs": 30,
+   "lifecycle_runs": 31,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-20T17:56:23",
+    "date": "2026-11-20T18:43:43",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "26.183.0920.0005",
-    "record": "results/soak/2026-11-20/onedrive_windows-859-175623.json",
+    "record": "results/soak/2026-11-20/onedrive_windows-859-184343.json",
     "findings": []
    }
   },
@@ -60386,6 +60386,20 @@
     "findings": []
    }
   },
+  "background-music/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:49:47",
+   "last_cycled": "2026-11-20T18:49:47",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T18:49:47",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "0.5.0",
+    "record": "results/soak/2026-11-20/background-music_darwin-865-184947.json",
+    "findings": []
+   }
+  },
   "bdash/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -60678,6 +60692,22 @@
     "catalog_version": "26.623.141536",
     "record": "results/soak/2026-11-20/codex-app_darwin-860-172452.json",
     "findings": []
+   }
+  },
+  "codex-app/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:56:05",
+   "last_cycled": "2026-11-20T19:03:37",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-20T19:03:37",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "26.623.141536",
+    "record": "results/soak/2026-11-20/codex-app_darwin-865-190337.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
    }
   },
   "codexbar/darwin@865": {
@@ -61019,6 +61049,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "162.0a1",
     "record": "results/soak/2026-11-20/firefox@nightly_darwin-1016-023650.json",
+    "findings": []
+   }
+  },
+  "firefox@nightly/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:55:46",
+   "last_cycled": "2026-11-20T18:55:46",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T18:55:46",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "163.0a1",
+    "record": "results/soak/2026-11-20/firefox@nightly_darwin-860-185546.json",
     "findings": []
    }
   },
@@ -61671,6 +61715,20 @@
     "findings": []
    }
   },
+  "netiquette/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:43:49",
+   "last_cycled": "2026-11-20T18:43:49",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T18:43:49",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2.3.0",
+    "record": "results/soak/2026-11-20/netiquette_darwin-860-184349.json",
+    "findings": []
+   }
+  },
   "netron/darwin@90001": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -62317,6 +62375,20 @@
     "findings": []
    }
   },
+  "telegram/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:49:35",
+   "last_cycled": "2026-11-20T18:49:35",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T18:49:35",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "13.2.0",
+    "record": "results/soak/2026-11-20/telegram_darwin-860-184935.json",
+    "findings": []
+   }
+  },
   "teleport-suite/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 1,
@@ -62364,6 +62436,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.7.1",
     "record": "results/soak/2026-11-20/ukelele_darwin-860-171231.json",
+    "findings": []
+   }
+  },
+  "ukelele/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:43:46",
+   "last_cycled": "2026-11-20T18:43:46",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T18:43:46",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.7.1",
+    "record": "results/soak/2026-11-20/ukelele_darwin-865-184346.json",
     "findings": []
    }
   },
@@ -62420,6 +62506,38 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "2.25.8",
     "record": "results/soak/2026-11-20/windscribe_windows-859-182421.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
+   }
+  },
+  "windscribe/windows@861": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:43:45",
+   "last_cycled": "2026-11-20T18:51:09",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-20T18:51:09",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2.25.8",
+    "record": "results/soak/2026-11-20/windscribe_windows-861-185109.json",
+    "findings": [
+     "reinstall over the open app: the install over the open app ended as failed_install"
+    ]
+   }
+  },
+  "windscribe/windows@862": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T18:43:49",
+   "last_cycled": "2026-11-20T18:51:30",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-20T18:51:30",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2.25.8",
+    "record": "results/soak/2026-11-20/windscribe_windows-862-185130.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
