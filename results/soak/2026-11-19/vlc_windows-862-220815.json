@@ -1,0 +1,81 @@
+{
+ "slug": "vlc/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-19T22:08:15",
+ "catalog_version": "3.0.24",
+ "catalog_id": "b679695ec5dd",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-20T02:08:08Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "title_id": 17659,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\1341149b.msp'\r\nMSI (s) (54:2C) [02:09:37:250]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\134129e2.msp'\r\nMSI (s) (54:2C) [02:09:37:295]: Destroying RemoteAPI object.\r\nMSI (s) (54:00) [02:09:37:297]: Custom Action Manager thread ending.\r\nMSI (c) (48:60) [02:09:37:299]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (48:60) [02:09:37:301]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/20/2026  2:09:37 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  2:09:37 ===",
+  "=== Verbose logging stopped: 11/20/2026  2:09:37 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.0.24.0"
+ ],
+ "package_version": "3.0.24",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\VideoLAN\\VLC\\"
+  ],
+  "names": [
+   "VLC media player"
+  ],
+  "versions": [
+   "3.0.24.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Found product code: {585C109D-9729-4B98-A2B8-EACD8885D115}\nAttempting to uninstall using msiexec...\nUninstall failed with exit code: \n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 77,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (54:2C) [02:12:57:929]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (54:2C) [02:12:57:931]: Destroying RemoteAPI object.\r\nMSI (s) (54:6C) [02:12:57:931]: Custom Action Manager thread ending.\r\nMSI (c) (B0:CC) [02:12:57:933]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:CC) [02:12:57:935]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/20/2026  2:12:57 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  2:12:57 ===",
+  "=== Verbose logging stopped: 11/20/2026  2:12:57 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Found product code: {585C109D-9729-4B98-A2B8-EACD8885D115}\nAttempting to uninstall using msiexec...\nUninstall failed with exit code: \n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-19T22:14:41",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-20T02:14:33Z",
+  "restarted": "2026-11-16T03:26:41.595534Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-19/vlc_windows-862-220815.json"
+}
