@@ -84,7 +84,7 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sublime-text/windows.json), [sublime-text.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sublime-text.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-02 Check Sublime Text (Windows) version from sublime_text.exe (#57186); 2025-12-01 Add Sublime Text as a Windows FMA (#36448) \u00b7 issues mentioning it: #57187 (open), #57118 (closed), #57810 (closed), #57225 (closed), #44038 (closed)"
  },
  {
-  "app": "zoom/darwin@865",
+  "app": "zoom/darwin@860",
   "shape": "S1",
   "msgs": [
    "patched query passes with 7.2.2.88465 installed: the patch policy can't see this host is outdated"
@@ -92,6 +92,18 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-20/zoom_darwin-860-143312.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom/darwin.json), [zoom.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/zoom.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-01 Revert \"Support default pkg install script when cask lacks pkg artifact and URL override i; 2026-06-01 Support default pkg install script when cask lacks pkg artifact and URL override is used (; 2025-12-04 Switched 1Password, Slack, and Zoom for macOS to universal installers (#36660) \u00b7 issues mentioning it: #57397 (open), #54478 (open), #57230 (open), #55140 (open), #55901 (open)"
+ },
+ {
+  "app": "zoom/darwin@865",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 7.2.2.88465 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 860 [record](soak/2026-11-20/zoom_darwin-860-143312.json)",
   "record": "results/soak/2026-11-20/zoom_darwin-865-134018.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/zoom/darwin.json), [zoom.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/zoom.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-01 Revert \"Support default pkg install script when cask lacks pkg artifact and URL override i; 2026-06-01 Support default pkg install script when cask lacks pkg artifact and URL override is used (; 2025-12-04 Switched 1Password, Slack, and Zoom for macOS to universal installers (#36660) \u00b7 issues mentioning it: #57397 (open), #54478 (open), #57230 (open), #55140 (open), #55901 (open)"
  },
@@ -180,6 +192,19 @@
   "other_host": null,
   "record": "results/soak/2026-11-20/steam_darwin-865-045041.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/steam/darwin.json), [steam.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/steam.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-10-26 Update Fleet-maintained apps (#56517); 2025-12-17 Add Steam as a macOS and Windows FMA (#37383) \u00b7 issues mentioning it: #57336 (open), #58947 (open), #51235 (open), #55320 (open), #57457 (closed)"
+ },
+ {
+  "app": "docker/windows@859",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-20/docker_windows-859-151321.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256); 2025-11-21 Add Docker Desktop for Windows to Fleet-maintained apps (#36123) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #50503 (open), #42691 (open), #6014 (open)"
  },
  {
   "app": "google-drive/windows@859",
