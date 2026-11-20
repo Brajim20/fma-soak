@@ -1,0 +1,109 @@
+{
+ "slug": "unclutter/darwin",
+ "host": 1013,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-20T02:24:51",
+ "catalog_version": "2.3.0d",
+ "catalog_id": "0771eaee03ed",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-20T06:24:46Z",
+  "restarted": "2026-11-20T05:58:49.693069Z",
+  "software_updated": "2026-11-20T06:24:11Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 43187,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 17,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.3.0d"
+ ],
+ "package_version": "2.3.0d",
+ "context_after_install": {
+  "path": "/Applications/Unclutter.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Unclutter.app/Contents/MacOS/Unclutter",
+  "bundle_id": "com.softwareambience.Unclutter",
+  "versions": [
+   "2.3.0d"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 15,
+ "first_uninstall_output_tail": "haredfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.softwareambience.unclutter.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/Unclutter doesn't exist.\n/Users/<user>/Library/Caches/com.softwareambience.Unclutter doesn't exist.\n/Users/<user>/Library/Containers/com.softwareambience.Unclutter doesn't exist.\n/Users/<user>/Library/Group Containers/*.group.com.softwareambience.Unclutter doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.softwareambience.Unclutter doesn't exist.\n/Users/<user>/Library/Preferences/com.softwareambience.Unclutter.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "54154"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.softwareambience.Unclutter' was running; will relaunch after installation.\nQuitting application 'com.softwareambience.Unclutter'...\nApplication 'com.softwareambience.Unclutter' quit successfully.\nRelaunching application 'com.softwareambience.Unclutter'...\nApplication 'com.softwareambience.Unclutter' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.softwareambience.Unclutter' was running; will relaunch after installation.",
+  "Quitting application 'com.softwareambience.Unclutter'...",
+  "Application 'com.softwareambience.Unclutter' quit successfully.",
+  "Relaunching application 'com.softwareambience.Unclutter'...",
+  "Application 'com.softwareambience.Unclutter' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "54957",
+   "path": "/Applications/Unclutter.app/Contents/MacOS/Unclutter",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "ary/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.softwareambience.unclutter.sfl3.\nremoving /Users/<user>/Library/Application Support/Unclutter.\nremoving /Users/<user>/Library/Caches/com.softwareambience.Unclutter.\nremoving /Users/<user>/Library/Containers/com.softwareambience.Unclutter.\nremoving /Users/<user>/Library/Group Containers/GH83R9Y33Z.group.com.softwareambience.Unclutter.\nremoving /Users/<user>/Library/HTTPStorages/com.softwareambience.Unclutter.\nremoving /Users/<user>/Library/Preferences/com.softwareambience.Unclutter.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-20T02:33:53",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-20T06:33:46Z",
+  "restarted": "2026-11-20T05:58:49.693069Z",
+  "software_updated": "2026-11-20T06:33:12Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-20/unclutter_darwin-1013-022451.json"
+}
