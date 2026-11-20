@@ -1,0 +1,110 @@
+{
+ "slug": "intune-company-portal/darwin",
+ "host": 1027,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-20T10:30:57",
+ "catalog_version": "5.2608.0",
+ "catalog_id": "7a6a35137d10",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-20T14:30:56Z",
+  "restarted": "2026-11-20T14:27:08.179208Z",
+  "software_updated": "2026-11-20T14:30:36Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 13177,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Intune Company Portal\ninstaller: choices changes file '/tmp/choice_xml_dhi' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.2608.0"
+ ],
+ "package_version": "5.2608.0",
+ "context_after_install": {
+  "path": "/Applications/Company Portal.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Company Portal.app/Contents/MacOS/Company Portal",
+  "bundle_id": "com.microsoft.CompanyPortalMac",
+  "versions": [
+   "5.2608.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "tension.\n/Users/<user>/Library/HTTPStorages/com.microsoft.CompanyPortalMac doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.microsoft.CompanyPortalMac.binarycookies doesn't exist.\n/Users/<user>/Library/Logs/Company Portal/* doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.CompanyPortalMac.plist doesn't exist.\n/Users/<user>/Library/Preferences/group.com.microsoft.CompanyPortalMac.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.CompanyPortalMac.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.microsoft.CompanyPortalMac doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Intune Company Portal\ninstaller: choices changes file '/tmp/choice_xml_U0o' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "19132"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.microsoft.CompanyPortalMac' was running; will relaunch after installation.\nQuitting application 'com.microsoft.CompanyPortalMac'...\nApplication 'com.microsoft.CompanyPortalMac' quit successfully.\ninstaller: Package name is Intune Company Portal\ninstaller: choices changes file '/tmp/choice_xml_DAb' applied\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.microsoft.CompanyPortalMac'...\nApplication 'com.microsoft.CompanyPortalMac' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.CompanyPortalMac' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.CompanyPortalMac'...",
+  "Application 'com.microsoft.CompanyPortalMac' quit successfully.",
+  "Relaunching application 'com.microsoft.CompanyPortalMac'...",
+  "Application 'com.microsoft.CompanyPortalMac' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "19886",
+   "path": "/Applications/Company Portal.app/Contents/MacOS/Company Portal",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "y/HTTPStorages/com.microsoft.CompanyPortalMac.\n/Users/<user>/Library/HTTPStorages/com.microsoft.CompanyPortalMac.binarycookies doesn't exist.\nremoving /Users/<user>/Library/Logs/Company Portal/com.microsoft.CompanyPortalMac 2026-11-20--14-38-37-633.log.\nremoving /Users/<user>/Library/Preferences/com.microsoft.CompanyPortalMac.plist.\n/Users/<user>/Library/Preferences/group.com.microsoft.CompanyPortalMac.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.CompanyPortalMac.savedState doesn't exist.\nremoving /Users/<user>/Library/WebKit/com.microsoft.CompanyPortalMac.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-20T10:42:43",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-20T14:42:36Z",
+  "restarted": "2026-11-20T14:27:08.179208Z",
+  "software_updated": "2026-11-20T14:42:22Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-20/intune-company-portal_darwin-1027-103057.json"
+}
