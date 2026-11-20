@@ -54,3 +54,81 @@ class Restart(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def sw(status, sw_minutes_ago, platform="darwin"):
+    t = (NOW - datetime.timedelta(minutes=sw_minutes_ago)).isoformat().replace("+00:00", "Z")
+    return {"status": status, "seen_time": NOW.isoformat().replace("+00:00", "Z"), "software_updated_at": t,
+            "platform": platform}
+
+
+def act(minutes_ago, typ="installed_software", status="installed"):
+    return {"type": typ, "created_at": (NOW - datetime.timedelta(minutes=minutes_ago)).isoformat().replace("+00:00", "Z"),
+            "details": {"status": status}}
+
+
+BUSY = lambda hid: [act(10)]   # installed something 10 min ago
+IDLE = lambda hid: []
+
+
+class StaleInventory(unittest.TestCase):
+    """An online host whose software inventory stopped (858, 2026-11-19): restart fleetd, then the VM, then alert."""
+
+    def test_only_the_stuck_host_when_others_are_fresh(self):
+        hosts = {858: sw("online", 720), 860: sw("online", 30), 865: sw("online", 40)}
+        self.assertEqual(list(W.stale_inventory(hosts, NOW, BUSY)), [858])
+
+    def test_everyone_stale_means_fleet_not_the_hosts(self):
+        hosts = {858: sw("online", 720), 860: sw("online", 300)}
+        self.assertEqual(W.stale_inventory(hosts, NOW, BUSY), {})
+
+    def test_offline_hosts_are_left_to_the_outage_path(self):
+        hosts = {858: sw("offline", 720), 860: sw("online", 30)}
+        self.assertEqual(W.stale_inventory(hosts, NOW, BUSY), {})
+
+    def test_idle_host_with_an_old_timestamp_is_healthy(self):
+        hosts = {860: sw("online", 140), 865: sw("online", 20)}
+        self.assertEqual(W.stale_inventory(hosts, NOW, IDLE), {})
+
+    def test_failed_installs_dont_count_as_changes(self):
+        hosts = {858: sw("online", 720), 865: sw("online", 20)}
+        self.assertEqual(W.stale_inventory(hosts, NOW, lambda h: [act(10, status="failed_install")]), {})
+
+    def steps(self, state, minutes_later=0, local=None, mine=(858,)):
+        hosts = {858: sw("online", 720 + minutes_later), 860: sw("online", 30)}
+        now = NOW + datetime.timedelta(minutes=minutes_later)
+        with mock.patch.object(W, "run_script", return_value=True) as rs, mock.patch.object(W, "restart") as rv, \
+                mock.patch.object(W, "DRY", False), mock.patch.object(W, "activities", lambda hid, tok: [act(5)]):
+            msgs, book = W.fix_stale(hosts, state, now, "t", local or {}, set(mine))
+        return msgs, book, rs, rv
+
+    def test_first_step_restarts_fleetd(self):
+        msgs, book, rs, rv = self.steps({})
+        rs.assert_called_once()
+        rv.assert_not_called()
+        self.assertIn("fleetd", book["858"])
+
+    def test_vm_restart_after_the_wait_when_still_stuck(self):
+        _, book, _, _ = self.steps({})
+        msgs, book, rs, rv = self.steps({"stale": book}, minutes_later=W.FLEETD_WAIT_MIN + 1, local={858: "vm858"})
+        rv.assert_called_once_with("vm858")
+        rs.assert_not_called()
+
+    def test_not_a_vm_here_so_alert_once(self):
+        _, book, _, _ = self.steps({})
+        msgs, book, _, rv = self.steps({"stale": book}, minutes_later=W.FLEETD_WAIT_MIN + 1)
+        rv.assert_not_called()
+        self.assertTrue(any("didn't fix it" in m for m in msgs))
+        msgs, _, _, _ = self.steps({"stale": book}, minutes_later=W.FLEETD_WAIT_MIN + 10)
+        self.assertEqual(msgs, [])
+
+    def test_hosts_another_mac_owns_are_left_alone(self):
+        msgs, book, rs, _ = self.steps({}, mine=())
+        rs.assert_not_called()
+        self.assertEqual(book, {})
+
+    def test_recovered_host_is_reported_and_forgotten(self):
+        hosts = {858: sw("online", 5), 860: sw("online", 30)}
+        msgs, book = W.fix_stale(hosts, {"stale": {"858": {"since": "x", "fleetd": NOW.isoformat()}}}, NOW, "t", {}, {858})
+        self.assertEqual(book, {})
+        self.assertTrue(any("updating again" in m for m in msgs))

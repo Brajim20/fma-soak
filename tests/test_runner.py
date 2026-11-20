@@ -137,3 +137,31 @@ class Restore(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StaleInventoryDisruption(unittest.TestCase):
+    """A host whose software inventory is stuck makes every app look undetected (858, 2026-11-19)."""
+    def setUp(self):
+        runner.HOST_OFFLINE_SEEN.clear()
+
+    def rec(self, start_sw, end_sw, seen="2026-11-19T20:00:00Z"):
+        snap = lambda sw: {"status": "online", "seen": seen, "restarted": "2026-11-19T16:37:15Z", "software_updated": sw}
+        return {"host_at_start": snap(start_sw), "host_at_end": snap(end_sw), "first_install_status": "installed"}
+
+    def test_frozen_for_hours_is_a_disruption(self):
+        why = runner.disruption(self.rec("2026-11-19T14:31:35Z", "2026-11-19T14:31:35Z"))
+        self.assertEqual(why, ["software inventory frozen since 2026-11-19T14:31:35Z"])
+
+    def test_inventory_that_moved_during_the_cycle_is_fine(self):
+        self.assertEqual(runner.disruption(self.rec("2026-11-19T14:31:35Z", "2026-11-19T19:58:00Z")), [])
+
+    def test_recent_unchanged_inventory_is_fine(self):
+        self.assertEqual(runner.disruption(self.rec("2026-11-19T19:30:00Z", "2026-11-19T19:30:00Z")), [])
+
+    def test_missing_field_is_ignored(self):
+        self.assertEqual(runner.disruption(self.rec(None, None)), [])
+
+    def test_cycle_that_installed_nothing_is_not_blamed_on_the_host(self):
+        r = self.rec("2026-11-19T14:31:35Z", "2026-11-19T14:31:35Z")
+        r["first_install_status"] = None
+        self.assertEqual(runner.disruption(r), [])

@@ -194,7 +194,8 @@ def host_sw(host, title_id):
 def host_snapshot(host):
     st, d = api("GET", f"/hosts/{host}")
     h = d.get("host") or {}
-    return {"status": h.get("status"), "seen": h.get("seen_time"), "restarted": h.get("last_restarted_at")}
+    return {"status": h.get("status"), "seen": h.get("seen_time"), "restarted": h.get("last_restarted_at"),
+            "software_updated": h.get("software_updated_at")}
 
 
 def utc(ts):
@@ -203,6 +204,7 @@ def utc(ts):
 
 # times a cycle's polling found its host offline; finish() uses it to tell a disrupted cycle from a real finding
 HOST_OFFLINE_SEEN = []
+STALE_INVENTORY_MIN = 120  # software_updated_at this far behind seen_time, unchanged through a cycle
 
 
 def start_watch(host):
@@ -223,6 +225,15 @@ def disruption(rec):
         why.append(f"offline at {HOST_OFFLINE_SEEN[0]}")
     if b.get("status") and b["status"] != "online":
         why.append(f"{b['status']} when the cycle ended")
+    # 2026-11-19: 858 stayed online but sent no software inventory for 12 h, so every app it ran "never showed up in
+    # inventory" (S1) and landed in the RC regression report. A cycle refetches the host; if software_updated_at
+    # didn't move through the whole cycle and is hours old, the host's inventory is stuck, not the app.
+    # Fleet only moves software_updated_at when the host's software list changes, so this counts only for a cycle
+    # that installed something (an idle host's timestamp is old, and a failed add changes nothing).
+    su, eu = a.get("software_updated"), b.get("software_updated")
+    installed = any(k.endswith("_status") and v == "installed" for k, v in rec.items())
+    if installed and su and su == eu and b.get("seen") and (utc(b["seen"]) - utc(eu)).total_seconds() > STALE_INVENTORY_MIN * 60:
+        why.append(f"software inventory frozen since {eu}")
     return why
 
 
@@ -1199,7 +1210,7 @@ def finish(rec):
             rec["host_disruption"] = why
             # findings from a cycle the host dropped out of aren't evidence; keep them in the record, not the digest
             if rec["findings"] and not str(rec.get("outcome")).startswith("environment"):
-                rec["outcome"] = "environment: host restarted or went offline during the cycle (" + "; ".join(why) + ")"
+                rec["outcome"] = "environment: host unreliable during the cycle (" + "; ".join(why) + ")"
     d = os.path.join(WS, "results", "soak", rec["started"][:10])
     os.makedirs(d, exist_ok=True)
     p = os.path.join(d, f"{rec['slug'].replace('/', '_')}-{rec['host']}-{rec['started'][11:19].replace(':', '')}.json")

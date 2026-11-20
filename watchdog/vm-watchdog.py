@@ -15,6 +15,11 @@ when they're back. That's for what a restart can't fix: on 2026-11-10/11 629, 63
 is checked except this Mac's own VMs: a frozen VM gets restarted here, and when this whole Mac is down the
 watchdog on the other Mac reports it, so each outage is posted once. A host on neither Mac (635) would be posted by
 both; set "_alerts": [<host ids>] in one Mac's vms.json to limit what it reports (e.g. [624] on the other Mac).
+Stuck inventory: a host can stay online and answer scripts while sending no software inventory (858, 2026-11-19,
+12 h). When an online host's software_updated_at is STALE_MIN old and another host's is fresh, the watchdog restarts
+fleetd through a Fleet script, then the VM FLEETD_WAIT_MIN later if it's still stuck, then posts to Slack. It acts on
+this Mac's VMs plus hosts listed in vms.json "_stale": [<ids>] (hosts on no Mac, like the GitHub runner hosts). The
+token needs script-run rights on the soak fleet for the fleetd step.
 Needs a webhook: ~/.config/fma-vm-watchdog/slack-webhook-url, else the triage one (~/.config/fma-triage/...).
 
 Setup (once per Mac): put a Fleet API token for qa.fleetdm.com in ~/.config/fma-vm-watchdog/token (chmod 600), and
@@ -25,10 +30,23 @@ the VMs on this Mac in ~/.config/fma-vm-watchdog/vms.json, e.g. {"624": "macOS n
 import datetime, glob, json, os, plistlib, subprocess, sys, time, urllib.parse, urllib.request
 
 BASE = os.environ.get("FLEET_URL", "https://qa.fleetdm.com") + "/api/latest/fleet"
-HOSTS = [int(h) for h in os.environ.get("SOAK_HOSTS", "624,629,631,635,636").split(",")]
+HOSTS = [int(h) for h in os.environ.get("SOAK_HOSTS", "624,629,631,635,636,858,860,865").split(",")]
 OFFLINE_MIN = int(os.environ.get("OFFLINE_MIN", "60"))
 COOLDOWN_MIN = int(os.environ.get("COOLDOWN_MIN", "120"))
 ALERT_MIN = int(os.environ.get("ALERT_MIN", "120"))
+STALE_MIN = int(os.environ.get("STALE_MIN", "120"))        # online, but software inventory this old: stuck
+FLEETD_WAIT_MIN = int(os.environ.get("FLEETD_WAIT_MIN", "60"))  # after restarting fleetd, how long before the VM
+# fleetd restart scripts. The restart has to outlive the script: fleetd kills a script's background children when
+# the script ends (a nohup'd "sleep; kickstart" never ran on 858, 2026-11-20), so hand it to launchd / Task Scheduler.
+RESTART_FLEETD = {
+    "darwin": "/bin/launchctl remove com.fleetqa.restart-orbit 2>/dev/null\n"
+              "/bin/launchctl submit -l com.fleetqa.restart-orbit -- /bin/sh -c "
+              "\"sleep 15; /bin/launchctl kickstart -k system/com.fleetdm.orbit; /bin/launchctl remove com.fleetqa.restart-orbit\"\n"
+              "echo scheduled",
+    "windows": "schtasks /Create /F /RU SYSTEM /SC ONCE /ST 00:00 /TN FleetQARestartOrbit /TR "
+               "\"powershell -NoProfile -Command Start-Sleep 15; Restart-Service -Name 'Fleet osquery' -Force\" | Out-Null\n"
+               "schtasks /Run /TN FleetQARestartOrbit | Out-Null\n'scheduled'",
+}
 PRLCTL = "/usr/local/bin/prlctl"
 DOCS = os.path.expanduser("~/Library/Containers/com.utmapp.UTM/Data/Documents")
 CFG = os.path.expanduser("~/.config/fma-vm-watchdog")
@@ -138,6 +156,105 @@ def seen(h):
     return datetime.datetime.fromisoformat(h["seen_time"].replace("Z", "+00:00"))
 
 
+def ts(v):
+    return datetime.datetime.fromisoformat(v.replace("Z", "+00:00")) if v else None
+
+
+def activities(hid, token):
+    req = urllib.request.Request(f"{BASE}/hosts/{hid}/activities?per_page=30",
+                                 headers={"Authorization": "Bearer " + token, "User-Agent": "fleet-qa-vm-watchdog"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r).get("activities") or []
+
+
+SOFTWARE_DONE = {("installed_software", "installed"), ("uninstalled_software", "uninstalled")}
+
+
+def changed_after(acts, since, grace_min=30):
+    """A successful install or uninstall more than grace_min after `since`: the software list changed, and a host
+    with working inventory would have reported it by now."""
+    cut = ts(since) + datetime.timedelta(minutes=grace_min)
+    return any((a.get("type"), (a.get("details") or {}).get("status")) in SOFTWARE_DONE and ts(a["created_at"]) > cut
+               for a in acts)
+
+
+def stale_inventory(hosts, now, acts_of):
+    """Online hosts whose software inventory is stuck, {host: software_updated_at}. Fleet only moves
+    software_updated_at when the software list changes, so an old value alone means nothing (an idle host keeps
+    it); stuck means it's STALE_MIN old although Fleet installed or uninstalled something on the host well after
+    it. 2026-11-19: 858 stayed online and answered live queries and scripts, but its inventory didn't move for
+    12 h through dozens of installs, so every app it tested looked undetected. If every such host is stuck, Fleet
+    itself (or its ingestion) is the problem, not the hosts: do nothing."""
+    cands = {hid: h["software_updated_at"] for hid, h in hosts.items()
+             if h.get("status") == "online" and h.get("software_updated_at")
+             and (now - ts(h["software_updated_at"])).total_seconds() / 60 >= STALE_MIN}
+    if not cands:
+        return {}
+    stuck = {}
+    for hid, since in cands.items():
+        try:
+            if changed_after(acts_of(hid), since):
+                stuck[hid] = since
+        except Exception as e:
+            log(f"host {hid}: can't read activities ({e})")
+    fresh = [hid for hid, h in hosts.items() if h.get("status") == "online" and h.get("software_updated_at")
+             and (now - ts(h["software_updated_at"])).total_seconds() / 60 < STALE_MIN]
+    return stuck if fresh else {}
+
+
+def run_script(hid, platform, token):
+    """Ask Fleet to restart fleetd on the host; True if Fleet accepted it."""
+    body = json.dumps({"host_id": hid, "script_contents": RESTART_FLEETD["windows" if platform == "windows" else "darwin"]})
+    req = urllib.request.Request(f"{BASE}/scripts/run", data=body.encode(), method="POST",
+                                 headers={"Authorization": "Bearer " + token, "User-Agent": "fleet-qa-vm-watchdog",
+                                          "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.status < 300
+    except Exception as e:
+        log(f"host {hid}: fleetd restart script not accepted ({e})")
+        return False
+
+
+def fix_stale(hosts, state, now, token, local_names, mine):
+    """Step through the fix for each stuck host this Mac owns (`mine`): restart fleetd through Fleet, then, if the
+    inventory is still stuck FLEETD_WAIT_MIN later, restart the VM (if it's on this Mac) or post to Slack. State:
+    state["stale"][host] = {"since": software_updated_at, "fleetd": iso, "vm": iso, "alerted": bool}."""
+    stale = stale_inventory(hosts, now, lambda hid: activities(hid, token))
+    book = dict(state.get("stale", {}))
+    msgs = []
+    for hid in list(book):
+        if int(hid) not in stale:
+            msgs.append(f"✅ FMA soak host {hid}: software inventory is updating again")
+            book.pop(hid)
+    for hid, since in stale.items():
+        if hid not in mine:
+            continue
+        b = book.setdefault(str(hid), {"since": since})
+        name = local_names.get(hid)
+        if not b.get("fleetd"):
+            log(f"host {hid}: online, software inventory stuck since {since}; {'would restart' if DRY else 'restarting'} fleetd")
+            if not DRY and run_script(hid, hosts[hid].get("platform"), token):
+                b["fleetd"] = now.isoformat()
+                msgs.append(f"🔧 FMA soak host {hid}: software inventory stuck since {since[:16]}Z; restarted fleetd")
+            continue
+        waited = (now - ts(b["fleetd"])).total_seconds() / 60
+        if waited < FLEETD_WAIT_MIN:
+            continue
+        if name and not b.get("vm"):
+            log(f"host {hid} = VM '{name}': inventory still stuck {waited:.0f} min after the fleetd restart; "
+                f"{'would restart' if DRY else 'restarting'} the VM")
+            if not DRY:
+                restart(name)
+                b["vm"] = now.isoformat()
+                msgs.append(f"🔧 FMA soak host {hid}: inventory still stuck after a fleetd restart; restarted its VM")
+        elif not b.get("alerted"):
+            b["alerted"] = True
+            msgs.append(f"⚠️ FMA soak host {hid}: software inventory stuck since {since[:16]}Z, and a fleetd restart"
+                        f"{' and a VM restart' if b.get('vm') else ''} didn't fix it. Pause it in FMA_SOAK_HOST_* and look.")
+    return msgs, book
+
+
 def main():
     token = open(os.path.join(CFG, "token")).read().strip()
     state = json.load(open(STATE)) if os.path.exists(STATE) else {}
@@ -164,6 +281,19 @@ def main():
             return  # not sent: keep the old state so the next run tries again
     if not DRY and alerted != state.get("alerted", {}):
         state["alerted"] = alerted
+        os.makedirs(CFG, exist_ok=True)
+        json.dump(state, open(STATE, "w"))
+    # stuck software inventory: this Mac handles its own VMs plus the hosts listed in vms.json "_stale"
+    local_names = {hid: named.get(str(hid)) or vms.get(mac(h.get("primary_mac"))) for hid, h in hosts.items()}
+    local_names = {hid: n for hid, n in local_names.items() if n}
+    mine = set(local_names) | set(named.get("_stale") or [])
+    smsgs, book = fix_stale(hosts, state, now, token, local_names, mine)
+    for m in smsgs:
+        log(f"slack: {m}")
+        if not DRY:
+            slack(m)
+    if not DRY and book != state.get("stale", {}):
+        state["stale"] = book
         os.makedirs(CFG, exist_ok=True)
         json.dump(state, open(STATE, "w"))
     for hid, h in hosts.items():
