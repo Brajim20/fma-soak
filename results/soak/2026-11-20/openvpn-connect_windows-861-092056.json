@@ -1,0 +1,82 @@
+{
+ "slug": "openvpn-connect/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-20T09:20:56",
+ "catalog_version": "3.9.0",
+ "catalog_id": "6ad8c5c351ae",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-20T13:20:46Z",
+  "restarted": "2026-11-16T10:13:00.550274Z",
+  "software_updated": "2026-11-20T13:19:42Z"
+ },
+ "title_id": 17690,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (68:14) [13:21:46:596]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (68:14) [13:21:46:598]: Destroying RemoteAPI object.\r\nMSI (s) (68:B4) [13:21:46:598]: Custom Action Manager thread ending.\r\nMSI (c) (0C:FC) [13:21:46:600]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (0C:FC) [13:21:46:602]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/20/2026  13:21:46 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  13:21:46 ===",
+  "=== Verbose logging stopped: 11/20/2026  13:21:46 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.9.0"
+ ],
+ "package_version": "3.9.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "OpenVPN Connect"
+  ],
+  "versions": [
+   "3.9.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (68:B0) [13:24:32:069]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (68:B0) [13:24:32:071]: Destroying RemoteAPI object.\r\nMSI (s) (68:A8) [13:24:32:071]: Custom Action Manager thread ending.\r\nMSI (c) (50:50) [13:24:32:077]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (50:50) [13:24:32:079]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/20/2026  13:24:32 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  13:24:32 ===",
+  "=== Verbose logging stopped: 11/20/2026  13:24:32 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-20T09:26:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-20T13:25:56Z",
+  "restarted": "2026-11-16T10:13:00.550274Z",
+  "software_updated": "2026-11-20T13:25:53Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-20/openvpn-connect_windows-861-092056.json",
+ "crosshost_of": "soak/2026-11-07/openvpn-connect_windows-635-101532.json"
+}
