@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 955,
+ "current_runs": 1014,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -14,6 +14,51 @@
    "current_record": "soak/2026-11-19/8x8-work_darwin-858-044203.json",
    "findings": [
     "uninstall: app still on host after cleanup uninstall"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "docker-desktop/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/docker-desktop_darwin-858-223526.json",
+   "current_record": "soak/2026-11-19/docker-desktop_darwin-858-202336.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "fleet-desktop/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/fleet-desktop_darwin-858-180758.json",
+   "current_record": "soak/2026-11-19/fleet-desktop_darwin-858-173227.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "onedrive/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/onedrive_darwin-858-185528.json",
+   "current_record": "soak/2026-11-19/onedrive_darwin-858-210905.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
    ],
    "triaged": [],
    "why": "passed on the baseline",
@@ -70,6 +115,51 @@
    "why": "new failure shape S3",
    "reproduced": true,
    "cause": "catalog: 26.1111.21308 -> 26.1111.71025"
+  },
+  {
+   "app": "claude/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/claude_darwin-858-182752.json",
+   "current_record": "soak/2026-11-19/claude_darwin-858-193935.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 5.11492.5 -> 6.6395.1"
+  },
+  {
+   "app": "firefox/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/firefox_darwin-858-084059.json",
+   "current_record": "soak/2026-11-19/firefox_darwin-858-185654.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 160.0 -> 160.0.1"
+  },
+  {
+   "app": "google-chrome/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/google-chrome_darwin-858-083431.json",
+   "current_record": "soak/2026-11-19/google-chrome_darwin-858-181438.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 157.0.8103.79 -> 158.0.8127.37"
   },
   {
    "app": "spotify/windows@862",
