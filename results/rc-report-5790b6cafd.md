@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1207 · compared on both builds: 126
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1240 · compared on both builds: 130
 
 **7 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -29,4 +29,4 @@ Next: check each against the baseline's code (is the failing step in Fleet's cod
 | wireshark/windows@859 | lifecycle | 4.6.9 -> 4.6.10 | add: add failed 524: error code: 524
  | #56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted |
 
-Fixed on this build (6): druva-insync/darwin@858 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), rubymine/windows@861 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (8): bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), druva-insync/darwin@858 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), rubymine/windows@861 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
