@@ -1,0 +1,116 @@
+{
+ "slug": "aptakube/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "3562b9345a6c",
+ "started": "2026-11-20T07:26:11",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "after the upgrade to 1.23.0: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-20T11:26:06Z",
+  "restarted": "2026-11-16T10:13:00.550274Z",
+  "software_updated": "2026-11-20T11:25:59Z"
+ },
+ "title_id": 23463,
+ "cached_versions": [
+  "1.22.3",
+  "1.23.0"
+ ],
+ "active_before": "1.23.0",
+ "pin_older_status": 200,
+ "active_after_pin": "1.22.3",
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": ":016]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (E8:98) [11:26:50:018]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (E8:98) [11:26:50:018]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (80:B4) [11:26:50:020]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (80:B4) [11:26:50:022]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/20/2026  11:26:50 ===\r\n\r\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  11:26:50 ===",
+  "=== Verbose logging stopped: 11/20/2026  11:26:50 ==="
+ ],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   "C:\\Program Files\\Aptakube\\"
+  ],
+  "names": [
+   "Aptakube"
+  ],
+  "versions": [
+   "1.22.3"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "1.23.0",
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "11064"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 46,
+ "upgrade_install_output_tail": "0:9C) [11:28:56:485]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (50:9C) [11:28:56:486]: MainEngineThread is returning 0\r\nMSI (c) (50:F8) [11:28:56:492]: RESTART MANAGER: Previously shut down applications have been restarted.\r\nMSI (c) (50:F8) [11:28:56:493]: RESTART MANAGER: Session closed.\r\nMSI (c) (50:F8) [11:28:56:497]: RESTART MANAGER: Previously shut down applications have been restarted.\r\nMSI (c) (50:F8) [11:28:56:497]: RESTART MANAGER: Session closed.\r\n=== Verbose logging stopped: 11/20/2026  11:28:56 ===\r\n\r\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "=== Logging stopped: 11/20/2026  11:28:56 ===",
+  "=== Verbose logging stopped: 11/20/2026  11:28:56 ==="
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "11064",
+   "path": "C:\\Config.Msi\\14dd0a7d.rbf",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "upgrade_running_note": "the old copy kept running from its renamed files (C:\\Config.Msi\\14dd0a7d.rbf, pid 11064); expected on Windows",
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Program Files\\Aptakube\\"
+  ],
+  "names": [
+   "Aptakube"
+  ],
+  "versions": [
+   "1.23.0"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 0,
+  "pids": [
+   "11064"
+  ],
+  "note": null
+ },
+ "upgrade_after_starts": false,
+ "upgrade_after_close": "0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-20T07:31:48",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-20T11:31:46Z",
+  "restarted": "2026-11-16T10:13:00.550274Z",
+  "software_updated": "2026-11-20T11:31:48Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-20/evidence/aptakube_windows-861-072611-library.png",
+  "inventory": "results/soak/2026-11-20/evidence/aptakube_windows-861-072611-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-20/aptakube_windows-861-072611.json"
+}
