@@ -1,6 +1,6 @@
 {
- "run_at": "2026-11-20T13:08:36",
- "build": "4.95.0 (5790b6cafd)",
+ "run_at": "2026-11-20T13:13:44",
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
  "results": [
   {
    "test": "test_newest_version_active",
@@ -98,7 +98,7 @@
    "test": "test_pinned_script_refresh",
    "passed": false,
    "verdict": "KNOWN #53009",
-   "seconds": 3,
+   "seconds": 4,
    "pin_status": 200,
    "pinned": "1.0.0",
    "install_script": "#!/bin/sh\necho install A"
@@ -107,7 +107,7 @@
    "test": "test_unsatisfiable_caret_rejected",
    "passed": false,
    "verdict": "KNOWN #53008",
-   "seconds": 3,
+   "seconds": 4,
    "caret_1_status": 200,
    "active_after_caret_1": "1.0.0",
    "literal_9.9.9_status": 404,
@@ -167,7 +167,7 @@
    "test": "test_gitops_duplicate_fma_rejected",
    "passed": false,
    "verdict": "KNOWN #56507",
-   "seconds": 2,
+   "seconds": 3,
    "rc": 0,
    "last": "[!] gitops succeeded"
   },
@@ -192,7 +192,7 @@
    "test": "test_gitops_patch_and_install_policy_same_slug",
    "passed": true,
    "verdict": "PASS",
-   "seconds": 4,
+   "seconds": 3,
    "rc": [
     0,
     0
@@ -207,7 +207,7 @@
    "test": "test_gitops_swap_same_bundle_id",
    "passed": true,
    "verdict": "PASS",
-   "seconds": 4,
+   "seconds": 3,
    "rc": [
     0,
     0
