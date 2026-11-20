@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T05:51:20",
+ "built": "2026-11-20T08:58:27",
  "coverage": {
   "darwin": {
    "covered": 979,
@@ -20,15 +20,17 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "zoom/darwin": 58
+      "zoom/darwin": 61
      }
     },
     {
      "name": "daily",
      "every_hours": 24,
      "apps": 15,
-     "on_time": 15,
-     "overdue": {}
+     "on_time": 14,
+     "overdue": {
+      "figma/darwin": 30
+     }
     },
     {
      "name": "twice_weekly",
@@ -74,7 +76,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 490
+      "onedrive/windows": 493
      }
     }
    ]
@@ -31420,16 +31422,16 @@
    }
   },
   "github/darwin@90005": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-08T15:52:06",
-   "last_cycled": "2026-11-15T02:20:04",
+   "last_cycled": "2026-11-20T05:57:23",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-15T02:20:04",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "3.6.11",
-    "record": "results/soak/2026-11-15/github_darwin-878-022004.json",
+    "date": "2026-11-20T05:57:23",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.7.0",
+    "record": "results/soak/2026-11-20/github_darwin-1020-055723.json",
     "findings": []
    }
   },
@@ -38155,13 +38157,13 @@
   },
   "010-editor/windows@861": {
    "lifecycle_runs": 1,
-   "update_runs": 4,
+   "update_runs": 5,
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-19T00:25:37",
+    "date": "2026-11-20T07:20:57",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/010-editor_windows-861-002537.json",
+    "record": "results/soak/2026-11-20/010-editor_windows-861-072057.json",
     "findings": []
    },
    "first_cycled": "2026-11-19T21:35:48",
@@ -38287,13 +38289,13 @@
   },
   "8x8-work/windows@861": {
    "lifecycle_runs": 0,
-   "update_runs": 8,
+   "update_runs": 9,
    "last_update": {
     "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
-    "date": "2026-11-19T14:49:31",
+    "date": "2026-11-20T07:26:10",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/8x8-work_windows-861-144931.json",
+    "record": "results/soak/2026-11-20/8x8-work_windows-861-072610.json",
     "findings": []
    }
   },
@@ -38465,13 +38467,13 @@
   },
   "aptakube/windows@861": {
    "lifecycle_runs": 0,
-   "update_runs": 5,
+   "update_runs": 7,
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-11-19T00:32:18",
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-20T07:31:59",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/aptakube_windows-861-003218.json",
+    "record": "results/soak/2026-11-20/aptakube_windows-861-073159.json",
     "findings": []
    }
   },
@@ -38491,13 +38493,13 @@
   },
   "asana/windows@861": {
    "lifecycle_runs": 0,
-   "update_runs": 4,
+   "update_runs": 5,
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-19T00:37:20",
+    "date": "2026-11-20T07:38:07",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/asana_windows-861-003720.json",
+    "record": "results/soak/2026-11-20/asana_windows-861-073807.json",
     "findings": []
    }
   },
@@ -38779,16 +38781,16 @@
    }
   },
   "claude/windows@861": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 2,
    "first_cycled": "2026-11-15T22:32:27",
-   "last_cycled": "2026-11-19T13:52:00",
+   "last_cycled": "2026-11-20T06:25:56",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:52:00",
+    "date": "2026-11-20T06:25:56",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.4212.0",
-    "record": "results/soak/2026-11-19/claude_windows-861-135200.json",
+    "record": "results/soak/2026-11-20/claude_windows-861-062556.json",
     "findings": []
    },
    "last_update": {
@@ -39088,13 +39090,13 @@
   },
   "docker/windows@861": {
    "lifecycle_runs": 5,
-   "update_runs": 7,
+   "update_runs": 8,
    "last_update": {
     "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
-    "date": "2026-11-19T14:49:33",
+    "date": "2026-11-20T07:44:58",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/docker_windows-861-144933.json",
+    "record": "results/soak/2026-11-20/docker_windows-861-074458.json",
     "findings": []
    },
    "last_lifecycle": {
@@ -39353,16 +39355,16 @@
    }
   },
   "figma/windows@861": {
-   "lifecycle_runs": 17,
+   "lifecycle_runs": 19,
    "update_runs": 3,
    "first_cycled": "2026-11-15T22:55:09",
-   "last_cycled": "2026-11-20T02:17:49",
+   "last_cycled": "2026-11-20T06:52:29",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-20T02:17:49",
+    "date": "2026-11-20T06:52:29",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-20/figma_windows-861-021749.json",
+    "record": "results/soak/2026-11-20/figma_windows-861-065229.json",
     "findings": [
      "before it was installed, Fleet lists it as installed ['126.11.9']: another app's inventory matches this title (#51299 shape)"
     ]
@@ -39389,24 +39391,24 @@
    }
   },
   "firefox@developer-edition/windows@861": {
-   "lifecycle_runs": 8,
-   "update_runs": 4,
+   "lifecycle_runs": 9,
+   "update_runs": 5,
    "first_cycled": "2026-11-15T22:03:45",
-   "last_cycled": "2026-11-19T13:35:25",
+   "last_cycled": "2026-11-20T06:08:16",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:35:25",
+    "date": "2026-11-20T06:08:16",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "160.0",
-    "record": "results/soak/2026-11-19/firefox@developer-edition_windows-861-133525.json",
+    "record": "results/soak/2026-11-20/firefox@developer-edition_windows-861-060816.json",
     "findings": []
    },
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-19T00:42:34",
+    "date": "2026-11-20T07:44:59",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/firefox@developer-edition_windows-861-004234.json",
+    "record": "results/soak/2026-11-20/firefox@developer-edition_windows-861-074459.json",
     "findings": []
    }
   },
@@ -39423,24 +39425,24 @@
    }
   },
   "firefox@nightly/windows@861": {
-   "lifecycle_runs": 9,
-   "update_runs": 5,
+   "lifecycle_runs": 10,
+   "update_runs": 6,
    "first_cycled": "2026-11-15T22:24:59",
-   "last_cycled": "2026-11-19T13:44:09",
+   "last_cycled": "2026-11-20T06:17:31",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:44:09",
+    "date": "2026-11-20T06:17:31",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "162.2611.1709.0",
-    "record": "results/soak/2026-11-19/firefox@nightly_windows-861-134409.json",
+    "record": "results/soak/2026-11-20/firefox@nightly_windows-861-061731.json",
     "findings": []
    },
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-19T00:48:37",
+    "date": "2026-11-20T07:50:38",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/firefox@nightly_windows-861-004837.json",
+    "record": "results/soak/2026-11-20/firefox@nightly_windows-861-075038.json",
     "findings": []
    }
   },
@@ -39469,16 +39471,16 @@
    }
   },
   "firefox/windows@861": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 3,
    "first_cycled": "2026-11-15T21:54:37",
-   "last_cycled": "2026-11-19T13:26:22",
+   "last_cycled": "2026-11-20T05:59:05",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:26:22",
+    "date": "2026-11-20T05:59:05",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "160.0.1",
-    "record": "results/soak/2026-11-19/firefox_windows-861-132622.json",
+    "record": "results/soak/2026-11-20/firefox_windows-861-055905.json",
     "findings": []
    },
    "last_update": {
@@ -39608,16 +39610,16 @@
    }
   },
   "google-chrome/windows@861": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 9,
    "update_runs": 5,
    "first_cycled": "2026-11-15T21:49:33",
-   "last_cycled": "2026-11-19T13:20:40",
+   "last_cycled": "2026-11-20T05:53:39",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:20:40",
+    "date": "2026-11-20T05:53:39",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "158.0.8127.37",
-    "record": "results/soak/2026-11-19/google-chrome_windows-861-132040.json",
+    "record": "results/soak/2026-11-20/google-chrome_windows-861-055339.json",
     "findings": []
    },
    "last_update": {
@@ -39642,16 +39644,16 @@
    }
   },
   "google-drive/windows@859": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 14,
    "update_runs": 0,
    "first_cycled": "2026-11-15T21:46:39",
-   "last_cycled": "2026-11-19T14:30:57",
+   "last_cycled": "2026-11-20T05:59:57",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T14:30:57",
+    "date": "2026-11-20T05:59:57",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "134.0.1.0",
-    "record": "results/soak/2026-11-19/google-drive_windows-859-143057.json",
+    "record": "results/soak/2026-11-20/google-drive_windows-859-055957.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -39659,33 +39661,33 @@
    }
   },
   "google-drive/windows@862": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T13:29:15",
+    "date": "2026-11-20T06:00:17",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "134.0.1.0",
-    "record": "results/soak/2026-11-19/google-drive_windows-862-132915.json",
+    "record": "results/soak/2026-11-20/google-drive_windows-862-060017.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
     ]
    },
    "first_cycled": "2026-11-16T21:40:34",
-   "last_cycled": "2026-11-19T13:29:15"
+   "last_cycled": "2026-11-20T06:00:17"
   },
   "google-drive/windows@863": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 14,
    "update_runs": 0,
    "first_cycled": "2026-11-15T22:57:21",
-   "last_cycled": "2026-11-19T09:50:39",
+   "last_cycled": "2026-11-20T05:59:24",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T09:50:39",
+    "date": "2026-11-20T05:59:24",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "133.0.2.0",
-    "record": "results/soak/2026-11-19/google-drive_windows-863-095039.json",
+    "catalog_version": "134.0.1.0",
+    "record": "results/soak/2026-11-20/google-drive_windows-863-055924.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -39693,16 +39695,16 @@
    }
   },
   "google-drive/windows@864": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "first_cycled": "2026-11-15T18:15:33",
-   "last_cycled": "2026-11-19T13:31:03",
+   "last_cycled": "2026-11-20T06:06:08",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T13:31:03",
+    "date": "2026-11-20T06:06:08",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "134.0.1.0",
-    "record": "results/soak/2026-11-19/google-drive_windows-864-133103.json",
+    "record": "results/soak/2026-11-20/google-drive_windows-864-060608.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as None"
@@ -40130,14 +40132,14 @@
    }
   },
   "microsoft-dotnet-runtime-8/windows@862": {
-   "lifecycle_runs": 20,
+   "lifecycle_runs": 21,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (None)",
-    "date": "2026-11-20T02:24:13",
+    "date": "2026-11-20T06:23:28",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "8.0.34",
-    "record": "results/soak/2026-11-20/microsoft-dotnet-runtime-8_windows-862-022413.json",
+    "record": "results/soak/2026-11-20/microsoft-dotnet-runtime-8_windows-862-062328.json",
     "findings": []
    }
   },
@@ -40576,16 +40578,16 @@
    }
   },
   "postman/windows@861": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 11,
    "update_runs": 3,
    "first_cycled": "2026-11-15T22:39:12",
-   "last_cycled": "2026-11-19T13:58:50",
+   "last_cycled": "2026-11-20T06:33:03",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T13:58:50",
+    "date": "2026-11-20T06:33:03",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "12.37.3",
-    "record": "results/soak/2026-11-19/postman_windows-861-135850.json",
+    "record": "results/soak/2026-11-20/postman_windows-861-063303.json",
     "findings": []
    },
    "last_update": {
@@ -40967,24 +40969,24 @@
    }
   },
   "signal/windows@861": {
-   "lifecycle_runs": 7,
-   "update_runs": 5,
+   "lifecycle_runs": 8,
+   "update_runs": 6,
    "first_cycled": "2026-11-15T23:01:32",
-   "last_cycled": "2026-11-19T14:29:54",
+   "last_cycled": "2026-11-20T07:03:52",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T14:29:54",
+    "date": "2026-11-20T07:03:52",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "8.35.0",
-    "record": "results/soak/2026-11-19/signal_windows-861-142954.json",
+    "catalog_version": "8.36.0",
+    "record": "results/soak/2026-11-20/signal_windows-861-070352.json",
     "findings": []
    },
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-19T00:55:51",
+    "date": "2026-11-20T07:57:57",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/signal_windows-861-005551.json",
+    "record": "results/soak/2026-11-20/signal_windows-861-075757.json",
     "findings": []
    }
   },
@@ -41440,14 +41442,16 @@
   },
   "visual-studio-code/darwin@858": {
    "lifecycle_runs": 3,
-   "update_runs": 5,
+   "update_runs": 6,
    "last_update": {
-    "outcome": "skipped: app already on host",
-    "date": "2026-11-17T21:17:43",
+    "outcome": "findings",
+    "date": "2026-11-19T21:34:06",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-17/visual-studio-code_darwin-858-211743.json",
-    "findings": []
+    "record": "results/soak/2026-11-19/visual-studio-code_darwin-858-213406.json",
+    "findings": [
+     "the app was closed 3 h ago and the patch to 1.147.0 never installed (last attempt: installed, policy fail)"
+    ]
    },
    "first_cycled": "2026-11-16T20:48:11",
    "last_cycled": "2026-11-18T21:30:54",
@@ -41702,16 +41706,16 @@
    }
   },
   "zoom/windows@861": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 2,
    "first_cycled": "2026-11-15T23:10:38",
-   "last_cycled": "2026-11-19T14:39:03",
+   "last_cycled": "2026-11-20T07:15:39",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T14:39:03",
+    "date": "2026-11-20T07:15:39",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "7.2.51704",
-    "record": "results/soak/2026-11-19/zoom_windows-861-143903.json",
+    "record": "results/soak/2026-11-20/zoom_windows-861-071539.json",
     "findings": []
    },
    "last_update": {
@@ -43074,16 +43078,16 @@
    }
   },
   "db-browser-for-sqlite/windows@864": {
-   "lifecycle_runs": 21,
+   "lifecycle_runs": 22,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:19:52",
    "last_cycled": "2026-11-16T02:28:21",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-20T02:08:48",
+    "date": "2026-11-20T06:00:22",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.13.1",
-    "record": "results/soak/2026-11-20/db-browser-for-sqlite_windows-864-020848.json",
+    "record": "results/soak/2026-11-20/db-browser-for-sqlite_windows-864-060022.json",
     "findings": []
    }
   },
@@ -46090,14 +46094,14 @@
    }
   },
   "onedrive/windows@859": {
-   "lifecycle_runs": 22,
+   "lifecycle_runs": 23,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-20T02:43:52",
+    "date": "2026-11-20T06:20:10",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "26.183.0920.0005",
-    "record": "results/soak/2026-11-20/onedrive_windows-859-024352.json",
+    "record": "results/soak/2026-11-20/onedrive_windows-859-062010.json",
     "findings": []
    }
   },
@@ -47466,13 +47470,13 @@
   },
   "sublime-text/windows@861": {
    "lifecycle_runs": 2,
-   "update_runs": 8,
+   "update_runs": 10,
    "last_update": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T01:05:12",
+    "date": "2026-11-20T08:06:21",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-19/sublime-text_windows-861-010512.json",
+    "record": "results/soak/2026-11-20/sublime-text_windows-861-080621.json",
     "findings": [
      "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
     ]
@@ -48189,16 +48193,14 @@
   },
   "visual-studio-code/windows@861": {
    "lifecycle_runs": 2,
-   "update_runs": 3,
+   "update_runs": 4,
    "last_update": {
-    "outcome": "findings",
-    "date": "2026-11-17T22:46:48",
+    "outcome": "pass",
+    "date": "2026-11-20T08:08:35",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-17/visual-studio-code_windows-861-224648.json",
-    "findings": [
-     "the app was closed 3 h ago and the patch to 1.142.0 never installed (last attempt: installed, policy fail)"
-    ]
+    "record": "results/soak/2026-11-20/visual-studio-code_windows-861-080835.json",
+    "findings": []
    },
    "first_cycled": "2026-11-18T21:39:44",
    "last_cycled": "2026-11-19T21:57:21",
@@ -51048,30 +51050,30 @@
    }
   },
   "figma/windows@859": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T17:23:32",
+    "date": "2026-11-20T06:06:06",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-19/figma_windows-859-172332.json",
+    "record": "results/soak/2026-11-20/figma_windows-859-060606.json",
     "findings": []
    },
    "first_cycled": "2026-11-17T09:31:39",
-   "last_cycled": "2026-11-19T17:23:32"
+   "last_cycled": "2026-11-20T06:06:06"
   },
   "figma/windows@862": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-17T03:55:36",
-   "last_cycled": "2026-11-19T17:23:53",
+   "last_cycled": "2026-11-20T06:10:35",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T17:23:53",
+    "date": "2026-11-20T06:10:35",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-19/figma_windows-862-172353.json",
+    "record": "results/soak/2026-11-20/figma_windows-862-061035.json",
     "findings": []
    }
   },
@@ -60170,6 +60172,20 @@
     "findings": []
    }
   },
+  "aws-sam-cli/windows@861": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T08:30:28",
+   "last_cycled": "2026-11-20T08:30:28",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T08:30:28",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.173.0",
+    "record": "results/soak/2026-11-20/aws-sam-cli_windows-861-083028.json",
+    "findings": []
+   }
+  },
   "azure-functions-core-tools/windows@859": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -60195,6 +60211,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.35.4",
     "record": "results/soak/2026-11-20/bdash_windows-859-021741.json",
+    "findings": []
+   }
+  },
+  "bdash/windows@861": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T08:15:04",
+   "last_cycled": "2026-11-20T08:15:04",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T08:15:04",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.35.4",
+    "record": "results/soak/2026-11-20/bdash_windows-861-081504.json",
     "findings": []
    }
   },
@@ -60237,6 +60267,34 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.0",
     "record": "results/soak/2026-11-20/blurscreen_darwin-1015-024705.json",
+    "findings": []
+   }
+  },
+  "chatgpt-atlas/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T05:53:50",
+   "last_cycled": "2026-11-20T05:53:50",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T05:53:50",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.2026.189.1",
+    "record": "results/soak/2026-11-20/chatgpt-atlas_darwin-860-055350.json",
+    "findings": []
+   }
+  },
+  "chatgpt-atlas/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:08:21",
+   "last_cycled": "2026-11-20T06:08:21",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T06:08:21",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.2026.189.1",
+    "record": "results/soak/2026-11-20/chatgpt-atlas_darwin-865-060821.json",
     "findings": []
    }
   },
@@ -60296,6 +60354,51 @@
     "findings": [
      "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://www.crestron.com/software_files_public/am-100/airmediaperipherals64_1.11.1.164.msi\") received response status code 403."
     ]
+   }
+  },
+  "dante-controller/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:15:57",
+   "last_cycled": "2026-11-20T06:15:57",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T06:15:57",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "4.18.1.1",
+    "record": "results/soak/2026-11-20/dante-controller_darwin-860-061557.json",
+    "findings": []
+   }
+  },
+  "dbeaver-enterprise/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:00:42",
+   "last_cycled": "2026-11-20T06:08:08",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-20T06:08:08",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "26.2.0",
+    "record": "results/soak/2026-11-20/dbeaver-enterprise_darwin-860-060808.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)",
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
+   }
+  },
+  "egnyte/windows@859": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:13:05",
+   "last_cycled": "2026-11-20T06:13:05",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T06:13:05",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "4.8.2.212",
+    "record": "results/soak/2026-11-20/egnyte_windows-859-061305.json",
+    "findings": []
    }
   },
   "elgato-wave-link/darwin@865": {
@@ -60414,6 +60517,20 @@
     "findings": []
    }
   },
+  "ibm-semeru-jdk-8/windows@862": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:18:35",
+   "last_cycled": "2026-11-20T06:18:35",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T06:18:35",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "8.0.512.0",
+    "record": "results/soak/2026-11-20/ibm-semeru-jdk-8_windows-862-061835.json",
+    "findings": []
+   }
+  },
   "idagio/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -60425,6 +60542,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.15.0",
     "record": "results/soak/2026-11-20/idagio_darwin-860-024759.json",
+    "findings": []
+   }
+  },
+  "idagio/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T06:02:07",
+   "last_cycled": "2026-11-20T06:02:07",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T06:02:07",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.15.0",
+    "record": "results/soak/2026-11-20/idagio_darwin-865-060207.json",
     "findings": []
    }
   },
@@ -60485,6 +60616,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "18.6.6",
     "record": "results/soak/2026-11-20/keeper-password-manager_darwin-1016-022449.json",
+    "findings": []
+   }
+  },
+  "keeper-password-manager/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T05:55:37",
+   "last_cycled": "2026-11-20T05:55:37",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T05:55:37",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "18.6.6",
+    "record": "results/soak/2026-11-20/keeper-password-manager_darwin-865-055537.json",
     "findings": []
    }
   },
@@ -60611,6 +60756,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "9.3.6",
     "record": "results/soak/2026-11-20/netron_darwin-1013-021527.json",
+    "findings": []
+   }
+  },
+  "notepad++/windows@861": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-20T08:50:35",
+   "last_cycled": "2026-11-20T08:50:35",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-20T08:50:35",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "8.9.9.1",
+    "record": "results/soak/2026-11-20/notepad++_windows-861-085035.json",
     "findings": []
    }
   },
