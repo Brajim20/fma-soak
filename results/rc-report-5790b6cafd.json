@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 1082,
+ "current_runs": 1166,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -124,7 +124,9 @@
    "findings": [
     "S1: inventory never reported the app after install + refetch"
    ],
-   "triaged": [],
+   "triaged": [
+    "dup #57139 (commented 2026-11-19): host reports upgrade_code {AC76BA86-0000-0000-7760-7E8A45000000}, manifest/title has none, install lands on the upgrade-code-keyed 'Adobe Acrobat (64-bit)' title (confirmed on 635); not #57681"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 26.002.22031 -> 26.003.22110"
@@ -288,6 +290,6 @@
    "triaged": []
   }
  ],
- "compared": 124,
+ "compared": 125,
  "canaries_not_yet_on_current": []
 }
