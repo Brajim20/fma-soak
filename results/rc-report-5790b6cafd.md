@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1345 · compared on both builds: 132
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1366 · compared on both builds: 132
 
 **7 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -16,7 +16,7 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 
 Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
 
-**Catalog changes (7)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
+**Catalog changes (6)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 
 | App | Path | What changed | Findings now | Triaged as |
 |---|---|---|---|---|
@@ -25,7 +25,6 @@ Next: check each against the baseline's code (is the failing step in Fleet's cod
 | claude/darwin@858 | lifecycle | 5.11492.5 -> 6.6395.1 | S1: inventory never reported the app after install + refetch | **new** |
 | firefox/darwin@858 | lifecycle | 160.0 -> 160.0.1 | S1: inventory never reported the app after install + refetch | **new** |
 | google-chrome/darwin@858 | lifecycle | 157.0.8103.79 -> 158.0.8127.37 | S1: inventory never reported the app after install + refetch | **new** |
-| spotify/windows@862 | lifecycle | the vendor's installer no longer matches the manifest's hash | add: add failed 500: mismatch in maintained app SHA256 hash | catalog race, fixed: SpotifyFullSetupX64.exe (unversioned URL) served 1.3.10 while the catalog still had 1.3.9's hash; catalog moved to 1.3.10 in #59164 (2026-11-18 20:33Z). The 500 instead of a 4xx i |
 | wireshark/windows@859 | lifecycle | 4.6.9 -> 4.6.10 | add: add failed 524: error code: 524
  | #56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted |
 
