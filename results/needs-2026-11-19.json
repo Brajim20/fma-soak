@@ -48,6 +48,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/affinity/darwin.json), [affinity.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/affinity.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-12 Fleet-maintained apps: relaunch Affinity (macOS) by path after an install (#58404); 2026-06-07 FMA - Affinity (#47009) \u00b7 issues mentioning it: #59193 (open), #57957 (closed), #59149 (closed), #49522 (open), #59094 (closed)"
  },
  {
+  "app": "chatgpt/darwin@1010",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/chatgpt_darwin-1010-220331.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/chatgpt/darwin.json), [chatgpt.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/chatgpt.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-18 Fleet-maintained apps: quit and relaunch the current ChatGPT app on macOS install (#59118); 2026-07-13 Update Fleet-maintained apps (#49196); 2025-11-18 Adding ChatGPT as macOS Fleet-maintained app (#34997) \u00b7 issues mentioning it: #57025 (open), #56935 (open), #56937 (open), #57515 (closed), #19255 (open)"
+ },
+ {
   "app": "claude/darwin@858",
   "shape": "S1",
   "msgs": [
@@ -55,7 +67,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 865 (flaky) [record](soak/2026-11-19/claude_darwin-865-220136.json)",
   "record": "results/soak/2026-11-19/claude_darwin-858-193935.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/claude/darwin.json), [claude.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/claude.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-08-21 chown Claude.app to console user so Claude Desktop auto-updates keep working (#51680); 2025-11-08 Adding Claude Desktop as macOS FMA (#35000) \u00b7 issues mentioning it: #56768 (open), #56936 (open), #57926 (open), #56040 (open), #56937 (open)"
  },
@@ -79,7 +91,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 865 (pass) [record](soak/2026-11-19/docker-desktop_darwin-865-214840.json)",
   "record": "results/soak/2026-11-19/docker-desktop_darwin-858-202336.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker-desktop/darwin.json), [docker-desktop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/docker-desktop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-28 Harden Teleport Suite and Docker Desktop FMA scripts against user-home symlinks (#56838); 2026-08-10 Fix Docker Desktop macOS FMA not reporting an installed version (#50885); 2026-07-28 Amend Docker Desktop patch policy SQL (#50041) \u00b7 issues mentioning it: #45458 (open), #34504 (open), #59066 (open), #57790 (open), #55997 (open)"
  },
@@ -115,8 +127,20 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "reproduced on 858 [record](soak/2026-11-19/gog-galaxy_darwin-858-232152.json)",
   "record": "results/soak/2026-11-19/gog-galaxy_darwin-1002-172846.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/darwin.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gog-galaxy.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "gog-galaxy/darwin@858",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/gog-galaxy_darwin-858-232152.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/darwin.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gog-galaxy.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #49300 (closed)"
  },
  {
@@ -163,7 +187,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 865 (flaky) [record](soak/2026-11-19/onedrive_darwin-865-214147.json)",
   "record": "results/soak/2026-11-19/onedrive_darwin-858-210905.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/onedrive/darwin.json), [onedrive.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/onedrive.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2025-11-26 macOS FMA: OneDrive (#36245) \u00b7 issues mentioning it: #58947 (open), #55961 (open), #57008 (closed), #22713 (closed), #48248 (open)"
  },
@@ -494,6 +518,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/viscosity/windows.json), [viscosity.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/viscosity.json), [viscosity_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/viscosity_install.ps1), [viscosity_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/viscosity_uninstall.ps1) \u00b7 last changes: 2026-06-07 Add several Windows FMAs (#47037) \u00b7 issues mentioning it: #47323 (closed)"
  },
  {
+  "app": "viscosity/windows@862",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/viscosity_windows-862-214737.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/viscosity/windows.json), [viscosity.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/viscosity.json), [viscosity_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/viscosity_install.ps1), [viscosity_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/viscosity_uninstall.ps1) \u00b7 last changes: 2026-06-07 Add several Windows FMAs (#47037) \u00b7 issues mentioning it: #47323 (closed)"
+ },
+ {
   "app": "winrar/windows@861",
   "shape": "S6",
   "msgs": [
@@ -542,6 +578,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crestron-airmedia-peripherals/windows.json), [crestron-airmedia-peripherals.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crestron-airmedia-peripherals.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-10 Re-add Crestron AirMedia (+Peripherals) Windows FMAs (#49127) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "crestron-airmedia-peripherals/windows@861",
+  "shape": "add",
+  "msgs": [
+   "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://www.crestron.com/software_files_public/am-100/airmediaperipherals64_1.11.1.164.msi\") received response status code 403."
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/crestron-airmedia-peripherals_windows-861-214332.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crestron-airmedia-peripherals/windows.json), [crestron-airmedia-peripherals.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crestron-airmedia-peripherals.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-07-10 Re-add Crestron AirMedia (+Peripherals) Windows FMAs (#49127) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "dialpad/windows@859",
   "shape": "add",
   "msgs": [
@@ -573,8 +621,20 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "reproduced on 858 [record](soak/2026-11-19/jabra-direct_darwin-858-224547.json)",
   "record": "results/soak/2026-11-19/jabra-direct_darwin-1004-173418.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/jabra-direct/darwin.json), [jabra-direct.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/jabra-direct.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-18 Update Fleet-maintained apps (#59191); 2025-12-10 Add multiple macOS FMAs (#37069) \u00b7 issues mentioning it: #57548 (closed)"
+ },
+ {
+  "app": "jabra-direct/darwin@858",
+  "shape": "add",
+  "msgs": [
+   "add failed 500: lookup jabraxpressonlineprdstor.blob.core.windows.net on 169.254.20.10:53: no such host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-19/jabra-direct_darwin-858-224547.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/jabra-direct/darwin.json), [jabra-direct.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/jabra-direct.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-18 Update Fleet-maintained apps (#59191); 2025-12-10 Add multiple macOS FMAs (#37069) \u00b7 issues mentioning it: #57548 (closed)"
  },
  {

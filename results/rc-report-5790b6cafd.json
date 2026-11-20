@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 1014,
+ "current_runs": 1082,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -51,12 +51,42 @@
    "cause": null
   },
   {
+   "app": "microsoft-teams/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/microsoft-teams_darwin-858-205513.json",
+   "current_record": "soak/2026-11-20/microsoft-teams_darwin-858-013806.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
    "app": "onedrive/darwin@858",
    "kind": "lifecycle",
    "baseline": "pass",
    "current": "findings",
    "baseline_record": "soak/2026-11-16/onedrive_darwin-858-185528.json",
    "current_record": "soak/2026-11-19/onedrive_darwin-858-210905.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "slack/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/slack_darwin-858-210833.json",
+   "current_record": "soak/2026-11-20/slack_darwin-858-005516.json",
    "findings": [
     "S1: inventory never reported the app after install + refetch"
    ],
@@ -258,6 +288,6 @@
    "triaged": []
   }
  ],
- "compared": 123,
+ "compared": 124,
  "canaries_not_yet_on_current": []
 }

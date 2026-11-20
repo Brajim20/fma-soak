@@ -1,15 +1,17 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1014 · compared on both builds: 123
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1082 · compared on both builds: 124
 
-**5 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+**7 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
 | App | Path | Why | Retry | Findings now | Triaged as |
 |---|---|---|---|---|---|
 | 8x8-work/darwin@858 | update_path | passed on the baseline | reproduced | uninstall: app still on host after cleanup uninstall | **new** |
 | docker-desktop/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | fleet-desktop/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
+| microsoft-teams/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | onedrive/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
+| slack/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | wezterm/darwin@865 | lifecycle | new failure shape S3, install | reproduced | S3: first uninstall: app still on host (status None)<br>install: second install ended as None<br>S3: second uninstall: app still on host (status None) | **new** |
 
 Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
