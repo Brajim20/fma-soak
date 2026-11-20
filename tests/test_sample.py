@@ -108,3 +108,40 @@ class CatchUp(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RemoveIfAddedOtherHosts(unittest.TestCase):
+    """remove_if_added keeps a title another host is still using (duet, 2026-11-18)."""
+    def setUp(self):
+        state = {"harness_titles": {"duet/darwin": 42101}, "harness_installed": {}}
+        self.deleted = []
+        for p in (mock.patch.object(runner, "load_state", lambda host: state),
+                  mock.patch.object(runner, "save_state", lambda *a: None),
+                  mock.patch.dict(runner.CFG, {"watcher": {}}),
+                  mock.patch.object(sample, "all_hosts", lambda plat: [858, 860, 865]),
+                  mock.patch.object(sample.time, "sleep", lambda s: None),
+                  mock.patch.object(runner, "api", lambda m, path, *a, **k: (self.deleted.append(path) or 204, {}))):
+            p.start()
+            self.addCleanup(p.stop)
+
+    def statuses(self, by_host):
+        return mock.patch.object(runner, "host_sw", lambda h, tid: {"status": by_host[h]} if by_host.get(h) else None)
+
+    def test_removes_when_no_other_host_uses_it(self):
+        with self.statuses({}):
+            self.assertEqual(sample.remove_if_added("duet/darwin", 860, {}), "removed")
+        self.assertEqual(len(self.deleted), 1)
+
+    def test_keeps_while_another_host_has_queued_work(self):
+        with self.statuses({858: "pending_uninstall"}), mock.patch.object(sample.time, "time", side_effect=[0, 0, 99999]):
+            self.assertEqual(sample.remove_if_added("duet/darwin", 860, {}), "kept: in use on host 858")
+        self.assertEqual(self.deleted, [])
+
+    def test_waits_then_removes_once_the_other_host_is_done(self):
+        seq = iter([{858: "installed"}, {858: "installed"}, {}, {}, {}])
+        with mock.patch.object(runner, "host_sw", lambda h, tid, s={}: ({"status": "installed"} if h == 858 and next(seq).get(858) else None)):
+            self.assertEqual(sample.remove_if_added("duet/darwin", 860, {}), "removed")
+
+    def test_failed_status_on_another_host_does_not_block(self):
+        with self.statuses({865: "failed_install"}):
+            self.assertEqual(sample.remove_if_added("duet/darwin", 860, {}), "removed")

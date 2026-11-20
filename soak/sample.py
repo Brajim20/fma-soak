@@ -56,7 +56,7 @@ after every sampling job has saved. An app counts as covered once one of its lif
   python3 sample.py --platform darwin --count 5 --dry-run        # show the next picks without running them
   python3 sample.py --ledger                                     # rebuild the ledger and print coverage
 """
-import argparse, datetime, glob, json, os, random, subprocess, sys, zlib
+import argparse, datetime, glob, json, os, random, subprocess, sys, time, zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -422,6 +422,27 @@ def entry_now():
     return datetime.datetime.now().isoformat(timespec="seconds")
 
 
+BUSY_STATUSES = ("pending_install", "pending_uninstall", "installed")
+
+
+def other_hosts_using(slug, tid, host):
+    """Other soak hosts with a Fleet install, or a queued install/uninstall, on this title. Two hosts can cycle the
+    same app at once (2026-11-18, duet on 858 and 860): when the one that added the title removed it, the other
+    host's queued uninstall was dropped without a result (202, then nothing) or refused (400)."""
+    plat = slug.rsplit("/", 1)[-1]
+    return [h for h in all_hosts(plat) if h != host and ((R.host_sw(h, tid) or {}).get("status") in BUSY_STATUSES)]
+
+
+def wait_for_other_hosts(slug, tid, host, minutes=20, poll=60):
+    """Wait for other hosts to finish with the title; the hosts still using it after `minutes`, else []."""
+    end = time.time() + minutes * 60
+    while True:
+        busy = other_hosts_using(slug, tid, host)
+        if not busy or time.time() >= end:
+            return busy
+        time.sleep(poll)
+
+
 def remove_if_added(slug, host, rec):
     """Only titles this harness added, only when the app is confirmed off the host."""
     state = R.load_state(host)
@@ -432,6 +453,9 @@ def remove_if_added(slug, host, rec):
         return "kept: not added by the harness"
     if state["harness_installed"].get(f"{slug}@{host}"):
         return "kept: app may still be on the host"
+    busy = wait_for_other_hosts(slug, tid, host)
+    if busy:
+        return f"kept: in use on host {', '.join(map(str, busy))}"
     st, d = R.api("DELETE", f"/software/titles/{tid}/available_for_install?fleet_id={R.FID}")
     if st in (200, 204):
         state["harness_titles"].pop(slug, None)
