@@ -4026,6 +4026,11 @@
       "verdict": "harness: two hosts cycled duet on one title at once; the host that added it removed it while the other's uninstall was queued (860 -> 858 dropped uninstall, 858 -> 865 uninstall 400). 3/3 solo rounds on 624 clean. remove_if_added now keeps a title another host has queued work on",
       "added": "2026-11-19",
       "before": "2026-11-19T23:00"
+    },
+    {
+      "app": "winrar/windows",
+      "verdict": "filed #59366: install over the open app hangs until fleetd's 1 h limit (install script has no Stop-Process; uninstall does), then failed_install with the misleading 'couldn't run the install script' message and an immediate retry that hangs again (reproduced on 635 2026-11-20). Not counted on ARM 629 (x64 build)",
+      "added": "2026-11-20"
     }
   ]
 }
