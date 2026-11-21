@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T03:57:23",
+ "built": "2026-11-21T04:27:18",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -41774,16 +41774,16 @@
    }
   },
   "1password/windows@862": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-16T05:23:44",
-   "last_cycled": "2026-11-20T16:42:15",
+   "last_cycled": "2026-11-21T03:59:50",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T16:42:15",
+    "date": "2026-11-21T03:59:50",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "8.12.46",
-    "record": "results/soak/2026-11-20/1password_windows-862-164215.json",
+    "record": "results/soak/2026-11-21/1password_windows-862-035950.json",
     "findings": []
    }
   },
@@ -43085,16 +43085,16 @@
    }
   },
   "db-browser-for-sqlite/windows@864": {
-   "lifecycle_runs": 38,
+   "lifecycle_runs": 39,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:19:52",
    "last_cycled": "2026-11-16T02:28:21",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-21T03:23:36",
+    "date": "2026-11-21T04:06:04",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.13.1",
-    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-032336.json",
+    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-040604.json",
     "findings": []
    }
   },
@@ -58623,7 +58623,7 @@
   },
   "affinity/darwin@865": {
    "lifecycle_runs": 1,
-   "update_runs": 1,
+   "update_runs": 2,
    "first_cycled": "2026-11-19T17:36:14",
    "last_cycled": "2026-11-19T17:36:14",
    "last_lifecycle": {
@@ -58635,12 +58635,14 @@
     "findings": []
    },
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-11-20T12:32:12",
+    "outcome": "findings",
+    "date": "2026-11-20T21:36:04",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-20/affinity_darwin-865-123212.json",
-    "findings": []
+    "record": "results/soak/2026-11-20/affinity_darwin-865-213604.json",
+    "findings": [
+     "the app was closed 3 h ago and the patch to 3.3.3 never installed (last attempt: installed, policy fail)"
+    ]
    }
   },
   "akiflow/darwin@865": {
@@ -63284,6 +63286,20 @@
     "findings": []
    }
   },
+  "etrecheckpro/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:07:28",
+   "last_cycled": "2026-11-21T04:07:28",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:07:28",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "6.9",
+    "record": "results/soak/2026-11-21/etrecheckpro_darwin-865-040728.json",
+    "findings": []
+   }
+  },
   "ferdium/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63484,6 +63500,20 @@
     "findings": []
    }
   },
+  "ok-json/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:01:33",
+   "last_cycled": "2026-11-21T04:01:33",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:01:33",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.1.2",
+    "record": "results/soak/2026-11-21/ok-json_darwin-865-040133.json",
+    "findings": []
+   }
+  },
   "phpstorm/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63540,6 +63570,34 @@
     "findings": []
    }
   },
+  "scrivener/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T03:59:39",
+   "last_cycled": "2026-11-21T03:59:39",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T03:59:39",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.5.2",
+    "record": "results/soak/2026-11-21/scrivener_darwin-860-035939.json",
+    "findings": []
+   }
+  },
+  "sidenotes/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:21:04",
+   "last_cycled": "2026-11-21T04:21:04",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:21:04",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.6.6",
+    "record": "results/soak/2026-11-21/sidenotes_darwin-860-042104.json",
+    "findings": []
+   }
+  },
   "smartsheet/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63552,6 +63610,23 @@
     "catalog_version": "1.0.54",
     "record": "results/soak/2026-11-21/smartsheet_darwin-865-022334.json",
     "findings": []
+   }
+  },
+  "snowflake-snowsql/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:05:52",
+   "last_cycled": "2026-11-21T04:14:15",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T04:14:15",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.5.4",
+    "record": "results/soak/2026-11-21/snowflake-snowsql_darwin-860-041415.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)",
+     "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+    ]
    }
   },
   "splashtop-business/windows@861": {
@@ -63593,6 +63668,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.0.24",
     "record": "results/soak/2026-11-21/vlc_darwin-860-025235.json",
+    "findings": []
+   }
+  },
+  "vlc/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:13:36",
+   "last_cycled": "2026-11-21T04:13:36",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:13:36",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.0.24",
+    "record": "results/soak/2026-11-21/vlc_darwin-865-041336.json",
     "findings": []
    }
   }
