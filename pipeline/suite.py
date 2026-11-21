@@ -29,6 +29,8 @@ GitOps path (fleetctl gitops, each test in its own fleet):
   test_gitops_patch_and_install_policy_same_slug  #43623 #45987 both policies apply; re-run clean
   test_gitops_swap_same_bundle_id    #55140 swapping same-bundle-ID FMAs never leaks "sql: no rows"
   test_generate_gitops_roundtrip     #50694 #41390 #43770 exported fleet file applies back unchanged
+  test_gitops_labels_reach_cached_versions  #59131 a label change reaches cached versions; old label deletable (fails today)
+  test_gitops_variant_swap_keeps_install_automation  #57052 swapping to an @variant keeps the policy's install automation
 """
 import datetime, json, os, re, subprocess, sys, time, urllib.error, urllib.request, uuid
 
@@ -566,11 +568,92 @@ def test_generate_gitops_roundtrip(fid):
     return (rc0 == 0 and g.returncode == 0 and det["slug_in_export"] and rc2 == 0 and det["title_same"]), det
 
 
+def ensure_label(name):
+    s, d = api("POST", "/labels", {"name": name, "query": "SELECT 1;", "description": "qa-pipe fixture"})
+    if s < 300:
+        return (d.get("label") or {}).get("id")
+    rows = api("GET", "/labels?per_page=500")[1].get("labels") or []
+    return next((l["id"] for l in rows if l["name"] == name), None)
+
+
+def cached_versions(tid, fid):
+    return [v.get("version") for v in package(tid, fid).get("fleet_maintained_versions") or []]
+
+
+def test_gitops_labels_reach_cached_versions(fid):
+    """#59131 (customer escape): changing an FMA's labels_include_any in GitOps must reach every cached version, so
+    the old label can be deleted afterwards. Today only the active version's row changes, and deleting the old label
+    fails with a foreign key error that doesn't name the software."""
+    slug, fleet = "qa-g-lbl/darwin", "qa-g-lbl"
+    la, lb = "qa-g-lbl-a", "qa-g-lbl-b"
+    if not (ensure_label(la) and ensure_label(lb)):
+        return False, {"error": "precondition: couldn't create the two labels"}
+    publish_and_sync(slug, "QA G Lbl", "1.0.0", unique_fixture("qa-g-lbl-1"))
+    rc1, _ = gitops(fleet, fma_yaml((slug, {"labels_include_any": f"[{la}]"})))
+    publish_and_sync(slug, "QA G Lbl", "2.0.0", unique_fixture("qa-g-lbl-2"))
+    rc2, _ = gitops(fleet, fma_yaml((slug, {"labels_include_any": f"[{la}]"})))
+    gf = fleet_by_name(fleet)
+    tid = gf and title_in(gf, slug)
+    if tid and "1.0.0" not in cached_versions(tid, gf):
+        run_cron("maintained_apps_auto_update")
+    cached = tid and cached_versions(tid, gf)
+    det = {"rc": [rc1, rc2], "fleet": gf, "title": tid, "cached": cached}
+    if not tid or package(tid, gf)["version"] != "2.0.0" or "1.0.0" not in (cached or []):
+        det["error"] = "precondition: 2.0.0 isn't active with 1.0.0 cached"
+        return False, det
+    rc3, out3 = gitops(fleet, fma_yaml((slug, {"labels_include_any": f"[{lb}]"})))
+    active_labels = [l.get("name") for l in package(tid, gf).get("labels_include_any") or []]
+    s_del, d_del = api("DELETE", f"/labels/{la}")
+    msg = (d_del or {}).get("message", "") + " " + " ".join(e.get("reason", "") for e in (d_del or {}).get("errors") or [])
+    det.update({"rc_relabel": rc3, "active_labels": active_labels, "delete_old_label_status": s_del,
+                "delete_message": msg.strip()[:200], "relabel_last": last_line(out3)})
+    return rc3 == 0 and active_labels == [lb] and s_del < 300, det
+
+
+def variant_swap(fid, fleet, gap):
+    """#57052 (customer escape): a fleet that had an FMA switches to its @variant (same unique identifier, e.g. Druva
+    inSync -> Druva inSync (GovCloud)) and points a policy's install automation at the variant. The apply must leave
+    the policy with the variant as its automation, never "could not resolve software title ID" and an empty
+    automation. Also records the title name after the swap (#57051: it kept the base app's name)."""
+    base, var = "qa-g-dv/darwin", "qa-g-dv@gov/darwin"
+    pol = lambda slug: ("policies:\n  - name: qa-g-dv installed\n    platform: darwin\n"
+                        "    query: \"SELECT 1 FROM apps WHERE bundle_identifier = 'com.qa.gdv';\"\n"
+                        f"    install_software:\n      fleet_maintained_app_slug: {slug}\n")
+    rc1, out1 = gitops(fleet, fma_yaml((base, {})) + pol(base))
+    if gap:  # the customer's order: the base app leaves the fleet in one apply, the variant arrives in a later one
+        gitops(fleet, "software:\n  fleet_maintained_apps: []\npolicies: []\n")
+    rc2, out2 = gitops(fleet, fma_yaml((var, {})) + pol(var))
+    gf = fleet_by_name(fleet)
+    tid = gf and title_in(gf, var)
+    path = "/fleets" if FP == "fleet_id" else "/teams"
+    pols = {p["name"]: p for p in api("GET", f"{path}/{gf}/policies?per_page=100")[1].get("policies") or []} if gf else {}
+    auto = ((pols.get("qa-g-dv installed") or {}).get("install_software") or {}).get("software_title_id")
+    name = tid and api("GET", f"/software/titles/{tid}?{FP}={gf}")[1].get("software_title", {}).get("name")
+    unresolved = "could not resolve software title" in out2
+    det = {"rc": [rc1, rc2], "variant_title": tid, "automation_title": auto, "title_name_after_swap": name,
+           "unresolved_warning": unresolved, "last": last_line(out2 if rc1 == 0 else out1)}
+    return bool(rc1 == rc2 == 0 and tid and auto == tid and not unresolved), det
+
+
+def test_gitops_variant_swap_keeps_install_automation(fid):
+    """#57052 (customer escape): a fleet that had an FMA switches to its @variant (same unique identifier, e.g. Druva
+    inSync -> Druva inSync (GovCloud)) and points a policy's install automation at the variant, in one apply or with
+    the base removed in an earlier apply. Either way the policy must end with the variant as its automation, never
+    "could not resolve software title ID" and an empty automation. Also records the title name after the swap
+    (#57051: it keeps the base app's name)."""
+    ORIGIN.publish("qa-g-dv/darwin", "QA G Druva", "1.0.0", unique_fixture("qa-g-dv"), unique_identifier="com.qa.gdv")
+    publish_and_sync("qa-g-dv@gov/darwin", "QA G Druva (Gov)", "1.0.0", unique_fixture("qa-g-dvgov"), unique_identifier="com.qa.gdv")
+    ok1, d1 = variant_swap(fid, "qa-g-dv", gap=False)
+    ok2, d2 = variant_swap(fid, "qa-g-dv2", gap=True)
+    return ok1 and ok2, {"same_apply": d1, "base_removed_first": d2}
+
+
 # Tests that fail by design until an open bug is fixed. On an RC run they read "known open bug", so a new failure
 # stands out; when one starts passing, retest that issue (fleet-bug-retest) and remove it from here.
 KNOWN_OPEN = {"test_hash_mismatch_error": "#55360", "test_download_failure_error": "#56891",
               "test_pinned_script_refresh": "#53009", "test_unsatisfiable_caret_rejected": "#53008",
-              "test_gitops_duplicate_fma_rejected": "#56507", "test_gitops_version_error_names_versions": "#56508"}
+              "test_gitops_duplicate_fma_rejected": "#56507", "test_gitops_version_error_names_versions": "#56508",
+              "test_gitops_labels_reach_cached_versions": "#59131"}
 
 TESTS = [test_newest_version_active, test_script_only_refresh, test_admin_script_edit_kept,
          test_no_redownload_hashless, test_hash_mismatch_error, test_download_failure_error,
@@ -579,7 +662,8 @@ TESTS = [test_newest_version_active, test_script_only_refresh, test_admin_script
          test_gitops_adds_fma, test_gitops_reapply_no_redownload, test_gitops_dry_run_no_download,
          test_gitops_duplicate_fma_rejected, test_gitops_caret_unsatisfiable_rejected,
          test_gitops_version_error_names_versions, test_gitops_patch_and_install_policy_same_slug,
-         test_gitops_swap_same_bundle_id, test_generate_gitops_roundtrip]
+         test_gitops_swap_same_bundle_id, test_generate_gitops_roundtrip,
+         test_gitops_labels_reach_cached_versions, test_gitops_variant_swap_keeps_install_automation]
 
 
 def main():

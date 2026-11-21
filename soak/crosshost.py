@@ -35,7 +35,7 @@ def candidates(plat, host):
     for r in reversed(recs):
         k = (r["slug"], r.get("kind", "lifecycle"))
         if (k[1] not in ("lifecycle", "update_path") or r["started"] < since or r["host"] == host or (r["host"] not in S.hosts_for(plat) + S.standby_for(plat) and not r.get("pool_slot")) or k in seen
-                or r.get("crosshost_of") or D.category(r) != "findings" or not r["slug"].endswith("/" + plat)):
+                or r.get("crosshost_of") or r.get("kind") == "false_success" or D.category(r) != "findings" or not r["slug"].endswith("/" + plat)):
             continue
         app = f"{r['slug']}@{r['host']}"
         real = [f for f in r["findings"] if f["shape"] != "harness"

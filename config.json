@@ -316,7 +316,8 @@
   "realert_hours": 12,
   "settle_minutes": 10,
   "crosshost_budget_minutes": 90,
-  "recheck_budget_minutes": 60
+  "recheck_budget_minutes": 60,
+  "false_success_budget_minutes": 45
  },
  "watcher": {
   "residents": {
@@ -355,7 +356,24 @@
    "why": "Firefox's updater needs root:admin + group-writable (#55093)"
   }
  },
+ "host_variety": {
+  "_doc": "Hosts kept in a non-default state on purpose, so cycles there see what a clean VM never does. Each lifecycle record carries its host's note (runner.cycle: host_variety), so a finding only on that host points at the condition.",
+  "862": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)"
+ },
+ "self_service": {
+  "_doc": "runner.self_service_due: this share of lifecycle cycles (stable per app per day) do the second install through Fleet Desktop's self-service endpoint, requested on the host with its own device token (#51138 #57583 #59238). The title's self-service flag is turned on first if it's off.",
+  "share": 0.25
+ },
+ "event_log": {
+  "_doc": "runner.app_event_errors (Windows, #51138): Application-log errors naming the app after Fleet installed and opened it are an S2 finding; these providers are ignored.",
+  "skip_providers": ["MsiInstaller"]
+ },
  "scenarios": {
+  "false_success": {
+   "_doc": "falsesuccess.py (#58221 #51123 #50056): once a day on each platform's primary host, run per_day FMAs' own install scripts with a broken installer (zip/dmg cut in half, others random bytes) and check they exit non-zero. Exit 0 = Fleet would report Success with nothing installed (S3 finding); still running after hang_seconds = a finding too. Never-checked and changed scripts first, round-robin over installer types; skips apps already on the host.",
+   "per_day": {"darwin": 30, "windows": 15},
+   "hang_seconds": 240
+  },
   "explorer2": {
    "dates": {
     "2026-11-01": [

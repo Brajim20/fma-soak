@@ -78,6 +78,7 @@ if due update $(cfg update_every_hours 24) && fits $(cfg update_budget_minutes 9
 # check here too would overwrite the watcher job's newer files with this pass's stale copy
 [[ -z $FMA_SOAK_WATCHER_JOB ]] && step watcher.py check --platform $plat
 [[ $plat == windows ]] && step scenarios.py explorer2   # #51127 scenario, once a day (4.4)
+fits $(cfg false_success_budget_minutes 45) "false-success probes" && step falsesuccess.py --platform $plat   # #58221 #51123, once a day
 fits $(cfg recheck_budget_minutes 60) "closed-bug recheck" && step recheck.py run --platform $plat
 fits $(cfg crosshost_budget_minutes 90) "cross-host repro" && step crosshost.py --platform $plat
 # python, not `date -r`: BSD date reads -r as epoch seconds, GNU date (CI runners) as a file to stat

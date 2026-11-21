@@ -252,14 +252,18 @@ def run(plat, host, limit, dry):
         if dry or not R.wait_online(host):
             continue
         try:
-            rec = R.run(R.update_path if x["kind"] == "update_path" else R.cycle, x["slug"], host)
+            if x["kind"] == "false_success":  # rerun the install-script probe, not a lifecycle cycle
+                import falsesuccess as FS
+                rec = FS.recheck(x["slug"], host)
+            else:
+                rec = R.run(R.update_path if x["kind"] == "update_path" else R.cycle, x["slug"], host)
         except Exception as e:
             print(f"   #{x['issue']} {x['slug']}: ERROR {type(e).__name__}: {e}")
             continue
         rec["recheck_of"] = x["issue"]
         json.dump(rec, open(rec["record"], "w"), indent=1)
         print(f"   #{x['issue']} {x['slug']}: {rec.get('outcome')}")
-        if x["kind"] != "update_path":
+        if x["kind"] not in ("update_path", "false_success"):
             import sample as S
             print(f"   cleanup: {S.remove_if_added(x['slug'], host, rec)}")
 

@@ -83,6 +83,13 @@ class AddErrors(unittest.TestCase):
             self.run_add([(409, {"message": "Conflict"})], apps)
         self.assertIn("by design", str(e.exception))
 
+    def test_at_variant_409_is_a_finding_filed_as_57051(self):
+        apps = [{"slug": "druva-insync@govcloud/darwin", "id": 1}, {"slug": "druva-insync/darwin", "id": 2, "software_title_id": 9}]
+        with self.assertRaises(RuntimeError) as e:
+            self.run_add([(409, {"message": "Conflict"})], apps)
+        self.assertNotIsInstance(e.exception, runner.AddEnvironment)
+        self.assertIn("variant shares its sibling's title (#57051)", str(e.exception))
+
     def test_409_without_sibling_in_fleet_is_a_finding(self):
         apps = [{"slug": "slack-arm64/windows", "id": 1}, {"slug": "slack/windows", "id": 2}]
         with self.assertRaises(RuntimeError) as e:

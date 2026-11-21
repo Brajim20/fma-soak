@@ -14,6 +14,8 @@ Status: proof of concept. It runs here, on GitHub Actions, before moving into fl
 | L1 | Update-pipeline suite against a throwaway Fleet server (`pipeline/`): the revision the soak instance runs, and fleetdm/fleet main (`.github/workflows/l1-pipeline.yml`) | nightly |
 | L2 | Lifecycle on the soak hosts: add → install → inventory and patch policy → uninstall → reinstall, plus upgrading from a pinned previous version. With the app open: a reinstall over the open app (every cycle), and the upgrade on alternate days. Which apps run when: see below | every 6 h pass |
 | L2 | Patch when closed: Fleet's own patch policy with "patch when closed" on one app a day per platform, over several passes: every attempt while the app is open must be a skip reported as one; after it's closed the patch must land without reopening it | daily |
+| L2 | False success (`soak/falsesuccess.py`): each FMA's own install script run on the host with a broken installer (zip with corrupted entry data, half a DMG, random bytes for the rest); it must exit non-zero, or Fleet would report Success. Daily teeth check: VS Code's pre-#58348 script must come back as a false success | daily, 30 macOS / 15 Windows apps |
+| L2 | Self-service: a quarter of cycles do the second install through Fleet Desktop's end-user endpoint, requested on the host with its own device token; pinning must not change the self-service flag (#59238); on Windows, Application-log errors naming the app after it's opened (#51138) | every cycle |
 | L3 | Watcher: a few apps stay installed with patch policies, and each real upstream release is followed until it reaches the host (hours the host was offline don't count) | every 2 h |
 
 ## Which apps run when

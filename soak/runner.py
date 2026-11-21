@@ -371,9 +371,14 @@ def ensure_title(slug, state, host):
         msg = d.get("message") if isinstance(d, dict) else ""
         sib = variant_sibling(slug)
         if st == 409 and sib and any(a["slug"] == sib and a.get("software_title_id") for a in apps):
-            # by design (PR #52964, #53050): the variant shares the sibling's unique_identifier, one title per fleet
-            raise AddEnvironment(f"environment: by design: {sib} is already in the fleet and shares this title "
-                                 f"(add failed 409: {msg})")
+            if "@" not in slug.split("/")[0]:
+                # by design (PR #52964, #53050): an -arm64 build is the same app as its x64 sibling, one title per fleet
+                raise AddEnvironment(f"environment: by design: {sib} is already in the fleet and shares this title "
+                                     f"(add failed 409: {msg})")
+            # an @variant can be a different product (Druva inSync vs GovCloud). A customer reported this as a bug
+            # (#57051, open), so it stays a finding; triage.json's "*" entry files it under #57051 until that closes
+            raise RuntimeError(f"add failed 409: variant shares its sibling's title (#57051): {sib} is already in "
+                               f"the fleet: {msg}")
         raise RuntimeError(f"add failed {st}: {msg}")
     state["harness_titles"][slug] = tid
     save_state(state, host)
@@ -451,11 +456,61 @@ def not_run(host, tid, rec, label, kind, before):
     return False
 
 
-def install(host, tid, rec, label):
+def self_service_due(slug, day=None):
+    """config self_service.share of cycles (stable per app per day) do their second install the way an end user does:
+    Fleet Desktop's self-service endpoint instead of the admin's (#51138 #57583 #59238 ran through self-service)."""
+    import zlib
+    share = CFG.get("self_service", {}).get("share", 0.25)
+    day = day or datetime.date.today().isoformat()
+    return zlib.crc32(f"{slug}|{day}".encode()) % 100 < share * 100
+
+
+SS_DARWIN = r'''#!/bin/bash
+T=$(cat /opt/orbit/identifier 2>/dev/null)
+[ -n "$T" ] || { echo "SS_STATUS=0 no device token on the host"; exit 0; }
+code=$(curl -s -m 60 -o /tmp/fleet-qa-ss.out -w '%{http_code}' -X POST -H 'Content-Length: 0' "__URL__$T/software/install/__TID__")
+echo "SS_STATUS=$code $(head -c 300 /tmp/fleet-qa-ss.out | tr -d '\n' | sed "s/$T/<token>/g")"; rm -f /tmp/fleet-qa-ss.out
+'''
+
+SS_WINDOWS = r'''
+$t = (Get-Content "C:\Program Files\Orbit\identifier" -Raw -ErrorAction SilentlyContinue)
+if (-not $t) { Write-Output "SS_STATUS=0 no device token on the host"; exit 0 }
+$t = $t.Trim()
+try {
+  $r = Invoke-WebRequest -UseBasicParsing -Method POST -TimeoutSec 60 -Uri ("__URL__" + $t + "/software/install/__TID__")
+  Write-Output "SS_STATUS=$([int]$r.StatusCode)"
+} catch {
+  $code = 0; if ($_.Exception.Response) { $code = [int]$_.Exception.Response.StatusCode }
+  Write-Output ("SS_STATUS=$code " + ("$($_.ErrorDetails.Message)" -replace [regex]::Escape($t), "<token>"))
+}
+'''
+
+
+def self_service_request(host, tid, plat):
+    """Ask for the install from the host itself with its own device token (orbit's identifier file), as a click in
+    Fleet Desktop does. The token never leaves the host; the soak's API user (a fleet maintainer) can't read device
+    URLs anyway. Returns (HTTP status or 0, message)."""
+    url = CFG["instance"].rstrip("/") + "/api/latest/fleet/device/"
+    body = (SS_DARWIN if plat == "darwin" else SS_WINDOWS).replace("__URL__", url).replace("__TID__", str(tid))
+    r = run_script(host, body, timeout=600)
+    m = re.search(r"SS_STATUS=(\d+)\s*(.*)", r.get("output", ""))
+    if not m:
+        return 0, r.get("error") or "no answer from the host-side request"
+    return int(m.group(1)), m.group(2).strip()[:300]
+
+
+def install(host, tid, rec, label, via="admin"):
     before = last_result_id(host_sw(host, tid), "install")
-    st, d = api("POST", f"/hosts/{host}/software/{tid}/install")
+    if via == "self_service":
+        rec[f"{label}_via"] = "self_service"
+        if not title_pkg(tid).get("self_service"):
+            rec[f"{label}_self_service_enabled"] = patch_pkg(tid, {"self_service": "true"})
+        st, msg = self_service_request(host, tid, rec["slug"].split("/")[1])
+        d = {"message": msg}
+    else:
+        st, d = api("POST", f"/hosts/{host}/software/{tid}/install")
     rec[f"{label}_request"] = st
-    if st >= 300:
+    if st >= 300 or st == 0:
         rec[f"{label}_error"] = d.get("message")
         return None
     s, secs = wait_status(host, tid, "pending_install")
@@ -653,6 +708,8 @@ def cycle(slug, host):
            "host_at_start": start_watch(host)}
     if os.environ.get("FMA_SOAK_POOL_SLOT"):  # on every record, the first run of a retry pair too
         rec["pool_slot"] = int(os.environ["FMA_SOAK_POOL_SLOT"])
+    if CFG.get("host_variety", {}).get(str(host)):
+        rec["host_variety"] = CFG["host_variety"][str(host)]
     def find(shape, msg):
         rec["findings"].append({"shape": shape, "msg": msg})
 
@@ -735,7 +792,11 @@ def cycle(slug, host):
     for rnd in ("first", "second"):
         # recorded before the request, so a crash mid-cycle never leaves an untracked app on the host
         state["harness_installed"][key] = True; save_state(state, host)
-        s = install(host, tid, rec, f"{rnd}_install")
+        via = "self_service" if rnd == "second" and self_service_due(slug) else "admin"
+        s = install(host, tid, rec, f"{rnd}_install", via=via)
+        if via == "self_service" and rec.get(f"{rnd}_install_error"):
+            find("install", f"{rnd} install through self-service: request refused "
+                            f"({rec[f'{rnd}_install_request']}: {rec[f'{rnd}_install_error']})")
         p = present(host, presence_q)
         status = rec.get(f"{rnd}_install_status")
         if status == "installed" and p is False:
@@ -791,6 +852,11 @@ def cycle(slug, host):
         if rnd == "second" and status == "installed" and p and running.in_cycle(slug):
             running.reinstall_open(host, tid, rec, find, slug.split("/")[1],
                                    rec.get("context_after_install") or context(host, exists_q))
+            if plat == "windows":  # #51138: errors the app logs on first launch after a Fleet (SYSTEM) install
+                ev = app_event_errors(host, (host_sw(host, tid) or {}).get("name") or "", rec["started"])
+                rec["event_log_errors"] = ev
+                if ev:
+                    find("S2", f"the Application event log has errors naming the app after Fleet installed and opened it: {ev[0]}")
         uninstall(host, tid, rec, f"{rnd}_uninstall")
         p = present(host, presence_q)
         rec[f"{rnd}_present_after_uninstall"] = p
@@ -824,6 +890,27 @@ def cycle(slug, host):
 # an installer saying the host must restart: 3010/1641 = done but a restart is pending, 1610 = blocked by a pending
 # restart (Google Drive's own message says "restart the host, then install again", #57390 / #57488)
 RESTART_MARK = re.compile(r"exit code: (1610|1641|3010)\b|waiting on a restart|restart the host", re.I)
+
+
+EVENTS = r'''
+$name = "__NAME__"
+Get-WinEvent -FilterHashtable @{LogName = "Application"; Level = 2; StartTime = (Get-Date).AddMinutes(-__MIN__)} -MaxEvents 300 -ErrorAction SilentlyContinue |
+  Where-Object { $_.ProviderName -notmatch "__SKIP__" -and (($_.ProviderName + " " + $_.Message) -match [regex]::Escape($name)) } |
+  Select-Object -First 5 | ForEach-Object { "EV $($_.Id) $($_.ProviderName): " + (($_.Message -replace "\s+", " ") + "").Substring(0, [Math]::Min(220, ($_.Message -replace "\s+", " ").Length)) }
+'''
+
+
+def app_event_errors(host, name, since):
+    """Error-level Application events since the cycle started whose provider or message names the app (its first
+    word of 4+ letters: "Firefox" for "Firefox Developer Edition"). Fleet's and osquery's own events are skipped,
+    and so are config event_log.skip_providers (MsiInstaller logs the soak's own failed installs)."""
+    word = next((w for w in re.findall(r"[A-Za-z][A-Za-z0-9.+-]{3,}", name)), "")
+    if not word:
+        return []
+    mins = int((datetime.datetime.now() - datetime.datetime.fromisoformat(since)).total_seconds() // 60) + 5
+    skip = "|".join(["Orbit", "osquery", "Fleet"] + CFG.get("event_log", {}).get("skip_providers", ["MsiInstaller"]))
+    r = run_script(host, EVENTS.replace("__NAME__", word.replace('"', "")).replace("__MIN__", str(mins)).replace("__SKIP__", skip), timeout=300)
+    return [l.strip()[3:] for l in r.get("output", "").splitlines() if l.startswith("EV ")]
 
 
 def restart_needed(rec):
@@ -896,12 +983,13 @@ def context_findings(ctx, find, label, slug=None):
             find("S2", f"{label}: app executable isn't runnable by all users ({exe})")
 
 
-def pin(tid, version):
-    """Versions action: pin the title to a cached version ("" = Latest). Multipart, like the UI."""
+def patch_pkg(tid, fields):
+    """PATCH the title's package (multipart, like the UI): {"version": ...} pins, {"self_service": "true"} etc."""
     import uuid as _uuid
     b = _uuid.uuid4().hex
-    body = (f'--{b}\r\nContent-Disposition: form-data; name="fleet_id"\r\n\r\n{FID}\r\n'
-            f'--{b}\r\nContent-Disposition: form-data; name="version"\r\n\r\n{version}\r\n--{b}--\r\n').encode()
+    parts = {"fleet_id": FID, **fields}
+    body = ("".join(f'--{b}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n' for k, v in parts.items())
+            + f"--{b}--\r\n").encode()
     req = urllib.request.Request(f"{BASE}/software/titles/{tid}/package", method="PATCH", data=body,
                                  headers={"Authorization": "Bearer " + TOKEN, "User-Agent": "fleet-qa-fma-soak",
                                           "Content-Type": "multipart/form-data; boundary=" + b})
@@ -910,6 +998,11 @@ def pin(tid, version):
             return r.status
     except urllib.error.HTTPError as e:
         return e.code
+
+
+def pin(tid, version):
+    """Versions action: pin the title to a cached version ("" = Latest)."""
+    return patch_pkg(tid, {"version": version})
 
 
 def title_pkg(tid):
@@ -1141,8 +1234,12 @@ def update_path(slug, host):
         return finish(rec)
     key = f"{slug}@{host}"
     try:
+        rec["self_service_before_pin"] = title_pkg(tid).get("self_service")
         rec["pin_older_status"] = pin(tid, older)
-        rec["active_after_pin"] = title_pkg(tid).get("version")
+        after_pin = title_pkg(tid)
+        rec["active_after_pin"], rec["self_service_after_pin"] = after_pin.get("version"), after_pin.get("self_service")
+        if rec["self_service_after_pin"] != rec["self_service_before_pin"]:
+            find("S4", f"self-service changed by pinning (#59238): {rec['self_service_before_pin']} -> {rec['self_service_after_pin']}")
         if rec["active_after_pin"] != older:
             find("S4", f"pinning {older} left {rec['active_after_pin']} active")
         state["harness_installed"][key] = True; save_state(state, host)
@@ -1158,7 +1255,10 @@ def update_path(slug, host):
             find("S1", f"patched query passes with {older} installed: the patch policy can't see this host is outdated")
     finally:
         rec["pin_latest_status"] = pin(tid, "")
-        rec["active_after_unpin"] = title_pkg(tid).get("version")
+        after_unpin = title_pkg(tid)
+        rec["active_after_unpin"], rec["self_service_after_unpin"] = after_unpin.get("version"), after_unpin.get("self_service")
+        if rec.get("self_service_before_pin") is not None and rec["self_service_after_unpin"] != rec["self_service_before_pin"]:
+            find("S4", f"self-service changed by setting Latest (#59238): {rec['self_service_before_pin']} -> {rec['self_service_after_unpin']}")
     if rec["active_after_unpin"] != newest:
         find("S4", f"setting Latest left {rec['active_after_unpin']} active, expected {newest}")
     if rec.get("old_install_status") != "installed":

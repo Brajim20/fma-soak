@@ -622,6 +622,8 @@ def build_ledger(write=False):
         if "slug" not in r or "outcome" not in r:
             continue
         e = apps.setdefault(f"{r['slug']}@{r.get('pool_slot') or r['host']}", {"lifecycle_runs": 0, "update_runs": 0})
+        if r.get("kind") == "false_success":  # falsesuccess.py probe of the install script, not a lifecycle cycle
+            continue
         kind = "update" if r.get("kind") in ("update_path", "patch_when_closed") else "lifecycle"
         e[f"{kind}_runs"] += 1
         if kind == "lifecycle" and counts_as_cycle(r["outcome"], r.get("started")):
