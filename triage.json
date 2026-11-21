@@ -4043,6 +4043,19 @@
       "verdict": "fixed by #59267 (merged 2026-11-19 16:03 UTC: unfrozen, 2610.1.0 + new sha256); fresh add on qa succeeded 2026-11-20. Earlier runs used the stale 2609.4.0 pin",
       "added": "2026-11-20",
       "before": "2026-11-19T12:03"
+    },
+    {
+      "app": "cyberduck/darwin@696",
+      "verdict": "#57132 window: ditto 'Couldn't read pkzip signature' = truncated installer from the full store (2026-11-06 15:00 - 2026-11-07 11:10 AST); missed by that sweep's app list",
+      "added": "2026-11-21",
+      "before": "2026-11-07T11:10"
+    },
+    {
+      "app": "cyberduck/darwin@807",
+      "shape": "S1",
+      "verdict": "one-off: patched query found no row once on pool host 807 during a run with 8 live-query 502s/timeouts; the same host's retry 14 min later passed, and 860 passed clean 2026-11-21. Not reproducible; a recurrence after this window comes back as new",
+      "added": "2026-11-21",
+      "before": "2026-11-13T00:00"
     }
   ]
 }
