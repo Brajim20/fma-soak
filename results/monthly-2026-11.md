@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 13409 cycles: pass 5818, findings 2780, flaky 636, environment 320, harness 357, skipped 3498
+**1. Runs** — 13416 cycles: pass 5825, findings 2780, flaky 636, environment 320, harness 357, skipped 3498
 
 **2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 500/500 (100.0%), quarter 1/2 this week 219/220, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
@@ -163,6 +163,7 @@
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 | #59149 | closed | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
 | #59164 | merged | Update Fleet-maintained apps |
+| #59238 | open | Fleet-maintained apps: pinning a version turns Self-service off (and unpinning turns it back on) |
 | #59267 | merged | Unfreeze Dialpad for Windows (2610.1.0) |
 | #59297 | merged | Unfreeze 16 Fleet-maintained apps that pass validation |
 | #59362 | open | Fleet-maintained apps: jamovi (macOS) can't be added — its catalog URL is gone (404) |
