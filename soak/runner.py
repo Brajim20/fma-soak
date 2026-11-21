@@ -143,6 +143,25 @@ def present(host, exists_query, tries=4):
     return None
 
 
+def scope_query(exists_q, hive):
+    """Windows: the catalog exists query's DisplayName match, limited to the uninstall keys of one registry hive
+    ("HKEY_LOCAL_MACHINE" = machine-wide, "HKEY_USERS" = per-user), or None when the query isn't a plain programs
+    name match. osquery's `programs` reads both hives, so the exists query alone can't tell the copies apart."""
+    if not exists_q.strip().startswith("SELECT 1 FROM programs"):
+        return None
+    m = re.search(r"\bname\s+(=|LIKE)\s+'((?:[^']|'')*)'", exists_q, re.I)
+    if not m:
+        return None
+    # osquery's registry table expands % only in the last key segment, so WOW6432Node (where 32-bit installers
+    # like OneDriveSetup.exe and Edge register) needs its own pattern; one "SOFTWARE\%Microsoft" missed Edge on 859
+    keys = {"HKEY_LOCAL_MACHINE": [r"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%",
+                                   r"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\%"],
+            "HKEY_USERS": [r"HKEY_USERS\%\Software\Microsoft\Windows\CurrentVersion\Uninstall\%"]}[hive]
+    where = " OR ".join(f"key LIKE '{k}'" for k in keys)
+    return (f"SELECT 1 FROM registry WHERE ({where}) AND name = 'DisplayName' "
+            f"AND data {m.group(1).upper()} '{m.group(2)}';")
+
+
 def run_script(host, body, timeout=900, raw=False):
     """Run a one-off script on the host (as root / SYSTEM) and wait for its result.
     raw=True adds "raw_output", unscrubbed, for paths the harness acts on (a scrubbed C:\\Users\\<user>\\... path
@@ -601,6 +620,7 @@ def cycle(slug, host):
     if slug in busy_slugs():
         rec["outcome"] = "skipped: held by the patch-when-closed scenario"
         return finish(rec)
+    presence_q, per_user_q = exists_q, None  # presence_q narrows to the machine-wide copy in coexist mode
     pre = present(host, exists_q)
     rec["present_before"] = pre
     key = f"{slug}@{host}"
@@ -615,6 +635,15 @@ def cycle(slug, host):
         uninstall(host, tid, rec, "preexisting_uninstall")
         pre = present(host, exists_q)
         rec["preexisting_removed"] = pre is False
+        if pre is not False and slug.endswith("/windows"):
+            # Windows 11 ships OneDrive per user (HKEY_USERS); the FMA installs machine-wide and its uninstall only
+            # looks under HKLM, so the built-in copy can't be removed and the app never cycled (34 skips on 859,
+            # 2026-11-19/20). That is also every customer's starting point: test the machine-wide copy next to it.
+            mq, uq = scope_query(exists_q, "HKEY_LOCAL_MACHINE"), scope_query(exists_q, "HKEY_USERS")
+            if mq and uq and present(host, mq) is False and present(host, uq) is True:
+                rec["coexist_per_user"] = True
+                rec.pop("restore_after", None)  # nothing was removed, nothing to put back
+                presence_q, per_user_q, pre = mq, uq, False
         if pre is not False:
             rec["outcome"] = ("skipped: the copy already on the host is still there after its uninstall "
                               f"({rec.get('preexisting_uninstall_status')})")
@@ -623,7 +652,7 @@ def cycle(slug, host):
         rec["outcome"] = "skipped: host didn't answer the presence query"
         return finish(rec)
     plat = slug.split("/")[1]
-    if pre is False:
+    if pre is False and not rec.get("coexist_per_user"):  # the per-user copy is listed, rightly
         # #51299: Fleet listed the Fleet Desktop FMA as installed (with fleetd's version) on a host that didn't have
         # it. Inventory lags an uninstall until the next refetch, so a listing gets one refetch before it counts.
         listed = lambda: [iv.get("version") for iv in (host_sw(host, tid) or {}).get("installed_versions") or []]
@@ -632,7 +661,7 @@ def cycle(slug, host):
             api("POST", f"/hosts/{host}/refetch")
             time.sleep(300)
             rec["listed_before_install"] = listed()
-            if rec["listed_before_install"] and present(host, exists_q) is False:
+            if rec["listed_before_install"] and present(host, presence_q) is False:
                 find("S3", f"before it was installed, Fleet lists it as installed {rec['listed_before_install']}: another "
                            f"app's inventory matches this title (#51299 shape)")
     if slug.startswith("fleet-desktop/"):
@@ -646,12 +675,12 @@ def cycle(slug, host):
         # recorded before the request, so a crash mid-cycle never leaves an untracked app on the host
         state["harness_installed"][key] = True; save_state(state, host)
         s = install(host, tid, rec, f"{rnd}_install")
-        p = present(host, exists_q)
+        p = present(host, presence_q)
         status = rec.get(f"{rnd}_install_status")
         if status == "installed" and p is False:
             # per-user installers (Figma) can register the app shortly after they exit; recheck before flagging
             time.sleep(120)
-            p = present(host, exists_q)
+            p = present(host, presence_q)
             rec[f"{rnd}_present_needed_grace"] = p is True
         rec[f"{rnd}_present_after_install"] = p
         if status == "installed" and p is False:
@@ -686,7 +715,8 @@ def cycle(slug, host):
             if patched_q:
                 rec["patched_query_passes"] = present(host, patched_q)
                 if rec["patched_query_passes"] is False:
-                    find("S1", f"patched query fails right after installing {pkg_ver}: the patch policy would flag an up-to-date host")
+                    find("S1", f"patched query fails right after installing {pkg_ver}: the patch policy would flag an up-to-date host"
+                               + (" (an older per-user copy is also on the host, #48248 shape)" if per_user_q else ""))
             if not inv:
                 find("S1", "inventory never reported the app after install + refetch")
             elif pkg_ver and all(vcmp(x, pkg_ver) < 0 for x in inv):
@@ -701,7 +731,7 @@ def cycle(slug, host):
             running.reinstall_open(host, tid, rec, find, slug.split("/")[1],
                                    rec.get("context_after_install") or context(host, exists_q))
         uninstall(host, tid, rec, f"{rnd}_uninstall")
-        p = present(host, exists_q)
+        p = present(host, presence_q)
         rec[f"{rnd}_present_after_uninstall"] = p
         ustatus = rec.get(f"{rnd}_uninstall_status")
         if p is True:
@@ -710,6 +740,10 @@ def cycle(slug, host):
             state["harness_installed"].pop(key, None); save_state(state, host)
     if rec.get("fleetd_desktop_before") and fleetd_desktop_running(host, plat) is False:
         find("S2", "fleetd's own Fleet Desktop isn't running after uninstalling the Fleet Desktop FMA")
+    if per_user_q:
+        rec["per_user_copy_after"] = present(host, per_user_q)
+        if rec["per_user_copy_after"] is False:
+            find("uninstall", "the FMA's uninstall also removed the per-user copy that was on the host before the cycle")
     unknown = [k for k, v in rec.items() if k.endswith(("_present_after_install", "_present_after_uninstall")) and v is None]
     if unknown:
         find("harness", f"presence unknown after {', '.join(unknown)} (host didn't answer the live query)")

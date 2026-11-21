@@ -331,6 +331,9 @@ def hours_since(iso, now):
     return (now - datetime.datetime.fromisoformat(iso)).total_seconds() / 3600 if iso else None
 
 
+PREEXISTING_STUCK = "skipped: the copy already on the host is still there after its uninstall"
+
+
 def priority_due(plat, full, ledger, host, skip, tried, now=None):
     """[(slug, why)]: this host's priority apps whose last real cycle (any host) is at least their tier's every_hours
     old, less priority.slack_hours so a pass that starts a little early still takes them. Most overdue first."""
@@ -340,6 +343,12 @@ def priority_due(plat, full, ledger, host, skip, tried, now=None):
     for name, hours, apps in tiers(plat):
         for s in apps:
             if s not in full or s in skip or s in tried or tier_host(plat, s, hours, now.timestamp()) != host:
+                continue
+            # a copy the FMA's uninstall can't remove skips the cycle; retrying it every pass (OneDrive, 34 times on
+            # 859 in a day) only burns the slot, so wait a tier period after such a skip on this host
+            mine = (ledger.get(f"{s}@{host}") or {}).get("last_lifecycle") or {}
+            if (mine.get("outcome") or "").startswith(PREEXISTING_STUCK) and \
+                    (hours_since(mine.get("date"), now) or 0) < hours - slack:
                 continue
             age = hours_since(last.get(s), now)
             if age is None or age >= hours - slack:
