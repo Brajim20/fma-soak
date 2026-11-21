@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T05:34:19",
+ "built": "2026-11-21T06:12:42",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -72,7 +72,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 513
+      "onedrive/windows": 514
      }
     }
    ]
@@ -39663,14 +39663,14 @@
    }
   },
   "google-drive/windows@862": {
-   "lifecycle_runs": 14,
+   "lifecycle_runs": 15,
    "update_runs": 0,
    "last_lifecycle": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-20T17:50:05",
+    "outcome": "environment: host needs a restart (first_install: exit code: 1610)",
+    "date": "2026-11-21T05:36:39",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "134.0.1.0",
-    "record": "results/soak/2026-11-20/google-drive_windows-862-175005.json",
+    "record": "results/soak/2026-11-21/google-drive_windows-862-053639.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -43085,16 +43085,16 @@
    }
   },
   "db-browser-for-sqlite/windows@864": {
-   "lifecycle_runs": 41,
+   "lifecycle_runs": 42,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:19:52",
    "last_cycled": "2026-11-16T02:28:21",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-21T05:05:47",
+    "date": "2026-11-21T05:42:59",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.13.1",
-    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-050547.json",
+    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-054259.json",
     "findings": []
    }
   },
@@ -63182,6 +63182,18 @@
     ]
    }
   },
+  "010-editor/darwin@860": {
+   "lifecycle_runs": 0,
+   "update_runs": 1,
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-21T05:50:25",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-21/010-editor_darwin-860-055025.json",
+    "findings": []
+   }
+  },
   "1password/darwin@90004": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63221,6 +63233,22 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.10.8",
     "record": "results/soak/2026-11-21/affinity-publisher@1_darwin-860-044148.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
+   }
+  },
+  "affinity-publisher@1/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T05:36:41",
+   "last_cycled": "2026-11-21T05:44:21",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T05:44:21",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.10.8",
+    "record": "results/soak/2026-11-21/affinity-publisher@1_darwin-865-054421.json",
     "findings": [
      "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
     ]
@@ -63380,6 +63408,20 @@
     "findings": []
    }
   },
+  "front/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T05:52:06",
+   "last_cycled": "2026-11-21T05:52:06",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T05:52:06",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.81.2",
+    "record": "results/soak/2026-11-21/front_darwin-865-055206.json",
+    "findings": []
+   }
+  },
   "gotomeeting/darwin@860": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -63509,6 +63551,22 @@
     "record": "results/soak/2026-11-21/maestral_darwin-860-050643.json",
     "findings": [
      "reinstall over the open app: Fleet says installed, but the app is still running from files the install deleted (/private/tmp/2795431797/Maestral.app.bkp/Contents/MacOS/Maestral, pid 75948) (#54170 shape)"
+    ]
+   }
+  },
+  "maestral/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T05:58:02",
+   "last_cycled": "2026-11-21T06:05:02",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T06:05:02",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.9.5",
+    "record": "results/soak/2026-11-21/maestral_darwin-865-060502.json",
+    "findings": [
+     "reinstall over the open app: Fleet says installed, but the app is still running from files the install deleted (/private/tmp/3896856300/Maestral.app.bkp/Contents/MacOS/Maestral, pid 91257) (#54170 shape)"
     ]
    }
   },
@@ -63798,6 +63856,20 @@
     "findings": []
    }
   },
+  "superkey/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T05:36:40",
+   "last_cycled": "2026-11-21T05:36:40",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T05:36:40",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.69",
+    "record": "results/soak/2026-11-21/superkey_darwin-860-053640.json",
+    "findings": []
+   }
+  },
   "syncthing-app/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63851,6 +63923,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.0.24",
     "record": "results/soak/2026-11-21/vlc_darwin-865-041336.json",
+    "findings": []
+   }
+  },
+  "warp/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T05:43:24",
+   "last_cycled": "2026-11-21T05:43:24",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T05:43:24",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "0.2026.11.18.08.17.04",
+    "record": "results/soak/2026-11-21/warp_darwin-860-054324.json",
     "findings": []
    }
   }
