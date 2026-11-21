@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T12:12:05",
+ "built": "2026-11-21T12:51:28",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -56,8 +56,10 @@
      "name": "twice_daily",
      "every_hours": 12,
      "apps": 10,
-     "on_time": 10,
-     "overdue": {}
+     "on_time": 9,
+     "overdue": {
+      "google-drive/windows": 18
+     }
     },
     {
      "name": "daily",
@@ -72,7 +74,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 520
+      "onedrive/windows": 521
      }
     }
    ]
@@ -40219,16 +40221,16 @@
    }
   },
   "microsoft-teams/darwin@860": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-15T18:58:53",
-   "last_cycled": "2026-11-21T01:18:27",
+   "last_cycled": "2026-11-21T12:34:21",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-21T01:18:27",
+    "date": "2026-11-21T12:34:21",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "26289.204.5281.6363",
-    "record": "results/soak/2026-11-21/microsoft-teams_darwin-860-011827.json",
+    "record": "results/soak/2026-11-21/microsoft-teams_darwin-860-123421.json",
     "findings": []
    }
   },
@@ -41038,7 +41040,7 @@
    }
   },
   "slack/darwin@865": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 6,
    "update_runs": 2,
    "last_update": {
     "outcome": "pass",
@@ -41049,13 +41051,13 @@
     "findings": []
    },
    "first_cycled": "2026-11-15T18:41:28",
-   "last_cycled": "2026-11-21T00:42:44",
+   "last_cycled": "2026-11-21T12:43:13",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-21T00:42:44",
+    "date": "2026-11-21T12:43:13",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.53.292",
-    "record": "results/soak/2026-11-21/slack_darwin-865-004244.json",
+    "record": "results/soak/2026-11-21/slack_darwin-865-124313.json",
     "findings": []
    }
   },
@@ -41177,13 +41179,13 @@
   },
   "sublime-text/windows@859": {
    "lifecycle_runs": 2,
-   "update_runs": 7,
+   "update_runs": 9,
    "last_update": {
     "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
-    "date": "2026-11-20T09:08:20",
+    "date": "2026-11-21T12:17:26",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-20/sublime-text_windows-859-090820.json",
+    "record": "results/soak/2026-11-21/sublime-text_windows-859-121726.json",
     "findings": []
    },
    "first_cycled": "2026-11-18T22:16:56",
@@ -45439,16 +45441,16 @@
    }
   },
   "microsoft-word/darwin@860": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 6,
    "update_runs": 0,
    "first_cycled": "2026-11-16T08:16:45",
-   "last_cycled": "2026-11-20T02:54:50",
+   "last_cycled": "2026-11-21T12:41:41",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T02:54:50",
+    "date": "2026-11-21T12:41:41",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "16.115.1",
-    "record": "results/soak/2026-11-20/microsoft-word_darwin-860-025450.json",
+    "record": "results/soak/2026-11-21/microsoft-word_darwin-860-124141.json",
     "findings": []
    }
   },
@@ -47498,13 +47500,13 @@
   },
   "sublime-text/windows@862": {
    "lifecycle_runs": 2,
-   "update_runs": 7,
+   "update_runs": 9,
    "last_update": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-20T09:07:25",
+    "date": "2026-11-21T12:17:03",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-20/sublime-text_windows-862-090725.json",
+    "record": "results/soak/2026-11-21/sublime-text_windows-862-121703.json",
     "findings": [
      "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
     ]
@@ -51071,30 +51073,30 @@
    }
   },
   "figma/windows@859": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T21:35:54",
+    "date": "2026-11-21T12:17:27",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-20/figma_windows-859-213554.json",
+    "record": "results/soak/2026-11-21/figma_windows-859-121727.json",
     "findings": []
    },
    "first_cycled": "2026-11-17T09:31:39",
-   "last_cycled": "2026-11-20T21:35:54"
+   "last_cycled": "2026-11-21T12:17:27"
   },
   "figma/windows@862": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-17T03:55:36",
-   "last_cycled": "2026-11-20T21:36:25",
+   "last_cycled": "2026-11-21T12:19:18",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T21:36:25",
+    "date": "2026-11-21T12:19:18",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-20/figma_windows-862-213625.json",
+    "record": "results/soak/2026-11-21/figma_windows-862-121918.json",
     "findings": []
    }
   },
@@ -57800,16 +57802,16 @@
    }
   },
   "slack/windows@863": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-18T16:39:42",
-   "last_cycled": "2026-11-20T11:25:50",
+   "last_cycled": "2026-11-21T12:15:42",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T11:25:50",
+    "date": "2026-11-21T12:15:42",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.53.292",
-    "record": "results/soak/2026-11-20/slack_windows-863-112550.json",
+    "record": "results/soak/2026-11-21/slack_windows-863-121542.json",
     "findings": []
    }
   },
@@ -57974,16 +57976,16 @@
    }
   },
   "teamviewer/windows@859": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-18T00:32:12",
-   "last_cycled": "2026-11-18T00:32:12",
+   "last_cycled": "2026-11-21T12:23:44",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-18T00:32:12",
+    "date": "2026-11-21T12:23:44",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "15.83.5",
-    "record": "results/soak/2026-11-18/teamviewer_windows-859-003212.json",
+    "catalog_version": "15.83.7",
+    "record": "results/soak/2026-11-21/teamviewer_windows-859-122344.json",
     "findings": []
    }
   },
@@ -61792,16 +61794,16 @@
    }
   },
   "microsoft-outlook/darwin@865": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-20T12:05:49",
-   "last_cycled": "2026-11-20T12:05:49",
+   "last_cycled": "2026-11-21T12:34:30",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-20T12:05:49",
+    "date": "2026-11-21T12:34:30",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "16.115",
-    "record": "results/soak/2026-11-20/microsoft-outlook_darwin-865-120549.json",
+    "record": "results/soak/2026-11-21/microsoft-outlook_darwin-865-123430.json",
     "findings": []
    }
   },
@@ -63465,6 +63467,20 @@
     "findings": []
    }
   },
+  "crossover/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:27:57",
+   "last_cycled": "2026-11-21T12:27:57",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:27:57",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "26.3.0",
+    "record": "results/soak/2026-11-21/crossover_darwin-865-122757.json",
+    "findings": []
+   }
+  },
   "cursor/darwin@90002": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63602,6 +63618,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "7.6.1",
     "record": "results/soak/2026-11-21/elgato-stream-deck_darwin-860-100146.json",
+    "findings": []
+   }
+  },
+  "elgato-stream-deck/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:21:21",
+   "last_cycled": "2026-11-21T12:21:21",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:21:21",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "7.6.1",
+    "record": "results/soak/2026-11-21/elgato-stream-deck_darwin-865-122121.json",
     "findings": []
    }
   },
@@ -63791,6 +63821,20 @@
     "findings": []
    }
   },
+  "keyboard-maestro/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:14:54",
+   "last_cycled": "2026-11-21T12:14:54",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:14:54",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "11.1.1",
+    "record": "results/soak/2026-11-21/keyboard-maestro_darwin-860-121454.json",
+    "findings": []
+   }
+  },
   "lens/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63844,6 +63888,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.14.72",
     "record": "results/soak/2026-11-21/logitune_darwin-865-043602.json",
+    "findings": []
+   }
+  },
+  "lunar/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:20:50",
+   "last_cycled": "2026-11-21T12:20:50",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:20:50",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "6.11.3",
+    "record": "results/soak/2026-11-21/lunar_darwin-860-122050.json",
     "findings": []
    }
   },
@@ -64114,6 +64172,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "7.86",
     "record": "results/soak/2026-11-21/reaper_darwin-860-090523.json",
+    "findings": []
+   }
+  },
+  "reaper/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:14:39",
+   "last_cycled": "2026-11-21T12:14:39",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:14:39",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "7.86",
+    "record": "results/soak/2026-11-21/reaper_darwin-865-121439.json",
     "findings": []
    }
   },
@@ -64470,6 +64542,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "0.2026.11.18.08.17.04",
     "record": "results/soak/2026-11-21/warp_darwin-865-064510.json",
+    "findings": []
+   }
+  },
+  "wondershare-filmora/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T12:26:57",
+   "last_cycled": "2026-11-21T12:26:57",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T12:26:57",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "13.0.25",
+    "record": "results/soak/2026-11-21/wondershare-filmora_darwin-860-122657.json",
     "findings": []
    }
   },

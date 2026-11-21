@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 13330 cycles: pass 5748, findings 2773, flaky 636, environment 320, harness 357, skipped 3496
+**1. Runs** — 13346 cycles: pass 5762, findings 2774, flaky 636, environment 320, harness 357, skipped 3497
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 500/500 (100.0%), quarter 1/2 this week 219/220, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 500/500 (100.0%), quarter 1/2 this week 219/220, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
