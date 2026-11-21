@@ -1,0 +1,85 @@
+{
+ "slug": "7-zip/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-21T19:29:36",
+ "catalog_version": "26.06",
+ "catalog_id": "1608a4ea249e",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-21T23:29:34Z",
+  "restarted": "2026-11-16T03:26:41.595534Z",
+  "software_updated": "2026-11-21T21:33:24Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 16684,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": " counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (88:30) [23:29:53:815]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\1c00a5a6.msp'\r\nMSI (s) (88:30) [23:29:53:817]: Post-install cleanup: removing installer file 'C:\\WINDOWS\\Installer\\1c00baed.msp'\r\nMSI (c) (94:D4) [23:29:53:859]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (94:D4) [23:29:53:861]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/21/2026  23:29:53 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/21/2026  23:29:53 ===",
+  "=== Verbose logging stopped: 11/21/2026  23:29:53 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.06.00.0"
+ ],
+ "package_version": "26.06",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "7-Zip 26.06 (x64 edition)"
+  ],
+  "versions": [
+   "26.06.00.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": ":821]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (88:A8) [23:32:28:823]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (88:A8) [23:32:28:823]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:4C) [23:32:28:826]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (3C:4C) [23:32:28:826]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/21/2026  23:32:28 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/21/2026  23:32:28 ===",
+  "=== Verbose logging stopped: 11/21/2026  23:32:28 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-21T19:33:57",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-21T23:33:54Z",
+  "restarted": "2026-11-16T03:26:41.595534Z",
+  "software_updated": "2026-11-21T23:33:46Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-21/7-zip_windows-862-192936.json"
+}
