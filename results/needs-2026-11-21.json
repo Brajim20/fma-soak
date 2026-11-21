@@ -48,6 +48,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/affinity-publisher@1/darwin.json), [affinity-publisher@1.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/affinity-publisher@1.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-12 Add macOS Fleet-maintained apps (A) (#47536) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "maestral/darwin@860",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: Fleet says installed, but the app is still running from files the install deleted (/private/tmp/2795431797/Maestral.app.bkp/Contents/MacOS/Maestral, pid 75948) (#54170 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-21/maestral_darwin-860-050643.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/maestral/darwin.json), [maestral.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/maestral.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "snowflake-snowsql/darwin@860",
   "shape": "S6",
   "msgs": [
@@ -58,6 +70,19 @@
   "runs": 1,
   "other_host": null,
   "record": "results/soak/2026-11-21/snowflake-snowsql_darwin-860-041415.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/snowflake-snowsql/darwin.json), [snowflake-snowsql.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/snowflake-snowsql.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (S) (#47250) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "snowflake-snowsql/darwin@865",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)",
+   "after reinstalling over the open app: the app doesn't stay open after the install, though it opened before (#32227 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-21/snowflake-snowsql_darwin-865-051450.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/snowflake-snowsql/darwin.json), [snowflake-snowsql.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/snowflake-snowsql.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 last changes: 2026-06-10 Add macOS Fleet-maintained apps (S) (#47250) \u00b7 issues mentioning it: none"
  },
  {
