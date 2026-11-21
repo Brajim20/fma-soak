@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T04:27:18",
+ "built": "2026-11-21T04:56:05",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -72,7 +72,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 512
+      "onedrive/windows": 513
      }
     }
    ]
@@ -43085,16 +43085,16 @@
    }
   },
   "db-browser-for-sqlite/windows@864": {
-   "lifecycle_runs": 39,
+   "lifecycle_runs": 40,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:19:52",
    "last_cycled": "2026-11-16T02:28:21",
    "last_lifecycle": {
     "outcome": "skipped: the copy already on the host is still there after its uninstall (failed_uninstall)",
-    "date": "2026-11-21T04:06:04",
+    "date": "2026-11-21T04:35:40",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.13.1",
-    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-040604.json",
+    "record": "results/soak/2026-11-21/db-browser-for-sqlite_windows-864-043540.json",
     "findings": []
    }
   },
@@ -58609,7 +58609,7 @@
   },
   "affinity/darwin@860": {
    "lifecycle_runs": 1,
-   "update_runs": 0,
+   "update_runs": 1,
    "first_cycled": "2026-11-19T17:23:01",
    "last_cycled": "2026-11-19T17:23:01",
    "last_lifecycle": {
@@ -58618,6 +58618,14 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.3.3",
     "record": "results/soak/2026-11-19/affinity_darwin-860-172301.json",
+    "findings": []
+   },
+   "last_update": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:29:46",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": null,
+    "record": "results/soak/2026-11-21/affinity_darwin-860-042946.json",
     "findings": []
    }
   },
@@ -63202,6 +63210,22 @@
     "findings": []
    }
   },
+  "affinity-publisher@1/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:34:19",
+   "last_cycled": "2026-11-21T04:41:48",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T04:41:48",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.10.8",
+    "record": "results/soak/2026-11-21/affinity-publisher@1_darwin-860-044148.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
+   }
+  },
   "bitbox/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63227,6 +63251,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.7.0",
     "record": "results/soak/2026-11-21/bome-network_darwin-860-031739.json",
+    "findings": []
+   }
+  },
+  "bome-network/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:29:51",
+   "last_cycled": "2026-11-21T04:29:51",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:29:51",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.7.0",
+    "record": "results/soak/2026-11-21/bome-network_darwin-865-042951.json",
     "findings": []
    }
   },
@@ -63314,6 +63352,20 @@
     "findings": []
    }
   },
+  "front/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:49:39",
+   "last_cycled": "2026-11-21T04:49:39",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:49:39",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.81.2",
+    "record": "results/soak/2026-11-21/front_darwin-860-044939.json",
+    "findings": []
+   }
+  },
   "gotomeeting/darwin@860": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -63360,6 +63412,20 @@
     "findings": []
    }
   },
+  "handbrake-app/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:42:40",
+   "last_cycled": "2026-11-21T04:42:40",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:42:40",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.11.2",
+    "record": "results/soak/2026-11-21/handbrake-app_darwin-865-044240.json",
+    "findings": []
+   }
+  },
   "iina/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -63399,6 +63465,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.14.72",
     "record": "results/soak/2026-11-21/logitune_darwin-860-032333.json",
+    "findings": []
+   }
+  },
+  "logitune/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T04:36:02",
+   "last_cycled": "2026-11-21T04:36:02",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T04:36:02",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.14.72",
+    "record": "results/soak/2026-11-21/logitune_darwin-865-043602.json",
     "findings": []
    }
   },
