@@ -389,7 +389,8 @@
    624,
    629,
    863,
-   864
+   864,
+   861
   ],
   "max_restarts_per_day": 2
  },
@@ -489,10 +490,11 @@
  },
  "triage_expire_days": 30,
  "restart": {
-  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); started with the unencrypted ARM hosts 863/864, add 861/859/862 once a restart there came back clean.",
+  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); 863 restarted clean 2026-11-21 04:35Z (MDM ~5 min, auto-login); 861 (BitLocker, protection off) added for one harness-driven restart, then 859/862.",
   "hosts": [
    863,
-   864
+   864,
+   861
   ],
   "max_per_day": 2,
   "wait_minutes": 25
