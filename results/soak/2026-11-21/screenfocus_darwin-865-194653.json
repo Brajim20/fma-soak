@@ -1,0 +1,110 @@
+{
+ "slug": "screenfocus/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-21T19:46:53",
+ "catalog_version": "1.1.1",
+ "catalog_id": "5318465d395e",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-21T23:46:49Z",
+  "restarted": "2026-11-14T23:20:05.053169Z",
+  "software_updated": "2026-11-21T23:46:51Z"
+ },
+ "title_id": 46131,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.1.1"
+ ],
+ "package_version": "1.1.1",
+ "context_after_install": {
+  "path": "/Applications/ScreenFocus.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/ScreenFocus.app/Contents/MacOS/ScreenFocus",
+  "bundle_id": "com.apptorium.ScreenFocus-dm",
+  "versions": [
+   "1.1.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/Shared/ScreenFocus doesn't exist.\n/Users/<user>/Library/Application Support/com.apptorium.ScreenFocus-dm doesn't exist.\n/Users/<user>/Library/Application Support/ScreenFocus doesn't exist.\n/Users/<user>/Library/Caches/com.apptorium.ScreenFocus-dm doesn't exist.\n/Users/<user>/Library/Preferences/com.apptorium.ScreenFocus-dm.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "90577"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.apptorium.ScreenFocus-dm' was running; will relaunch after installation.\nQuitting application 'com.apptorium.ScreenFocus-dm'...\nApplication 'com.apptorium.ScreenFocus-dm' did not quit.\nLast quit error: 52:56: execution error: ScreenFocus got an error: Can\u2019t continue quit. (-1708)\nStopping application 'com.apptorium.ScreenFocus-dm'...\nApplication 'com.apptorium.ScreenFocus-dm' stopped.\nRelaunching application 'com.apptorium.ScreenFocus-dm'...\nApplication 'com.apptorium.ScreenFocus-dm' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.apptorium.ScreenFocus-dm' was running; will relaunch after installation.",
+  "Quitting application 'com.apptorium.ScreenFocus-dm'...",
+  "Application 'com.apptorium.ScreenFocus-dm' did not quit.",
+  "Last quit error: 52:56: execution error: ScreenFocus got an error: Can\u2019t continue quit. (-1708)",
+  "Stopping application 'com.apptorium.ScreenFocus-dm'...",
+  "Application 'com.apptorium.ScreenFocus-dm' stopped.",
+  "Relaunching application 'com.apptorium.ScreenFocus-dm'...",
+  "Application 'com.apptorium.ScreenFocus-dm' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "90895",
+   "path": "/Applications/ScreenFocus.app/Contents/MacOS/ScreenFocus",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: ScreenFocus got an error: Can\u2019t continue quit. (-1708)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: ScreenFocus got an error: Can\u2019t continue quit. (-1708))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/Shared/ScreenFocus.\n/Users/<user>/Library/Application Support/com.apptorium.ScreenFocus-dm doesn't exist.\nremoving /Users/<user>/Library/Application Support/ScreenFocus.\n/Users/<user>/Library/Caches/com.apptorium.ScreenFocus-dm doesn't exist.\n/Users/<user>/Library/Preferences/com.apptorium.ScreenFocus-dm.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-21T19:52:39",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-21T23:52:34Z",
+  "restarted": "2026-11-14T23:20:05.053169Z",
+  "software_updated": "2026-11-21T23:52:39Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-21/screenfocus_darwin-865-194653.json",
+ "crosshost_of": "soak/2026-11-11/screenfocus_darwin-800-232642.json"
+}
