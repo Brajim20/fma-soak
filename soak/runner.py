@@ -133,15 +133,50 @@ PRESENCE_ERRORS = []
 
 def present(host, exists_query, tries=4):
     """True/False from the app's catalog `exists` query; None if the host never answered.
-    Right after an install or uninstall the host is busy, so retry before giving up."""
+    Right after an install or uninstall the host is busy, so retry before giving up; then ask the host's own
+    osqueryd through a script (present_by_script) before calling it unknown."""
     for i in range(tries):
         st, d = api("POST", f"/hosts/{host}/query", {"query": exists_query}, timeout=180)
         if st == 200 and not d.get("error"):
             return len(d.get("rows") or []) > 0
         PRESENCE_ERRORS.append(f"{st} {d.get('error') or d.get('message')}"[:160])
         time.sleep(20)
-    return None
+    got = present_by_script(host, exists_query)
+    if got is not None:
+        PRESENCE_ERRORS.append(f"answered by the osqueryd script fallback: {got}")
+    return got
 
+
+OSQUERYD_SHELL = {
+    # orbit's bundled osqueryd in shell mode (-S): same tables and query as the live query, through the script
+    # channel instead of distributed reads. 149 cycles 2026-11-15..20 ended "presence unknown" because a busy
+    # host never answered the live query.
+    "darwin": 'Q=$(echo {b64} | base64 -D); for b in /opt/orbit/bin/osqueryd/*/stable/osquery.app/Contents/MacOS/osqueryd; '
+              'do "$b" -S --json "$Q"; exit $?; done; exit 3',
+    "windows": "$q = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('{b64}'))\n"
+               "$b = Get-ChildItem 'C:\\Program Files\\Orbit\\bin\\osqueryd\\*\\stable\\osqueryd.exe' | Select-Object -First 1\n"
+               "if (-not $b) {{ exit 3 }}\n& $b.FullName -S --json $q\nexit $LASTEXITCODE",
+}
+
+
+def present_by_script(host, exists_query, timeout=600):
+    """True/False from running the exists query in the host's osqueryd shell, or None (no platform, script failed,
+    output not a JSON array)."""
+    import base64
+    code, d = api("GET", f"/hosts/{host}")
+    plat = {"darwin": "darwin", "windows": "windows"}.get(((d.get("host") or {}).get("platform") or "") if code == 200 else "")
+    if not plat:
+        return None
+    body = OSQUERYD_SHELL[plat].format(b64=base64.b64encode(exists_query.encode()).decode())
+    res = run_script(host, body, timeout=timeout)
+    out = res.get("output") or ""
+    if res.get("exit_code") != 0 or "[" not in out:
+        return None
+    try:
+        rows = json.loads(out[out.index("["):out.rindex("]") + 1])
+    except ValueError:
+        return None
+    return len(rows) > 0 if isinstance(rows, list) else None
 
 def scope_query(exists_q, hive):
     """Windows: the catalog exists query's DisplayName match, limited to the uninstall keys of one registry hive
@@ -303,23 +338,46 @@ def cancel_pending(host, title_id):
     return codes
 
 
+class AddEnvironment(RuntimeError):
+    """Adding the FMA failed for a reason that isn't a finding; str(e) is the record's outcome."""
+
+
+def variant_sibling(slug):
+    """The title an -arm64 build or an @variant shares its unique_identifier with ("slack-arm64/windows" ->
+    "slack/windows", "firefox@esr/darwin" -> "firefox/darwin"), or None."""
+    base, plat = slug.split("/")
+    sib = base[:-len("-arm64")] if base.endswith("-arm64") else base.split("@")[0]
+    return f"{sib}/{plat}" if sib != base else None
+
+
 def ensure_title(slug, state, host):
     st, d = api("GET", f"/software/fleet_maintained_apps?fleet_id={FID}&per_page=2000")
-    row = next((a for a in d.get("fleet_maintained_apps", []) if a["slug"] == slug), None)
+    apps = d.get("fleet_maintained_apps", [])
+    row = next((a for a in apps if a["slug"] == slug), None)
     if not row:
         raise RuntimeError(f"{slug} not in the FMA catalog on this instance")
     if row.get("software_title_id"):
         return row["software_title_id"], False
-    st, d = api("POST", "/software/fleet_maintained_apps", {"fleet_maintained_app_id": row["id"], "fleet_id": FID}, timeout=900)
-    tid = d.get("software_title_id") if st < 300 else None
-    if st >= 500 or st == 0:
-        tid = added_late(slug)
+    for attempt in (1, 2):
+        st, d = api("POST", "/software/fleet_maintained_apps", {"fleet_maintained_app_id": row["id"], "fleet_id": FID}, timeout=900)
+        tid = d.get("software_title_id") if st < 300 else None
+        if st >= 500 or st == 0:
+            tid = added_late(slug)
+        # a 502/524 is the proxy in front of qa giving up (43 + 14 adds 2026-11-15..20), not Fleet: one more try
+        if tid or attempt == 2 or st not in (0, 502, 503, 504, 524):
+            break
+        time.sleep(60)
     if not tid:
-        raise RuntimeError(f"add failed {st}: {d.get('message')}")
+        msg = d.get("message") if isinstance(d, dict) else ""
+        sib = variant_sibling(slug)
+        if st == 409 and sib and any(a["slug"] == sib and a.get("software_title_id") for a in apps):
+            # by design (PR #52964, #53050): the variant shares the sibling's unique_identifier, one title per fleet
+            raise AddEnvironment(f"environment: by design: {sib} is already in the fleet and shares this title "
+                                 f"(add failed 409: {msg})")
+        raise RuntimeError(f"add failed {st}: {msg}")
     state["harness_titles"][slug] = tid
     save_state(state, host)
     return tid, True
-
 
 def added_late(slug, minutes=10):
     """The title Fleet created after the add request itself failed, or None. Cloudflare in front of qa gives up on
@@ -607,6 +665,9 @@ def cycle(slug, host):
         return finish(rec)
     try:
         tid, added = ensure_title(slug, state, host)
+    except AddEnvironment as e:
+        rec["outcome"] = str(e)
+        return finish(rec)
     except RuntimeError as e:
         # adding the FMA to the fleet failed (e.g. #55360's 500): a result in its own right, not a crash
         find("add", str(e))
@@ -753,6 +814,7 @@ def cycle(slug, host):
     if known and rec["findings"]:
         rec["outcome"], rec["known_environment"] = "environment (known)", known
     return finish(rec)
+
 
 
 def sql_str(v):

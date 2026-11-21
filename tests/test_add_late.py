@@ -28,10 +28,17 @@ class EnsureTitleAfterProxyTimeout(unittest.TestCase):
 
     def test_still_fails_when_the_title_never_shows_up(self):
         clock = iter(range(0, 10_000, 100))
-        replies = iter([catalog(None), (502, {"message": "error code: 502"})] + [catalog(None)] * 50)
-        with mock.patch.object(runner.time, "time", lambda: next(clock)):
+        posts = []
+        def api(method, path, *a, **k):  # every add answers 502 (the retry too), the title never appears
+            if method == "POST":
+                posts.append(path)
+                return 502, {"message": "error code: 502"}
+            return catalog(None)
+        with mock.patch.object(runner.time, "time", lambda: next(clock)), mock.patch.object(runner, "api", api), \
+                mock.patch.object(runner.time, "sleep"), mock.patch.object(runner, "save_state"):
             with self.assertRaisesRegex(RuntimeError, "add failed 502"):
-                self.run_add(replies)
+                runner.ensure_title(SLUG, {"harness_titles": {}}, 773)
+        self.assertEqual(len(posts), 2)  # one retry after a proxy 502
 
     def test_a_422_is_not_waited_on(self):
         replies = iter([catalog(None), (422, {"message": "Validation Failed"})])

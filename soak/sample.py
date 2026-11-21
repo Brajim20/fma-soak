@@ -334,6 +334,22 @@ def hours_since(iso, now):
 PREEXISTING_STUCK = "skipped: the copy already on the host is still there after its uninstall"
 
 
+def stuck_recently(ledger, host, now=None):
+    """Slugs whose last cycle on this host was skipped because the copy already there survived its uninstall, less
+    than backoff.preexisting_stuck_hours (default 84) ago. Every pass picked them again: DB Browser for SQLite on
+    864 and .NET Runtime 8 on 862 were skipped 31 times each 2026-11-15..20."""
+    now = now or datetime.datetime.now()
+    hours = R.CFG.get("backoff", {}).get("preexisting_stuck_hours", 84)
+    out = set()
+    for k, e in ledger.items():
+        slug, _, h = k.rpartition("@")
+        last = (e or {}).get("last_lifecycle") or {}
+        if h == str(host) and (last.get("outcome") or "").startswith(PREEXISTING_STUCK) and \
+                (hours_since(last.get("date"), now) or 0) < hours:
+            out.add(slug)
+    return out
+
+
 def priority_due(plat, full, ledger, host, skip, tried, now=None):
     """[(slug, why)]: this host's priority apps whose last real cycle (any host) is at least their tier's every_hours
     old, less priority.slack_hours so a pass that starts a little early still takes them. Most overdue first."""
@@ -388,7 +404,8 @@ def next_pick(plat, catalog, changed, ledger, rng, host, blind=None, full=None, 
     spots only."""
     full = full or catalog
     week_ago = ((now or datetime.datetime.now()) - datetime.timedelta(days=7)).isoformat(timespec="seconds")
-    skip = excluded(plat, host) | {s for s in full if not fits(plat, s, host)}
+    skip = excluded(plat, host) | {s for s in full if not fits(plat, s, host)} | \
+        (stuck_recently(ledger, host, now) - priority_apps(plat))  # priority apps back off per tier (priority_due)
     rr = R.CFG.get("rerun", {})
     for s in rr.get("apps", []):
         last = max((((ledger.get(f"{s}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),
