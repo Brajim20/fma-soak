@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 1516,
+ "current_runs": 1533,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -14,6 +14,22 @@
    "current_record": "soak/2026-11-19/8x8-work_darwin-858-044203.json",
    "findings": [
     "uninstall: app still on host after cleanup uninstall"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "adobe-creative-cloud/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/adobe-creative-cloud_windows-862-091737.json",
+   "current_record": "soak/2026-11-21/adobe-creative-cloud_windows-862-024954.json",
+   "findings": [
+    "install: first install ended as failed_install",
+    "install: second install ended as failed_install"
    ],
    "triaged": [],
    "why": "passed on the baseline",
@@ -293,6 +309,6 @@
    "triaged": []
   }
  ],
- "compared": 137,
+ "compared": 138,
  "canaries_not_yet_on_current": []
 }
