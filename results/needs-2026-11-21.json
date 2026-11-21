@@ -24,6 +24,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gotomeeting/darwin.json), [gotomeeting.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gotomeeting.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-05-27 Add GoToMeeting maintained-app support (#46264) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "sublime-text/windows@861",
+  "shape": "S1",
+  "msgs": [
+   "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-21/sublime-text_windows-861-115620.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sublime-text/windows.json), [sublime-text.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sublime-text.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-02 Check Sublime Text (Windows) version from sublime_text.exe (#57186); 2025-12-01 Add Sublime Text as a Windows FMA (#36448) \u00b7 issues mentioning it: #57187 (open), #57118 (closed), #57810 (closed), #57225 (closed), #44038 (closed)"
+ },
+ {
   "app": "suspicious-package/darwin@865",
   "shape": "S1",
   "msgs": [
@@ -34,6 +46,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-21/suspicious-package_darwin-865-000318.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/suspicious-package/darwin.json), [suspicious-package.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/suspicious-package.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Fixing Suspicious Package, CFBundleIdentifier is wrong (#47243); 2025-12-11 Add multiple macOS Fleet-maintained apps (#37101) \u00b7 issues mentioning it: #7852 (open), #37100 (open), #29719 (closed), #38137 (closed), #31306 (closed)"
+ },
+ {
+  "app": "figma/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "before it was installed, Fleet lists it as installed ['126.11.9']: another app's inventory matches this title (#51299 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-21/figma_windows-861-105120.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59111 (open), #58156 (open), #59112 (open), #58048 (open), #58627 (open)"
  },
  {
   "app": "affinity-designer/darwin@865",
