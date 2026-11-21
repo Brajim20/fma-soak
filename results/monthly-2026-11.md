@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 13151 cycles: pass 5609, findings 2757, flaky 632, environment 317, harness 357, skipped 3479
+**1. Runs** — 13160 cycles: pass 5615, findings 2758, flaky 632, environment 317, harness 357, skipped 3481
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 497/497 (100.0%), quarter 1/2 this week 216/217, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 497/498 (99.8%), quarter 1/2 this week 216/218, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 24/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -163,6 +163,7 @@
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 | #59149 | closed | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
 | #59164 | merged | Update Fleet-maintained apps |
+| #59267 | merged | Unfreeze Dialpad for Windows (2610.1.0) |
 | #59297 | merged | Unfreeze 16 Fleet-maintained apps that pass validation |
 | #59362 | open | Fleet-maintained apps: jamovi (macOS) can't be added — its catalog URL is gone (404) |
 | #59366 | closed | Fleet-maintained apps: WinRAR (Windows) install over the open app hangs until Fleet kills it, blocking the host's queue for an hour |
@@ -181,7 +182,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: done
+2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests

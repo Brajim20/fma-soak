@@ -1,0 +1,14 @@
+[
+ {
+  "app": "suspicious-package/darwin@865",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-21/suspicious-package_darwin-865-000318.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/suspicious-package/darwin.json), [suspicious-package.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/suspicious-package.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-06-10 Fixing Suspicious Package, CFBundleIdentifier is wrong (#47243); 2025-12-11 Add multiple macOS Fleet-maintained apps (#37101) \u00b7 issues mentioning it: #7852 (open), #37100 (open), #29719 (closed), #38137 (closed), #31306 (closed)"
+ }
+]
