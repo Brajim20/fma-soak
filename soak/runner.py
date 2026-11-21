@@ -811,9 +811,29 @@ def cycle(slug, host):
     rec["presence_query_errors"] = PRESENCE_ERRORS[:]
     rec["outcome"] = "pass" if not rec["findings"] else "findings"
     known = CFG.get("known_environment", {}).get(f"{slug}@{host}")
+    restart = restart_needed(rec) if plat == "windows" else None
+    if restart:
+        rec["needs_restart"] = restart  # sample.py restarts the host and reruns the app (restarts.py)
     if known and rec["findings"]:
         rec["outcome"], rec["known_environment"] = "environment (known)", known
+    elif restart and rec["findings"] and all(f["shape"] in ("install", "uninstall", "S3") for f in rec["findings"]):
+        rec["outcome"] = f"environment: host needs a restart ({restart})"
     return finish(rec)
+
+
+# an installer saying the host must restart: 3010/1641 = done but a restart is pending, 1610 = blocked by a pending
+# restart (Google Drive's own message says "restart the host, then install again", #57390 / #57488)
+RESTART_MARK = re.compile(r"exit code: (1610|1641|3010)\b|waiting on a restart|restart the host", re.I)
+
+
+def restart_needed(rec):
+    """The first restart marker in the cycle's install/uninstall output, or None."""
+    for k in sorted(rec):
+        if k.endswith("_output_tail") and not k.startswith("preexisting"):
+            m = RESTART_MARK.search(str(rec[k]))
+            if m:
+                return f"{k[:-len('_output_tail')]}: {m.group(0)}"
+    return None
 
 
 

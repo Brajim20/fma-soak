@@ -61,6 +61,7 @@ import argparse, datetime, glob, json, os, random, subprocess, sys, time, zlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import runner as R
+import restarts
 
 SAMPLE_DIR = os.path.join(R.WS, "results", "sample")
 LEDGER = os.path.join(R.WS, "results", "ledger.json")
@@ -405,7 +406,8 @@ def next_pick(plat, catalog, changed, ledger, rng, host, blind=None, full=None, 
     full = full or catalog
     week_ago = ((now or datetime.datetime.now()) - datetime.timedelta(days=7)).isoformat(timespec="seconds")
     skip = excluded(plat, host) | {s for s in full if not fits(plat, s, host)} | \
-        (stuck_recently(ledger, host, now) - priority_apps(plat))  # priority apps back off per tier (priority_due)
+        (stuck_recently(ledger, host, now) - priority_apps(plat)) | \
+        restarts.blocked(host)  # priority apps back off per tier (priority_due); blocked = waiting for a restart
     rr = R.CFG.get("rerun", {})
     for s in rr.get("apps", []):
         last = max((((ledger.get(f"{s}@{h}") or {}).get("last_lifecycle") or {}).get("date", "") for h in all_hosts(plat)),
@@ -544,6 +546,18 @@ def run_sample(plat, until, count, dry, host=None, slot=None):
                 rec["pool_slot"] = slot
                 json.dump(rec, open(rec["record"], "w"), indent=1)
             entry.update(outcome=rec.get("outcome"), record=rec.get("record"), cleanup=remove_if_added(slug, host, rec))
+            if rec.get("needs_restart") and slot is None:
+                # the app can't be judged until the host restarts: restart it and rerun once, or block the app here
+                if restarts.handle(host, slug, plat):
+                    again = R.run(R.cycle, slug, host)
+                    again["after_restart"] = rec.get("record")
+                    again["needs_restart_before"] = rec["needs_restart"]
+                    if again.get("record"):
+                        json.dump(again, open(again["record"], "w"), indent=1)
+                    entry.update(outcome=again.get("outcome"), record=again.get("record"), after_restart=True,
+                                 cleanup=remove_if_added(slug, host, again))
+                    if again.get("needs_restart"):
+                        restarts.block(host, slug, "still needs a restart right after one")
         except Exception as e:
             entry["outcome"] = f"error: {type(e).__name__}: {e}"
         print(f"   {slug} ({why}): {entry['outcome']} [{entry.get('cleanup', '')}]", flush=True)
