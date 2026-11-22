@@ -4076,6 +4076,106 @@
       "shape": "S6",
       "verdict": "filed #59532: install script has no Stop-Process, so install over the open app exits 1603 AND deletes the uninstall registration while Windscribe.exe stays on disk (859/861/862, 2026-11-20); Fleet uninstall then reports success and removes nothing",
       "added": "2026-11-21"
+    },
+    {
+      "app": "freecad/windows",
+      "verdict": "filed #59564: FreeCAD (Windows) install fails with exit code 2 while the app is open (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "wrike/windows",
+      "verdict": "filed #59565: Wrike (Windows) install fails with a fatal MSI error while the app is open (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "sql-server-management-studio/windows",
+      "verdict": "filed #59566: SQL Server Management Studio 22 (Windows) install fails while the app is open, and the old copy keeps running (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "nosql-workbench/windows",
+      "verdict": "filed #59567: NoSQL Workbench (Windows) install never finishes while the app is open, and blocks the host's queue (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "galaxy-modeler/windows",
+      "verdict": "filed #59568: Galaxy Modeler (Windows) install never finishes while the app is open, and blocks the host's queue (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "evernote/windows",
+      "verdict": "filed #59569: Evernote (Windows) install always fails with exit code 2 (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "devtoys/windows",
+      "verdict": "filed #59570: DevToys (Windows) installs into the SYSTEM profile instead of the signed-in user's (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "webex/windows",
+      "verdict": "filed #59571: Webex (Windows) installs into the SYSTEM profile instead of a location users can open (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "goldendict-ng/windows",
+      "verdict": "filed #59572: GoldenDict-ng (Windows) is never detected by its exists/patched queries, so its patch policy always passes (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "kiro-cli/darwin",
+      "verdict": "filed #59573: Kiro CLI (macOS) is never detected after install, so its patch policy always passes (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "transmission/darwin",
+      "verdict": "filed #59574: Transmission (macOS) never shows an installed version after install (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "commander-one/darwin",
+      "verdict": "filed #59575: Commander One (macOS) never shows an installed version after install (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "maestral/darwin",
+      "verdict": "filed #59576: Maestral (macOS) install over the open app reports success while an old process keeps running (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "qgis/darwin",
+      "verdict": "filed #59577: QGIS (macOS) install over the open app closes it and doesn't reopen it (rerun 2026-11-22 on 4.95.0-rc 5790b6cafd)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "grammarly-desktop/darwin",
+      "verdict": "relaunch_application fails after install over the open app; added as a case on open #59193 (shared relaunch helper), not a separate issue",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "4k-slideshow-maker/darwin",
+      "verdict": "not reopened after install over the open app (860, 865 on 2026-11-22); added as a case on open #59193",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "blurscreen/darwin",
+      "verdict": "'did not quit' was on the old script (2026-11-08); covered by #59031 force-quit (merged 2026-11-17); passes on 987 and 1015 since",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "suspicious-package/darwin",
+      "verdict": "wrong apps.json unique_identifier; fixed by open PR #57497",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "dymo-connect/darwin",
+      "verdict": "overturned on review 2026-11-22: not filed",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "microsoft-dotnet-sdk-10/windows",
+      "verdict": "upgrade_code title link gap; covered by open #50077",
+      "added": "2026-11-22"
     }
   ]
 }
