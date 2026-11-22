@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T07:19:06",
+ "built": "2026-11-22T07:55:33",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -74,7 +74,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 539
+      "onedrive/windows": 540
      }
     }
    ]
@@ -45833,16 +45833,16 @@
    }
   },
   "notepad++/windows@859": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "first_cycled": "2026-11-16T20:29:30",
-   "last_cycled": "2026-11-19T02:08:46",
+   "last_cycled": "2026-11-22T07:26:06",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T02:08:46",
+    "date": "2026-11-22T07:26:06",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "8.9.9.1",
-    "record": "results/soak/2026-11-19/notepad++_windows-859-020846.json",
+    "record": "results/soak/2026-11-22/notepad++_windows-859-072606.json",
     "findings": []
    }
   },
@@ -48190,7 +48190,7 @@
    }
   },
   "visual-studio-code/windows@861": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 4,
    "last_update": {
     "outcome": "pass",
@@ -48201,13 +48201,13 @@
     "findings": []
    },
    "first_cycled": "2026-11-18T21:39:44",
-   "last_cycled": "2026-11-21T20:04:34",
+   "last_cycled": "2026-11-22T07:26:00",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-21T20:04:34",
+    "date": "2026-11-22T07:26:00",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.146.0",
-    "record": "results/soak/2026-11-21/visual-studio-code_windows-861-200434.json",
+    "record": "results/soak/2026-11-22/visual-studio-code_windows-861-072600.json",
     "findings": []
    }
   },
@@ -65730,6 +65730,22 @@
     ]
    }
   },
+  "4k-slideshow-maker/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T07:34:28",
+   "last_cycled": "2026-11-22T07:41:09",
+   "last_lifecycle": {
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-22T07:41:09",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2.0",
+    "record": "results/soak/2026-11-22/4k-slideshow-maker_darwin-865-074109.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)"
+    ]
+   }
+  },
   "4k-video-downloader/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -65787,6 +65803,22 @@
     "record": "results/soak/2026-11-22/4k-video-to-mp3_darwin-865-060915.json",
     "findings": [
      "reinstall over the open app: the install closed the open app and didn't reopen it; the script didn't try to (#56809 shape)"
+    ]
+   }
+  },
+  "affinity-photo@1/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T07:27:43",
+   "last_cycled": "2026-11-22T07:36:27",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T07:36:27",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.10.8",
+    "record": "results/soak/2026-11-22/affinity-photo@1_darwin-860-073627.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
     ]
    }
   },
@@ -65927,6 +65959,32 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.31.15",
     "record": "results/soak/2026-11-22/cursor_darwin-865-034926.json",
+    "findings": []
+   }
+  },
+  "dangerzone/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "last_lifecycle": {
+    "outcome": "environment: installer store: the instance serves 1563328512 bytes of the vendor's 1764666938 and the SHA-256 doesn't match the title's",
+    "date": "2026-11-22T07:26:09",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "0.11.1",
+    "record": "results/soak/2026-11-22/dangerzone_darwin-860-072609.json",
+    "findings": []
+   }
+  },
+  "deckset/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T07:25:54",
+   "last_cycled": "2026-11-22T07:25:54",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T07:25:54",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2.1.0",
+    "record": "results/soak/2026-11-22/deckset_darwin-865-072554.json",
     "findings": []
    }
   },
@@ -66130,6 +66188,20 @@
     "findings": []
    }
   },
+  "nucleo/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T07:44:30",
+   "last_cycled": "2026-11-22T07:44:30",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T07:44:30",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "4.2.0",
+    "record": "results/soak/2026-11-22/nucleo_darwin-860-074430.json",
+    "findings": []
+   }
+  },
   "plex-media-server/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -66211,6 +66283,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.6.7",
     "record": "results/soak/2026-11-22/scribus_darwin-860-065553.json",
+    "findings": []
+   }
+  },
+  "scribus/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T07:48:19",
+   "last_cycled": "2026-11-22T07:48:19",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T07:48:19",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.6.7",
+    "record": "results/soak/2026-11-22/scribus_darwin-865-074819.json",
     "findings": []
    }
   },
