@@ -366,12 +366,17 @@
  },
  "event_log": {
   "_doc": "runner.app_event_errors (Windows, #51138): Application-log errors naming the app after Fleet installed and opened it are an S2 finding; these providers are ignored.",
-  "skip_providers": ["MsiInstaller"]
+  "skip_providers": [
+   "MsiInstaller"
+  ]
  },
  "scenarios": {
   "false_success": {
    "_doc": "falsesuccess.py (#58221 #51123 #50056): once a day on each platform's primary host, run per_day FMAs' own install scripts with a broken installer (zip/dmg cut in half, others random bytes) and check they exit non-zero. Exit 0 = Fleet would report Success with nothing installed (S3 finding); still running after hang_seconds = a finding too. Never-checked and changed scripts first, round-robin over installer types; skips apps already on the host.",
-   "per_day": {"darwin": 30, "windows": 15},
+   "per_day": {
+    "darwin": 30,
+    "windows": 15
+   },
    "hang_seconds": 240
   },
   "explorer2": {
@@ -408,7 +413,9 @@
    629,
    863,
    864,
-   861
+   861,
+   859,
+   862
   ],
   "max_restarts_per_day": 2
  },
@@ -508,11 +515,13 @@
  },
  "triage_expire_days": 30,
  "restart": {
-  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); 863 restarted clean 2026-11-21 04:35Z (MDM ~5 min, auto-login); 861 (BitLocker, protection off) added for one harness-driven restart, then 859/862.",
+  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); 863 restarted clean 2026-11-21 04:35Z (MDM ~5 min, auto-login); 861 (BitLocker, protection off) restarted clean 2026-11-22 15:41Z (manual, between runs: back in ~6 min, qa auto-login, online), so 859/862 added too.",
   "hosts": [
    863,
    864,
-   861
+   861,
+   859,
+   862
   ],
   "max_per_day": 2,
   "wait_minutes": 25
