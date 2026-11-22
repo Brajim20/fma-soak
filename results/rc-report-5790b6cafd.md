@@ -1,14 +1,15 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1952 · compared on both builds: 144
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 1970 · compared on both builds: 144
 
-**8 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+**9 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
 | App | Path | Why | Retry | Findings now | Triaged as |
 |---|---|---|---|---|---|
 | 8x8-work/darwin@858 | update_path | passed on the baseline | reproduced | uninstall: app still on host after cleanup uninstall | **new** |
 | adobe-creative-cloud/windows@862 | lifecycle | passed on the baseline | reproduced | install: first install ended as failed_install<br>install: second install ended as failed_install | **new** |
 | docker-desktop/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
+| firefox@developer-edition/windows@861 | update_path | passed on the baseline | reproduced | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
 | fleet-desktop/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | microsoft-teams/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | onedrive/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |

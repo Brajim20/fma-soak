@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 1952,
+ "current_runs": 1970,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -47,6 +47,23 @@
     "S1: inventory never reported the app after install + refetch"
    ],
    "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "firefox@developer-edition/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/firefox@developer-edition_windows-861-201205.json",
+   "current_record": "soak/2026-11-22/firefox@developer-edition_windows-861-150125.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": null
@@ -234,7 +251,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-16/1password_windows-864-184827.json",
-   "current_record": "soak/2026-11-21/1password_windows-864-161805.json",
+   "current_record": "soak/2026-11-22/1password_windows-864-153107.json",
    "findings": [],
    "triaged": []
   },
