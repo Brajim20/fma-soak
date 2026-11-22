@@ -505,11 +505,24 @@
   ]
  },
  "rerun": {
-  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636). 2026-11-08 22:45: zoom-rooms/darwin (one unexplained 400 on the second uninstall). 2026-11-09: hex-fiend/darwin (stuck pending on 636 in the afternoon install-delivery stall); since moved to 2026-11-09T16:00, so grammarly and zoom-rooms get one more pass too. 2026-11-10: grammarly-desktop, zoom-rooms and hex-fiend reran after 2026-11-09 16:00 (done); fellow/windows queued (uninstall left AppData\\\\Local\\\\Fellow on a congested 629, once). 2026-11-11: fellow/windows reran (635 pass 11-10 19:15; 629 install pending again); the last 8 macOS apps never covered queued so any host runs them, not only 631 (offline). 2026-11-11 later: aws-cli/windows queued once it stopped being a watcher resident (asana/windows replaced it), its first lifecycle cycle. 2026-11-16: all of the above reran after 2026-11-11 00:43 (done); python-3.13-arm64/windows queued: inventory never reported it after install on 629 (reproduced on retry, 2026-11-13); config arch routes it to an ARM host (863/864) to see whether it follows the app or the host.",
-  "since": "2026-11-16T12:30",
-  "why": "second-host check: inventory never reported python-3.13-arm64 after install on 629",
+  "_doc": "sample.py: these apps go first, once each, until one has a lifecycle cycle started after `since` (local time, like records). 2026-11-07: apps whose only failures came from qa's full installer store (#57132) with errors a wrong install script also gives, and no clean install before it; yacreader/windows had non-install findings in a broken run. Triage marked them environment (triage.json); a clean run proves it, a failure comes back as a new finding. 35 of 37 ran 2026-11-07 (34 clean or flaky-uninstall only; goldendict-ng/windows a new finding); mist and shifty were skipped (pool host missed the presence query), queued again and passed 2026-11-08 00:46/00:56. 2026-11-08: grammarly-desktop/darwin (host-specific relaunch failure on 636). 2026-11-08 22:45: zoom-rooms/darwin (one unexplained 400 on the second uninstall). 2026-11-09: hex-fiend/darwin (stuck pending on 636 in the afternoon install-delivery stall); since moved to 2026-11-09T16:00, so grammarly and zoom-rooms get one more pass too. 2026-11-10: grammarly-desktop, zoom-rooms and hex-fiend reran after 2026-11-09 16:00 (done); fellow/windows queued (uninstall left AppData\\\\Local\\\\Fellow on a congested 629, once). 2026-11-11: fellow/windows reran (635 pass 11-10 19:15; 629 install pending again); the last 8 macOS apps never covered queued so any host runs them, not only 631 (offline). 2026-11-11 later: aws-cli/windows queued once it stopped being a watcher resident (asana/windows replaced it), its first lifecycle cycle. 2026-11-16: all of the above reran after 2026-11-11 00:43 (done); python-3.13-arm64/windows queued: inventory never reported it after install on 629 (reproduced on retry, 2026-11-13); config arch routes it to an ARM host (863/864) to see whether it follows the app or the host. 2026-11-16: python-3.13-arm64/windows reran on 864 (done). 2026-11-22 16:10: triage audit (qa-stuff/fma-soak/triage/AUDIT-2026-11-22.md) found drafts hidden from INBOX by older triage.json entries; these 14 rerun once on the current RC before any filing.",
+  "since": "2026-11-22T16:10",
+  "why": "triage audit 2026-11-22: unfiled draft hidden by an older verdict; confirm on the current RC",
   "apps": [
-   "python-3.13-arm64/windows"
+   "maestral/darwin",
+   "displaylink/darwin",
+   "transmission/darwin",
+   "kiro-cli/darwin",
+   "commander-one/darwin",
+   "evernote/windows",
+   "sql-server-management-studio/windows",
+   "nosql-workbench/windows",
+   "galaxy-modeler/windows",
+   "goldendict-ng/windows",
+   "freecad/windows",
+   "wrike/windows",
+   "devtoys/windows",
+   "webex/windows"
   ]
  },
  "triage_expire_days": 30,

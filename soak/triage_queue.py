@@ -171,8 +171,14 @@ def hosts_of(d):
 
 def inbox(root):
     """<root>/INBOX.md: every bug draft and needs-you item from all runs that triage.json doesn't cover yet (filing or
-    rejecting one adds its entry, which takes it off). Newest decision per app wins."""
-    covered = {re.sub(r"@\d+$", "", e["app"]) for e in D.TRIAGE}  # slugs can hold an @ (firefox@developer-edition)
+    rejecting one adds its entry, which takes it off). Newest decision per app wins. Only an entry added on or after
+    the decision's run date covers it: an older entry was about an earlier finding, and letting it cover a later draft
+    hid 7 unfiled bugs (audit 2026-11-22: Maestral, DisplayLink, Transmission and Kiro CLI under 11-07 outage entries;
+    Evernote, SSMS and NoSQL Workbench under entries for bugs already filed)."""
+    newest_entry = {}  # slug -> newest `added` date; slugs can hold an @ (firefox@developer-edition)
+    for e in D.TRIAGE:
+        s = re.sub(r"@\d+$", "", e["app"])
+        newest_entry[s] = max(newest_entry.get(s, ""), str(e.get("added", ""))[:10])
     latest = {}
     for p in sorted(glob.glob(os.path.join(root, "*", "decisions.json"))):
         run = os.path.dirname(p)
@@ -181,7 +187,7 @@ def inbox(root):
                 latest[d["slug"]] = (run, d)
     bugs, needs = [], []
     for slug, (run, d) in sorted(latest.items()):
-        if slug in covered:
+        if newest_entry.get(slug, "") >= os.path.basename(run)[:10]:
             continue
         if d.get("decision") == "bug":
             bugs.append((run, d))
