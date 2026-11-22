@@ -414,8 +414,7 @@
    863,
    864,
    861,
-   859,
-   862
+   859
   ],
   "max_restarts_per_day": 2
  },
@@ -515,13 +514,12 @@
  },
  "triage_expire_days": 30,
  "restart": {
-  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); 863 restarted clean 2026-11-21 04:35Z (MDM ~5 min, auto-login); 861 (BitLocker, protection off) restarted clean 2026-11-22 15:41Z (manual, between runs: back in ~6 min, qa auto-login, online), so 859/862 added too.",
+  "_doc": "restarts.py: a Windows cycle whose install/uninstall output says a restart is needed (3010/1641/1610, Google Drive's 'restart the host') restarts the host through MDM, waits for its uptime to reset plus loop.settle_minutes, and reruns the app once; at most max_per_day per host, else the app is blocked on that host until it restarts. Only hosts listed here get restarted (all 8 soak VMs auto-login and boot without a BitLocker prompt, checked 2026-11-21); 863 restarted clean 2026-11-21 04:35Z (MDM ~5 min, auto-login); 861 (BitLocker, protection off) restarted clean 2026-11-22 15:41Z (manual, between runs: back in ~6 min, qa auto-login, online), so 859 added too. 862 taken out 2026-11-22: its Windows MDM sessions never complete (event 286 retry loop since at least 2026-11-20), so an MDM RebootNow stays pending; re-add once its MDM syncs (an in-OS restart works and keeps its second-explorer logon task).",
   "hosts": [
    863,
    864,
    861,
-   859,
-   862
+   859
   ],
   "max_per_day": 2,
   "wait_minutes": 25
