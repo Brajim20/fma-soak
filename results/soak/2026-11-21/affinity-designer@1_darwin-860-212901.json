@@ -1,0 +1,117 @@
+{
+ "slug": "affinity-designer@1/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-21T21:29:01",
+ "catalog_version": "1.10.8",
+ "catalog_id": "4a6fa5d1ed60",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-22T01:29:00Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-22T01:28:48Z"
+ },
+ "title_id": 46246,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.10.8"
+ ],
+ "package_version": "1.10.8",
+ "context_after_install": {
+  "path": "/Applications/Affinity Designer.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Affinity Designer.app/Contents/MacOS/Affinity Designer",
+  "bundle_id": "com.seriflabs.affinitydesigner",
+  "versions": [
+   "1.10.8"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "67298"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.seriflabs.affinitydesigner' was running; will relaunch after installation.\nQuitting application 'com.seriflabs.affinitydesigner'...\nApplication 'com.seriflabs.affinitydesigner' did not quit.\nLast quit error: 52:56: execution error: Affinity Designer got an error: User canceled. (-128)\nStopping application 'com.seriflabs.affinitydesigner'...\nApplication 'com.seriflabs.affinitydesigner' stopped.\nRelaunching application 'com.seriflabs.affinitydesigner'...\nFailed to relaunch application 'com.seriflabs.affinitydesigner'.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.seriflabs.affinitydesigner' was running; will relaunch after installation.",
+  "Quitting application 'com.seriflabs.affinitydesigner'...",
+  "Application 'com.seriflabs.affinitydesigner' did not quit.",
+  "Last quit error: 52:56: execution error: Affinity Designer got an error: User canceled. (-128)",
+  "Stopping application 'com.seriflabs.affinitydesigner'...",
+  "Application 'com.seriflabs.affinitydesigner' stopped.",
+  "Relaunching application 'com.seriflabs.affinitydesigner'...",
+  "Failed to relaunch application 'com.seriflabs.affinitydesigner'."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Affinity Designer got an error: User canceled. (-128)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Affinity Designer got an error: User canceled. (-128))",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "68253"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-21T21:37:07",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-22T01:36:57Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-22T01:36:57Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-21/evidence/affinity-designer@1_darwin-860-212901-library.png",
+  "inventory": "results/soak/2026-11-21/evidence/affinity-designer@1_darwin-860-212901-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-21/affinity-designer@1_darwin-860-212901.json"
+}
