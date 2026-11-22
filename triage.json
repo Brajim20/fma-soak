@@ -4176,6 +4176,64 @@
       "app": "microsoft-dotnet-sdk-10/windows",
       "verdict": "upgrade_code title link gap; covered by open #50077",
       "added": "2026-11-22"
+    },
+    {
+      "app": "bunch/darwin",
+      "shape": "add",
+      "verdict": "environment (upstream): brettterpstra.com Cloudflare 403s the qa server; add returns errors[] 'received response status code 403' (checked 2026-11-22); same URL+UA returns 200 from a residential IP and the sha256 matches the catalog",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "twobird/darwin",
+      "shape": "add",
+      "verdict": "environment (upstream): twobird.com Cloudflare 403s the qa server; add returns errors[] 'received response status code 403' (checked 2026-11-22); 200 from a residential IP",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "sublime-text/windows",
+      "verdict": "not a bug: the 'older' pin 4.0.0.421500 is the same build-4215 installer cached 2026-11-01 under the pre-#57186 version label (package versions 7858 vs 7968); update_path compares a package with itself",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "snowflake-snowsql/darwin",
+      "shape": "S6",
+      "verdict": "not a bug: SnowSQL.app is a bash launcher (Contents/MacOS/SnowSQL.bash), not a GUI app; the open-app reinstall/relaunch scenario doesn't apply",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "adobe-acrobat-reader/windows",
+      "verdict": "ARM policy: install/detection failures are on ARM hosts 863/864 (x64 installer); x64 859/862 pass; 409 and 400 were one-offs that didn't recur",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "affinity/darwin",
+      "verdict": "single patch_when_closed miss on 865 (2026-11-20 21:36); 3 passes since on 860/865; a recurrence comes back as new",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "reqable/darwin",
+      "verdict": "one-host flake (860, 2026-11-19) + known add timeouts/refetch lag; 865 passed; a recurrence comes back as new",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "signal/darwin",
+      "verdict": "stuck-pending on 2026-11-03 didn't recur: 8 passes on 858/865 2026-11-18..22",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "evernote/darwin",
+      "verdict": "single not-relaunched on 624 (2026-11-11); passes on 860 (11-16) and 865 (11-22)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "julia-app/darwin",
+      "verdict": "636 open-app finding (2026-11-11) and #57132 store failures didn't recur; passes on 865 (11-15) and 860 (11-21)",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "syncovery/darwin",
+      "verdict": "stuck pending on 631 (2026-11-15) didn't recur: passes on 631, 858, 881, 1255 since",
+      "added": "2026-11-22"
     }
   ]
 }
