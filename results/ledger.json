@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T03:34:07",
+ "built": "2026-11-22T03:57:31",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 33
+      "google-drive/windows": 34
      }
     },
     {
@@ -74,7 +74,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 535
+      "onedrive/windows": 536
      }
     }
    ]
@@ -39239,19 +39239,19 @@
    }
   },
   "evernote/windows@859": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 5,
    "update_runs": 0,
    "first_cycled": "2026-11-15T19:08:33",
-   "last_cycled": "2026-11-15T19:48:32",
+   "last_cycled": "2026-11-22T03:36:58",
    "last_lifecycle": {
-    "outcome": "environment: host restarted or went offline during the cycle (offline at 2026-11-17T04:02:56)",
-    "date": "2026-11-17T03:53:30",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "11.42.3",
-    "record": "results/soak/2026-11-17/evernote_windows-859-035330.json",
+    "outcome": "findings (different on retry)",
+    "date": "2026-11-22T03:36:58",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "11.43.4",
+    "record": "results/soak/2026-11-22/evernote_windows-859-033658.json",
     "findings": [
-     "reinstall over the open app: the install over the open app ended as pending_install",
-     "second uninstall: app still on host (status None)"
+     "first install ended as failed_install",
+     "second install ended as failed_install"
     ]
    }
   },
@@ -56156,18 +56156,17 @@
    }
   },
   "evernote/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-18T11:31:34",
-   "last_cycled": "2026-11-18T12:13:14",
+   "last_cycled": "2026-11-22T03:42:38",
    "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-18T12:13:14",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T03:42:38",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "11.42.3",
-    "record": "results/soak/2026-11-18/evernote_windows-861-121314.json",
+    "catalog_version": "11.43.4",
+    "record": "results/soak/2026-11-22/evernote_windows-861-034238.json",
     "findings": [
-     "first install: Fleet says failed but the app is on the host",
      "first install ended as failed_install",
      "second install ended as failed_install"
     ]
@@ -65743,6 +65742,20 @@
     "findings": []
    }
   },
+  "bitrix24/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:36:44",
+   "last_cycled": "2026-11-22T03:36:44",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:36:44",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "24.0.37",
+    "record": "results/soak/2026-11-22/bitrix24_darwin-865-033644.json",
+    "findings": []
+   }
+  },
   "calibre/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -65754,6 +65767,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "9.19.0",
     "record": "results/soak/2026-11-22/calibre_darwin-865-001229.json",
+    "findings": []
+   }
+  },
+  "cursor/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:49:26",
+   "last_cycled": "2026-11-22T03:49:26",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:49:26",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.31.15",
+    "record": "results/soak/2026-11-22/cursor_darwin-865-034926.json",
     "findings": []
    }
   },
@@ -65859,6 +65886,48 @@
     "findings": []
    }
   },
+  "google-earth-pro/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:43:00",
+   "last_cycled": "2026-11-22T03:43:00",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:43:00",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "7.3",
+    "record": "results/soak/2026-11-22/google-earth-pro_darwin-860-034300.json",
+    "findings": []
+   }
+  },
+  "marta/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:36:40",
+   "last_cycled": "2026-11-22T03:36:40",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:36:40",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "0.8.2",
+    "record": "results/soak/2026-11-22/marta_darwin-860-033640.json",
+    "findings": []
+   }
+  },
+  "marta/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:43:39",
+   "last_cycled": "2026-11-22T03:43:39",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:43:39",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "0.8.2",
+    "record": "results/soak/2026-11-22/marta_darwin-865-034339.json",
+    "findings": []
+   }
+  },
   "rocket-chat/windows@861": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -65926,6 +65995,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "25.1.463",
     "record": "results/soak/2026-11-22/tableau-reader_windows-862-031351.json",
+    "findings": []
+   }
+  },
+  "typeface/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T03:50:27",
+   "last_cycled": "2026-11-22T03:50:27",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T03:50:27",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "4.5.4",
+    "record": "results/soak/2026-11-22/typeface_darwin-860-035027.json",
     "findings": []
    }
   },
