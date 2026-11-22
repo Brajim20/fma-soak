@@ -1,5 +1,29 @@
 [
  {
+  "app": "dymo-connect/darwin@860",
+  "shape": "S2",
+  "msgs": [
+   "the installed executable is x86_64 only on an Apple Silicon host, though the Homebrew cask has an Apple Silicon build (#48010 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-22/dymo-connect_darwin-860-025153.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dymo-connect/darwin.json), [dymo-connect.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/dymo-connect.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-24 Update Fleet-maintained apps (#56494); 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "dymo-connect/darwin@865",
+  "shape": "S2",
+  "msgs": [
+   "the installed executable is x86_64 only on an Apple Silicon host, though the Homebrew cask has an Apple Silicon build (#48010 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-22/dymo-connect_darwin-865-031801.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/dymo-connect/darwin.json), [dymo-connect.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/dymo-connect.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-24 Update Fleet-maintained apps (#56494); 2026-06-11 Add macOS Fleet-maintained apps (D) (#47401) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "figma/windows@861",
   "shape": "S3",
   "msgs": [
@@ -7,8 +31,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "not on 862 (pass) [record](soak/2026-11-22/figma_windows-862-024515.json)",
   "record": "results/soak/2026-11-22/figma_windows-861-011856.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59111 (open), #58156 (open), #59112 (open), #58048 (open), #58627 (open)"
+ },
+ {
+  "app": "evernote/windows@862",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-22/evernote_windows-862-023932.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811); 2026-08-07 Update scripts in Fleet-maintained apps (#50756) \u00b7 issues mentioning it: #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed), #57500 (closed)"
  }
 ]
