@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T09:33:50",
+ "built": "2026-11-22T10:05:13",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 39
+      "google-drive/windows": 40
      }
     },
     {
@@ -28811,16 +28811,16 @@
    }
   },
   "zight/darwin@90001": {
-   "lifecycle_runs": 7,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-06T08:10:44",
-   "last_cycled": "2026-11-12T10:22:38",
+   "last_cycled": "2026-11-22T09:39:02",
    "last_lifecycle": {
-    "outcome": "flaky: findings on the first run, clean on the retry",
-    "date": "2026-11-12T10:22:38",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "8.7.3",
-    "record": "results/soak/2026-11-12/zight_darwin-809-102238.json",
+    "outcome": "pass",
+    "date": "2026-11-22T09:39:02",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "8.8.0",
+    "record": "results/soak/2026-11-22/zight_darwin-1259-093902.json",
     "findings": []
    }
   },
@@ -45438,16 +45438,16 @@
    }
   },
   "microsoft-word/darwin@860": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-16T08:16:45",
-   "last_cycled": "2026-11-21T12:41:41",
+   "last_cycled": "2026-11-22T09:55:05",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-21T12:41:41",
+    "date": "2026-11-22T09:55:05",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "16.115.1",
-    "record": "results/soak/2026-11-21/microsoft-word_darwin-860-124141.json",
+    "record": "results/soak/2026-11-22/microsoft-word_darwin-860-095505.json",
     "findings": []
    }
   },
@@ -65825,6 +65825,22 @@
     ]
    }
   },
+  "affinity-photo@1/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:36:13",
+   "last_cycled": "2026-11-22T09:44:19",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T09:44:19",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.10.8",
+    "record": "results/soak/2026-11-22/affinity-photo@1_darwin-865-094419.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
+   }
+  },
   "amethyst/darwin@90003": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -65850,6 +65866,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "2.8.0",
     "record": "results/soak/2026-11-22/antigravity-ide_darwin-865-062550.json",
+    "findings": []
+   }
+  },
+  "balsamiq-wireframes/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:41:28",
+   "last_cycled": "2026-11-22T09:41:28",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T09:41:28",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "4.8.6",
+    "record": "results/soak/2026-11-22/balsamiq-wireframes_darwin-860-094128.json",
     "findings": []
    }
   },
@@ -65951,6 +65981,34 @@
     "findings": []
    }
   },
+  "charles/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:51:43",
+   "last_cycled": "2026-11-22T09:51:43",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T09:51:43",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "5.2.3",
+    "record": "results/soak/2026-11-22/charles_darwin-865-095143.json",
+    "findings": []
+   }
+  },
+  "chrome-remote-desktop-host/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:48:57",
+   "last_cycled": "2026-11-22T09:48:57",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T09:48:57",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "157.0.8103",
+    "record": "results/soak/2026-11-22/chrome-remote-desktop-host_darwin-860-094857.json",
+    "findings": []
+   }
+  },
   "cursor/darwin@865": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -66000,6 +66058,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "2.1.0",
     "record": "results/soak/2026-11-22/deckset_darwin-865-072554.json",
+    "findings": []
+   }
+  },
+  "devutils/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:58:21",
+   "last_cycled": "2026-11-22T09:58:21",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T09:58:21",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.17.0",
+    "record": "results/soak/2026-11-22/devutils_darwin-865-095821.json",
     "findings": []
    }
   },
@@ -66228,6 +66300,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "0.8.2",
     "record": "results/soak/2026-11-22/marta_darwin-865-034339.json",
+    "findings": []
+   }
+  },
+  "middleclick/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-22T09:36:06",
+   "last_cycled": "2026-11-22T09:36:06",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-22T09:36:06",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "3.3.1",
+    "record": "results/soak/2026-11-22/middleclick_darwin-860-093606.json",
     "findings": []
    }
   },
