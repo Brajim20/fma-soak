@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T21:46:15",
+ "built": "2026-11-21T23:28:43",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 27
+      "google-drive/windows": 29
      }
     },
     {
@@ -74,7 +74,7 @@
      "apps": 25,
      "on_time": 24,
      "overdue": {
-      "onedrive/windows": 530
+      "onedrive/windows": 531
      }
     }
    ]
@@ -42486,16 +42486,16 @@
    }
   },
   "chatgpt/darwin@865": {
-   "lifecycle_runs": 8,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:24:58",
-   "last_cycled": "2026-11-20T22:47:22",
+   "last_cycled": "2026-11-21T23:06:41",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-20T22:47:22",
+    "date": "2026-11-21T23:06:41",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "26.1117.31558",
-    "record": "results/soak/2026-11-20/chatgpt_darwin-865-224722.json",
+    "catalog_version": "26.1117.41037",
+    "record": "results/soak/2026-11-21/chatgpt_darwin-865-230641.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -63276,6 +63276,20 @@
     "findings": []
    }
   },
+  "affinity-designer@1/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T22:17:26",
+   "last_cycled": "2026-11-21T22:37:40",
+   "last_lifecycle": {
+    "outcome": "flaky: findings on the first run, clean on the retry",
+    "date": "2026-11-21T22:37:40",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.10.8",
+    "record": "results/soak/2026-11-21/affinity-designer@1_darwin-865-223740.json",
+    "findings": []
+   }
+  },
   "affinity-designer/darwin@860": {
    "lifecycle_runs": 2,
    "update_runs": 0,
@@ -63363,6 +63377,20 @@
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "260909.0.0",
     "record": "results/soak/2026-11-21/amie_darwin-865-080120.json",
+    "findings": []
+   }
+  },
+  "avast-secure-browser/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T21:54:53",
+   "last_cycled": "2026-11-21T21:54:53",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T21:54:53",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "150.0.7646.188",
+    "record": "results/soak/2026-11-21/avast-secure-browser_darwin-860-215453.json",
     "findings": []
    }
   },
@@ -63786,6 +63814,20 @@
     "findings": []
    }
   },
+  "druva-insync@govcloud/darwin@865": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T22:06:59",
+   "last_cycled": "2026-11-21T22:06:59",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T22:06:59",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "8.1.9",
+    "record": "results/soak/2026-11-21/druva-insync@govcloud_darwin-865-220659.json",
+    "findings": []
+   }
+  },
   "elgato-stream-deck/darwin@860": {
    "lifecycle_runs": 1,
    "update_runs": 0,
@@ -64114,6 +64156,36 @@
     "findings": [
      "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
     ]
+   }
+  },
+  "intellij-idea/darwin@865": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T21:48:59",
+   "last_cycled": "2026-11-21T21:58:22",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T21:58:22",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2026.3",
+    "record": "results/soak/2026-11-21/intellij-idea_darwin-865-215822.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
+   }
+  },
+  "julia-app/darwin@860": {
+   "lifecycle_runs": 1,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T21:48:31",
+   "last_cycled": "2026-11-21T21:48:31",
+   "last_lifecycle": {
+    "outcome": "pass",
+    "date": "2026-11-21T21:48:31",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "1.13.4",
+    "record": "results/soak/2026-11-21/julia-app_darwin-860-214831.json",
+    "findings": []
    }
   },
   "keyboard-maestro/darwin@860": {
@@ -64850,6 +64922,22 @@
     "catalog_version": "3.4.2",
     "record": "results/soak/2026-11-21/rocket-typist_darwin-865-075515.json",
     "findings": []
+   }
+  },
+  "rustrover/darwin@860": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-21T22:03:34",
+   "last_cycled": "2026-11-21T22:13:24",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-21T22:13:24",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "2026.3.1",
+    "record": "results/soak/2026-11-21/rustrover_darwin-860-221324.json",
+    "findings": [
+     "reinstall over the open app: the install closed the open app and didn't reopen it; the script said it would relaunch it (#56809 shape)"
+    ]
    }
   },
   "sandboxie-plus/windows@859": {
