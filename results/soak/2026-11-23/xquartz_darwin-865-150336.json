@@ -1,0 +1,101 @@
+{
+ "slug": "xquartz/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T15:03:36",
+ "catalog_version": "2.8.6",
+ "catalog_id": "b4c72f09b443",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T19:03:35Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-23T19:03:23Z"
+ },
+ "title_id": 49003,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\ninstaller: The install requires logging out now.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.8.6"
+ ],
+ "package_version": "2.8.6",
+ "context_after_install": {
+  "path": "/Applications/Utilities/XQuartz.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Utilities/XQuartz.app/Contents/MacOS/X11",
+  "bundle_id": "org.xquartz.X11",
+  "versions": [
+   "2.8.6"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "rg.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Cookies/org.xquartz.X11.binarycookies doesn't exist.\n/Users/<user>/Library/HTTPStorages/org.xquartz.X11 doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log doesn't exist.\n/Users/<user>/Library/Logs/X11/org.xquartz.log.old doesn't exist.\n/Users/<user>/Library/Preferences/org.macosforge.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Preferences/org.xquartz.X11.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/org.xquartz.X11.savedState doesn't exist.\n/Users/<user>/Library/WebKit/org.xquartz.X11 doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is \ninstaller: Installing at base path /\ninstaller: The install was successful.\ninstaller: The install requires logging out now.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "16578"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'org.xquartz.X11' was running; will relaunch after installation.\nQuitting application 'org.xquartz.X11'...\nApplication 'org.xquartz.X11' quit successfully.\ninstaller: Package name is \ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'org.xquartz.X11'...\nApplication 'org.xquartz.X11' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'org.xquartz.X11' was running; will relaunch after installation.",
+  "Quitting application 'org.xquartz.X11'...",
+  "Application 'org.xquartz.X11' quit successfully.",
+  "Relaunching application 'org.xquartz.X11'...",
+  "Application 'org.xquartz.X11' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "17073",
+   "path": "/Applications/Utilities/XQuartz.app/Contents/MacOS/X11.bin",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-23T15:10:38",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T19:10:31Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-23T19:10:27Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/xquartz_darwin-865-150336.json"
+}
