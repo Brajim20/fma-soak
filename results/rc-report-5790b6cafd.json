@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 2306,
+ "current_runs": 2507,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -178,6 +178,21 @@
    "cause": "catalog: 8.12.44 -> 8.12.46"
   },
   {
+   "app": "1password/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/1password_windows-862-071906.json",
+   "current_record": "soak/2026-11-23/1password_windows-862-085541.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 8.12.44 -> 8.12.46"
+  },
+  {
    "app": "adobe-acrobat-pro/windows@859",
    "kind": "lifecycle",
    "baseline": "pass",
@@ -264,7 +279,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-16/1password_windows-864-184827.json",
-   "current_record": "soak/2026-11-22/1password_windows-864-153107.json",
+   "current_record": "soak/2026-11-23/1password_windows-864-085053.json",
    "findings": [],
    "triaged": []
   },
@@ -339,12 +354,32 @@
    "triaged": []
   },
   {
+   "app": "hides/darwin@865",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/hides_darwin-865-075912.json",
+   "current_record": "soak/2026-11-23/hides_darwin-865-093747.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "rubymine/windows@861",
    "kind": "lifecycle",
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/rubymine_windows-861-100256.json",
    "current_record": "soak/2026-11-17/rubymine_windows-861-210205.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
+   "app": "transmission/windows@859",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/transmission_windows-859-090300.json",
+   "current_record": "soak/2026-11-23/transmission_windows-859-104959.json",
    "findings": [],
    "triaged": []
   },
@@ -369,6 +404,6 @@
    "triaged": []
   }
  ],
- "compared": 183,
+ "compared": 195,
  "canaries_not_yet_on_current": []
 }
