@@ -1,0 +1,76 @@
+{
+ "slug": "blender-arm64/windows",
+ "host": 863,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T00:11:06",
+ "catalog_version": "5.3.0",
+ "catalog_id": "35346694df50",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T04:10:57Z",
+  "restarted": "2026-11-21T04:40:29.97895Z",
+  "software_updated": "2026-11-23T04:11:03Z"
+ },
+ "title_id": 48078,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "4:910]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (84:EC) [04:11:44:910]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (84:EC) [04:11:44:910]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (7C:B8) [04:11:44:910]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (7C:B8) [04:11:44:910]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/23/2026  4:11:44 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/23/2026  4:11:44 ===",
+  "=== Verbose logging stopped: 11/23/2026  4:11:44 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "5.3.0",
+ "context_after_install": null,
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "3:191]: Note: 1: 2265 2:  3: -2147287035 \r\nMSI (s) (F0:6C) [04:28:43:191]: Note: 1: 1402 2: HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (F0:6C) [04:28:43:191]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (38:B4) [04:28:43:191]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (38:B4) [04:28:43:196]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/23/2026  4:28:43 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/23/2026  4:28:43 ===",
+  "=== Verbose logging stopped: 11/23/2026  4:28:43 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall": "skipped: no app path or name to open",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-23T00:30:12",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T04:30:07Z",
+  "restarted": "2026-11-21T04:40:29.97895Z",
+  "software_updated": "2026-11-23T04:30:12Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-23/evidence/blender-arm64_windows-863-001106-library.png",
+  "inventory": "results/soak/2026-11-23/evidence/blender-arm64_windows-863-001106-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/blender-arm64_windows-863-001106.json"
+}
