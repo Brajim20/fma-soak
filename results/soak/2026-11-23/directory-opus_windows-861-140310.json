@@ -1,0 +1,82 @@
+{
+ "slug": "directory-opus/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T14:03:10",
+ "catalog_version": "13.25",
+ "catalog_id": "afcf42ac9a28",
+ "findings": [
+  {
+   "shape": "install",
+   "msg": "second install ended as failed_install"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T18:03:11Z",
+  "restarted": "2026-11-23T12:10:49.409592Z",
+  "software_updated": "2026-11-23T17:29:53Z"
+ },
+ "title_id": 48856,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 33,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "13.25"
+ ],
+ "package_version": "13.25",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\GPSoftware\\Directory Opus\\"
+  ],
+  "names": [
+   "Directory Opus"
+  ],
+  "versions": [
+   "13.25"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 33,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\GPSoftware\\Directory Opus\\unins000.exe\nUninstall args: /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "failed_install",
+ "second_install_seconds": 113,
+ "second_install_output_tail": "Installing software...\nFailed\nInstall exit code: 8\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": false,
+ "second_uninstall_request": 202,
+ "second_uninstall_status": "failed_uninstall",
+ "second_uninstall_seconds": 17,
+ "second_uninstall_output_tail": "Uninstaller for 'Directory Opus' not found.\n\nscript execution error: exit status 1",
+ "second_uninstall_exit_code": 1,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-23T14:09:07",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T18:09:03Z",
+  "restarted": "2026-11-23T12:10:49.409592Z",
+  "software_updated": "2026-11-23T18:05:47Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-23/evidence/directory-opus_windows-861-140310-library.png",
+  "inventory": "results/soak/2026-11-23/evidence/directory-opus_windows-861-140310-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/directory-opus_windows-861-140310.json"
+}
