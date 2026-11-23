@@ -1,0 +1,173 @@
+{
+ "slug": "visual-studio-code/windows",
+ "host": 861,
+ "kind": "patch_when_closed",
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-22T20:32:19",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "the app was closed 3 h ago and the patch to 1.146.0 never installed (last attempt: installed, policy fail)"
+  }
+ ],
+ "outcome": "findings",
+ "scenario": {
+  "slug": "visual-studio-code/windows",
+  "host": 861,
+  "title_id": 23299,
+  "older": "1.142.0",
+  "newest": "1.146.0",
+  "phase": "closed",
+  "started": "2026-11-23T00:32:19+00:00",
+  "started_local": "2026-11-22T20:32:19",
+  "findings": [
+   {
+    "shape": "S4",
+    "msg": "the app was closed 3 h ago and the patch to 1.146.0 never installed (last attempt: installed, policy fail)"
+   }
+  ],
+  "observations": [
+   {
+    "at": "2026-11-23T00:55:11+00:00",
+    "last_install": {
+     "uuid": "0312490f-1b06-492c-b431-96352afce860",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "1.142.0"
+     ]
+    },
+    "versions": [
+     "1.142.0"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-23T04:03:25+00:00",
+    "last_install": {
+     "uuid": "0312490f-1b06-492c-b431-96352afce860",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "1.142.0"
+     ]
+    },
+    "versions": [
+     "1.142.0"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-23T08:29:18+00:00",
+    "last_install": {
+     "uuid": "0312490f-1b06-492c-b431-96352afce860",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "1.142.0"
+     ]
+    },
+    "versions": [
+     "1.142.0"
+    ],
+    "policy": "fail",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 76,
+  "old_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "install_locations": [
+    "C:\\Program Files\\Microsoft VS Code\\"
+   ],
+   "names": [
+    "Microsoft Visual Studio Code"
+   ],
+   "versions": [
+    "1.142.0"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "2028",
+    "4504",
+    "5964",
+    "8560",
+    "9604",
+    "10744",
+    "11388",
+    "11556",
+    "11976"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "windows",
+   "names": [
+    "Microsoft Visual Studio Code"
+   ],
+   "locations": [
+    "C:\\Program Files\\Microsoft VS Code\\"
+   ],
+   "exe": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+   "pids": [
+    "10744",
+    "11388",
+    "11556",
+    "11976",
+    "2028",
+    "4504",
+    "5964",
+    "8560",
+    "9604"
+   ]
+  },
+  "pids": [
+   "2028",
+   "4504",
+   "5964",
+   "8560",
+   "9604",
+   "10744",
+   "11388",
+   "11556",
+   "11976"
+  ],
+  "before_uuid": "0312490f-1b06-492c-b431-96352afce860",
+  "patch_on": 200,
+  "policy": {
+   "id": 1260,
+   "name": "Windows - Microsoft Visual Studio Code up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "install_title": 23299
+  },
+  "opened_at": "2026-11-23T00:34:53+00:00",
+  "close_close": "0",
+  "closed_at": "2026-11-23T04:03:56+00:00",
+  "end_close": "0",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 31,
+  "end_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Microsoft VS Code\\unins000.exe\nUninstall args: /SILENT /VERYSILENT\nUninstall exit code: 0\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-23T08:30:52+00:00"
+ },
+ "finished": "2026-11-23T04:30:52",
+ "evidence": {
+  "library": "results/soak/2026-11-22/evidence/visual-studio-code_windows-861-203219-library.png",
+  "inventory": "results/soak/2026-11-22/evidence/visual-studio-code_windows-861-203219-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-22/visual-studio-code_windows-861-203219.json"
+}
