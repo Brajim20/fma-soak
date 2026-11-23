@@ -1,0 +1,116 @@
+{
+ "slug": "dialpad/darwin",
+ "host": 1329,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T16:42:24",
+ "catalog_version": "2610.1.0",
+ "catalog_id": "c78fba95b64d",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T20:42:21Z",
+  "restarted": "2026-11-23T17:15:59.619699Z",
+  "software_updated": "2026-11-23T20:41:52Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 49093,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is dialpad\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2610.1.0"
+ ],
+ "package_version": "2610.1.0",
+ "context_after_install": {
+  "path": "/Applications/Dialpad.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Dialpad.app/Contents/MacOS/Dialpad",
+  "bundle_id": "com.electron.dialpad",
+  "versions": [
+   "2610.1.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "ed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Dialpad.app\" 2>/dev/null || :\nForgot package 'com.dialpad.Dialpad.pkg' on '/'.\n/Users/<user>/Library/Application Support/Dialpad doesn't exist.\n/Users/<user>/Library/Caches/com.electron.dialpad* doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.electron.dialpad doesn't exist.\n/Users/<user>/Library/Preferences/com.electron.dialpad.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.electron.dialpad.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is dialpad\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "41077"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.electron.dialpad' was running; will relaunch after installation.\nQuitting application 'com.electron.dialpad'...\nApplication 'com.electron.dialpad' did not quit.\nStopping application 'com.electron.dialpad'...\nApplication 'com.electron.dialpad' didn't stop; forcing it to quit.\nApplication 'com.electron.dialpad' stopped.\ninstaller: Package name is dialpad\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.electron.dialpad'...\nApplication 'com.electron.dialpad' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.electron.dialpad' was running; will relaunch after installation.",
+  "Quitting application 'com.electron.dialpad'...",
+  "Application 'com.electron.dialpad' did not quit.",
+  "Stopping application 'com.electron.dialpad'...",
+  "Application 'com.electron.dialpad' didn't stop; forcing it to quit.",
+  "Application 'com.electron.dialpad' stopped.",
+  "Relaunching application 'com.electron.dialpad'...",
+  "Application 'com.electron.dialpad' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "44500",
+   "path": "/Applications/Dialpad.app/Contents/MacOS/Dialpad",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: none)",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "'\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Dialpad.app\" 2>/dev/null || :\nForgot package 'com.dialpad.Dialpad.pkg' on '/'.\nremoving /Users/<user>/Library/Application Support/Dialpad.\nremoving /Users/<user>/Library/Caches/com.electron.dialpad.\nremoving /Users/<user>/Library/Caches/com.electron.dialpad.ShipIt.\nremoving /Users/<user>/Library/HTTPStorages/com.electron.dialpad.\nremoving /Users/<user>/Library/Preferences/com.electron.dialpad.plist.\n/Users/<user>/Library/Saved Application State/com.electron.dialpad.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-23T16:52:37",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T20:52:29Z",
+  "restarted": "2026-11-23T17:15:59.619699Z",
+  "software_updated": "2026-11-23T20:52:17Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/dialpad_darwin-1329-164224.json"
+}

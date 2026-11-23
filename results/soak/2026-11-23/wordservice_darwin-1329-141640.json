@@ -1,0 +1,115 @@
+{
+ "slug": "wordservice/darwin",
+ "host": 1329,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T14:16:40",
+ "catalog_version": "2.8.3",
+ "catalog_id": "841a2c60f9e6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T18:16:39Z",
+  "restarted": "2026-11-23T17:15:59.619699Z",
+  "software_updated": "2026-11-23T18:16:07Z"
+ },
+ "pool_slot": 90004,
+ "title_id": 48867,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.8.3"
+ ],
+ "package_version": "2.8.3",
+ "context_after_install": {
+  "path": "/Applications/WordService.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/WordService.app/Contents/MacOS/WordService",
+  "bundle_id": "org.grunenberg.WordService",
+  "versions": [
+   "2.8.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Preferences/org.grunenberg.WordService.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "30474"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'org.grunenberg.WordService' was running; will relaunch after installation.\nQuitting application 'org.grunenberg.WordService'...\nApplication 'org.grunenberg.WordService' did not quit.\nLast quit error: 52:56: execution error: WordService got an error: Can\u2019t continue quit. (-1708)\nStopping application 'org.grunenberg.WordService'...\nApplication 'org.grunenberg.WordService' stopped.\nRelaunching application 'org.grunenberg.WordService'...\nApplication 'org.grunenberg.WordService' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'org.grunenberg.WordService' was running; will relaunch after installation.",
+  "Quitting application 'org.grunenberg.WordService'...",
+  "Application 'org.grunenberg.WordService' did not quit.",
+  "Last quit error: 52:56: execution error: WordService got an error: Can\u2019t continue quit. (-1708)",
+  "Stopping application 'org.grunenberg.WordService'...",
+  "Application 'org.grunenberg.WordService' stopped.",
+  "Relaunching application 'org.grunenberg.WordService'...",
+  "Application 'org.grunenberg.WordService' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "31671",
+   "path": "/Applications/WordService.app/Contents/MacOS/WordService",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: WordService got an error: Can\u2019t continue quit. (-1708)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: WordService got an error: Can\u2019t continue quit. (-1708))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Preferences/org.grunenberg.WordService.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-23T14:26:09",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T18:25:59Z",
+  "restarted": "2026-11-23T17:15:59.619699Z",
+  "software_updated": "2026-11-23T18:25:48Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/wordservice_darwin-1329-141640.json"
+}
