@@ -1,0 +1,103 @@
+{
+ "slug": "010-editor/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "0b4ac7a30157",
+ "started": "2026-11-22T22:20:59",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T02:20:57Z",
+  "restarted": "2026-11-14T23:20:05.053169Z",
+  "software_updated": "2026-11-23T02:20:42Z"
+ },
+ "title_id": 17550,
+ "cached_versions": [
+  "17.0",
+  "17.0.1"
+ ],
+ "active_before": "17.0.1",
+ "self_service_before_pin": false,
+ "pin_older_status": 200,
+ "active_after_pin": "17.0",
+ "self_service_after_pin": false,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "/string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_snvsDM</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk24</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk24\" ejected.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/010 Editor.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/010 Editor.app/Contents/MacOS/010 Editor",
+  "bundle_id": "com.SweetScape.010Editor",
+  "versions": [
+   "17.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "17.0.1",
+ "self_service_after_unpin": false,
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "51775"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 47,
+ "upgrade_install_output_tail": "t</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk24\" ejected.\nApplication 'com.SweetScape.010Editor' was running; will relaunch after installation.\nQuitting application 'com.SweetScape.010Editor'...\nApplication 'com.SweetScape.010Editor' did not quit.\nLast quit error: 52:56: execution error: 010 Editor got an error: User canceled. (-128)\nStopping application 'com.SweetScape.010Editor'...\nApplication 'com.SweetScape.010Editor' stopped.\nRelaunching application 'com.SweetScape.010Editor'...\nApplication 'com.SweetScape.010Editor' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.SweetScape.010Editor' was running; will relaunch after installation.",
+  "Quitting application 'com.SweetScape.010Editor'...",
+  "Application 'com.SweetScape.010Editor' did not quit.",
+  "Last quit error: 52:56: execution error: 010 Editor got an error: User canceled. (-128)",
+  "Stopping application 'com.SweetScape.010Editor'...",
+  "Application 'com.SweetScape.010Editor' stopped.",
+  "Relaunching application 'com.SweetScape.010Editor'...",
+  "Application 'com.SweetScape.010Editor' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "52150",
+   "path": "/Applications/010 Editor.app/Contents/MacOS/010 Editor",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_quit": "forced",
+ "upgrade_quit_error": "52:56: execution error: 010 Editor got an error: User canceled. (-128)",
+ "upgrade_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: 010 Editor got an error: User canceled. (-128))",
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/010 Editor.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/010 Editor.app/Contents/MacOS/010 Editor",
+  "bundle_id": "com.SweetScape.010Editor",
+  "versions": [
+   "17.0.1"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "outcome": "pass",
+ "finished": "2026-11-22T22:25:42",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T02:25:37Z",
+  "restarted": "2026-11-14T23:20:05.053169Z",
+  "software_updated": "2026-11-23T02:25:31Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-22/010-editor_darwin-865-222059.json"
+}
