@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 13666 cycles: pass 6019, findings 2824, flaky 639, environment 322, harness 357, skipped 3505
+**1. Runs** — 13728 cycles: pass 6072, findings 2831, flaky 639, environment 323, harness 357, skipped 3506
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 1/2 this week 452/452, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 503/503 (100.0%), quarter 1/2 this week 220/221, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 0/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 503/504 (99.8%), quarter 2/2 this week 0/233, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -53,6 +53,7 @@
 | #57152 | closed | Fleet-maintained apps: ocenaudio and Zettlr (Windows) install into the SYSTEM profile and can't be uninstalled |
 | #57153 | closed | Fleet-maintained apps: cmux (macOS) patch policy fails right after installing the current version (0.65.2.2 vs 0.65.2) |
 | #57157 | closed | Fleet-maintained apps: Snagit (Windows) is never detected, so its patch policy always passes |
+| #57186 | merged | Check Sublime Text (Windows) version from sublime_text.exe |
 | #57190 | merged | Regenerate macOS zip FMA outputs for ditto extraction (2/4) |
 | #57224 | closed | Fleet-maintained apps: Evernote (Windows) is never detected, so its patch policy always passes |
 | #57225 | closed | Fleet-maintained apps: AnyBurn (Windows) patch policy fails right after installing the current version (6.9.0.0 vs 6.9) |
@@ -66,6 +67,7 @@
 | #57341 | closed | Fleet-maintained apps: BitBox (macOS) is never detected (bundle ID ch.shiftcrypto.BitBoxApp vs ch.shiftcrypto.wallet) |
 | #57390 | closed | Fleet-maintained apps: Google Drive (Windows) can't be installed again after Fleet uninstalls it (exit 1610) |
 | #57391 | closed | Fleet-maintained apps: MonitorControl (macOS) never detected after install (bundle ID mismatch) |
+| #57497 | open | Keep apps.json name and unique_identifier in sync with FMA inputs |
 | #57498 | closed | Fleet-maintained apps: draw.io (Windows) exists/patched queries never match the installed app, so its patch policy always passes |
 | #57499 | closed | Fleet-maintained apps: Kiro (Windows) install fails with exit code 1 while the app is open |
 | #57500 | closed | Fleet-maintained apps: NoSQL Workbench (Windows) is never detected, so its patch policy always passes |
@@ -158,17 +160,36 @@
 | #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
 | #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
 | #59021 | closed | Fleet-maintained apps: DB Browser for SQLite (Windows) is never detected, so its patch policy always passes |
+| #59031 | merged | macOS FMAs: force-quit an app that won't quit instead of failing the install |
 | #59093 | closed | Fleet-maintained apps: Druva inSync (macOS) never shows an installed version (catalog bundle ID is the nested client app) |
 | #59094 | closed | Fleet-maintained apps: Whispering (macOS) isn't relaunched after an install over the open app, though the log says it was |
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 | #59149 | closed | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
 | #59164 | merged | Update Fleet-maintained apps |
+| #59193 | open | Fleet-maintained apps (macOS): relaunch_application should open by path, retry, and log open's error |
 | #59238 | open | Fleet-maintained apps: pinning a version turns Self-service off (and unpinning turns it back on) |
+| #59242 | open | Fleet-maintained app install script doesn't quit a running app on macOS: "application id … is running" returns false when run by fleetd as root |
 | #59267 | merged | Unfreeze Dialpad for Windows (2610.1.0) |
 | #59297 | merged | Unfreeze 16 Fleet-maintained apps that pass validation |
 | #59362 | open | Fleet-maintained apps: jamovi (macOS) can't be added — its catalog URL is gone (404) |
 | #59366 | closed | Fleet-maintained apps: WinRAR (Windows) install over the open app hangs until Fleet kills it, blocking the host's queue for an hour |
 | #59532 | open | Fleet-maintained apps: Windscribe (Windows) install fails with exit code 1603 while the app is open, and the app is left unregistered |
+| #59564 | open | Fleet-maintained apps: FreeCAD (Windows) install fails with exit code 2 while the app is open |
+| #59565 | open | Fleet-maintained apps: Wrike (Windows) install fails with a fatal MSI error while the app is open |
+| #59566 | open | Fleet-maintained apps: SQL Server Management Studio 22 (Windows) install fails while the app is open, and the old copy keeps running |
+| #59567 | open | Fleet-maintained apps: NoSQL Workbench (Windows) install never finishes while the app is open, and blocks the host's queue |
+| #59568 | open | Fleet-maintained apps: Galaxy Modeler (Windows) install never finishes while the app is open, and blocks the host's queue |
+| #59569 | open | Fleet-maintained apps: Evernote (Windows) install always fails with exit code 2 |
+| #59570 | open | Fleet-maintained apps: DevToys (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #59571 | open | Fleet-maintained apps: Webex (Windows) installs into the SYSTEM profile instead of a location users can open |
+| #59572 | open | Fleet-maintained apps: GoldenDict-ng (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
+| #59573 | open | Fleet-maintained apps: Kiro CLI (macOS) is never detected after install, so its patch policy always passes |
+| #59574 | open | Fleet-maintained apps: Transmission (macOS) never shows an installed version after install |
+| #59575 | open | Fleet-maintained apps: Commander One (macOS) never shows an installed version after install |
+| #59576 | open | Fleet-maintained apps: Maestral (macOS) install over the open app reports success while an old process keeps running |
+| #59577 | open | Fleet-maintained apps: QGIS (macOS) install over the open app closes it and doesn't reopen it |
+| #59578 | open | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
+| #59579 | open | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
 
 **4. Build changes**
 
@@ -184,7 +205,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: done
+2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests

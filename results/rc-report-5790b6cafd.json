@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 1991,
+ "current_runs": 2053,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -225,23 +225,6 @@
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 157.0.8103.79 -> 158.0.8127.37"
-  },
-  {
-   "app": "wireshark/windows@859",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-15/wireshark_windows-859-183112.json",
-   "current_record": "soak/2026-11-19/wireshark_windows-859-075642.json",
-   "findings": [
-    "add: add failed 524: error code: 524\n"
-   ],
-   "triaged": [
-    "#56971 class (confirmed on 629 2026-10-30): publisher registered with a trailing '/', query has none; comment drafted"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 4.6.9 -> 4.6.10"
   }
  ],
  "fixed": [
@@ -346,6 +329,6 @@
    "triaged": []
   }
  ],
- "compared": 146,
+ "compared": 158,
  "canaries_not_yet_on_current": []
 }
