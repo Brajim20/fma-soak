@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:14:07",
+ "built": "2026-11-22T20:29:39",
  "coverage": {
   "darwin": {
    "covered": 980,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 46
+      "google-drive/windows": 50
      }
     },
     {
@@ -12692,16 +12692,16 @@
    }
   },
   "displaylink/darwin@90004": {
-   "lifecycle_runs": 10,
+   "lifecycle_runs": 12,
    "update_runs": 0,
    "first_cycled": "2026-11-05T19:48:06",
-   "last_cycled": "2026-11-11T20:46:09",
+   "last_cycled": "2026-11-22T16:29:12",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-11T20:46:09",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "date": "2026-11-22T16:29:12",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "17.1",
-    "record": "results/soak/2026-11-11/displaylink_darwin-794-204609.json",
+    "record": "results/soak/2026-11-22/displaylink_darwin-1301-162912.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -14247,18 +14247,20 @@
    }
   },
   "kiro-cli/darwin@90002": {
-   "lifecycle_runs": 12,
+   "lifecycle_runs": 14,
    "update_runs": 0,
    "first_cycled": "2026-11-05T22:48:01",
-   "last_cycled": "2026-11-16T04:05:09",
+   "last_cycled": "2026-11-22T16:44:45",
    "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-16T04:05:09",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T16:44:45",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "2.37.0",
-    "record": "results/soak/2026-11-16/kiro-cli_darwin-901-040509.json",
+    "record": "results/soak/2026-11-22/kiro-cli_darwin-1303-164445.json",
     "findings": [
-     "kiro-cli/darwin not in the FMA catalog on this instance"
+     "first install: Fleet says installed but the app isn't on the host",
+     "inventory never reported the app after install + refetch",
+     "second install: Fleet says installed but the app isn't on the host"
     ]
    }
   },
@@ -14850,18 +14852,18 @@
    }
   },
   "maestral/darwin@90003": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 11,
    "update_runs": 0,
    "first_cycled": "2026-11-05T13:05:04",
-   "last_cycled": "2026-11-12T17:03:36",
+   "last_cycled": "2026-11-22T16:31:21",
    "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-12T17:03:36",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T16:31:21",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.9.5",
-    "record": "results/soak/2026-11-12/maestral_darwin-814-170336.json",
+    "record": "results/soak/2026-11-22/maestral_darwin-1302-163121.json",
     "findings": [
-     "presence unknown after second_present_after_install (host didn't answer the live query)"
+     "reinstall over the open app: Fleet says installed, but the app is still running from files the install deleted (/private/tmp/2863068883/Maestral.app.bkp/Contents/MacOS/Maestral, pid 44466) (#54170 shape)"
     ]
    }
   },
@@ -39086,7 +39088,7 @@
    }
   },
   "docker/windows@861": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 11,
    "update_runs": 12,
    "last_update": {
     "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
@@ -39098,17 +39100,17 @@
    },
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-21T18:06:20",
+    "date": "2026-11-22T19:58:10",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "4.99.0",
-    "record": "results/soak/2026-11-21/docker_windows-861-180620.json",
+    "catalog_version": "4.100.0",
+    "record": "results/soak/2026-11-22/docker_windows-861-195810.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
     ]
    },
    "first_cycled": "2026-11-18T10:31:34",
-   "last_cycled": "2026-11-21T18:06:20"
+   "last_cycled": "2026-11-22T19:58:10"
   },
   "drawio/windows@863": {
    "lifecycle_runs": 1,
@@ -39237,16 +39239,16 @@
    }
   },
   "evernote/windows@859": {
-   "lifecycle_runs": 5,
+   "lifecycle_runs": 7,
    "update_runs": 0,
    "first_cycled": "2026-11-15T19:08:33",
-   "last_cycled": "2026-11-22T03:36:58",
+   "last_cycled": "2026-11-22T16:26:31",
    "last_lifecycle": {
-    "outcome": "findings (different on retry)",
-    "date": "2026-11-22T03:36:58",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T16:26:31",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "11.43.4",
-    "record": "results/soak/2026-11-22/evernote_windows-859-033658.json",
+    "record": "results/soak/2026-11-22/evernote_windows-859-162631.json",
     "findings": [
      "first install ended as failed_install",
      "second install ended as failed_install"
@@ -41178,14 +41180,16 @@
   },
   "sublime-text/windows@859": {
    "lifecycle_runs": 2,
-   "update_runs": 9,
+   "update_runs": 11,
    "last_update": {
-    "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
-    "date": "2026-11-21T12:17:26",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-22T16:18:37",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-21/sublime-text_windows-859-121726.json",
-    "findings": []
+    "record": "results/soak/2026-11-22/sublime-text_windows-859-161837.json",
+    "findings": [
+     "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
+    ]
    },
    "first_cycled": "2026-11-18T22:16:56",
    "last_cycled": "2026-11-18T22:20:43",
@@ -42780,20 +42784,18 @@
    }
   },
   "commander-one/darwin@860": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-16T02:43:04",
-   "last_cycled": "2026-11-16T03:03:54",
+   "last_cycled": "2026-11-22T16:37:08",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-16T03:03:54",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "date": "2026-11-22T16:37:08",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.18",
-    "record": "results/soak/2026-11-16/commander-one_darwin-860-030354.json",
+    "record": "results/soak/2026-11-22/commander-one_darwin-860-163708.json",
     "findings": [
-     "inventory never reported the app after install + refetch",
-     "first uninstall: app still on host (status None)",
-     "second install ended as None"
+     "inventory never reported the app after install + refetch"
     ]
    }
   },
@@ -47499,16 +47501,14 @@
   },
   "sublime-text/windows@862": {
    "lifecycle_runs": 2,
-   "update_runs": 9,
+   "update_runs": 11,
    "last_update": {
-    "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-21T12:17:03",
+    "outcome": "skipped: title is pinned to an older version by someone else; not touching it",
+    "date": "2026-11-22T16:19:08",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-21/sublime-text_windows-862-121703.json",
-    "findings": [
-     "patched query passes with 4.0.0.421500 installed: the patch policy can't see this host is outdated"
-    ]
+    "record": "results/soak/2026-11-22/sublime-text_windows-862-161908.json",
+    "findings": []
    },
    "first_cycled": "2026-11-18T23:14:45",
    "last_cycled": "2026-11-18T23:18:41",
@@ -47937,16 +47937,16 @@
    }
   },
   "transmission/darwin@865": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-16T21:42:18",
-   "last_cycled": "2026-11-16T22:08:23",
+   "last_cycled": "2026-11-22T16:37:24",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-16T22:08:23",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
+    "date": "2026-11-22T16:37:24",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.1.4",
-    "record": "results/soak/2026-11-16/transmission_darwin-865-220823.json",
+    "record": "results/soak/2026-11-22/transmission_darwin-865-163724.json",
     "findings": [
      "inventory never reported the app after install + refetch"
     ]
@@ -51291,16 +51291,16 @@
    }
   },
   "freecad/windows@862": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-17T14:44:28",
-   "last_cycled": "2026-11-17T14:57:34",
+   "last_cycled": "2026-11-22T16:31:21",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-17T14:57:34",
+    "date": "2026-11-22T16:31:21",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.1.4",
-    "record": "results/soak/2026-11-17/freecad_windows-862-145734.json",
+    "record": "results/soak/2026-11-22/freecad_windows-862-163121.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -53924,16 +53924,16 @@
    }
   },
   "spotify/windows@859": {
-   "lifecycle_runs": 3,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-17T16:56:25",
-   "last_cycled": "2026-11-19T17:31:46",
+   "last_cycled": "2026-11-22T16:52:39",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-19T17:31:46",
+    "date": "2026-11-22T16:52:39",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.3.10.2586.g81a118a22460",
-    "record": "results/soak/2026-11-19/spotify_windows-859-173146.json",
+    "record": "results/soak/2026-11-22/spotify_windows-859-165239.json",
     "findings": []
    }
   },
@@ -54693,16 +54693,16 @@
    }
   },
   "wrike/windows@862": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-17T18:55:37",
-   "last_cycled": "2026-11-17T19:03:25",
+   "last_cycled": "2026-11-22T16:51:54",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-17T19:03:25",
+    "date": "2026-11-22T16:51:54",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.6.2",
-    "record": "results/soak/2026-11-17/wrike_windows-862-190325.json",
+    "record": "results/soak/2026-11-22/wrike_windows-862-165154.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -56372,16 +56372,16 @@
    }
   },
   "goldendict-ng/windows@859": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-18T04:16:25",
-   "last_cycled": "2026-11-18T04:26:56",
+   "last_cycled": "2026-11-22T16:42:35",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-18T04:26:56",
+    "date": "2026-11-22T16:42:35",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "26.11.0",
-    "record": "results/soak/2026-11-18/goldendict-ng_windows-859-042656.json",
+    "record": "results/soak/2026-11-22/goldendict-ng_windows-859-164235.json",
     "findings": [
      "first install: Fleet says installed but the app isn't on the host",
      "second install: Fleet says installed but the app isn't on the host"
@@ -57154,16 +57154,16 @@
    }
   },
   "nosql-workbench/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-18T15:01:40",
-   "last_cycled": "2026-11-18T15:41:47",
+   "last_cycled": "2026-11-22T17:36:09",
    "last_lifecycle": {
     "outcome": "findings (different on retry)",
-    "date": "2026-11-18T15:41:47",
+    "date": "2026-11-22T17:36:09",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "3.20.5",
-    "record": "results/soak/2026-11-18/nosql-workbench_windows-861-154147.json",
+    "record": "results/soak/2026-11-22/nosql-workbench_windows-861-173609.json",
     "findings": [
      "first install: Fleet says failed but the app is on the host",
      "first install ended as failed_install",
@@ -57914,16 +57914,16 @@
    }
   },
   "sql-server-management-studio/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-18T02:43:24",
-   "last_cycled": "2026-11-18T03:02:47",
+   "last_cycled": "2026-11-22T16:34:41",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-18T03:02:47",
+    "date": "2026-11-22T16:34:41",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "22.12.1",
-    "record": "results/soak/2026-11-18/sql-server-management-studio_windows-861-030247.json",
+    "record": "results/soak/2026-11-22/sql-server-management-studio_windows-861-163441.json",
     "findings": [
      "reinstall over the open app: the install over the open app ended as failed_install"
     ]
@@ -58249,16 +58249,16 @@
    }
   },
   "webex/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-18T14:50:44",
-   "last_cycled": "2026-11-18T14:56:23",
+   "last_cycled": "2026-11-22T19:21:28",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-18T14:56:23",
+    "date": "2026-11-22T19:21:28",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "46.11.0.36194",
-    "record": "results/soak/2026-11-18/webex_windows-861-145623.json",
+    "record": "results/soak/2026-11-22/webex_windows-861-192128.json",
     "findings": [
      "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\Cisco Spark\\), not the signed-in user's (#50857)"
     ]
@@ -58871,16 +58871,16 @@
    }
   },
   "devtoys/windows@862": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-19T01:50:06",
-   "last_cycled": "2026-11-19T01:54:40",
+   "last_cycled": "2026-11-22T17:05:27",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-19T01:54:40",
+    "date": "2026-11-22T17:05:27",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "2.0-preview.9",
-    "record": "results/soak/2026-11-19/devtoys_windows-862-015440.json",
+    "record": "results/soak/2026-11-22/devtoys_windows-862-170527.json",
     "findings": [
      "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\DevToys Preview\\), not the signed-in user's (#50857)"
     ]
@@ -59107,16 +59107,16 @@
    }
   },
   "galaxy-modeler/windows@861": {
-   "lifecycle_runs": 2,
+   "lifecycle_runs": 4,
    "update_runs": 0,
    "first_cycled": "2026-11-19T17:22:10",
-   "last_cycled": "2026-11-19T18:02:52",
+   "last_cycled": "2026-11-22T18:48:25",
    "last_lifecycle": {
     "outcome": "findings (different on retry)",
-    "date": "2026-11-19T18:02:52",
+    "date": "2026-11-22T18:48:25",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "13.7.0",
-    "record": "results/soak/2026-11-19/galaxy-modeler_windows-861-180252.json",
+    "record": "results/soak/2026-11-22/galaxy-modeler_windows-861-184825.json",
     "findings": [
      "first install: Fleet says failed but the app is on the host",
      "first install ended as failed_install",
