@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 13728 cycles: pass 6072, findings 2831, flaky 639, environment 323, harness 357, skipped 3506
+**1. Runs** — 13841 cycles: pass 6145, findings 2836, flaky 640, environment 357, harness 357, skipped 3506
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 0/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 503/504 (99.8%), quarter 2/2 this week 0/233, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 37/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 504/506 (99.6%), quarter 2/2 this week 26/234, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -166,7 +166,7 @@
 | #59095 | open | Software: adding a macOS installer reuses a same-name title with a different bundle ID, so installs land on a second title |
 | #59149 | closed | Fleet-maintained apps: Rider (macOS) install over the open app quits it and doesn't relaunch it |
 | #59164 | merged | Update Fleet-maintained apps |
-| #59193 | open | Fleet-maintained apps (macOS): relaunch_application should open by path, retry, and log open's error |
+| #59193 | closed | Fleet-maintained apps (macOS): relaunch_application should open by path, retry, and log open's error |
 | #59238 | open | Fleet-maintained apps: pinning a version turns Self-service off (and unpinning turns it back on) |
 | #59242 | open | Fleet-maintained app install script doesn't quit a running app on macOS: "application id … is running" returns false when run by fleetd as root |
 | #59267 | merged | Unfreeze Dialpad for Windows (2610.1.0) |

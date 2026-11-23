@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 2053,
+ "current_runs": 2166,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -110,6 +110,21 @@
    ],
    "triaged": [],
    "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "python-3.13-arm64/windows@864",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/python-3.13-arm64_windows-864-043634.json",
+   "current_record": "soak/2026-11-23/python-3.13-arm64_windows-864-002353.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "new failure shape S1",
    "reproduced": true,
    "cause": null
   },
@@ -329,6 +344,6 @@
    "triaged": []
   }
  ],
- "compared": 158,
+ "compared": 174,
  "canaries_not_yet_on_current": []
 }
