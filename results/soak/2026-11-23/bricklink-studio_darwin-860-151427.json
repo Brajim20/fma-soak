@@ -1,0 +1,107 @@
+{
+ "slug": "bricklink-studio/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T15:14:27",
+ "catalog_version": "2.26.10_1",
+ "catalog_id": "adeda7a330fe",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T19:14:23Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-23T19:14:08Z"
+ },
+ "title_id": 49010,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 65,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Studio 2.0\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.26.10_1"
+ ],
+ "package_version": "2.26.10_1",
+ "context_after_install": {
+  "path": "/Applications/Studio 2.0/Studio.app",
+  "bundle": "0:0 0777",
+  "executable": "0:0 0777",
+  "exe": "/Applications/Studio 2.0/Studio.app/Contents/MacOS/Studio",
+  "bundle_id": "com.BrickLink.Studio",
+  "versions": [
+   "2.26.10_1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 33,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 50,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Studio 2.0\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "9069"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 203,
+ "open_reinstall_output_tail": "ware...\nSuccess\nApplication 'com.BrickLink.Studio' was running; will relaunch after installation.\nQuitting application 'com.BrickLink.Studio'...\nApplication 'com.BrickLink.Studio' did not quit.\nLast quit error: 52:56: execution error: Studio got an error: AppleEvent timed out. (-1712)\nStopping application 'com.BrickLink.Studio'...\nApplication 'com.BrickLink.Studio' stopped.\ninstaller: Package name is Studio 2.0\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.BrickLink.Studio'...\nApplication 'com.BrickLink.Studio' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.BrickLink.Studio' was running; will relaunch after installation.",
+  "Quitting application 'com.BrickLink.Studio'...",
+  "Application 'com.BrickLink.Studio' did not quit.",
+  "Last quit error: 52:56: execution error: Studio got an error: AppleEvent timed out. (-1712)",
+  "Stopping application 'com.BrickLink.Studio'...",
+  "Application 'com.BrickLink.Studio' stopped.",
+  "Relaunching application 'com.BrickLink.Studio'...",
+  "Application 'com.BrickLink.Studio' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "9378",
+   "path": "/Applications/Studio 2.0/Studio.app/Contents/MacOS/Studio",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Studio got an error: AppleEvent timed out. (-1712)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Studio got an error: AppleEvent timed out. (-1712))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 32,
+ "second_uninstall_output_tail": "/dev/null || :\nForgot package 'com.bricklink.pkg.Studio2.0' on '/'.\n/Users/<user>/Library/Application Support/unity.BrickLink.Studio doesn't exist.\n/Users/<user>/Library/Caches/com.plausiblelabs.crashreporter.data/unity.BrickLink.Studio doesn't exist.\n/Users/<user>/Library/Preferences/unity.BrickLink.Patcher.plist doesn't exist.\n/Users/<user>/Library/Preferences/unity.BrickLink.Studio.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/unity.BrickLink.Patcher.savedState doesn't exist.\n/Users/<user>/Library/Saved Application State/unity.BrickLink.Studio.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-23T15:26:40",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T19:26:39Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-23T19:26:29Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/bricklink-studio_darwin-860-151427.json"
+}

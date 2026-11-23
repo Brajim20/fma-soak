@@ -1,0 +1,101 @@
+{
+ "slug": "microsoft-remote-help/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T13:44:20",
+ "catalog_version": "1.0.2606021",
+ "catalog_id": "664a0b1d1d86",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T17:44:15Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-23T17:44:02Z"
+ },
+ "title_id": 48847,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 17,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Remote Help\ninstaller: choices changes file '/tmp/choice_xml_TSN' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.0.2606021"
+ ],
+ "package_version": "1.0.2606021",
+ "context_after_install": {
+  "path": "/Applications/Microsoft Remote Help.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Microsoft Remote Help.app/Contents/MacOS/Microsoft Remote Help",
+  "bundle_id": "com.microsoft.remotehelp",
+  "versions": [
+   "1.0.2606021"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "iles \"com.microsoft.remotehelp\" | sed \"s|^|/Applications/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/Microsoft Remote Help.app\" 2>/dev/null || :\nForgot package 'com.microsoft.remotehelp' on '/'.\n/Users/<user>/Library/Caches/com.microsoft.remotehelp doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.microsoft.remotehelp doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.remotehelp.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.remotehelp.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 17,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Remote Help\ninstaller: choices changes file '/tmp/choice_xml_zz8' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "53354"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 32,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.microsoft.remotehelp' was running; will relaunch after installation.\nQuitting application 'com.microsoft.remotehelp'...\nApplication 'com.microsoft.remotehelp' quit successfully.\ninstaller: Package name is Microsoft Remote Help\ninstaller: choices changes file '/tmp/choice_xml_fVT' applied\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.microsoft.remotehelp'...\nApplication 'com.microsoft.remotehelp' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.remotehelp' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.remotehelp'...",
+  "Application 'com.microsoft.remotehelp' quit successfully.",
+  "Relaunching application 'com.microsoft.remotehelp'...",
+  "Application 'com.microsoft.remotehelp' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "53399",
+   "path": "/Applications/Microsoft Remote Help.app/Contents/MacOS/Microsoft Remote Help",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 17,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-23T13:50:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T17:50:15Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-23T17:50:04Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/microsoft-remote-help_darwin-860-134420.json"
+}
