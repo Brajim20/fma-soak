@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 2507 · compared on both builds: 195
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 2719 · compared on both builds: 204
 
 **10 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -31,4 +31,4 @@ Next: check each against the baseline's code (is the failing step in Fleet's cod
 | firefox/darwin@858 | lifecycle | 160.0 -> 160.0.1 | S1: inventory never reported the app after install + refetch | **new** |
 | google-chrome/darwin@858 | lifecycle | 157.0.8103.79 -> 158.0.8127.37 | S1: inventory never reported the app after install + refetch | **new** |
 
-Fixed on this build (13): 1password/windows@864 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (14): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)

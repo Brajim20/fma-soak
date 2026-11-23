@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14182 cycles: pass 6408, findings 2859, flaky 642, environment 408, harness 357, skipped 3508
+**1. Runs** — 14394 cycles: pass 6594, findings 2879, flaky 642, environment 413, harness 357, skipped 3509
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 177/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 506/506 (100.0%), quarter 2/2 this week 114/234, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 320/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 506/506 (100.0%), quarter 2/2 this week 147/234, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -47,6 +47,7 @@
 | #57137 | closed | Fleet-maintained apps: PostgreSQL 18 (Windows) is never detected (installer registers "PostgreSQL 18 " with a trailing space) |
 | #57138 | closed | Fleet-maintained apps: PostgreSQL 18 (Windows) can't be reinstalled after an uninstall, and the uninstall is reported as failed |
 | #57139 | open | Fleet-maintained apps: Azul Zulu JRE 25 (Windows) installs land on a separate title (MSI upgrade code skips name match) |
+| #57141 | open | Software package API: "patch: true" creates a patch policy with no install automation, so the update never installs |
 | #57148 | open | fleetd: a timed-out script's child processes keep running, and on macOS an orphaned installer blocks every later package install |
 | #57149 | closed | Fleet-maintained apps: 010 Editor (Windows) install fails with exit code 5 while the app is open |
 | #57151 | closed | Fleet-maintained apps: OpenCloud Desktop (macOS) detection uses the wrong bundle ID, so installs land on a separate title |
