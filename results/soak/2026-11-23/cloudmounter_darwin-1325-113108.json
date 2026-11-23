@@ -1,0 +1,115 @@
+{
+ "slug": "cloudmounter/darwin",
+ "host": 1325,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T11:31:08",
+ "catalog_version": "4.18",
+ "catalog_id": "001f275b1227",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T15:30:55Z",
+  "restarted": "2026-11-23T12:49:20.666207Z",
+  "software_updated": "2026-11-23T15:30:45Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 48767,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk11</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_ZVEZ7P</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk11\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.18"
+ ],
+ "package_version": "4.18",
+ "context_after_install": {
+  "path": "/Applications/CloudMounter.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/CloudMounter.app/Contents/MacOS/CloudMounter",
+  "bundle_id": "com.eltima.cloudmounter",
+  "versions": [
+   "4.18"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ider.\n/Users/<user>/Library/Caches/com.eltima.cloudmounter doesn't exist.\nremoving /Users/<user>/Library/Containers/com.eltima.cloudmounter.mountprovider.\nremoving /Users/<user>/Library/Containers/com.eltima.cloudmounter.CMFinderSync.\nremoving /Users/<user>/Library/Group Containers/XS85JU6YZ3.com.eltima.cloudmounter.\n/Users/<user>/Library/HTTPStorages/com.eltima.cloudmounter doesn't exist.\n/Users/<user>/Library/Logs/CloudMounter.log doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.eltima.activator.xml.\n/Users/<user>/Library/Preferences/com.eltima.cloudmounter.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk11</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_yydIAf</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk11\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "39827"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "ue/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk11\" ejected.\nApplication 'com.eltima.cloudmounter' was running; will relaunch after installation.\nQuitting application 'com.eltima.cloudmounter'...\nApplication 'com.eltima.cloudmounter' did not quit.\nLast quit error: 52:56: execution error: CloudMounter got an error: User canceled. (-128)\nStopping application 'com.eltima.cloudmounter'...\nApplication 'com.eltima.cloudmounter' stopped.\nRelaunching application 'com.eltima.cloudmounter'...\nApplication 'com.eltima.cloudmounter' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.eltima.cloudmounter' was running; will relaunch after installation.",
+  "Quitting application 'com.eltima.cloudmounter'...",
+  "Application 'com.eltima.cloudmounter' did not quit.",
+  "Last quit error: 52:56: execution error: CloudMounter got an error: User canceled. (-128)",
+  "Stopping application 'com.eltima.cloudmounter'...",
+  "Application 'com.eltima.cloudmounter' stopped.",
+  "Relaunching application 'com.eltima.cloudmounter'...",
+  "Application 'com.eltima.cloudmounter' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "41394",
+   "path": "/Applications/CloudMounter.app/Contents/MacOS/CloudMounter",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: CloudMounter got an error: User canceled. (-128)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: CloudMounter got an error: User canceled. (-128))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "oudmounter.mountprovider.\nremoving /Users/<user>/Library/Caches/com.eltima.cloudmounter.\nremoving /Users/<user>/Library/Containers/com.eltima.cloudmounter.mountprovider.\nremoving /Users/<user>/Library/Containers/com.eltima.cloudmounter.CMFinderSync.\nremoving /Users/<user>/Library/Group Containers/XS85JU6YZ3.com.eltima.cloudmounter.\nremoving /Users/<user>/Library/HTTPStorages/com.eltima.cloudmounter.\nremoving /Users/<user>/Library/Logs/CloudMounter.log.\nremoving /Users/<user>/Library/Preferences/com.eltima.activator.xml.\nremoving /Users/<user>/Library/Preferences/com.eltima.cloudmounter.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-23T11:41:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T15:40:55Z",
+  "restarted": "2026-11-23T12:49:20.666207Z",
+  "software_updated": "2026-11-23T15:40:34Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/cloudmounter_darwin-1325-113108.json"
+}
