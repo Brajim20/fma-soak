@@ -687,7 +687,7 @@
     },
     {
       "app": "010-editor/darwin@631",
-      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 → 17.0).",
+      "verdict": "harness: the upgrade request was cancelled mid-wait (01:55 AST, local loop overlap) and Fleet's fallback status 'installed' was read as the upgrade; the record's output is the old install's. Fixed: a request with no new result is now not_run. Same path passed 2026-10-29 (16.0.4 \u2192 17.0).",
       "before": "2026-10-31T15:00:00",
       "added": "2026-10-31"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "app": "snagit/darwin",
-      "verdict": "filed #57748: after Snagit is opened, 'application id … is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
+      "verdict": "filed #57748: after Snagit is opened, 'application id \u2026 is running' stays true with no process (quit gets -600/-1712), so quit_application's 'did not quit' guard fails every reinstall and uninstall (reproduced on host 50)",
       "added": "2026-11-05"
     },
     {
@@ -1152,7 +1152,7 @@
     },
     {
       "app": "burp-suite/darwin",
-      "verdict": "filed #57806: unique_identifier com.install4j.9806-… is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
+      "verdict": "filed #57806: unique_identifier com.install4j.9806-\u2026 is not the shipping app's id (cask quit/zap use com.install4j.6592-1155-2163-3973.70)",
       "added": "2026-11-05"
     },
     {
@@ -3997,7 +3997,7 @@
     },
     {
       "app": "python-3.13/windows",
-      "verdict": "already filed #50077: program names 'Python 3.13.17 …' put '.' after the FMA name, so the '<name> ' prefix match never fires (listed in #50077's table and confirmed there on qa.fleetdm.com); not the #57139 upgrade-code gate",
+      "verdict": "already filed #50077: program names 'Python 3.13.17 \u2026' put '.' after the FMA name, so the '<name> ' prefix match never fires (listed in #50077's table and confirmed there on qa.fleetdm.com); not the #57139 upgrade-code gate",
       "added": "2026-11-18"
     },
     {
@@ -4049,7 +4049,7 @@
     {
       "app": "dbeaver-enterprise/darwin",
       "shape": "S6",
-      "verdict": "known issue (app): DBeaver EE 26.2.0 itself crashes ~4 s after some launches — EXC_BAD_ACCESS in SWT (libswt-pi-cocoa OS_objc_msgSend_bool) -> JVM abort; 4 crash reports on 860 2026-11-20, pids match the soak records (84403, 88531). The install script found it already closed, so no relaunch was owed. A fresh launch on 860 stayed up 90 s. Not a Fleet bug",
+      "verdict": "known issue (app): DBeaver EE 26.2.0 itself crashes ~4 s after some launches \u2014 EXC_BAD_ACCESS in SWT (libswt-pi-cocoa OS_objc_msgSend_bool) -> JVM abort; 4 crash reports on 860 2026-11-20, pids match the soak records (84403, 88531). The install script found it already closed, so no relaunch was owed. A fresh launch on 860 stayed up 90 s. Not a Fleet bug",
       "added": "2026-11-20"
     },
     {
@@ -4258,6 +4258,11 @@
     {
       "app": "airdroid/darwin",
       "verdict": "is-running check missed the running app; added as a case on open #59242",
+      "added": "2026-11-22"
+    },
+    {
+      "app": "twingate/windows",
+      "verdict": "not a bug: the 1603s on 859/861 were catalog 20.26.280.8833; 20.26.302.9964 installs, reinstalls and uninstalls clean on 861 (2/2, 2026-11-22). 629 failures are x64 on ARM. Only leftover flag is RestartManager event 10007 'Twingate Service could not be restarted' with every install succeeding; not checked whether the service was running afterwards",
       "added": "2026-11-22"
     }
   ]
