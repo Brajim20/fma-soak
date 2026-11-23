@@ -4264,6 +4264,12 @@
       "app": "twingate/windows",
       "verdict": "not a bug: the 1603s on 859/861 were catalog 20.26.280.8833; 20.26.302.9964 installs, reinstalls and uninstalls clean on 861 (2/2, 2026-11-22). 629 failures are x64 on ARM. Only leftover flag is RestartManager event 10007 'Twingate Service could not be restarted' with every install succeeding; not checked whether the service was running afterwards",
       "added": "2026-11-22"
+    },
+    {
+      "app": "1password/darwin",
+      "shape": "S4",
+      "verdict": "already filed #57141: the soak turned patch on through the package API (patch=true), which creates the patch policy with install_software null, so no install is ever queued (none on 865 2026-11-23 00:32-08:30Z, open or closed). Not 1Password-specific: no judged patch-when-closed run on either RC ever queued an install or a skip. patch_closed.py now creates the policy like the Deploy modal (policies API + software_title_id)",
+      "added": "2026-11-23"
     }
   ]
 }

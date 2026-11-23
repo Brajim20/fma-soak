@@ -1,7 +1,10 @@
 """Patch when closed (S6, the gap 1 follow-up): Fleet's own patch policy with "patch when closed", on a real host.
 
 How Fleet does it (937e87458c): turning on patch + patch_when_closed on a Fleet-maintained title (Edit software >
-Deploy) creates a patch policy with an install automation and continuous automations. Each install the policy queues
+Deploy) creates a patch policy with an install automation and continuous automations. The Deploy modal does that
+through the policies API with software_title_id, and so does this scenario (patch_on). The package API route
+(PATCH /software/titles/:id/package with patch=true) creates the policy with no install automation (#57141, open),
+so nothing ever installs: every run judged through it until 2026-11-23 only re-measured #57141. Each install the policy queues
 uses the manifest's `open` query as its pre-install condition; that query returns a row only when the app is closed,
 so while it's open the install is skipped and the host row reads failed_install + skipped_install. Continuous
 automations re-fire on every failing result, at most once per policy update interval (~1 h), so after the app is
@@ -79,6 +82,28 @@ def edit(tid, **fields):
             return e.code, {"message": raw[:200].decode(errors="replace")}
 
 
+def patch_on(tid):
+    """Turn on patch + patch when closed the way the Deploy modal does (DeployModal.tsx, 5790b6cafd): create the patch
+    policy through the policies API, with software_title_id so it gets the install automation."""
+    return R.api("POST", f"/fleets/{R.FID}/policies", {
+        "type": "patch", "patch_software_title_id": tid, "software_title_id": tid,
+        "patch_when_closed": True, "notify_before_patching": False, "patch_deadline": False,
+        "continuous_automations_enabled": True})
+
+
+def policy_summary(pol):
+    """patch_software is the title the policy checks; install_software is the automation that installs the patch.
+    Reading them as one field let #57141 (install_software null) pass as a working policy until 2026-11-23."""
+    s = {k: pol.get(k) for k in ("id", "name", "patch_when_closed", "continuous_automations_enabled")}
+    s["patch_title"] = (pol.get("patch_software") or {}).get("software_title_id")
+    s["install_title"] = (pol.get("install_software") or {}).get("software_title_id")
+    return s
+
+
+def delete_policy(pid):
+    return R.api("POST", f"/fleets/{R.FID}/policies/delete", {"ids": [pid]})[0]
+
+
 def patch_policy(tid):
     st, d = R.api("GET", f"/fleets/{R.FID}/policies?per_page=500")
     return next((p for p in d.get("policies") or [] if (p.get("patch_software") or {}).get("software_title_id") == tid), None)
@@ -129,6 +154,7 @@ def end(st, plat, outcome):
     a["policy_after_patch_off"] = (patch_policy(tid) or {}).get("id")
     if a["policy_after_patch_off"]:
         a["findings"].append({"shape": "S4", "msg": "turning patch off left the patch policy in place"})
+        a["policy_delete"] = delete_policy(a["policy_after_patch_off"])  # don't leave it failing on the host
     exists_q = R.catalog_manifest(a["slug"])["versions"][0]["queries"]["exists"]
     R.uninstall(host, tid, a, "end_uninstall")
     hs = R.load_state(host)
@@ -201,16 +227,18 @@ def start(plat, st):
         return end(st, plat, f"skipped: couldn't open the app ({a.get('open_open')})")
     a["target"], a["pids"] = t, a["open_open"]["pids"]
     a["before_uuid"] = last_install(host, tid)["uuid"]
-    code, d = edit(tid, patch=True, patch_when_closed=True)
+    code, d = patch_on(tid)
     a["patch_on"] = code
     pol = patch_policy(tid)
     if code >= 300 or not pol:
         find("S4", f"turning on patch + patch when closed returned {code} ({d.get('message')}); policy {pol and pol.get('id')}")
         return end(st, plat, "findings")
-    a["policy"] = {k: pol.get(k) for k in ("id", "name", "patch_when_closed", "continuous_automations_enabled")}
-    # a patch policy names its title under patch_software (install_software is the failing-policy automation)
-    a["policy"]["install_title"] = (pol.get("patch_software") or pol.get("install_software") or {}).get("software_title_id")
-    if not (pol.get("patch_when_closed") and pol.get("continuous_automations_enabled") and a["policy"]["install_title"] == tid):
+    a["policy"] = policy_summary(pol)
+    if a["policy"]["install_title"] is None:
+        # without an install automation nothing can install, so the scenario can't judge patch when closed
+        return end(st, plat, f"harness: the patch policy has no install automation (#57141 shape); not judged: {a['policy']}")
+    if not (pol.get("patch_when_closed") and pol.get("continuous_automations_enabled")
+            and a["policy"]["patch_title"] == tid and a["policy"]["install_title"] == tid):
         find("S4", f"the patch policy Fleet created doesn't match the Deploy option: {a['policy']}")
     R.api("POST", f"/hosts/{host}/refetch")
     a["phase"], a["opened_at"] = "open", iso(now())
