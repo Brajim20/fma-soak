@@ -1,0 +1,94 @@
+{
+ "slug": "azul-zulu-25-jre/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T13:33:48",
+ "catalog_version": "25.38.201",
+ "catalog_id": "7fa5c7983514",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-23T17:33:43Z",
+  "restarted": "2026-11-23T08:03:43.050019Z",
+  "software_updated": "2026-11-23T17:33:25Z"
+ },
+ "title_id": 48832,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (30:08) [17:34:15:607]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (30:08) [17:34:15:609]: Destroying RemoteAPI object.\r\nMSI (s) (30:48) [17:34:15:609]: Custom Action Manager thread ending.\r\nMSI (c) (E8:7C) [17:34:15:613]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (E8:7C) [17:34:15:613]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/23/2026  17:34:15 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/23/2026  17:34:15 ===",
+  "=== Verbose logging stopped: 11/23/2026  17:34:15 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "25.38.201",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Zulu\\zulu-25-jre\\"
+  ],
+  "names": [
+   "Azul Zulu JRE 25.38.201 (25.0.5.1), 64-bit"
+  ],
+  "versions": [
+   "25.38.201"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Exit 0\r\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (7C:2C) [17:51:32:608]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (7C:2C) [17:51:32:610]: Destroying RemoteAPI object.\r\nMSI (s) (7C:48) [17:51:32:610]: Custom Action Manager thread ending.\r\nMSI (c) (9C:D8) [17:51:32:612]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (9C:D8) [17:51:32:614]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/23/2026  17:51:32 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/23/2026  17:51:32 ===",
+  "=== Verbose logging stopped: 11/23/2026  17:51:32 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Exit 0\r\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-23T13:53:28",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-23T17:53:19Z",
+  "restarted": "2026-11-23T08:03:43.050019Z",
+  "software_updated": "2026-11-23T17:53:28Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-23/evidence/azul-zulu-25-jre_windows-859-133348-library.png",
+  "inventory": "results/soak/2026-11-23/evidence/azul-zulu-25-jre_windows-859-133348-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/azul-zulu-25-jre_windows-859-133348.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/azul-zulu-25-jre_windows-859-131229.json",
+ "crosshost_of": "soak/2026-11-23/azul-zulu-25-jre_windows-861-113237.json"
+}
