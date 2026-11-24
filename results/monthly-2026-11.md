@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14826 cycles: pass 6946, findings 2919, flaky 643, environment 443, harness 357, skipped 3518
+**1. Runs** — 14885 cycles: pass 6986, findings 2933, flaky 644, environment 447, harness 357, skipped 3518
 
-**2. Coverage** — darwin 980/968 (101.2%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 218/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -191,6 +191,8 @@
 | #59577 | closed | Fleet-maintained apps: QGIS (macOS) install over the open app closes it and doesn't reopen it |
 | #59578 | closed | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
 | #59579 | closed | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
+| #59709 | merged | Fix four Fleet-maintained app identifiers that don't match the installer |
+| #59740 | open | Fleet-maintained apps: Elmedia Player (macOS) never shows an installed version after install |
 
 **4. Build changes**
 

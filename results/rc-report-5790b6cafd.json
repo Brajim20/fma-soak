@@ -3,162 +3,8 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3597,
- "regressions": [],
- "catalog": [
-  {
-   "app": "1password/windows@861",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/1password_windows-861-054843.json",
-   "current_record": "soak/2026-11-23/1password_windows-861-060656.json",
-   "findings": [
-    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
-   ],
-   "triaged": [
-    "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 8.12.44 -> 8.12.46",
-   "check": "Windows event-log scan (a999477c)",
-   "passed_on_current": "2026-11-20T16:57:47",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    859,
-    862
-   ]
-  },
-  {
-   "app": "1password/windows@862",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/1password_windows-862-071906.json",
-   "current_record": "soak/2026-11-23/1password_windows-862-085541.json",
-   "findings": [
-    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
-   ],
-   "triaged": [
-    "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 8.12.44 -> 8.12.46",
-   "check": "Windows event-log scan (a999477c)",
-   "passed_on_current": "2026-11-22T03:23:14",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    859
-   ]
-  },
-  {
-   "app": "adobe-acrobat-pro/windows@859",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-15/adobe-acrobat-pro_windows-859-183524.json",
-   "current_record": "soak/2026-11-19/adobe-acrobat-pro_windows-859-084002.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [
-    "dup #57139 (commented 2026-11-19): host reports upgrade_code {AC76BA86-0000-0000-7760-7E8A45000000}, manifest/title has none, install lands on the upgrade-code-keyed 'Adobe Acrobat (64-bit)' title (confirmed on 635); not #57681"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 26.002.22031 -> 26.003.22110",
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  },
-  {
-   "app": "claude/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-16/claude_darwin-858-182752.json",
-   "current_record": "soak/2026-11-19/claude_darwin-858-193935.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 5.11492.5 -> 6.6395.1",
-   "check": null,
-   "passed_on_current": "2026-11-19T02:02:09",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    860,
-    865
-   ]
-  },
-  {
-   "app": "firefox/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/firefox_darwin-858-084059.json",
-   "current_record": "soak/2026-11-19/firefox_darwin-858-185654.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 160.0 -> 160.0.1",
-   "check": null,
-   "passed_on_current": "2026-11-19T01:53:52",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    865
-   ]
-  },
-  {
-   "app": "google-chrome/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/google-chrome_darwin-858-083431.json",
-   "current_record": "soak/2026-11-19/google-chrome_darwin-858-181438.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 157.0.8103.79 -> 158.0.8127.37",
-   "check": null,
-   "passed_on_current": "2026-11-19T01:46:44",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    865
-   ]
-  },
-  {
-   "app": "nessus-agent/windows@861",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/nessus-agent_windows-861-072534.json",
-   "current_record": "soak/2026-11-24/nessus-agent_windows-861-073631.json",
-   "findings": [
-    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted."
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 11.2.3.20022 -> 11.2.4.20033",
-   "check": "Windows event-log scan (a999477c)",
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  }
- ],
- "same_build": [
+ "current_runs": 3210,
+ "regressions": [
   {
    "app": "8x8-work/darwin@858",
    "kind": "update_path",
@@ -172,16 +18,23 @@
    "triaged": [],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-17T19:56:43",
-   "baseline_elsewhere": [
-    631
+   "cause": null
+  },
+  {
+   "app": "adobe-creative-cloud/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/adobe-creative-cloud_windows-862-091737.json",
+   "current_record": "soak/2026-11-24/adobe-creative-cloud_windows-862-133247.json",
+   "findings": [
+    "install: first install ended as failed_install",
+    "install: second install ended as failed_install"
    ],
-   "passes_elsewhere": [
-    860,
-    865
-   ]
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
   },
   {
    "app": "docker-desktop/darwin@858",
@@ -196,106 +49,8 @@
    "triaged": [],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-19T02:15:24",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    860,
-    865
-   ]
+   "cause": null
   },
-  {
-   "app": "fleet-desktop/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/fleet-desktop_darwin-858-081850.json",
-   "current_record": "soak/2026-11-19/fleet-desktop_darwin-858-173227.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "new failure shape S1",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-19T01:40:23",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    865
-   ]
-  },
-  {
-   "app": "microsoft-teams/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-16/microsoft-teams_darwin-858-205513.json",
-   "current_record": "soak/2026-11-20/microsoft-teams_darwin-858-013806.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-18T21:16:35",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    860,
-    865,
-    1217
-   ]
-  },
-  {
-   "app": "onedrive/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-16/onedrive_darwin-858-185528.json",
-   "current_record": "soak/2026-11-19/onedrive_darwin-858-210905.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-18T09:37:17",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    860
-   ]
-  },
-  {
-   "app": "slack/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-16/slack_darwin-858-210833.json",
-   "current_record": "soak/2026-11-20/slack_darwin-858-005516.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": "2026-11-17T21:59:01",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    860,
-    865,
-    992,
-    1313
-   ]
-  }
- ],
- "new_check": [
   {
    "app": "firefox@developer-edition/windows@861",
    "kind": "update_path",
@@ -311,11 +66,7 @@
    ],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": "2026-11-21T11:33:49",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
+   "cause": null
   },
   {
    "app": "firefox@nightly/windows@861",
@@ -332,11 +83,52 @@
    ],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": "2026-11-22T15:06:51",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
+   "cause": null
+  },
+  {
+   "app": "fleet-desktop/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/fleet-desktop_darwin-858-180758.json",
+   "current_record": "soak/2026-11-19/fleet-desktop_darwin-858-173227.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "microsoft-teams/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/microsoft-teams_darwin-858-205513.json",
+   "current_record": "soak/2026-11-20/microsoft-teams_darwin-858-013806.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "onedrive/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/onedrive_darwin-858-185528.json",
+   "current_record": "soak/2026-11-19/onedrive_darwin-858-210905.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
   },
   {
    "app": "power-automate/windows@862",
@@ -348,16 +140,25 @@
    "findings": [
     "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa3ff6954 Exception code: 0xe0434352 Fa"
    ],
-   "triaged": [
-    "not a bug: Power Automate's own PAD.Java.Installer.Host.exe throws an unhandled .NET exception (0xe0434352, KERNELBASE.dll) after it opens, on all x64 hosts (859/861/862, 2026-11-23/24); every Fleet step passes (both installs installed, inventory 2.74.00191.26302, patched passes, both uninstalls remove it). Same class as 1password/windows index.node"
-   ],
+   "triaged": [],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": "Windows event-log scan (a999477c)",
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
+   "cause": null
+  },
+  {
+   "app": "python-3.13-arm64/windows@864",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/python-3.13-arm64_windows-864-043634.json",
+   "current_record": "soak/2026-11-23/python-3.13-arm64_windows-864-002353.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "new failure shape S1",
+   "reproduced": true,
+   "cause": null
   },
   {
    "app": "signal/windows@861",
@@ -374,11 +175,22 @@
    ],
    "why": "passed on the baseline",
    "reproduced": true,
-   "cause": null,
-   "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": "2026-11-22T15:14:12",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
+   "cause": null
+  },
+  {
+   "app": "slack/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/slack_darwin-858-210833.json",
+   "current_record": "soak/2026-11-20/slack_darwin-858-005516.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
   },
   {
    "app": "sublime-text/windows@861",
@@ -392,67 +204,11 @@
    ],
    "triaged": [
     "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed",
-    "filed #57118: installer registers no version, patched query fails on every host (validator skips this app's version check)"
+    "not a bug: the 'older' pin 4.0.0.421500 is the same build-4215 installer cached 2026-11-01 under the pre-#57186 version label (package versions 7858 vs 7968); update_path compares a package with itself"
    ],
    "why": "new failure shape S4",
    "reproduced": true,
-   "cause": null,
-   "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  }
- ],
- "elsewhere": [
-  {
-   "app": "adobe-creative-cloud/windows@862",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/adobe-creative-cloud_windows-862-091737.json",
-   "current_record": "soak/2026-11-21/adobe-creative-cloud_windows-862-024954.json",
-   "findings": [
-    "install: first install ended as failed_install",
-    "install: second install ended as failed_install"
-   ],
-   "triaged": [
-    "filed #58758: uninstall run 1-3 min after install exits 0 but the app stays registered (4/4 on 629); the same script removed it when run ~2h40m later",
-    "filed #58758: uninstall run 1-3 min after install exits 0 but the app stays registered (4/4 on 629); the same script removed it when run ~2h40m later"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [
-    635
-   ],
-   "passes_elsewhere": [
-    859,
-    861
-   ]
-  },
-  {
-   "app": "python-3.13-arm64/windows@864",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/python-3.13-arm64_windows-864-043634.json",
-   "current_record": "soak/2026-11-23/python-3.13-arm64_windows-864-002353.json",
-   "findings": [
-    "S1: inventory never reported the app after install + refetch"
-   ],
-   "triaged": [],
-   "why": "new failure shape S1",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [
-    629,
-    863
-   ],
-   "passes_elsewhere": []
+   "cause": null
   },
   {
    "app": "wezterm/darwin@865",
@@ -466,45 +222,143 @@
     "install: second install ended as None",
     "S3: second uninstall: app still on host (status None)"
    ],
-   "triaged": [
-    "not a bug (documented limitation): WezTerm.app ships a placeholder CFBundleShortVersionString 0.1.0 and CFBundleVersion 1 in every release, so osquery always reports 0.1.0; PR #53892 (adds the FMA) documents it and uses a cdhash patched query instead of a version compare. Not #38583: bundle_version is '1', persisting it wouldn't help",
-    "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95",
-    "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95",
-    "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95"
-   ],
+   "triaged": [],
    "why": "new failure shape S3, install",
    "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [
-    631
-   ],
-   "passes_elsewhere": []
+   "cause": null
   }
  ],
- "host_only": [],
- "fixed": [
+ "catalog": [
   {
-   "app": "010-editor/darwin@858",
-   "kind": "update_path",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/010-editor_darwin-858-063827.json",
-   "current_record": "soak/2026-11-19/010-editor_darwin-858-215611.json",
-   "findings": [],
-   "triaged": []
+   "app": "1password/windows@861",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/1password_windows-861-054843.json",
+   "current_record": "soak/2026-11-23/1password_windows-861-060656.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
+   ],
+   "triaged": [
+    "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 8.12.44 -> 8.12.46"
   },
   {
-   "app": "1password/darwin@860",
+   "app": "1password/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/1password_windows-862-071906.json",
+   "current_record": "soak/2026-11-23/1password_windows-862-085541.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
+   ],
+   "triaged": [
+    "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 8.12.44 -> 8.12.46"
+  },
+  {
+   "app": "adobe-acrobat-pro/windows@859",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/adobe-acrobat-pro_windows-859-183524.json",
+   "current_record": "soak/2026-11-19/adobe-acrobat-pro_windows-859-084002.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [
+    "dup #57139 (commented 2026-11-19): host reports upgrade_code {AC76BA86-0000-0000-7760-7E8A45000000}, manifest/title has none, install lands on the upgrade-code-keyed 'Adobe Acrobat (64-bit)' title (confirmed on 635); not #57681"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 26.002.22031 -> 26.003.22110"
+  },
+  {
+   "app": "chatgpt/darwin@860",
    "kind": "lifecycle",
    "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/1password_darwin-860-084911.json",
-   "current_record": "soak/2026-11-24/1password_darwin-860-114043.json",
-   "findings": [],
-   "triaged": []
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/chatgpt_darwin-860-230727.json",
+   "current_record": "soak/2026-11-18/chatgpt_darwin-860-132158.json",
+   "findings": [
+    "S3: first uninstall: app still on host (status None)"
+   ],
+   "triaged": [
+    "already filed #57025: ChatGPT reports com.openai.codex while the FMA's unique_identifier stays com.openai.chat (decided in #55246), so inventory lands on a separate 'Codex' title; same on 4.94 and 4.95"
+   ],
+   "why": "new failure shape S3",
+   "reproduced": true,
+   "cause": "catalog: 26.1111.21308 -> 26.1111.71025"
   },
+  {
+   "app": "claude/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/claude_darwin-858-182752.json",
+   "current_record": "soak/2026-11-19/claude_darwin-858-193935.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 5.11492.5 -> 6.6395.1"
+  },
+  {
+   "app": "firefox/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/firefox_darwin-858-084059.json",
+   "current_record": "soak/2026-11-19/firefox_darwin-858-185654.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 160.0 -> 160.0.1"
+  },
+  {
+   "app": "google-chrome/darwin@858",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/google-chrome_darwin-858-083431.json",
+   "current_record": "soak/2026-11-19/google-chrome_darwin-858-181438.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 157.0.8103.79 -> 158.0.8127.37"
+  },
+  {
+   "app": "nessus-agent/windows@861",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/nessus-agent_windows-861-072534.json",
+   "current_record": "soak/2026-11-24/nessus-agent_windows-861-073631.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted."
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 11.2.3.20022 -> 11.2.4.20033"
+  }
+ ],
+ "fixed": [
   {
    "app": "1password/windows@864",
    "kind": "lifecycle",
@@ -522,36 +376,6 @@
    "current": "pass",
    "baseline_record": "soak/2026-11-16/acorn_darwin-860-082630.json",
    "current_record": "soak/2026-11-23/acorn_darwin-860-144722.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "amazon-workspaces/windows@859",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/amazon-workspaces_windows-859-093231.json",
-   "current_record": "soak/2026-11-23/amazon-workspaces_windows-859-113829.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "antigravity-ide/windows@859",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/antigravity-ide_windows-859-005423.json",
-   "current_record": "soak/2026-11-23/antigravity-ide_windows-859-014555.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "aptakube/windows@861",
-   "kind": "update_path",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/aptakube_windows-861-194905.json",
-   "current_record": "soak/2026-11-24/aptakube_windows-861-000252.json",
    "findings": [],
    "triaged": []
   },
@@ -582,16 +406,6 @@
    "current": "pass",
    "baseline_record": "soak/2026-11-17/brave-browser_windows-862-084647.json",
    "current_record": "soak/2026-11-22/brave-browser_windows-862-025207.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "busycontacts/darwin@865",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/busycontacts_darwin-865-001053.json",
-   "current_record": "soak/2026-11-24/busycontacts_darwin-865-031732.json",
    "findings": [],
    "triaged": []
   },
@@ -646,36 +460,6 @@
    "triaged": []
   },
   {
-   "app": "firefox@nightly/windows@861",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/firefox@nightly_windows-861-183338.json",
-   "current_record": "soak/2026-11-23/firefox@nightly_windows-861-224206.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "git/windows@859",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/git_windows-859-195042.json",
-   "current_record": "soak/2026-11-23/git_windows-859-235030.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "github-desktop/windows@859",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/github-desktop_windows-859-024849.json",
-   "current_record": "soak/2026-11-24/github-desktop_windows-859-024823.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
    "app": "google-chrome/windows@861",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -702,36 +486,6 @@
    "current": "pass",
    "baseline_record": "soak/2026-11-16/hides_darwin-865-075912.json",
    "current_record": "soak/2026-11-23/hides_darwin-865-093747.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "kiro-cli/darwin@865",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/kiro-cli_darwin-865-064247.json",
-   "current_record": "soak/2026-11-24/kiro-cli_darwin-865-113449.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "microsoft-word/darwin@865",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-15/microsoft-word_darwin-865-181551.json",
-   "current_record": "soak/2026-11-23/microsoft-word_darwin-865-144227.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "postman/darwin@858",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/postman_darwin-858-190224.json",
-   "current_record": "soak/2026-11-19/postman_darwin-858-024014.json",
    "findings": [],
    "triaged": []
   },
@@ -766,52 +520,12 @@
    "triaged": []
   },
   {
-   "app": "visual-studio-code/darwin@865",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/visual-studio-code_darwin-865-084906.json",
-   "current_record": "soak/2026-11-24/visual-studio-code_darwin-865-092408.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "weasis/windows@862",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/weasis_windows-862-033649.json",
-   "current_record": "soak/2026-11-23/weasis_windows-862-045414.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
    "app": "whispering/darwin@865",
    "kind": "lifecycle",
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/whispering_darwin-865-083249.json",
    "current_record": "soak/2026-11-18/whispering_darwin-865-032139.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "zen/darwin@860",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/zen_darwin-860-063721.json",
-   "current_record": "soak/2026-11-23/zen_darwin-860-085612.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
-   "app": "zoom-rooms/windows@862",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-16/zoom-rooms_windows-862-021217.json",
-   "current_record": "soak/2026-11-24/zoom-rooms_windows-862-101634.json",
    "findings": [],
    "triaged": []
   },
@@ -826,6 +540,6 @@
    "triaged": []
   }
  ],
- "compared": 266,
+ "compared": 248,
  "canaries_not_yet_on_current": []
 }
