@@ -1,0 +1,111 @@
+{
+ "slug": "sf-symbols/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T20:04:24",
+ "catalog_version": "27.2",
+ "catalog_id": "f69ed049a7f6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T00:04:21Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-24T00:04:10Z"
+ },
+ "title_id": 49285,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "v/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>EF57347C-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is SF Symbols\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "27.2"
+ ],
+ "package_version": "27.2",
+ "context_after_install": {
+  "path": "/Applications/SF Symbols.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/SF Symbols.app/Contents/MacOS/SF Symbols",
+  "bundle_id": "com.apple.SFSymbols",
+  "versions": [
+   "27.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ple.pkg.SFSymbols\"\nsudo pkgutil --only-files --files \"com.apple.pkg.SFSymbols\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.apple.pkg.SFSymbols\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nUnknown error Error Domain=NSPOSIXErrorDomain Code=2 \"No such file or directory\".\nForgot package 'com.apple.pkg.SFSymbols' on '/'.\n/Users/<user>/Library/Preferences/com.apple.SFSymbols.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "y>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>41504653-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>apfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_APFS</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>7C3457EF-0000-11AA-AA11-00306543ECAC</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is SF Symbols\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "61845"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 170,
+ "open_reinstall_output_tail": ">\n\"disk5\" ejected.\nApplication 'com.apple.SFSymbols' was running; will relaunch after installation.\nQuitting application 'com.apple.SFSymbols'...\nApplication 'com.apple.SFSymbols' did not quit.\nLast quit error: 52:56: execution error: SF Symbols got an error: AppleEvent timed out. (-1712)\nStopping application 'com.apple.SFSymbols'...\nApplication 'com.apple.SFSymbols' stopped.\ninstaller: Package name is SF Symbols\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.apple.SFSymbols'...\nApplication 'com.apple.SFSymbols' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.apple.SFSymbols' was running; will relaunch after installation.",
+  "Quitting application 'com.apple.SFSymbols'...",
+  "Application 'com.apple.SFSymbols' did not quit.",
+  "Last quit error: 52:56: execution error: SF Symbols got an error: AppleEvent timed out. (-1712)",
+  "Stopping application 'com.apple.SFSymbols'...",
+  "Application 'com.apple.SFSymbols' stopped.",
+  "Relaunching application 'com.apple.SFSymbols'...",
+  "Application 'com.apple.SFSymbols' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "62152",
+   "path": "/Applications/SF Symbols.app/Contents/MacOS/SF Symbols",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: SF Symbols got an error: AppleEvent timed out. (-1712)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: SF Symbols got an error: AppleEvent timed out. (-1712))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "ple.pkg.SFSymbols\"\nsudo pkgutil --only-files --files \"com.apple.pkg.SFSymbols\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.apple.pkg.SFSymbols\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nUnknown error Error Domain=NSPOSIXErrorDomain Code=2 \"No such file or directory\".\nForgot package 'com.apple.pkg.SFSymbols' on '/'.\n/Users/<user>/Library/Preferences/com.apple.SFSymbols.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-23T20:16:33",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T00:16:29Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-24T00:16:02Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/sf-symbols_darwin-860-200424.json"
+}
