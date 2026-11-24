@@ -1,0 +1,96 @@
+{
+ "slug": "google-chrome/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "d056d238ea33",
+ "started": "2026-11-24T09:03:43",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T13:03:36Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-24T13:03:32Z"
+ },
+ "title_id": 815,
+ "cached_versions": [
+  "158.0.8127.37",
+  "158.0.8127.89"
+ ],
+ "active_before": "158.0.8127.89",
+ "self_service_before_pin": true,
+ "pin_older_status": 200,
+ "active_after_pin": "158.0.8127.37",
+ "self_service_after_pin": true,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 46,
+ "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Google Chrome\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Google Chrome.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "bundle_id": "com.google.Chrome",
+  "versions": [
+   "158.0.8127.37"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "158.0.8127.89",
+ "self_service_after_unpin": true,
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "9595"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nQuitting application 'com.google.Chrome'...\nApplication 'com.google.Chrome' quit successfully.\ninstaller: Package name is Google Chrome\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRestarting Chrome for user: <user>\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Quitting application 'com.google.Chrome'...",
+  "Application 'com.google.Chrome' quit successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "9713",
+   "path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Google Chrome.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "bundle_id": "com.google.Chrome",
+  "versions": [
+   "158.0.8127.89"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "cleanup_uninstall_output_tail": "le.keystone.agent.plist doesn't exist.\n/Users/<user>/Library/LaunchAgents/com.google.keystone.xpcservice.plist doesn't exist.\n/Users/<user>/Library/Logs/GoogleSoftwareUpdateAgent.log doesn't exist.\n/Users/<user>/Library/Preferences/com.google.Chrome.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.google.Keystone.Agent.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.google.Chrome.app.*.savedState doesn't exist.\n/Users/<user>/Library/Saved Application State/com.google.Chrome.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.google.Chrome doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "pass",
+ "finished": "2026-11-24T09:08:34",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T13:08:28Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-24T13:08:23Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/google-chrome_darwin-865-090343.json"
+}

@@ -1,0 +1,138 @@
+{
+ "slug": "8x8-work/darwin",
+ "host": 865,
+ "kind": "patch_when_closed",
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T22:07:33",
+ "findings": [],
+ "outcome": "pass",
+ "scenario": {
+  "slug": "8x8-work/darwin",
+  "host": 865,
+  "title_id": 17579,
+  "older": "8.38.4",
+  "newest": "8.38.5",
+  "phase": "closed",
+  "started": "2026-11-24T02:07:33+00:00",
+  "started_local": "2026-11-23T22:07:33",
+  "findings": [],
+  "observations": [
+   {
+    "at": "2026-11-24T02:11:05+00:00",
+    "last_install": {
+     "uuid": "b10c5b8f-9c1e-4db2-a670-76614e19dd33",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "8.38.4"
+     ]
+    },
+    "versions": [
+     "8.38.4"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-24T06:41:35+00:00",
+    "last_install": {
+     "uuid": "4e8f7cb6-e5aa-488d-9b19-c1736c1f7bc1",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "8.38.4"
+     ]
+    },
+    "versions": [
+     "8.38.4"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-24T11:14:01+00:00",
+    "last_install": {
+     "uuid": "735aa922-361e-4e1d-8e7d-504511d053f9",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "8.38.5"
+     ]
+    },
+    "versions": [
+     "8.38.5"
+    ],
+    "policy": "pass",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 61,
+  "old_install_output_tail": "/string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_vpbO1p</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>48465300-0000-11AA-AA11-00306543ECAC</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk24</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk24\" ejected.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/8x8 Work.app",
+   "bundle": "0:80 0755",
+   "executable": "0:80 0755",
+   "exe": "/Applications/8x8 Work.app/Contents/MacOS/8x8 Work",
+   "bundle_id": "com.electron.8x8---virtual-office",
+   "versions": [
+    "8.38.4"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "68469"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/8x8 Work.app",
+   "exe": "/Applications/8x8 Work.app/Contents/MacOS/8x8 Work",
+   "bundle_id": "com.electron.8x8---virtual-office"
+  },
+  "pids": [
+   "68469"
+  ],
+  "before_uuid": "61a2892b-f851-4db0-b5d0-68f177eca1e0",
+  "patch_on": 200,
+  "policy": {
+   "id": 1262,
+   "name": "macOS - 8x8 Work up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "patch_title": 17579,
+   "install_title": 17579
+  },
+  "opened_at": "2026-11-24T02:09:36+00:00",
+  "first_attempt": {
+   "uuid": "b10c5b8f-9c1e-4db2-a670-76614e19dd33",
+   "status": "failed_install",
+   "skipped_install": true,
+   "installed_versions": [
+    "8.38.4"
+   ]
+  },
+  "close_close": "",
+  "closed_at": "2026-11-24T06:42:06+00:00",
+  "patched_after_close_hours": 4.53,
+  "patched_query_passes": true,
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 16,
+  "end_uninstall_output_tail": "removing /Users/<user>/Library/Application Support/8x8 Work.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.electron.8x8---virtual-office.sfl* doesn't exist.\nremoving /Users/<user>/Library/Logs/8x8 Work.\n/Users/<user>/Library/Preferences/com.electron.8x8---virtual-office.plist doesn't exist.\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-24T11:15:41+00:00"
+ },
+ "finished": "2026-11-24T07:15:41",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/8x8-work_darwin-865-220733.json"
+}
