@@ -1,0 +1,87 @@
+{
+ "slug": "fortify/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T14:02:54",
+ "catalog_version": "2.1.0",
+ "catalog_id": "5136306109a9",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T18:02:53Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-24T18:02:41Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 50063,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (00:3C) [18:03:27:527]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (00:3C) [18:03:27:529]: Destroying RemoteAPI object.\r\nMSI (s) (00:D4) [18:03:27:529]: Custom Action Manager thread ending.\r\nMSI (c) (34:A0) [18:03:27:533]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (34:A0) [18:03:27:533]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  18:03:27 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  18:03:27 ===",
+  "=== Verbose logging stopped: 11/24/2026  18:03:27 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.1.0"
+ ],
+ "package_version": "2.1.0",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Fortify\\"
+  ],
+  "names": [
+   "Fortify"
+  ],
+  "versions": [
+   "2.1.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstalling product code: {300CD9D8-49BE-4914-B157-A48962F42386}\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (00:EC) [18:06:35:779]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (00:EC) [18:06:35:781]: Destroying RemoteAPI object.\r\nMSI (s) (00:88) [18:06:35:781]: Custom Action Manager thread ending.\r\nMSI (c) (18:F8) [18:06:35:786]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (18:F8) [18:06:35:786]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  18:06:35 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  18:06:35 ===",
+  "=== Verbose logging stopped: 11/24/2026  18:06:35 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstalling product code: {300CD9D8-49BE-4914-B157-A48962F42386}\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-24T14:08:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T18:08:33Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-24T18:08:25Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/fortify_windows-862-140254.json"
+}

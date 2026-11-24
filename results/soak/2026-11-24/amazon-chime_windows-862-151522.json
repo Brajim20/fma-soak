@@ -1,0 +1,78 @@
+{
+ "slug": "amazon-chime/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T15:15:22",
+ "catalog_version": "5.23.32138",
+ "catalog_id": "c36f82a716dc",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T19:15:23Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-24T19:15:09Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 50076,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 62,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Amazon Chime for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.23.32138"
+ ],
+ "package_version": "5.23.32138",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\AmazonChime"
+  ],
+  "names": [
+   "Amazon Chime"
+  ],
+  "versions": [
+   "5.23.32138"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 62,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Amazon Chime for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "rentVersion\\Uninstall\\AmazonChime)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\AmazonChime\\Update.exe --uninstall -s\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\AmazonChime behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\AmazonChime\"\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c del /f /q \"C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Amazon.com Services <host>\\<user>.lnk\" \"C:\\Users\\<user>\\Desktop\\Amazon Chime.lnk\"\nAmazon Chime removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-24T15:22:17",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T19:22:13Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-24T19:22:06Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/amazon-chime_windows-862-151522.json"
+}
