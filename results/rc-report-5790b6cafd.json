@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 2887,
+ "current_runs": 3019,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -57,7 +57,24 @@
    "baseline": "pass",
    "current": "findings",
    "baseline_record": "soak/2026-11-16/firefox@developer-edition_windows-861-201205.json",
-   "current_record": "soak/2026-11-22/firefox@developer-edition_windows-861-150125.json",
+   "current_record": "soak/2026-11-24/firefox@developer-edition_windows-861-002553.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "firefox@nightly/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/firefox@nightly_windows-861-201706.json",
+   "current_record": "soak/2026-11-24/firefox@nightly_windows-861-004318.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -144,6 +161,23 @@
    "cause": null
   },
   {
+   "app": "signal/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/signal_windows-861-131803.json",
+   "current_record": "soak/2026-11-24/signal_windows-861-010024.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
    "app": "slack/darwin@858",
    "kind": "lifecycle",
    "baseline": "pass",
@@ -155,6 +189,24 @@
    ],
    "triaged": [],
    "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "sublime-text/windows@861",
+   "kind": "update_path",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/sublime-text_windows-861-133217.json",
+   "current_record": "soak/2026-11-24/sublime-text_windows-861-011100.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed",
+    "not a bug: the 'older' pin 4.0.0.421500 is the same build-4215 installer cached 2026-11-01 under the pre-#57186 version label (package versions 7858 vs 7968); update_path compares a package with itself"
+   ],
+   "why": "new failure shape S4",
    "reproduced": true,
    "cause": null
   },
@@ -349,6 +401,16 @@
    "triaged": []
   },
   {
+   "app": "druva-insync/darwin@860",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/druva-insync_darwin-860-222632.json",
+   "current_record": "soak/2026-11-23/druva-insync_darwin-860-235139.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "eclipse-temurin-jre-17/windows@862",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -364,7 +426,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/google-chrome_windows-861-082646.json",
-   "current_record": "soak/2026-11-23/google-chrome_windows-861-043103.json",
+   "current_record": "soak/2026-11-23/google-chrome_windows-861-221138.json",
    "findings": [],
    "triaged": []
   },
@@ -429,6 +491,6 @@
    "triaged": []
   }
  ],
- "compared": 214,
+ "compared": 224,
  "canaries_not_yet_on_current": []
 }
