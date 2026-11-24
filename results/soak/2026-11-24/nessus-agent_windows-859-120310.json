@@ -1,0 +1,99 @@
+{
+ "slug": "nessus-agent/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T12:03:10",
+ "catalog_version": "11.2.4.20033",
+ "catalog_id": "f6cb24ceeac1",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted."
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T16:03:03Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T16:02:49Z"
+ },
+ "title_id": 27048,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A0:70) [16:03:35:466]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A0:70) [16:03:35:471]: Destroying RemoteAPI object.\r\nMSI (s) (A0:0C) [16:03:35:471]: Custom Action Manager thread ending.\r\nMSI (c) (C8:94) [16:03:35:475]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (C8:94) [16:03:35:477]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  16:03:35 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  16:03:35 ===",
+  "=== Verbose logging stopped: 11/24/2026  16:03:35 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "11.2.4.20033"
+ ],
+ "package_version": "11.2.4.20033",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Tenable\\Nessus Agent\\"
+  ],
+  "names": [
+   "Nessus Agent (x64)"
+  ],
+  "versions": [
+   "11.2.4.20033"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 61,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (A0:9C) [16:06:43:215]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (A0:9C) [16:06:43:219]: Destroying RemoteAPI object.\r\nMSI (s) (A0:50) [16:06:43:219]: Custom Action Manager thread ending.\r\nMSI (c) (B0:90) [16:06:43:221]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:90) [16:06:43:223]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  16:06:43 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  16:06:43 ===",
+  "=== Verbose logging stopped: 11/24/2026  16:06:43 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [
+  "10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted.",
+  "10006 Microsoft-Windows-RestartManager: Application or service 'nessus-agent-module' could not be shut down.",
+  "10006 Microsoft-Windows-RestartManager: Application or service 'nessusd' could not be shut down."
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 61,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-24T12:09:04",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T16:09:03Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T16:09:04Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-24/evidence/nessus-agent_windows-859-120310-library.png",
+  "inventory": "results/soak/2026-11-24/evidence/nessus-agent_windows-859-120310-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/nessus-agent_windows-859-120310.json"
+}

@@ -1,0 +1,88 @@
+{
+ "slug": "protopie/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T11:50:52",
+ "catalog_version": "8.3.1",
+ "catalog_id": "c1850f5416f1",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\ProtoPie\\), not the signed-in user's (#50857)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T15:50:53Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T15:50:29Z"
+ },
+ "title_id": 50035,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nStarting ProtoPie install with: /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "8.3.1"
+ ],
+ "package_version": "8.3.1",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\ProtoPie\\"
+  ],
+  "names": [
+   "ProtoPie"
+  ],
+  "versions": [
+   "8.3.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Selected entry DisplayName: ProtoPie\nUninstall command: C:\\WINDOWS\\SysWOW64\\config\\systemprofile\\AppData\\Local\\Programs\\ProtoPie\\unins000.exe\nUninstall args: /VERYSILENT /NORESTART\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "Installing software...\nSuccess\nStarting ProtoPie install with: /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Selected entry DisplayName: ProtoPie\nUninstall command: C:\\WINDOWS\\SysWOW64\\config\\systemprofile\\AppData\\Local\\Programs\\ProtoPie\\unins000.exe\nUninstall args: /VERYSILENT /NORESTART\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-24T11:57:15",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T15:57:13Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T15:57:14Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-24/evidence/protopie_windows-859-115052-library.png",
+  "inventory": "results/soak/2026-11-24/evidence/protopie_windows-859-115052-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/protopie_windows-859-115052.json"
+}
