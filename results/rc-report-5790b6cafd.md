@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3066 · compared on both builds: 231
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3151 · compared on both builds: 244
 
 **14 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -23,7 +23,7 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 
 Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
 
-**Catalog changes (7)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
+**Catalog changes (8)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 
 | App | Path | What changed | Findings now | Triaged as |
 |---|---|---|---|---|
@@ -34,5 +34,6 @@ Next: check each against the baseline's code (is the failing step in Fleet's cod
 | claude/darwin@858 | lifecycle | 5.11492.5 -> 6.6395.1 | S1: inventory never reported the app after install + refetch | **new** |
 | firefox/darwin@858 | lifecycle | 160.0 -> 160.0.1 | S1: inventory never reported the app after install + refetch | **new** |
 | google-chrome/darwin@858 | lifecycle | 157.0.8103.79 -> 158.0.8127.37 | S1: inventory never reported the app after install + refetch | **new** |
+| nessus-agent/windows@861 | lifecycle | 11.2.3.20022 -> 11.2.4.20033 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted. | **new** |
 
-Fixed on this build (16): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (17): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@859 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)

@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3066,
+ "current_runs": 3151,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -337,6 +337,21 @@
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 157.0.8103.79 -> 158.0.8127.37"
+  },
+  {
+   "app": "nessus-agent/windows@861",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/nessus-agent_windows-861-072534.json",
+   "current_record": "soak/2026-11-24/nessus-agent_windows-861-073631.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted."
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 11.2.3.20022 -> 11.2.4.20033"
   }
  ],
  "fixed": [
@@ -367,6 +382,16 @@
    "current": "pass",
    "baseline_record": "soak/2026-11-16/bitwarden_windows-862-201710.json",
    "current_record": "soak/2026-11-23/bitwarden_windows-862-210025.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
+   "app": "brave-browser/windows@859",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-17/brave-browser_windows-859-051337.json",
+   "current_record": "soak/2026-11-24/brave-browser_windows-859-075642.json",
    "findings": [],
    "triaged": []
   },
@@ -501,6 +526,6 @@
    "triaged": []
   }
  ],
- "compared": 231,
+ "compared": 244,
  "canaries_not_yet_on_current": []
 }

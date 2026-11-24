@@ -12,6 +12,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/enpass/darwin.json), [enpass.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/enpass.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-02 Fix and update Fleet-maintained apps (#57207); 2026-06-10 Add macOS Fleet-maintained apps (E) (#47373) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "mobirise/darwin@1347",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/mobirise_darwin-1347-075319.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/mobirise/darwin.json), [mobirise.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/mobirise.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-10-30 Unfreeze Mobirise (darwin) (#57024); 2026-10-21 Update Fleet-maintained apps: nightly version bumps; MEGAsync, Mobirise, and Twobird freez; 2026-06-11 Add macOS Fleet-maintained apps (M) (#47453) \u00b7 issues mentioning it: none"
+ },
+ {
   "app": "sublime-text/windows@861",
   "shape": "S1",
   "msgs": [
@@ -22,6 +34,18 @@
   "other_host": null,
   "record": "results/soak/2026-11-24/sublime-text_windows-861-011100.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sublime-text/windows.json), [sublime-text.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sublime-text.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-02 Check Sublime Text (Windows) version from sublime_text.exe (#57186); 2025-12-01 Add Sublime Text as a Windows FMA (#36448) \u00b7 issues mentioning it: #57187 (open), #57118 (closed), #57810 (closed), #57225 (closed), #44038 (closed)"
+ },
+ {
+  "app": "nessus-agent/windows@861",
+  "shape": "S2",
+  "msgs": [
+   "the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted."
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/nessus-agent_windows-861-073631.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/nessus-agent/windows.json), [nessus-agent.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/nessus-agent.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #37326 (closed), #19021 (closed)"
  },
  {
   "app": "power-automate/windows@861",
@@ -36,6 +60,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/power-automate/windows.json), [power-automate.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/power-automate.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-06-04 Add multiple Windows FMAs (#46794) \u00b7 issues mentioning it: #37326 (closed), #9253 (closed)"
  },
  {
+  "app": "protopie/windows@862",
+  "shape": "S2",
+  "msgs": [
+   "first install: installed into the SYSTEM profile (C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Programs\\ProtoPie\\), not the signed-in user's (#50857)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/protopie_windows-862-082836.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/protopie/windows.json), [protopie.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/protopie.json), [protopie_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_install.ps1), [protopie_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open)"
+ },
+ {
   "app": "sql-server-management-studio/windows@862",
   "shape": "S6",
   "msgs": [
@@ -46,5 +82,17 @@
   "other_host": null,
   "record": "results/soak/2026-11-24/sql-server-management-studio_windows-862-004113.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 last changes: 2026-11-10 Fleet-maintained apps: detect SQL Server Management Studio (Windows) as running (#57848); 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: #59566 (open), #57555 (closed)"
+ },
+ {
+  "app": "crestron-airmedia-peripherals/windows@862",
+  "shape": "add",
+  "msgs": [
+   "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://www.crestron.com/software_files_public/am-100/airmediaperipherals64_1.11.1.164.msi\") received response status code 403."
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/crestron-airmedia-peripherals_windows-862-104854.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crestron-airmedia-peripherals/windows.json), [crestron-airmedia-peripherals.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crestron-airmedia-peripherals.json) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-20 Exit nonzero when UpgradeCode uninstall scripts can't list installed products (#59454); 2026-07-10 Re-add Crestron AirMedia (+Peripherals) Windows FMAs (#49127) \u00b7 issues mentioning it: none"
  }
 ]

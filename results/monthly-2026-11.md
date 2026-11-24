@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14741 cycles: pass 6874, findings 2914, flaky 643, environment 437, harness 357, skipped 3516
+**1. Runs** — 14826 cycles: pass 6946, findings 2919, flaky 643, environment 443, harness 357, skipped 3518
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 192/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 980/968 (101.2%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 218/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -174,23 +174,23 @@
 | #59297 | merged | Unfreeze 16 Fleet-maintained apps that pass validation |
 | #59362 | open | Fleet-maintained apps: jamovi (macOS) can't be added — its catalog URL is gone (404) |
 | #59366 | closed | Fleet-maintained apps: WinRAR (Windows) install over the open app hangs until Fleet kills it, blocking the host's queue for an hour |
-| #59532 | open | Fleet-maintained apps: Windscribe (Windows) install fails with exit code 1603 while the app is open, and the app is left unregistered |
-| #59564 | open | Fleet-maintained apps: FreeCAD (Windows) install fails with exit code 2 while the app is open |
-| #59565 | open | Fleet-maintained apps: Wrike (Windows) install fails with a fatal MSI error while the app is open |
-| #59566 | open | Fleet-maintained apps: SQL Server Management Studio 22 (Windows) install fails while the app is open, and the old copy keeps running |
-| #59567 | open | Fleet-maintained apps: NoSQL Workbench (Windows) install never finishes while the app is open, and blocks the host's queue |
-| #59568 | open | Fleet-maintained apps: Galaxy Modeler (Windows) install never finishes while the app is open, and blocks the host's queue |
+| #59532 | closed | Fleet-maintained apps: Windscribe (Windows) install fails with exit code 1603 while the app is open, and the app is left unregistered |
+| #59564 | closed | Fleet-maintained apps: FreeCAD (Windows) install fails with exit code 2 while the app is open |
+| #59565 | closed | Fleet-maintained apps: Wrike (Windows) install fails with a fatal MSI error while the app is open |
+| #59566 | closed | Fleet-maintained apps: SQL Server Management Studio 22 (Windows) install fails while the app is open, and the old copy keeps running |
+| #59567 | closed | Fleet-maintained apps: NoSQL Workbench (Windows) install never finishes while the app is open, and blocks the host's queue |
+| #59568 | closed | Fleet-maintained apps: Galaxy Modeler (Windows) install never finishes while the app is open, and blocks the host's queue |
 | #59569 | open | Fleet-maintained apps: Evernote (Windows) install always fails with exit code 2 |
-| #59570 | open | Fleet-maintained apps: DevToys (Windows) installs into the SYSTEM profile instead of the signed-in user's |
-| #59571 | open | Fleet-maintained apps: Webex (Windows) installs into the SYSTEM profile instead of a location users can open |
-| #59572 | open | Fleet-maintained apps: GoldenDict-ng (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
-| #59573 | open | Fleet-maintained apps: Kiro CLI (macOS) is never detected after install, so its patch policy always passes |
-| #59574 | open | Fleet-maintained apps: Transmission (macOS) never shows an installed version after install |
+| #59570 | closed | Fleet-maintained apps: DevToys (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #59571 | closed | Fleet-maintained apps: Webex (Windows) installs into the SYSTEM profile instead of a location users can open |
+| #59572 | closed | Fleet-maintained apps: GoldenDict-ng (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
+| #59573 | closed | Fleet-maintained apps: Kiro CLI (macOS) is never detected after install, so its patch policy always passes |
+| #59574 | closed | Fleet-maintained apps: Transmission (macOS) never shows an installed version after install |
 | #59575 | open | Fleet-maintained apps: Commander One (macOS) never shows an installed version after install |
-| #59576 | open | Fleet-maintained apps: Maestral (macOS) install over the open app reports success while an old process keeps running |
-| #59577 | open | Fleet-maintained apps: QGIS (macOS) install over the open app closes it and doesn't reopen it |
-| #59578 | open | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
-| #59579 | open | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
+| #59576 | closed | Fleet-maintained apps: Maestral (macOS) install over the open app reports success while an old process keeps running |
+| #59577 | closed | Fleet-maintained apps: QGIS (macOS) install over the open app closes it and doesn't reopen it |
+| #59578 | closed | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
+| #59579 | closed | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
 
 **4. Build changes**
 
