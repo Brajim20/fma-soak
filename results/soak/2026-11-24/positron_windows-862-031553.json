@@ -1,0 +1,121 @@
+{
+ "slug": "positron/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T03:15:53",
+ "catalog_version": "2026.11.1",
+ "catalog_id": "1e28c90b7965",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T07:15:52Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T07:15:40Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 49668,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 107,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.11.1"
+ ],
+ "package_version": "2026.11.1",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Positron\\"
+  ],
+  "names": [
+   "Positron"
+  ],
+  "versions": [
+   "2026.11.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Positron\\unins000.exe\nUninstall args: /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2540",
+   "6064",
+   "6104",
+   "8196",
+   "10452",
+   "11424",
+   "11604"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 137,
+ "open_reinstall_output_tail": "opping OpenConsole (PID 1572) before installing.\nStopping OpenConsole (PID 10204) before installing.\nStopping pet (PID 9704) before installing.\nStopping Positron (PID 2540) before installing.\nStopping Positron (PID 5052) before installing.\nStopping Positron (PID 6064) before installing.\nStopping Positron (PID 6104) before installing.\nStopping Positron (PID 8196) before installing.\nStopping Positron (PID 9180) before installing.\nStopping Positron (PID 10452) before installing.\nStopping Positron (PID 11424) before installing.\nStopping Positron (PID 11604) before installing.\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Stopping kcserver (PID 11312) before installing.",
+  "Stopping OpenConsole (PID 1572) before installing.",
+  "Stopping OpenConsole (PID 10204) before installing.",
+  "Stopping pet (PID 9704) before installing.",
+  "Stopping Positron (PID 2540) before installing.",
+  "Stopping Positron (PID 5052) before installing.",
+  "Stopping Positron (PID 6064) before installing.",
+  "Stopping Positron (PID 6104) before installing.",
+  "Stopping Positron (PID 8196) before installing.",
+  "Stopping Positron (PID 9180) before installing."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1736",
+   "7420",
+   "7432",
+   "7984",
+   "8200",
+   "10216",
+   "11760",
+   "12176"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Positron\\unins000.exe\nUninstall args: /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-24T03:28:29",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T07:28:20Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T07:28:19Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/positron_windows-862-031553.json"
+}
