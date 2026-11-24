@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14694 cycles: pass 6838, findings 2912, flaky 643, environment 432, harness 357, skipped 3512
+**1. Runs** — 14741 cycles: pass 6874, findings 2914, flaky 643, environment 437, harness 357, skipped 3516
 
-**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 506/513 (98.6%), quarter 2/2 this week 187/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 980/967 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 192/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -206,7 +206,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
+2. The whole catalog cycled at least once per platform — darwin: done, windows: done
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests
