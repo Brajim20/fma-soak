@@ -4294,6 +4294,22 @@
       "msg_contains": "PAD.Java.Installer.Host.exe",
       "verdict": "not a bug: Power Automate's own PAD.Java.Installer.Host.exe throws an unhandled .NET exception (0xe0434352, KERNELBASE.dll) after it opens, on all x64 hosts (859/861/862, 2026-11-23/24); every Fleet step passes (both installs installed, inventory 2.74.00191.26302, patched passes, both uninstalls remove it). Same class as 1password/windows index.node",
       "added": "2026-11-24"
+    },
+    {
+      "app": "wezterm/darwin@865",
+      "shape": "S3",
+      "after": "2026-11-18T22:03:00",
+      "before": "2026-11-18T22:04:00",
+      "verdict": "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95",
+      "added": "2026-11-24"
+    },
+    {
+      "app": "wezterm/darwin@865",
+      "shape": "install",
+      "after": "2026-11-18T22:03:00",
+      "before": "2026-11-18T22:04:00",
+      "verdict": "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95",
+      "added": "2026-11-24"
     }
   ]
 }
