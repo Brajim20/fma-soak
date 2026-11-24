@@ -4270,6 +4270,23 @@
       "shape": "S4",
       "verdict": "already filed #57141: the soak turned patch on through the package API (patch=true), which creates the patch policy with install_software null, so no install is ever queued (none on 865 2026-11-23 00:32-08:30Z, open or closed). Not 1Password-specific: no judged patch-when-closed run on either RC ever queued an install or a skip. patch_closed.py now creates the policy like the Deploy modal (policies API + software_title_id)",
       "added": "2026-11-23"
+    },
+    {
+      "app": "elmedia-player/darwin",
+      "shape": "S1",
+      "verdict": "filed #59740: apps.json unique_identifier com.Eltima.ElmediaPlayer.LSSharedFileList vs bundle ID com.Eltima.ElmediaPlayer; same cause as #59574 (Transmission), whose fix #59709 left Elmedia out; fix in draft PR #57497",
+      "added": "2026-11-24"
+    },
+    {
+      "app": "1password/windows",
+      "shape": "S2",
+      "verdict": "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser",
+      "added": "2026-11-24"
+    },
+    {
+      "app": "dangerzone/darwin",
+      "verdict": "environment, #57132: instance served a truncated installer (1528430592 of 1764666938 bytes on the 860 rerun 2026-11-23 16:12); part of the 2026-11-23 installer-store burst (~80 runs with 0-byte/truncated installers)",
+      "added": "2026-11-24"
     }
   ]
 }
