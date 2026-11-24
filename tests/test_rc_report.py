@@ -96,5 +96,70 @@ class SameBuild(unittest.TestCase):
         self.assertIsNone(RC.same_build_pass([flaky, x], x))
 
 
+CFG = {"arch": {"windows": {"arm64": [863, 864], "x64": [861, 859, 862]}}}
+cpu_win = lambda h: RC.cpu(h, "windows", CFG)  # noqa: E731
+
+
+def rec(host, outcome, *shapes, cid="c1"):
+    return {"host": host, "outcome": outcome, "catalog_id": cid, "findings": [{"shape": s, "msg": s} for s in shapes]}
+
+
+class Elsewhere(unittest.TestCase):
+    K = ("python-3.13-arm64/windows", 864, "lifecycle")
+
+    def seen(self, b, base):
+        return RC.seen_elsewhere_on_baseline(b, b["findings"], self.K, {(self.K[0], self.K[2]): base}, cpu_win)
+
+    def test_baseline_showed_it_on_another_host_with_the_same_cpu(self):
+        # 4.94: 864 failed 1618 before inventory, 863 (also arm64) showed the S1
+        self.assertEqual(self.seen(rec(864, "findings", "S1"), [rec(864, "findings", "install"), rec(863, "findings", "S1")]), [863])
+
+    def test_other_cpu_does_not_count(self):
+        self.assertEqual(self.seen(rec(864, "findings", "S1"), [rec(861, "findings", "S1")]), [])
+
+    def test_every_finding_must_be_there(self):
+        self.assertEqual(self.seen(rec(864, "findings", "S1", "S3"), [rec(863, "findings", "S1")]), [])
+
+    def test_untested_baseline_run_does_not_count(self):
+        self.assertEqual(self.seen(rec(864, "findings", "add"), [rec(863, "findings", "add")]), [])
+
+    def test_generic_install_message_needs_the_same_installer_output(self):
+        # adobe-creative-cloud: 'first install ended as failed_install' matches only with the same stub exit code
+        f = {"shape": "install", "msg": "first install ended as failed_install"}
+        b = {"host": 862, "outcome": "findings", "findings": [f], "first_install_output_tail": "Failed\nStub installer exited with code 206 after 40s\n"}
+        same = dict(b, host=861, first_install_output_tail="x\nStub installer exited with code 206 after 40s")
+        other = dict(b, host=859, first_install_output_tail="x\nStub installer exited with code 1 after 12s")
+        k = ("adobe-creative-cloud/windows", 862, "lifecycle")
+        self.assertEqual(RC.seen_elsewhere_on_baseline(b, [f], k, {(k[0], k[2]): [same, other]}, cpu_win), [861])
+
+    def test_generic_uninstall_message_needs_the_same_api_error(self):
+        f = {"shape": "S3", "msg": "first uninstall: app still on host (status None)"}
+        b = {"host": 865, "outcome": "findings", "findings": [f], "first_uninstall_error": "Bad request"}
+        k = ("wezterm/darwin", 865, "lifecycle")
+        cpu_mac = lambda h: RC.cpu(h, "darwin", CFG)  # noqa: E731
+        self.assertEqual(RC.seen_elsewhere_on_baseline(b, [f], k, {(k[0], k[2]): [dict(b, host=631)]}, cpu_mac), [631])
+        self.assertEqual(RC.seen_elsewhere_on_baseline(b, [f], k, {(k[0], k[2]): [dict(b, host=631, first_uninstall_error=None)]}, cpu_mac), [])
+
+
+class HostOnly(unittest.TestCase):
+    K = ("adobe-creative-cloud/windows", 862, "lifecycle")
+
+    def test_passes_on_other_hosts_same_cpu_same_catalog(self):
+        b = rec(862, "findings", "install")
+        cur = {(self.K[0], self.K[2]): [b, rec(861, "pass"), rec(859, "pass"), rec(863, "pass")]}
+        self.assertEqual(RC.passes_elsewhere_on_current(self.K, b, cur, cpu_win), [859, 861])
+
+    def test_other_catalog_does_not_count(self):
+        b = rec(862, "findings", "install")
+        cur = {(self.K[0], self.K[2]): [b, rec(861, "pass", cid="c0")]}
+        self.assertEqual(RC.passes_elsewhere_on_current(self.K, b, cur, cpu_win), [])
+
+    def test_macos_hosts_are_one_group(self):
+        k = ("wezterm/darwin", 865, "lifecycle")
+        b = rec(865, "findings", "S3")
+        cur = {(k[0], k[2]): [b, rec(860, "pass")]}
+        self.assertEqual(RC.passes_elsewhere_on_current(k, b, cur, lambda h: RC.cpu(h, "darwin", CFG)), [860])
+
+
 if __name__ == "__main__":
     unittest.main()

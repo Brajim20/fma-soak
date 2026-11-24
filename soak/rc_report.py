@@ -105,6 +105,69 @@ def same_build_pass(cur_runs, b):
     return ok[-1]["started"] if ok else None
 
 
+def cpu(host, plat, cfg=None):
+    """The host's CPU group from config.json arch.<platform> ("arm64"/"x64"), or None (macOS: not split)."""
+    if cfg is None:
+        p = os.path.join(D.WS, "config.json")
+        cfg = json.load(open(p)) if os.path.exists(p) else {}
+    for group, hosts in cfg.get("arch", {}).get(plat, {}).items():
+        if isinstance(hosts, list) and int(host) in hosts:
+            return group
+    return None
+
+
+def norm(t):
+    return re.sub(r"\d+", "#", re.sub(r"/(private/)?tmp/\S*", "<tmp>", str(t or ""))).strip().lower()
+
+
+def detail(t):
+    """A step's detail line with what changes run to run blanked (durations, PIDs, temp paths), exit codes kept."""
+    t = re.sub(r"/(private/)?tmp/\S*", "<tmp>", str(t or ""))
+    t = re.sub(r"\b\d+(\.\d+)?\s*(s|sec|seconds|ms|min)\b", "#s", t)
+    return re.sub(r"(pid:?\s*)\d+", r"\1#", t, flags=re.I).strip().lower()
+
+
+def signature(r, f):
+    """A finding as comparable text: shape, message with numbers blanked, and for the generic install/uninstall
+    messages ("first install ended as failed_install", "first uninstall: app still on host") the step's own detail
+    (the install output's last line, or the uninstall's API error), so two hosts match only on the same failure:
+    adobe-creative-cloud's stub exit 206 on 862 (4.95) and 635 (4.94), wezterm's uninstall 400 on 865 and 631."""
+    sig = f"{f['shape']}|{norm(f['msg'])}"
+    m = re.search(r"\b(first|second) (install|uninstall)\b", f["msg"])
+    if m and f["shape"] in ("install", "uninstall", "S3"):
+        n, step = m.groups()
+        if step == "install":
+            tail = [l for l in str(r.get(f"{n}_install_output_tail") or "").splitlines() if l.strip()]
+            sig += "|" + detail(tail[-1] if tail else "")
+        else:
+            sig += "|" + detail(r.get(f"{n}_uninstall_error") or r.get(f"{n}_uninstall_status"))
+    return sig
+
+
+def seen_elsewhere_on_baseline(b, rel, k, base_by_app, cpu_of):
+    """Hosts where the baseline already showed every one of these findings (same signature()) for the same app and
+    path, on a host with the same CPU group; [] when it didn't. The baseline run on this host can miss a failure that's
+    there: an earlier step failed first (python-3.13-arm64/windows@864 on 4.94: 1618 before inventory, while 863 showed
+    the S1)."""
+    want = {signature(b, f) for f in rel}
+    if not want:
+        return []
+    hosts = {}
+    for r in base_by_app.get((k[0], k[2]), []):
+        if r["host"] != k[1] and tested(r) and cpu_of(r["host"]) == cpu_of(k[1]):
+            hosts.setdefault(r["host"], set()).update(signature(r, f) for f in r.get("findings", []))
+    return sorted(h for h, got in hosts.items() if want <= got)
+
+
+def passes_elsewhere_on_current(k, b, cur_by_app, cpu_of):
+    """Hosts with the same CPU group where the same app and path, on the same catalog, passed on the current build:
+    the failure is about this host (adobe-creative-cloud/windows@862, 2026-11-21: stub exit 206 on 862, pass on 861
+    and 859 the same hour). A regression that only shows on some hosts lands here too, so these still get triaged."""
+    return sorted({r["host"] for r in cur_by_app.get((k[0], k[2]), [])
+                   if r["host"] != k[1] and D.category(r) == "pass" and cpu_of(r["host"]) == cpu_of(k[1])
+                   and (not b.get("catalog_id") or r.get("catalog_id") == b.get("catalog_id"))})
+
+
 def report():
     recs = [r for r in D.all_records() if rev(r.get("build"))]
     order, count, name = [], {}, {}
@@ -119,18 +182,23 @@ def report():
     cur = order[-1]
     base = next((v for v in reversed(order[:-1]) if count[v] >= MIN_BASELINE_RUNS), None)
     rep = {"current": name[cur], "current_rev": cur, "baseline": name.get(base), "baseline_rev": base,
-           "current_runs": count[cur], "regressions": [], "catalog": [], "same_build": [], "new_check": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
+           "current_runs": count[cur], "regressions": [], "catalog": [], "same_build": [], "new_check": [], "elsewhere": [], "host_only": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
     if not base:
         return rep
     last, base_runs, cur_runs, checks = {cur: {}}, {}, {}, new_checks()
+    base_by_app, cur_by_app = {}, {}
+    cfgp = os.path.join(D.WS, "config.json")
+    cfg = json.load(open(cfgp)) if os.path.exists(cfgp) else {}
     for r in recs:
         v = rev(r["build"])
         k = (r["slug"], r["host"], r.get("kind", "lifecycle"))
         if v == cur:
             last[cur][k] = r
             cur_runs.setdefault(k, []).append(r)
+            cur_by_app.setdefault((k[0], k[2]), []).append(r)
         elif v == base:
             base_runs.setdefault(k, []).append(r)
+            base_by_app.setdefault((k[0], k[2]), []).append(r)
     last[base] = {k: rs[-1] for k, rs in base_runs.items()}
     both = sorted(k for k in set(base_runs) & set(last[cur]) if baseline_of(base_runs[k]))
     rep["compared"] = len(both)
@@ -147,11 +215,16 @@ def report():
             row["why"] = "passed on the baseline" if ca == "pass" else f"new failure shape {', '.join(new_shapes)}"
             row["reproduced"] = "reproduced on retry" in str(b["outcome"])
             row["cause"] = cause(a, b)
+            plat = k[0].split("/")[-1]
+            cpu_of = lambda h, plat=plat: cpu(h, plat, cfg)  # noqa: E731
             rel = [f for f in b.get("findings", []) if f["shape"] != "harness" and (f["shape"] in new_shapes or ca == "pass")]
             row["check"] = check_after_baseline(rel, base_runs[k], checks) if rel else None
             row["passed_on_current"] = same_build_pass(cur_runs[k], b)
+            row["baseline_elsewhere"] = seen_elsewhere_on_baseline(b, rel, k, base_by_app, cpu_of)
+            row["passes_elsewhere"] = passes_elsewhere_on_current(k, b, cur_by_app, cpu_of)
             rep["catalog" if row["cause"] else "new_check" if row["check"]
-                else "same_build" if row["passed_on_current"] else "regressions"].append(row)
+                else "same_build" if row["passed_on_current"] else "elsewhere" if row["baseline_elsewhere"]
+                else "host_only" if row["passes_elsewhere"] else "regressions"].append(row)
         elif ca in BAD and cb == "pass":
             rep["fixed"].append(row)
     canaries = {s for xs in json.load(open(os.path.join(D.WS, "config.json")))["canaries"].values() for s in xs} \
@@ -209,6 +282,22 @@ def write(rep):
             for r in rep["new_check"]:
                 L.append(f"| {r['app']} | {r['kind']} | {r['check']} | {'<br>'.join(r['findings'])[:300]} | "
                          f"{'; '.join(r['triaged'])[:200] or '**new**'} |")
+        if rep["elsewhere"]:
+            L += ["", f"**Already on the baseline on another host ({len(rep['elsewhere'])})**: the baseline showed the "
+                  "same failure for this app on another host with the same CPU; the baseline run on this host stopped "
+                  "earlier or got lucky. Not new in this build; they still go through triage.", "",
+                  "| App | Path | Baseline showed it on | Findings now | Triaged as |", "|---|---|---|---|---|"]
+            for r in rep["elsewhere"]:
+                L.append(f"| {r['app']} | {r['kind']} | {', '.join(map(str, r['baseline_elsewhere']))} | "
+                         f"{'<br>'.join(r['findings'])[:300]} | {'; '.join(r['triaged'])[:200] or '**new**'} |")
+        if rep["host_only"]:
+            L += ["", f"**This host only ({len(rep['host_only'])})**: the same app, path and catalog passes on other "
+                  "hosts with the same CPU on this build, so the host is the first suspect. A regression that only "
+                  "shows on some hosts lands here too: triage each before calling it the host.", "",
+                  "| App | Path | Passes on | Findings now | Triaged as |", "|---|---|---|---|---|"]
+            for r in rep["host_only"]:
+                L.append(f"| {r['app']} | {r['kind']} | {', '.join(map(str, r['passes_elsewhere']))} | "
+                         f"{'<br>'.join(r['findings'])[:300]} | {'; '.join(r['triaged'])[:200] or '**new**'} |")
         if rep["fixed"]:
             L += ["", f"Fixed on this build ({len(rep['fixed'])}): " + ", ".join(f"{r['app']} ({r['kind']})" for r in rep["fixed"])]
     open(base + ".md", "w").write("\n".join(L) + "\n")
