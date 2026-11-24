@@ -1,0 +1,93 @@
+{
+ "slug": "power-automate/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T22:07:31",
+ "catalog_version": "2.74.00191.26302",
+ "catalog_id": "528409416e44",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa3ff6954 Exception code: 0xe0434352 Fa"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T02:07:31Z",
+  "restarted": "2026-11-23T08:03:43.050019Z",
+  "software_updated": "2026-11-24T01:26:35Z"
+ },
+ "title_id": 49394,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 188,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.74.00191.26302",
+  "2.74.00191.26302"
+ ],
+ "package_version": "2.74.00191.26302",
+ "context_after_install": {
+  "install_locations": [
+   "",
+   "C:\\Program Files (x86)\\Power Automate Desktop\\"
+  ],
+  "names": [
+   "Power Automate for desktop"
+  ],
+  "versions": [
+   "2.74.00191.26302"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 156,
+ "first_uninstall_output_tail": "Uninstall command: C:\\ProgramData\\Package Cache\\{24AC0078-F677-4782-8F33-D4FDDC7649A1}\\Setup.Microsoft.PowerAutomate.exe\nUninstall args: -Silent -Uninstall\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 154,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [
+  "1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa3ff6954 Exception code: 0xe0434352 Fa",
+  "1026 .NET Runtime: Application: PAD.Java.Installer.Host.exe CoreCLR Version: 10.0.926.27113 .NET Version: 10.0.9 Description: The process was terminated due to an unhandled exception. Exception Info: System.IO.DirectoryNotFoundException: C",
+  "0 PAD.Java.Sync.Service.Host: Category: Microsoft.Flow.RPA.Desktop.UIAutomation.Java.Sync.Service.Host.JavaSyncService EventId: 0 Error in JavaUpdateService Exception: System.ArgumentException: The directory name 'C:\\Users\\Public\\Documents\\Microsoft\\"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 153,
+ "second_uninstall_output_tail": "Uninstall command: C:\\ProgramData\\Package Cache\\{24AC0078-F677-4782-8F33-D4FDDC7649A1}\\Setup.Microsoft.PowerAutomate.exe\nUninstall args: -Silent -Uninstall\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-23T22:21:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T02:21:27Z",
+  "restarted": "2026-11-23T08:03:43.050019Z",
+  "software_updated": "2026-11-24T02:21:35Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-23/evidence/power-automate_windows-859-220731-library.png",
+  "inventory": "results/soak/2026-11-23/evidence/power-automate_windows-859-220731-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/power-automate_windows-859-220731.json"
+}
