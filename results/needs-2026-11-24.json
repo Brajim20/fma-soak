@@ -1,5 +1,17 @@
 [
  {
+  "app": "azul-zulu-25-jdk/windows@859",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/azul-zulu-25-jdk_windows-859-180808.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/azul-zulu-25-jdk/windows.json), [azul-zulu-25-jdk.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/azul-zulu-25-jdk.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-05-29 Adding multiple FMAs (#46381) \u00b7 issues mentioning it: #57139 (open)"
+ },
+ {
   "app": "enpass/darwin@865",
   "shape": "S1",
   "msgs": [
@@ -120,6 +132,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/protopie/windows.json), [protopie.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/protopie.json), [protopie_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_install.ps1), [protopie_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/protopie_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-06-16 Add even more Windows FMAs (#47584) \u00b7 issues mentioning it: #48248 (open)"
  },
  {
+  "app": "figma/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "before it was installed, Fleet lists it as installed ['126.11.9']: another app's inventory matches this title (#51299 shape)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/figma_windows-861-163258.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59822 (open), #59818 (open), #59111 (open), #59112 (open), #58048 (open)"
+ },
+ {
   "app": "herdr/darwin@1350",
   "shape": "S3",
   "msgs": [
@@ -141,9 +165,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 865 (pass) [record](soak/2026-11-24/herdr_darwin-865-153233.json)",
   "record": "results/soak/2026-11-24/herdr_darwin-860-115343.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/herdr/darwin.json), [herdr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/herdr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Add Herdr (macOS) Fleet-maintained app (#59711) \u00b7 issues mentioning it: #59656 (closed)"
+ },
+ {
+  "app": "freecad/windows@861",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/freecad_windows-861-183451.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/freecad/windows.json), [freecad.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/freecad.json), [freecad_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_install.ps1), [freecad_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_uninstall.ps1) \u00b7 last changes: 2026-11-24 Close the app before installing six Windows Fleet-maintained apps (#59707); 2026-07-13 Add Windows FMAs (letter F): 5 apps (#49218) \u00b7 issues mentioning it: #59564 (closed), #50077 (open)"
  },
  {
   "app": "freecad/windows@862",
@@ -153,9 +189,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-24/freecad_windows-861-183451.json)",
   "record": "results/soak/2026-11-24/freecad_windows-862-115653.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/freecad/windows.json), [freecad.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/freecad.json), [freecad_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_install.ps1), [freecad_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_uninstall.ps1) \u00b7 last changes: 2026-11-24 Close the app before installing six Windows Fleet-maintained apps (#59707); 2026-07-13 Add Windows FMAs (letter F): 5 apps (#49218) \u00b7 issues mentioning it: #59564 (closed), #50077 (open)"
+ },
+ {
+  "app": "sql-server-management-studio/windows@859",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/sql-server-management-studio_windows-859-170026.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 last changes: 2026-11-10 Fleet-maintained apps: detect SQL Server Management Studio (Windows) as running (#57848); 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: #59566 (open), #57555 (closed)"
  },
  {
   "app": "sql-server-management-studio/windows@861",
@@ -165,7 +213,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 859 [record](soak/2026-11-24/sql-server-management-studio_windows-859-170026.json)",
   "record": "results/soak/2026-11-24/sql-server-management-studio_windows-861-120425.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 last changes: 2026-11-10 Fleet-maintained apps: detect SQL Server Management Studio (Windows) as running (#57848); 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: #59566 (open), #57555 (closed)"
  },
@@ -176,10 +224,22 @@
    "reinstall over the open app: the install over the open app ended as failed_install"
   ],
   "retried": "reproduced on retry",
-  "runs": 1,
+  "runs": 2,
   "other_host": null,
-  "record": "results/soak/2026-11-24/sql-server-management-studio_windows-862-004113.json",
+  "record": "results/soak/2026-11-24/sql-server-management-studio_windows-862-155241.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/sql-server-management-studio/windows.json), [sql-server-management-studio.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/sql-server-management-studio.json) \u00b7 last changes: 2026-11-10 Fleet-maintained apps: detect SQL Server Management Studio (Windows) as running (#57848); 2026-06-08 Add SQL Server Management Studio as a Windows FMA (#47003) \u00b7 issues mentioning it: #59566 (open), #57555 (closed)"
+ },
+ {
+  "app": "ableton-live-suite/darwin@1352",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 2,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/ableton-live-suite_darwin-1352-165938.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
  },
  {
   "app": "crestron-airmedia-peripherals/windows@859",
@@ -226,9 +286,35 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 861 (pass) [record](soak/2026-11-24/adobe-creative-cloud_windows-861-171512.json)",
   "record": "results/soak/2026-11-24/adobe-creative-cloud_windows-862-133247.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adobe-creative-cloud/windows.json), [adobe-creative-cloud.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/adobe-creative-cloud.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-26 Add Adobe Creative Cloud as a Windows FMA (#44101) \u00b7 issues mentioning it: #59231 (open), #58758 (closed), #28356 (closed), #55338 (closed), #45414 (closed)"
+ },
+ {
+  "app": "docker/windows@859",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/docker_windows-859-160922.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Install DevToys, Webex and Docker Desktop where users can run them (#59708); 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #42691 (open), #50503 (open), #6014 (open)"
+ },
+ {
+  "app": "docker/windows@861",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/docker_windows-861-175127.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Install DevToys, Webex and Docker Desktop where users can run them (#59708); 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #42691 (open), #50503 (open), #6014 (open)"
  },
  {
   "app": "docker/windows@862",
@@ -239,7 +325,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-24/docker_windows-861-175127.json)",
   "record": "results/soak/2026-11-24/docker_windows-862-124049.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Install DevToys, Webex and Docker Desktop where users can run them (#59708); 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #42691 (open), #50503 (open), #6014 (open)"
  }

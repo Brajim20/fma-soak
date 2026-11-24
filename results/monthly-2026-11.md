@@ -2,14 +2,15 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14885 cycles: pass 6986, findings 2933, flaky 644, environment 447, harness 357, skipped 3518
+**1. Runs** — 14940 cycles: pass 7025, findings 2942, flaky 644, environment 451, harness 357, skipped 3521
 
-**2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 14/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
 | Issue | State | Title |
 |---|---|---|
+| #38583 | open | Ingest and persist `bundle_version` for mac os software |
 | #42082 | open | Windows FMAs: Support multiple architectures |
 | #45895 | merged | DMG install script use yes and update scripts |
 | #47037 | merged | Add several Windows FMAs |
@@ -22,6 +23,7 @@
 | #51940 | merged | Fix per-user install context for 32 Windows Fleet-maintained apps |
 | #53050 | open | Allow both x64 and ARM64 Windows FMA variants of the same app in one fleet |
 | #53828 | merged | Keep Go-http-client token in FMA installer User-Agent |
+| #53892 | merged | Add WezTerm as a macOS FMA |
 | #55093 | closed | Firefox installed or updated by Fleet on macOS has root:admin rwxr-xr-x permissions, triggering a looping helper tool prompt |
 | #55246 | merged | Match both ChatGPT bundle identifiers in macOS FMA queries |
 | #55360 | closed | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
@@ -94,7 +96,7 @@
 | #57660 | closed | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57673 | closed | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
 | #57674 | closed | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
-| #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
+| #57681 | unknown |  |
 | #57700 | closed | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
 | #57701 | closed | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
 | #57748 | closed | Fleet-maintained apps: Snagit (macOS) can't be reinstalled or uninstalled after it's been opened ("did not quit" though it isn't running) |
@@ -156,7 +158,7 @@
 | #58659 | open | Fleet-maintained apps: Microsoft Teams (Windows) shows as installed on hosts that only have the Teams Meeting Add-in for Office |
 | #58756 | closed | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
 | #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
-| #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
+| #58758 | unknown |  |
 | #58861 | open | Fleet-maintained apps: Webex Recorder and Player (Windows) installs land on a second title with the same name |
 | #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
 | #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
@@ -199,7 +201,11 @@
 ### 4.94.0-rc.2610272345 (937e87458c) → 4.94.0-rc.2610282316 (7dcab65fcd)
 3 app runs seen on both builds; 0 changed.
 ### 4.94.0-rc.2610282316 (7dcab65fcd) → 4.95.0-rc.2611162253 (5790b6cafd)
-2 app runs seen on both builds; 0 changed.
+3 app runs seen on both builds; 1 changed.
+
+| App | Old build | New build | |
+|---|---|---|---|
+| preform/darwin@865 (lifecycle) | flaky | pass | ✅ fixed |
 
 **5. Plan changes**
 
