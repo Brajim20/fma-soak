@@ -1,0 +1,85 @@
+{
+ "slug": "sharefile/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T00:17:41",
+ "catalog_version": "26.9.9.0",
+ "catalog_id": "785b02a681e0",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T04:17:33Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T04:17:39Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 49502,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 17,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (C0:8C) [04:18:05:974]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (C0:8C) [04:18:05:976]: Destroying RemoteAPI object.\r\nMSI (s) (C0:40) [04:18:05:977]: Custom Action Manager thread ending.\r\nMSI (c) (40:24) [04:18:05:980]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (40:24) [04:18:05:982]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  4:18:05 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  4:18:05 ===",
+  "=== Verbose logging stopped: 11/24/2026  4:18:05 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.9.9.0"
+ ],
+ "package_version": "26.9.9.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "ShareFile"
+  ],
+  "versions": [
+   "26.9.9.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Exit 0\r\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (C0:8C) [04:20:50:735]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (C0:8C) [04:20:50:738]: Destroying RemoteAPI object.\r\nMSI (s) (C0:DC) [04:20:50:738]: Custom Action Manager thread ending.\r\nMSI (c) (98:08) [04:20:50:742]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (98:08) [04:20:50:742]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  4:20:50 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  4:20:50 ===",
+  "=== Verbose logging stopped: 11/24/2026  4:20:50 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Exit 0\r\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-24T00:23:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T04:23:03Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T04:22:51Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/sharefile_windows-862-001741.json"
+}

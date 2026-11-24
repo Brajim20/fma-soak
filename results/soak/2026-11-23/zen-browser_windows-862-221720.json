@@ -1,0 +1,197 @@
+{
+ "slug": "zen-browser/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T22:17:20",
+ "catalog_version": "1.24b",
+ "catalog_id": "8dca47d6e0f1",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 1332 Zen Default Browser Agent:"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T02:17:19Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T02:16:57Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 49396,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.24b"
+ ],
+ "package_version": "1.24b",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Zen Browser"
+  ],
+  "names": [
+   "Zen Browser (x64 en-US)"
+  ],
+  "versions": [
+   "1.24b"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "864",
+   "1364",
+   "3480",
+   "3836",
+   "5320",
+   "6156",
+   "8228",
+   "8776",
+   "11268",
+   "11500",
+   "11988"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "8776",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "864",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "3480",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "5320",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "3836",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "1364",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "6156",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "11988",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "11268",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "11500",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  },
+  {
+   "pid": "8228",
+   "path": "C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp",
+   "on_disk": "1",
+   "moved": true
+  }
+ ],
+ "open_reinstall_running_note": "the old copy kept running from its renamed files (C:\\Program Files\\Zen Browser\\tobedeleted\\nst2544.tmp, pid 8776); expected on Windows",
+ "open_reinstall_after_old_close": "0",
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1624",
+   "2008",
+   "2888",
+   "3676",
+   "6488",
+   "7608",
+   "8708",
+   "8808",
+   "9640",
+   "11252",
+   "11544"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [
+  "1332 Zen Default Browser Agent:",
+  "1332 Zen Default Browser Agent:",
+  "1332 Zen Default Browser Agent:"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-23T22:26:06",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T02:26:01Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T02:25:55Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-23/evidence/zen-browser_windows-862-221720-library.png",
+  "inventory": "results/soak/2026-11-23/evidence/zen-browser_windows-862-221720-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/zen-browser_windows-862-221720.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/zen-browser_windows-862-220745.json",
+ "crosshost_of": "soak/2026-11-23/zen-browser_windows-861-191833.json"
+}

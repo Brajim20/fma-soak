@@ -1,0 +1,83 @@
+{
+ "slug": "delinea-connection-manager/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-23T23:43:20",
+ "catalog_version": "2.9.0.33",
+ "catalog_id": "f95ae77ad5e3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T03:43:13Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T03:43:07Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 49456,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (60:14) [03:44:00:893]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (60:14) [03:44:00:895]: Destroying RemoteAPI object.\r\nMSI (s) (60:C8) [03:44:00:895]: Custom Action Manager thread ending.\r\nMSI (c) (48:FC) [03:44:00:897]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (48:FC) [03:44:00:899]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  3:44:00 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  3:44:00 ===",
+  "=== Verbose logging stopped: 11/24/2026  3:44:00 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.9.0.33"
+ ],
+ "package_version": "2.9.0.33",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Delinea Connection Manager"
+  ],
+  "versions": [
+   "2.9.0.33"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (60:14) [03:46:39:278]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (60:14) [03:46:39:280]: Destroying RemoteAPI object.\r\nMSI (s) (60:04) [03:46:39:280]: Custom Action Manager thread ending.\r\nMSI (c) (AC:EC) [03:46:39:282]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (AC:EC) [03:46:39:282]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/24/2026  3:46:39 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/24/2026  3:46:39 ===",
+  "=== Verbose logging stopped: 11/24/2026  3:46:39 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstalling product code: {4E5F9A9E-4190-4F09-ACD5-4B0556C2BCCF}\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-23T23:48:35",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T03:48:28Z",
+  "restarted": "2026-11-22T16:36:47.267328Z",
+  "software_updated": "2026-11-24T03:48:35Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-23/delinea-connection-manager_windows-862-234320.json"
+}
