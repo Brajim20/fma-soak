@@ -1,0 +1,95 @@
+{
+ "slug": "microsoft-office/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-24T07:27:07",
+ "catalog_version": "16.0.20228.20124",
+ "catalog_id": "9b7de3cb5115",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T11:26:56Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T11:26:54Z"
+ },
+ "title_id": 49813,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 229,
+ "first_install_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\1425700898\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20625.20142)\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.0.20625.20142"
+ ],
+ "package_version": "16.0.20228.20124",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Microsoft Office"
+  ],
+  "names": [
+   "Microsoft 365 Apps for enterprise - en-us"
+  ],
+  "versions": [
+   "16.0.20625.20142"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 137,
+ "first_uninstall_output_tail": "Found: Microsoft 365 Apps for enterprise - en-us (16.0.20625.20142)\nOriginal UninstallString: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0\nRunning: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0 DisplayLevel=False\nOfficeClickToRun.exe exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 229,
+ "second_install_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\878358286\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20625.20142)\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "11720"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 153,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nStarting Microsoft Office setup: C:\\WINDOWS\\SystemTemp\\217058424\\setup.exe /configure C:\\WINDOWS\\TEMP\\fleet-office-config.xml\nsetup.exe exit code: 0\nDetected installed product: Microsoft 365 Apps for enterprise - en-us (16.0.20625.20142)\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "11720",
+   "path": "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\OfficeClickToRun.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "1",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 138,
+ "second_uninstall_output_tail": "Found: Microsoft 365 Apps for enterprise - en-us (16.0.20625.20142)\nOriginal UninstallString: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0\nRunning: \"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" scenario=install scenariosubtype=ARP sourcetype=None productstoremove=O365ProPlusRetail.16_en-us_x-none culture=en-us version.16=16.0 DisplayLevel=False\nOfficeClickToRun.exe exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-24T07:46:30",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T11:46:20Z",
+  "restarted": "2026-11-24T03:06:48.54233Z",
+  "software_updated": "2026-11-24T11:46:19Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/microsoft-office_windows-859-072707.json"
+}
