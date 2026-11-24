@@ -1272,7 +1272,8 @@
     },
     {
       "app": "wezterm/darwin",
-      "verdict": "filed #57924: install over an open WezTerm fails 'did not quit' (confirmed on main host 50)",
+      "shape": "S6",
+      "verdict": "filed #57924: install over an open WezTerm fails 'did not quit' (confirmed on main host 50) [narrowed to S6 2026-11-24: it matched every wezterm finding, incl. the unrelated 0.1.0 display S1]",
       "added": "2026-11-06"
     },
     {
@@ -4309,6 +4310,13 @@
       "after": "2026-11-18T22:03:00",
       "before": "2026-11-18T22:04:00",
       "verdict": "harness: wezterm ran on 858, 860 and 865 at once on 2026-11-18; 860 had added the title and removed its installer when its retry ended (22:04:47Z), mid-way through 865's retry (22:03:22-22:06:14Z), so 865's uninstall and second install got 400 and its uninstalls never ran. Fixed in the harness by 51a5f734 (2026-11-20: remove_if_added waits while another host has the title installed or pending). Rerun on 865 2026-11-24: 2/2 clean (every uninstall 202, app removed). Not Fleet, not 4.95",
+      "added": "2026-11-24"
+    },
+    {
+      "app": "wezterm/darwin",
+      "shape": "S1",
+      "msg_contains": "['0.1.0']",
+      "verdict": "not a bug (documented limitation): WezTerm.app ships a placeholder CFBundleShortVersionString 0.1.0 and CFBundleVersion 1 in every release, so osquery always reports 0.1.0; PR #53892 (adds the FMA) documents it and uses a cdhash patched query instead of a version compare. Not #38583: bundle_version is '1', persisting it wouldn't help",
       "added": "2026-11-24"
     }
   ]
