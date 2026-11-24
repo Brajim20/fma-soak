@@ -4287,6 +4287,13 @@
       "app": "dangerzone/darwin",
       "verdict": "environment, #57132: instance served a truncated installer (1528430592 of 1764666938 bytes on the 860 rerun 2026-11-23 16:12); part of the 2026-11-23 installer-store burst (~80 runs with 0-byte/truncated installers)",
       "added": "2026-11-24"
+    },
+    {
+      "app": "power-automate/windows",
+      "shape": "S2",
+      "msg_contains": "PAD.Java.Installer.Host.exe",
+      "verdict": "not a bug: Power Automate's own PAD.Java.Installer.Host.exe throws an unhandled .NET exception (0xe0434352, KERNELBASE.dll) after it opens, on all x64 hosts (859/861/862, 2026-11-23/24); every Fleet step passes (both installs installed, inventory 2.74.00191.26302, patched passes, both uninstalls remove it). Same class as 1password/windows index.node",
+      "added": "2026-11-24"
     }
   ]
 }

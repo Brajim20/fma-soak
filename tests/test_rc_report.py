@@ -61,5 +61,40 @@ class Cause(unittest.TestCase):
         self.assertIsNone(RC.cause(a, b))
 
 
+class NewCheck(unittest.TestCase):
+    CHECKS = [{"match": "event log has errors", "since": "2026-11-21T22:46:01", "what": "event log"},
+              {"match": r"self-service changed by (pinning|setting Latest)", "since": "2026-11-21T22:46:01", "what": "ss"}]
+
+    def f(self, shape, msg):
+        return {"shape": shape, "msg": msg}
+
+    def test_finding_from_a_check_newer_than_the_baseline(self):
+        # power-automate/windows@862: baseline pass 11-17, the event-log scan went live 11-21
+        base = [{"started": "2026-11-17T06:38:00"}]
+        self.assertEqual(RC.check_after_baseline([self.f("S2", "the Application event log has errors naming the app: x")], base, self.CHECKS), "event log")
+
+    def test_any_older_finding_keeps_it_a_suspect(self):
+        base = [{"started": "2026-11-17T06:38:00"}]
+        fs = [self.f("S4", "self-service changed by pinning (#59238): True -> False"), self.f("S1", "inventory never reported")]
+        self.assertIsNone(RC.check_after_baseline(fs, base, self.CHECKS))
+
+    def test_baseline_that_ran_after_the_check_had_its_chance(self):
+        base = [{"started": "2026-11-17T06:38:00"}, {"started": "2026-11-22T10:00:00"}]
+        self.assertIsNone(RC.check_after_baseline([self.f("S2", "the Application event log has errors")], base, self.CHECKS))
+
+
+class SameBuild(unittest.TestCase):
+    def test_earlier_pass_on_the_current_build(self):
+        # slack/darwin@858: passed on 5790b6c 11-17, S1 on the same build from 11-20 (858's inventory stopped)
+        p, x = {"started": "2026-11-17T21:59:00", "outcome": "pass", "findings": []}, \
+            {"started": "2026-11-20T00:55:00", "outcome": "findings", "findings": [{"shape": "S1", "msg": "m"}]}
+        self.assertEqual(RC.same_build_pass([p, x], x), "2026-11-17T21:59:00")
+
+    def test_no_earlier_pass(self):
+        x = {"started": "2026-11-20T00:55:00", "outcome": "findings", "findings": [{"shape": "S1", "msg": "m"}]}
+        flaky = {"started": "2026-11-18T00:00:00", "outcome": "flaky", "findings": []}
+        self.assertIsNone(RC.same_build_pass([flaky, x], x))
+
+
 if __name__ == "__main__":
     unittest.main()

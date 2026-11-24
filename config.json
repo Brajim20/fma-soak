@@ -538,5 +538,25 @@
   ],
   "max_per_day": 2,
   "wait_minutes": 25
+ },
+ "rc_report": {
+  "_doc": "rc_report.py: new_checks = soak checks added after a baseline may have run; a failure made only of their findings is listed as 'no baseline for the check', not a regression, while the baseline's last run of the app predates 'since' (record 'started', UTC: when the commit went live).",
+  "new_checks": [
+   {
+    "match": "the Application event log has errors naming the app",
+    "since": "2026-11-21T22:46:01",
+    "what": "Windows event-log scan (a999477c)"
+   },
+   {
+    "match": "self-service changed by (pinning|setting Latest)",
+    "since": "2026-11-21T22:46:01",
+    "what": "self-service flag across pin/unpin (a999477c)"
+   },
+   {
+    "match": "install through self-service",
+    "since": "2026-11-21T22:46:01",
+    "what": "self-service second install (a999477c)"
+   }
+  ]
  }
 }

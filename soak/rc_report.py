@@ -76,6 +76,35 @@ def baseline_of(runs):
     return D.category(t[-1]), {f["shape"] for r in t for f in r.get("findings", [])}
 
 
+def new_checks():
+    """Checks added to the soak after a baseline may have run: [{"match": regex on a finding's msg, "since": record
+    'started' time (UTC) the check went live, "what": what it checks}] from config.json rc_report.new_checks."""
+    p = os.path.join(D.WS, "config.json")
+    return json.load(open(p)).get("rc_report", {}).get("new_checks", []) if os.path.exists(p) else []
+
+
+def check_after_baseline(findings, base_runs, checks):
+    """What the new check is, when every finding comes from a check that went live after the baseline's last run of
+    this app: the baseline couldn't have shown it, so "passed on the baseline" says nothing (power-automate S2 event
+    log, firefox@developer-edition S4 self-service, 2026-11-22). None when any finding predates its check."""
+    last = max(r.get("started", "") for r in base_runs)
+    whats = []
+    for f in findings:
+        c = next((c for c in checks if re.search(c["match"], f["msg"]) and c["since"] > last), None)
+        if not c:
+            return None
+        whats.append(c["what"])
+    return "; ".join(dict.fromkeys(whats)) or None
+
+
+def same_build_pass(cur_runs, b):
+    """The last time this app run passed on the current build before the failing run b, or None. A pass on the same
+    build means the build didn't change between pass and failure: the host, the vendor or timing did (858's inventory
+    stopped 2026-11-19 after every app passed on the same RC 11-17/18)."""
+    ok = [r for r in cur_runs if r is not b and r.get("started", "") < b.get("started", "") and D.category(r) == "pass"]
+    return ok[-1]["started"] if ok else None
+
+
 def report():
     recs = [r for r in D.all_records() if rev(r.get("build"))]
     order, count, name = [], {}, {}
@@ -90,15 +119,16 @@ def report():
     cur = order[-1]
     base = next((v for v in reversed(order[:-1]) if count[v] >= MIN_BASELINE_RUNS), None)
     rep = {"current": name[cur], "current_rev": cur, "baseline": name.get(base), "baseline_rev": base,
-           "current_runs": count[cur], "regressions": [], "catalog": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
+           "current_runs": count[cur], "regressions": [], "catalog": [], "same_build": [], "new_check": [], "fixed": [], "compared": 0, "canaries_not_yet_on_current": []}
     if not base:
         return rep
-    last, base_runs = {cur: {}}, {}
+    last, base_runs, cur_runs, checks = {cur: {}}, {}, {}, new_checks()
     for r in recs:
         v = rev(r["build"])
         k = (r["slug"], r["host"], r.get("kind", "lifecycle"))
         if v == cur:
             last[cur][k] = r
+            cur_runs.setdefault(k, []).append(r)
         elif v == base:
             base_runs.setdefault(k, []).append(r)
     last[base] = {k: rs[-1] for k, rs in base_runs.items()}
@@ -117,7 +147,11 @@ def report():
             row["why"] = "passed on the baseline" if ca == "pass" else f"new failure shape {', '.join(new_shapes)}"
             row["reproduced"] = "reproduced on retry" in str(b["outcome"])
             row["cause"] = cause(a, b)
-            rep["catalog" if row["cause"] else "regressions"].append(row)
+            rel = [f for f in b.get("findings", []) if f["shape"] != "harness" and (f["shape"] in new_shapes or ca == "pass")]
+            row["check"] = check_after_baseline(rel, base_runs[k], checks) if rel else None
+            row["passed_on_current"] = same_build_pass(cur_runs[k], b)
+            rep["catalog" if row["cause"] else "new_check" if row["check"]
+                else "same_build" if row["passed_on_current"] else "regressions"].append(row)
         elif ca in BAD and cb == "pass":
             rep["fixed"].append(row)
     canaries = {s for xs in json.load(open(os.path.join(D.WS, "config.json")))["canaries"].values() for s in xs} \
@@ -158,6 +192,22 @@ def write(rep):
                   "| App | Path | What changed | Findings now | Triaged as |", "|---|---|---|---|---|"]
             for r in rep["catalog"]:
                 L.append(f"| {r['app']} | {r['kind']} | {r['cause'][9:]} | {'<br>'.join(r['findings'])[:300]} | "
+                         f"{'; '.join(r['triaged'])[:200] or '**new**'} |")
+        if rep["same_build"]:
+            L += ["", f"**Changed on the same build ({len(rep['same_build'])})**: passed on this build first, failing "
+                  "since, so the build isn't what changed (the host, the vendor or timing did). Not release blockers; "
+                  "they still go through triage.", "",
+                  "| App | Path | Last pass on this build | Findings now | Triaged as |", "|---|---|---|---|---|"]
+            for r in rep["same_build"]:
+                L.append(f"| {r['app']} | {r['kind']} | {r['passed_on_current'][:16]} | {'<br>'.join(r['findings'])[:300]} | "
+                         f"{'; '.join(r['triaged'])[:200] or '**new**'} |")
+        if rep["new_check"]:
+            L += ["", f"**No baseline for the check ({len(rep['new_check'])})**: every finding comes from a check added "
+                  "after the baseline's last run of the app, so the baseline couldn't show it. Not release blockers; "
+                  "they still go through triage.", "",
+                  "| App | Path | Check | Findings now | Triaged as |", "|---|---|---|---|---|"]
+            for r in rep["new_check"]:
+                L.append(f"| {r['app']} | {r['kind']} | {r['check']} | {'<br>'.join(r['findings'])[:300]} | "
                          f"{'; '.join(r['triaged'])[:200] or '**new**'} |")
         if rep["fixed"]:
             L += ["", f"Fixed on this build ({len(rep['fixed'])}): " + ", ".join(f"{r['app']} ({r['kind']})" for r in rep["fixed"])]
