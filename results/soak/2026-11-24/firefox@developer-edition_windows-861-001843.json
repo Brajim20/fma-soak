@@ -1,0 +1,107 @@
+{
+ "slug": "firefox@developer-edition/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "0562791168d9",
+ "started": "2026-11-24T00:18:43",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "self-service changed by pinning (#59238): True -> False"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-24T04:18:43Z",
+  "restarted": "2026-11-23T12:10:49.409592Z",
+  "software_updated": "2026-11-24T04:18:41Z"
+ },
+ "title_id": 23409,
+ "cached_versions": [
+  "156.0",
+  "160.0"
+ ],
+ "active_before": "160.0",
+ "self_service_before_pin": true,
+ "pin_older_status": 200,
+ "active_after_pin": "156.0",
+ "self_service_after_pin": false,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "install_locations": [
+   "C:\\Program Files\\Firefox Developer Edition"
+  ],
+  "names": [
+   "Firefox Developer Edition (x64 en-US)"
+  ],
+  "versions": [
+   "156.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "160.0",
+ "self_service_after_unpin": true,
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 77,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "install_locations": [
+   "C:\\Program Files\\Firefox Developer Edition"
+  ],
+  "names": [
+   "Firefox Developer Edition (x64 en-US)"
+  ],
+  "versions": [
+   "160.0"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 0,
+  "pids": [
+   "4256",
+   "4264",
+   "4828",
+   "6036",
+   "7772",
+   "9632",
+   "10700",
+   "11624",
+   "13148",
+   "13408"
+  ],
+  "note": null
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "0",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "Uninstall command: C:\\Program Files\\Firefox Developer Edition\\uninstall\\helper.exe\nUninstall args: /S\nUninstall exit code: 0\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-24T00:25:42",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-24T04:25:43Z",
+  "restarted": "2026-11-23T12:10:49.409592Z",
+  "software_updated": "2026-11-24T04:25:31Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-24/evidence/firefox@developer-edition_windows-861-001843-library.png",
+  "inventory": "results/soak/2026-11-24/evidence/firefox@developer-edition_windows-861-001843-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-24/firefox@developer-edition_windows-861-001843.json"
+}
