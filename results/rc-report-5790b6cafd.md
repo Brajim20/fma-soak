@@ -1,8 +1,8 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 2719 · compared on both builds: 204
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 2887 · compared on both builds: 214
 
-**10 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+**11 regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
 | App | Path | Why | Retry | Findings now | Triaged as |
 |---|---|---|---|---|---|
@@ -13,6 +13,7 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 | fleet-desktop/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | microsoft-teams/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | onedrive/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
+| power-automate/windows@862 | lifecycle | passed on the baseline | reproduced | S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa3ff6954 Exception code: 0xe0434352 Fa | **new** |
 | python-3.13-arm64/windows@864 | lifecycle | new failure shape S1 | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | slack/darwin@858 | lifecycle | passed on the baseline | reproduced | S1: inventory never reported the app after install + refetch | **new** |
 | wezterm/darwin@865 | lifecycle | new failure shape S3, install | reproduced | S3: first uninstall: app still on host (status None)<br>install: second install ended as None<br>S3: second uninstall: app still on host (status None) | **new** |

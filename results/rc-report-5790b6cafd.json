@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 2719,
+ "current_runs": 2887,
  "regressions": [
   {
    "app": "8x8-work/darwin@858",
@@ -107,6 +107,21 @@
    "current_record": "soak/2026-11-19/onedrive_darwin-858-210905.json",
    "findings": [
     "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null
+  },
+  {
+   "app": "power-automate/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/power-automate_windows-862-063818.json",
+   "current_record": "soak/2026-11-23/power-automate_windows-862-214955.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa3ff6954 Exception code: 0xe0434352 Fa"
    ],
    "triaged": [],
    "why": "passed on the baseline",
@@ -299,7 +314,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-16/bitwarden_windows-862-201710.json",
-   "current_record": "soak/2026-11-20/bitwarden_windows-862-094907.json",
+   "current_record": "soak/2026-11-23/bitwarden_windows-862-210025.json",
    "findings": [],
    "triaged": []
   },
@@ -414,6 +429,6 @@
    "triaged": []
   }
  ],
- "compared": 204,
+ "compared": 214,
  "canaries_not_yet_on_current": []
 }
