@@ -4318,6 +4318,16 @@
       "msg_contains": "['0.1.0']",
       "verdict": "not a bug (documented limitation): WezTerm.app ships a placeholder CFBundleShortVersionString 0.1.0 and CFBundleVersion 1 in every release, so osquery always reports 0.1.0; PR #53892 (adds the FMA) documents it and uses a cdhash patched query instead of a version compare. Not #38583: bundle_version is '1', persisting it wouldn't help",
       "added": "2026-11-24"
+    },
+    {
+      "app": "infix-pdf-editor/windows",
+      "verdict": "filed #59834: first install on a clean x64 host lands (exists flips true) but stays pending_install with no output; further install/uninstall 400 (635 on 4.94 RC, 862 on 4.95 RC)",
+      "added": "2026-11-24"
+    },
+    {
+      "app": "protopie/windows",
+      "verdict": "filed #59835: Inno installer with a literal {userpf} default dir lands in SYSTEM's profile despite /ALLUSERS (859/861/862), same mechanism as DevToys #59570",
+      "added": "2026-11-24"
     }
   ]
 }
