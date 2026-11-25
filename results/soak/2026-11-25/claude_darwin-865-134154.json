@@ -1,0 +1,99 @@
+{
+ "slug": "claude/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "ef9470de9d80",
+ "started": "2026-11-25T13:41:54",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T17:41:43Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-25T17:41:42Z"
+ },
+ "title_id": 19734,
+ "cached_versions": [
+  "6.28899.6",
+  "7.37095.0"
+ ],
+ "active_before": "7.37095.0",
+ "self_service_before_pin": true,
+ "pin_older_status": 200,
+ "active_after_pin": "6.28899.6",
+ "self_service_after_pin": true,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 47,
+ "old_install_output_tail": "es\n  /private/tmp/188709564/Claude.app/Contents/Frameworks/Squirrel.framework/Versions/Current -> A\n  /private/tmp/188709564/Claude.app/Contents/Frameworks/Squirrel.framework/Squirrel -> Versions/Current/Squirrel\n  /private/tmp/188709564/Claude.app/Contents/Frameworks/Mantle.framework/Mantle -> Versions/Current/Mantle\n  /private/tmp/188709564/Claude.app/Contents/Frameworks/Mantle.framework/Resources -> Versions/Current/Resources\n  /private/tmp/188709564/Claude.app/Contents/Frameworks/Mantle.framework/Versions/Current -> A\nAssigned ownership of Claude.app to '<user>' so Claude can auto-update.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Claude.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Claude.app/Contents/MacOS/Claude",
+  "bundle_id": "com.anthropic.claudefordesktop",
+  "versions": [
+   "6.28899.6"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "7.37095.0",
+ "self_service_after_unpin": true,
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "68499"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "/Claude.app/Contents/Frameworks/Mantle.framework/Resources -> Versions/Current/Resources\n  /private/tmp/3338092959/Claude.app/Contents/Frameworks/Mantle.framework/Versions/Current -> A\nApplication 'com.anthropic.claudefordesktop' was running; will relaunch after installation.\nQuitting application 'com.anthropic.claudefordesktop'...\nApplication 'com.anthropic.claudefordesktop' quit successfully.\nAssigned ownership of Claude.app to '<user>' so Claude can auto-update.\nRelaunching application 'com.anthropic.claudefordesktop'...\nApplication 'com.anthropic.claudefordesktop' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.anthropic.claudefordesktop' was running; will relaunch after installation.",
+  "Quitting application 'com.anthropic.claudefordesktop'...",
+  "Application 'com.anthropic.claudefordesktop' quit successfully.",
+  "Relaunching application 'com.anthropic.claudefordesktop'...",
+  "Application 'com.anthropic.claudefordesktop' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "68613",
+   "path": "/Applications/Claude.app/Contents/MacOS/Claude",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Claude.app",
+  "bundle": "501:20 0755",
+  "executable": "501:20 0755",
+  "exe": "/Applications/Claude.app/Contents/MacOS/Claude",
+  "bundle_id": "com.anthropic.claudefordesktop",
+  "versions": [
+   "7.37095.0"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": " Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.anthropic.claudefordesktop.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.anthropic.claudefordesktop doesn't exist.\nremoving /Users/<user>/Library/Caches/com.anthropic.claudefordesktop.ShipIt.\nremoving /Users/<user>/Library/HTTPStorages/com.anthropic.claudefordesktop.\nremoving /Users/<user>/Library/Logs/Claude.\n/Users/<user>/Library/Preferences/com.anthropic.claudefordesktop.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.anthropic.claudefordesktop.savedState doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "pass",
+ "finished": "2026-11-25T13:46:44",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T17:46:34Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-25T17:46:33Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/claude_darwin-865-134154.json"
+}
