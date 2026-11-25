@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14991 cycles: pass 7056, findings 2948, flaky 645, environment 464, harness 357, skipped 3521
+**1. Runs** — 15015 cycles: pass 7070, findings 2953, flaky 645, environment 468, harness 357, skipped 3522
 
-**2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 981/969 (101.2%), quarter 2/2 this week 465/466, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/514 (99.8%), quarter 2/2 this week 229/237, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -182,7 +182,7 @@
 | #59566 | closed | Fleet-maintained apps: SQL Server Management Studio 22 (Windows) install fails while the app is open, and the old copy keeps running |
 | #59567 | closed | Fleet-maintained apps: NoSQL Workbench (Windows) install never finishes while the app is open, and blocks the host's queue |
 | #59568 | closed | Fleet-maintained apps: Galaxy Modeler (Windows) install never finishes while the app is open, and blocks the host's queue |
-| #59569 | open | Fleet-maintained apps: Evernote (Windows) install always fails with exit code 2 |
+| #59569 | closed | Fleet-maintained apps: Evernote (Windows) install always fails with exit code 2 |
 | #59570 | closed | Fleet-maintained apps: DevToys (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 | #59571 | closed | Fleet-maintained apps: Webex (Windows) installs into the SYSTEM profile instead of a location users can open |
 | #59572 | closed | Fleet-maintained apps: GoldenDict-ng (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
@@ -216,7 +216,7 @@ TODO: what changed in the plan this month.
 **6. Close-out criteria**
 
 1. Every failure shape (S1–S6) has an automated check whose teeth were shown on a pre-fix build or script — see the coverage plan's escape matrix
-2. The whole catalog cycled at least once per platform — darwin: done, windows: done
+2. The whole catalog cycled at least once per platform — darwin: done, windows: in progress
 3. One real upstream transition followed end to end (L3) — yes
 4. The harness runs on GitHub Actions for a full week — not yet
 5. Every finding in the month's digests is adjudicated (filed, linked, or triaged) — check the digests
