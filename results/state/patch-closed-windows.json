@@ -8,7 +8,12 @@
   "phase": "open",
   "started": "2026-11-25T00:36:07+00:00",
   "started_local": "2026-11-24T20:36:07",
-  "findings": [],
+  "findings": [
+   {
+    "shape": "S6",
+    "msg": "patched to 1.146.0 while the app was open (patch when closed is on) (#53919 shape)"
+   }
+  ],
   "observations": [
    {
     "at": "2026-11-25T00:39:43+00:00",
@@ -41,6 +46,22 @@
     ],
     "app_running": false,
     "policy": "fail"
+   },
+   {
+    "at": "2026-11-25T03:11:05+00:00",
+    "last_install": {
+     "uuid": "501a5cc5-68c1-4cb9-a2d8-16cc5e9b5d3a",
+     "status": "installed",
+     "skipped_install": false,
+     "installed_versions": [
+      "1.146.0"
+     ]
+    },
+    "versions": [
+     "1.146.0"
+    ],
+    "app_running": false,
+    "policy": "pass"
    }
   ],
   "pin_older": 200,
