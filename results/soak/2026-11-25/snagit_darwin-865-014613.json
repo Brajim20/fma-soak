@@ -1,0 +1,79 @@
+{
+ "slug": "snagit/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T01:46:13",
+ "catalog_version": "2027.0.1",
+ "catalog_id": "cb96f6982790",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T05:46:13Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-25T05:46:12Z"
+ },
+ "title_id": 32021,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk25</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_S8SN49</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk25\" ejected.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2027.0.1"
+ ],
+ "package_version": "2027.0.1",
+ "context_after_install": {
+  "path": "/Applications/Snagit.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Snagit.app/Contents/MacOS/Snagit",
+  "bundle_id": "com.TechSmith.Snagit",
+  "versions": [
+   "2027.0.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "<user>/Library/Application Support/Snagit doesn't exist.\n/Users/<user>/Library/Caches/com.TechSmith.Snagit* doesn't exist.\n/Users/<user>/Library/Group Containers/*.com.techsmith.snagit doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.TechSmith.Snagit* doesn't exist.\n/Users/<user>/Library/Preferences/com.TechSmith.Snagit*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.techsmith.snagit.capturehelper*.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.TechSmith.Snagit*.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.TechSmith.Snagit* doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 15,
+ "second_install_output_tail": "Installing software...\nSuccess\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>system-entities</key>\n\t<array>\n\t\t<dict>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk25</string>\n\t\t\t<key>mount-point</key>\n\t\t\t<string>/private/tmp/dmg_mount_uKD425</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk25\" ejected.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-25T01:51:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T05:50:55Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-25T05:50:54Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/snagit_darwin-865-014613.json"
+}
