@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3414 · compared on both builds: 256
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3442 · compared on both builds: 256
 
 **No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -31,15 +31,16 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 | onedrive/darwin@858 | lifecycle | 2026-11-18T09:37 | S1: inventory never reported the app after install + refetch | **new** |
 | slack/darwin@858 | lifecycle | 2026-11-17T21:59 | S1: inventory never reported the app after install + refetch | **new** |
 
-**No baseline for the check (5)**: every finding comes from a check added after the baseline's last run of the app, so the baseline couldn't show it. Not release blockers; they still go through triage.
+**No baseline for the check (6)**: every finding comes from a check added after the baseline's last run of the app, so the baseline couldn't show it. Not release blockers; they still go through triage.
 
 | App | Path | Check | Findings now | Triaged as |
 |---|---|---|---|---|
-| firefox@developer-edition/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
-| firefox@nightly/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
+| claude/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
 | power-automate/windows@862 | lifecycle | Windows event-log scan (a999477c) | S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: PAD.Java.Installer.Host.exe, version: 2.74.191.26302, time stamp: 0x6ada0000 Faulting module name: KERNELBASE.dll, version: 10.0.26100.9974, time stamp: 0xa | not a bug: Power Automate's own PAD.Java.Installer.Host.exe throws an unhandled .NET exception (0xe0434352, KERNELBASE.dll) after it opens, on all x64 hosts (859/861/862, 2026-11-23/24); every Fleet s |
 | signal/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
+| slack/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
 | sublime-text/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed; not a bug: the 'older' pin 4.0.0.421500 is the sam |
+| zoom/windows@861 | update_path | self-service flag across pin/unpin (a999477c) | S4: self-service changed by pinning (#59238): True -> False | filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed |
 
 **Already on the baseline on another host (3)**: the baseline showed the same failure for this app on another host with the same CPU; the baseline run on this host stopped earlier or got lucky. Not new in this build; they still go through triage.
 

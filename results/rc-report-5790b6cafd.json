@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3414,
+ "current_runs": 3442,
  "regressions": [],
  "catalog": [
   {
@@ -375,12 +375,12 @@
  ],
  "new_check": [
   {
-   "app": "firefox@developer-edition/windows@861",
+   "app": "claude/windows@861",
    "kind": "update_path",
    "baseline": "pass",
    "current": "findings",
-   "baseline_record": "soak/2026-11-16/firefox@developer-edition_windows-861-201205.json",
-   "current_record": "soak/2026-11-24/firefox@developer-edition_windows-861-002553.json",
+   "baseline_record": "soak/2026-11-15/claude_windows-861-234357.json",
+   "current_record": "soak/2026-11-25/claude_windows-861-070248.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -391,28 +391,7 @@
    "reproduced": true,
    "cause": null,
    "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": "2026-11-21T11:33:49",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  },
-  {
-   "app": "firefox@nightly/windows@861",
-   "kind": "update_path",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-16/firefox@nightly_windows-861-201706.json",
-   "current_record": "soak/2026-11-24/firefox@nightly_windows-861-004318.json",
-   "findings": [
-    "S4: self-service changed by pinning (#59238): True -> False"
-   ],
-   "triaged": [
-    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": "self-service flag across pin/unpin (a999477c)",
-   "passed_on_current": "2026-11-22T15:06:51",
+   "passed_on_current": "2026-11-17T19:54:12",
    "baseline_elsewhere": [],
    "passes_elsewhere": []
   },
@@ -443,7 +422,7 @@
    "baseline": "pass",
    "current": "findings",
    "baseline_record": "soak/2026-11-17/signal_windows-861-131803.json",
-   "current_record": "soak/2026-11-24/signal_windows-861-010024.json",
+   "current_record": "soak/2026-11-25/signal_windows-861-072835.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -459,12 +438,33 @@
    "passes_elsewhere": []
   },
   {
+   "app": "slack/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/slack_windows-861-132453.json",
+   "current_record": "soak/2026-11-25/slack_windows-861-073932.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": "self-service flag across pin/unpin (a999477c)",
+   "passed_on_current": "2026-11-17T20:40:32",
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
    "app": "sublime-text/windows@861",
    "kind": "update_path",
    "baseline": "findings",
    "current": "findings",
    "baseline_record": "soak/2026-11-17/sublime-text_windows-861-133217.json",
-   "current_record": "soak/2026-11-24/sublime-text_windows-861-011100.json",
+   "current_record": "soak/2026-11-25/sublime-text_windows-861-074632.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -477,6 +477,27 @@
    "cause": null,
    "check": "self-service flag across pin/unpin (a999477c)",
    "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
+   "app": "zoom/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/zoom_windows-861-010035.json",
+   "current_record": "soak/2026-11-25/zoom_windows-861-075336.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": "self-service flag across pin/unpin (a999477c)",
+   "passed_on_current": "2026-11-17T20:56:53",
    "baseline_elsewhere": [],
    "passes_elsewhere": []
   }
@@ -666,7 +687,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/google-chrome_windows-861-082646.json",
-   "current_record": "soak/2026-11-24/google-chrome_windows-861-153240.json",
+   "current_record": "soak/2026-11-25/google-chrome_windows-861-051107.json",
    "findings": [],
    "triaged": []
   },
