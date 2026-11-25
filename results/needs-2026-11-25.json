@@ -12,6 +12,30 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/fleet-desktop/darwin.json), [fleet-desktop.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/fleet-desktop.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-14 Fleet Desktop FMA: ingest from homebrew-cask instead of the custom tap (#58769); 2026-04-30 Support custom tap folder for apps without casks; add three apps (#43784) \u00b7 issues mentioning it: #58612 (open), #58330 (open), #59388 (open), #59329 (open), #48755 (open)"
  },
  {
+  "app": "datadog-agent/windows@859",
+  "shape": "S2",
+  "msgs": [
+   "the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-25/datadog-agent_windows-859-023538.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/datadog-agent/windows.json), [datadog-agent.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/datadog-agent.json), [datadog-agent_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/datadog-agent_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-20 Exit nonzero when UpgradeCode uninstall scripts can't list installed products (#59454); 2026-11-13 Add Datadog Agent as a Fleet-maintained app (Windows) (#58704) \u00b7 issues mentioning it: #53793 (closed)"
+ },
+ {
+  "app": "evernote/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-25/evernote_windows-861-023916.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 last changes: 2026-11-25 Fix Evernote (Windows) installs that always fail with exit code 2 (#59843); 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: #59569 (closed), #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed)"
+ },
+ {
   "app": "figma/windows@861",
   "shape": "S3",
   "msgs": [
@@ -19,7 +43,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 862 (pass) [record](soak/2026-11-25/figma_windows-862-025612.json)",
   "record": "results/soak/2026-11-25/figma_windows-861-012530.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59822 (open), #59850 (open), #59818 (open), #59111 (open), #59112 (open)"
  },
@@ -31,8 +55,32 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-25/evernote_windows-861-023916.json)",
   "record": "results/soak/2026-11-25/evernote_windows-859-012801.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 last changes: 2026-11-25 Fix Evernote (Windows) installs that always fail with exit code 2 (#59843); 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: #59569 (closed), #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed)"
+ },
+ {
+  "app": "evernote/windows@861",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-25/evernote_windows-861-023916.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 last changes: 2026-11-25 Fix Evernote (Windows) installs that always fail with exit code 2 (#59843); 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: #59569 (closed), #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed)"
+ },
+ {
+  "app": "evernote/windows@862",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-25/evernote_windows-862-023733.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/evernote/windows.json), [evernote.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/evernote.json), [evernote_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_install.ps1), [evernote_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/evernote_uninstall.ps1) \u00b7 last changes: 2026-11-25 Fix Evernote (Windows) installs that always fail with exit code 2 (#59843); 2026-11-03 Fix Evernote (Windows) Fleet-maintained app never being detected (#57362); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: #59569 (closed), #57224 (closed), #57116 (closed), #50077 (open), #57548 (closed)"
  },
  {

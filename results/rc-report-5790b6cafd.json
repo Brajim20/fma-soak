@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3373,
+ "current_runs": 3386,
  "regressions": [],
  "catalog": [
   {
@@ -124,6 +124,25 @@
    "current": "findings",
    "baseline_record": "soak/2026-11-15/evernote_windows-859-194832.json",
    "current_record": "soak/2026-11-25/evernote_windows-859-012801.json",
+   "findings": [
+    "S6: reinstall over the open app: the install over the open app ended as failed_install"
+   ],
+   "triaged": [],
+   "why": "new failure shape S6",
+   "reproduced": true,
+   "cause": "catalog: 11.42.3 -> 11.43.4",
+   "check": null,
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
+   "app": "evernote/windows@862",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/evernote_windows-862-225136.json",
+   "current_record": "soak/2026-11-25/evernote_windows-862-023733.json",
    "findings": [
     "S6: reinstall over the open app: the install over the open app ended as failed_install"
    ],

@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T02:14:40",
+ "built": "2026-11-25T03:05:50",
  "coverage": {
   "darwin": {
    "covered": 982,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 104
+      "google-drive/windows": 105
      }
     },
     {
@@ -39222,19 +39222,18 @@
    }
   },
   "evernote/windows@862": {
-   "lifecycle_runs": 6,
+   "lifecycle_runs": 8,
    "update_runs": 0,
    "first_cycled": "2026-11-15T22:10:51",
-   "last_cycled": "2026-11-22T02:39:32",
+   "last_cycled": "2026-11-25T02:37:33",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-22T02:39:32",
+    "date": "2026-11-25T02:37:33",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "11.43.4",
-    "record": "results/soak/2026-11-22/evernote_windows-862-023932.json",
+    "record": "results/soak/2026-11-25/evernote_windows-862-023733.json",
     "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
+     "reinstall over the open app: the install over the open app ended as failed_install"
     ]
    }
   },
@@ -42538,16 +42537,16 @@
    }
   },
   "claude-arm64/windows@863": {
-   "lifecycle_runs": 17,
+   "lifecycle_runs": 18,
    "update_runs": 0,
    "first_cycled": "2026-11-16T23:40:47",
    "last_cycled": "2026-11-16T23:40:59",
    "last_lifecycle": {
     "outcome": "environment: by design: claude/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Claude or Claude (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T01:09:48",
+    "date": "2026-11-25T02:18:34",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "6.28899.6",
-    "record": "results/soak/2026-11-25/claude-arm64_windows-863-010948.json",
+    "record": "results/soak/2026-11-25/claude-arm64_windows-863-021834.json",
     "findings": []
    }
   },
@@ -48126,14 +48125,16 @@
   },
   "visual-studio-code/windows@861": {
    "lifecycle_runs": 4,
-   "update_runs": 6,
+   "update_runs": 7,
    "last_update": {
-    "outcome": "pass",
-    "date": "2026-11-23T22:07:37",
+    "outcome": "findings",
+    "date": "2026-11-24T20:36:07",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-23/visual-studio-code_windows-861-220737.json",
-    "findings": []
+    "record": "results/soak/2026-11-24/visual-studio-code_windows-861-203607.json",
+    "findings": [
+     "patched to 1.146.0 while the app was open (patch when closed is on) (#53919 shape)"
+    ]
    },
    "first_cycled": "2026-11-18T21:39:44",
    "last_cycled": "2026-11-22T07:26:00",
@@ -48429,7 +48430,7 @@
   },
   "whatsapp/darwin@865": {
    "lifecycle_runs": 1,
-   "update_runs": 3,
+   "update_runs": 4,
    "first_cycled": "2026-11-16T18:49:03",
    "last_cycled": "2026-11-16T18:49:03",
    "last_lifecycle": {
@@ -48442,10 +48443,10 @@
    },
    "last_update": {
     "outcome": "pass",
-    "date": "2026-11-24T09:19:01",
+    "date": "2026-11-24T20:36:07",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": null,
-    "record": "results/soak/2026-11-24/whatsapp_darwin-865-091901.json",
+    "record": "results/soak/2026-11-24/whatsapp_darwin-865-203607.json",
     "findings": []
    }
   },
@@ -48704,16 +48705,16 @@
    "last_cycled": "2026-11-16T21:47:16"
   },
   "zoom-arm64/windows@863": {
-   "lifecycle_runs": 17,
+   "lifecycle_runs": 18,
    "update_runs": 0,
    "first_cycled": "2026-11-16T21:10:27",
    "last_cycled": "2026-11-16T21:10:42",
    "last_lifecycle": {
     "outcome": "environment: by design: zoom/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Zoom or Zoom (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T01:09:39",
+    "date": "2026-11-25T02:18:05",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "7.2.51704",
-    "record": "results/soak/2026-11-25/zoom-arm64_windows-863-010939.json",
+    "record": "results/soak/2026-11-25/zoom-arm64_windows-863-021805.json",
     "findings": []
    }
   },
@@ -50616,16 +50617,16 @@
    }
   },
   "docker-arm64/windows@863": {
-   "lifecycle_runs": 17,
+   "lifecycle_runs": 18,
    "update_runs": 0,
    "first_cycled": "2026-11-17T03:48:16",
    "last_cycled": "2026-11-17T03:48:37",
    "last_lifecycle": {
     "outcome": "environment: by design: docker/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Docker Desktop or Docker Desktop (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T01:09:43",
+    "date": "2026-11-25T02:18:14",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.100.1",
-    "record": "results/soak/2026-11-25/docker-arm64_windows-863-010943.json",
+    "record": "results/soak/2026-11-25/docker-arm64_windows-863-021814.json",
     "findings": []
    }
   },
@@ -50996,30 +50997,30 @@
    }
   },
   "figma/windows@859": {
-   "lifecycle_runs": 15,
+   "lifecycle_runs": 16,
    "update_runs": 0,
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-24T19:10:04",
+    "date": "2026-11-25T02:17:13",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-24/figma_windows-859-191004.json",
+    "record": "results/soak/2026-11-25/figma_windows-859-021713.json",
     "findings": []
    },
    "first_cycled": "2026-11-17T09:31:39",
-   "last_cycled": "2026-11-24T19:10:04"
+   "last_cycled": "2026-11-25T02:17:13"
   },
   "figma/windows@862": {
-   "lifecycle_runs": 15,
+   "lifecycle_runs": 16,
    "update_runs": 0,
    "first_cycled": "2026-11-17T03:55:36",
-   "last_cycled": "2026-11-24T19:51:53",
+   "last_cycled": "2026-11-25T02:56:12",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-24T19:51:53",
+    "date": "2026-11-25T02:56:12",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "126.12.7",
-    "record": "results/soak/2026-11-24/figma_windows-862-195153.json",
+    "record": "results/soak/2026-11-25/figma_windows-862-025612.json",
     "findings": []
    }
   },
@@ -54288,16 +54289,16 @@
    }
   },
   "visual-studio-code-arm64/windows@864": {
-   "lifecycle_runs": 17,
+   "lifecycle_runs": 18,
    "update_runs": 0,
    "first_cycled": "2026-11-17T00:08:12",
    "last_cycled": "2026-11-17T00:08:32",
    "last_lifecycle": {
     "outcome": "environment: by design: visual-studio-code/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Microsoft Visual Studio Code or Microsoft Visual Studio Code (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T01:09:20",
+    "date": "2026-11-25T02:17:47",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.146.0",
-    "record": "results/soak/2026-11-25/visual-studio-code-arm64_windows-864-010920.json",
+    "record": "results/soak/2026-11-25/visual-studio-code-arm64_windows-864-021747.json",
     "findings": []
    }
   },
@@ -55214,16 +55215,16 @@
    }
   },
   "aws-cli/windows@859": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-18T02:27:09",
-   "last_cycled": "2026-11-18T02:27:09",
+   "last_cycled": "2026-11-25T02:47:16",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-18T02:27:09",
+    "date": "2026-11-25T02:47:16",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "2.40.2",
-    "record": "results/soak/2026-11-18/aws-cli_windows-859-022709.json",
+    "catalog_version": "2.42.2",
+    "record": "results/soak/2026-11-25/aws-cli_windows-859-024716.json",
     "findings": []
    }
   },
@@ -55628,16 +55629,16 @@
    }
   },
   "connect-fonts/windows@861": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-18T02:36:25",
-   "last_cycled": "2026-11-18T02:36:25",
+   "last_cycled": "2026-11-25T02:57:24",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-18T02:36:25",
+    "date": "2026-11-25T02:57:24",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "29.0.0",
-    "record": "results/soak/2026-11-18/connect-fonts_windows-861-023625.json",
+    "catalog_version": "29.0.1",
+    "record": "results/soak/2026-11-25/connect-fonts_windows-861-025724.json",
     "findings": []
    }
   },
@@ -55740,17 +55741,19 @@
    }
   },
   "datadog-agent/windows@859": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-18T02:15:45",
-   "last_cycled": "2026-11-18T02:15:45",
+   "last_cycled": "2026-11-25T02:35:38",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-18T02:15:45",
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-25T02:35:38",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "7.85.2.0",
-    "record": "results/soak/2026-11-18/datadog-agent_windows-859-021545.json",
-    "findings": []
+    "catalog_version": "7.85.4.0",
+    "record": "results/soak/2026-11-25/datadog-agent_windows-859-023538.json",
+    "findings": [
+     "the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+    ]
    }
   },
   "dbvisualizer/windows@859": {
@@ -56084,19 +56087,19 @@
    }
   },
   "evernote/windows@861": {
-   "lifecycle_runs": 4,
+   "lifecycle_runs": 6,
    "update_runs": 0,
    "first_cycled": "2026-11-18T11:31:34",
-   "last_cycled": "2026-11-22T03:42:38",
+   "last_cycled": "2026-11-25T02:39:16",
    "last_lifecycle": {
     "outcome": "findings (reproduced on retry)",
-    "date": "2026-11-22T03:42:38",
+    "date": "2026-11-25T02:39:16",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "11.43.4",
-    "record": "results/soak/2026-11-22/evernote_windows-861-034238.json",
+    "record": "results/soak/2026-11-25/evernote_windows-861-023916.json",
     "findings": [
-     "first install ended as failed_install",
-     "second install ended as failed_install"
+     "reinstall over the open app: the install over the open app ended as failed_install",
+     "second uninstall: app still on host (status None)"
     ]
    }
   },
