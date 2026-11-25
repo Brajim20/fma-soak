@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14973 cycles: pass 7042, findings 2948, flaky 645, environment 460, harness 357, skipped 3521
+**1. Runs** — 14991 cycles: pass 7056, findings 2948, flaky 645, environment 464, harness 357, skipped 3521
 
 **2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -27,7 +27,7 @@
 | #55093 | closed | Firefox installed or updated by Fleet on macOS has root:admin rwxr-xr-x permissions, triggering a looping helper tool prompt |
 | #55246 | merged | Match both ChatGPT bundle identifiers in macOS FMA queries |
 | #55360 | closed | Adding a Fleet-maintained app returns 500 "mismatch in maintained app SHA256 hash" with an unhelpful message |
-| #55961 | open | Explore Fleet-maintained apps and build sustained FMA automation |
+| #55961 | closed | Explore Fleet-maintained apps and build sustained FMA automation |
 | #56532 | closed | Sourcetree Fleet-maintained app installs with root-only permissions, so users can't open it |
 | #56589 | merged | Unfreeze MEGAsync (darwin) |
 | #56802 | merged | Add ARM64 Windows Fleet-maintained apps for 23 popular apps |
@@ -195,6 +195,8 @@
 | #59579 | closed | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
 | #59709 | merged | Fix four Fleet-maintained app identifiers that don't match the installer |
 | #59740 | open | Fleet-maintained apps: Elmedia Player (macOS) never shows an installed version after install |
+| #59834 | open | Fleet-maintained apps: Infix PDF Editor (Windows) install hangs after the app is already installed, and stays pending |
+| #59835 | open | Fleet-maintained apps: ProtoPie (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 
 **4. Build changes**
 
