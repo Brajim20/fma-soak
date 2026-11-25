@@ -1,0 +1,98 @@
+{
+ "slug": "datadog-agent/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T02:35:38",
+ "catalog_version": "7.85.4.0",
+ "catalog_id": "34547e39dcda",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T06:35:39Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T06:35:17Z"
+ },
+ "title_id": 50788,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 122,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (48:F8) [06:37:35:764]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (48:F8) [06:37:35:765]: Destroying RemoteAPI object.\r\nMSI (s) (48:94) [06:37:35:765]: Custom Action Manager thread ending.\r\nMSI (c) (08:A4) [06:37:35:766]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (08:A4) [06:37:35:770]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  6:37:35 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  6:37:35 ===",
+  "=== Verbose logging stopped: 11/25/2026  6:37:35 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.85.4.0"
+ ],
+ "package_version": "7.85.4.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Datadog Agent"
+  ],
+  "versions": [
+   "7.85.4.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 138,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 107,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (48:F8) [06:43:09:199]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (48:F8) [06:43:09:201]: Destroying RemoteAPI object.\r\nMSI (s) (48:80) [06:43:09:201]: Custom Action Manager thread ending.\r\nMSI (c) (F0:E8) [06:43:09:203]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (F0:E8) [06:43:09:205]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  6:43:09 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  6:43:09 ===",
+  "=== Verbose logging stopped: 11/25/2026  6:43:09 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [
+  "8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c",
+  "8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c",
+  "8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 153,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-25T02:47:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T06:46:55Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T06:46:54Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-25/evidence/datadog-agent_windows-859-023538-library.png",
+  "inventory": "results/soak/2026-11-25/evidence/datadog-agent_windows-859-023538-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/datadog-agent_windows-859-023538.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/datadog-agent_windows-859-022408.json"
+}
