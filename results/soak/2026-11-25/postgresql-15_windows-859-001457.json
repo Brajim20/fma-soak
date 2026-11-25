@@ -1,0 +1,78 @@
+{
+ "slug": "postgresql-15/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T00:14:57",
+ "catalog_version": "15.20-2",
+ "catalog_id": "e346d0c821d3",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T04:14:47Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T04:14:46Z"
+ },
+ "title_id": 50568,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 472,
+ "first_install_output_tail": "Installing software...\nSuccess\nMoved data directory left by a previous install to C:\\Program Files\\PostgreSQL\\15\\data.20261125041530\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "15.20-2"
+ ],
+ "package_version": "15.20-2",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\PostgreSQL\\15"
+  ],
+  "names": [
+   "PostgreSQL 15 "
+  ],
+  "versions": [
+   "15.20-2"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 91,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files\\PostgreSQL\\15\\uninstall-postgresql.exe\nUninstall args: --mode unattended\nThe data directory (C:\\Program Files\\PostgreSQL\\15\\data) has not been removed.\r\nUninstall exit code: 0\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 440,
+ "second_install_output_tail": "Installing software...\nSuccess\nMoved data directory left by a previous install to C:\\Program Files\\PostgreSQL\\15\\data.20261125042555\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 91,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files\\PostgreSQL\\15\\uninstall-postgresql.exe\nUninstall args: --mode unattended\nThe data directory (C:\\Program Files\\PostgreSQL\\15\\data) has not been removed.\r\nUninstall exit code: 0\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-25T00:36:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T04:35:55Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T04:35:54Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/postgresql-15_windows-859-001457.json"
+}
