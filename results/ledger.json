@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T03:05:50",
+ "built": "2026-11-25T04:01:30",
  "coverage": {
   "darwin": {
    "covered": 982,
@@ -58,7 +58,7 @@
      "apps": 10,
      "on_time": 9,
      "overdue": {
-      "google-drive/windows": 105
+      "google-drive/windows": 106
      }
     },
     {
@@ -17206,16 +17206,16 @@
    }
   },
   "slack/darwin@90003": {
-   "lifecycle_runs": 9,
+   "lifecycle_runs": 10,
    "update_runs": 0,
    "first_cycled": "2026-11-05T18:26:27",
-   "last_cycled": "2026-11-23T00:05:33",
+   "last_cycled": "2026-11-25T03:12:07",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-23T00:05:33",
+    "date": "2026-11-25T03:12:07",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.53.292",
-    "record": "results/soak/2026-11-23/slack_darwin-1313-000533.json",
+    "record": "results/soak/2026-11-25/slack_darwin-1388-031207.json",
     "findings": []
    }
   },
@@ -42537,16 +42537,16 @@
    }
   },
   "claude-arm64/windows@863": {
-   "lifecycle_runs": 18,
+   "lifecycle_runs": 19,
    "update_runs": 0,
    "first_cycled": "2026-11-16T23:40:47",
    "last_cycled": "2026-11-16T23:40:59",
    "last_lifecycle": {
     "outcome": "environment: by design: claude/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Claude or Claude (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T02:18:34",
+    "date": "2026-11-25T03:09:38",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "6.28899.6",
-    "record": "results/soak/2026-11-25/claude-arm64_windows-863-021834.json",
+    "record": "results/soak/2026-11-25/claude-arm64_windows-863-030938.json",
     "findings": []
    }
   },
@@ -42935,17 +42935,19 @@
    }
   },
   "datadog-agent/windows@862": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 3,
    "update_runs": 0,
    "first_cycled": "2026-11-16T03:25:32",
-   "last_cycled": "2026-11-16T03:25:32",
+   "last_cycled": "2026-11-25T03:20:13",
    "last_lifecycle": {
-    "outcome": "pass",
-    "date": "2026-11-16T03:25:32",
-    "build": "4.94.0-rc.2610272345 (937e87458c)",
-    "catalog_version": "7.85.2.0",
-    "record": "results/soak/2026-11-16/datadog-agent_windows-862-032532.json",
-    "findings": []
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-25T03:20:13",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "7.85.4.0",
+    "record": "results/soak/2026-11-25/datadog-agent_windows-862-032013.json",
+    "findings": [
+     "the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+    ]
    }
   },
   "dataspell/darwin@865": {
@@ -48705,16 +48707,16 @@
    "last_cycled": "2026-11-16T21:47:16"
   },
   "zoom-arm64/windows@863": {
-   "lifecycle_runs": 18,
+   "lifecycle_runs": 19,
    "update_runs": 0,
    "first_cycled": "2026-11-16T21:10:27",
    "last_cycled": "2026-11-16T21:10:42",
    "last_lifecycle": {
     "outcome": "environment: by design: zoom/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Zoom or Zoom (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T02:18:05",
+    "date": "2026-11-25T03:09:26",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "7.2.51704",
-    "record": "results/soak/2026-11-25/zoom-arm64_windows-863-021805.json",
+    "record": "results/soak/2026-11-25/zoom-arm64_windows-863-030926.json",
     "findings": []
    }
   },
@@ -50617,16 +50619,16 @@
    }
   },
   "docker-arm64/windows@863": {
-   "lifecycle_runs": 18,
+   "lifecycle_runs": 19,
    "update_runs": 0,
    "first_cycled": "2026-11-17T03:48:16",
    "last_cycled": "2026-11-17T03:48:37",
    "last_lifecycle": {
     "outcome": "environment: by design: docker/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Docker Desktop or Docker Desktop (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T02:18:14",
+    "date": "2026-11-25T03:09:31",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "4.100.1",
-    "record": "results/soak/2026-11-25/docker-arm64_windows-863-021814.json",
+    "record": "results/soak/2026-11-25/docker-arm64_windows-863-030931.json",
     "findings": []
    }
   },
@@ -54289,16 +54291,16 @@
    }
   },
   "visual-studio-code-arm64/windows@864": {
-   "lifecycle_runs": 18,
+   "lifecycle_runs": 19,
    "update_runs": 0,
    "first_cycled": "2026-11-17T00:08:12",
    "last_cycled": "2026-11-17T00:08:32",
    "last_lifecycle": {
     "outcome": "environment: by design: visual-studio-code/windows is already in the fleet and shares this title (add failed 409: Conflict: Couldn't add software. Only one of Microsoft Visual Studio Code or Microsoft Visual Studio Code (ARM64) can be added to the same fleet.)",
-    "date": "2026-11-25T02:17:47",
+    "date": "2026-11-25T03:09:37",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
     "catalog_version": "1.146.0",
-    "record": "results/soak/2026-11-25/visual-studio-code-arm64_windows-864-021747.json",
+    "record": "results/soak/2026-11-25/visual-studio-code-arm64_windows-864-030937.json",
     "findings": []
    }
   },
@@ -71692,16 +71694,16 @@
    }
   },
   "microsoft-teams/darwin@90002": {
-   "lifecycle_runs": 1,
+   "lifecycle_runs": 2,
    "update_runs": 0,
    "first_cycled": "2026-11-24T02:49:35",
-   "last_cycled": "2026-11-24T02:49:35",
+   "last_cycled": "2026-11-25T03:12:05",
    "last_lifecycle": {
     "outcome": "pass",
-    "date": "2026-11-24T02:49:35",
+    "date": "2026-11-25T03:12:05",
     "build": "4.95.0-rc.2611162253 (5790b6cafd)",
-    "catalog_version": "26289.204.5281.6363",
-    "record": "results/soak/2026-11-24/microsoft-teams_darwin-1342-024935.json",
+    "catalog_version": "26304.1206.5384.1209",
+    "record": "results/soak/2026-11-25/microsoft-teams_darwin-1390-031205.json",
     "findings": []
    }
   },
@@ -72065,6 +72067,22 @@
     "catalog_version": "10.0.8",
     "record": "results/soak/2026-11-24/zotero_windows-862-145214.json",
     "findings": []
+   }
+  },
+  "datadog-agent/windows@861": {
+   "lifecycle_runs": 2,
+   "update_runs": 0,
+   "first_cycled": "2026-11-25T03:10:00",
+   "last_cycled": "2026-11-25T03:21:54",
+   "last_lifecycle": {
+    "outcome": "findings (reproduced on retry)",
+    "date": "2026-11-25T03:21:54",
+    "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+    "catalog_version": "7.85.4.0",
+    "record": "results/soak/2026-11-25/datadog-agent_windows-861-032154.json",
+    "findings": [
+     "the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+    ]
    }
   },
   "hoppscotch/darwin@90004": {

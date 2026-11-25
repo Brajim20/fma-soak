@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3386,
+ "current_runs": 3394,
  "regressions": [],
  "catalog": [
   {
@@ -116,6 +116,25 @@
     860,
     865
    ]
+  },
+  {
+   "app": "datadog-agent/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/datadog-agent_windows-862-032532.json",
+   "current_record": "soak/2026-11-25/datadog-agent_windows-862-032013.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function \"github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run\".runTraceAgentProcess.func4 (github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run/c"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 7.85.2.0 -> 7.85.4.0",
+   "check": "Windows event-log scan (a999477c)",
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
   },
   {
    "app": "evernote/windows@859",
@@ -722,6 +741,6 @@
    "triaged": []
   }
  ],
- "compared": 255,
+ "compared": 256,
  "canaries_not_yet_on_current": []
 }
