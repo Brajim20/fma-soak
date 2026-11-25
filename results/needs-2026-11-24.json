@@ -7,8 +7,32 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 862 [record](soak/2026-11-24/azul-zulu-25-jdk_windows-862-193057.json)",
   "record": "results/soak/2026-11-24/azul-zulu-25-jdk_windows-859-180808.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/azul-zulu-25-jdk/windows.json), [azul-zulu-25-jdk.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/azul-zulu-25-jdk.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-05-29 Adding multiple FMAs (#46381) \u00b7 issues mentioning it: #57139 (open)"
+ },
+ {
+  "app": "azul-zulu-25-jdk/windows@861",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/azul-zulu-25-jdk_windows-861-191012.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/azul-zulu-25-jdk/windows.json), [azul-zulu-25-jdk.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/azul-zulu-25-jdk.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-05-29 Adding multiple FMAs (#46381) \u00b7 issues mentioning it: #57139 (open)"
+ },
+ {
+  "app": "azul-zulu-25-jdk/windows@862",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/azul-zulu-25-jdk_windows-862-193057.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/azul-zulu-25-jdk/windows.json), [azul-zulu-25-jdk.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/azul-zulu-25-jdk.json) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-05-29 Adding multiple FMAs (#46381) \u00b7 issues mentioning it: #57139 (open)"
  },
  {
@@ -139,7 +163,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "not on 862 (pass) [record](soak/2026-11-24/figma_windows-862-195153.json)",
   "record": "results/soak/2026-11-24/figma_windows-861-163258.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/figma/windows.json), [figma.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/figma.json), [figma_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_install.ps1), [figma_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/figma_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-27 Windows FMAs: resolve the signed-in user reliably for Figma, Airtable, Brave, Grammarly (#; 2026-10-08 Windows FMAs (A\u2013G): don't report task HRESULTs or a missing installer as success (#55074); 2025-11-17 Add Figma as a FMA for Windows (#35815) \u00b7 issues mentioning it: #59822 (open), #59818 (open), #59111 (open), #59112 (open), #58048 (open)"
  },
@@ -170,6 +194,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/herdr/darwin.json), [herdr.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/herdr.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Add Herdr (macOS) Fleet-maintained app (#59711) \u00b7 issues mentioning it: #59656 (closed)"
  },
  {
+  "app": "freecad/windows@859",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/freecad_windows-859-193224.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/freecad/windows.json), [freecad.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/freecad.json), [freecad_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_install.ps1), [freecad_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_uninstall.ps1) \u00b7 last changes: 2026-11-24 Close the app before installing six Windows Fleet-maintained apps (#59707); 2026-07-13 Add Windows FMAs (letter F): 5 apps (#49218) \u00b7 issues mentioning it: #59564 (closed), #50077 (open)"
+ },
+ {
   "app": "freecad/windows@861",
   "shape": "S6",
   "msgs": [
@@ -189,7 +225,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": "reproduced on 861 [record](soak/2026-11-24/freecad_windows-861-183451.json)",
+  "other_host": "reproduced on 859 [record](soak/2026-11-24/freecad_windows-859-193224.json)",
   "record": "results/soak/2026-11-24/freecad_windows-862-115653.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/freecad/windows.json), [freecad.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/freecad.json), [freecad_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_install.ps1), [freecad_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/freecad_uninstall.ps1) \u00b7 last changes: 2026-11-24 Close the app before installing six Windows Fleet-maintained apps (#59707); 2026-07-13 Add Windows FMAs (letter F): 5 apps (#49218) \u00b7 issues mentioning it: #59564 (closed), #50077 (open)"
  },
@@ -237,8 +273,32 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "reproduced on 860 [record](soak/2026-11-24/ableton-live-suite_darwin-860-193341.json)",
   "record": "results/soak/2026-11-24/ableton-live-suite_darwin-1352-165938.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "ableton-live-suite/darwin@860",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/ableton-live-suite_darwin-860-193341.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "ableton-live-suite/darwin@865",
+  "shape": "add",
+  "msgs": [
+   "add failed 502: error code: 502\n"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-24/ableton-live-suite_darwin-865-193340.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ableton-live-suite/darwin.json), [ableton-live-suite.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ableton-live-suite.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-06-08 Add Ableton Live Suite as a macOS FMA (#47058) \u00b7 issues mentioning it: none"
  },
  {

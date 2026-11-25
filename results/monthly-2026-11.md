@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 14940 cycles: pass 7025, findings 2942, flaky 644, environment 451, harness 357, skipped 3521
+**1. Runs** — 14961 cycles: pass 7036, findings 2948, flaky 644, environment 455, harness 357, skipped 3521
 
 **2. Coverage** — darwin 981/968 (101.3%), quarter 2/2 this week 465/465, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 513/513 (100.0%), quarter 2/2 this week 229/236, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -96,7 +96,7 @@
 | #57660 | closed | Fleet-maintained apps: Standard Notes (Windows) installs into the SYSTEM profile and can't be uninstalled |
 | #57673 | closed | Fleet-maintained apps: DevToys (Windows) is never detected, so its patch policy always passes |
 | #57674 | closed | Fleet-maintained apps: gPodder (Windows) is never detected, so its patch policy always passes |
-| #57681 | unknown |  |
+| #57681 | open | FMA: Adobe Acrobat Reader (Windows) shows up in inventory under a separate "DC" title, not the Fleet-maintained title |
 | #57700 | closed | Fleet-maintained apps: Nagstamon (Windows) is never detected, so its patch policy always passes |
 | #57701 | closed | Fleet-maintained apps: Sonos (Windows) install always fails with exit code 1619 |
 | #57748 | closed | Fleet-maintained apps: Snagit (macOS) can't be reinstalled or uninstalled after it's been opened ("did not quit" though it isn't running) |
@@ -158,7 +158,7 @@
 | #58659 | open | Fleet-maintained apps: Microsoft Teams (Windows) shows as installed on hosts that only have the Teams Meeting Add-in for Office |
 | #58756 | closed | Fleet-maintained apps: Garmin BaseCamp (Windows) is never detected by its exists/patched queries, so its patch policy always passes |
 | #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
-| #58758 | unknown |  |
+| #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
 | #58861 | open | Fleet-maintained apps: Webex Recorder and Player (Windows) installs land on a second title with the same name |
 | #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
 | #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
