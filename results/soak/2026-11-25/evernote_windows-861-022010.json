@@ -1,0 +1,141 @@
+{
+ "slug": "evernote/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T02:20:10",
+ "catalog_version": "11.43.4",
+ "catalog_id": "3081acbe83d1",
+ "findings": [
+  {
+   "shape": "S6",
+   "msg": "reinstall over the open app: the install over the open app ended as failed_install"
+  },
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: Evernote-11.43.4-win-ddl-stage-20261117143522-11b5f3b0761ea7657f, version: 11.43.4.43490, time stamp: 0x5c157f86 Faulting module name: System.dll, version: 0.0.0.0, time stamp: 0x5c157efa Excep"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T06:20:07Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-25T06:19:45Z"
+ },
+ "title_id": 50574,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: -1073741819 (attempt 1 of 3)\nInstall exit code: 0 (attempt 2 of 3)\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "11.43.4"
+ ],
+ "package_version": "11.43.4",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files (x86)\\Evernote"
+  ],
+  "names": [
+   "Evernote 11.43.4 (All Users)"
+  ],
+  "versions": [
+   "11.43.4"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\Program Files (x86)\\Evernote\\Uninstall Evernote.exe\nUninstall args: /AllUsers /S /allusers /S\nUninstall exit code: 0\n'Evernote' was removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0 (attempt 1 of 3)\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "3540",
+   "7616",
+   "7980",
+   "9480",
+   "11724",
+   "12052"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "failed_install",
+ "open_reinstall_seconds": 655,
+ "open_reinstall_output_tail": "Installing software...\nFailed\nThe installer didn't finish within 3 minutes.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "3540",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "9480",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "7616",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "12052",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "7980",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  },
+  {
+   "pid": "11724",
+   "path": "C:\\Program Files (x86)\\Evernote\\Evernote.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [
+  "1000 Application Error: Faulting application name: Evernote-11.43.4-win-ddl-stage-20261117143522-11b5f3b0761ea7657f, version: 11.43.4.43490, time stamp: 0x5c157f86 Faulting module name: System.dll, version: 0.0.0.0, time stamp: 0x5c157efa Excep"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\Program Files (x86)\\Evernote\\Uninstall Evernote.exe\nUninstall args: /AllUsers /S /allusers /S\nUninstall exit code: 0\n'Evernote' was removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-25T02:39:05",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T06:38:55Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-25T06:38:54Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-25/evidence/evernote_windows-861-022010-library.png",
+  "inventory": "results/soak/2026-11-25/evidence/evernote_windows-861-022010-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/evernote_windows-861-022010.json"
+}
