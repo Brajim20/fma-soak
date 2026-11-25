@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3442 · compared on both builds: 256
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3471 · compared on both builds: 256
 
 **No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -50,4 +50,4 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 | python-3.13-arm64/windows@864 | lifecycle | 629, 863 | S1: inventory never reported the app after install + refetch | **new** |
 | wezterm/darwin@865 | lifecycle | 631 | S3: first uninstall: app still on host (status None)<br>install: second install ended as None<br>S3: second uninstall: app still on host (status None) | not a bug (documented limitation): WezTerm.app ships a placeholder CFBundleShortVersionString 0.1.0 and CFBundleVersion 1 in every release, so osquery always reports 0.1.0; PR #53892 (adds the FMA) do |
 
-Fixed on this build (18): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@859 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (17): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
