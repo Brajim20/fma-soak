@@ -1,0 +1,84 @@
+{
+ "slug": "cloudflare-warp/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T08:20:01",
+ "catalog_version": "26.8.2115.0",
+ "catalog_id": "26cd4f240826",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T12:20:01Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T12:19:57Z"
+ },
+ "title_id": 50977,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (CC:04) [12:20:39:536]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (CC:04) [12:20:39:538]: Destroying RemoteAPI object.\r\nMSI (s) (CC:E4) [12:20:39:538]: Custom Action Manager thread ending.\r\nMSI (c) (D4:F0) [12:20:39:542]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D4:F0) [12:20:39:542]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  12:20:39 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  12:20:39 ===",
+  "=== Verbose logging stopped: 11/25/2026  12:20:39 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.8.2115.0"
+ ],
+ "package_version": "26.8.2115.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Cloudflare One Client"
+  ],
+  "versions": [
+   "26.8.2115.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 47,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (CC:04) [12:23:26:695]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (CC:04) [12:23:26:695]: Destroying RemoteAPI object.\r\nMSI (s) (CC:80) [12:23:26:697]: Custom Action Manager thread ending.\r\nMSI (c) (B0:FC) [12:23:26:699]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (B0:FC) [12:23:26:699]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  12:23:26 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  12:23:26 ===",
+  "=== Verbose logging stopped: 11/25/2026  12:23:26 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-25T08:25:36",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T12:25:27Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-25T12:25:25Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/cloudflare-warp_windows-859-082001.json"
+}
