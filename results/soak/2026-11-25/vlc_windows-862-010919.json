@@ -1,0 +1,85 @@
+{
+ "slug": "vlc/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T01:09:19",
+ "catalog_version": "3.0.24",
+ "catalog_id": "b679695ec5dd",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-25T05:09:17Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-25T04:45:44Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 17659,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:78) [05:10:35:309]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:78) [05:10:35:311]: Destroying RemoteAPI object.\r\nMSI (s) (50:F4) [05:10:35:311]: Custom Action Manager thread ending.\r\nMSI (c) (D4:1C) [05:10:35:313]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D4:1C) [05:10:35:315]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  5:10:35 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  5:10:35 ===",
+  "=== Verbose logging stopped: 11/25/2026  5:10:35 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.0.24.0"
+ ],
+ "package_version": "3.0.24",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\VideoLAN\\VLC\\"
+  ],
+  "names": [
+   "VLC media player"
+  ],
+  "versions": [
+   "3.0.24.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Found product code: {585C109D-9729-4B98-A2B8-EACD8885D115}\nAttempting to uninstall using msiexec...\nUninstall failed with exit code: \n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "ndows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:78) [05:14:12:810]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:78) [05:14:12:810]: Destroying RemoteAPI object.\r\nMSI (s) (50:AC) [05:14:12:810]: Custom Action Manager thread ending.\r\nMSI (c) (7C:60) [05:14:12:814]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (7C:60) [05:14:12:814]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/25/2026  5:14:12 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/25/2026  5:14:12 ===",
+  "=== Verbose logging stopped: 11/25/2026  5:14:12 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-25T01:16:21",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-25T05:16:11Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-25T05:16:10Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/vlc_windows-862-010919.json"
+}
