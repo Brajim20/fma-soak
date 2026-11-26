@@ -186,14 +186,11 @@
    "every_days": 7
   },
   "alternate": {
-   "_doc": "sample.tier_host: the listed tiers take each platform's host groups in turn, one group per period, so every app runs on each OS build; host IDs as in FMA_SOAK_HOST_*.",
+   "_doc": "sample.tier_host: the listed tiers take each platform's host groups in turn, one group per period, so every app runs on each OS build; host IDs as in FMA_SOAK_HOST_*. macOS has one group since 858 (macOS 26) was dropped 2026-11-26: its periods were sending the twice_daily apps to the pool slots; add a macOS 26 group back if a host returns.",
    "tiers": [
     "twice_daily"
    ],
    "darwin": [
-    [
-     858
-    ],
     [
      865,
      860
