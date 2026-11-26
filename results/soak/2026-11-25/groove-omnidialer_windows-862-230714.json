@@ -1,0 +1,103 @@
+{
+ "slug": "groove-omnidialer/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T23:07:14",
+ "catalog_version": "26.1120.454",
+ "catalog_id": "bcee5e2f2d90",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T03:07:10Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T02:32:57Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 52140,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Groove OmniDialer for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "26.1120.454"
+ ],
+ "package_version": "26.1120.454",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Groove OmniDialer 26.1120.454"
+  ],
+  "versions": [
+   "26.1120.454"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "ving 'Groove OmniDialer 26.1120.454' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7ffc99df-5895-5bb2-8796-e45cae7648fb)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer\\Uninstall Groove OmniDialer.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer\"\nGroove OmniDialer removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Groove OmniDialer for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1848",
+   "4496",
+   "5520",
+   "10344"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 62,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Groove OmniDialer for <host>\\<user>\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1680",
+   "5552",
+   "6412",
+   "10884"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "ving 'Groove OmniDialer 26.1120.454' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7ffc99df-5895-5bb2-8796-e45cae7648fb)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer\\Uninstall Groove OmniDialer.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\dialer\"\nGroove OmniDialer removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-25T23:17:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T03:16:52Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T03:16:51Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/groove-omnidialer_windows-862-230714.json"
+}
