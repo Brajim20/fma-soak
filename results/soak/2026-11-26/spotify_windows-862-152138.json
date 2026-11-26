@@ -1,0 +1,116 @@
+{
+ "slug": "spotify/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T15:21:38",
+ "catalog_version": "1.3.10.2586.g81a118a22460",
+ "catalog_id": "edd3c8cee01b",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T19:21:32Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T19:21:26Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 18519,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Spotify for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.3.10.2586.g81a118a22460"
+ ],
+ "package_version": "1.3.10.2586.g81a118a22460",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Roaming\\Spotify"
+  ],
+  "names": [
+   "Spotify"
+  ],
+  "versions": [
+   "1.3.10.2586.g81a118a22460"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "Removing Spotify (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Spotify)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Roaming\\Spotify\\uninstall.exe /silent\n  Uninstall exit code: 0\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c del /f /q \"C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk\" \"C:\\Users\\<user>\\Desktop\\Spotify.lnk\"\nSpotify removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 61,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Spotify for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1900",
+   "6456",
+   "7844",
+   "7976",
+   "9740",
+   "11204"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 61,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Spotify for <host>\\<user>\nStopping Spotify (PID 1900).\nStopping Spotify (PID 6456).\nStopping Spotify (PID 7844).\nStopping Spotify (PID 7976).\nStopping Spotify (PID 9740).\nStopping Spotify (PID 11204).\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Stopping Spotify (PID 1900).",
+  "Stopping Spotify (PID 6456).",
+  "Stopping Spotify (PID 7844).",
+  "Stopping Spotify (PID 7976).",
+  "Stopping Spotify (PID 9740).",
+  "Stopping Spotify (PID 11204)."
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1384",
+   "2300",
+   "5912",
+   "9780",
+   "10192",
+   "10308"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Removing Spotify (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Spotify)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Roaming\\Spotify\\uninstall.exe /silent\n  Uninstall exit code: 0\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c del /f /q \"C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk\" \"C:\\Users\\<user>\\Desktop\\Spotify.lnk\"\nSpotify removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T15:31:47",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T19:31:41Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T19:31:36Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/spotify_windows-862-152138.json"
+}
