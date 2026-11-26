@@ -1,0 +1,101 @@
+{
+ "slug": "nova/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T14:33:33",
+ "catalog_version": "14.1",
+ "catalog_id": "ef0f51e04ad6",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T18:33:28Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-26T18:33:31Z"
+ },
+ "title_id": 53371,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "14.1"
+ ],
+ "package_version": "14.1",
+ "context_after_install": {
+  "path": "/Applications/Nova.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Nova.app/Contents/MacOS/Nova",
+  "bundle_id": "com.panic.Nova",
+  "versions": [
+   "14.1"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "ser>/Library/Application Scripts/com.panic.Nova.NovaQuickLookThumbnail doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.panic.nova.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.panic.Nova doesn't exist.\n/Users/<user>/Library/Containers/com.panic.Nova.NovaQuickLookPreview doesn't exist.\n/Users/<user>/Library/Containers/com.panic.Nova.NovaQuickLookThumbnail doesn't exist.\n/Users/<user>/Library/Preferences/com.panic.Nova.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.panic.Nova doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "6552"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.panic.Nova' was running; will relaunch after installation.\nQuitting application 'com.panic.Nova'...\nApplication 'com.panic.Nova' quit successfully.\nRelaunching application 'com.panic.Nova'...\nApplication 'com.panic.Nova' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.panic.Nova' was running; will relaunch after installation.",
+  "Quitting application 'com.panic.Nova'...",
+  "Application 'com.panic.Nova' quit successfully.",
+  "Relaunching application 'com.panic.Nova'...",
+  "Application 'com.panic.Nova' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "6592",
+   "path": "/Applications/Nova.app/Contents/MacOS/Nova",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T14:39:16",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T18:39:11Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-26T18:39:05Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/nova_darwin-860-143333.json"
+}

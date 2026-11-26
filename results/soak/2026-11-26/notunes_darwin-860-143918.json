@@ -1,0 +1,103 @@
+{
+ "slug": "notunes/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T14:39:18",
+ "catalog_version": "3.5",
+ "catalog_id": "56f28d3cbcf4",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T18:39:11Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-26T18:39:05Z"
+ },
+ "title_id": 53379,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.5"
+ ],
+ "package_version": "3.5",
+ "context_after_install": {
+  "path": "/Applications/noTunes.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/noTunes.app/Contents/MacOS/noTunes",
+  "bundle_id": "digital.twisted.noTunes",
+  "versions": [
+   "3.5"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Preferences/digital.twisted.noTunes.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "10561"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'digital.twisted.noTunes' was running; will relaunch after installation.\nQuitting application 'digital.twisted.noTunes'...\nApplication 'digital.twisted.noTunes' quit successfully.\nRelaunching application 'digital.twisted.noTunes'...\nApplication 'digital.twisted.noTunes' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'digital.twisted.noTunes' was running; will relaunch after installation.",
+  "Quitting application 'digital.twisted.noTunes'...",
+  "Application 'digital.twisted.noTunes' quit successfully.",
+  "Relaunching application 'digital.twisted.noTunes'...",
+  "Application 'digital.twisted.noTunes' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "10597",
+   "path": "/Applications/noTunes.app/Contents/MacOS/noTunes",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Preferences/digital.twisted.noTunes.plist doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T14:45:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T18:45:15Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-26T18:45:11Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/notunes_darwin-860-143918.json"
+}
