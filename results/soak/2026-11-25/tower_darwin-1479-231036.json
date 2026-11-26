@@ -1,0 +1,115 @@
+{
+ "slug": "tower/darwin",
+ "host": 1479,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-25T23:10:36",
+ "catalog_version": "18.5",
+ "catalog_id": "74213512ef6c",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T03:10:34Z",
+  "restarted": "2026-11-26T03:06:31.24188Z",
+  "software_updated": "2026-11-26T03:10:25Z"
+ },
+ "pool_slot": 90001,
+ "title_id": 52148,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "18.5"
+ ],
+ "package_version": "18.5",
+ "context_after_install": {
+  "path": "/Applications/Tower.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Tower.app/Contents/MacOS/Tower",
+  "bundle_id": "com.fournova.Tower3",
+  "versions": [
+   "18.5"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "t/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.fournova.tower*.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/com.fournova.Tower* doesn't exist.\n/Users/<user>/Library/Caches/com.fournova.Tower* doesn't exist.\n/Users/<user>/Library/Caches/com.plausiblelabs.crashreporter.data/com.fournova.Tower* doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.fournova.Tower* doesn't exist.\n/Users/<user>/Library/Preferences/com.fournova.Tower*.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.fournova.Tower*.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "19729"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.fournova.Tower3' was running; will relaunch after installation.\nQuitting application 'com.fournova.Tower3'...\nApplication 'com.fournova.Tower3' did not quit.\nLast quit error: 52:56: execution error: Tower got an error: User canceled. (-128)\nStopping application 'com.fournova.Tower3'...\nApplication 'com.fournova.Tower3' stopped.\nRelaunching application 'com.fournova.Tower3'...\nApplication 'com.fournova.Tower3' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.fournova.Tower3' was running; will relaunch after installation.",
+  "Quitting application 'com.fournova.Tower3'...",
+  "Application 'com.fournova.Tower3' did not quit.",
+  "Last quit error: 52:56: execution error: Tower got an error: User canceled. (-128)",
+  "Stopping application 'com.fournova.Tower3'...",
+  "Application 'com.fournova.Tower3' stopped.",
+  "Relaunching application 'com.fournova.Tower3'...",
+  "Application 'com.fournova.Tower3' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "21071",
+   "path": "/Applications/Tower.app/Contents/MacOS/Tower",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Tower got an error: User canceled. (-128)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Tower got an error: User canceled. (-128))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.fournova.tower3.sfl3.\nremoving /Users/<user>/Library/Application Support/com.fournova.Tower3.\nremoving /Users/<user>/Library/Caches/com.fournova.Tower3.\n/Users/<user>/Library/Caches/com.plausiblelabs.crashreporter.data/com.fournova.Tower* doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/com.fournova.Tower3.\nremoving /Users/<user>/Library/Preferences/com.fournova.Tower3.plist.\n/Users/<user>/Library/Saved Application State/com.fournova.Tower*.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-25T23:22:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T03:21:55Z",
+  "restarted": "2026-11-26T03:06:31.24188Z",
+  "software_updated": "2026-11-26T03:21:32Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-25/tower_darwin-1479-231036.json"
+}
