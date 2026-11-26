@@ -1,0 +1,116 @@
+{
+ "slug": "fing/darwin",
+ "host": 1550,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T14:09:27",
+ "catalog_version": "4.0.3",
+ "catalog_id": "38c7afd223da",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T18:09:27Z",
+  "restarted": "2026-11-26T16:49:57.26358Z",
+  "software_updated": "2026-11-26T18:08:53Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 53325,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.0.3"
+ ],
+ "package_version": "4.0.3",
+ "context_after_install": {
+  "path": "/Applications/Fing.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Fing.app/Contents/MacOS/Fing",
+  "bundle_id": "com.fing.app",
+  "versions": [
+   "4.0.3"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing launchctl service com.fing.service\n/Users/<user>/Library/Application Support/Fing doesn't exist.\n/Users/<user>/Library/Logs/Fing doesn't exist.\n/Users/<user>/Library/Preferences/com.fing.app.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.fing.app.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "70663"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 155,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.fing.app' was running; will relaunch after installation.\nQuitting application 'com.fing.app'...\nApplication 'com.fing.app' did not quit.\nLast quit error: 52:56: execution error: Fing got an error: AppleEvent timed out. (-1712)\nStopping application 'com.fing.app'...\nApplication 'com.fing.app' stopped.\nRelaunching application 'com.fing.app'...\nApplication 'com.fing.app' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.fing.app' was running; will relaunch after installation.",
+  "Quitting application 'com.fing.app'...",
+  "Application 'com.fing.app' did not quit.",
+  "Last quit error: 52:56: execution error: Fing got an error: AppleEvent timed out. (-1712)",
+  "Stopping application 'com.fing.app'...",
+  "Application 'com.fing.app' stopped.",
+  "Relaunching application 'com.fing.app'...",
+  "Application 'com.fing.app' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "74783",
+   "path": "/Applications/Fing.app/Contents/MacOS/Fing",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Fing got an error: AppleEvent timed out. (-1712)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Fing got an error: AppleEvent timed out. (-1712))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Removing launchctl service com.fing.service\n/Users/<user>/Library/Application Support/Fing doesn't exist.\n/Users/<user>/Library/Logs/Fing doesn't exist.\n/Users/<user>/Library/Preferences/com.fing.app.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.fing.app.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "502 error code: 502\n",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-26T14:23:32",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T18:23:26Z",
+  "restarted": "2026-11-26T16:49:57.26358Z",
+  "software_updated": "2026-11-26T18:23:01Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/fing_darwin-1550-140927.json"
+}
