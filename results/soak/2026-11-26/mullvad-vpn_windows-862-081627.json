@@ -1,0 +1,116 @@
+{
+ "slug": "mullvad-vpn/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T08:16:27",
+ "catalog_version": "2026.5",
+ "catalog_id": "4a31c48fa5f3",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: mullvad-setup.exe, version: 0.0.0.0, time stamp: 0x6aa3e851 Faulting module name: combase.dll, version: 10.0.26100.9818, time stamp: 0xbb9366f0 Exception code: 0xc0000005 Fault offset: 0x000000"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T12:16:19Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T12:16:17Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 52840,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2026.5"
+ ],
+ "package_version": "2026.5",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Mullvad VPN 2026.5"
+  ],
+  "versions": [
+   "2026.5"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Uninstall command: C:\\WINDOWS\\SystemTemp\\fleet-mullvad-fac0ded9-aaa4-4283-9a45-8b1d6c9e6750\\uninstall-mullvad-vpn.exe\nUninstall args: /allusers /S _?=C:\\Program Files\\Mullvad VPN\nUninstall exit code: 0\nMullvad VPN is no longer present.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "2888",
+   "2976",
+   "10640",
+   "10844"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "1616",
+   "3416",
+   "3432",
+   "6468"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [
+  "1000 Application Error: Faulting application name: mullvad-setup.exe, version: 0.0.0.0, time stamp: 0x6aa3e851 Faulting module name: combase.dll, version: 10.0.26100.9818, time stamp: 0xbb9366f0 Exception code: 0xc0000005 Fault offset: 0x000000",
+  "1000 Application Error: Faulting application name: mullvad-setup.exe, version: 0.0.0.0, time stamp: 0x6aa3e851 Faulting module name: combase.dll, version: 10.0.26100.9818, time stamp: 0xbb9366f0 Exception code: 0xc0000005 Fault offset: 0x000000"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "Uninstall command: C:\\WINDOWS\\SystemTemp\\fleet-mullvad-152d8d3b-881e-48a7-8a93-614bba0b4184\\uninstall-mullvad-vpn.exe\nUninstall args: /allusers /S _?=C:\\Program Files\\Mullvad VPN\nUninstall exit code: 0\nMullvad VPN is no longer present.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-26T08:25:09",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T12:25:03Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T12:25:09Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-26/evidence/mullvad-vpn_windows-862-081627-library.png",
+  "inventory": "results/soak/2026-11-26/evidence/mullvad-vpn_windows-862-081627-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/mullvad-vpn_windows-862-081627.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/mullvad-vpn_windows-862-080757.json"
+}
