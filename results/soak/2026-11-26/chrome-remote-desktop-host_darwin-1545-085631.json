@@ -1,0 +1,111 @@
+{
+ "slug": "chrome-remote-desktop-host/darwin",
+ "host": 1545,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T08:56:31",
+ "catalog_version": "157.0.8103",
+ "catalog_id": "8636f4b24a46",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T12:56:23Z",
+  "restarted": "2026-11-26T11:46:54.484144Z",
+  "software_updated": "2026-11-26T12:56:10Z"
+ },
+ "pool_slot": 90003,
+ "title_id": 53005,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 47,
+ "first_install_output_tail": "dev/disk5s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_map</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk5</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk5\" ejected.\ninstaller: Package name is Chrome Remote Desktop Host\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "157.0.8103"
+ ],
+ "package_version": "157.0.8103",
+ "context_after_install": {
+  "path": "/Applications/Chrome Remote Desktop Host Uninstaller.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Chrome Remote Desktop Host Uninstaller.app/Contents/MacOS/remoting_host_uninstaller",
+  "bundle_id": "com.google.chromeremotedesktop.me2me-host-uninstaller",
+  "versions": [
+   "157.0.8103"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "files \"com.google.pkg.ChromeRemoteDesktopHostUninstaller\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.google.pkg.ChromeRemoteDesktopHostUninstaller\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.google.pkg.ChromeRemoteDesktopHostUninstaller' on '/'.\n/Users/<user>/Library/Saved Application State/com.google.chromeremotedesktop.me2me-host-uninstaller.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 32,
+ "second_install_output_tail": "y-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_HFS</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>hfs</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk6</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>Apple_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk6\" ejected.\ninstaller: Package name is Chrome Remote Desktop Host\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "43046"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 47,
+ "open_reinstall_output_tail": "uit successfully.\ninstaller: Package name is Chrome Remote Desktop Host\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.google.chromeremotedesktop.me2me-host-uninstaller'...\nAttempt 1 to relaunch application 'com.google.chromeremotedesktop.me2me-host-uninstaller' failed (exit 1): LSCopyApplicationURLsForBundleIdentifier() failed while trying to determine the application with bundle identifier com.google.chromeremotedesktop.me2me-host-uninstaller.\nApplication 'com.google.chromeremotedesktop.me2me-host-uninstaller' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.google.chromeremotedesktop.me2me-host-uninstaller' was running; will relaunch after installation.",
+  "Quitting application 'com.google.chromeremotedesktop.me2me-host-uninstaller'...",
+  "Application 'com.google.chromeremotedesktop.me2me-host-uninstaller' quit successfully.",
+  "Relaunching application 'com.google.chromeremotedesktop.me2me-host-uninstaller'...",
+  "Attempt 1 to relaunch application 'com.google.chromeremotedesktop.me2me-host-uninstaller' failed (exit 1): LSCopyApplicationURLsForBundleIdentifier() failed whi",
+  "Application 'com.google.chromeremotedesktop.me2me-host-uninstaller' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "44366",
+   "path": "/Applications/Chrome Remote Desktop Host Uninstaller.app/Contents/MacOS/remoting_host_uninstaller",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "files \"com.google.pkg.ChromeRemoteDesktopHostUninstaller\" | sed \"s|^|//|\" | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo pkgutil --only-dirs --files \"com.google.pkg.ChromeRemoteDesktopHostUninstaller\" | sed \"s|^|//|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"//Applications\" 2>/dev/null || :\nForgot package 'com.google.pkg.ChromeRemoteDesktopHostUninstaller' on '/'.\n/Users/<user>/Library/Saved Application State/com.google.chromeremotedesktop.me2me-host-uninstaller.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-26T09:06:52",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T13:06:43Z",
+  "restarted": "2026-11-26T11:46:54.484144Z",
+  "software_updated": "2026-11-26T13:06:21Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/chrome-remote-desktop-host_darwin-1545-085631.json"
+}
