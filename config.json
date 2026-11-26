@@ -210,8 +210,8 @@
   }
  },
  "quarters": {
-  "_doc": "sample.py: every non-priority app has a fixed quarter (crc32 of the slug % count); weeks since epoch (a Monday) pick the quarter, so the whole catalog runs every count weeks (2: twice a month, from 2026-11-15 when the soak went to 3 macOS and 5 Windows hosts).",
-  "count": 2,
+  "_doc": "sample.py: every non-priority app has a fixed quarter (crc32 of the slug % count); weeks since epoch (a Monday) pick the quarter, so the whole catalog runs every count weeks (2 from 2026-11-15, when the soak went to 3 macOS and 5 Windows hosts; 1 = weekly from 2026-11-26, because every host finished its half by Tuesday and sat idle the rest of the week; back to 2 if the store or the ARM hosts can't keep up).",
+  "count": 1,
   "epoch": "2026-11-16"
  },
  "audit": {
