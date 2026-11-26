@@ -4328,6 +4328,40 @@
       "app": "protopie/windows",
       "verdict": "filed #59835: Inno installer with a literal {userpf} default dir lands in SYSTEM's profile despite /ALLUSERS (859/861/862), same mechanism as DevToys #59570",
       "added": "2026-11-24"
+    },
+    {
+      "app": "evernote/windows",
+      "verdict": "filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5)",
+      "after": "2026-11-24T13:00:00",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "dbeaver-community/darwin@860",
+      "verdict": "environment: 400 on the uninstall after the refused open-app reinstall, 2026-11-17 04:34 inside the qa outage (~04:20-05:30); same steps on 860 at 04:42 got 202; 167/171 such uninstalls across the soak got 202",
+      "before": "2026-11-17T05:30:00",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "adobe-creative-cloud/windows@862",
+      "verdict": "environment: Adobe's stub installer exited 206 after ~40s on 862 only (2026-11-25); 859 and 861 passed the same day and build",
+      "before": "2026-11-26T00:00:00",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "aptakube/windows@861",
+      "verdict": "environment: one-off failed relaunch after the open-app upgrade (2026-11-20 07:26); the next run on 861 and the run on 629 passed",
+      "before": "2026-11-21T00:00:00",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "fleet-desktop/darwin",
+      "verdict": "environment: update_path fails because soak hosts aren't MDM-enrolled (1.5.1's MDM gate); the 858 2026-11-19 inventory miss was a single occurrence, reopen if it recurs",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "herdr/darwin",
+      "verdict": "not a bug: the leftover Herdr.app.new.noindex is the app's own staged update, left because the soak kills the app mid-update",
+      "added": "2026-11-26"
     }
   ]
 }
