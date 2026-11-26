@@ -3,28 +3,8 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3919,
- "regressions": [
-  {
-   "app": "p4v/darwin@865",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/p4v_darwin-865-012221.json",
-   "current_record": "soak/2026-11-26/p4v_darwin-865-085400.json",
-   "findings": [
-    "add: add failed 500: x509: certificate has expired or is not yet valid: current time 2026-11-26T12:54:02Z is after 2026-11-25T23:59:59Z"
-   ],
-   "triaged": [],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": null,
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  }
- ],
+ "current_runs": 4170,
+ "regressions": [],
  "catalog": [
   {
    "app": "1password/windows@861",
@@ -448,7 +428,7 @@
    "baseline": "pass",
    "current": "findings",
    "baseline_record": "soak/2026-11-17/signal_windows-861-131803.json",
-   "current_record": "soak/2026-11-25/signal_windows-861-072835.json",
+   "current_record": "soak/2026-11-26/signal_windows-861-145824.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -485,12 +465,31 @@
    "passes_elsewhere": []
   },
   {
+   "app": "sonos/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/sonos_windows-862-053803.json",
+   "current_record": "soak/2026-11-26/sonos_windows-862-151008.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 0 SonosLibraryService: Service cannot be started. The handle is invalid"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": "Windows event-log scan (a999477c)",
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
    "app": "sublime-text/windows@861",
    "kind": "update_path",
    "baseline": "findings",
    "current": "findings",
    "baseline_record": "soak/2026-11-17/sublime-text_windows-861-133217.json",
-   "current_record": "soak/2026-11-25/sublime-text_windows-861-074632.json",
+   "current_record": "soak/2026-11-26/sublime-text_windows-861-150615.json",
    "findings": [
     "S4: self-service changed by pinning (#59238): True -> False"
    ],
@@ -608,7 +607,29 @@
    "passes_elsewhere": []
   }
  ],
- "host_only": [],
+ "host_only": [
+  {
+   "app": "p4v/darwin@865",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/p4v_darwin-865-012221.json",
+   "current_record": "soak/2026-11-26/p4v_darwin-865-085400.json",
+   "findings": [
+    "add: add failed 500: x509: certificate has expired or is not yet valid: current time 2026-11-26T12:54:02Z is after 2026-11-25T23:59:59Z"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": null,
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": [
+    860
+   ]
+  }
+ ],
  "fixed": [
   {
    "app": "1password/windows@864",
@@ -706,7 +727,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/google-chrome_windows-861-082646.json",
-   "current_record": "soak/2026-11-25/google-chrome_windows-861-193858.json",
+   "current_record": "soak/2026-11-26/google-chrome_windows-861-124623.json",
    "findings": [],
    "triaged": []
   },
@@ -727,6 +748,16 @@
    "current": "pass",
    "baseline_record": "soak/2026-11-16/hides_darwin-865-075912.json",
    "current_record": "soak/2026-11-23/hides_darwin-865-093747.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
+   "app": "netron/darwin@860",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/netron_darwin-860-000347.json",
+   "current_record": "soak/2026-11-26/netron_darwin-860-155108.json",
    "findings": [],
    "triaged": []
   },
@@ -781,6 +812,16 @@
    "triaged": []
   },
   {
+   "app": "xmplify/darwin@860",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-17/xmplify_darwin-860-023604.json",
+   "current_record": "soak/2026-11-26/xmplify_darwin-860-152638.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "zoom/darwin@858",
    "kind": "update_path",
    "baseline": "findings",
@@ -791,6 +832,6 @@
    "triaged": []
   }
  ],
- "compared": 277,
+ "compared": 309,
  "canaries_not_yet_on_current": []
 }
