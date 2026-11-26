@@ -3,8 +3,28 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 3759,
- "regressions": [],
+ "current_runs": 3919,
+ "regressions": [
+  {
+   "app": "p4v/darwin@865",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-17/p4v_darwin-865-012221.json",
+   "current_record": "soak/2026-11-26/p4v_darwin-865-085400.json",
+   "findings": [
+    "add: add failed 500: x509: certificate has expired or is not yet valid: current time 2026-11-26T12:54:02Z is after 2026-11-25T23:59:59Z"
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": null,
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  }
+ ],
  "catalog": [
   {
    "app": "1password/windows@861",
@@ -59,7 +79,7 @@
    "baseline": "pass",
    "current": "findings",
    "baseline_record": "soak/2026-11-15/adobe-acrobat-pro_windows-859-183524.json",
-   "current_record": "soak/2026-11-19/adobe-acrobat-pro_windows-859-084002.json",
+   "current_record": "soak/2026-11-26/adobe-acrobat-pro_windows-859-095340.json",
    "findings": [
     "S1: inventory never reported the app after install + refetch"
    ],
@@ -146,7 +166,9 @@
    "findings": [
     "S6: reinstall over the open app: the install over the open app ended as failed_install"
    ],
-   "triaged": [],
+   "triaged": [
+    "filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5)"
+   ],
    "why": "new failure shape S6",
    "reproduced": true,
    "cause": "catalog: 11.42.3 -> 11.43.4",
@@ -165,7 +187,9 @@
    "findings": [
     "S6: reinstall over the open app: the install over the open app ended as failed_install"
    ],
-   "triaged": [],
+   "triaged": [
+    "filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5)"
+   ],
    "why": "new failure shape S6",
    "reproduced": true,
    "cause": "catalog: 11.42.3 -> 11.43.4",
@@ -293,7 +317,9 @@
    "findings": [
     "S1: inventory never reported the app after install + refetch"
    ],
-   "triaged": [],
+   "triaged": [
+    "environment: update_path fails because soak hosts aren't MDM-enrolled (1.5.1's MDM gate); the 858 2026-11-19 inventory miss was a single occurrence, reopen if it recurs"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": null,
@@ -514,7 +540,10 @@
     "install: first install ended as failed_install",
     "install: second install ended as failed_install"
    ],
-   "triaged": [],
+   "triaged": [
+    "environment: Adobe's stub installer exited 206 after ~40s on 862 only (2026-11-25); 859 and 861 passed the same day and build",
+    "environment: Adobe's stub installer exited 206 after ~40s on 862 only (2026-11-25); 859 and 861 passed the same day and build"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": null,
@@ -702,6 +731,16 @@
    "triaged": []
   },
   {
+   "app": "powershell-arm64/windows@864",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/powershell-arm64_windows-864-190611.json",
+   "current_record": "soak/2026-11-26/powershell-arm64_windows-864-074819.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "rubymine/windows@861",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -752,6 +791,6 @@
    "triaged": []
   }
  ],
- "compared": 257,
+ "compared": 277,
  "canaries_not_yet_on_current": []
 }

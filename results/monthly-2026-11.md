@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 15434 cycles: pass 7303, findings 2985, flaky 646, environment 612, harness 357, skipped 3531
+**1. Runs** — 15594 cycles: pass 7417, findings 3002, flaky 646, environment 640, harness 357, skipped 3532
 
-**2. Coverage** — darwin 982/969 (101.3%), quarter 2/2 this week 466/466, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 2/2 this week 230/237, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 669/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 333/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -197,13 +197,15 @@
 | #59740 | open | Fleet-maintained apps: Elmedia Player (macOS) never shows an installed version after install |
 | #59834 | open | Fleet-maintained apps: Infix PDF Editor (Windows) install hangs after the app is already installed, and stays pending |
 | #59835 | open | Fleet-maintained apps: ProtoPie (Windows) installs into the SYSTEM profile instead of the signed-in user's |
+| #59843 | merged | Fix Evernote (Windows) installs that always fail with exit code 2 |
+| #59961 | open | Fleet-maintained apps: Evernote (Windows) install never finishes while the app is open, and the old copy keeps running |
 
 **4. Build changes**
 
 ### 4.94.0-rc.2610272345 (937e87458c) → 4.94.0-rc.2610282316 (7dcab65fcd)
 3 app runs seen on both builds; 0 changed.
 ### 4.94.0-rc.2610282316 (7dcab65fcd) → 4.95.0-rc.2611162253 (5790b6cafd)
-3 app runs seen on both builds; 1 changed.
+4 app runs seen on both builds; 1 changed.
 
 | App | Old build | New build | |
 |---|---|---|---|

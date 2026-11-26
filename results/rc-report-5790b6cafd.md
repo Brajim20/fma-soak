@@ -1,8 +1,14 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3759 · compared on both builds: 257
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 3919 · compared on both builds: 277
 
-**No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+**1 regression suspect** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
+
+| App | Path | Why | Retry | Findings now | Triaged as |
+|---|---|---|---|---|---|
+| p4v/darwin@865 | lifecycle | passed on the baseline | reproduced | add: add failed 500: x509: certificate has expired or is not yet valid: current time 2026-11-26T12:54:02Z is after 2026-11-25T23:59:59Z | **new** |
+
+Next: check each against the baseline's code (is the failing step in Fleet's code or the app's manifest?). Catalog causes aren't release blockers: the catalog ships on its own.
 
 **Catalog changes (11)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 
@@ -14,8 +20,8 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 | chatgpt/darwin@860 | lifecycle | 26.1111.21308 -> 26.1111.71025 | S3: first uninstall: app still on host (status None) | already filed #57025: ChatGPT reports com.openai.codex while the FMA's unique_identifier stays com.openai.chat (decided in #55246), so inventory lands on a separate 'Codex' title; same on 4.94 and 4.9 |
 | claude/darwin@858 | lifecycle | 5.11492.5 -> 6.6395.1 | S1: inventory never reported the app after install + refetch | **new** |
 | datadog-agent/windows@862 | lifecycle | 7.85.2.0 -> 7.85.4.0 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function "github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run".runTraceAgentProcess.func4 (github.com/DataDog/datadog-age | **new** |
-| evernote/windows@859 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | **new** |
-| evernote/windows@862 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | **new** |
+| evernote/windows@859 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5) |
+| evernote/windows@862 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5) |
 | firefox/darwin@858 | lifecycle | 160.0 -> 160.0.1 | S1: inventory never reported the app after install + refetch | **new** |
 | google-chrome/darwin@858 | lifecycle | 157.0.8103.79 -> 158.0.8127.37 | S1: inventory never reported the app after install + refetch | **new** |
 | nessus-agent/windows@861 | lifecycle | 11.2.3.20022 -> 11.2.4.20033 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted. | **new** |
@@ -26,7 +32,7 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 |---|---|---|---|---|
 | 8x8-work/darwin@858 | update_path | 2026-11-17T19:56 | uninstall: app still on host after cleanup uninstall | **new** |
 | docker-desktop/darwin@858 | lifecycle | 2026-11-19T02:15 | S1: inventory never reported the app after install + refetch | **new** |
-| fleet-desktop/darwin@858 | lifecycle | 2026-11-19T01:40 | S1: inventory never reported the app after install + refetch | **new** |
+| fleet-desktop/darwin@858 | lifecycle | 2026-11-19T01:40 | S1: inventory never reported the app after install + refetch | environment: update_path fails because soak hosts aren't MDM-enrolled (1.5.1's MDM gate); the 858 2026-11-19 inventory miss was a single occurrence, reopen if it recurs |
 | microsoft-teams/darwin@858 | lifecycle | 2026-11-18T21:16 | S1: inventory never reported the app after install + refetch | **new** |
 | onedrive/darwin@858 | lifecycle | 2026-11-18T09:37 | S1: inventory never reported the app after install + refetch | **new** |
 | slack/darwin@858 | lifecycle | 2026-11-17T21:59 | S1: inventory never reported the app after install + refetch | **new** |
@@ -46,8 +52,8 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 
 | App | Path | Baseline showed it on | Findings now | Triaged as |
 |---|---|---|---|---|
-| adobe-creative-cloud/windows@862 | lifecycle | 635 | install: first install ended as failed_install<br>install: second install ended as failed_install | **new** |
+| adobe-creative-cloud/windows@862 | lifecycle | 635 | install: first install ended as failed_install<br>install: second install ended as failed_install | environment: Adobe's stub installer exited 206 after ~40s on 862 only (2026-11-25); 859 and 861 passed the same day and build; environment: Adobe's stub installer exited 206 after ~40s on 862 only (20 |
 | python-3.13-arm64/windows@864 | lifecycle | 629, 863 | S1: inventory never reported the app after install + refetch | **new** |
 | wezterm/darwin@865 | lifecycle | 631 | S3: first uninstall: app still on host (status None)<br>install: second install ended as None<br>S3: second uninstall: app still on host (status None) | not a bug (documented limitation): WezTerm.app ships a placeholder CFBundleShortVersionString 0.1.0 and CFBundleVersion 1 in every release, so osquery always reports 0.1.0; PR #53892 (adds the FMA) do |
 
-Fixed on this build (17): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), rubymine/windows@861 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (18): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), brave-browser/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), powershell-arm64/windows@864 (lifecycle), rubymine/windows@861 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), zoom/darwin@858 (update_path)
