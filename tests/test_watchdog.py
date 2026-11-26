@@ -94,6 +94,18 @@ class StaleInventory(unittest.TestCase):
         hosts = {858: sw("online", 720), 865: sw("online", 20)}
         self.assertEqual(W.stale_inventory(hosts, NOW, lambda h: [act(10, status="failed_install")]), {})
 
+    def test_uninstall_that_leaves_the_app_listed_doesnt_count(self):
+        # 860, 2026-11-26: Herdr's staged copy kept it listed through every "successful" uninstall
+        hosts = {860: sw("online", 480), 865: sw("online", 20)}
+        herdr = lambda hid: [act(10, "uninstalled_software", "uninstalled") | {"details": {"status": "uninstalled", "software_title": "Herdr"}}]
+        self.assertEqual(W.stale_inventory(hosts, NOW, herdr, lambda hid: (lambda t: t == "Herdr")), {})
+
+    def test_uninstall_that_removed_the_app_still_counts(self):
+        hosts = {860: sw("online", 480), 865: sw("online", 20)}
+        gone = lambda hid: [{"type": "uninstalled_software", "created_at": act(10)["created_at"],
+                             "details": {"status": "uninstalled", "software_title": "Yubico Authenticator"}}]
+        self.assertEqual(list(W.stale_inventory(hosts, NOW, gone, lambda hid: (lambda t: False))), [860])
+
     def steps(self, state, minutes_later=0, local=None, mine=(858,)):
         hosts = {858: sw("online", 720 + minutes_later), 860: sw("online", 30)}
         now = NOW + datetime.timedelta(minutes=minutes_later)

@@ -170,15 +170,34 @@ def activities(hid, token):
 SOFTWARE_DONE = {("installed_software", "installed"), ("uninstalled_software", "uninstalled")}
 
 
-def changed_after(acts, since, grace_min=30):
+def still_listed(hid, title, token):
+    """True when the host's inventory still lists `title` as installed."""
+    q = urllib.parse.urlencode({"query": title, "per_page": 50})
+    req = urllib.request.Request(f"{BASE}/hosts/{hid}/software?{q}",
+                                 headers={"Authorization": "Bearer " + token, "User-Agent": "fleet-qa-vm-watchdog"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        sw = json.load(r).get("software") or []
+    return any(s.get("name") == title and s.get("installed_versions") for s in sw)
+
+
+def changed_after(acts, since, grace_min=30, listed=lambda title: False):
     """A successful install or uninstall more than grace_min after `since`: the software list changed, and a host
-    with working inventory would have reported it by now."""
+    with working inventory would have reported it by now. An uninstall whose title the inventory still lists
+    doesn't count: the uninstall left a copy behind and the list didn't change (860, 2026-11-26: Herdr's updater
+    staged /Applications/Herdr.app.new.noindex, Fleet's uninstall removes only Herdr.app and reports success, and
+    the soak's cleanup retried it every ~30 min, which looked like stuck inventory)."""
     cut = ts(since) + datetime.timedelta(minutes=grace_min)
-    return any((a.get("type"), (a.get("details") or {}).get("status")) in SOFTWARE_DONE and ts(a["created_at"]) > cut
-               for a in acts)
+    for a in acts:
+        d = a.get("details") or {}
+        if (a.get("type"), d.get("status")) not in SOFTWARE_DONE or ts(a["created_at"]) <= cut:
+            continue
+        if a.get("type") == "uninstalled_software" and d.get("software_title") and listed(d["software_title"]):
+            continue
+        return True
+    return False
 
 
-def stale_inventory(hosts, now, acts_of):
+def stale_inventory(hosts, now, acts_of, listed_of=lambda hid: (lambda title: False)):
     """Online hosts whose software inventory is stuck, {host: software_updated_at}. Fleet only moves
     software_updated_at when the software list changes, so an old value alone means nothing (an idle host keeps
     it); stuck means it's STALE_MIN old although Fleet installed or uninstalled something on the host well after
@@ -193,7 +212,7 @@ def stale_inventory(hosts, now, acts_of):
     stuck = {}
     for hid, since in cands.items():
         try:
-            if changed_after(acts_of(hid), since):
+            if changed_after(acts_of(hid), since, listed=listed_of(hid)):
                 stuck[hid] = since
         except Exception as e:
             log(f"host {hid}: can't read activities ({e})")
@@ -220,7 +239,8 @@ def fix_stale(hosts, state, now, token, local_names, mine):
     """Step through the fix for each stuck host this Mac owns (`mine`): restart fleetd through Fleet, then, if the
     inventory is still stuck FLEETD_WAIT_MIN later, restart the VM (if it's on this Mac) or post to Slack. State:
     state["stale"][host] = {"since": software_updated_at, "fleetd": iso, "vm": iso, "alerted": bool}."""
-    stale = stale_inventory(hosts, now, lambda hid: activities(hid, token))
+    stale = stale_inventory(hosts, now, lambda hid: activities(hid, token),
+                            lambda hid: (lambda title: still_listed(hid, title, token)))
     book = dict(state.get("stale", {}))
     msgs = []
     for hid in list(book):
