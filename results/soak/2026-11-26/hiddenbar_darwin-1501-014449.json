@@ -1,0 +1,113 @@
+{
+ "slug": "hiddenbar/darwin",
+ "host": 1501,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T01:44:49",
+ "catalog_version": "1.13.4",
+ "catalog_id": "d83d5f61a32c",
+ "findings": [],
+ "host_at_start": {
+  "status": "offline",
+  "seen": "2026-11-26T05:43:49Z",
+  "restarted": "0001-01-01T00:00:00Z",
+  "software_updated": "2026-11-26T05:43:31Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 52354,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "1.13.4"
+ ],
+ "package_version": "1.13.4",
+ "context_after_install": {
+  "path": "/Applications/Hidden Bar.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Hidden Bar.app/Contents/MacOS/Hidden Bar",
+  "bundle_id": "com.dwarvesv.minimalbar",
+  "versions": [
+   "1.13.4"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "Removing launchctl service com.dwarvesv.LauncherApplication\n/Users/<user>/Library/Application Scripts/com.dwarvesv.LauncherApplication doesn't exist.\n/Users/<user>/Library/Application Scripts/com.dwarvesv.minimalbar doesn't exist.\n/Users/<user>/Library/Containers/com.dwarvesv.LauncherApplication doesn't exist.\n/Users/<user>/Library/Containers/com.dwarvesv.minimalbar doesn't exist.\n/Users/<user>/Library/Preferences/com.dwarvesv.minimalbar.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "18913"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.dwarvesv.minimalbar' was running; will relaunch after installation.\nQuitting application 'com.dwarvesv.minimalbar'...\nApplication 'com.dwarvesv.minimalbar' quit successfully.\nRelaunching application 'com.dwarvesv.minimalbar'...\nApplication 'com.dwarvesv.minimalbar' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.dwarvesv.minimalbar' was running; will relaunch after installation.",
+  "Quitting application 'com.dwarvesv.minimalbar'...",
+  "Application 'com.dwarvesv.minimalbar' quit successfully.",
+  "Relaunching application 'com.dwarvesv.minimalbar'...",
+  "Application 'com.dwarvesv.minimalbar' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "19703",
+   "path": "/Applications/Hidden Bar.app/Contents/MacOS/Hidden Bar",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "Removing launchctl service com.dwarvesv.LauncherApplication\n/Users/<user>/Library/Application Scripts/com.dwarvesv.LauncherApplication doesn't exist.\n/Users/<user>/Library/Application Scripts/com.dwarvesv.minimalbar doesn't exist.\n/Users/<user>/Library/Containers/com.dwarvesv.LauncherApplication doesn't exist.\n/Users/<user>/Library/Containers/com.dwarvesv.minimalbar doesn't exist.\nremoving /Users/<user>/Library/Preferences/com.dwarvesv.minimalbar.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-26T01:55:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T05:55:13Z",
+  "restarted": "2026-11-26T05:39:42.33235Z",
+  "software_updated": "2026-11-26T05:54:51Z"
+ },
+ "host_disruption": [
+  "restarted at 2026-11-26T05:39:42.33235Z"
+ ],
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/hiddenbar_darwin-1501-014449.json"
+}
