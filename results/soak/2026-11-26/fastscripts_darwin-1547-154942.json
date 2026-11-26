@@ -1,0 +1,109 @@
+{
+ "slug": "fastscripts/darwin",
+ "host": 1547,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T15:49:42",
+ "catalog_version": "3.3.9",
+ "catalog_id": "2c4bb59e0766",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T19:49:32Z",
+  "restarted": "2026-11-26T16:45:00.025568Z",
+  "software_updated": "2026-11-26T19:49:29Z"
+ },
+ "pool_slot": 90002,
+ "title_id": 53502,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.3.9"
+ ],
+ "package_version": "3.3.9",
+ "context_after_install": {
+  "path": "/Applications/FastScripts.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/FastScripts.app/Contents/MacOS/FastScripts",
+  "bundle_id": "com.red-sweater.fastscripts3",
+  "versions": [
+   "3.3.9"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": ".fastscripts3.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.red-sweater.fastscripts.rsscriptrunner.sfl* doesn't exist.\n/Users/<user>/Library/Application Support/FastScripts Script Runner doesn't exist.\n/Users/<user>/Library/Application Support/FastScripts doesn't exist.\n/Users/<user>/Library/Caches/com.red-sweater.fastscripts3 doesn't exist.\n/Users/<user>/Library/Preferences/com.red-sweater.fastscripts3.plist doesn't exist.\n/Users/<user>/Library/WebKit/com.red-sweater.fastscripts3 doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "36117"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 16,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.red-sweater.fastscripts3' was running; will relaunch after installation.\nQuitting application 'com.red-sweater.fastscripts3'...\nApplication 'com.red-sweater.fastscripts3' quit successfully.\nRelaunching application 'com.red-sweater.fastscripts3'...\nApplication 'com.red-sweater.fastscripts3' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.red-sweater.fastscripts3' was running; will relaunch after installation.",
+  "Quitting application 'com.red-sweater.fastscripts3'...",
+  "Application 'com.red-sweater.fastscripts3' quit successfully.",
+  "Relaunching application 'com.red-sweater.fastscripts3'...",
+  "Application 'com.red-sweater.fastscripts3' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "37813",
+   "path": "/Applications/FastScripts.app/Contents/MacOS/FastScripts",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "t.ApplicationRecentDocuments/com.red-sweater.fastscripts3.sfl3.\nremoving /Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.red-sweater.fastscripts.rsscriptrunner.sfl3.\nremoving /Users/<user>/Library/Application Support/FastScripts Script Runner.\nremoving /Users/<user>/Library/Application Support/FastScripts.\nremoving /Users/<user>/Library/Caches/com.red-sweater.fastscripts3.\nremoving /Users/<user>/Library/Preferences/com.red-sweater.fastscripts3.plist.\nremoving /Users/<user>/Library/WebKit/com.red-sweater.fastscripts3.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results",
+  "200 timeout waiting for results"
+ ],
+ "outcome": "pass",
+ "finished": "2026-11-26T16:00:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T20:00:16Z",
+  "restarted": "2026-11-26T16:45:00.025568Z",
+  "software_updated": "2026-11-26T20:00:01Z"
+ },
+ "record": "/Users/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/fastscripts_darwin-1547-154942.json"
+}
