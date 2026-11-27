@@ -1,0 +1,35 @@
+{
+ "slug": "windsurf/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T22:02:21",
+ "catalog_version": "2.3.15",
+ "catalog_id": "83f18c1888fa",
+ "findings": [
+  {
+   "shape": "add",
+   "msg": "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://windsurf-stable.codeiumdata.com/win32-x64/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfSetup-x64-2.3.15.exe\") doesn't exist. Please make sure that URLs are publicy accessible to the internet."
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T02:02:17Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-27T01:59:08Z"
+ },
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-26T22:02:22",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T02:02:17Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-27T01:59:08Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-26/evidence/windsurf_windows-861-220221-library.png",
+  "inventory": "results/soak/2026-11-26/evidence/windsurf_windows-861-220221-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/windsurf_windows-861-220221.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/windsurf_windows-861-220208.json",
+ "crosshost_of": "soak/2026-11-26/windsurf_windows-859-212451.json"
+}
