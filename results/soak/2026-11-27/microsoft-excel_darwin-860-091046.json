@@ -1,0 +1,105 @@
+{
+ "slug": "microsoft-excel/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-27T09:10:46",
+ "catalog_version": "16.115.2",
+ "catalog_id": "3d72e9515bbc",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T13:10:41Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T13:10:35Z"
+ },
+ "title_id": 12364,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Excel\ninstaller: choices changes file '/tmp/choice_xml_KvT' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.115.2"
+ ],
+ "package_version": "16.115.2",
+ "context_after_install": {
+  "path": "/Applications/Microsoft Excel.app",
+  "bundle": "0:0 0775",
+  "executable": "0:0 0775",
+  "exe": "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel",
+  "bundle_id": "com.microsoft.Excel",
+  "versions": [
+   "16.115.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "/'.\nremoving /Users/<user>/Library/Application Scripts/com.microsoft.Excel.\n/Users/<user>/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.microsoft.excel.sfl* doesn't exist.\n/Users/<user>/Library/Caches/com.microsoft.Excel doesn't exist.\n/Users/<user>/Library/Containers/com.microsoft.Excel doesn't exist.\n/Users/<user>/Library/Preferences/com.microsoft.Excel.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.microsoft.Excel.savedState doesn't exist.\n/Users/<user>/Library/Webkit/com.microsoft.Excel doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Microsoft Excel\ninstaller: choices changes file '/tmp/choice_xml_Zfz' applied\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "51967"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 92,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.microsoft.Excel' was running; will relaunch after installation.\nQuitting application 'com.microsoft.Excel'...\nApplication 'com.microsoft.Excel' did not quit.\nStopping application 'com.microsoft.Excel'...\nApplication 'com.microsoft.Excel' stopped.\ninstaller: Package name is Microsoft Excel\ninstaller: choices changes file '/tmp/choice_xml_34Y' applied\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.microsoft.Excel'...\nApplication 'com.microsoft.Excel' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.microsoft.Excel' was running; will relaunch after installation.",
+  "Quitting application 'com.microsoft.Excel'...",
+  "Application 'com.microsoft.Excel' did not quit.",
+  "Stopping application 'com.microsoft.Excel'...",
+  "Application 'com.microsoft.Excel' stopped.",
+  "Relaunching application 'com.microsoft.Excel'...",
+  "Application 'com.microsoft.Excel' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "53143",
+   "path": "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: none)",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-27T09:19:10",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T13:19:05Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T13:18:59Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-27/microsoft-excel_darwin-860-091046.json"
+}
