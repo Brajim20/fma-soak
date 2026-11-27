@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 16311 cycles: pass 7943, findings 3081, flaky 650, environment 737, harness 357, skipped 3543
+**1. Runs** — 16318 cycles: pass 7943, findings 3082, flaky 650, environment 743, harness 357, skipped 3543
 
 **2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 919/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 454/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -202,6 +202,8 @@
 | #59961 | open | Fleet-maintained apps: Evernote (Windows) install never finishes while the app is open, and the old copy keeps running |
 | #60012 | open | Fleet-maintained apps: Logi Options+ (macOS) installs 2.9.1013853 while the catalog lists 3.0.1024647, so its patch policy can't pass |
 | #60013 | open | Fleet-maintained apps: Visual Paradigm (macOS) can't be added because the catalog's pinned installer URL returns 404 |
+| #60052 | open | Fleet-maintained apps: Windsurf (Windows) can't be added because the catalog's pinned installer URL returns 404 |
+| #60053 | open | Fleet-maintained apps: XnConvert (Windows) patch policy never detects the app, so it always passes |
 
 **4. Build changes**
 

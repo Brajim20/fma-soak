@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 4636,
+ "current_runs": 4643,
  "regressions": [],
  "catalog": [
   {
@@ -123,7 +123,9 @@
    "findings": [
     "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Druva inSync Client Service' could not be restarted."
    ],
-   "triaged": [],
+   "triaged": [
+    "not a bug: one RestartManager 10007 event-log entry per cycle; install, detection, patch and uninstall all pass"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 8.1.6 -> 8.1.9",
@@ -533,7 +535,9 @@
    "findings": [
     "S2: the Application event log has errors naming the app after Fleet installed and opened it: 0 SonosLibraryService: Service cannot be started. The handle is invalid"
    ],
-   "triaged": [],
+   "triaged": [
+    "not a bug: intermittent 'handle is invalid' event-log error after install; install, uninstall and patch all pass"
+   ],
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": null,
