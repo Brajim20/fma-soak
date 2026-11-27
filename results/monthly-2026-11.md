@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 16363 cycles: pass 7958, findings 3082, flaky 650, environment 773, harness 357, skipped 3543
+**1. Runs** — 16370 cycles: pass 7959, findings 3082, flaky 650, environment 779, harness 357, skipped 3543
 
 **2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 919/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 454/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -37,7 +37,7 @@
 | #56971 | closed | Fleet-maintained apps: AWS CLI (Windows) is never detected, so its patch policy always passes |
 | #57008 | closed | Fleet-maintained apps: MEGAsync (macOS) patch policy fails on up-to-date hosts |
 | #57025 | open | macOS `ChatGPT.app` (bundle id `com.openai.codex`) is listed as "Codex" in software inventory — search for "ChatGPT" misses it; three different "Codex" titles on the Software page |
-| #57051 | open | Druva InSync (GovCloud) colliding with Druva InSync |
+| #57051 | closed | Druva InSync (GovCloud) colliding with Druva InSync |
 | #57113 | closed | Fleet-maintained apps: REAPER (Windows) is never detected, so its patch policy always passes |
 | #57114 | closed | Fleet-maintained apps: Arduino IDE (Windows) install always fails with 1603 (per-user MSI under SYSTEM hits the 260-character path limit) |
 | #57116 | closed | Fleet-maintained apps: Evernote (macOS) installs a 2024 build (10.105.4) labeled as 11.40.3 |
