@@ -1,0 +1,111 @@
+{
+ "slug": "notion-calendar/windows",
+ "host": 859,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T23:53:04",
+ "catalog_version": "1.133.0",
+ "catalog_id": "eebcab823428",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "inventory never reported the app after install + refetch"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T03:53:00Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-27T03:53:03Z"
+ },
+ "title_id": 53933,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 61,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Notion Calendar for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [],
+ "package_version": "1.133.0",
+ "context_after_install": {
+  "install_locations": [
+   ""
+  ],
+  "names": [
+   "Notion Calendar 1.133.0"
+  ],
+  "versions": [
+   "1.133.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1583507874-718133821-835641035-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\6a2b5ac5-fa29-5b18-8c83-673211e963c6)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Uninstall Notion Calendar.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\"\nNotion Calendar removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Notion Calendar for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "1328",
+   "2812",
+   "6664",
+   "10364"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nInstalling Notion Calendar for <host>\\<user>\nStopping Notion Calendar: Notion Calendar (1328), Notion Calendar (2812), Notion Calendar (6664), Notion Calendar (10364)\nInstall exit code: 0\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Stopping Notion Calendar: Notion Calendar (1328), Notion Calendar (2812), Notion Calendar (6664), Notion Calendar (10364)"
+ ],
+ "open_reinstall_processes_after": [],
+ "open_reinstall_after_open": {
+  "exit": 0,
+  "pids": [
+   "3740",
+   "11956",
+   "13636",
+   "13860"
+  ],
+  "note": null
+ },
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "0' (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-1583507874-718133821-835641035-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\6a2b5ac5-fa29-5b18-8c83-673211e963c6)\n  Running as <host>\\<user>: C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\\Uninstall Notion Calendar.exe /currentuser /S\n  Uninstall exit code: 0\n  Uninstaller left C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web behind; removing it.\n  Running as <host>\\<user>: C:\\WINDOWS\\System32\\cmd.exe /d /c rd /s /q \"C:\\Users\\<user>\\AppData\\Local\\Programs\\notion-calendar-web\"\nNotion Calendar removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-27T00:17:02",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T04:17:02Z",
+  "restarted": "2026-11-24T16:32:03.994578Z",
+  "software_updated": "2026-11-27T04:16:51Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-26/evidence/notion-calendar_windows-859-235304-library.png",
+  "inventory": "results/soak/2026-11-26/evidence/notion-calendar_windows-859-235304-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/notion-calendar_windows-859-235304.json"
+}
