@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 4516,
+ "current_runs": 4534,
  "regressions": [],
  "catalog": [
   {
@@ -398,6 +398,27 @@
  ],
  "new_check": [
   {
+   "app": "1password/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/1password_windows-861-232136.json",
+   "current_record": "soak/2026-11-27/1password_windows-861-045805.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": "self-service flag across pin/unpin (a999477c)",
+   "passed_on_current": "2026-11-19T14:44:53",
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
    "app": "claude/windows@861",
    "kind": "update_path",
    "baseline": "pass",
@@ -415,6 +436,27 @@
    "cause": null,
    "check": "self-service flag across pin/unpin (a999477c)",
    "passed_on_current": "2026-11-17T19:54:12",
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
+   "app": "firefox/windows@861",
+   "kind": "update_path",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-15/firefox_windows-861-235617.json",
+   "current_record": "soak/2026-11-27/firefox_windows-861-050739.json",
+   "findings": [
+    "S4: self-service changed by pinning (#59238): True -> False"
+   ],
+   "triaged": [
+    "filed #59238 (open): pinning a version turns Self-service off and setting Latest turns it back on; known, stops matching when #59238 closes as fixed"
+   ],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": null,
+   "check": "self-service flag across pin/unpin (a999477c)",
+   "passed_on_current": "2026-11-19T14:49:36",
    "baseline_elsewhere": [],
    "passes_elsewhere": []
   },
