@@ -4362,6 +4362,17 @@
       "app": "herdr/darwin",
       "verdict": "not a bug: the leftover Herdr.app.new.noindex is the app's own staged update, left because the soak kills the app mid-update",
       "added": "2026-11-26"
+    },
+    {
+      "app": "logi-options+/darwin",
+      "verdict": "filed #60012: #59598 bumped the manifest to 3.0.1024647 but the unversioned no_check installer still installs 2.9.1013853, so the patched query fails right after install (1548)",
+      "after": "2026-11-23T00:00:00",
+      "added": "2026-11-26"
+    },
+    {
+      "app": "visual-paradigm/darwin",
+      "verdict": "filed #60013: pinned eu8.dl.visual-paradigm.com 18.1 DMG returns 404 (checked 2026-11-26), add fails 422 (1548)",
+      "added": "2026-11-26"
     }
   ]
 }
