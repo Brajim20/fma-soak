@@ -1,0 +1,105 @@
+{
+ "slug": "box-drive/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T19:03:39",
+ "catalog_version": "2.55.145",
+ "catalog_id": "430d8c8ed40d",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T23:03:33Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T23:03:26Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 13376,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:B0) [23:04:08:919]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:B0) [23:04:08:991]: Destroying RemoteAPI object.\r\nMSI (s) (50:CC) [23:04:08:991]: Custom Action Manager thread ending.\r\nMSI (c) (D8:88) [23:04:09:029]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (D8:88) [23:04:09:033]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/26/2026  23:04:09 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/26/2026  23:04:06 ===",
+  "=== Verbose logging stopped: 11/26/2026  23:04:09 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.55.145"
+ ],
+ "package_version": "2.55.145",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files\\Box\\Box\\"
+  ],
+  "names": [
+   "Box"
+  ],
+  "versions": [
+   "2.55.145"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 46,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:B0) [23:06:56:388]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:B0) [23:06:56:479]: Destroying RemoteAPI object.\r\nMSI (s) (50:FC) [23:06:56:480]: Custom Action Manager thread ending.\r\nMSI (c) (18:C8) [23:06:56:586]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (18:C8) [23:06:56:606]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/26/2026  23:06:56 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/26/2026  23:06:53 ===",
+  "=== Verbose logging stopped: 11/26/2026  23:06:56 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "3476"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 16,
+ "open_reinstall_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (50:70) [23:08:03:564]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (50:70) [23:08:03:566]: Destroying RemoteAPI object.\r\nMSI (s) (50:34) [23:08:03:566]: Custom Action Manager thread ending.\r\nMSI (c) (50:B0) [23:08:03:570]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (50:B0) [23:08:03:572]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/26/2026  23:08:03 ===\r\n\r\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "=== Logging stopped: 11/26/2026  23:08:03 ===",
+  "=== Verbose logging stopped: 11/26/2026  23:08:03 ==="
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "3476",
+   "path": "C:\\Program Files\\Box\\Box\\Box.exe",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "0",
+ "open_reinstall": "done",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T19:10:37",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T23:10:33Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-26T23:10:26Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/box-drive_windows-862-190339.json"
+}
