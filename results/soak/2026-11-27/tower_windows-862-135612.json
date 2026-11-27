@@ -1,0 +1,91 @@
+{
+ "slug": "tower/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-27T13:56:12",
+ "catalog_version": "16.0.593",
+ "catalog_id": "6b814d3c1f07",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T17:56:11Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-27T17:38:52Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 55152,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (C8:94) [17:58:53:848]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (C8:94) [17:58:53:849]: Destroying RemoteAPI object.\r\nMSI (s) (C8:4C) [17:58:53:849]: Custom Action Manager thread ending.\r\nMSI (c) (28:8C) [17:58:53:851]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (28:8C) [17:58:53:853]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/27/2026  17:58:53 ===\r\n\r\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [
+  "=== Logging stopped: 11/27/2026  17:58:53 ===",
+  "=== Verbose logging stopped: 11/27/2026  17:58:53 ==="
+ ],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "16.0.593.0",
+  "16.0.593"
+ ],
+ "package_version": "16.0.593",
+ "context_after_install": {
+  "install_locations": [
+   "",
+   "C:\\Program Files\\Tower\\"
+  ],
+  "names": [
+   "Tower"
+  ],
+  "versions": [
+   "16.0.593",
+   "16.0.593.0"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "dows\\CurrentVersion\\Installer\\Rollback\\Scripts 3: 2 \r\nMSI (s) (C8:BC) [18:01:40:092]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (s) (C8:BC) [18:01:40:093]: Destroying RemoteAPI object.\r\nMSI (s) (C8:B0) [18:01:40:094]: Custom Action Manager thread ending.\r\nMSI (c) (38:1C) [18:01:40:096]: Decrementing counter to disable shutdown. If counter >= 0, shutdown will be denied.  Counter after decrement: -1\r\nMSI (c) (38:1C) [18:01:40:098]: MainEngineThread is returning 0\r\n=== Verbose logging stopped: 11/27/2026  18:01:40 ===\r\n\r\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [
+  "=== Logging stopped: 11/27/2026  18:01:40 ===",
+  "=== Verbose logging stopped: 11/27/2026  18:01:40 ==="
+ ],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-27T14:04:49",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T18:04:41Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-27T18:04:38Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-27/tower_windows-862-135612.json"
+}
