@@ -1,0 +1,117 @@
+{
+ "slug": "logi-options+/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T20:31:26",
+ "catalog_version": "3.0.1024647",
+ "catalog_id": "994c738402fc",
+ "findings": [
+  {
+   "shape": "S1",
+   "msg": "patched query fails right after installing 3.0.1024647: the patch policy would flag an up-to-date host"
+  },
+  {
+   "shape": "S1",
+   "msg": "inventory ['2.9.1013853'] is lower than the installed package 3.0.1024647 (#51377 shape: the patch policy can't pass)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T00:31:17Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-27T00:31:05Z"
+ },
+ "title_id": 53722,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 77,
+ "first_install_output_tail": "\";\n\t\"OnDemand\" = false;\n\t\"LastExitStatus\" = 0;\n\t\"PID\" = 67189;\n\t\"Program\" = \"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t\"ProgramArguments\" = (\n\t\t\"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t);\n};\nBoot-out failed: 5: Input/output error\nBootstrap failed: 5: Input/output error\nERROR  : dpShutdown : No background queue to reset.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "2.9.1013853"
+ ],
+ "package_version": "3.0.1024647",
+ "context_after_install": {
+  "path": "/Applications/logioptionsplus.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/logioptionsplus.app/Contents/MacOS/logioptionsplus",
+  "bundle_id": "com.logi.optionsplus",
+  "versions": [
+   "2.9.1013853"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": false,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "brary/HTTPStorages/LogiPluginServiceNative doesn't exist.\n/Users/<user>/Library/Logs/xlog_logitech doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.cp-dev-mgr.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.lps.settings.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.optionsplus.driverhost.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.optionsplus.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.logi.pluginservice.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.logi.optionsplus.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 62,
+ "second_install_output_tail": "\";\n\t\"OnDemand\" = false;\n\t\"LastExitStatus\" = 0;\n\t\"PID\" = 69475;\n\t\"Program\" = \"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t\"ProgramArguments\" = (\n\t\t\"/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\";\n\t);\n};\nBoot-out failed: 5: Input/output error\nBootstrap failed: 5: Input/output error\nERROR  : dpShutdown : No background queue to reset.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "70193",
+   "70199"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "11-27 00:37:25.185] [info] [ArgParser.mm:200] arg name: \ns\n[2026-11-27 00:37:25.185] [info] [ArgParser.mm:164] Processed args: status: {\n    args =     {\n        \"--actions-ring\" = 1;\n        \"--analytics\" = 1;\n        \"--backlight\" = 1;\n        \"--device-recommendation\" = 1;\n        \"--dfu\" = 1;\n        \"--flow\" = 1;\n        \"--logivoice\" = 1;\n        \"--smartactions\" = 1;\n        \"--sso\" = 1;\n        \"--update\" = 1;\n    };\n    lastarg = \"--quiet\";\n    lastval = \"\";\n    status = 0;\n}\nRelaunching application 'com.logi.optionsplus'...\nApplication 'com.logi.optionsplus' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.logi.optionsplus' was running; will relaunch after installation.",
+  "Quitting application 'com.logi.optionsplus'...",
+  "Application 'com.logi.optionsplus' quit successfully.",
+  "Relaunching application 'com.logi.optionsplus'...",
+  "Application 'com.logi.optionsplus' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "70242",
+   "path": "/Applications/logioptionsplus.app/Contents/MacOS/logioptionsplus",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-26T20:39:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T00:39:20Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-27T00:39:16Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-26/evidence/logi-options+_darwin-865-203126-library.png",
+  "inventory": "results/soak/2026-11-26/evidence/logi-options+_darwin-865-203126-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/logi-options+_darwin-865-203126.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/logi-options+_darwin-865-202229.json",
+ "crosshost_of": "soak/2026-11-26/logi-options+_darwin-1548-160934.json"
+}
