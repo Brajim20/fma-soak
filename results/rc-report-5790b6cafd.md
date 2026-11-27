@@ -1,6 +1,6 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4661 · compared on both builds: 367
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4670 · compared on both builds: 368
 
 **No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
@@ -60,4 +60,4 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 |---|---|---|---|---|
 | p4v/darwin@865 | lifecycle | 860 | add: add failed 500: x509: certificate has expired or is not yet valid: current time 2026-11-26T12:54:02Z is after 2026-11-25T23:59:59Z | **new** |
 
-Fixed on this build (21): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@859 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), netron/darwin@860 (lifecycle), powershell-arm64/windows@864 (lifecycle), rubymine/windows@861 (lifecycle), tower/windows@859 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), xmplify/darwin@860 (lifecycle), zoom/darwin@858 (update_path)
+Fixed on this build (22): 1password/windows@864 (lifecycle), acorn/darwin@860 (lifecycle), bitwarden/windows@862 (lifecycle), clop/darwin@860 (lifecycle), db-browser-for-sqlite/windows@859 (lifecycle), db-browser-for-sqlite/windows@864 (lifecycle), druva-insync/darwin@858 (lifecycle), druva-insync/darwin@860 (lifecycle), eclipse-temurin-jre-17/windows@862 (lifecycle), google-chrome/windows@861 (lifecycle), google-chrome/windows@861 (update_path), hides/darwin@865 (lifecycle), netron/darwin@860 (lifecycle), powershell-arm64/windows@864 (lifecycle), rubymine/windows@861 (lifecycle), tower/windows@859 (lifecycle), tower/windows@862 (lifecycle), transmission/darwin@865 (lifecycle), transmission/windows@859 (lifecycle), whispering/darwin@865 (lifecycle), xmplify/darwin@860 (lifecycle), zoom/darwin@858 (update_path)
