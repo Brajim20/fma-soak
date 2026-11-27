@@ -1,0 +1,105 @@
+{
+ "slug": "selfcontrol/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-27T03:28:56",
+ "catalog_version": "4.0.2",
+ "catalog_id": "ac0a6affcdc9",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T07:28:53Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T07:28:44Z"
+ },
+ "title_id": 54097,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "4.0.2"
+ ],
+ "package_version": "4.0.2",
+ "context_after_install": {
+  "path": "/Applications/SelfControl.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/SelfControl.app/Contents/MacOS/SelfControl",
+  "bundle_id": "org.eyebeam.SelfControl",
+  "versions": [
+   "4.0.2"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Preferences/org.eyebeam.SelfControl.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_via": "self_service",
+ "second_install_self_service_enabled": 200,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "13008"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'org.eyebeam.SelfControl' was running; will relaunch after installation.\nQuitting application 'org.eyebeam.SelfControl'...\nApplication 'org.eyebeam.SelfControl' quit successfully.\nRelaunching application 'org.eyebeam.SelfControl'...\nApplication 'org.eyebeam.SelfControl' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'org.eyebeam.SelfControl' was running; will relaunch after installation.",
+  "Quitting application 'org.eyebeam.SelfControl'...",
+  "Application 'org.eyebeam.SelfControl' quit successfully.",
+  "Relaunching application 'org.eyebeam.SelfControl'...",
+  "Application 'org.eyebeam.SelfControl' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "13046",
+   "path": "/Applications/SelfControl.app/Contents/MacOS/SelfControl",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "removing /Users/<user>/Library/Preferences/org.eyebeam.SelfControl.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-27T03:35:20",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T07:35:17Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T07:35:20Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-27/selfcontrol_darwin-860-032856.json"
+}
