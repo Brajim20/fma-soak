@@ -4373,6 +4373,50 @@
       "app": "visual-paradigm/darwin",
       "verdict": "filed #60013: pinned eu8.dl.visual-paradigm.com 18.1 DMG returns 404 (checked 2026-11-26), add fails 422 (1548)",
       "added": "2026-11-26"
+    },
+    {
+      "app": "windsurf/windows",
+      "verdict": "filed #60052: pinned WindsurfSetup-x64-2.3.15.exe returns 404 (checked 2026-11-27), add fails 422",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "xnconvert/windows",
+      "verdict": "filed #60053: exists query matches name = 'XnConvert' but the installed DisplayName is 'XnConvert (x64)' (winget ProductCode XnConvert (x64)_is1), so the patch policy always passes",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "downie/darwin",
+      "msg_contains": "unexpected EOF",
+      "verdict": "environment: the DMG downloads complete with a matching sha from outside the qa instance; Avast hit the same EOF in the same cycle (qa egress)",
+      "before": "2026-11-28T00:00:00",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "macs-fan-control/darwin",
+      "msg_contains": "SHA256",
+      "verdict": "upstream: vendor replaced the v1.5.23 release zip in place on 2026-11-25 (now b8ae0349..., catalog d30936df...); catalog refresh should pick it up",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "brave-browser/windows",
+      "verdict": "environment: Brave self-updated to .59, so Fleet's pinned .58 installer was a downgrade over the running app",
+      "before": "2026-11-28T00:00:00",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "druva-insync/windows",
+      "verdict": "not a bug: one RestartManager 10007 event-log entry per cycle; install, detection, patch and uninstall all pass",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "mullvad-vpn/windows",
+      "verdict": "not a bug: the vendor uninstaller crashes in combase.dll once per uninstall but the uninstall succeeds; reopen if the uninstall starts failing",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "sonos/windows",
+      "verdict": "not a bug: intermittent 'handle is invalid' event-log error after install; install, uninstall and patch all pass",
+      "added": "2026-11-27"
     }
   ]
 }
