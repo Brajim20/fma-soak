@@ -1,0 +1,103 @@
+{
+ "slug": "dictionaries/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T23:49:05",
+ "catalog_version": "3.0",
+ "catalog_id": "bfe1ccf8ff32",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T03:48:55Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T03:48:54Z"
+ },
+ "title_id": 53932,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.0"
+ ],
+ "package_version": "3.0",
+ "context_after_install": {
+  "path": "/Applications/Dictionaries.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Dictionaries.app/Contents/MacOS/Dictionaries",
+  "bundle_id": "io.dictionaries.Dictionaries",
+  "versions": [
+   "3.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "/Users/<user>/Library/Application Scripts/io.dictionaries.Dictionaries.Helper doesn't exist.\n/Users/<user>/Library/Application Support/io.dictionaries.Dictionaries doesn't exist.\n/Users/<user>/Library/Containers/io.dictionaries.Dictionaries doesn't exist.\n/Users/<user>/Library/HTTPStorages/io.dictionaries.Dictionaries doesn't exist.\n/Users/<user>/Library/Preferences/io.dictionaries.Dictionaries.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 16,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "74949"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'io.dictionaries.Dictionaries' was running; will relaunch after installation.\nQuitting application 'io.dictionaries.Dictionaries'...\nApplication 'io.dictionaries.Dictionaries' quit successfully.\nRelaunching application 'io.dictionaries.Dictionaries'...\nApplication 'io.dictionaries.Dictionaries' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'io.dictionaries.Dictionaries' was running; will relaunch after installation.",
+  "Quitting application 'io.dictionaries.Dictionaries'...",
+  "Application 'io.dictionaries.Dictionaries' quit successfully.",
+  "Relaunching application 'io.dictionaries.Dictionaries'...",
+  "Application 'io.dictionaries.Dictionaries' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "74991",
+   "path": "/Applications/Dictionaries.app/Contents/MacOS/Dictionaries",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "/Users/<user>/Library/Application Scripts/io.dictionaries.Dictionaries.Helper doesn't exist.\n/Users/<user>/Library/Application Support/io.dictionaries.Dictionaries doesn't exist.\n/Users/<user>/Library/Containers/io.dictionaries.Dictionaries doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/io.dictionaries.Dictionaries.\nremoving /Users/<user>/Library/Preferences/io.dictionaries.Dictionaries.plist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T23:55:03",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T03:54:59Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T03:55:03Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/dictionaries_darwin-860-234905.json"
+}
