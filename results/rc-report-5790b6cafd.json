@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 4446,
+ "current_runs": 4516,
  "regressions": [],
  "catalog": [
   {
@@ -28,29 +28,6 @@
    "passes_elsewhere": [
     859,
     862
-   ]
-  },
-  {
-   "app": "1password/windows@862",
-   "kind": "lifecycle",
-   "baseline": "pass",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-17/1password_windows-862-071906.json",
-   "current_record": "soak/2026-11-24/1password_windows-862-231611.json",
-   "findings": [
-    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc0000409 Fault offset: 0x000000000690026d"
-   ],
-   "triaged": [
-    "not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). Same class as power-automate/zen-browser"
-   ],
-   "why": "passed on the baseline",
-   "reproduced": true,
-   "cause": "catalog: 8.12.44 -> 8.12.46",
-   "check": "Windows event-log scan (a999477c)",
-   "passed_on_current": "2026-11-22T03:23:14",
-   "baseline_elsewhere": [],
-   "passes_elsewhere": [
-    859
    ]
   },
   {
@@ -113,6 +90,27 @@
    "check": "Windows event-log scan (a999477c)",
    "passed_on_current": null,
    "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
+   "app": "dell-command-update/windows@862",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/dell-command-update_windows-862-001758.json",
+   "current_record": "soak/2026-11-27/dell-command-update_windows-862-034318.json",
+   "findings": [
+    "S1: inventory never reported the app after install + refetch"
+   ],
+   "triaged": [],
+   "why": "new failure shape S1",
+   "reproduced": true,
+   "cause": "catalog: 5.7.0 -> 5.7.2",
+   "check": null,
+   "passed_on_current": null,
+   "baseline_elsewhere": [
+    635
+   ],
    "passes_elsewhere": []
   },
   {
@@ -683,16 +681,6 @@
    "triaged": []
   },
   {
-   "app": "brave-browser/windows@862",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "pass",
-   "baseline_record": "soak/2026-11-17/brave-browser_windows-862-084647.json",
-   "current_record": "soak/2026-11-22/brave-browser_windows-862-025207.json",
-   "findings": [],
-   "triaged": []
-  },
-  {
    "app": "clop/darwin@860",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -758,7 +746,7 @@
    "baseline": "findings",
    "current": "pass",
    "baseline_record": "soak/2026-11-17/google-chrome_windows-861-082646.json",
-   "current_record": "soak/2026-11-26/google-chrome_windows-861-124623.json",
+   "current_record": "soak/2026-11-27/google-chrome_windows-861-022053.json",
    "findings": [],
    "triaged": []
   },
@@ -873,6 +861,6 @@
    "triaged": []
   }
  ],
- "compared": 359,
+ "compared": 367,
  "canaries_not_yet_on_current": []
 }
