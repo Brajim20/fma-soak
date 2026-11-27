@@ -24,6 +24,18 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/audacity/darwin.json), [audacity.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/audacity.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-02 Update Fleet-maintained apps (#57251); 2025-12-10 Add multiple macOS FMAs (#37034) \u00b7 issues mentioning it: #59095 (open), #48334 (closed)"
  },
  {
+  "app": "chatgpt/darwin@860",
+  "shape": "S1",
+  "msgs": [
+   "inventory never reported the app after install + refetch"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/chatgpt_darwin-860-230005.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/chatgpt/darwin.json), [chatgpt.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/chatgpt.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-18 Fleet-maintained apps: quit and relaunch the current ChatGPT app on macOS install (#59118); 2026-07-13 Update Fleet-maintained apps (#49196); 2025-11-18 Adding ChatGPT as macOS Fleet-maintained app (#34997) \u00b7 issues mentioning it: #57025 (open), #56935 (open), #59820 (open), #56937 (open), #57515 (closed)"
+ },
+ {
   "app": "commander-one/darwin@860",
   "shape": "S1",
   "msgs": [
@@ -79,8 +91,32 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "reproduced on 865 [record](soak/2026-11-26/gog-galaxy_darwin-865-225038.json)",
   "record": "results/soak/2026-11-26/gog-galaxy_darwin-1554-184942.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/darwin.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gog-galaxy.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "gog-galaxy/darwin@860",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['2.1.13'] after installing 2.1.13.85; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/gog-galaxy_darwin-860-221853.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/darwin.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gog-galaxy.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "gog-galaxy/darwin@865",
+  "shape": "S1",
+  "msgs": [
+   "inventory shows ['2.1.13'] after installing 2.1.13.85; the patch query passes, so only the version Fleet displays is behind"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/gog-galaxy_darwin-865-225038.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/darwin.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/gog-galaxy.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [software_installers.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software_installers.go), [software.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/server/datastore/mysql/software.go) \u00b7 last changes: 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-09 Add macOS Fleet-maintained apps (G) (#47232) \u00b7 issues mentioning it: #49300 (closed)"
  },
  {
@@ -338,7 +374,7 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/druva-insync/windows.json), [druva-insync.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/druva-insync.json) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-19 Unfreeze 16 Fleet-maintained apps that pass validation (#59297); 2026-10-31 Updating all macOS Fleet-maintained app scripts (#57031); 2026-04-20 Add Druva inSync as a Windows FMA (#43817) \u00b7 issues mentioning it: #57051 (open), #57052 (open), #52732 (open), #59093 (closed), #52612 (closed)"
  },
  {
-  "app": "gog-galaxy/windows@861",
+  "app": "gog-galaxy/windows@859",
   "shape": "S2",
   "msgs": [
    "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: GalaxyClient.exe, version: 2.1.10.56, time stamp: 0x6aa80076 Faulting module name: qwindows.dll, version: 6.7.2.0, time stamp: 0x6a6d236f Exception code: 0xc0000005 Fault offset: 0x000000000000"
@@ -346,7 +382,31 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-26/gog-galaxy_windows-859-224429.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/windows.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/gog-galaxy.json), [gog-galaxy_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_install.ps1), [gog-galaxy_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "gog-galaxy/windows@861",
+  "shape": "S2",
+  "msgs": [
+   "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: GalaxyClient.exe, version: 2.1.10.56, time stamp: 0x6aa80076 Faulting module name: qwindows.dll, version: 6.7.2.0, time stamp: 0x6a6d236f Exception code: 0xc0000005 Fault offset: 0x000000000000"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 859 [record](soak/2026-11-26/gog-galaxy_windows-859-224429.json)",
   "record": "results/soak/2026-11-26/gog-galaxy_windows-861-192456.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/windows.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/gog-galaxy.json), [gog-galaxy_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_install.ps1), [gog-galaxy_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #49300 (closed)"
+ },
+ {
+  "app": "gog-galaxy/windows@862",
+  "shape": "S2",
+  "msgs": [
+   "the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: GalaxyClient.exe, version: 2.1.10.56, time stamp: 0x6aa80076 Faulting module name: qwindows.dll, version: 6.7.2.0, time stamp: 0x6a6d236f Exception code: 0xc0000005 Fault offset: 0x000000000000"
+  ],
+  "retried": "not retried",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/gog-galaxy_windows-862-221736.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/gog-galaxy/windows.json), [gog-galaxy.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/gog-galaxy.json), [gog-galaxy_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_install.ps1), [gog-galaxy_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/gog-galaxy_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-06-15 Add more Windows FMAs (#47560) \u00b7 issues mentioning it: #49300 (closed)"
  },
  {
@@ -422,6 +482,18 @@
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/another-redis-desktop-manager/windows.json), [another-redis-desktop-manager.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/another-redis-desktop-manager.json), [another-redis-desktop-manager_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/another-redis-desktop-manager_install.ps1), [another-redis-desktop-manager_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/another-redis-desktop-manager_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-05-30 FMA - Another Redis Desktop Manager (#46495) \u00b7 issues mentioning it: none"
  },
  {
+  "app": "crystaldiskmark/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "second uninstall: app still on host (status None)"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/crystaldiskmark_windows-861-221059.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
+ },
+ {
   "app": "figma/windows@861",
   "shape": "S3",
   "msgs": [
@@ -446,7 +518,7 @@
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/ultimaker-cura/darwin.json), [ultimaker-cura.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/ultimaker-cura.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-05 Update Fleet-maintained apps (#57732); 2026-06-09 Add macOS Fleet-maintained apps (U) (#47230) \u00b7 issues mentioning it: none"
  },
  {
-  "app": "xnconvert/windows@861",
+  "app": "xnconvert/windows@859",
   "shape": "S3",
   "msgs": [
    "first install: Fleet says installed but the app isn't on the host",
@@ -455,8 +527,58 @@
   "retried": "reproduced on retry",
   "runs": 1,
   "other_host": null,
+  "record": "results/soak/2026-11-26/xnconvert_windows-859-222819.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/xnconvert/windows.json), [xnconvert.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/xnconvert.json), [xnconvert_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_install.ps1), [xnconvert_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "xnconvert/windows@861",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": "reproduced on 859 [record](soak/2026-11-26/xnconvert_windows-859-222819.json)",
   "record": "results/soak/2026-11-26/xnconvert_windows-861-202246.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/xnconvert/windows.json), [xnconvert.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/xnconvert.json), [xnconvert_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_install.ps1), [xnconvert_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "xnconvert/windows@862",
+  "shape": "S3",
+  "msgs": [
+   "first install: Fleet says installed but the app isn't on the host",
+   "second install: Fleet says installed but the app isn't on the host"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/xnconvert_windows-862-220731.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/xnconvert/windows.json), [xnconvert.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/xnconvert.json), [xnconvert_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_install.ps1), [xnconvert_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/xnconvert_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-10 Move Windows FMA open-query overrides into the winget input manifests (#57936); 2026-11-03 Stop running apps before Inno Setup installs in Windows FMAs (#57347); 2026-08-08 Validate all Fleet-maintained apps (#50811) \u00b7 issues mentioning it: none"
+ },
+ {
+  "app": "crystaldiskmark/windows@859",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/crystaldiskmark_windows-859-220529.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
+ },
+ {
+  "app": "crystaldiskmark/windows@861",
+  "shape": "S6",
+  "msgs": [
+   "reinstall over the open app: the install over the open app ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/crystaldiskmark_windows-861-221059.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
  },
  {
   "app": "crystaldiskmark/windows@862",
@@ -466,7 +588,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-26/crystaldiskmark_windows-861-221059.json)",
   "record": "results/soak/2026-11-26/crystaldiskmark_windows-862-204608.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/crystaldiskmark/windows.json), [crystaldiskmark.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/crystaldiskmark.json), [crystaldiskmark_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_install.ps1), [crystaldiskmark_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/crystaldiskmark_uninstall.ps1) \u00b7 last changes: 2026-08-03 Add CrystalDiskMark as a Windows FMA (#50415) \u00b7 issues mentioning it: #50322 (closed)"
  },
@@ -490,7 +612,7 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "not on 865 (pass) [record](soak/2026-11-26/adlock_darwin-865-220126.json)",
   "record": "results/soak/2026-11-26/adlock_darwin-1552-190829.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/adlock/darwin.json), [adlock.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/adlock.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-11-15 Unfreeze AdLock (darwin) (#58775); 2026-11-06 Full pass of macOS Fleet-maintained apps (#57894); 2026-06-12 Add macOS Fleet-maintained apps (A) (#47536) \u00b7 issues mentioning it: none"
  },
@@ -658,8 +780,32 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-26/windsurf_windows-861-220221.json)",
   "record": "results/soak/2026-11-26/windsurf_windows-859-212451.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/windsurf/windows.json), [windsurf.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/windsurf.json), [windsurf_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_install.ps1), [windsurf_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-05-29 Windows FMA - Windsurf (#46401) \u00b7 issues mentioning it: #57025 (open), #30260 (open), #56938 (open), #56431 (closed), #48248 (open)"
+ },
+ {
+  "app": "windsurf/windows@861",
+  "shape": "add",
+  "msgs": [
+   "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://windsurf-stable.codeiumdata.com/win32-x64/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfSetup-x64-2.3.15.exe\") doesn't exist. Please make sure that URLs are publicy accessible to the internet."
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/windsurf_windows-861-220221.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/windsurf/windows.json), [windsurf.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/windsurf.json), [windsurf_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_install.ps1), [windsurf_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-05-29 Windows FMA - Windsurf (#46401) \u00b7 issues mentioning it: #57025 (open), #30260 (open), #56938 (open), #56431 (closed), #48248 (open)"
+ },
+ {
+  "app": "windsurf/windows@862",
+  "shape": "add",
+  "msgs": [
+   "add failed 422: Validation Failed: Couldn't download maintained app installer. URL (\"https://windsurf-stable.codeiumdata.com/win32-x64/stable/c46c49e94b4d3f41181204d59809d8f1b2c48d68/WindsurfSetup-x64-2.3.15.exe\") doesn't exist. Please make sure that URLs are publicy accessible to the internet."
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/windsurf_windows-862-215806.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/windsurf/windows.json), [windsurf.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/windsurf.json), [windsurf_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_install.ps1), [windsurf_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/windsurf_uninstall.ps1) \u00b7 code at this build: [maintained_apps.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/ee/server/service/maintained_apps.go) \u00b7 last changes: 2026-05-29 Windows FMA - Windsurf (#46401) \u00b7 issues mentioning it: #57025 (open), #30260 (open), #56938 (open), #56431 (closed), #48248 (open)"
  },
  {
@@ -684,8 +830,21 @@
   ],
   "retried": "reproduced on retry",
   "runs": 1,
-  "other_host": null,
+  "other_host": "reproduced on 861 [record](soak/2026-11-26/docker_windows-861-224947.json)",
   "record": "results/soak/2026-11-26/docker_windows-859-191607.json",
+  "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Install DevToys, Webex and Docker Desktop where users can run them (#59708); 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #27767 (open), #42691 (open), #50503 (open)"
+ },
+ {
+  "app": "docker/windows@861",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/docker_windows-861-224947.json",
   "context": "files: [windows.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/docker/windows.json), [docker.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/docker.json), [docker_install.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_install.ps1), [docker_uninstall.ps1](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/winget/scripts/docker_uninstall.ps1) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-11-24 Install DevToys, Webex and Docker Desktop where users can run them (#59708); 2026-05-14 Update Fleet-maintained apps (#45503); 2026-04-08 Update Cursor and Docker metadata (#43256) \u00b7 issues mentioning it: #53287 (open), #59066 (open), #27767 (open), #42691 (open), #50503 (open)"
  },
  {
@@ -697,8 +856,34 @@
   ],
   "retried": "reproduced on retry",
   "runs": 2,
-  "other_host": null,
+  "other_host": "reproduced on 865 [record](soak/2026-11-26/homebrew-app_darwin-865-231027.json)",
   "record": "results/soak/2026-11-26/homebrew-app_darwin-1552-180030.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/homebrew-app/darwin.json), [homebrew-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/homebrew-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-19 Add Homebrew (BrewUI) as a macOS Fleet-maintained app (#55903) \u00b7 issues mentioning it: #59090 (open), #60012 (open), #41982 (open), #56035 (open), #42985 (open)"
+ },
+ {
+  "app": "homebrew-app/darwin@860",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/homebrew-app_darwin-860-223416.json",
+  "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/homebrew-app/darwin.json), [homebrew-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/homebrew-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-19 Add Homebrew (BrewUI) as a macOS Fleet-maintained app (#55903) \u00b7 issues mentioning it: #59090 (open), #60012 (open), #41982 (open), #56035 (open), #42985 (open)"
+ },
+ {
+  "app": "homebrew-app/darwin@865",
+  "shape": "install",
+  "msgs": [
+   "first install ended as failed_install",
+   "second install ended as failed_install"
+  ],
+  "retried": "reproduced on retry",
+  "runs": 1,
+  "other_host": null,
+  "record": "results/soak/2026-11-26/homebrew-app_darwin-865-231027.json",
   "context": "files: [darwin.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/outputs/homebrew-app/darwin.json), [homebrew-app.json](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/inputs/homebrew/homebrew-app.json), [scripts.go](https://github.com/fleetdm/fleet/blob/main/ee/maintained-apps/ingesters/homebrew/scripts.go) \u00b7 code at this build: [installer.go](https://github.com/fleetdm/fleet/blob/5790b6cafd/orbit/pkg/installer/installer.go) \u00b7 last changes: 2026-10-19 Add Homebrew (BrewUI) as a macOS Fleet-maintained app (#55903) \u00b7 issues mentioning it: #59090 (open), #60012 (open), #41982 (open), #56035 (open), #42985 (open)"
  },
  {

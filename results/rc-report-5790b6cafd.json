@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 4370,
+ "current_runs": 4446,
  "regressions": [],
  "catalog": [
   {
@@ -69,27 +69,6 @@
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 26.002.22031 -> 26.003.22110",
-   "check": null,
-   "passed_on_current": null,
-   "baseline_elsewhere": [],
-   "passes_elsewhere": []
-  },
-  {
-   "app": "chatgpt/darwin@860",
-   "kind": "lifecycle",
-   "baseline": "findings",
-   "current": "findings",
-   "baseline_record": "soak/2026-11-15/chatgpt_darwin-860-230727.json",
-   "current_record": "soak/2026-11-18/chatgpt_darwin-860-132158.json",
-   "findings": [
-    "S3: first uninstall: app still on host (status None)"
-   ],
-   "triaged": [
-    "already filed #57025: ChatGPT reports com.openai.codex while the FMA's unique_identifier stays com.openai.chat (decided in #55246), so inventory lands on a separate 'Codex' title; same on 4.94 and 4.95"
-   ],
-   "why": "new failure shape S3",
-   "reproduced": true,
-   "cause": "catalog: 26.1111.21308 -> 26.1111.71025",
    "check": null,
    "passed_on_current": null,
    "baseline_elsewhere": [],
@@ -724,6 +703,16 @@
    "triaged": []
   },
   {
+   "app": "db-browser-for-sqlite/windows@859",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/db-browser-for-sqlite_windows-859-022132.json",
+   "current_record": "soak/2026-11-27/db-browser-for-sqlite_windows-859-005926.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "db-browser-for-sqlite/windows@864",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -824,6 +813,16 @@
    "triaged": []
   },
   {
+   "app": "tower/windows@859",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "pass",
+   "baseline_record": "soak/2026-11-16/tower_windows-859-042238.json",
+   "current_record": "soak/2026-11-26/tower_windows-859-233323.json",
+   "findings": [],
+   "triaged": []
+  },
+  {
    "app": "transmission/darwin@865",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -874,6 +873,6 @@
    "triaged": []
   }
  ],
- "compared": 333,
+ "compared": 359,
  "canaries_not_yet_on_current": []
 }

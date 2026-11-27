@@ -2,9 +2,9 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 16045 cycles: pass 7790, findings 3057, flaky 649, environment 653, harness 357, skipped 3539
+**1. Runs** — 16121 cycles: pass 7845, findings 3072, flaky 649, environment 659, harness 357, skipped 3539
 
-**2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 875/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 439/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
+**2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 906/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 454/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
 **3. Escapes caught or confirmed**
 
@@ -193,12 +193,15 @@
 | #59577 | closed | Fleet-maintained apps: QGIS (macOS) install over the open app closes it and doesn't reopen it |
 | #59578 | closed | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
 | #59579 | closed | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
+| #59598 | merged | Full macOS Fleet-maintained app catalog validation |
 | #59709 | merged | Fix four Fleet-maintained app identifiers that don't match the installer |
 | #59740 | open | Fleet-maintained apps: Elmedia Player (macOS) never shows an installed version after install |
 | #59834 | open | Fleet-maintained apps: Infix PDF Editor (Windows) install hangs after the app is already installed, and stays pending |
 | #59835 | open | Fleet-maintained apps: ProtoPie (Windows) installs into the SYSTEM profile instead of the signed-in user's |
 | #59843 | merged | Fix Evernote (Windows) installs that always fail with exit code 2 |
 | #59961 | open | Fleet-maintained apps: Evernote (Windows) install never finishes while the app is open, and the old copy keeps running |
+| #60012 | open | Fleet-maintained apps: Logi Options+ (macOS) installs 2.9.1013853 while the catalog lists 3.0.1024647, so its patch policy can't pass |
+| #60013 | open | Fleet-maintained apps: Visual Paradigm (macOS) can't be added because the catalog's pinned installer URL returns 404 |
 
 **4. Build changes**
 
