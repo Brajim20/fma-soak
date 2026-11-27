@@ -1,0 +1,103 @@
+{
+ "slug": "amazon-workspaces/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T20:33:10",
+ "catalog_version": "5.33.0.6168",
+ "catalog_id": "bfe780ca8f2d",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T00:33:09Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T00:33:08Z"
+ },
+ "title_id": 53755,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is WorkSpaces\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "5.33.0.6168"
+ ],
+ "package_version": "5.33.0.6168",
+ "context_after_install": {
+  "path": "/Applications/WorkSpaces.app",
+  "bundle": "0:0 0755",
+  "executable": "0:0 0755",
+  "exe": "/Applications/WorkSpaces.app/Contents/MacOS/WorkSpaces",
+  "bundle_id": "com.amazon.workspaces",
+  "versions": [
+   "5.33.0.6168"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "orkspaces\" | sed \"s|^|/Applications/WorkSpaces.app/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/WorkSpaces.app/Contents\" 2>/dev/null || :\nForgot package 'com.amazon.workspaces' on '/'.\n/Users/<user>/Library/Application Support/Amazon Web Services/Amazon WorkSpaces doesn't exist.\n/Users/<user>/Library/Caches/com.amazon.workspaces doesn't exist.\n/Users/<user>/Library/Preferences/com.amazon.workspaces.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.amazon.workspaces.savedState doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is WorkSpaces\ninstaller: Installing at base path /\ninstaller: The install was successful.\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "98957"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 31,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.amazon.workspaces' was running; will relaunch after installation.\nQuitting application 'com.amazon.workspaces'...\nApplication 'com.amazon.workspaces' quit successfully.\ninstaller: Package name is WorkSpaces\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\nRelaunching application 'com.amazon.workspaces'...\nApplication 'com.amazon.workspaces' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.amazon.workspaces' was running; will relaunch after installation.",
+  "Quitting application 'com.amazon.workspaces'...",
+  "Application 'com.amazon.workspaces' quit successfully.",
+  "Relaunching application 'com.amazon.workspaces'...",
+  "Application 'com.amazon.workspaces' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "99035",
+   "path": "/Applications/WorkSpaces.app/Contents/MacOS/WorkSpaces",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 16,
+ "second_uninstall_output_tail": "zon.workspaces\" | sed \"s|^|/Applications/WorkSpaces.app/|\" | grep '\\.app$' | tr '\\\\n' '\\\\0' | /usr/bin/sudo -u root -E -- /usr/bin/xargs -0 -- /bin/rm -rf\nsudo rmdir -p \"/Applications/WorkSpaces.app/Contents\" 2>/dev/null || :\nForgot package 'com.amazon.workspaces' on '/'.\nremoving /Users/<user>/Library/Application Support/Amazon Web Services/Amazon WorkSpaces.\n/Users/<user>/Library/Caches/com.amazon.workspaces doesn't exist.\n/Users/<user>/Library/Preferences/com.amazon.workspaces.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.amazon.workspaces.savedState doesn't exist.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T20:39:00",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T00:38:59Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T00:39:00Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/amazon-workspaces_darwin-860-203310.json"
+}

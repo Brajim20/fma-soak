@@ -1,0 +1,107 @@
+{
+ "slug": "bartender/darwin",
+ "host": 860,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T20:13:33",
+ "catalog_version": "7.2.0",
+ "catalog_id": "61b5a0dde351",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-27T00:13:33Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T00:13:31Z"
+ },
+ "title_id": 53719,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 16,
+ "first_install_output_tail": "Installing software...\nSuccess\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "7.2.0"
+ ],
+ "package_version": "7.2.0",
+ "context_after_install": {
+  "path": "/Applications/Bartender 7.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Bartender 7.app/Contents/MacOS/Bartender 7",
+  "bundle_id": "com.surteesstudios.Bartender",
+  "versions": [
+   "7.2.0"
+  ]
+ },
+ "arch": {
+  "host": "arm64",
+  "exe": "x86_64 arm64"
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 16,
+ "first_uninstall_output_tail": "\n/Users/<user>/Library/Application Support/com.surteesstudios.Bartender.revenuecat doesn't exist.\n/Users/<user>/Library/Caches/com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/Caches/com.surteesstudios.Bartender.revenuecat doesn't exist.\n/Users/<user>/Library/Cookies/com.surteesstudios.Bartender.binarycookies doesn't exist.\n/Users/<user>/Library/Group Containers/24J875RH8J.com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/HTTPStorages/com.surteesstudios.Bartender doesn't exist.\n/Users/<user>/Library/Preferences/com.surteesstudios.Bartender.plist doesn't exist.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 31,
+ "second_install_output_tail": "Installing software...\nSuccess\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [
+   "85067"
+  ],
+  "note": null
+ },
+ "open_reinstall_request": 202,
+ "open_reinstall_status": "installed",
+ "open_reinstall_seconds": 46,
+ "open_reinstall_output_tail": "Installing software...\nSuccess\nApplication 'com.surteesstudios.Bartender' was running; will relaunch after installation.\nQuitting application 'com.surteesstudios.Bartender'...\nApplication 'com.surteesstudios.Bartender' did not quit.\nLast quit error: 52:56: execution error: Bartender 7 got an error: User canceled. (-128)\nStopping application 'com.surteesstudios.Bartender'...\nApplication 'com.surteesstudios.Bartender' stopped.\nRelaunching application 'com.surteesstudios.Bartender'...\nApplication 'com.surteesstudios.Bartender' relaunched successfully.\n",
+ "open_reinstall_error_markers": [],
+ "open_reinstall_app_lines": [
+  "Application 'com.surteesstudios.Bartender' was running; will relaunch after installation.",
+  "Quitting application 'com.surteesstudios.Bartender'...",
+  "Application 'com.surteesstudios.Bartender' did not quit.",
+  "Last quit error: 52:56: execution error: Bartender 7 got an error: User canceled. (-128)",
+  "Stopping application 'com.surteesstudios.Bartender'...",
+  "Application 'com.surteesstudios.Bartender' stopped.",
+  "Relaunching application 'com.surteesstudios.Bartender'...",
+  "Application 'com.surteesstudios.Bartender' relaunched successfully."
+ ],
+ "open_reinstall_processes_after": [
+  {
+   "pid": "85392",
+   "path": "/Applications/Bartender 7.app/Contents/MacOS/Bartender 7",
+   "on_disk": "1"
+  }
+ ],
+ "open_reinstall_quit": "forced",
+ "open_reinstall_quit_error": "52:56: execution error: Bartender 7 got an error: User canceled. (-128)",
+ "open_reinstall_running_note": "the app ignored the polite quit and the script stopped it (#59031 force-quit; last quit error: 52:56: execution error: Bartender 7 got an error: User canceled. (-128))",
+ "open_reinstall_after_starts": true,
+ "open_reinstall_after_close": "",
+ "open_reinstall": "done",
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-26T20:19:27",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-27T00:19:23Z",
+  "restarted": "2026-11-14T23:19:01.802987Z",
+  "software_updated": "2026-11-27T00:19:16Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/bartender_darwin-860-201333.json"
+}
