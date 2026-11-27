@@ -3,7 +3,7 @@
  "current_rev": "5790b6cafd",
  "baseline": "4.94.0-rc.2610272345 (937e87458c)",
  "baseline_rev": "937e87458c",
- "current_runs": 4170,
+ "current_runs": 4370,
  "regressions": [],
  "catalog": [
   {
@@ -137,6 +137,25 @@
    "passes_elsewhere": []
   },
   {
+   "app": "druva-insync/windows@862",
+   "kind": "lifecycle",
+   "baseline": "pass",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/druva-insync_windows-862-015419.json",
+   "current_record": "soak/2026-11-26/druva-insync_windows-862-181234.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Druva inSync Client Service' could not be restarted."
+   ],
+   "triaged": [],
+   "why": "passed on the baseline",
+   "reproduced": true,
+   "cause": "catalog: 8.1.6 -> 8.1.9",
+   "check": "Windows event-log scan (a999477c)",
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
    "app": "evernote/windows@859",
    "kind": "lifecycle",
    "baseline": "findings",
@@ -234,6 +253,27 @@
    "why": "passed on the baseline",
    "reproduced": true,
    "cause": "catalog: 11.2.3.20022 -> 11.2.4.20033",
+   "check": "Windows event-log scan (a999477c)",
+   "passed_on_current": null,
+   "baseline_elsewhere": [],
+   "passes_elsewhere": []
+  },
+  {
+   "app": "twingate/windows@859",
+   "kind": "lifecycle",
+   "baseline": "findings",
+   "current": "findings",
+   "baseline_record": "soak/2026-11-16/twingate_windows-859-092735.json",
+   "current_record": "soak/2026-11-26/twingate_windows-859-211754.json",
+   "findings": [
+    "S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Twingate Service' could not be restarted."
+   ],
+   "triaged": [
+    "not a bug: the 1603s on 859/861 were catalog 20.26.280.8833; 20.26.302.9964 installs, reinstalls and uninstalls clean on 861 (2/2, 2026-11-22). 629 failures are x64 on ARM. Only leftover flag is RestartManager event 10007 'Twingate Service could not be restarted' with every install succeeding; not checked whether the service was running afterwards"
+   ],
+   "why": "new failure shape S2",
+   "reproduced": true,
+   "cause": "catalog: 20.26.280.8833 -> 20.26.302.9964",
    "check": "Windows event-log scan (a999477c)",
    "passed_on_current": null,
    "baseline_elsewhere": [],
@@ -481,7 +521,9 @@
    "check": "Windows event-log scan (a999477c)",
    "passed_on_current": null,
    "baseline_elsewhere": [],
-   "passes_elsewhere": []
+   "passes_elsewhere": [
+    859
+   ]
   },
   {
    "app": "sublime-text/windows@861",
@@ -832,6 +874,6 @@
    "triaged": []
   }
  ],
- "compared": 309,
+ "compared": 333,
  "canaries_not_yet_on_current": []
 }

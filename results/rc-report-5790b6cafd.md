@@ -1,10 +1,10 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4170 · compared on both builds: 309
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4370 · compared on both builds: 333
 
 **No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
-**Catalog changes (11)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
+**Catalog changes (13)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 
 | App | Path | What changed | Findings now | Triaged as |
 |---|---|---|---|---|
@@ -14,11 +14,13 @@ Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build
 | chatgpt/darwin@860 | lifecycle | 26.1111.21308 -> 26.1111.71025 | S3: first uninstall: app still on host (status None) | already filed #57025: ChatGPT reports com.openai.codex while the FMA's unique_identifier stays com.openai.chat (decided in #55246), so inventory lands on a separate 'Codex' title; same on 4.94 and 4.9 |
 | claude/darwin@858 | lifecycle | 5.11492.5 -> 6.6395.1 | S1: inventory never reported the app after install + refetch | **new** |
 | datadog-agent/windows@862 | lifecycle | 7.85.2.0 -> 7.85.4.0 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function "github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run".runTraceAgentProcess.func4 (github.com/DataDog/datadog-age | **new** |
+| druva-insync/windows@862 | lifecycle | 8.1.6 -> 8.1.9 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Druva inSync Client Service' could not be restarted. | **new** |
 | evernote/windows@859 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5) |
 | evernote/windows@862 | lifecycle | 11.42.3 -> 11.43.4 | S6: reinstall over the open app: the install over the open app ended as failed_install | filed #59961: install over the open app hangs to the script's 3-minute bound and fails; the post-#59843 script never stops Evernote.exe (859/861/862, 5/5) |
 | firefox/darwin@858 | lifecycle | 160.0 -> 160.0.1 | S1: inventory never reported the app after install + refetch | **new** |
 | google-chrome/darwin@858 | lifecycle | 157.0.8103.79 -> 158.0.8127.37 | S1: inventory never reported the app after install + refetch | **new** |
 | nessus-agent/windows@861 | lifecycle | 11.2.3.20022 -> 11.2.4.20033 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Tenable Nessus Agent' could not be restarted. | **new** |
+| twingate/windows@859 | lifecycle | 20.26.280.8833 -> 20.26.302.9964 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 10007 Microsoft-Windows-RestartManager: Application or service 'Twingate Service' could not be restarted. | not a bug: the 1603s on 859/861 were catalog 20.26.280.8833; 20.26.302.9964 installs, reinstalls and uninstalls clean on 861 (2/2, 2026-11-22). 629 failures are x64 on ARM. Only leftover flag is Resta |
 
 **Changed on the same build (6)**: passed on this build first, failing since, so the build isn't what changed (the host, the vendor or timing did). Not release blockers; they still go through triage.
 
