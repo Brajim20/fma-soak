@@ -1,0 +1,89 @@
+{
+ "slug": "sonos/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-26T17:38:02",
+ "catalog_version": "90.0.77070",
+ "catalog_id": "9bef866b7eee",
+ "findings": [
+  {
+   "shape": "S2",
+   "msg": "the Application event log has errors naming the app after Fleet installed and opened it: 0 SonosLibraryService: Service cannot be started. The handle is invalid"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-26T21:38:02Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-26T21:34:00Z"
+ },
+ "title_id": 53575,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 31,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "90.0.77070"
+ ],
+ "package_version": "90.0.77070",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Program Files (x86)\\SonosV2\\"
+  ],
+  "names": [
+   "Sonos"
+  ],
+  "versions": [
+   "90.0.77070"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 4,
+  "pids": [],
+  "note": "NO_TARGET"
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 4, 'pids': [], 'note': 'NO_TARGET'})",
+ "event_log_errors": [
+  "0 SonosLibraryService: Service cannot be started. The handle is invalid"
+ ],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 31,
+ "second_uninstall_output_tail": "",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings",
+ "finished": "2026-11-26T17:43:16",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-26T21:43:10Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-26T21:43:05Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-26/evidence/sonos_windows-861-173802-library.png",
+  "inventory": "results/soak/2026-11-26/evidence/sonos_windows-861-173802-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-26/sonos_windows-861-173802.json"
+}
