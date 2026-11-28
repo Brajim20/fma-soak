@@ -1,0 +1,154 @@
+{
+ "slug": "slack/darwin",
+ "host": 865,
+ "kind": "patch_when_closed",
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-27T20:29:19",
+ "findings": [],
+ "outcome": "pass",
+ "scenario": {
+  "slug": "slack/darwin",
+  "host": 865,
+  "title_id": 12956,
+  "older": "4.53.287",
+  "newest": "4.53.292",
+  "phase": "closed",
+  "started": "2026-11-28T00:29:19+00:00",
+  "started_local": "2026-11-27T20:29:19",
+  "findings": [],
+  "observations": [
+   {
+    "at": "2026-11-28T00:31:42+00:00",
+    "last_install": {
+     "uuid": "0c767040-0b89-4fa6-9f38-4f49b0baf2b9",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "4.53.287"
+     ]
+    },
+    "versions": [
+     "4.53.287"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-28T01:14:36+00:00",
+    "last_install": {
+     "uuid": "0c767040-0b89-4fa6-9f38-4f49b0baf2b9",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "4.53.287"
+     ]
+    },
+    "versions": [
+     "4.53.287"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-28T05:34:40+00:00",
+    "last_install": {
+     "uuid": "1c1bf92c-c030-49d7-904d-ec6fc74a640c",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "4.53.287"
+     ]
+    },
+    "versions": [
+     "4.53.287"
+    ],
+    "app_running": true,
+    "policy": "fail"
+   },
+   {
+    "at": "2026-11-28T07:07:55+00:00",
+    "last_install": {
+     "uuid": "1c1bf92c-c030-49d7-904d-ec6fc74a640c",
+     "status": "failed_install",
+     "skipped_install": true,
+     "installed_versions": [
+      "4.53.292"
+     ]
+    },
+    "versions": [
+     "4.53.292"
+    ],
+    "policy": "pass",
+    "app_running": false
+   }
+  ],
+  "pin_older": 200,
+  "old_install_request": 202,
+  "old_install_status": "installed",
+  "old_install_seconds": 16,
+  "old_install_output_tail": "Installing software...\nSuccess\ninstaller: Package name is Slack-4.53.287-macOS\ninstaller: Upgrading at base path /\ninstaller: The upgrade was successful.\n",
+  "old_install_error_markers": [],
+  "old_install_app_lines": [],
+  "pin_latest": 200,
+  "context_old": {
+   "path": "/Applications/Slack.app",
+   "bundle": "0:80 0775",
+   "executable": "0:80 0775",
+   "exe": "/Applications/Slack.app/Contents/MacOS/Slack",
+   "bundle_id": "com.tinyspeck.slackmacgap",
+   "versions": [
+    "4.53.287"
+   ]
+  },
+  "open_open": {
+   "exit": 0,
+   "pids": [
+    "75445"
+   ],
+   "note": null
+  },
+  "target": {
+   "plat": "darwin",
+   "app": "/Applications/Slack.app",
+   "exe": "/Applications/Slack.app/Contents/MacOS/Slack",
+   "bundle_id": "com.tinyspeck.slackmacgap"
+  },
+  "pids": [
+   "75445"
+  ],
+  "before_uuid": "92234406-eebe-42c6-82dc-9b76b2b92167",
+  "patch_on": 200,
+  "policy": {
+   "id": 1268,
+   "name": "macOS - Slack up to date",
+   "patch_when_closed": true,
+   "continuous_automations_enabled": true,
+   "patch_title": 12956,
+   "install_title": 12956
+  },
+  "opened_at": "2026-11-28T00:30:18+00:00",
+  "first_attempt": {
+   "uuid": "0c767040-0b89-4fa6-9f38-4f49b0baf2b9",
+   "status": "failed_install",
+   "skipped_install": true,
+   "installed_versions": [
+    "4.53.287"
+   ]
+  },
+  "close_close": "",
+  "closed_at": "2026-11-28T05:34:56+00:00",
+  "patched_after_close_hours": 1.55,
+  "patched_query_passes": true,
+  "end_close": "",
+  "patch_off": 200,
+  "policy_after_patch_off": null,
+  "end_uninstall_request": 202,
+  "end_uninstall_status": null,
+  "end_uninstall_seconds": 16,
+  "end_uninstall_output_tail": "s/*.slack doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/com.tinyspeck.slackmacgap.binarycookies.\nremoving /Users/<user>/Library/HTTPStorages/com.tinyspeck.slackmacgap.\n/Users/<user>/Library/Logs/Slack doesn't exist.\nremoving /Users/<user>/Library/Preferences/ByHost/com.tinyspeck.slackmacgap.ShipIt.81FCA5C3-07BB-555A-92D1-9718D55778A7.plist.\n/Users/<user>/Library/Preferences/com.tinyspeck.slackmacgap* doesn't exist.\n/Users/<user>/Library/Saved Application State/com.tinyspeck.slackmacgap.savedState doesn't exist.\n/Users/<user>/Library/WebKit/com.tinyspeck.slackmacgap doesn't exist.\n",
+  "end_uninstall_exit_code": 0,
+  "ended": "2026-11-28T07:09:19+00:00"
+ },
+ "finished": "2026-11-28T03:09:19",
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-27/slack_darwin-865-202919.json"
+}
