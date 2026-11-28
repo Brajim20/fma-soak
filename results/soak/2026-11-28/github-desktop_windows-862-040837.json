@@ -1,0 +1,79 @@
+{
+ "slug": "github-desktop/windows",
+ "host": 862,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-28T04:08:37",
+ "catalog_version": "3.7.1",
+ "catalog_id": "9f792e994214",
+ "findings": [],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-28T08:08:34Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-28T07:47:47Z"
+ },
+ "host_variety": "second explorer.exe always running for the signed-in user (SeparateProcess=1 + logon task fleet-qa-second-explorer, since 2026-11-21; #51127 class)",
+ "title_id": 20123,
+ "title_added_by_harness": true,
+ "present_before": false,
+ "listed_before_install": [],
+ "console_admin": true,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 76,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling GitHub Desktop for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "3.7.1"
+ ],
+ "package_version": "3.7.1",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\GitHubDesktop"
+  ],
+  "names": [
+   "GitHub Desktop"
+  ],
+  "versions": [
+   "3.7.1"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing GitHub Desktop (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-317055473-2139834807-2198717243-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\GitHubDesktop)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\GitHubDesktop\\Update.exe --uninstall -s\n  Running the uninstaller as <host>\\<user>\n  Uninstall exit code: 0\nGitHub Desktop removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 122,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling GitHub Desktop for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "pass",
+ "finished": "2026-11-28T04:16:39",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-28T08:16:39Z",
+  "restarted": "2026-11-24T14:00:59.111124Z",
+  "software_updated": "2026-11-28T08:16:28Z"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-28/github-desktop_windows-862-040837.json"
+}
