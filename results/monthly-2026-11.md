@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 16581 cycles: pass 8051, findings 3099, flaky 651, environment 871, harness 357, skipped 3552
+**1. Runs** — 16587 cycles: pass 8051, findings 3099, flaky 651, environment 877, harness 357, skipped 3552
 
 **2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 919/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 454/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -195,6 +195,7 @@
 | #59578 | closed | Fleet-maintained apps: Docker Desktop (Windows) install always fails because the installer refuses a per-user install from SYSTEM |
 | #59579 | closed | Fleet-maintained apps: DisplayLink Manager (macOS) install fails on a host that already has the same version |
 | #59598 | merged | Full macOS Fleet-maintained app catalog validation |
+| #59708 | merged | Install DevToys, Webex and Docker Desktop where users can run them |
 | #59709 | merged | Fix four Fleet-maintained app identifiers that don't match the installer |
 | #59740 | open | Fleet-maintained apps: Elmedia Player (macOS) never shows an installed version after install |
 | #59834 | open | Fleet-maintained apps: Infix PDF Editor (Windows) install hangs after the app is already installed, and stays pending |
