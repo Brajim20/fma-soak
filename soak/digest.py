@@ -8,6 +8,7 @@ day's file fills in as the day goes). What it shows:
   its record and evidence; then flaky results, harness problems and known-environment counts
 - coverage per platform from the ledger, the week's quarter, each priority tier (on time / overdue), and the day's
   cycle tally
+- trends: apps whose steps got much slower or whose first tries started failing (trends.py)
 - the L0 audit and Fleet-side confirm for the day, if they ran
 - before/after, on a day qa.fleetdm.com's build changed: each app's last result on the old build vs its first
   on the new one
@@ -368,6 +369,10 @@ def digest(date):
     rc = recheck.section()
     if rc:
         L += ["", "## Awaiting QA: soak rechecks (drafts, not posted)", "", *rc]
+    import trends
+    tr = trends.section(*trends.load(), today=datetime.date.fromisoformat(date))
+    if tr:
+        L += ["", "## Trends: drifting toward failure", "", *tr]
     L += ["", "## Coverage", "", *ledger_section()]
     ba = before_after(recs, date)
     if ba:

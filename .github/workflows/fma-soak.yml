@@ -102,6 +102,13 @@ jobs:
         if: steps.slot.outputs.host
         working-directory: harness/soak
         run: python3 -c "import loop,sys; ok,info=loop.health(); print(info); sys.exit(0 if ok else 78)" || echo "skip=1" >> "$GITHUB_OUTPUT"
+      # save every 15 min during the pass, so a runner GitHub loses mid-pass costs minutes of records, not hours
+      # (2026-11-26: slot darwin/1 lost ~3 h of 860's). Soak jobs only: the hosts are remote VMs, so no installer
+      # runs on this runner. The pool job installs on its own runner and keeps the token out of the pass.
+      - name: Start checkpoint saves
+        if: steps.slot.outputs.host && steps.health.outputs.skip != '1'
+        env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.slot.outputs.host }}" }
+        run: nohup ./harness/ci/results.sh checkpoint "soak ${{ matrix.platform }} $HOST ${{ github.run_id }}" 15 > "$RUNNER_TEMP/checkpoint.log" 2>&1 &
       - name: Pass
         if: steps.slot.outputs.host && steps.health.outputs.skip != '1'
         working-directory: harness/soak
@@ -111,7 +118,9 @@ jobs:
       - name: Save state and records
         if: always() && steps.slot.outputs.host
         env: { RESULTS_TOKEN: "${{ github.token }}", HOST: "${{ steps.slot.outputs.host }}" }
-        run: ./harness/ci/results.sh save "soak ${{ matrix.platform }} $HOST ${{ github.run_id }}"
+        run: |
+          ./harness/ci/results.sh save "soak ${{ matrix.platform }} $HOST ${{ github.run_id }}"
+          cat "$RUNNER_TEMP/checkpoint.log" 2>/dev/null || true
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always() && steps.slot.outputs.host
         with:
