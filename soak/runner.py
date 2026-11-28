@@ -789,6 +789,7 @@ def cycle(slug, host):
         rec["outcome"] = f"skipped: the host's queue was still busy after {STEP_TIMEOUT // 60} min; nothing queued"
         return finish(rec)
 
+    rec["console_admin"] = console_admin(host, plat)
     for rnd in ("first", "second"):
         # recorded before the request, so a crash mid-cycle never leaves an untracked app on the host
         state["harness_installed"][key] = True; save_state(state, host)
@@ -958,6 +959,28 @@ def context(host, exists_q, tries=4):
                         "versions": sorted({r.get("version") or "" for r in d["rows"]})}
             time.sleep(20)
     return None
+
+
+# phase 3: is the console user an admin? Every check that acts "as the signed-in user" (running.py opens the app as
+# the console user; context_findings' SYSTEM-profile check) means something different on a standard account, which
+# is what most customer fleets have. Recorded, never a finding by itself; the username isn't saved.
+CONSOLE_ADMIN_Q = {
+    "darwin": "SELECT EXISTS(SELECT 1 FROM user_groups ug JOIN groups g ON g.gid = ug.gid WHERE ug.uid = u.uid "
+              "AND g.groupname = 'admin') AS admin FROM users u WHERE u.username = "
+              "(SELECT user FROM logged_in_users WHERE tty = 'console' LIMIT 1);",
+    "windows": "SELECT EXISTS(SELECT 1 FROM users u JOIN user_groups ug ON ug.uid = u.uid WHERE u.uuid = l.sid "
+               "AND ug.gid = 544) AS admin FROM logged_in_users l WHERE l.type = 'active' LIMIT 1;",
+}
+
+
+def console_admin(host, plat):
+    """True / False for the signed-in console user, None when nobody is signed in or the host didn't answer."""
+    q = CONSOLE_ADMIN_Q.get(plat)
+    if not q:
+        return None
+    st, d = api("POST", f"/hosts/{host}/query", {"query": q}, timeout=180)
+    rows = d.get("rows") or [] if st == 200 and not d.get("error") else []
+    return rows[0].get("admin") == "1" if rows else None
 
 
 def context_findings(ctx, find, label, slug=None):
