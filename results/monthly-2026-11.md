@@ -2,7 +2,7 @@
 
 **Environment:** qa.fleetdm.com, fleet 65 · builds: 4.94.0-rc.2610272345 (937e87458c), 4.94.0-rc.2610282316 (7dcab65fcd), 4.95.0-rc.2611162253 (5790b6cafd)
 
-**1. Runs** — 16487 cycles: pass 8011, findings 3091, flaky 650, environment 829, harness 357, skipped 3549
+**1. Runs** — 16507 cycles: pass 8021, findings 3094, flaky 651, environment 835, harness 357, skipped 3549
 
 **2. Coverage** — darwin 982/969 (101.3%), quarter 1/1 this week 919/919, twice_daily 10/10 on time, daily 15/15 on time, twice_weekly 25/25 on time; windows 515/515 (100.0%), quarter 1/1 this week 454/465, twice_daily 9/10 on time, daily 15/15 on time, twice_weekly 25/25 on time
 
@@ -160,6 +160,7 @@
 | #58757 | closed | Fleet-maintained apps: Comet (Windows) is never detected after install, so its patch policy always passes |
 | #58758 | closed | Fleet-maintained apps: Adobe Creative Cloud (Windows) uninstall soon after install reports success but leaves the app installed |
 | #58861 | open | Fleet-maintained apps: Webex Recorder and Player (Windows) installs land on a second title with the same name |
+| #58888 | open | Software: reinstalling right after an uninstall can leave the install with no status (macOS) |
 | #58942 | closed | Fleet-maintained apps: Notion Calendar (Windows) install times out after 15 minutes while the app is open |
 | #58946 | closed | Windows FMAs Burp Suite Community/Professional stuck at 2026.3.3 (winget packages replaced by PortSwigger.BurpSuite) |
 | #59021 | closed | Fleet-maintained apps: DB Browser for SQLite (Windows) is never detected, so its patch policy always passes |
