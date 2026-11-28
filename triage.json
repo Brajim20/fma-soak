@@ -4429,6 +4429,39 @@
       "verdict": "environment: harness timing miss; Fleet recorded the second install installed at 2026-11-16T07:39:55Z (install eb35da63) during a night of 502s/live-query timeouts. Not #58888 (its symptom is a null status)",
       "before": "2026-11-17T00:00:00",
       "added": "2026-11-27"
+    },
+    {
+      "app": "docker/windows",
+      "shape": "install",
+      "msg_contains": "install ended as failed_install",
+      "verdict": "harness: the soak fleet's Docker title (22809) was left pinned to 4.98.0 (installer 8234, the pre-#59708 per-user script) by an update-path Latest that returned 502 on 2026-11-13 (docker_windows-635-003308), so installs kept using the old script after #59578 was fixed. Unpinned 2026-11-28 (active 4.99.0, then 4.100.1 via auto-update); runner now retries Latest and clears its own leftover pins. Reopen if it fails on the fixed script",
+      "before": "2026-11-28T09:00:00",
+      "added": "2026-11-28"
+    },
+    {
+      "app": "figma/windows@861",
+      "shape": "S3",
+      "msg_contains": "Fleet lists it as installed",
+      "verdict": "already-filed #58659: host 861 has 'Figma Agent' 126.11.9 (publisher Figma, Inc.), which the 'Figma ' name-prefix match moves onto the Figma title, so Fleet lists Figma as installed before the harness installs it (4/4 runs 2026-11-27..28)",
+      "added": "2026-11-28"
+    },
+    {
+      "app": "8x8-work/windows",
+      "verdict": "harness: title 20023 left pinned to 8.38.4 by an update-path Latest 502 (8x8-work_windows-861-232658); unpinned 2026-11-28. Findings citing 8.38.4 as active since then are this pin",
+      "before": "2026-11-28T09:00:00",
+      "added": "2026-11-28"
+    },
+    {
+      "app": "postman/windows",
+      "verdict": "harness: title 23458 left pinned to 12.36.4 by an update-path Latest 502 (postman_windows-861-202420); unpinned 2026-11-28",
+      "before": "2026-11-28T09:00:00",
+      "added": "2026-11-28"
+    },
+    {
+      "app": "postman/darwin",
+      "verdict": "harness: title 12954 left pinned to 12.37.0 by an update-path Latest 502 (postman_darwin-858-133210); unpinned 2026-11-28",
+      "before": "2026-11-28T09:00:00",
+      "added": "2026-11-28"
     }
   ]
 }

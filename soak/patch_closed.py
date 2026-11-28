@@ -210,10 +210,11 @@ def start(plat, st):
     find = lambda shape, msg: a["findings"].append({"shape": shape, "msg": msg})
     exists_q = v["queries"]["exists"]
     try:
-        a["pin_older"] = R.pin(tid, a["older"])
+        a["pin_older"] = R.pin_older(tid, a["older"], slug, host)
         R.install(host, tid, a, "old_install")
     finally:
-        a["pin_latest"] = R.pin(tid, "")
+        statuses, _ = R.restore_latest(tid, host)
+        a["pin_latest"], a["pin_latest_statuses"] = statuses[-1], statuses
     ctx = R.context(host, exists_q)
     a["context_old"] = ctx
     if a.get("old_install_status") != "installed" or not ctx:

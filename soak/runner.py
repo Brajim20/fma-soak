@@ -1033,6 +1033,42 @@ def pin(tid, version):
     return patch_pkg(tid, {"version": version})
 
 
+def pin_older(tid, version, slug, host):
+    """Pin for a test, writing it in the host's state first. If setting Latest afterwards fails (a 502 on 2026-11-13
+    left docker/windows, 8x8-work/windows and both Postmans pinned for two weeks, so every later run installed the
+    old package and the update path skipped them as pinned 'by someone else'), the next run on the host undoes it."""
+    s = load_state(host)
+    s.setdefault("harness_pins", {})[str(tid)] = {"slug": slug, "version": version,
+                                                  "at": datetime.datetime.now().isoformat(timespec="seconds")}
+    save_state(s, host)
+    return pin(tid, version)
+
+
+def restore_latest(tid, host, tries=5):
+    """Set Latest and check it took (the title has an active version and no pinned_version), with backoff.
+    Returns (statuses, package). The pin leaves the host's state only once it's gone."""
+    statuses, pkg = [], {}
+    for i in range(tries):
+        statuses.append(pin(tid, ""))
+        pkg = title_pkg(tid)
+        if statuses[-1] < 300 and pkg.get("version") and not pkg.get("pinned_version"):
+            s = load_state(host)
+            if s.get("harness_pins", {}).pop(str(tid), None):
+                save_state(s, host)
+            break
+        if i < tries - 1:
+            time.sleep(30 * (i + 1))
+    return statuses, pkg
+
+
+def release_harness_pins(host):
+    """Undo pins an earlier run on this host left behind. Only titles in the host's harness_pins: ones it pinned itself."""
+    for tid, e in list(load_state(host).get("harness_pins", {}).items()):
+        statuses, pkg = restore_latest(int(tid), host)
+        ok = "cleared" if not pkg.get("pinned_version") and pkg.get("version") else "STILL PINNED"
+        print(f"{e['slug']}: harness pin to {e['version']} from {e['at']} {ok} (Latest -> {statuses}, active {pkg.get('version')})")
+
+
 def title_pkg(tid):
     return api("GET", f"/software/titles/{tid}?fleet_id={FID}")[1].get("software_title", {}).get("software_package") or {}
 
@@ -1242,6 +1278,10 @@ def update_path(slug, host):
         find("add", str(e))
         rec["outcome"] = "findings"
         return finish(rec)
+    if str(tid) in state.get("harness_pins", {}):
+        rec["stale_harness_pin"] = state["harness_pins"][str(tid)]
+        rec["stale_pin_latest_statuses"] = restore_latest(tid, host)[0]
+        state = load_state(host)
     pkg = title_pkg(tid)
     cached = sorted({x["version"] for x in pkg.get("fleet_maintained_versions") or []},
                     key=lambda s: [int(p) for p in re.findall(r"\d+", s)])
@@ -1251,7 +1291,9 @@ def update_path(slug, host):
         return finish(rec)
     newest, older = cached[-1], cached[-2]
     if pkg.get("version") != newest:
-        rec["outcome"] = "skipped: title is pinned to an older version by someone else; not touching it"
+        rec["outcome"] = ("skipped: the harness's own pin couldn't be cleared; the next run tries again"
+                          if str(tid) in state.get("harness_pins", {}) else
+                          "skipped: title is pinned to an older version by someone else; not touching it")
         return finish(rec)
     exists_q, patched_q = v["queries"]["exists"], v["queries"].get("patched", "").replace(f"'{v['version']}'", f"'{newest}'")
     if present(host, exists_q):
@@ -1263,13 +1305,14 @@ def update_path(slug, host):
     key = f"{slug}@{host}"
     try:
         rec["self_service_before_pin"] = title_pkg(tid).get("self_service")
-        rec["pin_older_status"] = pin(tid, older)
+        rec["pin_older_status"] = pin_older(tid, older, slug, host)
         after_pin = title_pkg(tid)
         rec["active_after_pin"], rec["self_service_after_pin"] = after_pin.get("version"), after_pin.get("self_service")
         if rec["self_service_after_pin"] != rec["self_service_before_pin"]:
             find("S4", f"self-service changed by pinning (#59238): {rec['self_service_before_pin']} -> {rec['self_service_after_pin']}")
         if rec["active_after_pin"] != older:
             find("S4", f"pinning {older} left {rec['active_after_pin']} active")
+        state = load_state(host)  # pin_older saved harness_pins; don't write over it with the copy from before
         state["harness_installed"][key] = True; save_state(state, host)
         install(host, tid, rec, "old_install")
         rec["old_patched_query_passes"] = present(host, patched_q) if patched_q else None
@@ -1282,8 +1325,9 @@ def update_path(slug, host):
         if rec["old_patched_query_passes"] is True:
             find("S1", f"patched query passes with {older} installed: the patch policy can't see this host is outdated")
     finally:
-        rec["pin_latest_status"] = pin(tid, "")
-        after_unpin = title_pkg(tid)
+        statuses, after_unpin = restore_latest(tid, host)
+        rec["pin_latest_status"], rec["pin_latest_statuses"] = statuses[-1], statuses
+        state = load_state(host)
         rec["active_after_unpin"], rec["self_service_after_unpin"] = after_unpin.get("version"), after_unpin.get("self_service")
         if rec.get("self_service_before_pin") is not None and rec["self_service_after_unpin"] != rec["self_service_before_pin"]:
             find("S4", f"self-service changed by setting Latest (#59238): {rec['self_service_before_pin']} -> {rec['self_service_after_unpin']}")
@@ -1535,6 +1579,7 @@ def main():
                 if len(vs) >= 2:
                     cached[x["slug"]] = max(vs, key=version_key)
         host = a.host or CFG["hosts"][a.update_all][0]
+        release_harness_pins(host)
         mine = sorted(s for s in cached if update_host(a.update_all, s) == host)
         print(f"{len(cached)} titles with 2+ cached versions; {len(mine)} run on host {host}: {mine}")
         runs, cur = update_runs(a.update_all), build()
