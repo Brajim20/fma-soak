@@ -1,0 +1,100 @@
+{
+ "slug": "docker-desktop/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "5d7d9185e9eb",
+ "started": "2026-11-28T00:00:22",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "self-service changed by pinning (#59238): True -> False"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-28T04:00:11Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-28T04:00:11Z"
+ },
+ "title_id": 13109,
+ "cached_versions": [
+  "4.98.0",
+  "4.99.0"
+ ],
+ "active_before": "4.99.0",
+ "self_service_before_pin": true,
+ "pin_older_status": 200,
+ "active_after_pin": "4.98.0",
+ "self_service_after_pin": false,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 76,
+ "old_install_output_tail": "\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk32s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>msdos</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk32</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk32\" ejected.\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Docker.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Docker.app/Contents/MacOS/com.docker.backend",
+  "bundle_id": "com.docker.docker",
+  "versions": [
+   "4.98.0"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "4.99.0",
+ "self_service_after_unpin": true,
+ "app_during_upgrade": "closed",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 76,
+ "upgrade_install_output_tail": "\n\t\t\t<string>EFI</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk32s1</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<true/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</string>\n\t\t\t<key>volume-kind</key>\n\t\t\t<string>msdos</string>\n\t\t</dict>\n\t\t<dict>\n\t\t\t<key>content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t\t<key>dev-entry</key>\n\t\t\t<string>/dev/disk32</string>\n\t\t\t<key>potentially-mountable</key>\n\t\t\t<false/>\n\t\t\t<key>unmapped-content-hint</key>\n\t\t\t<string>GUID_partition_scheme</string>\n\t\t</dict>\n\t</array>\n</dict>\n</plist>\n\"disk32\" ejected.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [],
+ "upgrade_processes_after": [],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Docker.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Docker.app/Contents/MacOS/com.docker.backend",
+  "bundle_id": "com.docker.docker",
+  "versions": [
+   "4.99.0"
+  ]
+ },
+ "upgrade_after_open": {
+  "exit": 0,
+  "pids": [
+   "57642",
+   "57646",
+   "57647",
+   "57745",
+   "57746",
+   "57747",
+   "57749"
+  ],
+  "note": null
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 31,
+ "outcome": "findings",
+ "finished": "2026-11-28T00:07:34",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-28T04:07:29Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-28T04:07:23Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-28/evidence/docker-desktop_darwin-865-000022-library.png",
+  "inventory": "results/soak/2026-11-28/evidence/docker-desktop_darwin-865-000022-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-28/docker-desktop_darwin-865-000022.json"
+}

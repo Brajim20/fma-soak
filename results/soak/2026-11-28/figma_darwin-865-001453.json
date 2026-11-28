@@ -1,0 +1,108 @@
+{
+ "slug": "figma/darwin",
+ "host": 865,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "kind": "update_path",
+ "catalog_id": "5648ae80bf9a",
+ "started": "2026-11-28T00:14:53",
+ "findings": [
+  {
+   "shape": "S4",
+   "msg": "self-service changed by pinning (#59238): True -> False"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-28T04:14:47Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-28T04:14:34Z"
+ },
+ "title_id": 13115,
+ "cached_versions": [
+  "126.11.9",
+  "126.11.11"
+ ],
+ "active_before": "126.11.11",
+ "self_service_before_pin": true,
+ "pin_older_status": 200,
+ "active_after_pin": "126.11.9",
+ "self_service_after_pin": false,
+ "old_install_request": 202,
+ "old_install_status": "installed",
+ "old_install_seconds": 31,
+ "old_install_output_tail": "Installing software...\nSuccess\n",
+ "old_install_error_markers": [],
+ "old_install_app_lines": [],
+ "old_patched_query_passes": false,
+ "context_old": {
+  "path": "/Applications/Figma.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Figma.app/Contents/MacOS/Figma",
+  "bundle_id": "com.figma.Desktop",
+  "versions": [
+   "126.11.9"
+  ]
+ },
+ "pin_latest_status": 200,
+ "active_after_unpin": "126.11.11",
+ "self_service_after_unpin": true,
+ "upgrade_before_open": {
+  "exit": 0,
+  "pids": [
+   "61787"
+  ],
+  "note": null
+ },
+ "app_during_upgrade": "open",
+ "upgrade_install_request": 202,
+ "upgrade_install_status": "installed",
+ "upgrade_install_seconds": 31,
+ "upgrade_install_output_tail": "Installing software...\nSuccess\nApplication 'com.figma.Desktop' was running; will relaunch after installation.\nQuitting application 'com.figma.Desktop'...\nApplication 'com.figma.Desktop' quit successfully.\nRelaunching application 'com.figma.Desktop'...\nApplication 'com.figma.Desktop' relaunched successfully.\n",
+ "upgrade_install_error_markers": [],
+ "upgrade_install_app_lines": [
+  "Application 'com.figma.Desktop' was running; will relaunch after installation.",
+  "Quitting application 'com.figma.Desktop'...",
+  "Application 'com.figma.Desktop' quit successfully.",
+  "Relaunching application 'com.figma.Desktop'...",
+  "Application 'com.figma.Desktop' relaunched successfully."
+ ],
+ "upgrade_processes_after": [
+  {
+   "pid": "61837",
+   "path": "/Applications/Figma.app/Contents/MacOS/Figma",
+   "on_disk": "1"
+  }
+ ],
+ "upgrade_patched_query_passes": true,
+ "context_upgraded": {
+  "path": "/Applications/Figma.app",
+  "bundle": "0:80 0755",
+  "executable": "0:80 0755",
+  "exe": "/Applications/Figma.app/Contents/MacOS/Figma",
+  "bundle_id": "com.figma.Desktop",
+  "versions": [
+   "126.11.11"
+  ]
+ },
+ "upgrade_after_starts": true,
+ "upgrade_after_close": "",
+ "cleanup_uninstall_request": 202,
+ "cleanup_uninstall_status": null,
+ "cleanup_uninstall_seconds": 16,
+ "cleanup_uninstall_output_tail": "ary/Application Support/Figma.\n/Users/<user>/Library/Application Support/figma-desktop doesn't exist.\nremoving /Users/<user>/Library/Caches/com.figma.agent.\n/Users/<user>/Library/Caches/com.figma.Desktop doesn't exist.\nremoving /Users/<user>/Library/HTTPStorages/com.figma.agent.\n/Users/<user>/Library/HTTPStorages/com.figma.Desktop doesn't exist.\n/Users/<user>/Library/Preferences/ByHost/com.figma.Desktop.ShipIt.*.plist doesn't exist.\n/Users/<user>/Library/Preferences/com.figma.Desktop.plist doesn't exist.\n/Users/<user>/Library/Saved Application State/com.figma.Desktop.savedState doesn't exist.\n",
+ "cleanup_uninstall_exit_code": 0,
+ "outcome": "findings",
+ "finished": "2026-11-28T00:20:50",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-28T04:20:47Z",
+  "restarted": "2026-11-14T23:20:43.476736Z",
+  "software_updated": "2026-11-28T04:20:50Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-28/evidence/figma_darwin-865-001453-library.png",
+  "inventory": "results/soak/2026-11-28/evidence/figma_darwin-865-001453-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-28/figma_darwin-865-001453.json"
+}
