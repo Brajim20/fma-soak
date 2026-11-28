@@ -1,0 +1,93 @@
+{
+ "slug": "figma/windows",
+ "host": 861,
+ "build": "4.95.0-rc.2611162253 (5790b6cafd)",
+ "started": "2026-11-28T06:44:41",
+ "catalog_version": "126.12.8",
+ "catalog_id": "b77f338fe6c8",
+ "findings": [
+  {
+   "shape": "S3",
+   "msg": "before it was installed, Fleet lists it as installed ['126.11.9']: another app's inventory matches this title (#51299 shape)"
+  }
+ ],
+ "host_at_start": {
+  "status": "online",
+  "seen": "2026-11-28T10:44:34Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-28T10:44:19Z"
+ },
+ "title_id": 18244,
+ "title_added_by_harness": false,
+ "present_before": false,
+ "listed_before_install": [
+  "126.11.9"
+ ],
+ "console_admin": true,
+ "first_install_request": 202,
+ "first_install_status": "installed",
+ "first_install_seconds": 46,
+ "first_install_output_tail": "Installing software...\nSuccess\nInstalling Figma for <host>\\<user>\nInstall exit code: 0\n",
+ "first_install_error_markers": [],
+ "first_install_app_lines": [],
+ "first_present_after_install": true,
+ "inventory_versions": [
+  "126.11.9",
+  "126.12.8"
+ ],
+ "package_version": "126.12.8",
+ "context_after_install": {
+  "install_locations": [
+   "C:\\Users\\<user>\\AppData\\Local\\Figma"
+  ],
+  "names": [
+   "Figma"
+  ],
+  "versions": [
+   "126.12.8"
+  ]
+ },
+ "patched_query_passes": true,
+ "first_uninstall_request": 202,
+ "first_uninstall_status": null,
+ "first_uninstall_seconds": 31,
+ "first_uninstall_output_tail": "Removing Figma (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-931869457-683489797-4032596054-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Figma)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Figma\\Update.exe --uninstall -s\n  Running as <host>\\<user>\n  Uninstall exit code: 0\n  Running as <host>\\<user>\nFigma removed.\n",
+ "first_uninstall_exit_code": 0,
+ "first_present_after_uninstall": false,
+ "second_install_request": 202,
+ "second_install_status": "installed",
+ "second_install_seconds": 46,
+ "second_install_output_tail": "Installing software...\nSuccess\nInstalling Figma for <host>\\<user>\nInstall exit code: 0\n",
+ "second_install_error_markers": [],
+ "second_install_app_lines": [],
+ "second_present_after_install": true,
+ "open_reinstall_before_open": {
+  "exit": 0,
+  "pids": [],
+  "note": null
+ },
+ "open_reinstall": "skipped: couldn't open the app ({'exit': 0, 'pids': [], 'note': None})",
+ "open_reinstall_before_close": "0",
+ "event_log_errors": [],
+ "second_uninstall_request": 202,
+ "second_uninstall_status": null,
+ "second_uninstall_seconds": 46,
+ "second_uninstall_output_tail": "Removing Figma (Microsoft.PowerShell.Core\\Registry::HKEY_USERS\\S-1-5-21-931869457-683489797-4032596054-1000\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Figma)\n  Uninstall command: C:\\Users\\<user>\\AppData\\Local\\Figma\\Update.exe --uninstall -s\n  Running as <host>\\<user>\n  Uninstall exit code: 0\n  Running as <host>\\<user>\nFigma removed.\n",
+ "second_uninstall_exit_code": 0,
+ "second_present_after_uninstall": false,
+ "presence_query_errors": [],
+ "outcome": "findings (reproduced on retry)",
+ "finished": "2026-11-28T06:56:43",
+ "host_at_end": {
+  "status": "online",
+  "seen": "2026-11-28T10:56:34Z",
+  "restarted": "2026-11-25T00:51:29.589368Z",
+  "software_updated": "2026-11-28T10:56:32Z"
+ },
+ "evidence": {
+  "library": "results/soak/2026-11-28/evidence/figma_windows-861-064441-library.png",
+  "inventory": "results/soak/2026-11-28/evidence/figma_windows-861-064441-inventory.png"
+ },
+ "record": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-28/figma_windows-861-064441.json",
+ "retry_of": "/home/runner/work/fma-soak/fma-soak/harness/results/soak/2026-11-28/figma_windows-861-063255.json"
+}
