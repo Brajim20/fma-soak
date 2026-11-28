@@ -119,6 +119,28 @@ def upcoming_for(host, tid):
     return [a.get("type") for a in d.get("activities") or [] if (a.get("details") or {}).get("software_title_id") == tid]
 
 
+def policy_installs(host, pid, since, max_pages=10):
+    """Installs the policy's automation ran on the host since `since` (local time), newest first.
+    `upcoming` only shows an install while it's pending, so an install that ran and failed between two checks
+    is only visible in the host's past activities."""
+    cutoff = datetime.datetime.fromisoformat(since).astimezone(datetime.timezone.utc)
+    out = []
+    for page in range(max_pages):
+        st, d = R.api("GET", f"/hosts/{host}/activities?per_page=100&page={page}")
+        acts = (d.get("activities") or []) if st == 200 else []
+        for a in acts:
+            at = datetime.datetime.fromisoformat(a["created_at"][:19] + "+00:00")
+            if at < cutoff:
+                return out
+            det = a.get("details") or {}
+            if a.get("type") == "installed_software" and det.get("policy_id") == pid:
+                out.append({"at": a["created_at"][:19] + "Z", "status": det.get("status"),
+                            "install_uuid": det.get("install_uuid")})
+        if not acts:
+            break
+    return out
+
+
 def write_record(s, t, outcome, findings):
     """Same shape as a cycle record, so the ledger and digest pick it up."""
     started = t["promoted_seen"]
@@ -183,8 +205,15 @@ def check(plat):
             write_record(s, open_t, "pass" if not findings else "findings", findings)
         elif ctx and online_hours_since(host, open_t["promoted_seen"]) > WCFG["window_hours"] and not open_t.get("reported_stuck"):
             # only call it stuck on a check that actually read the host; a failed live query says nothing
+            runs = policy_installs(host, s.get("policy_id"), open_t["promoted_seen"])
+            if runs:
+                open_t["installs"] = runs
+                open_t.setdefault("install_queued_seen", runs[-1]["at"])
+            failed = [r for r in runs if r["status"] != "installed"]
             stage = ("the patch policy never failed on the host" if "policy_failed_seen" not in open_t else
                      "the policy failed but no install was queued" if "install_queued_seen" not in open_t else
+                     f"the policy ran {len(runs)} install(s) and {len(failed)} failed (latest {failed[0]['status']} "
+                     f"at {failed[0]['at']}, install {failed[0]['install_uuid']})" if failed else
                      "an install was queued but the host never reported the new version")
             write_record(s, open_t, "findings", [{"shape": "S4", "msg":
                          f"{open_t['from']} -> {open_t['to']} not on the host after {WCFG['window_hours']} h: {stage} (host has {hv})"}])

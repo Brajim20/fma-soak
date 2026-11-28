@@ -4417,6 +4417,18 @@
       "app": "sonos/windows",
       "verdict": "not a bug: intermittent 'handle is invalid' event-log error after install; install, uninstall and patch all pass",
       "added": "2026-11-27"
+    },
+    {
+      "app": "spokenly/darwin@631",
+      "verdict": "environment: the policy did queue installs (3 each for 2.35.6/2.35.7/2.35.8) but all hung until fleetd killed them at 1 h (exit -1); host 631 hung ~80 installs across ~30 apps 2026-11-09..15 (#57808 class, host-wide). Clean since 2026-11-17 (2.35.12 through 2.36.1 reached)",
+      "before": "2026-11-17T00:00:00",
+      "added": "2026-11-27"
+    },
+    {
+      "app": "weasis/windows@862",
+      "verdict": "environment: harness timing miss; Fleet recorded the second install installed at 2026-11-16T07:39:55Z (install eb35da63) during a night of 502s/live-query timeouts. Not #58888 (its symptom is a null status)",
+      "before": "2026-11-17T00:00:00",
+      "added": "2026-11-27"
     }
   ]
 }
