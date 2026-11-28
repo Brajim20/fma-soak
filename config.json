@@ -424,6 +424,14 @@
   "_doc": "held.py: once a day, quarantine entries and harness leftovers held this many days go to the \"Soak items held over 3 days\" issue.",
   "days": 3
  },
+ "leftovers": {
+  "_doc": "leftovers.py (phase 2): three read-only live-query snapshots per lifecycle cycle (before install, after install, after the last uninstall); items the install created that are still there after the uninstall. finding_kinds become a 'leftover' finding; other kinds (data = Application Support/Preferences/Caches/ProgramData/AppData, receipt = pkg receipts) are recorded on the cycle only. max_items caps each kind's list on the record.",
+  "enabled": true,
+  "finding_kinds": ["app", "launchd", "helper", "extension", "program_dir", "uninstall_key", "service", "task", "run_key"],
+  "max_items": 80,
+  "ignore": ["^task:\\\\Microsoft\\\\Windows\\\\", "^service:.+_[0-9a-f]{4,8}$"],
+  "_ignore_doc": "regexes for the OS's own churn during a cycle (Windows MDM's EnterpriseMgmt tasks, per-sign-in user-service suffixes); never reported"
+ },
  "replace_preexisting": {
   "_doc": "runner.py: when an app is already on the host and the harness didn't install it, uninstall it with the FMA's uninstall script and test the FMA (Brayan, 2026-11-05). Otherwise the cycle is skipped. except_hosts: hosts where existing apps are never removed (635 is the physical NucBox people use). keep: slugs never removed (fleetd's own Desktop).",
   "enabled": true,

@@ -790,6 +790,8 @@ def cycle(slug, host):
         return finish(rec)
 
     rec["console_admin"] = console_admin(host, plat)
+    import leftovers  # phase 2: what the uninstall leaves behind (three read-only live-query snapshots)
+    leftovers.start(host, plat, rec)
     for rnd in ("first", "second"):
         # recorded before the request, so a crash mid-cycle never leaves an untracked app on the host
         state["harness_installed"][key] = True; save_state(state, host)
@@ -806,6 +808,8 @@ def cycle(slug, host):
             p = present(host, presence_q)
             rec[f"{rnd}_present_needed_grace"] = p is True
         rec[f"{rnd}_present_after_install"] = p
+        if rnd == "first" and status == "installed" and p:
+            leftovers.after_install(host, plat, rec)
         if status == "installed" and p is False:
             find("S3", f"{rnd} install: Fleet says installed but the app isn't on the host")
         if status == "failed_install" and p is True:
@@ -866,6 +870,7 @@ def cycle(slug, host):
             find("S3" if ustatus not in ("failed_uninstall",) else "uninstall", f"{rnd} uninstall: app still on host (status {ustatus})")
         elif p is False:  # None: the host didn't answer, so keep it for cleanup_leftovers
             state["harness_installed"].pop(key, None); save_state(state, host)
+    leftovers.finish(host, plat, rec, find, app_gone=rec.get("second_present_after_uninstall") is False)
     if rec.get("fleetd_desktop_before") and fleetd_desktop_running(host, plat) is False:
         find("S2", "fleetd's own Fleet Desktop isn't running after uninstalling the Fleet Desktop FMA")
     if per_user_q:
@@ -1478,6 +1483,8 @@ def run(fn, slug, host):
     if first.get("outcome") != "findings":
         return first
     print(f"{slug} on {host}: retrying once to check the findings reproduce")
+    import leftovers
+    leftovers.carry(first, host)
     second = fn(slug, host)
     second["retry_of"] = first["record"]
     if second.get("outcome") == "pass":
