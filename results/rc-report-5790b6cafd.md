@@ -1,14 +1,13 @@
 # RC regression report: 4.95.0-rc.2611162253 (5790b6cafd)
 
-Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4832 · compared on both builds: 368
+Baseline: **4.94.0-rc.2610272345 (937e87458c)** · app runs on the current build: 4848 · compared on both builds: 368
 
 **No regression suspects** in the Fleet build (passed on the baseline, or a new failure shape, failing now, same catalog). Bugs the baseline already had aren't listed: customers have those already.
 
-**Catalog changes (12)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
+**Catalog changes (11)**: failing now, but the app's manifest or the vendor's installer changed between the two runs, so the build isn't the suspect. Not release blockers (the catalog ships on its own); they still go through triage.
 
 | App | Path | What changed | Findings now | Triaged as |
 |---|---|---|---|---|
-| 1password/windows@861 | lifecycle | 8.12.44 -> 8.12.46 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 1000 Application Error: Faulting application name: 1Password.exe, version: 8.12.46.29, time stamp: 0x6adec14a Faulting module name: index.node, version: 0.0.0.0, time stamp: 0x6afc2ee0 Exception code: 0xc000 | not a bug: 1Password's own index.node faults (c0000409, same offset) on all x64 hosts incl. 859 (2026-11-20) and on 8.12.44 too; every Fleet step passes (installed, inventory 8.12.46, patched passes). |
 | adobe-acrobat-pro/windows@859 | lifecycle | 26.002.22031 -> 26.003.22110 | S1: inventory never reported the app after install + refetch | dup #57139 (commented 2026-11-19): host reports upgrade_code {AC76BA86-0000-0000-7760-7E8A45000000}, manifest/title has none, install lands on the upgrade-code-keyed 'Adobe Acrobat (64-bit)' title (co |
 | claude/darwin@858 | lifecycle | 5.11492.5 -> 6.6395.1 | S1: inventory never reported the app after install + refetch | **new** |
 | datadog-agent/windows@862 | lifecycle | 7.85.2.0 -> 7.85.4.0 | S2: the Application event log has errors naming the app after Fleet installed and opened it: 8 datadog-trace-agent: The Service failed: could not build arguments for function "github.com/DataDog/datadog-agent/cmd/trace-agent/subcommands/run".runTraceAgentProcess.func4 (github.com/DataDog/datadog-age | **new** |
